@@ -1,0 +1,108 @@
+pipe-break fragments (region x210-393, y160-852), diff vs the last frame
+0.699 px  60153 y  180.5.. 466.4 cy  283.6 cx  322.7 blobs   1 cyan 42269 orange  6080
+0.715 px  60145 y  180.5.. 466.4 cy  283.5 cx  322.7 blobs   1 cyan 42264 orange  6092
+0.732 px  61105 y  180.5.. 486.0 cy  286.6 cx  323.1 blobs   1 cyan 43406 orange  5978
+0.749 px  61870 y  180.5.. 514.4 cy  289.4 cx  323.5 blobs   1 cyan 44103 orange  5981
+0.782 px  50865 y  179.6.. 542.3 cy  298.7 cx  320.4 blobs  22 cyan 35110 orange  4963
+0.799 px  50593 y  175.4.. 578.6 cy  298.6 cx  321.0 blobs  29 cyan 33930 orange  4847
+0.815 px  50002 y  173.0.. 600.0 cy  298.6 cx  321.1 blobs  28 cyan 33058 orange  4726
+0.832 px  49024 y  169.3.. 642.4 cy  299.4 cx  320.8 blobs  26 cyan 31488 orange  4639
+0.849 px  48758 y  167.0.. 671.3 cy  299.7 cx  320.4 blobs  24 cyan 30818 orange  4644
+0.865 px  48863 y  163.7.. 702.0 cy  299.7 cx  320.2 blobs  24 cyan 31088 orange  4602
+0.882 px  49199 y  160.9.. 732.7 cy  300.3 cx  319.8 blobs  29 cyan 31846 orange  4577
+0.898 px  48842 y  160.0.. 750.9 cy  295.6 cx  319.0 blobs  24 cyan 32113 orange  4552
+0.915 px  47947 y  160.0.. 750.9 cy  285.7 cx  318.2 blobs  26 cyan 31641 orange  4571
+0.932 px  47310 y  160.0.. 471.1 cy  277.9 cx  317.4 blobs  34 cyan 31280 orange  4580
+0.948 px  48340 y  160.0.. 850.1 cy  288.5 cx  317.8 blobs  31 cyan 32133 orange  4589
+0.965 px  48301 y  160.0.. 850.1 cy  284.5 cx  317.2 blobs  39 cyan 31989 orange  4530
+0.982 px  47869 y  160.0.. 479.9 cy  280.1 cx  317.1 blobs  36 cyan 31836 orange  4427
+0.998 px  47886 y  160.0.. 483.6 cy  282.8 cx  317.4 blobs  39 cyan 31789 orange  4310
+1.015 px  47938 y  160.0.. 487.8 cy  286.1 cx  317.7 blobs  41 cyan 31555 orange  4184
+1.032 px  47982 y  160.0.. 492.5 cy  289.2 cx  317.9 blobs  43 cyan 31739 orange  4020
+1.048 px  47648 y  160.0.. 497.6 cy  291.8 cx  317.7 blobs  45 cyan 31825 orange  3861
+1.065 px  47067 y  160.0.. 503.6 cy  294.6 cx  317.2 blobs  37 cyan 31694 orange  3677
+1.082 px  46324 y  160.0.. 509.7 cy  298.3 cx  316.8 blobs  43 cyan 31403 orange  3511
+1.098 px  45169 y  160.0.. 516.7 cy  302.5 cx  316.3 blobs  43 cyan 31472 orange  3355
+1.115 px  44653 y  160.0.. 523.7 cy  306.5 cx  315.1 blobs  45 cyan 31724 orange  3159
+1.131 px  44204 y  162.3.. 531.6 cy  310.6 cx  314.1 blobs  46 cyan 31161 orange  3031
+1.148 px  43680 y  165.6.. 540.0 cy  315.2 cx  313.1 blobs  48 cyan 30320 orange  2821
+1.165 px  42576 y  168.8.. 548.4 cy  320.0 cx  312.7 blobs  45 cyan 29954 orange  2693
+1.181 px  41622 y  172.6.. 558.1 cy  325.0 cx  311.9 blobs  51 cyan 30188 orange  2501
+1.198 px  40880 y  176.3.. 567.4 cy  329.0 cx  310.4 blobs  47 cyan 29976 orange  2340
+1.215 px  39883 y  180.5.. 577.7 cy  333.9 cx  308.8 blobs  45 cyan 29189 orange  2156
+1.231 px  38459 y  185.1.. 588.4 cy  339.4 cx  308.4 blobs  46 cyan 29015 orange  1986
+1.248 px  37653 y  190.3.. 599.6 cy  345.1 cx  307.1 blobs  44 cyan 27638 orange  1856
+1.264 px  36608 y  195.9.. 611.2 cy  351.6 cx  305.9 blobs  43 cyan 26496 orange  1676
+1.281 px  35297 y  201.4.. 622.4 cy  358.3 cx  305.0 blobs  45 cyan 25783 orange  1597
+1.314 px  32938 y  214.5.. 646.6 cy  373.1 cx  301.8 blobs  50 cyan 23791 orange  1572
+1.331 px  32295 y  221.0.. 658.7 cy  380.8 cx  299.3 blobs  55 cyan 22535 orange  1669
+1.348 px  31841 y  228.0.. 661.5 cy  390.0 cx  297.7 blobs  46 cyan 21689 orange  1326
+1.364 px  30921 y  235.4.. 652.2 cy  400.4 cx  296.8 blobs  48 cyan 20492 orange  1527
+1.381 px  30736 y  240.6.. 668.5 cy  411.9 cx  295.3 blobs  49 cyan 19655 orange  1629
+1.398 px  29526 y  244.3.. 683.9 cy  423.2 cx  294.9 blobs  63 cyan 18283 orange  1611
+1.414 px  28545 y  248.5.. 701.1 cy  435.5 cx  293.7 blobs  84 cyan 16698 orange  1692
+1.447 px  25202 y  256.4.. 734.6 cy  461.5 cx  289.3 blobs  86 cyan 12512 orange  1834
+1.464 px  22941 y  261.0.. 753.2 cy  475.4 cx  287.3 blobs  58 cyan 11894 orange  1757
+1.481 px  20981 y  265.7.. 770.0 cy  487.4 cx  286.0 blobs  62 cyan 10146 orange  1686
+1.497 px  19485 y  270.8.. 791.0 cy  498.3 cx  284.2 blobs  58 cyan  9528 orange  1054
+1.514 px  18867 y  275.0.. 808.2 cy  511.6 cx  283.7 blobs  56 cyan  8491 orange    13
+1.531 px  18105 y  280.1.. 828.7 cy  525.2 cx  283.1 blobs  71 cyan  6516 orange     4
+1.547 px  16751 y  285.7.. 849.6 cy  540.0 cx  282.5 blobs  69 cyan  6045 orange     4
+1.564 px  15602 y  291.3.. 759.8 cy  545.3 cx  282.3 blobs  61 cyan  4511 orange     0
+1.581 px  13721 y  296.4.. 774.2 cy  556.3 cx  281.5 blobs  62 cyan  3289 orange     0
+1.597 px  12526 y  302.5.. 790.5 cy  566.6 cx  280.6 blobs  76 cyan  2131 orange     0
+1.614 px  10435 y  308.1.. 805.9 cy  570.7 cx  278.3 blobs  72 cyan  1451 orange     0
+1.630 px   9278 y  314.1.. 821.2 cy  580.7 cx  276.2 blobs  69 cyan  1509 orange     0
+1.647 px   7095 y  320.2.. 833.8 cy  573.3 cx  273.3 blobs  74 cyan  1519 orange     0
+1.664 px   5638 y  326.7.. 848.2 cy  569.6 cx  270.9 blobs  68 cyan  1382 orange     0
+1.680 px   4571 y  332.8.. 739.7 cy  572.8 cx  265.4 blobs  37 cyan  1236 orange     0
+1.697 px   3592 y  339.7.. 753.7 cy  563.3 cx  265.7 blobs  16 cyan  1353 orange     0
+1.714 px   2417 y  346.3.. 744.9 cy  508.8 cx  276.8 blobs  19 cyan  1444 orange     0
+1.730 px   1586 y  353.7.. 445.9 cy  404.3 cx  296.5 blobs   3 cyan  1479 orange     0
+1.747 px   1585 y  360.7.. 457.1 cy  413.7 cx  297.8 blobs   3 cyan  1332 orange     0
+1.764 px   1583 y  367.7.. 468.7 cy  423.5 cx  299.3 blobs   3 cyan  1386 orange     0
+1.780 px   1568 y  374.7.. 479.4 cy  432.5 cx  300.4 blobs   3 cyan  1482 orange     0
+1.797 px   1578 y  382.6.. 492.0 cy  443.0 cx  301.9 blobs   3 cyan  1234 orange     0
+1.813 px   1565 y  390.0.. 503.6 cy  452.8 cx  303.1 blobs   3 cyan  1468 orange     0
+1.830 px   1571 y  398.4.. 516.7 cy  463.5 cx  304.4 blobs   3 cyan  1427 orange     0
+1.847 px   1551 y  405.9.. 528.8 cy  473.8 cx  305.7 blobs   3 cyan  1184 orange     0
+1.897 px   1561 y  431.9.. 569.3 cy  507.7 cx  309.7 blobs   3 cyan  1234 orange     0
+1.913 px   1565 y  439.9.. 581.9 cy  517.7 cx  310.8 blobs   3 cyan  1046 orange     0
+1.930 px   1565 y  448.7.. 595.8 cy  529.5 cx  312.0 blobs   3 cyan  1065 orange     0
+1.947 px   1533 y  458.0.. 610.3 cy  542.3 cx  313.8 blobs   3 cyan  1259 orange     0
+1.963 px   1536 y  467.3.. 624.7 cy  554.5 cx  315.2 blobs   3 cyan  1228 orange     0
+1.980 px   1528 y  476.6.. 639.2 cy  566.1 cx  316.4 blobs   3 cyan  1169 orange     0
+2.046 px   1429 y  515.3.. 699.2 cy  616.8 cx  322.9 blobs   3 cyan   774 orange     0
+2.063 px   1385 y  525.5.. 716.0 cy  629.8 cx  324.4 blobs   3 cyan   700 orange     0
+2.080 px   1346 y  535.8.. 731.4 cy  643.0 cx  326.3 blobs   3 cyan   664 orange     0
+2.096 px   1296 y  546.0.. 747.6 cy  655.9 cx  327.9 blobs   4 cyan   603 orange     0
+2.113 px    694 y  556.3.. 750.9 cy  593.9 cx  300.3 blobs   4 cyan    87 orange     0
+2.180 px    536 y  600.0.. 832.4 cy  614.5 cx  300.8 blobs   3 cyan    30 orange     0
+2.196 px   1047 y  612.1.. 849.6 cy  735.4 cx  337.5 blobs   2 cyan   497 orange     0
+2.213 px    489 y  623.3.. 637.8 cy  630.9 cx  300.6 blobs   1 cyan    16 orange     0
+2.229 px    453 y  635.4.. 650.3 cy  643.3 cx  301.5 blobs   1 cyan     1 orange     0
+2.246 px    400 y  647.1.. 662.0 cy  655.0 cx  302.4 blobs   1 cyan     0 orange     0
+2.296 px    144 y  683.9.. 698.3 cy  693.6 cx  304.8 blobs   4 cyan     0 orange     0
+2.313 px     89 y  696.4.. 710.9 cy  708.0 cx  305.9 blobs   5 cyan     0 orange     0
+2.329 px     58 y  718.3.. 723.4 cy  720.6 cx  306.8 blobs   2 cyan     0 orange     0
+2.346 px     34 y  731.8.. 736.5 cy  734.0 cx  308.1 blobs   7 cyan     0 orange     0
+2.363 px     15 y  744.4.. 749.0 cy  746.5 cx  309.1 blobs   5 cyan     0 orange     0
+2.379 px      6 y  757.4.. 761.2 cy  759.8 cx  310.3 blobs   2 cyan     0 orange     0
+2.446 none
+2.462 none
+2.479 none
+2.496 none
+2.512 none
+2.529 none
+2.546 none
+2.596 none
+2.612 none
+2.629 none
+2.646 none
+2.662 none
+2.679 none
+2.745 none
+2.762 none
+2.779 none
+2.795 none
+2.812 none

@@ -1,0 +1,27 @@
+{
+  "appInit_ms_since_process_start" : 225.74508190155029,
+  "arrows" : 304,
+  "buildMs" : 1.6289583873003721,
+  "cells" : 873,
+  "firstFrame_ms_since_process_start" : 430.23502826690674,
+  "footprintMB_afterBuild" : 23.1630859375,
+  "footprintMB_now" : 23.3193359375,
+  "greedy_rounds" : 14,
+  "greedy_stuck" : 0,
+  "grid" : "40x40",
+  "layers_afterBuild" : 614,
+  "layers_now" : 614,
+  "level" : "synthetic heart seed 7 mean 3.0",
+  "maxFPS" : 60,
+  "pitch_pt" : 9.3571428571428577,
+  "ready_idle" : {
+
+  },
+  "scenario" : "idle",
+  "stars" : true,
+  "trail" : "solid",
+  "validate" : [
+
+  ],
+  "zoom" : 1
+}

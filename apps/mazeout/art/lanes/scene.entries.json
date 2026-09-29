@@ -1,0 +1,496 @@
+{
+ "version": 1,
+ "title": "scene lane entries (committed copy of build/ui-art/scene/scene_manifest.json, written by the art director round 2; sizes read from the rendered files)",
+ "entries": [
+  {
+   "id": "homeBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "lab interior backdrop: walls, purple/white striped pipes, valve wheel, vents, floor",
+   "screen": "home",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeBackdrop",
+   "file": "art/out/homeBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "render at 393 x 852 (safe area inside); layers behind the scientist",
+   "full_bleed": true
+  },
+  {
+   "id": "homeConsole",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "console desk in front of the scientist (buttons, levers, green dome button)",
+   "screen": "home",
+   "size_pt": [
+    214,
+    109
+   ],
+   "size_px": [
+    642,
+    327
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeConsole",
+   "file": "art/out/homeConsole@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     95,
+     266,
+     309,
+     375
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": ""
+  },
+  {
+   "id": "homeCapsuleMachine",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "capsule machine body + glass window",
+   "screen": "home",
+   "size_pt": [
+    206,
+    215
+   ],
+   "size_px": [
+    618,
+    645
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeCapsuleMachine",
+   "file": "art/out/homeCapsuleMachine@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     95,
+     365,
+     301,
+     580
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": ""
+  },
+  {
+   "id": "homeArrowPileFull",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (L33: full)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileFull",
+   "file": "art/out/homeArrowPileFull@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "the pile level changes with progress (L33 full vs L40 almost empty): find the rule (SPEC); colours from arrows3d.SHADES"
+  },
+  {
+   "id": "homeArrowPileHalf",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (between)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileHalf",
+   "file": "art/out/homeArrowPileHalf@3x.png",
+   "ref": {
+    "shot": "research/shots/168-home-L055.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "the pile level changes with progress (L33 full vs L40 almost empty): find the rule (SPEC); colours from arrows3d.SHADES"
+  },
+  {
+   "id": "homeArrowPileLow",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (L40: ~6 arrows)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileLow",
+   "file": "art/out/homeArrowPileLow@3x.png",
+   "ref": {
+    "shot": "research/shots/070-home-L40-skyjump-joined.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "the pile level changes with progress (L33 full vs L40 almost empty): find the rule (SPEC); colours from arrows3d.SHADES"
+  },
+  {
+   "id": "homePlatform",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "round light floor dais under the workers and Play",
+   "screen": "home",
+   "size_pt": [
+    393,
+    182
+   ],
+   "size_px": [
+    1179,
+    546
+   ],
+   "source": "art/ui/recipes/scene_home.py:homePlatform",
+   "file": "art/out/homePlatform@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     0,
+     576,
+     393,
+     758
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true
+  },
+  {
+   "id": "clawHeaderArt",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-claw",
+   "purpose": "claw machine interior: claw, glass top light, prizes (hearts, bulbs, hourglasses, cubes); workerClawPair composited in",
+   "screen": "Claw Challenge",
+   "size_pt": [
+    393,
+    240
+   ],
+   "size_px": [
+    1179,
+    720
+   ],
+   "source": "art/ui/recipes/scene_events.py:clawHeaderArt",
+   "file": "art/out/clawHeaderArt@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     240
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true
+  },
+  {
+   "id": "skyJumpBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "sky gradient + soft pink/white clouds (full screen)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpBackdrop",
+   "file": "art/out/skyJumpBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true
+  },
+  {
+   "id": "skyJumpPad",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "pink cushion jump pad on a white/gold drum (live number plate)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    112,
+    104
+   ],
+   "size_px": [
+    336,
+    312
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpPad",
+   "file": "art/out/skyJumpPad@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     51,
+     503,
+     163,
+     607
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "skyJumpIsland",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "prize island: cream platform with a pink pad, open treasure chest of coins, coin scatter, PRIZE arrow sign (live amount)",
+   "screen": "Sky Jump screen, popups",
+   "size_pt": [
+    260,
+    256
+   ],
+   "size_px": [
+    780,
+    768
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpIsland",
+   "file": "art/out/skyJumpIsland@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     74,
+     342,
+     312,
+     522
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "skyJumpIslandFar",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "smaller upper islands (later stages, blue/pink chests)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    166,
+    158
+   ],
+   "size_px": [
+    498,
+    474
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpIslandFar",
+   "file": "art/out/skyJumpIslandFar@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     14,
+     246,
+     162,
+     356
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": ""
+  },
+  {
+   "id": "skyJumpPopupScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "popup art: chest overflowing with coins on clouds + PRIZE sign",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    330,
+    190
+   ],
+   "size_px": [
+    990,
+    570
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpPopupScene",
+   "file": "art/out/skyJumpPopupScene@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     30,
+     270,
+     360,
+     460
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": ""
+  },
+  {
+   "id": "rocketRaceBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "space backdrop with planets + prize chest of coins at the top",
+   "screen": "Rocket Race",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events.py:rocketRaceBackdrop",
+   "file": "art/out/rocketRaceBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true,
+   "confirmed": false
+  },
+  {
+   "id": "leaderboardPodium",
+   "family": "3d",
+   "route": "C1",
+   "group": "leaderboard",
+   "purpose": "podium of 3 (silver / gold / bronze blocks) with avatars on top",
+   "screen": "Leaderboard Weekly",
+   "size_pt": [
+    389,
+    206
+   ],
+   "size_px": [
+    1167,
+    618
+   ],
+   "source": "art/ui/recipes/scene_events.py:leaderboardPodium",
+   "file": "art/out/leaderboardPodium@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     2,
+     294,
+     391,
+     500
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": ""
+  },
+  {
+   "id": "loadingBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "loading-win",
+   "purpose": "loading screen: bright factory floor, flying glossy arrows, boxes",
+   "screen": "loading",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_loading.py:loadingBackdrop",
+   "file": "art/out/loadingBackdrop@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "scene",
+   "notes": "characters (scientistLoading, workerCarrier, workerRunners) + logoArrowOut composited over it; 'Loading..' is live text",
+   "full_bleed": true
+  }
+ ]
+}

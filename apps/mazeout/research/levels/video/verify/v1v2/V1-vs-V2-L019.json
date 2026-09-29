@@ -1,0 +1,38 @@
+{
+ "sym": 0,
+ "shift": [
+  0,
+  0
+ ],
+ "nA": 62,
+ "nB": 62,
+ "identical": 62,
+ "onlyA": [],
+ "onlyB": [],
+ "obstacles": {
+  "A": 3,
+  "B": 3,
+  "same_cells": 3,
+  "same_counter": 3,
+  "diffs": []
+ },
+ "elevators": {
+  "A": 0,
+  "B": 0,
+  "match": []
+ },
+ "files": [
+  "levels/video/V1-L019.json",
+  "levels/video/V2-L019.json"
+ ],
+ "dims": [
+  [
+   20,
+   31
+  ],
+  [
+   20,
+   31
+  ]
+ ]
+}

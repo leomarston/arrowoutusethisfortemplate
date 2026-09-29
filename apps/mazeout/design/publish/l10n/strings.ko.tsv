@@ -1,0 +1,260 @@
+en	ko	note
+# T2 L10N (2026-09-28) ko: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-ko.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	레벨 %lld	fit 1.00
+Levels 1-4	레벨 1-4	fit 1.00
+Level 1-4	레벨 1-4	
+Tap to move!	화살표를 탭하세요!	fit 1.00
+Loading	로딩 중	fit 1.00
+Unlocked!	잠금 해제!	fit 1.00
+Linked Arrows!	연결 화살표!	fit 1.00
+LINKED ARROWS move together!	연결 화살표는 함께 움직여요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Box!	상자!	fit 1.00
+Clear required amount of arrows to break the BOX!	필요한 만큼 화살표를 없애서 상자를 부수세요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Pipe!	파이프!	fit 1.00
+Pass arrows through the PIPE to break it!	화살표를 파이프에 통과시켜 부수세요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Elevator!	엘리베이터!	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	엘리베이터 위의 화살표를 모두 없애서 작동시키세요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Door!	문!	fit 1.00
+Collect the KEY to open the DOOR!	열쇠를 얻어 문을 여세요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Corner!	코너!	fit 1.00
+The CORNER turns arrows around!	코너는 화살표의 방향을 바꿔요!	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Paused	일시 정지	fit 1.00
+Sound	사운드	fit 1.00
+Haptic	진동	fit 1.00
+ON	켬	fit 1.00
+OFF	끔	fit 1.00
+Resume	계속	fit 1.00
+Quit	나가기	fit 1.00
+Quit Level?	나갈까요?	fit 1.00
+You will lose a life!	생명이 하나 줄어요!	fit 1.00
+Out of Time!	시간 초과!	fit 1.00
++30 sec	+30초	fit 1.00
+Add Time	시간 추가	fit 1.00
+Out of Lives!	생명 소진!	fit 1.00
++3 Lives	생명 +3	fit 1.00
+Add Lives	생명 추가	fit 1.00
+Continue?	계속할까요?	fit 0.98
+You will lose your streak!	연승 기록이 끊겨요!	fit 1.00
+You will lose %lld token and your streak!	토큰 %lld개를 잃고 연승 기록도 끊겨요!	fit 1.00
+Play On	계속하기	fit 1.00
+Level Failed!	레벨 실패!	fit 1.00
+Try Again	다시 하기	fit 1.00
+Perfect!	완벽해요!	fit 1.00
+Rewards:	보상:	fit 1.00
+Continue	계속	fit 1.00
+Hard Level	어려움	fit 1.00
+Super Hard	매우 어려움	fit 1.00
++%lld	+%lld	
+Play	플레이	fit 1.00
+LEVEL	레벨	fit 1.00
+Full	가득	fit 1.00
+Finished	회복	fit 1.00
+More Lives	생명 충전	fit 1.00
+Time to next live:	다음 생명까지:	fit 1.00
+Refill	충전	fit 1.00
+Not enough coins	코인이 부족해요	
+Congratulations!	축하해요!	fit 1.00
+Tap to Claim	탭해서 받기	fit 1.00
+Tap to Continue	탭해서 계속하기	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	종료	
+Join	참가	fit 1.00
+Home	홈	fit 1.00
+Leaderboard	랭킹	fit 1.00
+Time Freeze	시간 정지	fit 1.00
+Freeze the timer for 10 seconds!	10초 동안 시간을 멈추세요!	fit 1.00
+Hint	힌트	fit 1.00
+Find an arrow that can move!	움직일 수 있는 화살표를 찾으세요!	fit 1.00
+Buy	구매	
+x%lld	x%lld	
+Shop	상점	fit 1.00
+Special Offers	특가 상품	fit 1.00
+Special Offer	특가 패키지	fit 1.00
+STARTER	스타터	T1
+Bundles	패키지	fit 1.00
+Mini Bundle	미니 패키지	fit 1.00
+Epic Bundle	에픽 패키지	fit 1.00
+Elite Bundle	엘리트 패키지	fit 1.00
+Mega Bundle	메가 패키지	fit 1.00
+Legendary Bundle	전설 패키지	fit 1.00
+Popular	인기	fit 1.00
+Best Value	최고 혜택	fit 1.00
+Coins	코인	fit 1.00
+Purchase pending	구매 대기 중	
+Settings	설정	fit 1.00
+Notifications	알림	fit 1.00
+Music	음악	fit 1.00
+Support	고객 지원	fit 1.00
+Terms	이용약관	fit 1.00
+Privacy	개인정보	fit 1.00
+%@ Support	%@ 고객 지원	
+Please describe your issue above. We will get back to you as soon as possible.	위에 문제를 설명해 주세요. 최대한 빨리 답변드릴게요.	
+Version : %@	버전: %@	
+Level : %lld	레벨: %lld	
+Write to us at	이메일 문의	
+Copy	복사	
+Copied	복사됨	
+Profile	프로필	fit 1.00
+Level	레벨	fit 1.00
+General Stats	통계	fit 1.00
+First Try Wins	첫 시도 승리	fit 1.00
+Weekly Cup Wins	위클리 컵 승리	T1; fit 1.00
+Hot Streak Wins	연승 행진 승리	T1; fit 1.00
+Rocket Rally Wins	로켓 랠리 승리	T1; fit 1.00
+Cloud Hop Wins	구름 점프 승리	T1; fit 1.00
+Treasure Climb Wins	보물 오르기 승리	T1; fit 1.00
+-	-	
+Username	닉네임	fit 1.00
+Create your username:	닉네임을 만드세요:	fit 1.00
+Edit Profile	편집	fit 1.00
+Save	저장	fit 1.00
+Name must be 3-16 characters	닉네임은 3~16자여야 해요	
+This name is not allowed	사용할 수 없는 닉네임이에요	
+Your lives are full! Time to play!	생명이 가득 찼어요! 지금 플레이하세요!	
+The Weekly Cup ends in 2 hours!	위클리 컵이 2시간 후에 끝나요!	T1
+%@ is a puzzle game.	%@은(는) 퍼즐 게임입니다.	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	게임 내 코인, 생명, 부스터 및 기타 아이템은 금전적 가치가 없으며 게임 밖에서 교환하거나 환불할 수 없습니다.	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	구매는 Apple을 통해 이루어지며 App Store 약관을 따릅니다. 당사는 결제 정보를 절대 볼 수 없습니다.	
+The game is provided as is. We may update the game and these terms.	게임은 있는 그대로 제공됩니다. 게임과 본 약관은 업데이트될 수 있습니다.	
+Questions? Write to %@	궁금한 점이 있나요? 이메일: %@	
+%@ has no accounts, no ads and no tracking.	%@에는 계정, 광고, 추적이 없습니다.	T1
+Your progress, settings and profile name are stored only on this device.	진행 상황, 설정, 프로필 이름은 이 기기에만 저장됩니다.	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	게임은 오프라인으로 작동합니다. 구매는 Apple이 처리합니다. 당사의 구매 서비스인 RevenueCat은 익명 ID와 구매 기록을 받습니다.	T1
+Notifications are scheduled on your device and can be turned off in Settings.	알림은 기기에서 예약되며 설정에서 끌 수 있습니다.	
+If you write to support, we use your message only to answer you.	고객 지원에 보내 주신 메시지는 답변에만 사용합니다.	
+Contact: %@	연락처: %@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	화살표를 탭하면 경로를 따라 밖으로 나가요. 길이 막혀 있으면 튕겨 나오고 생명이 하나 줄어요. 시간이 끝나기 전에 모든 화살표를 내보내세요!	
+Weekly	주간	fit 1.00
+World	세계	fit 1.00
+Turkey	튀르키예	fit 1.00
+Germany	독일	fit 1.00
+USA	미국	fit 1.00
+Score	점수	fit 1.00
+Score : %lld	점수: %lld	fit 1.00
+Bottom	맨 아래	fit 1.00
+Top	맨 위	fit 1.00
+Reach level 50 to join the Weekly Cup!	레벨 50에 도달하면 위클리 컵에 참가할 수 있어요!	T1; fit 1.00
+Weekly Cup	위클리 컵	T1; fit 1.00
+Tap to join the Weekly Cup!	탭해서 위클리 컵에 참가하세요!	T1; fit 1.00
+Beat Levels!	레벨 클리어!	fit 1.00
+Contest with others!	다른 플레이어와 경쟁하세요!	fit 1.00
+Win Rewards!	보상 획득!	fit 1.00
+The top 3 win prizes!	상위 3명에게 상품을 드려요!	T1; fit 1.00
+There is a new contest every week!	매주 새로운 대회가 열려요!	fit 1.00
+You finished #%lld!	%lld위로 마쳤어요!	fit 1.00
+Hot Streak	연승 행진	T1; fit 1.00
+Beat levels without fail to get more rewards!	실패 없이 레벨을 깨고 더 많은 보상을 받으세요!	fit 1.00
+Beat levels without losing!	지지 않고 레벨을 깨세요!	fit 1.00
+Increase your score multiplier!	점수 배율을 높이세요!	fit 1.00
+Earn more flags than others!	다른 플레이어보다 깃발을 더 많이 모으세요!	fit 1.00
+If you fail a level the multiplier will reset!	레벨에 실패하면 배율이 x1로 돌아가요!	fit 1.00
+Treasure Climb	보물 오르기	T1; fit 1.00
+Rocket Rally	로켓 랠리	T1; fit 1.00
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	다른 플레이어보다 먼저 %lld개 레벨을 깨고 다음 스테이지로 올라가 더 큰 상품을 노리세요!	fit 1.00
+Beat %lld levels before others to finish the race	다른 플레이어보다 먼저 %lld개 레벨을 깨고 레이스를 완주하세요	fit 1.00
+You lost the race! Try again to win amazing rewards!	레이스에서 졌어요! 다시 도전해서 멋진 보상을 받으세요!	fit 1.00
+You won the race! Claim your amazing rewards!	레이스에서 이겼어요! 멋진 보상을 받으세요!	fit 1.00
+Stage %lld	스테이지 %lld	fit 0.75
+Start	시작	fit 1.00
+Beat levels!	레벨 클리어!	fit 1.00
+Finish race before others!	다른 플레이어보다 먼저 완주하세요!	fit 1.00
+Win amazing rewards!	멋진 보상을 받으세요!	fit 1.00
+Advance to next stages for greater prizes!	다음 스테이지로 올라가 더 큰 상품을 노리세요!	fit 1.00
+Cloud Hop	구름 점프	T1; fit 1.00
+Pass %lld Levels in a row on first try and advance to next stages!	%lld개 레벨을 연속으로 첫 시도에 깨고 다음 스테이지로 올라가세요!	fit 1.00
+Finding players on your level.	비슷한 레벨의 플레이어를 찾는 중이에요.	fit 1.00
+Start with 100 players!	100명의 플레이어와 시작하세요!	fit 0.86
+Beat %lld levels!	%lld개 레벨을 깨세요!	fit 0.77
+Win your share of %lld coins!	%lld코인을 나눠 가지세요!	fit 1.00
+If you fail a level, you will fail the challenge!	레벨에 실패하면 챌린지도 실패해요!	fit 1.00
+Stages	스테이지	fit 1.00
+Levels	레벨	fit 1.00
+Players	플레이어	fit 1.00
+PRIZE	상금	fit 1.00
+You win!	승리!	fit 1.00
+You are sharing the reward with %lld other winners!	다른 우승자 %lld명과 보상을 나눠 가져요!	fit 1.00
+You failed the challenge!	챌린지 실패!	fit 1.00
+%lld Levels	%lld개 레벨	HIGHLIGHT RUN (never shown alone): lit inside '다른 플레이어보다 먼저 %lld개 레벨을 깨고 다음 스테이지로 올라가 더 큰 상품을 노리세요!' / '%lld개 레벨을 연속으로 첫 시도에 깨고 다음 스테이지로 올라가세요!'
+%lld levels	%lld개 레벨	HIGHLIGHT RUN (never shown alone): lit inside '다른 플레이어보다 먼저 %lld개 레벨을 깨고 레이스를 완주하세요'
+%lld levels!	%lld개 레벨	HIGHLIGHT RUN (never shown alone): lit inside '%lld개 레벨을 깨세요!'
+100 players	100명의 플레이어	HIGHLIGHT RUN (never shown alone): lit inside '100명의 플레이어와 시작하세요!'
+%lld coins	%lld코인	HIGHLIGHT RUN (never shown alone): lit inside '%lld코인을 나눠 가지세요!'
+greater prizes	더 큰 상품	HIGHLIGHT RUN (never shown alone): lit inside '다음 스테이지로 올라가 더 큰 상품을 노리세요!'
+prizes	상품	HIGHLIGHT RUN (never shown alone): lit inside '다음 스테이지로 올라가 더 큰 상품을 노리세요!'
+rewards	보상	HIGHLIGHT RUN (never shown alone): lit inside '멋진 보상을 받으세요!'
+Rewards!	획득!	HIGHLIGHT RUN (never shown alone): lit inside '보상 획득!'
+fail	실패	HIGHLIGHT RUN (never shown alone): lit inside '레벨에 실패하면 배율이 x1로 돌아가요!' / '레벨에 실패하면 챌린지도 실패해요!' / '레벨에 실패하면 풍선이 하나 터져요!'
+Allow notifications in iOS Settings.	iOS 설정에서 알림을 허용하세요.	
+Arrows turn when they hit the CORNER!	화살표가 코너에 닿으면 방향이 바뀌어요!	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run)
+Back	뒤로	
+Boosters	부스터	
+Close	닫기	
+How to play	플레이 방법	
+Info	정보	
+Lives	생명	
+Pause	일시 정지	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	레벨을 시작하면 생명이 하나 사용되고, 승리하면 돌려받아요. 30분마다 새 생명이 생겨요.	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	모래시계는 10초 동안 시간을 멈춰요. 전구는 움직일 수 있는 화살표를 알려 줘요.	
+Version %@ · Level %lld	버전 %@ · 레벨 %lld	
+You will lose %lld token	토큰 %lld개를 잃고	LINE 1 of '토큰 %lld개를 잃고 연승 기록도 끊겨요!' (the number is drawn red); fit 1.00
+Your progress	진행 상황	
+Your progress and coins are saved only on this device. Deleting the game erases them.	진행 상황과 코인은 이 기기에만 저장돼요. 게임을 삭제하면 사라져요.	T1
+and your streak!	연승 기록도 끊겨요!	LINE 2 of '토큰 %lld개를 잃고 연승 기록도 끊겨요!'; fit 1.00
+Up & Away	하늘 높이	T1
+NEW	NEW	T1
+New Event!	새 이벤트!	T1
+Double Event Week!	더블 이벤트 주간!	T1
+Let's Go!	출발!	T1
+Ends in %@	%@ 후 종료	T1
+Last day!	마지막 날!	T1
+Coming next: %@	다음 이벤트: %@	T1
+Starts in %@	%@ 후 시작	T1
+This event has ended.	종료된 이벤트예요.	T1
+%@ has started! Beat levels to win amazing rewards!	%@ 시작! 레벨을 깨고 멋진 보상을 받으세요!	T1
+Double Event Week! %@ and %@ are both on!	더블 이벤트 주간! %1$@, %2$@ 동시 진행 중!	T1
+%@ ends in 3 hours!	%@ 종료까지 3시간 남았어요!	T1
+Beat levels in a row to rise higher!	연속으로 레벨을 깨고 더 높이 올라가세요!	T1
+Beat levels to fill your balloons with hot air!	레벨을 깨고 풍선에 뜨거운 공기를 채우세요!	T1
+Hard levels give more hot air!	어려운 레벨일수록 뜨거운 공기가 더 많아요!	T1
+If you fail a level, a balloon pops!	레벨에 실패하면 풍선이 하나 터져요!	T1
+Lose all 3 balloons and you fall to the start of the step!	풍선 3개를 모두 잃으면 단계의 처음으로 떨어져요!	T1
+Reach the top for the big prize!	정상에 올라 큰 상품을 받으세요!	T1
+hot air	뜨거운 공기	T1; HIGHLIGHT RUN (never shown alone): lit inside '레벨을 깨고 풍선에 뜨거운 공기를 채우세요!'
+Hard levels	어려운 레벨	T1; HIGHLIGHT RUN (never shown alone): lit inside '어려운 레벨일수록 뜨거운 공기가 더 많아요!'
+big prize	큰 상품	T1; HIGHLIGHT RUN (never shown alone): lit inside '정상에 올라 큰 상품을 받으세요!'
+Step %lld	%lld단계	T1
+Completed!	완료!	T1
+You fell to the start of step %lld!	%lld단계의 처음으로 떨어졌어요!	T1
+You will lose a balloon!	풍선이 하나 줄어요!	T1
+You will lose a balloon and your streak!	풍선이 하나 줄고 연승 기록도 끊겨요!	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	생명	SUPERSEDED: dropped
+#~	Video not available	동영상을 재생할 수 없어요	SUPERSEDED: dropped
+#~	90% OFF	90% 할인	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	테스트 상점: 요금이 청구되지 않아요	SUPERSEDED: dropped
+#~	Weekly Contest Wins	주간 대회 승리	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	연승 레이스 승리	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	로켓 레이스 승리	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	스카이 점프 승리	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	집게 챌린지 승리	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	주간 대회가 2시간 후에 끝나요!	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@은(는) 개인 데이터를 수집하지 않습니다. 계정, 광고, 분석, 추적이 없습니다.	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	게임은 오프라인으로 작동합니다. 구매는 Apple이 처리합니다.	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	레벨 50에 도달하면 주간 대회에 참가할 수 있어요!	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	주간 대회	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	탭해서 주간 대회에 참가하세요!	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	친구와 경쟁하세요!	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	연승 레이스	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	집게 챌린지	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	로켓 레이스	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	스카이 점프	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	진행 상황은 이 기기에 저장돼요.	SUPERSEDED: superseded by T1

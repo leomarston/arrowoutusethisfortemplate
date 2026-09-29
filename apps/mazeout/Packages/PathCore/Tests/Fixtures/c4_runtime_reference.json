@@ -1,0 +1,7417 @@
+{
+"_about": "C4 runtime-level reference (Tests/tools/c4_reference.py): design/tools/gen_levels.py + validate_levels.check_level on L151-L650, curve = design/levels.json \"curve\". sha256 = the canonical line json.dumps(level, sort_keys=True, separators=(\",\", \":\")), no \"schema\" key.",
+"curve_sha256": "4a3ce70f4aa2ed7ad4847ee9d5fe3ba1ca3c1c62d7ce4fa8558f3a4421a02ed7",
+"levels": [
+{
+"attempt": "0.0",
+"bytes": 5995,
+"errors": [],
+"kinds": [],
+"level": 151,
+"python_gen_s": 0.212,
+"rejected": [],
+"sha256": "65a4925b2553b25d9d7c396db154a7839da57737741525ec5aebaa8d0bf5c4e2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7292,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 152,
+"python_gen_s": 1.265,
+"rejected": [],
+"sha256": "97b3bae8719e1b7471ae1bd9d0f1f444e78ec04373ab4a0640754f74a420a240",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10094,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 153,
+"python_gen_s": 8.123,
+"rejected": [],
+"sha256": "d5c03e2fea66073d7b842334311dee33425ce89c84132234b0b8c7ef355581b7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10601,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 154,
+"python_gen_s": 2.032,
+"rejected": [],
+"sha256": "4317914edda209f7465b11e50cbd06b022c84860c90d0d2b71774df039c30d17",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 4976,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 155,
+"python_gen_s": 2.39,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "4ae1e96574a746632b282ec4230c83090033b968eed4a681d8505d487b85aceb",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 10854,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 156,
+"python_gen_s": 12.495,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "02ffb666a59a5f2c0f5e7ac9de25cc3396b5f383cd3997f0dd9e0880261e17c6",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7747,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 157,
+"python_gen_s": 7.145,
+"rejected": [
+"platform too small",
+"platform too small"
+],
+"sha256": "4783786c13e103fa309d595e99772124109a0e4b83909d2397358c2700c7457b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8787,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 158,
+"python_gen_s": 6.259,
+"rejected": [
+"pipe layout",
+"peel stuck",
+"pipe layout"
+],
+"sha256": "eb80cdab7e83e6e58f1a9a5906938f749b272a7e86a07969bea4a68092749f7e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9447,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 159,
+"python_gen_s": 7.099,
+"rejected": [],
+"sha256": "9380e8a15b70ef91b4cf354c172c8bf545ebf523e3218bb1601292fa5c26aa87",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 3067,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 160,
+"python_gen_s": 1.994,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "b988ec52ec87e8d5b0b0aa6320ebeeaed766be5d686419ca74268e1deac319b2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 3945,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 161,
+"python_gen_s": 4.823,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "b8568aa28fc88ba7fa04cc87953bbe48ea54320d1ad8bd5c82c52bb742462d3e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 2740,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 162,
+"python_gen_s": 1.873,
+"rejected": [
+"peel stuck"
+],
+"sha256": "a10955fe6fa2f6da3a159db5dadac53d7ea1ba916a0633ad9896010fc84538a8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8322,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 163,
+"python_gen_s": 6.428,
+"rejected": [],
+"sha256": "a4a34d88ac526b2e951091486e18fa6f82c970e96a97a860fb3ed2aacea910dd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 11230,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 164,
+"python_gen_s": 17.159,
+"rejected": [],
+"sha256": "813bd81825ae4c7d4a0d0efa3fb7d9e611c4051a5eb18ce4037e0c5ebc5232c2",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9504,
+"errors": [],
+"kinds": [
+"door",
+"elevator"
+],
+"level": 165,
+"python_gen_s": 3.799,
+"rejected": [
+"greedy stuck",
+"elevator layout",
+"elevator layout"
+],
+"sha256": "8e17b09c666ca7ab3c72a5df294b23b284b69ebd9a723b24c377e216b8d62654",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8894,
+"errors": [],
+"kinds": [],
+"level": 166,
+"python_gen_s": 0.799,
+"rejected": [],
+"sha256": "232175f505b19ff8c532eb594cc2c83e7154f5b068b08bdc0e2fc298b2c392a6",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5311,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 167,
+"python_gen_s": 2.785,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "f94a7aeea46f967ba63cc9cbc5d79887bff3f303f7bf3e40bb3f5344f4feda0e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 9311,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 168,
+"python_gen_s": 2.916,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "e6a009832689e4bf54b0135fb3d567dce9ac6242e103bbaae78e66812174bff2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 11150,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 169,
+"python_gen_s": 10.716,
+"rejected": [
+"peel stuck"
+],
+"sha256": "8634c0301122f417efb56bc5163b932939432c90144a2464743f414dd10b00c8",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 4713,
+"errors": [],
+"kinds": [],
+"level": 170,
+"python_gen_s": 3.733,
+"rejected": [],
+"sha256": "2b41d46db0666d0192b81617ed8b2a74ee5d6aede07345b916ecab9127014e46",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 5169,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 171,
+"python_gen_s": 3.76,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "3087ce86422263ab67a14095203af29c76a8f556f2c9f9a3a27dee36aa890244",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 9817,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 172,
+"python_gen_s": 8.466,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "19be846128e4aa82898d686ab443117bcd4c6b23aa21295d7d71a9dcf4b0220f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7915,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 173,
+"python_gen_s": 0.227,
+"rejected": [],
+"sha256": "9be717bb79216c1dc0e822f89855acce361f1655f30f98b164edc3e84ffaf1ee",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8199,
+"errors": [],
+"kinds": [],
+"level": 174,
+"python_gen_s": 1.165,
+"rejected": [],
+"sha256": "5f2359105659194f0f17ea37561b22a7482790660e4586e00df43fad7c944101",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9820,
+"errors": [],
+"kinds": [],
+"level": 175,
+"python_gen_s": 2.024,
+"rejected": [],
+"sha256": "ba6fed6549290d5f9e1bb65966a9f5088c8cdcf1cf10a66128537b4d50760635",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 4523,
+"errors": [],
+"kinds": [],
+"level": 176,
+"python_gen_s": 0.736,
+"rejected": [],
+"sha256": "8d0a3b5a6936d99f41da596a7458e77e6aa7134bcb09fafb891e0265148ad49e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5568,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 177,
+"python_gen_s": 5.589,
+"rejected": [],
+"sha256": "d4c10c96ce4ba3d389145759933ebe5a83dc9e16e52cc01854a60cbbdf53d572",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7443,
+"errors": [],
+"kinds": [],
+"level": 178,
+"python_gen_s": 1.187,
+"rejected": [],
+"sha256": "8527cc6e51d5c33b50db36181e0331f048597620bc42ad1edbf7f4264cdcb03f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 10727,
+"errors": [],
+"kinds": [],
+"level": 179,
+"python_gen_s": 8.874,
+"rejected": [],
+"sha256": "50d0bb4206ff735d36d0c5ce68b49ed274c2c1b4e1f6400cf4bb3cea4d4895f2",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5624,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 180,
+"python_gen_s": 2.961,
+"rejected": [
+"tape layout",
+"tape layout",
+"peel stuck"
+],
+"sha256": "b3dc379943ec92543c4eaf48832dc527edc06f3a8e959decd8830a1007ae5288",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 4815,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 181,
+"python_gen_s": 2.213,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "daaea282b1fc0e54825b752fe699e1e2698c5a30b3a1552da685f926c97f5477",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 1695,
+"errors": [],
+"kinds": [],
+"level": 182,
+"python_gen_s": 0.837,
+"rejected": [],
+"sha256": "c051cc3033eb17af02ef444383055a0b8c63c821165c7f7f0d27d79629e94040",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10042,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 183,
+"python_gen_s": 1.333,
+"rejected": [],
+"sha256": "5f6565ed82a0250f0a4a64c70dfdf3cc175f0e88aba1102ecdeeca167ba75a82",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 14582,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 184,
+"python_gen_s": 20.858,
+"rejected": [],
+"sha256": "e2122fafd759ab558f00197c44d03ab13b5406353db4bf89aec43e204082aa01",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 7296,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 185,
+"python_gen_s": 8.192,
+"rejected": [],
+"sha256": "a45256bb81fafd33040d5c251227196028ad10804c95cda91556eddfc8346ee0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10030,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 186,
+"python_gen_s": 5.798,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "e4bec884b6efdb93036792252c7b37ead975c0acd39d4f2c47de94ee62972c6b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5995,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 187,
+"python_gen_s": 5.53,
+"rejected": [
+"tape outside the silhouette",
+"peel stuck"
+],
+"sha256": "717ab6efd7f6243065272f42a044512d9446f60b2ab6611a0b8d034ab5baba88",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 6174,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 188,
+"python_gen_s": 3.467,
+"rejected": [
+"peel stuck"
+],
+"sha256": "19cf728422939fcabb85a844232eeba9098d91d029fceba9f3c098b03fab5b22",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 13480,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 189,
+"python_gen_s": 11.621,
+"rejected": [
+"pipe layout"
+],
+"sha256": "aa1d1e04ce254c9738e8192ae34f41e13e70d41df4746145ff1273a79e383ac1",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5671,
+"errors": [],
+"kinds": [],
+"level": 190,
+"python_gen_s": 1.491,
+"rejected": [],
+"sha256": "c312bff6f7fcd1727d46c9bc93a204643e98fbbb8e84a440dff8b298f2998de2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 5186,
+"errors": [],
+"kinds": [],
+"level": 191,
+"python_gen_s": 4.32,
+"rejected": [],
+"sha256": "cf73a5a862db7d338bc1255df93bcdcdd4c158938dc6fa078d361f981e94f00e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 11409,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 192,
+"python_gen_s": 5.033,
+"rejected": [
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "8aae2e9c07cc7b01e0e29bbbb23cd9915cef3e40b077851fc16a87d3550160de",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 8224,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 193,
+"python_gen_s": 2.5,
+"rejected": [],
+"sha256": "558924f31a5da005dd44ee7279cd9ff518b1791be0058165e33fdee9c1915c11",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 10847,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 194,
+"python_gen_s": 14.097,
+"rejected": [],
+"sha256": "cdc456417d6b3de7544b989437d696ee8d3f18c38c8d2287a107bc89ee913232",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6479,
+"errors": [],
+"kinds": [],
+"level": 195,
+"python_gen_s": 0.604,
+"rejected": [],
+"sha256": "2af5a666667d4b0b671b6a22e423b1e3ec4800a921a963f99a46863d46d76b0d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 4692,
+"errors": [],
+"kinds": [],
+"level": 196,
+"python_gen_s": 0.511,
+"rejected": [],
+"sha256": "8ad2cbcbb207f3efe532bd3048fcda3afa926692a86ce42556bdbfd69430e9e5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5847,
+"errors": [],
+"kinds": [],
+"level": 197,
+"python_gen_s": 2.672,
+"rejected": [],
+"sha256": "4780b00ffbe14d122210a9beeb4ba79bdad7bd5ec0411b6f5456f713cb88149b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 9441,
+"errors": [],
+"kinds": [],
+"level": 198,
+"python_gen_s": 4.954,
+"rejected": [],
+"sha256": "26f90ac103a985ad03479f2a4bb42e3f65f0c7d4d74517be3b960f4552b144c8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 15334,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 199,
+"python_gen_s": 15.114,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "2853eea2f39c3c9b48d317fd2f8d56ca725df1f36fc5e4cedc163e42d273b614",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5771,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 200,
+"python_gen_s": 3.387,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "714f5031354df406b19276461e6469a8b2cefdf5d6fb4b247526f875cc2eb7b8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5133,
+"errors": [],
+"kinds": [],
+"level": 201,
+"python_gen_s": 1.406,
+"rejected": [],
+"sha256": "0b96aa4cbaac8e6c3b0d8f7da7fe3aaae3b573cba1019e757d2c85e4b6ec4851",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 4818,
+"errors": [],
+"kinds": [],
+"level": 202,
+"python_gen_s": 1.366,
+"rejected": [],
+"sha256": "b5ce261f552d370d1c50cbf664902999e467f2dcc14621e1df2dfae52a080678",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10981,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 203,
+"python_gen_s": 3.867,
+"rejected": [],
+"sha256": "476e04d9cdddd942570f7692c4182a2b75928c8b85969e756a3c9b4ffbe99fff",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11308,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 204,
+"python_gen_s": 3.254,
+"rejected": [],
+"sha256": "cf6934cad570fe240dadc19687d78d45422f6a65766558d498c4b79b673749aa",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 6479,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 205,
+"python_gen_s": 3.687,
+"rejected": [],
+"sha256": "39db1dc28df3be286f52c5507274ed3954e7a219e2385e098c81d083a9796934",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5549,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 206,
+"python_gen_s": 0.898,
+"rejected": [],
+"sha256": "586b0e9669ff99f99831ee528a4513382d309b2b835f6d2b285eab4c534369c1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 7255,
+"errors": [],
+"kinds": [],
+"level": 207,
+"python_gen_s": 2.671,
+"rejected": [],
+"sha256": "17351c97c6f2eeee4a6f0629bf5b29b2b3da30a864ea676f21be5349031ca516",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9614,
+"errors": [],
+"kinds": [],
+"level": 208,
+"python_gen_s": 1.573,
+"rejected": [],
+"sha256": "2d1b4a99a53a3d50a3a4ab7b6445b38d2f579c00a05c0112854ffd3fde71b8e9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10499,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 209,
+"python_gen_s": 0.527,
+"rejected": [],
+"sha256": "bd2482c274b33fefddccf5f643d303193734a3e90c067bb34ae9a086b4e2e22a",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 4183,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 210,
+"python_gen_s": 1.961,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "b02296af438648500f622aa6acd498cad47e3c92e573bd9d682e37d9e21b63e4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 3992,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 211,
+"python_gen_s": 0.506,
+"rejected": [],
+"sha256": "00151bb163ed7e0fa60c350a3237c10560ac5d0dc02c4f8065ace8f71f7e5e3a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5282,
+"errors": [],
+"kinds": [],
+"level": 212,
+"python_gen_s": 0.537,
+"rejected": [],
+"sha256": "05d10636a5f46deff11822097eede2fb92d3f59494d6af6b811482c901e73c48",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7392,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 213,
+"python_gen_s": 2.619,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "9b70fe9b1e096d2a7711f2a68854272f586f2403e2f367d819b870f6da261012",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 12176,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 214,
+"python_gen_s": 30.819,
+"rejected": [],
+"sha256": "05fc54e87251a214b289140dd0fbbcff01327d77bdd4d9834b07f3bb03e2dc5a",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 3397,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 215,
+"python_gen_s": 3.558,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "5f81a5e3b496999473bd807d818ad408d0c825bca34d3346057872bcf3f03a19",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7291,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 216,
+"python_gen_s": 3.758,
+"rejected": [
+"peel stuck"
+],
+"sha256": "7f6157fd5871aca2749f696c30c594b42e805d193a491be75cffb13e4bc77bed",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 7636,
+"errors": [],
+"kinds": [],
+"level": 217,
+"python_gen_s": 12.392,
+"rejected": [],
+"sha256": "29ed9b2b2b2186a8519ef6ea7796e07721d0b13b343d0c1ac7abe3435812b162",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5511,
+"errors": [],
+"kinds": [],
+"level": 218,
+"python_gen_s": 0.496,
+"rejected": [],
+"sha256": "6e1d201d4f693f45b3f672526cf82394575ee86c40ee85119c9cdc05c6b29e38",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10857,
+"errors": [],
+"kinds": [],
+"level": 219,
+"python_gen_s": 3.157,
+"rejected": [],
+"sha256": "bbfac7a9a8a414d8264bd06a3c7133bf742f5bb41d825386b24fb6d06b720656",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6711,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 220,
+"python_gen_s": 0.27,
+"rejected": [],
+"sha256": "8badc8226fea38fd255b0ff22f273bda9e5e030d0ad4efb08429ac0ec462a764",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 8955,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 221,
+"python_gen_s": 15.44,
+"rejected": [
+"peel stuck"
+],
+"sha256": "69324c98eb43f5ddf4e792a7907eff5fbe97b11fca8a6e483b7bea55fb46f04a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 8351,
+"errors": [],
+"kinds": [],
+"level": 222,
+"python_gen_s": 16.716,
+"rejected": [],
+"sha256": "3254a3640231abb0a1b1484afa8b5509c6cd0b56d786edd24177b3cd25fba0fa",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 11236,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 223,
+"python_gen_s": 9.1,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "abce4c37021d18c05fc3008d560916b14dad6d4b120dae078717b934c1fd8779",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 14314,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 224,
+"python_gen_s": 15.693,
+"rejected": [
+"box layout"
+],
+"sha256": "f1e89e191425d12c8aa0c06981a2a5e9046c7e45ae2d9ca1ce7f9220d0ba01ef",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 3837,
+"errors": [],
+"kinds": [],
+"level": 225,
+"python_gen_s": 1.687,
+"rejected": [],
+"sha256": "f20d2ef3f0053619fbc6db1b66f3e436592b86e31974581bf4cac38572fae719",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 15007,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 226,
+"python_gen_s": 5.537,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "7320a95043fe433b8e09f6fc1f955e2f80375e9d9d5567aa5b7f013ab44cc02f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 8099,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 227,
+"python_gen_s": 13.946,
+"rejected": [
+"peel stuck"
+],
+"sha256": "69703d6a32912d6da7a7d248353ed523748ff049f0184226c5759a92f478efce",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 8365,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 228,
+"python_gen_s": 4.875,
+"rejected": [],
+"sha256": "6e7c9a8509c6bd4b68d08210e710f121fcb12523743a0aba167781bc4615de82",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10270,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 229,
+"python_gen_s": 0.907,
+"rejected": [],
+"sha256": "ec012ee1ff535e5ae28307c21dd1d4795b6de87969a8876031ef279a9364b5f6",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 3398,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 230,
+"python_gen_s": 1.768,
+"rejected": [],
+"sha256": "a978f8b6394869f4c7d8f56420951edadbea68864397b48c2191bed1ee8c6b01",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 4113,
+"errors": [],
+"kinds": [],
+"level": 231,
+"python_gen_s": 4.717,
+"rejected": [],
+"sha256": "336df1f38a574e47513b3015958c354084cd3cb255efe5d1f4373c5c7b57d88d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 2741,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 232,
+"python_gen_s": 2.238,
+"rejected": [
+"corner layout"
+],
+"sha256": "9aa4c86baca09560a33e960f6c36865239b05e6228d2426e442c15042aab89de",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 8372,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 233,
+"python_gen_s": 11.116,
+"rejected": [],
+"sha256": "c55e84af1c10d67ae14cc335d36bd07abf75173c4f6738b412609b5a2fe46b2e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11508,
+"errors": [],
+"kinds": [],
+"level": 234,
+"python_gen_s": 2.428,
+"rejected": [],
+"sha256": "c2a7d762cb5bfdfba3ea30ac6d04fc2331acb2d7e5fb6b0b873e164a2700f5b6",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8255,
+"errors": [],
+"kinds": [
+"elevator",
+"box"
+],
+"level": 235,
+"python_gen_s": 10.174,
+"rejected": [],
+"sha256": "1471054b89fe880e92e6f6a5e33ff873173271bb6221149f56870bf3cf1e501e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10200,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 236,
+"python_gen_s": 9.476,
+"rejected": [],
+"sha256": "37abdeb566378aa6bdfe01740fcfec87bdb9c4f25965adfe081b833e9f337786",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 6720,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 237,
+"python_gen_s": 11.278,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "dcd9e391b018ddeaf6def7081e8cdf3c3d29e83b188c78f475cf5cd810ea7c45",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 7845,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 238,
+"python_gen_s": 16.318,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "eb59c38d38bf04ba88d9c0df8e80ca64867266d906ad07ccb22830379bff7d4a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 14922,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 239,
+"python_gen_s": 17.766,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "ac4ec060ffd6c73d5eb2f8071ee5922117ae8f02f6c78180c27e8f090fbf1e18",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 5603,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 240,
+"python_gen_s": 9.686,
+"rejected": [],
+"sha256": "82902b965c8ce430a9060a11e4012d5a5986d309addc7719b0c0ec5b638f5861",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5691,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 241,
+"python_gen_s": 3.507,
+"rejected": [
+"tape outside the silhouette"
+],
+"sha256": "19cb3a08775681bcdf9aa895c6f88e66b7da52758509db6a5687fa42a3da6610",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10178,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 242,
+"python_gen_s": 2.691,
+"rejected": [],
+"sha256": "269908290da535f787e6a7597a2fd0bc3786b12ce5c3da088f58eefed7a8a082",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 8507,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 243,
+"python_gen_s": 6.671,
+"rejected": [
+"corner layout"
+],
+"sha256": "12aafa25afd6ed4dc41e4905870dfb1596e8108a3544e71718451435d712c64c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 14877,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 244,
+"python_gen_s": 14.943,
+"rejected": [
+"corner layout"
+],
+"sha256": "ab2d576cca63a4fdd266aedbb89260e6145d4fc43402455f004e1e5864cf5f97",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 10006,
+"errors": [],
+"kinds": [],
+"level": 245,
+"python_gen_s": 5.248,
+"rejected": [],
+"sha256": "7c577e933c418f7b4a280f87bdaec2e2e713f0304372bfd5fe3d8db612eee1e0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4687,
+"errors": [],
+"kinds": [],
+"level": 246,
+"python_gen_s": 0.63,
+"rejected": [],
+"sha256": "7cea7968f14267145f0ad554e12e0b2013f514b099e30c72ea4aa9366aac32ee",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 6316,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 247,
+"python_gen_s": 7.98,
+"rejected": [
+"peel stuck",
+"corner layout",
+"peel stuck"
+],
+"sha256": "b53f71b67c9504efdea5b16da9217db67f0e7a57f6cb97113273be05e2457510",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 12148,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 248,
+"python_gen_s": 12.997,
+"rejected": [
+"peel stuck"
+],
+"sha256": "12c625a79838a44c2c2739d8c5b970345b00bcb896230ba2b61e8254d227ab80",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10422,
+"errors": [],
+"kinds": [],
+"level": 249,
+"python_gen_s": 3.394,
+"rejected": [],
+"sha256": "a115fa8e5ef7ae016b2904ad07315c634bd8fa928c3dac30a0bcae7f4f46df52",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 3868,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 250,
+"python_gen_s": 5.163,
+"rejected": [],
+"sha256": "51e00742e6bb442ae7d0f0763e8649a72f3bc957f6922b6ff31b2aa950539168",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 4190,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 251,
+"python_gen_s": 6.384,
+"rejected": [],
+"sha256": "54ed0469dad7e32a2ac232d79b6ae1156cf79bdb6b39aa44e3f40a29a61246d8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 3867,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 252,
+"python_gen_s": 0.368,
+"rejected": [],
+"sha256": "f1a3675f6afa5192d4678f4f05a6d99a0b1e3b8266b790c8f8e199f1bb4714aa",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7640,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 253,
+"python_gen_s": 0.525,
+"rejected": [],
+"sha256": "76f38c2cc030fc5e4edf9838d0959ac0a02be8d1f539947b6a67698bbdcd04af",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10333,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 254,
+"python_gen_s": 3.347,
+"rejected": [],
+"sha256": "cd85fa9a1de4f2f7099dddefb7fd5bf2d19d87a8669005f449fb9186630c0495",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 7133,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 255,
+"python_gen_s": 4.308,
+"rejected": [],
+"sha256": "7b8c28bcba1d4eaf9d369e2668e40c85e099222aa09b3dbf224d6f18f727355f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 8325,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 256,
+"python_gen_s": 8.487,
+"rejected": [],
+"sha256": "04f3e3e798d2b2681672390da7a36bf80008ec1f896dc23c78fac10797761d77",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6919,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 257,
+"python_gen_s": 10.118,
+"rejected": [
+"corner layout",
+"peel stuck"
+],
+"sha256": "d053cdb68b8416ddf1820f23e1321734310c596b1d795f81d145d4e37f0dbd67",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6348,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 258,
+"python_gen_s": 1.455,
+"rejected": [],
+"sha256": "b194f8a1c81bd30d43f5832f9e15270a836f647e4393fe85f58f724566ed7b95",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9799,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 259,
+"python_gen_s": 0.613,
+"rejected": [],
+"sha256": "8dbee8fe90df6e7125019f94f00457cab41eb4a332bf18a0898a8d306920f16d",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6739,
+"errors": [],
+"kinds": [],
+"level": 260,
+"python_gen_s": 1.053,
+"rejected": [],
+"sha256": "ce34f3ac901ede4dddad062859e4d1bb2aff0d23f245d1650f2d0812b71efe79",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8270,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 261,
+"python_gen_s": 3.637,
+"rejected": [
+"pipe layout"
+],
+"sha256": "a22332ab468e35b6d781085e201cc1c99fc7171841ca51d00ace5dd4e0fe74b2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 8446,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 262,
+"python_gen_s": 6.132,
+"rejected": [],
+"sha256": "7b405df63c184be651f402935654a158e845ad9ab7d949d162d3cb01ed4a2ee8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9482,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 263,
+"python_gen_s": 11.699,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "1a4718b315743c0320821fec5742b888aaee429d1e5cf40e6822d771ed70f6a8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10497,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 264,
+"python_gen_s": 11.534,
+"rejected": [],
+"sha256": "06b8fb293a8f65677652491c39d6eb0187a5bde4d6b213185199a97d36049f06",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6990,
+"errors": [],
+"kinds": [],
+"level": 265,
+"python_gen_s": 1.092,
+"rejected": [],
+"sha256": "3812c6dd391a6f64786f610076dac73030b9be183f1f22070c89eedbd44c3b8c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5184,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 266,
+"python_gen_s": 0.513,
+"rejected": [],
+"sha256": "9cdc175340a95a5eb1ca57705e2840baf9db3ad0ef24b587e9f7a487715d922d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 9749,
+"errors": [],
+"kinds": [
+"door",
+"elevator"
+],
+"level": 267,
+"python_gen_s": 5.604,
+"rejected": [
+"greedy stuck",
+"greedy stuck"
+],
+"sha256": "0055e61eef53a66643fbf51b9c57c1c9cdb030c75b570e246ca5e5b6b9efecf2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 9689,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 268,
+"python_gen_s": 16.614,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "7cb68e3e957e1c0659ae9255c2a9f6ada8acbf1373c2e86b81b0c8f86df81c63",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11273,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 269,
+"python_gen_s": 3.529,
+"rejected": [],
+"sha256": "81424c6c4aa55c291b469f71f48e7a2c739e3cd24735f33c76cdf7de2211528c",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5547,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 270,
+"python_gen_s": 8.822,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "38756f23c1c7c3970d7c775e60b19b8169bbbfe4a4ba2ea7d22de5a6ea8c6980",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5588,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 271,
+"python_gen_s": 2.101,
+"rejected": [],
+"sha256": "f14c0829b9eff82a4711019b7619e64b026a10a074c5e20dc18ad5bd25b334f1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5401,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 272,
+"python_gen_s": 4.276,
+"rejected": [],
+"sha256": "b001a02162b6ab5b2c618f4b5ab984d52eb36dd27a37cee9c94debc374ae9c55",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 11837,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 273,
+"python_gen_s": 4.598,
+"rejected": [],
+"sha256": "ce3cec95c06a9af56ba9ee3b30a2ee170d91b34f495891b27db801835974c3af",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11766,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 274,
+"python_gen_s": 2.412,
+"rejected": [],
+"sha256": "c91f78462a70444678674f310208e7abd6e7aefc59849a7b51d82fa6241e4454",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6567,
+"errors": [],
+"kinds": [],
+"level": 275,
+"python_gen_s": 3.192,
+"rejected": [],
+"sha256": "227ce9367a3f7a0c576f904551fdb4c533d9a95f68739976672948d566cc2fb1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5506,
+"errors": [],
+"kinds": [],
+"level": 276,
+"python_gen_s": 2.032,
+"rejected": [],
+"sha256": "4c81512a1347f61e4f95c0f5ca17d013db1a99607a58064a279bd44ffa67efbe",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11705,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 277,
+"python_gen_s": 8.317,
+"rejected": [
+"peel stuck"
+],
+"sha256": "a5cfcf86529724a16e442b6c51bed2e97a5c3e40ebcd74cf1fdcb43c088982b7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9650,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 278,
+"python_gen_s": 1.956,
+"rejected": [],
+"sha256": "fac765b073e6f975596f7976a9c78c8c44e19eb61d4312ac3c50525a83d41ae3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10466,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 279,
+"python_gen_s": 2.986,
+"rejected": [],
+"sha256": "d5006a0067abda3a01c64ce375caee6feed8652732528dd28be318a256e7d216",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 3752,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 280,
+"python_gen_s": 3.409,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "0e378ef0816b16f1582418e23b3379cea3e42245defc9dd93f57239e9aafbdad",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 3661,
+"errors": [],
+"kinds": [],
+"level": 281,
+"python_gen_s": 0.386,
+"rejected": [],
+"sha256": "1111e73ae170f5a85c8d711beddcb17c7159ff3763df2d3996f3c0cc809c7b93",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5708,
+"errors": [],
+"kinds": [],
+"level": 282,
+"python_gen_s": 0.144,
+"rejected": [],
+"sha256": "76247bdd4d8a78aeb952634887212cf3ddf53f46ab00225cf8d2bfd0725d10a7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6276,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 283,
+"python_gen_s": 10.12,
+"rejected": [
+"peel stuck"
+],
+"sha256": "f7bf4e93b0c35462fc7e59a70082fdd0a77b26eb7ea0afcb17555623b8cf3c17",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 11805,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 284,
+"python_gen_s": 20.075,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "6e68a59a36a94e741f2683e58c7626f2d3b481be3500dc92ba1e545e8b1df5c6",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 2961,
+"errors": [],
+"kinds": [],
+"level": 285,
+"python_gen_s": 3.412,
+"rejected": [],
+"sha256": "3af179f35cbe93cbbfc08e994fe38a572c11b82449914fde35f1c5003655a632",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4683,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 286,
+"python_gen_s": 0.493,
+"rejected": [],
+"sha256": "9fb10aa793c26988450e0665a77076d31af7e9fb40bd6e2c65971d89500e1257",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8764,
+"errors": [],
+"kinds": [],
+"level": 287,
+"python_gen_s": 1.774,
+"rejected": [],
+"sha256": "1a99c73469ed12dca238a0ce2ad21f7fc684d5527f3a6adc974557264bea3e56",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9047,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 288,
+"python_gen_s": 1.843,
+"rejected": [
+"peel stuck"
+],
+"sha256": "01f2dfaeaeb3344b8912fc88d8751bdfb469b46dd4bcd41ade8b3b3c5ed64982",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11408,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 289,
+"python_gen_s": 7.381,
+"rejected": [],
+"sha256": "34c9780baa0e7e4cd94995a57a7b8de2486279eaae9e184bdec6bdb5cda68f34",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 10300,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 290,
+"python_gen_s": 5.861,
+"rejected": [],
+"sha256": "e32b9ac7399ee11fc555bdb665d702667850f33b46bf737cfd60d468bb5a685e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 10009,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 291,
+"python_gen_s": 6.975,
+"rejected": [],
+"sha256": "4b955ce0b3cc7c38b68f733a74633fb977c93def8635491df676dc3d6f523085",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 8293,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 292,
+"python_gen_s": 0.811,
+"rejected": [
+"corner layout"
+],
+"sha256": "9cc7e6611ad575dd0976ad86722bc29aa45eebbaf583a607f88e2043e839e7bd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 11636,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 293,
+"python_gen_s": 8.819,
+"rejected": [],
+"sha256": "8bed47b494c7245731769e2d8694e3d3e3616bd676cc331def19fb796c642e9d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 13552,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 294,
+"python_gen_s": 8.8,
+"rejected": [
+"box layout",
+"box layout"
+],
+"sha256": "b2e40af1fdc19e2293901f7d120bd771f7188a56fab093002b21ef856b2f3692",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 3983,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 295,
+"python_gen_s": 0.505,
+"rejected": [],
+"sha256": "b4c317caa3eef76e38588f3cf32a8c14688740e7b001e9e3b62ed0a4fc272fb9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 14384,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 296,
+"python_gen_s": 3.591,
+"rejected": [],
+"sha256": "51575c5a21f8a05fc4c8b14413eb8994b79ceb2eeb7e0bbb422b15260c27dedf",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8307,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 297,
+"python_gen_s": 8.239,
+"rejected": [],
+"sha256": "593d645e9a791efcbaea208f16589866fcf221cd717b5445669a5b1ef6c722df",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 9706,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 298,
+"python_gen_s": 4.401,
+"rejected": [],
+"sha256": "7f74579f56320359cc2eaea07b71d848adc22373ef532a95990066526827a6ff",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9789,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 299,
+"python_gen_s": 1.402,
+"rejected": [],
+"sha256": "f332ad5edb4eacd9d808f11b433602bf768f2fd00226293736f71d0e01ffa919",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 2626,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 300,
+"python_gen_s": 1.539,
+"rejected": [
+"peel stuck"
+],
+"sha256": "37832fe9140d70178c71dcf2d60b64cb2f1ec6b13e86f5e39fffa820af0b41e7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5412,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 301,
+"python_gen_s": 0.854,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "8e0f6f99c48ede337ec628fe6c5c3ff2d6a40827bca4632dd0e17a9ce3504066",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 2796,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 302,
+"python_gen_s": 3.04,
+"rejected": [],
+"sha256": "fe80f907f753bc81f53d97a9a3e05de4e114d483196d46b8adb26bd28b5eb7dc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8543,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 303,
+"python_gen_s": 5.287,
+"rejected": [],
+"sha256": "d26d2713aafc5c160cb5c068f454579aa4b46d16905d755a53218ec900921c1c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11374,
+"errors": [],
+"kinds": [],
+"level": 304,
+"python_gen_s": 4.96,
+"rejected": [],
+"sha256": "0aa557f9d0b6efbc949e901e4e8127ddb2a02628de4039b9172b1851bc2e5e57",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 8106,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 305,
+"python_gen_s": 12.139,
+"rejected": [],
+"sha256": "20a6ddaac973ee6fff8102e049289864361eb5f442ce9438cdb0f67842892937",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9621,
+"errors": [],
+"kinds": [],
+"level": 306,
+"python_gen_s": 0.458,
+"rejected": [],
+"sha256": "ec6ab8b013227f9ca08c550bff487b0d97d82084b068c1b417277279f4e6f3c1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6488,
+"errors": [],
+"kinds": [],
+"level": 307,
+"python_gen_s": 0.834,
+"rejected": [],
+"sha256": "af3066607377010e095ce22da4a30fde8c6cf8338280040e19a45cb25c3fbbae",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7427,
+"errors": [],
+"kinds": [],
+"level": 308,
+"python_gen_s": 5.558,
+"rejected": [],
+"sha256": "2ef8ea343728e726e35cdb9aaa88bc2d6405ae14462e7b1af444234559b8f980",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11234,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 309,
+"python_gen_s": 2.722,
+"rejected": [],
+"sha256": "b1db5fc2e92e4a9cdc0a9e985c9105a4a1412776055fc0a0201eb061d031648b",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5280,
+"errors": [],
+"kinds": [],
+"level": 310,
+"python_gen_s": 6.754,
+"rejected": [],
+"sha256": "5bdc10967e4bf7989ba4f378343fa7c54d27e425618a37e83f96922f9b8dc991",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 5557,
+"errors": [],
+"kinds": [],
+"level": 311,
+"python_gen_s": 6.715,
+"rejected": [],
+"sha256": "04ead581875859a371d2b6156f7bf2090f35159fbbc2cc94c61555c9902a2b85",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 14908,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 312,
+"python_gen_s": 14.672,
+"rejected": [],
+"sha256": "89165b0389403b10bb3db81aedeaec0ce992fd316dc9625d907cf1460d963290",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8626,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 313,
+"python_gen_s": 0.538,
+"rejected": [],
+"sha256": "bba28d0bfd89ae06d8a4c5b9f4b722d1012701feb771b3382b6de43ae422ef4b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9799,
+"errors": [],
+"kinds": [],
+"level": 314,
+"python_gen_s": 3.656,
+"rejected": [],
+"sha256": "abc305dd25530f980fbf1c5c7c65df317989aa697797ee8f0c139a33505ae158",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 9849,
+"errors": [],
+"kinds": [],
+"level": 315,
+"python_gen_s": 10.28,
+"rejected": [],
+"sha256": "563be1387a5996aeadf069da15687d96714d944da56cd6f8b2fa6c53988cc4a3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5423,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 316,
+"python_gen_s": 4.868,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "5c4d32351202b96af87af4952f6a01be7ef27114be3b5725fc08d879448efa3a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5693,
+"errors": [],
+"kinds": [],
+"level": 317,
+"python_gen_s": 3.571,
+"rejected": [],
+"sha256": "206e6583cba99cacc034f038e0d8ca5a636dd58e8d70022b72276de9dfbca3ed",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 11650,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 318,
+"python_gen_s": 4.0,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "906d0bc1323aa65c059508d9de841b8916df6c492749c7f7ab5eaeb25778ed45",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 11203,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 319,
+"python_gen_s": 6.856,
+"rejected": [],
+"sha256": "4955941ad58f160646ad51576449340d39b8ee3a8062f71f10b64801408030a9",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5241,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 320,
+"python_gen_s": 1.709,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "8706d366cf41367ba0575d6c1036ae4cdd36aeb7e94bfe0fce3de09dd49f1dcb",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 5802,
+"errors": [],
+"kinds": [
+"elevator",
+"box"
+],
+"level": 321,
+"python_gen_s": 2.204,
+"rejected": [
+"platform too small"
+],
+"sha256": "664ae58b1fed9bf98fcd5e8f5be6719b33d913d7087a842a381b8b8b798573f2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 3078,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 322,
+"python_gen_s": 1.667,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "03c8176bc1f3e4119f2e7ee09aae9f3fecb6647ebeadfe7e8076f28c10d1b927",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7408,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 323,
+"python_gen_s": 4.441,
+"rejected": [],
+"sha256": "59c7e904c5ce4fa1fbefa92965be8068fc834e323a414d8c061820b28dbb1ff0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11812,
+"errors": [],
+"kinds": [],
+"level": 324,
+"python_gen_s": 1.977,
+"rejected": [],
+"sha256": "70e67a3042e381e2a9ebb65c322a8155b41c39f290ceb60fc05e0b098a8024f4",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7072,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 325,
+"python_gen_s": 0.988,
+"rejected": [],
+"sha256": "a505d96330bea7387cee038f0e18487a7141ebe10f76953530befc486f88cf8f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 8424,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 326,
+"python_gen_s": 4.368,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "4347221e7fdc2587d2c14db724e530b7b1c19f2bf3b7f338a868e99e74e3544c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 6495,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 327,
+"python_gen_s": 4.137,
+"rejected": [
+"peel stuck"
+],
+"sha256": "746c7149783341f8e939118b27b3f1b09b8d12a374212f7b71321a5091dcdfb9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6519,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 328,
+"python_gen_s": 0.963,
+"rejected": [],
+"sha256": "bf2d7b37fb86c506c2e16e273bfc36ad6e3f62208a31250e710c78fa8e648a88",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 9624,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 329,
+"python_gen_s": 6.085,
+"rejected": [
+"corner layout"
+],
+"sha256": "a9afe0d0007dd56325e4ccbccc78fc5d964492a367675687dee612711326702e",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 7199,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 330,
+"python_gen_s": 1.161,
+"rejected": [],
+"sha256": "8e6db36d312b41b3a4a9cef2e58b7771196dbf711147b99ee7ccc1ad6d1e5edd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5203,
+"errors": [],
+"kinds": [],
+"level": 331,
+"python_gen_s": 0.552,
+"rejected": [],
+"sha256": "b130b9fd114332d628d6cb694066ab3a61b450acd297b26c10cc4030c7cb93eb",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 12702,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 332,
+"python_gen_s": 10.399,
+"rejected": [
+"peel stuck"
+],
+"sha256": "bb1eece98f96a28f784a4d529d0bdc8a191e2067df26dd350b7cf6196c9b18ae",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 12161,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 333,
+"python_gen_s": 7.713,
+"rejected": [
+"peel stuck"
+],
+"sha256": "8d1444e938892ef21da6d3ea8841c4fe200c9c56b7e5e594053999e8e082c234",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10168,
+"errors": [],
+"kinds": [],
+"level": 334,
+"python_gen_s": 8.672,
+"rejected": [],
+"sha256": "5bc5473b73e708cab1c78b00823abb608fb9c0404bdd1658410e807e69340c63",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7114,
+"errors": [],
+"kinds": [],
+"level": 335,
+"python_gen_s": 0.227,
+"rejected": [],
+"sha256": "6a1762a6baeb9f9baf0950f913587a5c383e93542009bce1c9c8bbffeb257344",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 4779,
+"errors": [],
+"kinds": [],
+"level": 336,
+"python_gen_s": 0.555,
+"rejected": [],
+"sha256": "7e32ea4f24886a78c0c09155da064363f2dd6071fd3fdb4c28038e0d003d2c6f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 7762,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 337,
+"python_gen_s": 3.342,
+"rejected": [
+"box layout",
+"box layout"
+],
+"sha256": "2623a1f8c525e60dee541f77098021e5346d2a5423eefbea92cfd79e66479bad",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9323,
+"errors": [],
+"kinds": [],
+"level": 338,
+"python_gen_s": 0.938,
+"rejected": [],
+"sha256": "3bc11032cba78a1d9f3c446b8bc9ebf2b39c812f02d1896617e29a7230b97334",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11680,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 339,
+"python_gen_s": 15.434,
+"rejected": [],
+"sha256": "826b350b2a01236f84ebc397c6bfbc9657bf6b0c6d49e5515ef0269fe9af47a2",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5378,
+"errors": [],
+"kinds": [],
+"level": 340,
+"python_gen_s": 3.257,
+"rejected": [],
+"sha256": "ed41b866f41dbc8497e7155c1546153eeaf1ef68fed5b4312aeaf669cdf0c15e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5653,
+"errors": [],
+"kinds": [],
+"level": 341,
+"python_gen_s": 1.748,
+"rejected": [],
+"sha256": "f9fc5758b374a7e0b543c2a682c89fa7f541a8d96fba88a26797d207b05cd809",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5613,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 342,
+"python_gen_s": 3.669,
+"rejected": [],
+"sha256": "204048b42d846527d5d67448039f78c1b2a93d485496d86e27c701b05d172c2d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7920,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 343,
+"python_gen_s": 3.395,
+"rejected": [],
+"sha256": "2af7ba91f79dc4728a38c2880143073a2435e82e0fbdfade6397569b5eaff5fd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 14988,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 344,
+"python_gen_s": 19.169,
+"rejected": [
+"tape layout"
+],
+"sha256": "1b00323ddbd3dad0a6d543055b5904e1f12646833f6e68ceb9f903c82fa8ef8f",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6917,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 345,
+"python_gen_s": 1.546,
+"rejected": [],
+"sha256": "25b6f4cb738643e9becfef4951a0232fded828f02177cd129f10bb0f0dc3e039",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5871,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 346,
+"python_gen_s": 0.514,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "d9316bd6d5c531408ab9817e7db2fdea611bc343d91c5640a44a1e9ffd053d1e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7506,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 347,
+"python_gen_s": 3.176,
+"rejected": [
+"corner layout"
+],
+"sha256": "f1ae827987f21068468b1d66093649e3ba21b3d0ee693a7d7c8912eefcb6e67e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 9780,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 348,
+"python_gen_s": 14.62,
+"rejected": [],
+"sha256": "344db38f0c32b00bec966aeba1ca28c5261973096782dcab70a5c55bd2093298",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 10836,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 349,
+"python_gen_s": 23.13,
+"rejected": [
+"peel stuck"
+],
+"sha256": "cc10097fcb4798951f91775a2595960075d3e323bc11ffd446d5caa9968ad18a",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 3918,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 350,
+"python_gen_s": 4.696,
+"rejected": [
+"peel stuck"
+],
+"sha256": "9f97a787fdaa20544c39398c9183583c33beaf15887dba8eaa247646db226d18",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 4328,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 351,
+"python_gen_s": 2.516,
+"rejected": [],
+"sha256": "2571c6062870e4b918f519284c50805cd8aeebe11e425fb7243cda83305d29f1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7833,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 352,
+"python_gen_s": 5.838,
+"rejected": [
+"corner layout"
+],
+"sha256": "1c01060aee9ade11d77cbcf5910ed944a53556d4dd81ad6165f9ea84abb0994b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 6235,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 353,
+"python_gen_s": 8.775,
+"rejected": [],
+"sha256": "5546ad27f58825d56f6767afb7e8dbcb8a0226a62ba863c219b43dfc5d558c0e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 15301,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 354,
+"python_gen_s": 16.121,
+"rejected": [
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "ea1fcd8bf0edecc5582454a88bcec238c928af49193dc63cf03b82efcd900461",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 2945,
+"errors": [],
+"kinds": [],
+"level": 355,
+"python_gen_s": 3.678,
+"rejected": [],
+"sha256": "16bf626e7065b49fc3da8577527bb3c089c13a6b8a9ded10136025a19fc01019",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4859,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 356,
+"python_gen_s": 0.397,
+"rejected": [],
+"sha256": "dcf2ba578bfbef3cf932799876e992b4aef1920327898f1ef636f4979a6a920e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7879,
+"errors": [],
+"kinds": [],
+"level": 357,
+"python_gen_s": 1.37,
+"rejected": [],
+"sha256": "dea43011b6f5d0a01a56ae96793254836373935cea3f4350d411f29756862ae7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 8097,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 358,
+"python_gen_s": 2.909,
+"rejected": [],
+"sha256": "6d4d27faff0f9d8ff70b44127f22d75ac08cdccacc419b8264e7f38966410d79",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 17186,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 359,
+"python_gen_s": 4.56,
+"rejected": [],
+"sha256": "9bce154169f9914ffa648abe8e76b06173e06588d11222fd3897b193430096aa",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7232,
+"errors": [],
+"kinds": [],
+"level": 360,
+"python_gen_s": 1.264,
+"rejected": [],
+"sha256": "d4ee8fbb6654d125eabc4a554819a17e2aaad7e47e22e946e03aaf2c4617c65a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7260,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 361,
+"python_gen_s": 1.0,
+"rejected": [],
+"sha256": "02bba113c1f6f1cbbd7963210f535ef86b5c889ad7b3a3733cad20aeb5e72f1f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 9086,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 362,
+"python_gen_s": 10.519,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "94849ac08d2ed11e7fb97e23196729c00b0d30e866a0b0a0910d642695b70b6f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9689,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 363,
+"python_gen_s": 15.87,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "dadbd7f7f3b92b3257180b294509a27700b5e06ab26e3e2cde0b482e7fabd943",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10993,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 364,
+"python_gen_s": 27.918,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "d8d4b653a03cb3f5c49e26cf39216fc5099ee7f519ff6dcb216bb0915a7bb51d",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 3432,
+"errors": [],
+"kinds": [],
+"level": 365,
+"python_gen_s": 2.963,
+"rejected": [],
+"sha256": "ffe31791018522d08d0a594b08d0296ff53b3fe4735fd8a27f007fafb8ef06f4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 16563,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 366,
+"python_gen_s": 21.788,
+"rejected": [
+"box layout"
+],
+"sha256": "15e9ffd0142254b48073611236a9a33e8ba0cb931ac824329e2c6116aaf237c4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9268,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 367,
+"python_gen_s": 16.268,
+"rejected": [],
+"sha256": "ce8cdbcdf295e458bc4152109a8d46b2e9e767580e47ea8f802990b39ff7cc66",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7298,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 368,
+"python_gen_s": 5.845,
+"rejected": [],
+"sha256": "fca3abc3dc4250b5e5ad3b0b3cadaff5d5ae95c2291d4e4178e12436b137c8e2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 15593,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 369,
+"python_gen_s": 13.367,
+"rejected": [
+"tape layout",
+"tape layout"
+],
+"sha256": "8ccb8dff8f29c8c28d2185f83d47498aab8e1aea04382e4d3b06bd619365eb78",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 3751,
+"errors": [],
+"kinds": [
+"door",
+"elevator"
+],
+"level": 370,
+"python_gen_s": 0.682,
+"rejected": [
+"elevator layout",
+"elevator layout",
+"elevator layout"
+],
+"sha256": "b62f025f1f91cb14a8ac2a6c62bd2741c26e968972114f069d9bde8bfd1868a7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5701,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 371,
+"python_gen_s": 2.133,
+"rejected": [
+"box layout",
+"box layout"
+],
+"sha256": "aa984e35ff3a1b66fca72430184428f9c9aea81d38ea315a9fc38a81282df642",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 2686,
+"errors": [],
+"kinds": [],
+"level": 372,
+"python_gen_s": 1.452,
+"rejected": [],
+"sha256": "a0186e1eb26108cfeb1deaa64fdade30f13cfa7015da04fa6892af9165827d1b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 9433,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 373,
+"python_gen_s": 10.003,
+"rejected": [],
+"sha256": "e812df9097b6fdb7bcc41a685de72825d66884e764f929f77f013c80264af2bc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 12126,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 374,
+"python_gen_s": 7.352,
+"rejected": [],
+"sha256": "f5cf5df3d64beb7dcd4d3880f7798e35df99c75c7f8ff37a54d9d6410c6cda16",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 10401,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 375,
+"python_gen_s": 10.417,
+"rejected": [
+"peel stuck"
+],
+"sha256": "6244eb853f11ef41c7d7150efd24d236376b4a4ee7b9733729dc66cfd5fdd33c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 9721,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 376,
+"python_gen_s": 17.744,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "cde440da726d43d468ae21f1d0571b184e9d5c41262e1258ddf9868367f6d56e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8410,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 377,
+"python_gen_s": 6.241,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "23e5a557c06976319f61b8c71a525710c1083aae051d1725ba5d3455a5faf092",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7430,
+"errors": [],
+"kinds": [],
+"level": 378,
+"python_gen_s": 1.639,
+"rejected": [],
+"sha256": "faee4465f892917b81512380a8592d0436cf33ed28b6c0e390dca112920ba0e8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10549,
+"errors": [],
+"kinds": [],
+"level": 379,
+"python_gen_s": 1.472,
+"rejected": [],
+"sha256": "a78077f25fe7fd4a7a45a83bd72141a32c234f8f27c406d755a32df45032f9f4",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5441,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 380,
+"python_gen_s": 0.736,
+"rejected": [],
+"sha256": "9bee8a20e9e7d3cbf25c4ea27ccacee5c50d1697e4274576e6d83081cacda645",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5277,
+"errors": [],
+"kinds": [],
+"level": 381,
+"python_gen_s": 2.362,
+"rejected": [],
+"sha256": "f7bb652d826943c858e3381e6cfaf4ec00ebe2a91eb0eae024c2ee906ab875f1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11037,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 382,
+"python_gen_s": 18.374,
+"rejected": [
+"peel stuck"
+],
+"sha256": "d1911218aa50df68e387a795a36165d424bf1456c9f8d65a006cfed5885c87e9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8670,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 383,
+"python_gen_s": 1.678,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "a4cb6587dfd4e3249a6e4aed504b6cc6fd22af4ae5f620459caccf3718428e79",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 13621,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 384,
+"python_gen_s": 11.385,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "ba0ceb0a4a485a9bb5845b5415e3085e531d6f6e2b698c4256391b6d318009af",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9707,
+"errors": [],
+"kinds": [],
+"level": 385,
+"python_gen_s": 13.499,
+"rejected": [],
+"sha256": "2a10078308ae35fabd6da4edd6a882ec6e93fbd55b31c198cf2af382cc1f3446",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5689,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 386,
+"python_gen_s": 1.714,
+"rejected": [
+"peel stuck"
+],
+"sha256": "4d5817d9475aa858ef1cf5a48fec7e91ad217a487d97c248f9cbc7f2bde93a0a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 5804,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 387,
+"python_gen_s": 6.57,
+"rejected": [],
+"sha256": "1741f183c07ebd2b625b320ca35199505856010c32a74501cccc2ee6bb2c05e7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8327,
+"errors": [],
+"kinds": [],
+"level": 388,
+"python_gen_s": 1.122,
+"rejected": [],
+"sha256": "467b2c6cb00784cd383d37c2dcd40c7a1ba3be3f6343ee2dc979678f03d17a6d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10959,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 389,
+"python_gen_s": 2.103,
+"rejected": [],
+"sha256": "bc5a8ab2073ee7c830291998cf6337dd2c7e1f4f346552afa3c5920f417b0db4",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 3770,
+"errors": [],
+"kinds": [],
+"level": 390,
+"python_gen_s": 1.501,
+"rejected": [],
+"sha256": "4cfb7c5775797e8d5cbe8f76e42da1c9633cd9eb3b623fc197c0a1f266f60296",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 4023,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 391,
+"python_gen_s": 2.366,
+"rejected": [],
+"sha256": "db9a88b3e1bce7503aa75ceeaa588650915e5a248373c04fd04d75b9bbb64aff",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 2697,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 392,
+"python_gen_s": 0.628,
+"rejected": [],
+"sha256": "e36ab265fddc95340563eea5158b4042f85f61d49ab634ef8714a341800bfdd1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7537,
+"errors": [],
+"kinds": [],
+"level": 393,
+"python_gen_s": 1.523,
+"rejected": [],
+"sha256": "2c948a32d0a847067234c11ae8026bad3ada212e1dab8563ab4a346379db4f03",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9676,
+"errors": [],
+"kinds": [],
+"level": 394,
+"python_gen_s": 2.657,
+"rejected": [],
+"sha256": "34aba36bdf7744ae7fba1ff557b4ef48e5895375fe75da5e308166435203590d",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7444,
+"errors": [],
+"kinds": [],
+"level": 395,
+"python_gen_s": 1.326,
+"rejected": [],
+"sha256": "bbb9ab7ad0bdff8d0614eeb354da5210e4621db0b48e8ce65f2bb80965cf1732",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11995,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 396,
+"python_gen_s": 9.125,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "56092a7e4da3d2b5a79aa5015b5454f670085803a8263e64d3ddeeac9eb67b53",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6207,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 397,
+"python_gen_s": 1.65,
+"rejected": [],
+"sha256": "47f2353b5bdedf4b319dffa7dff16c76ddde4b613d180dfc63a4136ff2c04d27",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 8936,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 398,
+"python_gen_s": 6.988,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "cb49da6a393f870acfc7e81b985224be38df55ee2b8a0890c29d826e7c465411",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10078,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 399,
+"python_gen_s": 3.636,
+"rejected": [],
+"sha256": "a8584ea9ad8c6b8a30063d7bb735a71cda37084079a49bb2b7ca19fa74a6fde9",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7031,
+"errors": [],
+"kinds": [],
+"level": 400,
+"python_gen_s": 1.17,
+"rejected": [],
+"sha256": "9f0e29a56a6689b9a60076d585b08b7b06dd624eea18323000ae823febee354a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5290,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 401,
+"python_gen_s": 0.793,
+"rejected": [],
+"sha256": "edc479f6b86d194d3aaf26f295dbb831e971e4b97e9b3e1e62c8a6c6405bb74f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 10925,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 402,
+"python_gen_s": 9.953,
+"rejected": [
+"peel stuck"
+],
+"sha256": "4e47ab25633c4041773d777cf1ed6ed5030d34cb6246d46e8cdb943524ea0628",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 13038,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 403,
+"python_gen_s": 9.862,
+"rejected": [
+"tape layout"
+],
+"sha256": "ffec6e78dded446fdd45d6b0e52192728852ed4c145ab5fd71337092b175a0b7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 10653,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 404,
+"python_gen_s": 10.037,
+"rejected": [
+"peel stuck"
+],
+"sha256": "0848c832123e22e4adb60c5503a8aa68709e2ca914c30c1fd8ef8eba00bded9a",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9943,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 405,
+"python_gen_s": 1.211,
+"rejected": [],
+"sha256": "7c5708015b5791adbad9b33f7b6529dda61d1321453dacc3254b9fe0370c621b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6314,
+"errors": [],
+"kinds": [
+"elevator",
+"pipe"
+],
+"level": 406,
+"python_gen_s": 3.606,
+"rejected": [
+"peel stuck"
+],
+"sha256": "86e000388f1af32f05f0043d6438efe85d76b6c172e806ed8ba19ab8c5f2c017",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 8184,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 407,
+"python_gen_s": 9.367,
+"rejected": [
+"peel stuck"
+],
+"sha256": "ad7e6869217e011fb221165b7be53a5d182ef97b081ec19110f93ef702e392fe",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9705,
+"errors": [],
+"kinds": [],
+"level": 408,
+"python_gen_s": 4.229,
+"rejected": [],
+"sha256": "fe539b3b7b21a2df28794969fff06efc70e78ec5a32b5e3c962f48f48af18534",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 14144,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 409,
+"python_gen_s": 9.659,
+"rejected": [],
+"sha256": "19ec7df4728abd6af5202eaffae248e7701a42929c6f12d4026bbc7f35ecd8a9",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 7805,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 410,
+"python_gen_s": 4.389,
+"rejected": [],
+"sha256": "5f5696ca6caebcab33e4bc50afd7742bb2928fd3f35986e333ee427d45ea54f2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5414,
+"errors": [],
+"kinds": [],
+"level": 411,
+"python_gen_s": 0.546,
+"rejected": [],
+"sha256": "5dfc47054c120cd0c8d2dfc5de20df4b54d537385fc6ab40666ccc3782461307",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 7174,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 412,
+"python_gen_s": 4.952,
+"rejected": [
+"peel stuck"
+],
+"sha256": "f0acb6da32bce6871192d863554fdaa6687e021fc1d2e8eb6d3e9d402ce0b9f5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7781,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 413,
+"python_gen_s": 1.462,
+"rejected": [],
+"sha256": "c326a8b16d023c40b2d9b42dc4792981c9aa2703ea297636332d68588062c3b6",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 16267,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 414,
+"python_gen_s": 12.556,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "b05f4bf83c3095321b3dab9c216fda24a4251348d6d3227435cdee2097b62d46",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6810,
+"errors": [],
+"kinds": [],
+"level": 415,
+"python_gen_s": 1.581,
+"rejected": [],
+"sha256": "0d9ed63307752378ab63c9944a8f59eac407d58f37290ac4440e355267734a58",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 7131,
+"errors": [
+"L416: dead end: a random play order gets stuck with 6 arrows left"
+],
+"kinds": [
+"elevator",
+"pipe"
+],
+"level": 416,
+"python_gen_s": 4.389,
+"rejected": [],
+"sha256": "eb063dd57452c16f7753e148d9e04421123dec411834f6b54ed3916165ea227e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10234,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 417,
+"python_gen_s": 3.265,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "cb6c9aea59252b7af0c181561fd20af67222ec08010328203cafe87702a7f118",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 9744,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 418,
+"python_gen_s": 9.177,
+"rejected": [],
+"sha256": "05030ec481d90e0cdf6aac4a24465668df9178c72c7a70e0dd6d63b7702ea706",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10845,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 419,
+"python_gen_s": 2.38,
+"rejected": [],
+"sha256": "27ba7aff27936616cb4fefde327f6cf5660cf1d3b43480d485402f22e465049a",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 3765,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 420,
+"python_gen_s": 2.06,
+"rejected": [
+"peel stuck"
+],
+"sha256": "2f73fd102313e7ba4a2ab03a75e552de2a9b81893e4fda2162a0e2b7e93a20ba",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5739,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 421,
+"python_gen_s": 1.544,
+"rejected": [
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "16f3973145ce96f9c955def461ba8f42394464764f1f66defcd3864854ab1a3a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5778,
+"errors": [],
+"kinds": [],
+"level": 422,
+"python_gen_s": 0.153,
+"rejected": [],
+"sha256": "a10da2bd3142b88e0b46f973e26a6d86eea544e57cad18a55521959caa462b4e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 6104,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 423,
+"python_gen_s": 5.114,
+"rejected": [],
+"sha256": "9c88973b0e17cd958160f2ea3c6d079a7c692806852e5fb623f14871ff277df8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 14027,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 424,
+"python_gen_s": 14.837,
+"rejected": [
+"box layout",
+"box layout"
+],
+"sha256": "934f268a6361c1120f0e76a80e3f25b9fc936823da26326f39f9fb34f7c5eff1",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 3223,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 425,
+"python_gen_s": 4.219,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "d88d0ebb1b6038e20ffceb69b0b7bc7c9018b81a7d5e698a02d9199337a2ac43",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4920,
+"errors": [],
+"kinds": [],
+"level": 426,
+"python_gen_s": 0.708,
+"rejected": [],
+"sha256": "a65c7b9889eba1210aeaf31b9cbb32dd3af5c34bdac245b3cd84c8bd954636b1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 8634,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 427,
+"python_gen_s": 12.534,
+"rejected": [],
+"sha256": "58d6ee70f17a913cc91b343b9d12d8ff3b573c9864cd5955bcae9741728c10f5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6213,
+"errors": [],
+"kinds": [],
+"level": 428,
+"python_gen_s": 0.757,
+"rejected": [],
+"sha256": "352107d3c0e0087e77ca3e95f5a55b8d3dc2f65cd8db18a19a39113b4919bafd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11226,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 429,
+"python_gen_s": 8.215,
+"rejected": [],
+"sha256": "d5cf4239a722b6ce54fd76a7a65b97640e3ce34314d51f62b0b407cad579ab34",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7649,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 430,
+"python_gen_s": 7.928,
+"rejected": [],
+"sha256": "111c1f4cf3cba8685f0469eefab864e5088bdf7e3d7a893d578a78fcf44201c1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6928,
+"errors": [],
+"kinds": [],
+"level": 431,
+"python_gen_s": 1.836,
+"rejected": [],
+"sha256": "7a059c4b0ce17706b5a026c10c2b641bb17f94ad01ffbcf298bc7ad3d9bffbea",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8119,
+"errors": [],
+"kinds": [],
+"level": 432,
+"python_gen_s": 3.378,
+"rejected": [],
+"sha256": "e9d7df2908bcad8a0e5ece9e03b15562c9a66d3339c78671e1e7b7b6d3118080",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8461,
+"errors": [],
+"kinds": [],
+"level": 433,
+"python_gen_s": 12.85,
+"rejected": [],
+"sha256": "92be5e42fae9d925e4697e168b22ed90b0e4836869af719d0cc0629892e3b25b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 10415,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 434,
+"python_gen_s": 19.331,
+"rejected": [],
+"sha256": "677e86a895cb2dadf4a304392849c24b1c2e3d39e7d48a49638a64eb7d81a2c7",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 4165,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 435,
+"python_gen_s": 1.572,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "16b80a08614d0a7f244c7c42e55bd5a020938d3cbe830af20905e6fcb170da0b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11372,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 436,
+"python_gen_s": 4.934,
+"rejected": [],
+"sha256": "c255e3415ff4c5619735b317e21d3a143a8cd290630dd24aeee16d32f6ee45da",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8272,
+"errors": [],
+"kinds": [],
+"level": 437,
+"python_gen_s": 8.53,
+"rejected": [],
+"sha256": "3634b3a78d5f02661afab769561238d532fc52348a69d73f9f0b3b9dd174edd1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 8610,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 438,
+"python_gen_s": 5.541,
+"rejected": [
+"corner layout"
+],
+"sha256": "1009b9bcb8dd500e6a23981725b24976e80b1e0cabdffb9c007e2dc7cca8c3c6",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10557,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 439,
+"python_gen_s": 2.324,
+"rejected": [],
+"sha256": "03fdee8bb463b449291ca6a728280b8ef7a7eb5a6cf4a01b3385e7f42cede3cf",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 2266,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 440,
+"python_gen_s": 0.672,
+"rejected": [],
+"sha256": "2810de1d84904f1c5a9509ff073a6e3bfa0f285bca797db993e9753c919a2ea3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 6187,
+"errors": [],
+"kinds": [
+"elevator",
+"pipe"
+],
+"level": 441,
+"python_gen_s": 3.342,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"platform too small"
+],
+"sha256": "480174fce7e5ff0165c6bdffbecb4d6aca836f6b90a264348091b3a3d7ac6a58",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 4738,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 442,
+"python_gen_s": 1.546,
+"rejected": [
+"pipe layout"
+],
+"sha256": "e3f36150afcddd046cad52f29cd3ffb3ce252e01660ccd925366888ee9aeca40",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 8675,
+"errors": [],
+"kinds": [],
+"level": 443,
+"python_gen_s": 9.851,
+"rejected": [],
+"sha256": "747e537f11d78a3fba2b015640d1372a188186f799f57550c3284da7eab96f78",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 14573,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 444,
+"python_gen_s": 10.01,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "82c23ad37b61fb49364465b1adb537af66824a70543eb40940e75445a7e29e93",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 11872,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 445,
+"python_gen_s": 7.741,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "c6229b0639b68ff2153a964519885e24d5618dddf213a4381697f0638e8d4f9a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9799,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 446,
+"python_gen_s": 5.814,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "3ada1c8fd5795ded8a9674c559d0391f2fe5286ddf29b2ff063822b939054e51",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6397,
+"errors": [],
+"kinds": [],
+"level": 447,
+"python_gen_s": 0.123,
+"rejected": [],
+"sha256": "096e1db3fe75aefc4dfeb30af9f12513692c301c98313addd744fe54d5f61be9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 7797,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 448,
+"python_gen_s": 4.123,
+"rejected": [
+"peel stuck"
+],
+"sha256": "c7719e222283cc6c8402f9e6ff0a03e7931f23a80e67b8ec17671a37c016bc74",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 10809,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 449,
+"python_gen_s": 5.771,
+"rejected": [],
+"sha256": "1a4f1d0456cfe8e6a660a05a017fffd31de4a60ef6a73da515e11d10e17c7fd1",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5557,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 450,
+"python_gen_s": 4.848,
+"rejected": [],
+"sha256": "5a3c69e1dbdc2f285a06197d71b8a5238937014fb12dc422f01396506c7fd121",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5342,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 451,
+"python_gen_s": 0.937,
+"rejected": [],
+"sha256": "55a2f9d204ac9387e4eea344fdb047e769afd16999cfcec7150bbccc69f5ed6a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10147,
+"errors": [],
+"kinds": [],
+"level": 452,
+"python_gen_s": 0.617,
+"rejected": [],
+"sha256": "bf4d8d4dcc0d61aee2c3a0e40c9534cdc2cbcab980f0eda9ce58c54e5f2e7d3d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8419,
+"errors": [],
+"kinds": [],
+"level": 453,
+"python_gen_s": 0.478,
+"rejected": [],
+"sha256": "f156e343cd4ffdd8138a98a7167955c3085fae58659e177fc5a1e24479e47ef9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 10364,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 454,
+"python_gen_s": 19.044,
+"rejected": [],
+"sha256": "403b227be78ecdd9616396d22bedaec5f918594ad16a1b24d5a4b7dcbe448ce7",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 10172,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 455,
+"python_gen_s": 17.176,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "6050c4e024d7a4f2d88de09f6784333e8390d85b76eaddda7c110160007b57bb",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 5821,
+"errors": [],
+"kinds": [
+"elevator",
+"box"
+],
+"level": 456,
+"python_gen_s": 3.062,
+"rejected": [],
+"sha256": "321674884daf3c588b93b9d8255354c96a3abd69a8aabb3bc5e639e9bca6e06a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5764,
+"errors": [],
+"kinds": [],
+"level": 457,
+"python_gen_s": 8.547,
+"rejected": [],
+"sha256": "d95f2ca1243fcebd0c0da7dd5050406faeae3959c0876c2b7df018d270184a71",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 8186,
+"errors": [],
+"kinds": [],
+"level": 458,
+"python_gen_s": 3.097,
+"rejected": [],
+"sha256": "c28f2cfe9469191f3a6d1b45d58d53dcd6e6f6b5d007e2be7faa3200e15bd473",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 11562,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 459,
+"python_gen_s": 34.165,
+"rejected": [
+"tape outside the silhouette"
+],
+"sha256": "eafb1b293796fc31dea8f04a68169b4e062df6779254f9f126a5cf9ecf4eec20",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4281,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 460,
+"python_gen_s": 0.135,
+"rejected": [],
+"sha256": "0b8ce5c28bbaf839346d018eab0cdb13596f9f17e71b94974511bc4a26759517",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 4275,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 461,
+"python_gen_s": 2.475,
+"rejected": [
+"corner layout"
+],
+"sha256": "38129a4826ee867bae899ce83701e19e6108a57992b2bea9015a043593572f96",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 4015,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 462,
+"python_gen_s": 1.108,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "5697da42ef48687907551b49cdb6f7fad708e78675f4b76341d7bd8c5b411ac3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9723,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 463,
+"python_gen_s": 3.125,
+"rejected": [],
+"sha256": "16df87247ff9831924cc3c21c4e799059073d2434d8c89c84331b7647897c84c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10954,
+"errors": [],
+"kinds": [],
+"level": 464,
+"python_gen_s": 4.313,
+"rejected": [],
+"sha256": "797fabbcd36004c48c3dbbd85b8b522ad5c9d66c38e10457c6c021e3fb50898e",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 7389,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 465,
+"python_gen_s": 12.29,
+"rejected": [],
+"sha256": "5dbbb5acf51c1900b70282e03c85d0a2b80ccdd80f6770e8f5eba61a708bdaff",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 8187,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 466,
+"python_gen_s": 10.965,
+"rejected": [],
+"sha256": "a3a10b9bce49d314da26602339e8c8bc100b945c283a866402fb0b2ca4bb39bc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6380,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 467,
+"python_gen_s": 0.983,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "94f1afe7199fb6aca79813cdbc209701b51e02e7051bc017040651b782084e2a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6434,
+"errors": [],
+"kinds": [],
+"level": 468,
+"python_gen_s": 2.634,
+"rejected": [],
+"sha256": "883c7217031c9aee36e4f2e5be68e442caa6929641c1c47b8c65ba26ad154294",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 13040,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 469,
+"python_gen_s": 12.109,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "ca80000457869e64af78bb84b495fdca9bce6acbe731af119269a2e13b56d6e5",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6435,
+"errors": [],
+"kinds": [],
+"level": 470,
+"python_gen_s": 1.9,
+"rejected": [],
+"sha256": "7e2e297d151c62a58ded7b70723fd5a5efcd2cba176871adc0b7bd1cd22dac3e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5492,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 471,
+"python_gen_s": 3.241,
+"rejected": [],
+"sha256": "2b914f01e39bc527f0b2cebe3d5695b24dba5fa3be26257132ef6e0bd3b5ac92",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 8652,
+"errors": [],
+"kinds": [],
+"level": 472,
+"python_gen_s": 2.055,
+"rejected": [],
+"sha256": "bab6a6cd7d43d8f283c0bb6e7ea935b6fc03e43b1761df18b68c6455763f35a4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8339,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 473,
+"python_gen_s": 0.375,
+"rejected": [],
+"sha256": "a0edca5c87a9493bf8325cdc0edc19bab8fc47ccdf303cdf4fd33d484754a4a0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 13217,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 474,
+"python_gen_s": 13.344,
+"rejected": [
+"corner layout"
+],
+"sha256": "0c56b30d805c61fe46f2b55abf51b788a7393ab37d1bd7e36eff7f8fc67c7674",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6215,
+"errors": [],
+"kinds": [],
+"level": 475,
+"python_gen_s": 7.462,
+"rejected": [],
+"sha256": "082bde2a4be186bb43559c064578ef32988858efdbce7815c5480598cb61591d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5222,
+"errors": [],
+"kinds": [],
+"level": 476,
+"python_gen_s": 3.391,
+"rejected": [],
+"sha256": "a1b15add8df12b8a2b4341fd481759e2bbabdfc69dd1ff24010f5f19d302bdc7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 7643,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 477,
+"python_gen_s": 6.869,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "5c4bbbc14939665a4a89a5a5b95e3c81f4d41b359b6c99bf6e0791168ea2d816",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9690,
+"errors": [],
+"kinds": [],
+"level": 478,
+"python_gen_s": 6.777,
+"rejected": [],
+"sha256": "cd0aa0a06203b52d3052b221cf3c64c2e700731bfb9450ad15d6847ce9c87f21",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11280,
+"errors": [],
+"kinds": [],
+"level": 479,
+"python_gen_s": 5.791,
+"rejected": [],
+"sha256": "4433e7298d9752ac8af9a613600e038266b427a49763de14243255095d184cf7",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 5464,
+"errors": [],
+"kinds": [],
+"level": 480,
+"python_gen_s": 4.017,
+"rejected": [],
+"sha256": "804218f668d9d591720e77bc0559e748ac5a71297630750b675a3bd4f3f6ce92",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8340,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 481,
+"python_gen_s": 6.254,
+"rejected": [
+"peel stuck",
+"tape layout"
+],
+"sha256": "5510ddbee1f92b6c5f41646e0d12e5b3e4b42f1cb9ba77ece901a58b35d5eb37",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5470,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 482,
+"python_gen_s": 1.847,
+"rejected": [],
+"sha256": "c2454593afc3ba2cdfa9dd1cc2cd1f5684967d04728d737fb6dade971a027f07",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7881,
+"errors": [],
+"kinds": [],
+"level": 483,
+"python_gen_s": 1.839,
+"rejected": [],
+"sha256": "edccd81797d708d085b8f9f892386a4bf9cd9fc56078e804bf475ccaa355983f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 11901,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 484,
+"python_gen_s": 24.604,
+"rejected": [
+"peel stuck"
+],
+"sha256": "90f48e0d9308033ad460a41b4e92351aa3cb82fef7dd55cecb0129c8e68e6b3b",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 9359,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 485,
+"python_gen_s": 5.573,
+"rejected": [],
+"sha256": "fd21b54bfed292fc47bf8de3ad219cb0b684953f0077c7558fe9714494d75d4b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 7708,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 486,
+"python_gen_s": 5.52,
+"rejected": [],
+"sha256": "7a0f718cc97c7ab1de8768b8a5d8a175627b7aed35cfb88bf3d405f575c0edde",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 7538,
+"errors": [],
+"kinds": [],
+"level": 487,
+"python_gen_s": 5.569,
+"rejected": [],
+"sha256": "cef1ec326d9183832a78de0d17c5181e8aec5f6c8429d03e2816a5a8995fb9ee",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9788,
+"errors": [],
+"kinds": [],
+"level": 488,
+"python_gen_s": 3.67,
+"rejected": [],
+"sha256": "554ced10ed6d399f2691453f3f3aedf5d988f6ab8f43bc4b2d5692e206da9865",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10750,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 489,
+"python_gen_s": 0.715,
+"rejected": [],
+"sha256": "aa8a69bd438f2a5cff15ffcd8271c8ccb39aac527c7db08c3dca689b1789fd9b",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5152,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 490,
+"python_gen_s": 2.429,
+"rejected": [
+"corner layout",
+"corner layout"
+],
+"sha256": "524c5b9067578224ce3edbbd4a15979a15fa377ef9bad2ccb351fc2136d5c633",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 3969,
+"errors": [],
+"kinds": [],
+"level": 491,
+"python_gen_s": 0.071,
+"rejected": [],
+"sha256": "89ea3b4b389fa1712eb14f833ac8f50bd5fca85b2872fe3e8b6cc97dca15f6c1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5994,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 492,
+"python_gen_s": 0.997,
+"rejected": [],
+"sha256": "1c473bcb51601f1eefaa7407bee7628750ac28d43efe5508eb7fbd0b1271c4cf",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6357,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 493,
+"python_gen_s": 2.043,
+"rejected": [],
+"sha256": "0c50850dad3d8262512d3c5da8d9d15aff4fa647e50f96f4d4aedd20219ff097",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 11652,
+"errors": [],
+"kinds": [],
+"level": 494,
+"python_gen_s": 31.543,
+"rejected": [],
+"sha256": "aa4f23cafcc06206544c3c5eb8b66e8afd09f25b2d2d064aea4cc2b3dc685b35",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 3696,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 495,
+"python_gen_s": 1.578,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "5b559300d26ff9e67cadb4db7313fff940402c31e4bb0e0c7dc7dc54ef0426e9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5309,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 496,
+"python_gen_s": 7.578,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "8b471845cf4720974b5474a1f9cf8a4e66df73a91a1a913b5745a0bde277df99",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 8236,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 497,
+"python_gen_s": 4.023,
+"rejected": [],
+"sha256": "b77f8ec35dd8bd4909a34cb099c0cf7470aa7690d24532c4dedd13284a309563",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6123,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 498,
+"python_gen_s": 3.539,
+"rejected": [],
+"sha256": "0a4b53684a068c7cfd4ecfe1404b226ae650a3aa0aa9e0b42e086824d271e38b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11566,
+"errors": [],
+"kinds": [],
+"level": 499,
+"python_gen_s": 3.909,
+"rejected": [],
+"sha256": "596fed24fd1a37a7b06197b2ccf11492beefae5234e9bfaf1b2f42f725c5e1f4",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 7610,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 500,
+"python_gen_s": 11.367,
+"rejected": [],
+"sha256": "2f436512e07fa71951a804a8f1ff0ee1539ea7d9f54debeacda08ac0ea82fae3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7104,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 501,
+"python_gen_s": 0.426,
+"rejected": [],
+"sha256": "ddf4de3e3d28fb5cad427de22779af179854da5b0226ddd56a60b5da54140744",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 11515,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 502,
+"python_gen_s": 12.181,
+"rejected": [],
+"sha256": "19efd91c620d084c016acf4b62967dde1d9d3c3461a9662a01f0e93b609f25ca",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9046,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 503,
+"python_gen_s": 13.328,
+"rejected": [],
+"sha256": "58cd831a026b5d8947c22fdcaada1d3f15f442e7841607b85b1c9ee73d99d7ea",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 14644,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 504,
+"python_gen_s": 12.675,
+"rejected": [
+"peel stuck"
+],
+"sha256": "8cd1a6d9eea69f4a0a9473c5b5b5833680ec10a47c516e05a8ba082931893cb0",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 3889,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 505,
+"python_gen_s": 1.05,
+"rejected": [],
+"sha256": "a11d6eeef1ac4f54cc385bb877846b1df8df7dc7a855730193b13b3d9a138ab5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11367,
+"errors": [],
+"kinds": [],
+"level": 506,
+"python_gen_s": 3.713,
+"rejected": [],
+"sha256": "7a799c4af9db7037058bb6122456ee92f3ddddf089df652c8a5f6f28f574478b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 8379,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 507,
+"python_gen_s": 12.096,
+"rejected": [
+"peel stuck"
+],
+"sha256": "27240b3b1082605ee6267711ea9d3f8f127d55d9881cb1d8b7c2aeecb3ba7bb9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6922,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 508,
+"python_gen_s": 4.882,
+"rejected": [],
+"sha256": "c6173ca9e2711122bf84945536fc5b1a230d2f205379180c54534815352ef6aa",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 13665,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 509,
+"python_gen_s": 15.037,
+"rejected": [],
+"sha256": "6a3ee0203a2c48421d2591e51dc7df215e04d2c6c55175afd7aadca7d1e9cf29",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 2623,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 510,
+"python_gen_s": 2.836,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "0435c08fe6b781494d1d2dc6362258938e068ff3f0945fbb5e40e00ff679a452",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4976,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 511,
+"python_gen_s": 4.977,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "b1ec5cf7884437cffba03f7b59fe3ab4a0d85c1698f6f7115a3fb40597cbfecd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 3519,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 512,
+"python_gen_s": 2.889,
+"rejected": [],
+"sha256": "65beb45e7d26b857ee7f3ac49c087c03a4d083fe18108075ed1071d357c7d36a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8947,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 513,
+"python_gen_s": 20.428,
+"rejected": [],
+"sha256": "9675f386289281b45ef8c7697bf380734d93301a8aa4fa18c9dcc1a59388ad1b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11431,
+"errors": [],
+"kinds": [],
+"level": 514,
+"python_gen_s": 2.996,
+"rejected": [],
+"sha256": "9a7876de898e7d5c5a9396fde658c36c7ad45c253940814b1e666b49c9f8c010",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 7227,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 515,
+"python_gen_s": 8.341,
+"rejected": [
+"corner layout"
+],
+"sha256": "49ab5c38d7659bd7ca6ecce2c95d00b738f5d3700d8bd21e80c031ad7a6515ae",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 14595,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 516,
+"python_gen_s": 10.479,
+"rejected": [
+"pipe layout",
+"pipe layout",
+"pipe layout",
+"pipe layout"
+],
+"sha256": "94cca06e690f15b2ca06bb58398ba9de5e563252b599cc1105fad05f2e2a5dc2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 7866,
+"errors": [
+"L517: dead end: a random play order gets stuck with 5 arrows left"
+],
+"kinds": [
+"elevator",
+"tape"
+],
+"level": 517,
+"python_gen_s": 7.009,
+"rejected": [
+"peel stuck"
+],
+"sha256": "f04c1267861016c643a585c011915b4ef12a6abd3b1202238edef9c0d595bb04",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 8032,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 518,
+"python_gen_s": 10.573,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "be3645bec754d80ef6023e7470a72560184919d769c46bef6635368df5d3d1c1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10422,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 519,
+"python_gen_s": 1.374,
+"rejected": [],
+"sha256": "7f9b9e226dbecaab3ac31c2fbb05c5423a70c4ed764be993930ed59073da6276",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7654,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 520,
+"python_gen_s": 3.559,
+"rejected": [
+"pipe layout"
+],
+"sha256": "1a4b63fc37feefa031eff1790231ad5589fcac7bcca61aa7efad22cd2e38c34a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 5362,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 521,
+"python_gen_s": 2.352,
+"rejected": [
+"corner layout"
+],
+"sha256": "cb4324d6ca12d2b6c88db070659d35692ffc330260134a63fd069853e1a0ee22",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 10076,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 522,
+"python_gen_s": 3.646,
+"rejected": [
+"peel stuck"
+],
+"sha256": "fd5e9d6004ca30953a983763e19eecebbca361bb59315cee8797175891414e09",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 8538,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 523,
+"python_gen_s": 2.266,
+"rejected": [],
+"sha256": "ef176ea871d641ac038377851d493f01c0064850fa30db5a5253c2f2d6c635e2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 9631,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 524,
+"python_gen_s": 10.277,
+"rejected": [],
+"sha256": "c4aa0e3f2a2ad4d45c7c1aef7829706878810fb1557f79c2b4b629761f15c74b",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 12544,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 525,
+"python_gen_s": 12.048,
+"rejected": [
+"peel stuck"
+],
+"sha256": "ca6f0a5d65307238fa542919c9fe50c0218b5b3246130ab41456210226ae73d3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5370,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 526,
+"python_gen_s": 4.502,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "d35905c1ba2fdbd74c2f045f8cbab63b171c7d7efa14bb33c1263fd126da3163",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4920,
+"errors": [],
+"kinds": [],
+"level": 527,
+"python_gen_s": 0.591,
+"rejected": [],
+"sha256": "2e92743063b550353294b69a35cf608729560a99046a11ab34e0379f1c142de0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8270,
+"errors": [],
+"kinds": [],
+"level": 528,
+"python_gen_s": 6.521,
+"rejected": [],
+"sha256": "87b94973a9a502e4443c8f35918ffef0970c1cde37de591628657f26a4433f8b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10910,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 529,
+"python_gen_s": 9.478,
+"rejected": [
+"corner layout"
+],
+"sha256": "d60074b7c56b89fb6ba073104a0c3cbd9daffcd7bb292ffb1ab65c6e24f47343",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 3932,
+"errors": [],
+"kinds": [],
+"level": 530,
+"python_gen_s": 1.177,
+"rejected": [],
+"sha256": "cfdaae18aadb79c90426624ac1920e3bfb8b6646e1d99cae18aea5970b8b38ed",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 4058,
+"errors": [],
+"kinds": [],
+"level": 531,
+"python_gen_s": 4.072,
+"rejected": [],
+"sha256": "5f01c6f3a8219d3b6d0f4edb9c4bd63d8af41833908a19bc85b5886e2c822548",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 2745,
+"errors": [],
+"kinds": [],
+"level": 532,
+"python_gen_s": 0.04,
+"rejected": [],
+"sha256": "b0d9b931937d513c522ad92da42b3c0ec9876ed4a1bfeec00dfe030cd4d6a0fe",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 10012,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 533,
+"python_gen_s": 4.085,
+"rejected": [],
+"sha256": "d67a2437bcda20ad66bf16ec9528ca02971e02120adeac75adb24a5924e33df7",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 16161,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 534,
+"python_gen_s": 20.491,
+"rejected": [
+"peel stuck"
+],
+"sha256": "fc9e26b4931ae36c448a5645de206d5e408a6d06924606193a753459baabecd2",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7314,
+"errors": [],
+"kinds": [],
+"level": 535,
+"python_gen_s": 4.572,
+"rejected": [],
+"sha256": "f8e67418415b9a5e0f1e8cace9fe7ccb6c1a9fe8e784699bda1a00a2acb577bc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10969,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 536,
+"python_gen_s": 2.526,
+"rejected": [],
+"sha256": "1f533d2e6dab742e6a8d49b451d18cb6735287e6db8e62719604074183dec3fc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 8665,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 537,
+"python_gen_s": 3.914,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "a8e2a073ff38456c1d2afe808d0a371b13a97f9089e415cda8ffa8d54a99212b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6705,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 538,
+"python_gen_s": 7.656,
+"rejected": [
+"peel stuck"
+],
+"sha256": "65fd7bfdf076624e03843fe4bde2c1d3a58941eb39f517b86ca2b661e3533677",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9824,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 539,
+"python_gen_s": 1.409,
+"rejected": [],
+"sha256": "e17632949e5b91759fc5ae702be1fe6d59951aa2e1ad7956fce6cb1505b7ae0c",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6432,
+"errors": [],
+"kinds": [],
+"level": 540,
+"python_gen_s": 4.729,
+"rejected": [],
+"sha256": "6804b53ea5e82bcc0dbb5f6ad800d480661a25a1736d0f28291f16705aaf50e3",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5521,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 541,
+"python_gen_s": 6.044,
+"rejected": [
+"peel stuck"
+],
+"sha256": "01a814b317f82a8c67a73aac502e7008a4e0fae00891d34f4580a8ad583541da",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 10910,
+"errors": [],
+"kinds": [
+"door",
+"tape"
+],
+"level": 542,
+"python_gen_s": 1.719,
+"rejected": [
+"tape layout"
+],
+"sha256": "0bf89583df33943bc088564248e39a75db2a72e977c90c0826d6f034ca24aa32",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8759,
+"errors": [],
+"kinds": [],
+"level": 543,
+"python_gen_s": 1.118,
+"rejected": [],
+"sha256": "5df2f759be80792ad2b956a538c50d3376d4832190c64b1395ac7684fb354d05",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 11543,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 544,
+"python_gen_s": 12.47,
+"rejected": [],
+"sha256": "ebe4425d25a3ed88456320cadbceddedf6cec0f99e49e8c2eb70cb7bc1faa244",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 7335,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 545,
+"python_gen_s": 5.846,
+"rejected": [
+"peel stuck"
+],
+"sha256": "bcdaa9681405b385652e0b14dbfd757d0931fc3af2e7a2774a61565436562b52",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5035,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 546,
+"python_gen_s": 0.635,
+"rejected": [],
+"sha256": "08bebd640bd5e38dd7a9b8e20fe30fa775983db939a6d9b9494d1e3d711fc49f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9373,
+"errors": [],
+"kinds": [
+"door",
+"elevator"
+],
+"level": 547,
+"python_gen_s": 3.416,
+"rejected": [
+"elevator layout"
+],
+"sha256": "1803be064482e6a8007e1d35d6eb21869a3d976f035337451c991cc063f4f152",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 9586,
+"errors": [],
+"kinds": [],
+"level": 548,
+"python_gen_s": 6.227,
+"rejected": [],
+"sha256": "48ba649b65b281664d7b3fb24cc9c0ccb53e4f977f38db71379b2b039b18e9bf",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11636,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 549,
+"python_gen_s": 18.086,
+"rejected": [
+"tape outside the silhouette",
+"tape outside the silhouette"
+],
+"sha256": "9a4586caa6c730a5b5c81e6d9c239fa46aba5d8e8500e87d337093262b41e5fe",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5300,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 550,
+"python_gen_s": 0.675,
+"rejected": [],
+"sha256": "42471933f54f13cf59d8603517b673d4aff0978d5baff6b49a5abb625777bd52",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 7620,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 551,
+"python_gen_s": 5.461,
+"rejected": [
+"peel stuck"
+],
+"sha256": "1bad743b999b4da88a1c4da79e6c2da20dcdf454ee822bcf125150b52e27b27c",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 5465,
+"errors": [],
+"kinds": [],
+"level": 552,
+"python_gen_s": 8.817,
+"rejected": [],
+"sha256": "caf2e87df62742842ed8968cc72105376b199e962468655873f89c5ea5502c7d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8059,
+"errors": [],
+"kinds": [],
+"level": 553,
+"python_gen_s": 0.492,
+"rejected": [],
+"sha256": "9ecbbb51928799923733e240327c28ec593f7a3ea95d67a0ff91e1e6d8fb0f57",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11383,
+"errors": [],
+"kinds": [],
+"level": 554,
+"python_gen_s": 5.893,
+"rejected": [],
+"sha256": "69115b98093f8bf308c780fba69e098899ed592d038bfadcb9ace86c284595df",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6950,
+"errors": [],
+"kinds": [],
+"level": 555,
+"python_gen_s": 3.941,
+"rejected": [],
+"sha256": "cbe692d5824f89a063aa69720e19f9b68171e42f1e6da32a58f2286b82bc7ee1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5831,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 556,
+"python_gen_s": 1.454,
+"rejected": [
+"corner layout"
+],
+"sha256": "18eff00e5951315898c4d6d109e692d2902ad858cff056991e21c3cb4cf612f8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 7590,
+"errors": [],
+"kinds": [],
+"level": 557,
+"python_gen_s": 11.892,
+"rejected": [],
+"sha256": "ddc68b55daea33126ba3c71b5797a520671d1c68e7f7548312ae708f63bd65fd",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 9497,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 558,
+"python_gen_s": 17.138,
+"rejected": [],
+"sha256": "8627b16f9f467a7c7f4947af58b89120746b78d56fa84f903c1cd0952e2a1d1a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10236,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 559,
+"python_gen_s": 1.306,
+"rejected": [],
+"sha256": "059b7131afad60bf76b503746957ce3feedc092cdae888641ca008558b6b833b",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 4188,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 560,
+"python_gen_s": 2.99,
+"rejected": [],
+"sha256": "51c7041fe03e8fa59f4bfa90784da651da06f1df15eff34374a646cbc01204b5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 4966,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 561,
+"python_gen_s": 4.412,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "e066ab51d3e8c8c0a49622f98d8e65f618a4688c0d1520b8a0e805adb1dda7cc",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5773,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 562,
+"python_gen_s": 0.177,
+"rejected": [],
+"sha256": "d8a0818f85d67651da92ea2e68c467fdea12ccdf760ea420b9b64305cb5ac7ca",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6159,
+"errors": [],
+"kinds": [],
+"level": 563,
+"python_gen_s": 7.707,
+"rejected": [],
+"sha256": "bb43c17fc2b89bad93737d2d130a01b686bc9d3efca19c93d1d487deb917734f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 11527,
+"errors": [],
+"kinds": [],
+"level": 564,
+"python_gen_s": 18.986,
+"rejected": [],
+"sha256": "b4d90f1fab25dd4cf0461b74623016f5ef1c154ecef36134a93e1c0e70eda3ec",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 3309,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 565,
+"python_gen_s": 4.04,
+"rejected": [],
+"sha256": "aa5be70824a325a7edf50ef9adfcd8bb1bbf5742b5e800add70fc1f27cdc2e22",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4925,
+"errors": [],
+"kinds": [],
+"level": 566,
+"python_gen_s": 0.296,
+"rejected": [],
+"sha256": "67841a8216b688fbc5c63277b708fe159fc213a8327fa01636edc1eb7dd25ea5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9302,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 567,
+"python_gen_s": 12.055,
+"rejected": [],
+"sha256": "594fff54da665021e02ec4d8528b6df1f0b89c49acb9201b663f9c26af19fa53",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6119,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 568,
+"python_gen_s": 0.748,
+"rejected": [
+"peel stuck"
+],
+"sha256": "59196478adf1cf480b22ac7138e87e4c9cbac5a825259123d3340f779bb2c011",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 11987,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 569,
+"python_gen_s": 3.581,
+"rejected": [],
+"sha256": "cf887935daa56a566f43d861a918bc7019c57315351b6d5fb7fd5764ac9dfeae",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7166,
+"errors": [],
+"kinds": [],
+"level": 570,
+"python_gen_s": 0.336,
+"rejected": [],
+"sha256": "9b07b6f641ec82a75b183cbc0ec3307b09fe19b8f0f8017bb0767ba594cdea95",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7216,
+"errors": [],
+"kinds": [],
+"level": 571,
+"python_gen_s": 0.334,
+"rejected": [],
+"sha256": "c9afa3caa459a77d890c1453665e0bf0c9a8f5a3f6888a8fde3b4c670ac7b538",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 12750,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 572,
+"python_gen_s": 10.211,
+"rejected": [
+"pipe layout",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "1f0787989de6baa2029c801df82f8c35fab27ae34cb388ce58fb4c02a7d81608",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 12715,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 573,
+"python_gen_s": 9.129,
+"rejected": [
+"peel stuck",
+"pipe layout"
+],
+"sha256": "a74e1efbc8c6ccbdd66d13d8c74779e1b99a4b3433d91fab51da5ae66b80661b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 10558,
+"errors": [],
+"kinds": [],
+"level": 574,
+"python_gen_s": 1.252,
+"rejected": [],
+"sha256": "12eeeeeba9b9af104779d68d709d2e719e4d0d62d620d9781441deb267c64579",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6202,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 575,
+"python_gen_s": 2.075,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "ec12e5aa9d390996326ab01d8eb215df626a65c94302258222a1df1f525305d8",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10495,
+"errors": [],
+"kinds": [],
+"level": 576,
+"python_gen_s": 2.173,
+"rejected": [],
+"sha256": "0b7dd19722f28eb7d0b663a98333c88362bad577931e2349db19e4376177c808",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 8576,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 577,
+"python_gen_s": 7.947,
+"rejected": [],
+"sha256": "5a78bd5e8f76cb460bbe28f524d110cce279ba032755ed92edba433f0ea5815e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 7074,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 578,
+"python_gen_s": 7.325,
+"rejected": [],
+"sha256": "c36a8a923dac015dcef56dcedda39f4212912c85f1d71b3895628d493047f297",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 10372,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 579,
+"python_gen_s": 3.94,
+"rejected": [
+"peel stuck"
+],
+"sha256": "77dad7a28d953589ce99e39313ecbd083fe2733589fe65fe78629fc42d768236",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 2989,
+"errors": [],
+"kinds": [
+"box",
+"tape"
+],
+"level": 580,
+"python_gen_s": 2.431,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "31d8eff539581c1b8af2de60df3ed94554524c7a465779feff5900e51514d4ae",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 4203,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 581,
+"python_gen_s": 3.605,
+"rejected": [
+"peel stuck"
+],
+"sha256": "fbe61b478e830df9ef996888efb98df70fa51b3ea87dec6d7ca3d9b083a7498a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 2321,
+"errors": [],
+"kinds": [],
+"level": 582,
+"python_gen_s": 2.724,
+"rejected": [],
+"sha256": "508ed06cf2f4cf4dd5983dc7dbda31e76d527666dd3aa0c9713220a68e0f0f29",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8804,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 583,
+"python_gen_s": 9.965,
+"rejected": [
+"peel stuck"
+],
+"sha256": "b2483d7cd7f9aa52fba732f64386ff627d0459f6644716d81372382b38326340",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 13559,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 584,
+"python_gen_s": 10.183,
+"rejected": [
+"corner layout",
+"corner layout",
+"corner layout",
+"corner layout"
+],
+"sha256": "82dce6cd72613d6dfae58d80c9e8e048f8ad4918fdf6d52e81782d9066f10d5a",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 7433,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 585,
+"python_gen_s": 5.079,
+"rejected": [],
+"sha256": "c04a2eacf31218e14d3af2916b1d60c1bb1882fbbbd80978ff814301e20aa38e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9722,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 586,
+"python_gen_s": 3.309,
+"rejected": [],
+"sha256": "10d4522b708c60afb06fe077838552566809c92bdf5ef7d9caa066f3977c8a2d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6471,
+"errors": [],
+"kinds": [],
+"level": 587,
+"python_gen_s": 1.332,
+"rejected": [],
+"sha256": "4641155c88539553d1698ceb9772a9e37e373f4bfcf9699e80f0ddaa479a3373",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 10164,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 588,
+"python_gen_s": 17.454,
+"rejected": [],
+"sha256": "2532a1c00232a55fec7d1aa3453d05aa17f0e8865bbe9f32e81a1c199bbd7cde",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 14561,
+"errors": [],
+"kinds": [
+"door",
+"box"
+],
+"level": 589,
+"python_gen_s": 14.949,
+"rejected": [
+"box layout",
+"box layout",
+"box layout",
+"box layout",
+"box layout"
+],
+"sha256": "47c23b4a4fa032db0647fd0d3841ad5d7dd2fe7b7988b460119c5765beaa327f",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 5991,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 590,
+"python_gen_s": 9.436,
+"rejected": [
+"peel stuck"
+],
+"sha256": "eda8cfb25d9fa3115529c299272634eabea1ec5d2b1e76ffb6c8c381a96e91c4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5682,
+"errors": [],
+"kinds": [],
+"level": 591,
+"python_gen_s": 0.952,
+"rejected": [],
+"sha256": "732951c4ab5ba550a28905c54485ed1f3080ec7fd3e7820702b89d5a6e43348d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 11029,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 592,
+"python_gen_s": 18.624,
+"rejected": [],
+"sha256": "536f269396b1910229641865ddb375d5f017f480f65670a388f38eddc64d0f6a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8666,
+"errors": [],
+"kinds": [],
+"level": 593,
+"python_gen_s": 0.362,
+"rejected": [],
+"sha256": "145cdd43b9d933efed59c68b55bc3f7a783b0717760b02a2eefc146a01349b59",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 10108,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 594,
+"python_gen_s": 7.222,
+"rejected": [],
+"sha256": "8e8c250d451c6afd0d767fc15e8024c42c49f17e77dda8ebff8e3c0d6e283c39",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 14975,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 595,
+"python_gen_s": 18.042,
+"rejected": [
+"pipe layout"
+],
+"sha256": "af09d7d0e31ea4c6885cab6d3d06cc35a73abadbcf102ec8a82ed38148e477ad",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5809,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 596,
+"python_gen_s": 5.171,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "7999b65c70c0ed67e57b6d14cef66f47ac22a75947fe06af50bea5fdc063656b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5458,
+"errors": [],
+"kinds": [],
+"level": 597,
+"python_gen_s": 1.631,
+"rejected": [],
+"sha256": "7483a54c7aef9123d6d5c10ac9e5251f48f8866a2556cd92b96dc75d6e6bf49e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6485,
+"errors": [],
+"kinds": [],
+"level": 598,
+"python_gen_s": 5.397,
+"rejected": [],
+"sha256": "7e29b65c634828770b36ea88d948d76d9947c5651544c5b6fde11852670b5ea4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9970,
+"errors": [],
+"kinds": [],
+"level": 599,
+"python_gen_s": 5.576,
+"rejected": [],
+"sha256": "c50374b310ec29700622d64e93b75a47b1ca77c75bfe5a12a96c1ae1d4519292",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 3862,
+"errors": [],
+"kinds": [],
+"level": 600,
+"python_gen_s": 3.877,
+"rejected": [],
+"sha256": "290295bbd4b87510e1ca069f85b5989cf2c6fd9fd609d68f26d66917959fdf6e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 4120,
+"errors": [],
+"kinds": [],
+"level": 601,
+"python_gen_s": 3.448,
+"rejected": [],
+"sha256": "919b95dbb9387b5f6dfadb0963383d1da11fb339fc2dff4a8a639a0066958ba1",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 2623,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 602,
+"python_gen_s": 1.228,
+"rejected": [],
+"sha256": "fa56290c434054b4cad86989ba7a93e7c3c2c48e20b467ed99cc031f7d2052ca",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 7442,
+"errors": [],
+"kinds": [],
+"level": 603,
+"python_gen_s": 0.531,
+"rejected": [],
+"sha256": "0ebc5747f7dde84864253d2f2092b936cb160e53bc57b2fd7ff86f576b312887",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 12003,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 604,
+"python_gen_s": 30.712,
+"rejected": [
+"peel stuck",
+"peel stuck"
+],
+"sha256": "4f48ea65e19a0e9ee8c3c127b4343b5417287d74ddb03f45bae904417d5a8274",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 7303,
+"errors": [],
+"kinds": [],
+"level": 605,
+"python_gen_s": 11.241,
+"rejected": [],
+"sha256": "9d871d74901fd9584e989f842aed7665593d461927b100c45374fa9aa526fddf",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 7395,
+"errors": [],
+"kinds": [],
+"level": 606,
+"python_gen_s": 15.978,
+"rejected": [],
+"sha256": "48dcc13c21f272a88d9c4504a65f39b238c1c8879b349cb52da448defa58b516",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6413,
+"errors": [],
+"kinds": [],
+"level": 607,
+"python_gen_s": 2.498,
+"rejected": [],
+"sha256": "2705509392ab9ad171bddd0841bb88cf3156e073eb81cec5a9c29682ab6d4240",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6432,
+"errors": [],
+"kinds": [],
+"level": 608,
+"python_gen_s": 0.91,
+"rejected": [],
+"sha256": "052b08f3899700f2b8573673f8cf9d20a938fbb7f0da6b5ad1aa36384a7892ea",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 14848,
+"errors": [],
+"kinds": [
+"door",
+"corner"
+],
+"level": 609,
+"python_gen_s": 17.686,
+"rejected": [
+"corner layout"
+],
+"sha256": "ca68091bab438ab3605fd98d1b8d0d4d675ff2414b97ddd9aeca1a361e7b77b6",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 6806,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 610,
+"python_gen_s": 1.853,
+"rejected": [],
+"sha256": "1dbc0b65b10378adc493a9f85df0aa68fd07a870c58ae8fd3f8043cd1d73e9d0",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 6074,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 611,
+"python_gen_s": 7.489,
+"rejected": [],
+"sha256": "4d4686d3540d7c21d76d6caa387dcc7ed375a3a0187d06bafd6c18d88f9a63c5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.9",
+"bytes": 9513,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 612,
+"python_gen_s": 15.793,
+"rejected": [
+"peel stuck"
+],
+"sha256": "b2bdca66df19cef8ba82967a4804e6964eb739c6bf6825c46779d0701bcf9a49",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 8871,
+"errors": [],
+"kinds": [
+"box",
+"pipe"
+],
+"level": 613,
+"python_gen_s": 13.177,
+"rejected": [],
+"sha256": "226d5b77563208eb96178fe6f1b9deaadffa7dea1171fc952b26d4c57295ab9f",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 10845,
+"errors": [],
+"kinds": [],
+"level": 614,
+"python_gen_s": 15.333,
+"rejected": [],
+"sha256": "e6023eb97e37310df115707bb91d0e7dc4d02f455763738ba83105a01b0f2f0e",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 7398,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 615,
+"python_gen_s": 13.321,
+"rejected": [],
+"sha256": "d15e80611301626e9e34152c42573c59d4ff4a86e0797d97295c3dfe44671a38",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 5349,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 616,
+"python_gen_s": 6.752,
+"rejected": [
+"peel stuck"
+],
+"sha256": "1c95775a7231f83a1791f751eda5c5ee9ec1c490b48fe938caef12ddf95a4205",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 6395,
+"errors": [],
+"kinds": [
+"tape",
+"corner"
+],
+"level": 617,
+"python_gen_s": 4.228,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "6af2e7eeb3173fef845cc2a0886e9e8b202efde48858a86471d5d6993d05d5db",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 12114,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 618,
+"python_gen_s": 3.035,
+"rejected": [
+"peel stuck"
+],
+"sha256": "6b33b3484ca1ff4e02389945746908ad4af5d67ad6ddfb7446dd5d3f9b38461d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 16263,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 619,
+"python_gen_s": 18.298,
+"rejected": [
+"pipe layout"
+],
+"sha256": "c3510ffa806155b20ec2c6a6fc22518294ee83929a1bd84ba44a887076ca36a8",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 5326,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 620,
+"python_gen_s": 0.098,
+"rejected": [],
+"sha256": "2115e3c9cad6713a7d18ac2487bb261f222d21bb4216199cdd6a427a5e44f941",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5374,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 621,
+"python_gen_s": 1.972,
+"rejected": [],
+"sha256": "5af8d9705f381f170db5f06976d5b6c560dd947cb5174720d0cd741135db29ee",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5594,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 622,
+"python_gen_s": 1.219,
+"rejected": [],
+"sha256": "e105ea33f9db41a69ca2be79375d4550f043ba444c3ffaa3d31ef92bc0edeb6e",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 8386,
+"errors": [],
+"kinds": [
+"pipe"
+],
+"level": 623,
+"python_gen_s": 11.783,
+"rejected": [
+"peel stuck"
+],
+"sha256": "70047de04c4b6f9b937dc8f91dfb58ad876656bf817c25836f77857841da5430",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 11473,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 624,
+"python_gen_s": 11.961,
+"rejected": [
+"peel stuck"
+],
+"sha256": "b69e7f09d62512dc67000510ab05c914f519ebabc108edf3208ec7ac5baeca9d",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 6733,
+"errors": [],
+"kinds": [],
+"level": 625,
+"python_gen_s": 0.235,
+"rejected": [],
+"sha256": "c2bd9eee4d8a100d3df55c11a748ce3e6e06f566f6ebab43e1b74576c2063055",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.6",
+"bytes": 5465,
+"errors": [],
+"kinds": [
+"tape"
+],
+"level": 626,
+"python_gen_s": 4.072,
+"rejected": [],
+"sha256": "7242884d75c795fc42d0f9428d34b6bcd0e62d57b7f2cd1fc1d89329e21333cb",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 7448,
+"errors": [],
+"kinds": [],
+"level": 627,
+"python_gen_s": 9.008,
+"rejected": [],
+"sha256": "9c78d77c0654225a3d78375f1a0d1fa455e91bb8453caeab4ce934ec735e891b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.4",
+"bytes": 9837,
+"errors": [],
+"kinds": [],
+"level": 628,
+"python_gen_s": 8.972,
+"rejected": [],
+"sha256": "fab19fd2978e88084daa9c1b52391a0ec028cb682f244e9321002abc12ebb0c9",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.3",
+"bytes": 10782,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 629,
+"python_gen_s": 8.365,
+"rejected": [],
+"sha256": "911abdefc263359500a37d10d8aadd349561e0eee372c103762abec9ad92ea0b",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.8",
+"bytes": 4048,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 630,
+"python_gen_s": 4.734,
+"rejected": [],
+"sha256": "da0d0305fe01313b595ace5494199ae6294d4516cb03532ffe531ca9234f4f1a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4007,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 631,
+"python_gen_s": 0.871,
+"rejected": [],
+"sha256": "77165c5dec9c8cfc8f27e312324a78e5f8a05f8c29953feeba34d8da8e478b53",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 5622,
+"errors": [],
+"kinds": [
+"corner"
+],
+"level": 632,
+"python_gen_s": 1.853,
+"rejected": [],
+"sha256": "c04f8e6407a329d48051dd17a776857e62e36f440132b9f19f34fc7e2514a7f2",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.5",
+"bytes": 6031,
+"errors": [],
+"kinds": [],
+"level": 633,
+"python_gen_s": 12.204,
+"rejected": [],
+"sha256": "89614ca2fa6e8a36532dec9225772d755d5f594774bfed9f2a36f4208a64691b",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 16109,
+"errors": [],
+"kinds": [
+"door",
+"pipe"
+],
+"level": 634,
+"python_gen_s": 25.294,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "e7473000be0ae52311c185815dfbbe7786378472cff557ac9ce070ea8a349740",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 3009,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 635,
+"python_gen_s": 3.051,
+"rejected": [
+"corner layout"
+],
+"sha256": "4f8821830e9854ff4b67db1f4222b781dfa79765a005490798d3af97c691edc5",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 4899,
+"errors": [],
+"kinds": [],
+"level": 636,
+"python_gen_s": 0.478,
+"rejected": [],
+"sha256": "1124e2cd625bc0795a3e130cfcd38eac7a5915754e955c85b08906e75d4ff9cf",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 9289,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 637,
+"python_gen_s": 11.99,
+"rejected": [],
+"sha256": "610e03858dc875a697c6827f31f6624eaa184a8cf18b382235acbd28def5b481",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 5957,
+"errors": [],
+"kinds": [],
+"level": 638,
+"python_gen_s": 1.648,
+"rejected": [],
+"sha256": "9899f3eb7d045f2ec3b273643609491ec6e2610bf303593df42ee925a410e805",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 12056,
+"errors": [],
+"kinds": [
+"pipe",
+"tape"
+],
+"level": 639,
+"python_gen_s": 16.642,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "0538a8c4b47686ce13c87ad5d1a6e6aec77ee60bb3686c0f7eddcdd4079f338d",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 7177,
+"errors": [],
+"kinds": [
+"box"
+],
+"level": 640,
+"python_gen_s": 2.524,
+"rejected": [],
+"sha256": "f69bbd03ce68efbfa11714cb9f1bc00652f958370fa96e922f966d798086d54d",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 6641,
+"errors": [],
+"kinds": [],
+"level": 641,
+"python_gen_s": 2.657,
+"rejected": [],
+"sha256": "e6f0275a05124b8fd2ef816f54bace975005d68483c3b3422ae29897c6926362",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 9118,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 642,
+"python_gen_s": 10.551,
+"rejected": [
+"peel stuck"
+],
+"sha256": "41c5c3badf425652b9249f8285b2f45663d40725d5d4325457f65e2f05fae3d4",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 12727,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 643,
+"python_gen_s": 13.909,
+"rejected": [],
+"sha256": "7c82c06583c5c8da20686e0ce398d93315d89bcb4e6d681804981a2ea518860a",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 10761,
+"errors": [],
+"kinds": [],
+"level": 644,
+"python_gen_s": 3.3,
+"rejected": [],
+"sha256": "94e0645d1d7364517a5c4e7eb95b56caae3b9517a03c4c963a00a58fa97e73c7",
+"tag": "hard",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 3266,
+"errors": [],
+"kinds": [],
+"level": 645,
+"python_gen_s": 0.3,
+"rejected": [],
+"sha256": "3fee2668aa2012e6081479a706655594a9adb958e67fc84d163240122df09b07",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 11293,
+"errors": [],
+"kinds": [
+"box",
+"corner"
+],
+"level": 646,
+"python_gen_s": 3.773,
+"rejected": [],
+"sha256": "a6b3c307fab4a479bf46c8ea0e1a52898b6fd7332c71e07f124020c57cbb3207",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.1",
+"bytes": 9717,
+"errors": [],
+"kinds": [
+"elevator",
+"corner"
+],
+"level": 647,
+"python_gen_s": 9.465,
+"rejected": [],
+"sha256": "692f76d093aa691795adffa4ec7945cb19f26f702a19677eed6bca1ce0c3e9ba",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.2",
+"bytes": 7239,
+"errors": [],
+"kinds": [
+"elevator"
+],
+"level": 648,
+"python_gen_s": 2.043,
+"rejected": [],
+"sha256": "809dc81b772416b7a492e8a99eb44835b569780a4daabf1f9b20f8233ad61284",
+"tag": "normal",
+"warnings": []
+},
+{
+"attempt": "0.0",
+"bytes": 13442,
+"errors": [],
+"kinds": [
+"door"
+],
+"level": 649,
+"python_gen_s": 11.246,
+"rejected": [],
+"sha256": "76291e7522908f43cab15dbb6683190146379b25a9796b1e6e20453f2ef9b6de",
+"tag": "superHard",
+"warnings": []
+},
+{
+"attempt": "0.7",
+"bytes": 2685,
+"errors": [],
+"kinds": [
+"pipe",
+"corner"
+],
+"level": 650,
+"python_gen_s": 1.67,
+"rejected": [
+"peel stuck",
+"peel stuck",
+"peel stuck",
+"peel stuck"
+],
+"sha256": "1312855bce1a5da1e07bd41efe837bcd50e92683435b48f915c3ded192281656",
+"tag": "normal",
+"warnings": []
+}
+]
+}

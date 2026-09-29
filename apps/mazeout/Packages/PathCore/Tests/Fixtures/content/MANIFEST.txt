@@ -1,0 +1,8 @@
+# Tests/Fixtures/content — the content the PathCore content tests read (hermetic; design/tools/pin_fixtures.py).
+# Verify: cd Packages/PathCore/Tests/Fixtures/content && shasum -a 256 -c MANIFEST.txt
+# Sources: levels.json = design/levels.json; designed.json = design/tools/work/designed.json (gitignored there).
+# Pinned by content recast 2 (phone sessions 1-3: v552 L32-L105 recorded, repeats -> V2 boards / stand-ins; designed L106-L150; 2026-09-25).
+# Re-ordered by PUBLISH B0 (2026-09-28): L34-L105 permuted per design/level-order.json (reorder_levels.py; L1-L33 + L70 frozen); the curve "_about" text neutralised (numbers unchanged).
+#
+e0e90459291ee2cb7ec9e5658c56673f35c3fecc63708916d661082dcee89215  levels.json
+587eb63426b1d854c12443560d9c2c8d698df0f1ca4fb32b173fa665430832f0  designed.json

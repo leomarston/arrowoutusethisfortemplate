@@ -1,0 +1,32 @@
+{
+  "ftue": {
+    "chainUntilLevel": 7
+  },
+  "fail": {
+    "zeroHoldSeconds": 1.61,
+    "heartsOutDelay": 0.60
+  },
+  "autoplay": {
+    "rate": 0.45,
+    "popupDelay": 0.6,
+    "unlockDelay": 1.2,
+    "homeDelay": 2.0
+  },
+  "hud": {
+    "publishHz": 10
+  },
+  "probe": {
+    "hz": 4
+  },
+  "rating": {
+    "afterLevel": 34
+  },
+  "notifications": {
+    "askOnFirstLaunch": true,
+    "livesFull": true,
+    "weeklyEndingHours": 2
+  },
+  "support": {
+    "email": "anycodeapps@gmail.com"
+  }
+}

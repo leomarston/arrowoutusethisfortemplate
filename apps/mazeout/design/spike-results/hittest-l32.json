@@ -1,0 +1,31 @@
+{
+  "arrows" : 53,
+  "buildMs" : 0.55074994452297688,
+  "cells" : 399,
+  "footprintMB_afterBuild" : 21.5224609375,
+  "footprintMB_now" : 21.5380859375,
+  "greedy_rounds" : 12,
+  "greedy_stuck" : 0,
+  "grid" : "20x20",
+  "hittest" : {
+    "cellPoints" : 399,
+    "random100k_us_per_query" : 0.0067391665652394295,
+    "randomHits" : 99952,
+    "wrong" : 0
+  },
+  "layers_afterBuild" : 116,
+  "layers_now" : 116,
+  "level" : "recorded",
+  "maxFPS" : 60,
+  "pitch_pt" : 17.863636363636363,
+  "ready_hittest" : {
+
+  },
+  "scenario" : "hittest",
+  "stars" : true,
+  "trail" : "solid",
+  "validate" : [
+
+  ],
+  "zoom" : 1
+}

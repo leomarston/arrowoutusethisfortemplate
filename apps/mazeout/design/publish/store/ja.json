@@ -1,0 +1,8 @@
+{
+ "_about": "App Store text for this locale (T3 STORE). Written to fastlane/metadata by tools/release/meta.py write; checked by meta.py audit. Keywords live in design/keywords.json, never here.",
+ "_research": "JP autocomplete: '矢印パズル', '矢印ゲーム', '脱出パズル', '矢印ゲーム 広告なし'. Name = 矢印パズル + 脱出ゲーム; subtitle = the tap + clock hook. Raw: build/p/T3/aso/hints-ja.json; keywords: design/publish/aso-evidence.json.",
+ "name": "Arrow Out: 矢印パズル 脱出ゲーム",
+ "subtitle": "矢印をタップ！時間との勝負",
+ "promotional_text": "矢印をタップして盤面を空にし、時間内にクリア！手ごわいギミック、毎週変わるイベント、そして広告なし。",
+ "description": "矢印をタップすると、進む先に何もなければ、その矢印は道筋に沿って盤面の外へすべり出ます。制限時間内にすべての矢印を消しましょう。\n\nArrow Outは、時間と勝負するテンポのよいパズルです。盤面の形はさまざまで、どれも矢印でぎっしり。矢印は指している方向にしか進めません。順番を見きわめ、ハートを守り、時間内にクリアしましょう。\n\n■ 遊び方\n・矢印をタップすると、指している方向へ飛び出します。\n・進む先がふさがっていると跳ね返り、ハートが1つ減ります。\n・時間切れになる前に盤面をすべて空にすればクリア。コインがもらえます。\n\n■ すぐ始められて、やめられない\n・まずは150ステージ。その先も新しい盤面が次々に登場するので、遊びつくすことはありません。\n・「難しい」「超難しい」ステージは、もらえるコインが多めです。\n・新しいギミックはひとつずつ、短い説明つきで登場：連結した矢印、箱、パイプ、エレベーター、扉とカギ、コーナー。\n\n■ ピンチを救うブースター\n・タイマーを10秒止めるブースター。\n・動かせる矢印を教えてくれるブースター。\n\n■ 毎週なにかが新しい\n週替わりのイベントが次々に登場。連勝をつなぐ、ごほうびタワーをのぼる、ロケットを打ち上げる、空をジャンプする、気球でてっぺんを目指す。今週のイベントを毎週チェックしましょう。\n\n■ 気持ちのいい手ざわり\n・なめらかなアニメーションと、タップのたびに心地よい触覚フィードバック。\n・広告なし、アカウント登録なし。\n・オフラインで遊べます。プレイにWi-Fiは不要です。\n・ライフは時間で回復するので、いつでもまた挑戦できます。\n\n■ アプリ内課金\nArrow Outは基本無料で遊べます。任意のアプリ内課金で、コインパックや、コイン・ブースター・ライフ無制限の時間がセットになったパックを購入できます。価格は購入前にお住まいの地域の通貨で表示されます。\n\nプライバシーポリシー：https://leomarston.github.io/manycode-legal/privacy-arrow-out.html\n利用規約：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+}

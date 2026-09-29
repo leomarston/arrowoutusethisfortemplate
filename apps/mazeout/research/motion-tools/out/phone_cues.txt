@@ -1,0 +1,40 @@
+== A  claw token appears (+1 hex pop, dim): window 0.15-0.78s; onset 0.225s, peak -1.6 dBFS (RMS-peak -8.9 dB at 0.310s), >-20 dB span 420 ms
+     start cen   5927 Hz     773 G5-23c (0)     686 F5-32c (-1)    4277 C8+37c (-1)     844 G#5+27c (-2)    9762 D#9-34c (-3)
+     mid   cen   4098 Hz    1049 C6+4c (0)    4154 C8-13c (-10)    6152 G8-33c (-10)    4359 C#8-30c (-11)    3457 A7-31c (-11)
+     end   cen   3425 Hz     328 E4-8c (0)     369 F#4-4c (-2)    1043 C6-6c (-6)     428 A4-49c (-7)    3773 A#7+20c (-7)
+== B  x25 badge merges into the token: window 0.78-1.45s; onset 0.805s, peak -2.9 dBFS (RMS-peak -12.3 dB at 0.815s), >-20 dB span 95 ms
+     start cen   1649 Hz     275 C#4-11c (0)     246 B3-6c (-2)     305 D#4-36c (-5)     217 A3-25c (-6)     422 G#4+27c (-6)
+     mid   cen   3533 Hz     686 F5-32c (0)    1084 C#6-39c (-0)    1365 F6-40c (-1)    4090 C8-40c (-2)     545 C#5-30c (-7)
+     end   cen   3749 Hz    1090 C#6-30c (0)    1371 F6-32c (-2)    3264 G#7-31c (-4)    4119 C8-28c (-5)     697 F5-3c (-5)
+== C  claw bar count-up ticks (156->181): window 1.88-2.27s; onset 1.910s, peak -2.5 dBFS (RMS-peak -6.7 dB at 2.125s), >-20 dB span 360 ms
+     start cen   1146 Hz     709 F5+26c (0)     738 F#5-4c (-1)     768 G5-37c (-3)     680 F5-47c (-3)     797 G5+28c (-6)
+     mid   cen   1135 Hz     703 F5+12c (0)     750 F#5+23c (-2)     797 G5+28c (-8)     656 E5-8c (-10)     844 G#5+27c (-16)
+     end   cen   1137 Hz     703 F5+12c (0)     732 F#5-18c (-1)     762 G5-50c (-4)     674 E5+38c (-5)     791 G5+15c (-8)
+     tick onsets: 1.910 1.955 2.020 2.085 2.125 2.170 2.250  (mean period 56.7 ms)
+     per-tick strongest partial Hz: 691 697 703 703 691 697 668
+== D  after the count-up (low glide): window 2.27-2.75s; onset 2.270s, peak -5.6 dBFS (RMS-peak -10.4 dB at 2.275s), >-20 dB span 120 ms
+     start cen   1445 Hz     369 F#4-4c (0)     938 A#5+10c (-1)     879 A5-2c (-1)     908 A#5-45c (-2)     967 B5-37c (-3)
+     mid   cen   1079 Hz     369 F#4-4c (0)     293 D4-4c (-13)     439 A4-2c (-14)
+     end   cen   2499 Hz     369 F#4-4c (0)     779 G5-10c (-8)     873 A5-14c (-9)     809 G#5-47c (-9)     932 A#5-1c (-10)
+== E  streak strip: x100 lights (1st low pop): window 3.02-3.18s; onset 3.050s, peak -1.9 dBFS (RMS-peak -9.5 dB at 3.055s), >-20 dB span 130 ms
+     start cen   1634 Hz     721 F#5-46c (0)     691 F5-18c (-1)     750 F#5+23c (-2)     662 E5+7c (-3)     615 D#5-20c (-4)
+     mid   cen   3955 Hz     586 D5-4c (0)     369 F#4-4c (-5)
+     end   cen   4021 Hz     369 F#4-4c (0)     586 D5-4c (-0)     398 G4+28c (-5)     615 D#5-20c (-5)     557 C#5+7c (-6)
+== F  2nd low pop: window 3.20-3.36s; onset 3.200s, peak -1.8 dBFS (RMS-peak -6.8 dB at 3.240s), >-20 dB span 160 ms
+     start cen   1736 Hz     363 F#4-32c (0)     164 E3-8c (-2)     334 E4+23c (-2)     135 C#3-48c (-4)     193 G3-23c (-5)
+     mid   cen   5673 Hz     369 F#4-4c (0)     586 D5-4c (-1)    6861 A8-45c (-8)    6521 G#8-32c (-10)    9539 D9+26c (-11)
+     end   cen   6327 Hz     586 D5-4c (0)     369 F#4-4c (-1)    6516 G#8-34c (-2)     615 D#5-20c (-4)    8098 B8+42c (-5)
+== G  3rd low pop / x100 badge flash: window 3.42-3.58s; onset 3.420s, peak -4.9 dBFS (RMS-peak -16.1 dB at 3.460s), >-20 dB span 160 ms
+     start cen   4948 Hz    9861 D#9-17c (0)     264 C4+13c (-1)     234 A#3+10c (-3)     293 D4-4c (-3)    9955 D#9+0c (-3)
+     mid   cen   5493 Hz     691 F5-18c (0)     662 E5+7c (-1)    9973 D#9+3c (-1)     721 F#5-46c (-3)     633 D#5+29c (-4)
+     end   cen   6286 Hz    6516 G#8-34c (0)    6855 A8-46c (-1)    9891 D#9-11c (-3)    9568 D9+31c (-3)    6826 G#8+47c (-4)
+== H  coin cue swell (glitter): window 3.18-4.27s; onset 3.180s, peak -1.8 dBFS (RMS-peak -6.8 dB at 3.240s), >-20 dB span 580 ms
+     start cen   4714 Hz     369 F#4-4c (0)     586 D5-4c (-2)    9486 D9+16c (-13)    9533 D9+25c (-16)    2350 D7+0c (-16)
+     mid   cen   6477 Hz    6527 G#8-31c (0)    6867 A8-43c (-5)    6896 A8-36c (-11)    6826 G#8+47c (-11)    6557 G#8-23c (-12)
+     end   cen   6524 Hz    6527 G#8-31c (0)    6861 A8-45c (-2)    6557 G#8-23c (-10)    6832 G#8+48c (-13)    6908 A8-33c (-15)
+== I  coin clinks at the pill: window 4.27-4.71s; onset 4.270s, peak -0.0 dBFS (RMS-peak -6.6 dB at 4.535s), >-20 dB span 415 ms
+     start cen   7239 Hz    9352 D9-8c (0)    9287 D9-20c (-0)    9381 D9-3c (-4)    9258 D9-26c (-5)    3152 G7+9c (-8)
+     mid   cen   6799 Hz    3152 G7+9c (0)    9281 D9-22c (-3)    9328 D9-13c (-3)    9223 D9-32c (-9)    9357 D9-7c (-9)
+     end   cen   6616 Hz    3152 G7+9c (0)    9322 D9-14c (-4)    9281 D9-22c (-5)    9229 D9-31c (-8)    9352 D9-8c (-11)
+     tick onsets: 4.300 4.365 4.450 4.535 4.620  (mean period 80.0 ms)
+     per-tick strongest partial Hz: 9293 9287 9299 3152 9293

@@ -1,0 +1,38 @@
+{
+ "a": "../levels/L035.json",
+ "b": "validation/V2-L021.json",
+ "shift_b": [
+  0,
+  0
+ ],
+ "arrows_a": 20,
+ "arrows_b": 20,
+ "identical_arrows": 20,
+ "only_in_a": [],
+ "only_in_b": [],
+ "cells_a": 165,
+ "cells_b": 165,
+ "cells_common": 165,
+ "grid_a": [
+  12,
+  18
+ ],
+ "grid_b": [
+  12,
+  18
+ ],
+ "pitch_pt": [
+  28.092,
+  28.03
+ ],
+ "origin_pt": [
+  [
+   41.77,
+   200.56
+  ],
+  [
+   41.66,
+   198.84
+  ]
+ ]
+}

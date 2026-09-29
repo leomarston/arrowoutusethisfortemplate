@@ -1,0 +1,260 @@
+en	sl	note
+# T2 L10N (2026-09-28) sl: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-sl.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	Stopnja %lld	fit 0.84
+Levels 1-4	Stopnje 1-4	fit 0.86
+Level 1-4	Stopnja 1-4	
+Tap to move!	Tapni puščico!	fit 1.00
+Loading	Nalaganje	fit 1.00
+Unlocked!	Odklenjeno!	fit 1.00
+Linked Arrows!	Povezane puščice!	fit 0.84
+LINKED ARROWS move together!	POVEZANE PUŠČICE se premikajo skupaj!	CAPS run: POVEZANE PUŠČICE; fit 1.00
+Box!	Škatla!	fit 1.00
+Clear required amount of arrows to break the BOX!	Odstrani dovolj puščic, da razbiješ ŠKATLO!	CAPS run: ŠKATLO; fit 1.00
+Pipe!	Cev!	fit 1.00
+Pass arrows through the PIPE to break it!	Spelji puščice skozi CEV, da jo razbiješ!	CAPS run: CEV; fit 1.00
+Elevator!	Dvigalo!	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	Odstrani vse puščice z DVIGALA, da ga zaženeš!	CAPS run: DVIGALA; fit 0.97
+Door!	Vrata!	fit 1.00
+Collect the KEY to open the DOOR!	Poberi KLJUČ, da odpreš VRATA!	CAPS run: KLJUČ VRATA; fit 1.00
+Corner!	Kot!	fit 1.00
+The CORNER turns arrows around!	KOT spremeni smer puščic!	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); CAPS run: KOT; fit 1.00
+Paused	Premor	fit 1.00
+Sound	Zvok	fit 1.00
+Haptic	Vibracije	fit 0.88
+ON	VKL.	fit 1.00
+OFF	IZKL.	fit 1.00
+Resume	Igraj	fit 1.00
+Quit	Izhod	fit 1.00
+Quit Level?	Izhod?	fit 1.00
+You will lose a life!	Izgubiš življenje!	fit 1.00
+Out of Time!	Čas je potekel!	fit 0.96
++30 sec	+30 s	fit 1.00
+Add Time	Več časa	fit 1.00
+Out of Lives!	Ni več življenj!	fit 1.00
++3 Lives	+3 življenja	fit 0.92
+Add Lives	Več življenj	fit 0.86
+Continue?	Nadaljuješ?	fit 0.84
+You will lose your streak!	Izgubiš niz zmag!	fit 1.00
+You will lose %lld token and your streak!	Izgubiš žetone: %lld in niz zmag!	fit 1.00
+Play On	Naprej	fit 1.00
+Level Failed!	Stopnja ni opravljena!	fit 0.98
+Try Again	Poskusi znova	fit 0.74
+Perfect!	Popolno!	fit 1.00
+Rewards:	Nagrade:	fit 1.00
+Continue	Naprej	fit 1.00
+Hard Level	Težka stopnja	fit 0.85
+Super Hard	Zelo težka	fit 1.00
++%lld	+%lld	
+Play	Igraj	fit 1.00
+LEVEL	STOPNJA	fit 1.00
+Full	Polno	fit 1.00
+Finished	Gotovo	fit 0.82; 52 pt lives pill: "Končano" measured 0.69
+More Lives	Več življenj	fit 0.87
+Time to next live:	Naslednje življenje čez:	fit 1.00
+Refill	Napolni	fit 0.93
+Not enough coins	Premalo kovancev	
+Congratulations!	Čestitke!	fit 1.00
+Tap to Claim	Tapni za prevzem	fit 1.00
+Tap to Continue	Tapni za nadaljevanje	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	Končano	
+Join	Vstopi	fit 1.00
+Home	Domov	fit 1.00
+Leaderboard	Lestvica	fit 1.00
+Time Freeze	Zamrznitev	fit 0.86
+Freeze the timer for 10 seconds!	Zamrzni čas za 10 sekund!	fit 1.00
+Hint	Namig	fit 1.00
+Find an arrow that can move!	Najdi puščico, ki se lahko premakne!	fit 1.00
+Buy	Kupi	
+x%lld	x%lld	
+Shop	Trgovina	fit 1.00
+Special Offers	Posebne ponudbe	fit 0.97
+Special Offer	Posebna ponudba	fit 0.83
+STARTER	ZAČETNI	T1
+Bundles	Paketi	fit 1.00
+Mini Bundle	Mini paket	fit 1.00
+Epic Bundle	Epski paket	fit 1.00
+Elite Bundle	Elitni paket	fit 1.00
+Mega Bundle	Mega paket	fit 1.00
+Legendary Bundle	Legendarni paket	fit 0.83
+Popular	Popularno	fit 0.91
+Best Value	Ugodno	fit 1.00
+Coins	Kovanci	fit 1.00
+Purchase pending	Nakup v obdelavi	
+Settings	Nastavitve	fit 1.00
+Notifications	Obvestila	fit 1.00
+Music	Glasba	fit 1.00
+Support	Podpora	fit 1.00
+Terms	Pogoji	fit 1.00
+Privacy	Zasebnost	fit 0.84
+%@ Support	Podpora za %@	
+Please describe your issue above. We will get back to you as soon as possible.	Zgoraj opiši svojo težavo. Odgovorili ti bomo čim prej.	
+Version : %@	Različica: %@	
+Level : %lld	Stopnja: %lld	
+Write to us at	Piši nam na	
+Copy	Kopiraj	
+Copied	Kopirano	
+Profile	Profil	fit 1.00
+Level	Stopnja	fit 1.00
+General Stats	Statistika	fit 1.00
+First Try Wins	Zmage v prvem poskusu	fit 1.00
+Weekly Cup Wins	Zmage – Tedenski pokal	T1; fit 1.00
+Hot Streak Wins	Zmage – Vroči niz	T1; fit 1.00
+Rocket Rally Wins	Zmage – Raketni reli	T1; fit 1.00
+Cloud Hop Wins	Zmage – Skok po oblakih	T1; fit 0.98
+Treasure Climb Wins	Zmage – Lestev zakladov	T1; fit 0.99
+-	-	
+Username	Vzdevek	fit 1.00
+Create your username:	Ustvari svoj vzdevek:	fit 1.00
+Edit Profile	Uredi	fit 1.00
+Save	Shrani	fit 1.00
+Name must be 3-16 characters	Vzdevek mora imeti od 3 do 16 znakov	
+This name is not allowed	Ta vzdevek ni dovoljen	
+Your lives are full! Time to play!	Življenja so polna! Čas je za igro!	
+The Weekly Cup ends in 2 hours!	Tedenski pokal se konča čez 2 uri!	T1
+%@ is a puzzle game.	%@ je miselna igra.	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	Kovanci, življenja, pomočki in drugi predmeti v igri nimajo denarne vrednosti in jih zunaj igre ni mogoče zamenjati ali vrniti za denar.	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	Nakupi potekajo prek podjetja Apple in zanje veljajo pogoji trgovine App Store. Tvojih plačilnih podatkov nikoli ne vidimo.	
+The game is provided as is. We may update the game and these terms.	Igra je na voljo takšna, kot je. Igro in te pogoje lahko posodobimo.	
+Questions? Write to %@	Vprašanja? Piši na %@	
+%@ has no accounts, no ads and no tracking.	%@ nima računov, oglasov ali sledenja.	T1
+Your progress, settings and profile name are stored only on this device.	Tvoj napredek, nastavitve in ime profila so shranjeni samo v tej napravi.	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	Igra deluje brez povezave. Nakupe obdela Apple. Naša storitev za nakupe, RevenueCat, prejme anonimni ID in zgodovino tvojih nakupov.	T1
+Notifications are scheduled on your device and can be turned off in Settings.	Obvestila se načrtujejo v tvoji napravi in jih lahko izklopiš v Nastavitvah.	
+If you write to support, we use your message only to answer you.	Če pišeš podpori, tvoje sporočilo uporabimo samo za odgovor.	
+Contact: %@	Stik: %@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	Tapni puščico in odletela bo po svoji poti. Če ji kaj stoji na poti, se odbije nazaj in izgubiš življenje. Odstrani vse puščice, preden poteče čas!	
+Weekly	Teden	fit 1.00
+World	Svet	fit 1.00
+Turkey	Turčija	fit 1.00
+Germany	Nemčija	fit 1.00
+USA	ZDA	fit 1.00
+Score	Točke	fit 1.00
+Score : %lld	Točke: %lld	fit 1.00
+Bottom	Dno	fit 1.00
+Top	Vrh	fit 1.00
+Reach level 50 to join the Weekly Cup!	Doseži stopnjo 50 in se pridruži Tedenskemu pokalu!	T1; fit 1.00
+Weekly Cup	Tedenski pokal	T1; fit 1.00
+Tap to join the Weekly Cup!	Tapni in se pridruži Tedenskemu pokalu!	T1; fit 0.93
+Beat Levels!	Premagaj stopnje!	fit 1.00
+Contest with others!	Tekmuj z drugimi!	fit 1.00
+Win Rewards!	Osvoji nagrade!	fit 1.00
+The top 3 win prizes!	Prvi trije dobijo nagrade!	T1; fit 1.00
+There is a new contest every week!	Vsak teden novo tekmovanje!	fit 1.00
+You finished #%lld!	Si na %lld. mestu!	fit 1.00
+Hot Streak	Vroči niz	T1; fit 1.00
+Beat levels without fail to get more rewards!	Zmaguj brez poraza za več nagrad!	fit 1.00
+Beat levels without losing!	Premaguj stopnje brez poraza!	fit 1.00
+Increase your score multiplier!	Povečaj svoj množitelj točk!	fit 1.00
+Earn more flags than others!	Zberi več zastavic kot drugi!	fit 1.00
+If you fail a level the multiplier will reset!	Če izgubiš stopnjo, množitelj pade na x1!	fit 1.00
+Treasure Climb	Lestev zakladov	T1; fit 0.89
+Rocket Rally	Raketni reli	T1; fit 1.00
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	Zmagaj %lld-krat pred drugimi in napreduj v naslednje etape za večje nagrade!	fit 0.94
+Beat %lld levels before others to finish the race	Zmagaj %lld-krat pred drugimi in končaj dirko	fit 1.00
+You lost the race! Try again to win amazing rewards!	Dirka je izgubljena! Poskusi znova in osvoji čudovite nagrade!	fit 1.00
+You won the race! Claim your amazing rewards!	Dirka je dobljena! Prevzemi svoje čudovite nagrade!	fit 1.00
+Stage %lld	Etapa %lld	fit 0.86
+Start	Start	fit 1.00
+Beat levels!	Premagaj stopnje!	fit 1.00
+Finish race before others!	Končaj dirko pred drugimi!	fit 1.00
+Win amazing rewards!	Osvoji čudovite nagrade!	fit 1.00
+Advance to next stages for greater prizes!	Napreduj v naslednje etape za večje nagrade!	fit 0.92
+Cloud Hop	Skok po oblakih	T1; fit 0.73
+Pass %lld Levels in a row on first try and advance to next stages!	Zmagaj %lld-krat zapored brez poraza in napreduj v naslednje etape!	fit 1.00
+Finding players on your level.	Iščemo igralce na tvoji stopnji.	fit 1.00
+Start with 100 players!	Začneš s 100 igralci!	fit 1.00
+Beat %lld levels!	Zmagaj %lld-krat!	fit 0.79; 115 pt box: "Premagaj %lld stopenj!" measured 0.61; "-krat" is invariant for every n (plural/dual-safe)
+Win your share of %lld coins!	Osvoji svoj delež od %lld kovancev!	fit 0.96
+If you fail a level, you will fail the challenge!	Če izgubiš stopnjo, izgubiš izziv!	fit 1.00
+Stages	Etape	fit 1.00
+Levels	Stopnje	fit 1.00
+Players	Igralci	fit 1.00
+PRIZE	SKLAD	fit 1.00; 50 pt sign: NAGRADA measured 0.68; SKLAD = the (nagradni) sklad, the shared pool the sign shows
+You win!	Zmaga!	fit 1.00
+You are sharing the reward with %lld other winners!	Nagrado si deliš! Drugi zmagovalci: %lld	fit 1.00; ends on the number (plural/dual-safe label form) instead of "!"
+You failed the challenge!	Izziv ni uspel!	fit 1.00
+%lld Levels	%lld-krat	HIGHLIGHT RUN (never shown alone): lit inside 'Zmagaj %lld-krat pred drugimi in napreduj v naslednje etape za večje nagrade!' / 'Zmagaj %lld-krat zapored brez poraza in napreduj v naslednje etape!'
+%lld levels	%lld-krat	HIGHLIGHT RUN (never shown alone): lit inside 'Zmagaj %lld-krat pred drugimi in končaj dirko'
+%lld levels!	%lld-krat!	HIGHLIGHT RUN (never shown alone): lit inside 'Zmagaj %lld-krat!'
+100 players	100 igralci	HIGHLIGHT RUN (never shown alone): lit inside 'Začneš s 100 igralci!'
+%lld coins	%lld kovancev	HIGHLIGHT RUN (never shown alone): lit inside 'Osvoji svoj delež od %lld kovancev!'
+greater prizes	večje nagrade	HIGHLIGHT RUN (never shown alone): lit inside 'Napreduj v naslednje etape za večje nagrade!'
+prizes	nagrade	HIGHLIGHT RUN (never shown alone): lit inside 'Napreduj v naslednje etape za večje nagrade!'
+rewards	nagrade	HIGHLIGHT RUN (never shown alone): lit inside 'Osvoji čudovite nagrade!'
+Rewards!	nagrade!	HIGHLIGHT RUN (never shown alone): lit inside 'Osvoji nagrade!'
+fail	izgubiš	HIGHLIGHT RUN (never shown alone): lit inside 'Če izgubiš stopnjo, množitelj pade na x1!' / 'Če izgubiš stopnjo, izgubiš izziv!' / 'Če izgubiš stopnjo, poči en balon!'
+Allow notifications in iOS Settings.	Dovoli obvestila v nastavitvah iOS.	
+Arrows turn when they hit the CORNER!	Puščice se obrnejo, ko zadenejo KOT!	CAPS run: KOT
+Back	Nazaj	
+Boosters	Pomočki	
+Close	Zapri	
+How to play	Kako igrati	
+Info	Info	
+Lives	Življenja	
+Pause	Premor	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	Začetek stopnje porabi eno življenje; zmaga ti ga vrne. Novo življenje pride vsakih 30 minut.	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	Peščena ura zamrzne čas za 10 sekund. Žarnica pokaže puščico, ki se lahko premakne.	
+Version %@ · Level %lld	Različica %@ · Stopnja %lld	
+You will lose %lld token	Izgubiš žetone: %lld	LINE 1 of 'Izgubiš žetone: %lld in niz zmag!' (the number is drawn red); fit 1.00
+Your progress	Tvoj napredek	
+Your progress and coins are saved only on this device. Deleting the game erases them.	Tvoj napredek in kovanci so shranjeni samo v tej napravi. Če izbrišeš igro, se izbrišejo.	T1
+and your streak!	in niz zmag!	LINE 2 of 'Izgubiš žetone: %lld in niz zmag!'; fit 1.00
+Up & Away	V višave	T1
+NEW	NOVO	T1
+New Event!	Nov dogodek!	T1
+Double Event Week!	Teden dvojnih dogodkov!	T1
+Let's Go!	Gremo!	T1
+Ends in %@	Konec čez %@	T1
+Last day!	Zadnji dan!	T1
+Coming next: %@	Sledi: %@	T1
+Starts in %@	Začetek čez %@	T1
+This event has ended.	Ta dogodek se je končal.	T1
+%@ has started! Beat levels to win amazing rewards!	Začenja se %@! Premaguj stopnje in osvoji čudovite nagrade!	T1
+Double Event Week! %@ and %@ are both on!	Teden dvojnih dogodkov! Potekata %1$@ in %2$@!	T1
+%@ ends in 3 hours!	%@ se konča čez 3 ure!	T1
+Beat levels in a row to rise higher!	Premaguj stopnje zapored in se dvigni višje!	T1
+Beat levels to fill your balloons with hot air!	Premaguj stopnje in napolni balone z vročim zrakom!	T1
+Hard levels give more hot air!	Težke stopnje dajo več vročega zraka!	T1
+If you fail a level, a balloon pops!	Če izgubiš stopnjo, poči en balon!	T1
+Lose all 3 balloons and you fall to the start of the step!	Če izgubiš vse 3 balone, padeš na začetek koraka!	T1
+Reach the top for the big prize!	Doseži vrh za veliko nagrado!	T1
+hot air	vročim zrakom	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Premaguj stopnje in napolni balone z vročim zrakom!'
+Hard levels	Težke stopnje	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Težke stopnje dajo več vročega zraka!'
+big prize	veliko nagrado	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Doseži vrh za veliko nagrado!'
+Step %lld	Korak %lld	T1
+Completed!	Končano!	T1
+You fell to the start of step %lld!	Nazaj na začetek koraka %lld!	T1
+You will lose a balloon!	Izgubiš balon!	T1
+You will lose a balloon and your streak!	Izgubiš balon in niz zmag!	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	Srček	SUPERSEDED: dropped
+#~	Video not available	Video ni na voljo	SUPERSEDED: dropped
+#~	90% OFF	90% POPUST	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	Testna trgovina: nič se ne zaračuna	SUPERSEDED: dropped
+#~	Weekly Contest Wins	Zmage – Tedensko tekmovanje	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	Zmage – Zmagoviti niz	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	Zmage – Raketna dirka	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	Zmage – Skok v nebo	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	Zmage – Izziv kremplja	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	Tedensko tekmovanje se konča čez 2 uri!	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@ ne zbira nobenih osebnih podatkov. Ni računov, oglasov, analitike ali sledenja.	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	Igra deluje brez povezave. Nakupe obdela Apple.	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	Doseži stopnjo 50 in se pridruži Tedenskemu tekmovanju!	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	Tedensko tekmovanje	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	Tapni in se pridruži Tedenskemu tekmovanju!	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	Tekmuj s prijatelji!	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	Zmagoviti niz	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	Izziv kremplja	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	Raketna dirka	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	Skok v nebo	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	Tvoj napredek se shranjuje v tej napravi.	SUPERSEDED: superseded by T1

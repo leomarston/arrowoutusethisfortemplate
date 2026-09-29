@@ -1,0 +1,16 @@
+0.499 changed-white bbox x 60.0..239.5 y 54.0..118.0 h=64.0 cx=149.8 cy=86.0 n=6843
+0.532 none (n=12)
+0.566 changed-white bbox x 85.0..219.0 y 70.5..96.0 h=25.5 cx=152.0 cy=83.2 n=4684
+0.582 changed-white bbox x 89.5..214.5 y 72.5..96.0 h=23.5 cx=152.0 cy=84.2 n=4074
+0.599 changed-white bbox x 95.5..208.0 y 75.0..96.0 h=21.0 cx=151.8 cy=85.5 n=3246
+0.632 changed-white bbox x 110.5..191.5 y 80.5..95.5 h=15.0 cx=151.0 cy=88.0 n=1825
+0.649 changed-white bbox x 117.5..186.0 y 83.5..95.5 h=12.0 cx=151.8 cy=89.5 n=1251
+0.666 changed-white bbox x 123.5..180.0 y 85.5..95.5 h=10.0 cx=151.8 cy=90.5 n=574
+0.699 changed-white bbox x 131.0..171.0 y 88.5..94.5 h=6.0 cx=151.0 cy=91.5 n=49
+0.716 none (n=12)
+0.732 changed-white bbox x 128.0..176.0 y 87.0..94.5 h=7.5 cx=152.0 cy=90.8 n=44
+0.749 changed-white bbox x 127.0..177.0 y 86.5..95.5 h=9.0 cx=152.0 cy=91.0 n=171
+0.765 changed-white bbox x 126.5..177.5 y 86.5..95.5 h=9.0 cx=152.0 cy=91.0 n=209
+0.782 changed-white bbox x 126.5..177.0 y 86.5..95.5 h=9.0 cx=151.8 cy=91.0 n=206
+0.799 changed-white bbox x 127.0..177.0 y 86.5..95.0 h=8.5 cx=152.0 cy=90.8 n=170
+0.849 none (n=0)

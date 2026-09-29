@@ -1,0 +1,57 @@
+{
+  "appInit_ms_since_process_start" : 202.17990875244141,
+  "arrows" : 304,
+  "autoplay" : {
+    "bumps" : 0,
+    "cleared" : true,
+    "hearts" : 3,
+    "moversLeft" : 0,
+    "peakMovers" : 14,
+    "seconds" : 17.963784124935046,
+    "taps" : 304
+  },
+  "buildMs" : 1.5356249641627073,
+  "cells" : 873,
+  "firstFrame_ms_since_process_start" : 409.58893299102783,
+  "footprintMB_afterBuild" : 23.11627197265625,
+  "footprintMB_now" : 23.86627197265625,
+  "frames" : {
+    "budget_ms" : 16.666666666623431,
+    "frames" : 1076,
+    "histogram_ms" : {
+      "<12" : 0,
+      ">=50" : 0,
+      "12-18" : 1076,
+      "18-20" : 0,
+      "20-25" : 0,
+      "25-34" : 0,
+      "34-50" : 0
+    },
+    "max_ms" : 16.666666837409139,
+    "mean_ms" : 16.666666666681092,
+    "over20ms" : 0,
+    "over34ms" : 0,
+    "p50_ms" : 16.666666604578495,
+    "p95_ms" : 16.666666837409139,
+    "p99_ms" : 16.666666837409139,
+    "span_s" : 17.933333333348855
+  },
+  "greedy_rounds" : 14,
+  "greedy_stuck" : 0,
+  "grid" : "40x40",
+  "layers_afterBuild" : 614,
+  "layers_now" : 310,
+  "level" : "synthetic heart seed 7 mean 3.0",
+  "maxFPS" : 60,
+  "pitch_pt" : 9.3571428571428577,
+  "ready_autoplay" : {
+
+  },
+  "scenario" : "autoplay",
+  "stars" : true,
+  "trail" : "gradient",
+  "validate" : [
+
+  ],
+  "zoom" : 1
+}

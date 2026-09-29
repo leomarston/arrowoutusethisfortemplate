@@ -1,0 +1,113 @@
+{
+  "worldModel": "shipped",
+  "unlocks": {
+    "streakRace": 30,
+    "clawChallenge": 33,
+    "skyJump": 40,
+    "weeklyContest": 50,
+    "rocketRace": 55,
+    "balloonRise": 33
+  },
+  "events": {
+    "skyJump": {
+      "levels": [5, 7, 10],
+      "pools": [5000, 7000, 10000]
+    },
+    "rotation": {
+      "enabled": true,
+      "epoch": 1777273200,
+      "seed": "0x524F544154494F4E",
+      "always": ["streakRace", "weeklyContest"],
+      "ladder": ["clawChallenge", "balloonRise"],
+      "race": ["rocketRace", "skyJump"],
+      "pSwitch": 0.65,
+      "pDouble": 0.22,
+      "doubleMinGap": 3,
+      "maxRun": 2,
+      "pins": {},
+      "announceCap": 2,
+      "teaserHours": 24,
+      "notifyWindow": [10, 21]
+    },
+    "balloonRise": {
+      "platforms": [
+        {"at": 2, "grant": {"coins": 50}},
+        {"at": 5, "grant": {"unlimitedLives": 900}},
+        {"at": 8, "grant": {"boosters": {"hint": 1}}},
+        {"at": 13, "grant": {"coins": 100}},
+        {"at": 20, "grant": {"boosters": {"freeze": 1}, "unlimitedLives": 900}},
+        {"at": 28, "grant": {"coins": 150, "unlimitedLives": 900}},
+        {"at": 36, "grant": {"boosters": {"hint": 1}, "unlimitedLives": 1800}},
+        {"at": 46, "grant": {"coins": 500, "unlimitedLives": 3600}},
+        {"at": 77, "grant": {"boosters": {"freeze": 1}, "unlimitedLives": 3600}},
+        {"at": 120, "grant": {"boosters": {"freeze": 1, "hint": 1}, "coins": 1200, "unlimitedLives": 3600}}
+      ],
+      "fallPageMinStreak": 2
+    }
+  },
+  "matchmaking": {
+    "weekly": {
+      "bands": [
+        [1, 1.1, 1.8, 1],
+        [2, 0.9, 1.2, 1],
+        [2, 0.65, 0.9, 1],
+        [2, 0.4, 0.65, 1],
+        [2, 0.08, 0.4, 1]
+      ],
+      "minTarget": 35.0,
+      "earlyHours": 0.25,
+      "early": "1.0",
+      "lastArrivalBeforeEndHours": 12.0,
+      "matchWindowMinutes": [30.0, 90.0],
+      "arriveAtJoin": false,
+      "tieByName": false,
+      "failQ": [0.06, 0.24]
+    },
+    "streak": {
+      "bands": [
+        [5, 1.2, 2.2, 1],
+        [10, 0.75, 1.2, 1],
+        [14, 0.4, 0.75, 1],
+        [12, 0.1, 0.4, 1],
+        [8, 0.02, 0.1, 0]
+      ],
+      "minTarget": 4.0,
+      "earlyHours": 24.0,
+      "early": "elapsedDay",
+      "lastArrivalBeforeEndHours": 12.0,
+      "matchWindowMinutes": [0.0, 120.0],
+      "matchEventWindow": false,
+      "arriveByFirstPlay": false,
+      "expectedPerPlayDay": true,
+      "arriveAtJoin": true,
+      "tieByName": true,
+      "failQ": [0.02, 0.1]
+    }
+  },
+  "rocketBots": {
+    "holdMinutes": [14.0, 40.0],
+    "delta": [0.45, 1.85],
+    "roles": ["sprint", "hot", "steady", "steady"],
+    "holdByRole": {
+      "hot": [14.0, 40.0],
+      "sprint": [6.0, 19.0],
+      "steady": [14.0, 40.0]
+    },
+    "sprintMinutes": 15.0
+  },
+  "skyBots": {
+    "drops": [
+      [10.0, 16.0, 1, 5, 10],
+      [11.0, 14.0, 2, 12, 18],
+      [7.5, 9.5, 2, 5, 9]
+    ]
+  },
+  "lists": {
+    "worldTop": 100,
+    "window": 10,
+    "countryContinuousUpTo": 600,
+    "maxTopRows": 5000
+  },
+  "refreshSeconds": 5,
+  "fallbackCountry": "US"
+}

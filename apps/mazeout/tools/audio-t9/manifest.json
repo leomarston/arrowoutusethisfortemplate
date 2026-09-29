@@ -1,0 +1,95 @@
+{
+ "generated_by": "tools/audio/sfx.py + tools/audio/music.py (our own synthesis; no recorded input)",
+ "format": {
+  "sounds": "mono 44.1 kHz 16-bit PCM",
+  "music": "stereo 44.1 kHz 16-bit PCM"
+ },
+ "notes": [
+  "continues_into: schedule the loop on the same player node right after the intro (sample-exact join).",
+  "variants: pick one at random per trigger.",
+  "sized: pick the file whose size matches the event (e.g. a count-up duration)."
+ ],
+ "sounds": {
+  "uiClick": {
+   "file": "Sounds/uiClick.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 uiClick",
+   "length_s": 0.035,
+   "peak_dbfs": -7.5,
+   "tag": "VERIFIED level/length (v552 Play click -7.6 dBFS, 20 ms > -20 dB)"
+  },
+  "coinCollect": {
+   "file": "Sounds/coinCollect.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 coinCollect",
+   "length_s": 2.9,
+   "peak_dbfs": -1.5,
+   "tag": "VERIFIED v552=V1 (clinks clip 0 dBFS -> -1.5)",
+   "clinks_s": [
+    1.12,
+    1.205,
+    1.29,
+    1.375,
+    1.46
+   ]
+  },
+  "unlockChime": {
+   "file": "Sounds/unlockChime.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 unlockChime",
+   "length_s": 2.2,
+   "peak_dbfs": -3.0,
+   "tag": "VERIFIED V1/V2 shape; level DECISION"
+  },
+  "tapTick": {
+   "file": "Sounds/tapTick.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 tapTick",
+   "length_s": 0.03,
+   "peak_dbfs": -12.0,
+   "tag": "DECISION (owner option, unmapped)"
+  },
+  "clawToken": {
+   "file": "Sounds/clawToken.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 clawToken",
+   "length_s": 0.75,
+   "peak_dbfs": -2.0,
+   "tag": "VERIFIED v552 (-1.6 dBFS, 0.42 s > -20 dB, tail 0.75)"
+  },
+  "clawMerge": {
+   "file": "Sounds/clawMerge.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 clawMerge",
+   "length_s": 1.2,
+   "peak_dbfs": -3.0,
+   "tag": "VERIFIED v552 (-2.9 dBFS, decays to ~1.2 s)"
+  },
+  "clawTick": {
+   "file": "Sounds/clawTick.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 clawTick",
+   "length_s": 0.04,
+   "peak_dbfs": -3.0,
+   "tag": "VERIFIED v552 (-2.5 dBFS, ~30 ms)"
+  },
+  "clawComplete": {
+   "file": "Sounds/clawComplete.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 clawComplete",
+   "length_s": 0.16,
+   "peak_dbfs": -5.5,
+   "tag": "VERIFIED v552 (-5.6 dBFS, 0.12 s > -20 dB)"
+  },
+  "streakPop": {
+   "file": "Sounds/streakPop.wav",
+   "bus": "sfx",
+   "spec": "SPEC-motion-audio \u00a711.2 streakPop",
+   "length_s": 0.18,
+   "peak_dbfs": -2.0,
+   "tag": "VERIFIED v552 (-1.9/-1.8/-4.9 dBFS, 0.13-0.16 s)"
+  }
+ },
+ "music_enabled": false,
+ "music": {}
+}

@@ -1,0 +1,1148 @@
+{
+ "grader": "art director round 2",
+ "date": "2026-09-25",
+ "scale": "A = ship (a player takes it for the same art at game size), B = ok (differences only on inspection), C = redo; n/a = not shipped (SPEC-ui 4.4), not counted",
+ "entries": {
+  "tapeV4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tapeH4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tapeH2": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tapeV3": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tapeH3": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tapeV2": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW4H4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW4H8": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW4H12": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW4H16": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW4H20": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW5H17": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW13H4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW11H10": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorW22H10": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "lockHex": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "keyOnArrow": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "pipeMouth": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "pipeCounter": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "curtainCrate": {
+   "grade": "n/a",
+   "before": "C",
+   "grader": "A",
+   "changed": "The phone BOX skin ships instead: boxSlab + boxRing.",
+   "sheet": "director/box_135.png"
+  },
+  "boardArrow": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "boardVacatedDot": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "boardTrailStar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "sparkleTwinkle": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "doorShards": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "pipeShards": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartHUDHalves": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartHUD": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartHUDLost": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "iconStopwatch": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "iconCoin": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "iconPlusGreen": {
+   "grade": "A",
+   "before": "B",
+   "grader": "A",
+   "changed": "20 pt frame for the 18.7 pt slot.",
+   "sheet": "-"
+  },
+  "iconStopwatchSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "hudPauseButton": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "glyphGear": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartLives": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "iconHexArrow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartInfiniteSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "avatarDefault": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "glyphSound": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "glyphHaptic": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "34 x 33 frame (the measured ink no longer shrinks). Zig-zags still a little short.",
+   "sheet": "-"
+  },
+  "buttonGreen": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "buttonRed": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "unlockIconPipe": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "unlockIconCurtain": {
+   "grade": "n/a",
+   "before": "B",
+   "grader": "A",
+   "changed": "Replaced by unlockIconBox (the phone Box card).",
+   "sheet": "-"
+  },
+  "unlockIconLinked": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "unlockIconElevator": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "unlockIconDoor": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "tutorialHand": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "Frame 102 x 136: the hand is ~80 x 99 pt (V1: 70 x 99) with V1's big soft shadow straight down; slimmer, rounder palm. The fist is still ~14 % wider.",
+   "sheet": "director/svg_misc2.png"
+  },
+  "pointerArrowYellow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "infoPathIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "glyphMusic": {
+   "grade": "A",
+   "before": "C",
+   "grader": "A",
+   "changed": "White on green from meta-029 (was the Paused panel's cream/brown).",
+   "sheet": "director/settings_meta029.png"
+  },
+  "glyphBell": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "meta-029's white/ice bell with a navy outline, 30 x 36. The lip band is narrower than the phone's.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "iconPencil": {
+   "grade": "A",
+   "before": "C",
+   "grader": "A",
+   "changed": "Same drawing at the phone's 32 pt.",
+   "sheet": "director/profile_meta002.png"
+  },
+  "statFirstTryIcon": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "1.6x bigger (56 x 54) with a thick glossy side. The target face is slightly smaller than meta-002's.",
+   "sheet": "director/profile_meta002.png"
+  },
+  "statWeeklyWinsIcon": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "1.33x bigger (48 x 51), ribbon as wide as the medal, wider gold bar.",
+   "sheet": "director/profile_meta002.png"
+  },
+  "iconCheckeredFlag": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "Redrawn from 016: grey pole + silver knob, a waving cloth with big glossy cream/slate 3 x 2 checks.",
+   "sheet": "director/svg_misc.png"
+  },
+  "rankBadgeSilver": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "rankBadgeBronze": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "rankBadgeGold": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "rankBadgePlain": {
+   "grade": "n/a",
+   "before": "C",
+   "grader": "A",
+   "changed": "Ranks 4+ are live outlined digits on the phone.",
+   "sheet": "-"
+  },
+  "scoreChip": {
+   "grade": "B",
+   "before": "C",
+   "grader": "A",
+   "changed": "Capsule only at store 6's size (the row-tinted plate is SwiftUI, shell). Caps slightly paler gold.",
+   "sheet": "director/svg_misc.png"
+  },
+  "sunburstRays": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "prizeSign": {
+   "grade": "n/a",
+   "before": "B",
+   "grader": "A",
+   "changed": "The islands / popup scene bake the 3D PRIZE sign (blank face, live text); one sign ships.",
+   "sheet": "-"
+  },
+  "logoArrowOut": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "Chunkier letters (0.78 compression, fatter inflation, deeper extrusion), placed at the original logo's box. MAZE's four letters are still rounder than our five.",
+   "sheet": "director/logo.png, director/p_loading.png"
+  },
+  "homeTopBar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "homeLevelPlate": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "homePlayButton": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "buttonPurple": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "navBar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "panelFrame": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "panelRibbon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "panelCream": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "panelClose": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "toggleOnOff": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "sheet": ""
+  },
+  "settingsRoundToggle": {
+   "grade": "C",
+   "before": "C",
+   "grader": "A",
+   "changed": "NOT ART: the app's Settings screen is still a Paused-style popup; the phone's is a full-screen page with three SQUARE glyph buttons (SPEC-ui 1.6.14 / 2.13). The glyph art for it now exists (glyphSoundWhite, glyphMusic, glyphHapticWhite, glyphBell). Owner: shell.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "boosterFreeze": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "boosterHint": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "boosterPointer": {
+   "grade": "n/a",
+   "before": "B",
+   "grader": "B",
+   "changed": "Video-only 4-booster bar.",
+   "sheet": "-"
+  },
+  "boosterDome": {
+   "grade": "n/a",
+   "before": "C",
+   "grader": "B",
+   "changed": "Video-only 4-booster bar (SPEC 5.10 / SPEC-ui 4.4).",
+   "sheet": "-"
+  },
+  "navShop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "navHome": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "80 x 86 frame (026's icon is 74 x 82), wider body, thick arch, deeper orange. The eaves sit a little low.",
+   "sheet": "director/navhome_after.png"
+  },
+  "navTrophy": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "padlockGold": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "coinPileSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "stopwatchBig": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartBroken": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "coinStackReward": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "heartInfinite": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "homeBackdrop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "homeConsole": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Rim now 193 pt (x 99-294 like 002), thick glossy blue rim, deeper bulging belly with a warm gradient, short base. Sits ~4 pt higher than 002; the belly's warm yellow is paler.",
+   "sheet": "director/console_after.png"
+  },
+  "homeCapsuleMachine": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Slanted light-cyan inner walls added (002's thick bevel). The glass sheen is still painted.",
+   "sheet": "director/win_homeArrowPileFull.png"
+  },
+  "homeArrowPileFull": {
+   "grade": "A",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-laid from 002: chunky block arrows, wide low mound in 4 depth rows, face-on, weighted colours; the machine is a holdout, so the heap stays inside the glass. At game size it reads as 002's pile.",
+   "sheet": "director/win_homeArrowPileFull.png, director/p_home.png"
+  },
+  "homeArrowPileHalf": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Inside the window now; lower heap + a 2-arrow falling column (168). 168's heap is a taller centre column.",
+   "sheet": "director/win_homeArrowPileHalf.png"
+  },
+  "homeArrowPileLow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Arrows stand on the floor, the emerging arrow shows its shaft (070). 070's arrows cluster more.",
+   "sheet": "director/win_homeArrowPileLow.png"
+  },
+  "homePlatform": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "eventBadgeStreak": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "eventBadgeSkyJump": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "eventBadgeRocket": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "rocketMine": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "rocketOther": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "trophyCup": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "coinBowl": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "stageChestGreen": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "stageChestBlue": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "stageChestPink": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "coinPackTiny": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fades before the frame edge (no hard line).",
+   "sheet": "-"
+  },
+  "coinPackSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackMedium": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackBig": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackSuper": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackGiant": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "clawHeaderArt": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Rebuilt with the two workers behind the prizes. 023's workers are bigger/closer, the box bluer.",
+   "sheet": "director/claw.png"
+  },
+  "skyJumpBackdrop": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "skyJumpPad": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "skyJumpIsland": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Width-fitted to 069's ~220 pt, thicker layers, the 069 chest (lavender, quilt + shield), tall coin stacks, deeper gold, haze inside the frame. The sign stands left of the chest (069: overlapping it).",
+   "sheet": "director/sky_069.png"
+  },
+  "skyJumpIslandFar": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Same fixes (~139 pt, stacks, haze inside the frame).",
+   "sheet": "director/sky_069.png"
+  },
+  "skyJumpPopupScene": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Orange-gold coins, a warm glow, the lavender chest with quilt + shield. 065's lid is open wider over the coins.",
+   "sheet": "director/sky_065.png"
+  },
+  "rocketRaceBackdrop": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Deep indigo lane area with stars (the banner hides the seam). The chest is still an upright blue barrel; 167's is a gold-banded chest seen from above.",
+   "sheet": "director/rocket_after.png"
+  },
+  "leaderboardPodium": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "scientist": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "workerWalkie": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Default layer = closed smile (the rest frames); stronger warm rim + key for the separation from the blue lab. Arms still thinner than theirs.",
+   "sheet": "director/p_home.png"
+  },
+  "workerClipboard": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Stronger warm rim + key (separation). Clipboard still shows the paper side.",
+   "sheet": "director/p_home.png"
+  },
+  "scientistLoading": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Big open smile (one tooth band) instead of the buck-tooth D; taller, rounder head; SHORT rolled sleeves with fur forearms; fist at chin level; white shirt. The fist reads as a fur cylinder, not a clenched ball.",
+   "sheet": "director/sci_loading_draft.png, director/p_loading.png"
+  },
+  "workerCarrier": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Taller, narrower bean at 92 pt/u, chunky running legs reaching ~y 750, box without the 'eye' holes and tipped so its underside shows, a laughing mouth, a contact shadow. V1's near foot is lifted higher.",
+   "sheet": "director/p_loading.png"
+  },
+  "workerFlyer": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "workerFist": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "Laughing mouth (one tooth band), chunky legs + feet, contact shadow.",
+   "sheet": "director/p_loading.png"
+  },
+  "workerRunners": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Hazed and defocused (2.2 px + 36 % room tint), 12 % bigger, soft floor shadow. The left conveyor pair is still missing (P1).",
+   "sheet": "director/p_loading.png"
+  },
+  "workerClawPair": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "workerRacers": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Riders sit in their sleds (sunk in), laughing mouths. The chute is still a flat ribbon and the checkered banner is missing.",
+   "sheet": "director/racers.png"
+  },
+  "avatarWalkie": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarCapGlasses": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarDetective": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarBurger": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarScientist": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Closer (34 pt/u), the big open smile. Still ~0.85x of the phone's head in its tile.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarParty": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarNotebook": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarBoxHead": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Re-framed as the phone's close-ups (40 pt/u: the bean fills the tile width, the belt at the bottom edge, the cap inside), 3/4 turns, a laughing mouth with one tooth band. The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarGreen": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarRed": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarCap": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarBlue": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarPoint": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarSpecs": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarShades": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "avatarPink": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "The older V2 arrow-character set (SPEC 5.12).",
+   "sheet": "-"
+  },
+  "arrowGlossyYellow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyRed": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyBlue": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyGreen": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyPurple": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyOrange": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "arrowGlossyCyan": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "appIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "sheet": ""
+  },
+  "loadingBackdrop": {
+   "grade": "B",
+   "before": "C",
+   "grader": "B",
+   "changed": "Speckle band gone, bigger tiles with visible near seams, the room defocused and hazed, contact shadows under the cast. The left press is still flat panels (no conveyor).",
+   "sheet": "director/p_loading.png"
+  },
+  "boxSlab": {
+   "grade": "A",
+   "before": "new",
+   "grader": "director",
+   "changed": "The phone BOX slab from 135: violet face, light top line, bottom lip, four rivets, 9-sliceable.",
+   "sheet": "director/box_135.png"
+  },
+  "boxRing": {
+   "grade": "B",
+   "before": "new",
+   "grader": "director",
+   "changed": "Fixed-size counter ring (2.2 pitch). The lugs are a touch longer and whiter than 135's.",
+   "sheet": "director/box_135.png"
+  },
+  "unlockIconBox": {
+   "grade": "B",
+   "before": "new",
+   "grader": "director",
+   "changed": "The phone Box card icon (134) from the same board sprites. The ring's lugs are whiter, the well a little larger.",
+   "sheet": "director/svg_misc2.png"
+  },
+  "glyphSoundWhite": {
+   "grade": "A",
+   "before": "new",
+   "grader": "director",
+   "changed": "meta-029's white speaker on green.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "glyphHapticWhite": {
+   "grade": "B",
+   "before": "new",
+   "grader": "director",
+   "changed": "meta-029's white vibrating phone; ~0.85x of the phone's glyph width.",
+   "sheet": "director/settings_meta029.png"
+  }
+ },
+ "composed": {
+  "homeProof": {
+   "grade": "A",
+   "before": "B",
+   "changed": "Pile inside the window and shaped like 002's, console at 002's width, the Home nav icon at 026's size; at game size the composed home reads as 002 (recoloured characters).",
+   "sheet": "director/p_home.png"
+  },
+  "loadingProof": {
+   "grade": "B",
+   "before": "C",
+   "changed": "Scientist on-model (smile, short sleeves, fist), carrier tall with legs and no box 'eyes', no speckle band, defocused hazy room, contact shadows, chunkier logo at the original logo's box. Remaining: the left press is flat, the left conveyor pair and crowd are missing (P1).",
+   "sheet": "director/p_loading.png"
+  }
+ },
+ "counts": {
+  "A": 50,
+  "B": 95,
+  "C": 1,
+  "n/a": 14,
+  "share_A": 0.342
+ }
+}

@@ -1,0 +1,32 @@
+Ťukni na šípku a ak jej nič nestojí v ceste, vykĺzne po svojej dráhe z hracej plochy. Odstráň všetky šípky skôr, ako vyprší čas.
+
+Arrow Out je rýchly a prehľadný hlavolam na čas. Hracie plochy majú najrôznejšie tvary a sú plné šípok, pričom každá šípka sa môže pohnúť len tam, kam ukazuje. Nájdi správne poradie, ustráž si srdiečka a poraz čas.
+
+AKO HRAŤ
+• Ťukni na šípku a pošli ju smerom, ktorým ukazuje.
+• Ak jej niečo blokuje cestu, odrazí sa späť a prídeš o srdiečko.
+• Vyčisti celú plochu skôr, ako vyprší čas, a získaj mince.
+
+ĽAHKO ZAČAŤ, ŤAŽKO PRESTAŤ
+• Na začiatok 150 úrovní a potom stále nové plochy – nikdy ti nedôjdu.
+• Ťažké a veľmi ťažké úrovne dávajú viac mincí.
+• Nové prekážky prichádzajú po jednej, každá s krátkym vysvetlením: spojené šípky, krabice, rúry, výťahy, dvere a kľúče a rohy.
+
+BONUSY NA ŤAŽKÉ CHVÍLE
+• Jeden bonus zastaví časovač na 10 sekúnd.
+• Druhý ti ukáže šípku, ktorá sa môže pohnúť.
+
+KAŽDÝ TÝŽDEŇ NIEČO NOVÉ
+Týždenné udalosti prichádzajú a odchádzajú: udrž sériu výhier, vylez na vežu odmien, vystreľ raketu, skáč po oblohe alebo vystúp balónom až na vrchol. Zastav sa každý týždeň a pozri, čo je nové.
+
+HRÁ SA PRÍJEMNE
+• Plynulé animácie a výrazná haptická odozva pri každom ťuknutí.
+• Bez reklám a bez účtu.
+• Hraj offline: na hranie nepotrebuješ Wi-Fi.
+• Životy sa časom doplnia, takže vždy môžeš skúsiť ďalšie kolo.
+
+NÁKUPY V APLIKÁCII
+Arrow Out je zadarmo. Voliteľné nákupy v aplikácii ponúkajú balíky mincí a balíčky s mincami, bonusmi a hodinami neobmedzených životov. Ceny uvidíš pred nákupom vo svojej mene.
+
+Zásady ochrany súkromia: https://leomarston.github.io/manycode-legal/privacy-arrow-out.html
+Podmienky používania: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

@@ -1,0 +1,72 @@
+{
+ "sym": 0,
+ "shift": [
+  0,
+  0
+ ],
+ "nA": 24,
+ "nB": 24,
+ "identical": 24,
+ "onlyA": [],
+ "onlyB": [],
+ "obstacles": {
+  "A": 3,
+  "B": 10,
+  "same_cells": 3,
+  "same_counter": 0,
+  "diffs": [
+   {
+    "onlyB": "box_part",
+    "cells": []
+   },
+   {
+    "onlyB": "box_part",
+    "cells": []
+   },
+   {
+    "onlyB": "box_part",
+    "cells": []
+   },
+   {
+    "onlyB": "box_part",
+    "cells": []
+   },
+   {
+    "onlyB": "box_part",
+    "cells": [
+     [
+      2,
+      19
+     ]
+    ]
+   },
+   {
+    "onlyB": "box_part",
+    "cells": []
+   },
+   {
+    "onlyB": "box_part",
+    "cells": []
+   }
+  ]
+ },
+ "elevators": {
+  "A": 0,
+  "B": 0,
+  "match": []
+ },
+ "files": [
+  "levels/L012.json",
+  "levels/L051.json"
+ ],
+ "dims": [
+  [
+   15,
+   21
+  ],
+  [
+   15,
+   21
+  ]
+ ]
+}

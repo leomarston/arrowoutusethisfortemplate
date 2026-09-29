@@ -1,0 +1,52 @@
+kind	old_key	new_key	why	app_sites	test_tool_sites
+drop	Live		ruling 37(d) / owner item 9: the label of the removed rewarded-ad button ([clapper] [heart +1] 'Live', AdLiveButton, release-plan §4.1 A2); no other code site (VERIFIED grep: NoLivesPopup.swift:122/128 only)	App/Shell/Popups/NoLivesPopup.swift:122 App/Shell/Popups/NoLivesPopup.swift:128	-
+drop	Video not available		ruling 37(d) / owner item 9: the rewarded-ad button and its AdSlot toast are removed (release-plan §4.2); code site NoLivesPopup.swift:142 goes with A1	App/Shell/Popups/NoLivesPopup.swift:142	tools/strings/tr_review.py:59
+replace	90% OFF	STARTER	ruling 38: STARTER instead of '90% OFF' (release-plan §10.5 honesty)	App/Shell/Shop/ShopView.swift:578 App/Shell/Shop/ShopView.swift:592 App/Resources/Tuning/rules.json:46	Packages/PathCore/Sources/PathCore/Economy/ShopCatalog.swift:59 Packages/PathCore/Tests/PathCoreTests/EconomyTests.swift:174 Packages/PathCore/Tests/Fixtures/c3_rules_spec15.json:243 tools/strings/tr_review.py:61 tools/strings/tr_review.py:62
+drop	Test store: nothing is charged		release gate G8 + A1 acceptance ('strings' of the Release .app has 0 'Test store'): the chip is FakeStore-only (DEBUG/tests/captures); the compiled catalogue would otherwise carry the text into every .lproj. A1 draws the DEBUG chip with Text(verbatim:) (not a catalogue key)	App/Shell/Shop/ShopView.swift:356 App/Shell/Shop/ShopView.swift:360	UITests/ShellS3UITests.swift:18
+replace	Weekly Contest Wins	Weekly Cup Wins	ruling 38 own names	App/Shell/Profile/ProfileView.swift:107	-
+replace	Streak Race Wins	Hot Streak Wins	ruling 38 own names	App/Shell/Profile/ProfileView.swift:109	-
+replace	Rocket Race Wins	Rocket Rally Wins	ruling 38 own names	App/Shell/Profile/ProfileView.swift:111	-
+replace	Sky Jump Wins	Cloud Hop Wins	ruling 38 own names	App/Shell/Profile/ProfileView.swift:113	-
+replace	Claw Challenge Wins	Treasure Climb Wins	ruling 38 own names	App/Shell/Profile/ProfileView.swift:115	-
+replace	The Weekly Contest ends in 2 hours!	The Weekly Cup ends in 2 hours!	ruling 38 own names	App/Game/NotificationPrompt.swift:88	-
+replace	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@ has no accounts, no ads and no tracking.	release-plan §2.5 S-7	App/Shell/Popups/SettingsPopup.swift:294	-
+replace	The game works offline. Purchases are handled by Apple.	The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	release-plan §2.5 S-7	App/Shell/Popups/SettingsPopup.swift:296	tools/strings/selftest.py:80
+replace	Reach level 50 to compete in Weekly Contest!	Reach level 50 to join the Weekly Cup!	ruling 38 own names	App/Shell/Pages/SocialShells.swift:125	-
+replace	Weekly Contest	Weekly Cup	ruling 38 own names	App/Shell/Social/LeaderboardViews.swift:145 App/Shell/Social/WeeklyViews.swift:83 App/Shell/Social/WeeklyViews.swift:177	-
+replace	Tap to compete in Weekly Contest!	Tap to join the Weekly Cup!	ruling 38 own names	App/Shell/Social/WeeklyViews.swift:44 App/Shell/Social/WeeklyViews.swift:51	-
+replace	Compete against your friends!	The top 3 win prizes!	ruling 38: drop 'Compete against your friends!' (no friends feature)	App/Shell/Social/WeeklyViews.swift:110	-
+replace	Streak Race	Hot Streak	ruling 38 own names	App/Shell/Home/EventBadges.swift:106 App/Shell/Social/StreakRaceViews.swift:106 App/Shell/Social/SocialLab.swift:73 App/Shell/Popups/StreakBanner.swift:185 App/Shell/Popups/StreakBanner.swift:206	-
+replace	Claw Challenge	Treasure Climb	ruling 38 own names	App/Shell/Home/ClawBar.swift:45 App/Shell/Social/ClawScreen.swift:41 App/Shell/Social/ClawScreen.swift:299	-
+replace	Rocket Race	Rocket Rally	ruling 38 own names	App/Shell/Home/EventBadges.swift:107 App/Shell/Social/RocketRaceViews.swift:78 App/Shell/Social/RocketRaceViews.swift:87 App/Shell/Social/RocketRaceViews.swift:194 App/Shell/Social/SocialLab.swift:74 App/Shell/Popups/RaceBar.swift:138	-
+replace	Sky Jump	Cloud Hop	ruling 38 own names	App/Shell/Home/EventBadges.swift:108 App/Shell/Social/SkyJumpViews.swift:85 App/Shell/Social/SkyJumpViews.swift:259	-
+replace	Your progress is saved on this device.	Your progress and coins are saved only on this device. Deleting the game erases them.	PLAN-P OD10 default ('accept the loss in 1.0, one line on the support page'); revert to the old key if the owner picks iCloud backup	App/Shell/Popups/SettingsPopup.swift:281	-
+add		Up & Away	EVENT NAME balloonRise (the new ladder event, events.md §5)	(new: B1/A1 add the literal)	
+add		NEW	events.md §6.1 event.new	(new: B1/A1 add the literal)	
+add		New Event!	events.md §6.2 event.started	(new: B1/A1 add the literal)	
+add		Double Event Week!	events.md §6.2 event.double	(new: B1/A1 add the literal)	
+add		Let's Go!	events.md §6.2 event.letsGo	(new: B1/A1 add the literal)	
+add		Ends in %@	events.md §7.2 event.endsIn (%@ = a countdown such as '2d 5h'; max 18)	(new: B1/A1 add the literal)	
+add		Last day!	events.md §6.1 event.lastDay	(new: B1/A1 add the literal)	
+add		Coming next: %@	events.md §6.3 event.comingNext footer, part 1 (%@ = next week's event name for this player's level). Split from events.md's one-key 'Coming next	(new: B1/A1 add the literal)	
+add		Starts in %@	events.md §6.3 event.comingNext footer, part 2 (%@ = countdown, last 24 h only	(new: B1/A1 add the literal)	
+add		This event has ended.	events.md §4.5 event.over	(new: B1/A1 add the literal)	
+add		%@ has started! Beat levels to win amazing rewards!	events.md §6.4 local notification eventStart (%@ = event name; 10	(new: B1/A1 add the literal)	
+add		Double Event Week! %@ and %@ are both on!	events.md §6.4 local notification eventStart on a double week (%1 = Rocket Rally, %2 = Cloud Hop, from the name keys)	(new: B1/A1 add the literal)	
+add		%@ ends in 3 hours!	events.md §6.4 local notification eventEnding (%@ = the ladder event's name; only with progress, 3 h before the Monday roll)	(new: B1/A1 add the literal)	
+add		Beat levels in a row to rise higher!	events.md §7.2 balloon.sub	(new: B1/A1 add the literal)	
+add		Beat levels to fill your balloons with hot air!	events.md §7.2 balloon.info.1	(new: B1/A1 add the literal)	
+add		Hard levels give more hot air!	events.md §7.2 balloon.info.2	(new: B1/A1 add the literal)	
+add		If you fail a level, a balloon pops!	events.md §7.2 balloon.info.3	(new: B1/A1 add the literal)	
+add		Lose all 3 balloons and you fall to the start of the step!	events.md §7.2 balloon.info.4	(new: B1/A1 add the literal)	
+add		Reach the top for the big prize!	events.md §7.2 balloon.info.5	(new: B1/A1 add the literal)	
+add		hot air	HIGHLIGHT RUN inside 'Beat levels to fill your balloons with hot air!' (SPEC-ui §2.15.6 pattern, SocInfoLine key	(new: B1/A1 add the literal)	
+add		Hard levels	HIGHLIGHT RUN inside 'Hard levels give more hot air!'; each translation must be a substring of its own card-2 sentence; unused if B1 lights no run	(new: B1/A1 add the literal)	
+add		big prize	HIGHLIGHT RUN inside 'Reach the top for the big prize!'; each translation must be a substring (same case) of its own card-5 sentence; unused if B1 lights no run	(new: B1/A1 add the literal)	
+add		Step %lld	events.md §7.2 balloon.step	(new: B1/A1 add the literal)	
+add		Completed!	events.md §7.2 balloon.complete	(new: B1/A1 add the literal)	
+add		You fell to the start of step %lld!	events.md §7.2 balloon.fell	(new: B1/A1 add the literal)	
+add		You will lose a balloon!	events.md §5 fail.balloon	(new: B1/A1 add the literal)	
+add		You will lose a balloon and your streak!	events.md §5 fail.balloonStreak	(new: B1/A1 add the literal)	
+replace	You will lose %lld token	You will lose %lld tokens	FIX-2 lane B, SPEC ruling 52(e): T1's EN polish, real grammar only	-	tools/strings/{tr_review,l10n_review}.py
+replace	You will lose %lld token and your streak!	You will lose %lld tokens and your streak!	FIX-2 lane B, SPEC ruling 52(e): T1's EN polish, real grammar only	-	tools/strings/{tr_review,l10n_review}.py
+replace	Time to next live:	Time to next life:	FIX-2 lane B, SPEC ruling 52(e): T1's EN polish, real grammar only	-	tools/strings/{tr_review,l10n_review}.py

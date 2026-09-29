@@ -1,0 +1,232 @@
+{
+ "overlap": {
+  "note": "arrow boards pairwise: min SDF of one board at another's surface samples (> -0.01 u = no visible interpenetration)",
+  "sets": {
+   "digCart": {
+    "boards": 3,
+    "min_signed_distance": 0.06,
+    "pass_": true,
+    "pairs": {
+     "0->1": 0.06,
+     "0->2": 0.06,
+     "1->0": 0.06,
+     "1->2": 0.06,
+     "2->0": 0.06,
+     "2->1": 0.06
+    }
+   }
+  }
+ },
+ "recompose": {
+  "note": "default layers at rect_pt vs the full render, on (98,132,214); ShellTests pins mean <= 1/255 (its metric = mean abs RGB), the pipeline <= 2/255 and <= 1 % px > 40",
+  "rigs": {
+   "boss_home": {
+    "mean_abs": 0.054,
+    "max_channel_mean": 0.094,
+    "pct_gt40": 0.0,
+    "layers": 8,
+    "rest": [
+     "torso",
+     "armL",
+     "armR",
+     "headSmile"
+    ],
+    "groups": {
+     "armR": {
+      "members": [
+       "armR",
+       "armR_point"
+      ],
+      "default": "armR"
+     },
+     "head": {
+      "members": [
+       "headSmile",
+       "headOpen"
+      ],
+      "default": "headSmile"
+     }
+    },
+    "rig_proof": {
+     "mean_abs": 0.094,
+     "pct_gt40": 0.0
+    }
+   },
+   "dig_homeL": {
+    "mean_abs": 0.048,
+    "max_channel_mean": 0.075,
+    "pct_gt40": 0.007,
+    "layers": 9,
+    "rest": [
+     "body_smile",
+     "eyes_open",
+     "armL",
+     "armR"
+    ],
+    "groups": {
+     "body": {
+      "members": [
+       "body_smile",
+       "body_open"
+      ],
+      "default": "body_smile"
+     },
+     "eyes": {
+      "members": [
+       "eyes_open",
+       "eyes_half",
+       "eyes_closed",
+       "eyes_wink"
+      ],
+      "default": "eyes_open"
+     },
+     "armL": {
+      "members": [
+       "armL",
+       "armL_wave"
+      ],
+      "default": "armL"
+     }
+    },
+    "rig_proof": {
+     "mean_abs": 0.075,
+     "pct_gt40": 0.007
+    }
+   },
+   "dig_homeR": {
+    "mean_abs": 0.28,
+    "max_channel_mean": 0.355,
+    "pct_gt40": 0.33,
+    "layers": 8,
+    "rest": [
+     "body_smile",
+     "eyes_half",
+     "goggles",
+     "armL",
+     "armR"
+    ],
+    "groups": {
+     "body": {
+      "members": [
+       "body_smile",
+       "body_open"
+      ],
+      "default": "body_smile"
+     },
+     "eyes": {
+      "members": [
+       "eyes_open",
+       "eyes_half",
+       "eyes_closed"
+      ],
+      "default": "eyes_half"
+     }
+    },
+    "rig_proof": {
+     "mean_abs": 0.355,
+     "pct_gt40": 0.33
+    }
+   }
+  }
+ },
+ "idle": {
+  "note": "each rig driven through the OLD rig's ui.json puppet loop (same layer names), 48 frames per cycle, composed as PuppetStage does; holes = transparent px inside the filled silhouette (the proof: no frame has more than the rest pose + tolerance)",
+  "rigs": {
+   "boss_home": {
+    "cycle": 3.16,
+    "frames": 48,
+    "rest_holes_px": 154,
+    "max_extra_holes_px": 44,
+    "at_t": 0.79,
+    "tracks": 7,
+    "driven_by": "char_sci_home_rig"
+   },
+   "dig_homeL": {
+    "cycle": 17.3,
+    "frames": 48,
+    "rest_holes_px": 0,
+    "max_extra_holes_px": 77,
+    "at_t": 5.406,
+    "tracks": 6,
+    "driven_by": "char_wk_homeL_blue_rig"
+   },
+   "dig_homeR": {
+    "cycle": 10.2,
+    "frames": 48,
+    "rest_holes_px": 504,
+    "max_extra_holes_px": 43,
+    "at_t": 1.062,
+    "tracks": 6,
+    "driven_by": "char_wk_homeR_blue_rig"
+   }
+  }
+ },
+ "home": {
+  "note": "the cast (3 rigs + the registered scaffold) at their D1 placements on a DRAFT burrow backdrop + a flat D1-token UI mock at the unchanged rects; R3 HOME replaces the backdrop and adds the Signpost. Row 2 = the scene band only (y 152..618, the UI rects excluded but the LEVEL plate). Row 3 = R1's mock (new cast on TODAY's composition) for reference.",
+  "gates": [
+   {
+    "ours": "art/review/cast/home-proof-D1draft.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.168,
+    "overlap": 0.118,
+    "pass_": true
+   },
+   {
+    "ours": "art/review/cast/home-proof-D1draft.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     152,
+     393,
+     466
+    ],
+    "ssim": 0.14,
+    "overlap": 0.098,
+    "pass_": true
+   },
+   {
+    "ours": "art/review/concepts/home-mock-D1-cast.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.537,
+    "overlap": 0.194,
+    "pass_": false
+   }
+  ],
+  "sheet": "art/review/cast/home-proof-D1draft.png"
+ },
+ "loading": {
+  "note": "the 5 loading figures at the draft layout (char_cast_d1.LOADING_LAYOUT) on a DRAFT tunnel-exit backdrop + R1's LG-1 logo sketch centred top + 'Loading..' (R4 LOADING owns backdrop + layout, R6 the logo)",
+  "gates": [
+   {
+    "ours": "art/review/cast/loading-proof-D1draft.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.233,
+    "overlap": 0.114,
+    "pass_": true
+   }
+  ],
+  "sheet": "art/review/cast/loading-proof-D1draft.png"
+ },
+ "profile": {
+  "note": "page kind (overlap with chroma_min 8; SSIM informative); a MOCK page, not the app's",
+  "gates": [
+   {
+    "ours": "art/review/cast/profile-proof-mock.png",
+    "theirs": "research/shots/meta-003-profile-edit.png",
+    "kind": "page",
+    "crop": null,
+    "ssim": 0.239,
+    "overlap": 0.059,
+    "pass_": true
+   }
+  ],
+  "sheet": "art/review/cast/profile-proof-mock.png"
+ }
+}

@@ -1,0 +1,81 @@
+2026-09-25 social-sim designer (video workflow wf_f2b1d6ea-b27, role SOCIAL SIMULATION DESIGNER)
+04:00 read PLAN (OWNER 02:33), web-research, flows, video-flows §9, tutorials, phone shots 013-204, store iphone-6, yt frames.
+04:40 data: given_* (SSA public domain EN + 15 hand-written cultures), words, blocklists, countries.tsv; build_name_data.py -> social_names.json.
+04:55 socialsim/{core,data,names,population,events}.py reference; world calibrated to V2 World top-8 (Jul 30) and the FTUE-speed level curve.
+05:10 tests.py 16/16; name_audit 5 y world: 4,875,008 players, 0 duplicate nicknames.
+05:20 phone evidence landed mid-run: Streak Race list (shot 203: prizes 1000/500/100/100/100 for #2-#6, scores 3423/2950/2065/1882/1846,
+      group > 5) and Rocket Race loss (shots 178/183/189) -> Streak Race = 20-player group, points = chip value before the win (fits 2065 exactly
+      with 241 pre-session points), Rocket hold 14-40 min, retry at once.
+05:30 final bench (3 profiles x 52 weeks), fixtures, samples running; SPEC-social.md next.
+05:40 final benches (3 profiles x 52 w): all invariants 0; weekly/streak/rocket tuned (SPEC §9).
+05:59 5-year audit found ONE duplicate (salted fallback == a default name) -> all player_ names now one bijection with disjoint ranges;
+      re-audit 4,875,008 players, 0 duplicates. tests 18/18. fixtures regenerated.
+06:10 SPEC-social.md written (evidence, world, leaderboards, events, clock, persistence, Swift architecture, tests, bench, UI inventory,
+      strings EN/TR, open questions + phone checklist, decisions D1-D18).
+2026-09-25 SOC1b — social recalibration to phone session 2 (research/social-dynamics.md)
+14:37 read SPEC, PLAN, the research, SPEC-social, the reference, SOC1's soc_model.py and the Swift port; snapshot -> build/soc1b/before/.
+14:45 tools/calib_s2.py: every session-2 observable on one parameter set (names by board, World top movers, Turkey slope, Weekly bursts,
+      Streak arrivals/zeros/ties, Rocket finish times, Sky curves, resets). BEFORE: 46 % player_ on the boards (phone 14 %), Weekly 71 %
+      idle (44 %), Streak 88 % static (47 %), Rocket first finish ~28 min (6-19), Turkey 5.3 places/level (3.6), Sky 18 at step 1 (0).
+15:05 reference extended, all OFF by default (prototype byte-identical: design/social/fixtures regenerate unchanged): population 'honey',
+      names.VARIANTS + 'leet', GroupContest.TIE_BY_NAME, StreakRace.FAIL_Q, RocketRace roles/holds/sprint, events.SKY_DROPS.
+      socialsim/shipped.py = the shipped patch (moved from Tests/tools/soc_model.py). tests.py takes 'v552': 18/18 on both models.
+15:18 name_audit.py --v552 to 2031-09-25: 4,875,040 players, 0 duplicates, 0 blocked, 0 > 16 chars.
+15:36 Streak leaders strengthened (fail chance 2-12 %, top band 1.2-2.2) after reading the owner sample.
+15:40 Swift bit-exact again (73,324 values, Debug + -O), 59/59 Social tests, bench invariants 0, perf budgets pass.
+      Table: build/soc1b/calibration.md (tools/calib_table.py); spec: SPEC-social §14.
+16:00 final: Release 59/59 (76,076 values bit for bit), mutations 13/13 CAUGHT (m12 after a stronger fixture), owner sample + calibration table in build/soc1b.
+
+## SOC1c — 2026-09-25 (orchestrator: duplicate names like the original's two "Bobby"; Sky Jump stage 3 = 10 levels)
+17:10 names.py: decode = grid lookup + build(style, i, r, culture, vr); names.DRAW / drawn() added OFF by default (the reference
+      and SOC1b's parameters reproduce their fixtures byte for byte). shipped.py: DRAW (5 % numbers, a popularity head of 50 names),
+      new style mix, SKY_LEVELS [5, 7, 10], stage-3 drops 7.5-9.5 / winners 5-9. calib_s2.py measures repeated names (+ --soc1b).
+17:18 tests.py 19/19 on both models; name_audit.py --v552: 4,875,040 players, 2,903,142 distinct, 0 blocked, 0 > 16, board-like
+      pair rate 7.2e-5 (phone 1/1721, CI 1.5e-5..3.2e-3) -> PASS. Table: build/soc1c/calibration.md (tools/calib_table_soc1c.py);
+      spec: SPEC-social §15.
+20:12 (resume after the 17:51 disk stop) population.py STYLE_SYSTEMATIC (off = the reference's rounding): per-cohort style counts
+      by systematic apportionment; the reference rounding gave the LAST style ('leet') the remainder -> 9.8 % leet in cohorts under
+      10 players, 10-12 of the World top 100 (S150 / F689 / Y775 in every World top 10). shipped.py turns it on; calib_s2.py
+      --soc1/--soc1b turn it off and report styles by cohort size. tests.py 19/19 both; design + reference fixtures byte-identical;
+      soc_v552_* regenerated; name_audit --v552 PASS (4,875,040 players, 0 blocked, 0 > 16, pair rate 7.18e-5, leet 3.0 %).
+
+## T6 SOC-PY — 2026-09-28 (PUBLISH, owner item 13; social-intl §6; the second attempt, the first died at 02:16)
+02:40 read PLAN-P row T6, social-intl, SPEC 37-39 and the first attempt's files (M1-M10 in place, Wikidata fetch complete at
+      02:27 but the names built at 02:15 from a partial fetch). RULE from here on: no stem, blocked name or collateral name is
+      ever printed or written to a report — counts and sha1 prefixes only (build_name_data_v2 / name_audit / tests_v2 / calib).
+02:55 names rebuilt from the full fetch; invented-handle ROOTS (3-letter prefix shared by >= 3 v2 substring stems) drop the
+      audit's P1-4 example handles the token-only rules let through (0/20 left in the pool); LDNOOBW (CC BY 4.0, curl) fetched
+      as a build-time SCREEN only (tools/v2/pubscreen.py, never shipped); native forms need >= 3 characters outside
+      Han/Hangul/kana; hy/ka native share 0 (no Armenian/Georgian stems). tests: reference 19/19, v552 19/19, v2 27/27.
+03:20 phone guards failed under M1 (Turkey #6/#7 +49/+71 %, slope 2.32): M11 per-row archetype tilt (TR dabbler/casual x1.3,
+      regular/returner/enthusiast x0.3), fit_tr.py. Full calib: India launch week 24 dead hours -> M9 minimum of 3 shards for
+      regulars/returners; TR refit 0.39. name_audit streams the world (same v552 result, 365 MB instead of GBs).
+03:50 final: identity 9/9 byte-identical (reference + v552 + design fixtures), tests 19/19 / 19/19 / 27/27; calib 138
+      country-weeks (16 launch, 46 age 22 w, 76 age 52 w): dead hours <= 12, ladder pairs <= 7, equal-gap runs <= 3, TR 456
+      at L62; every isoRegions code (286) resolves. The literal "top first name <= 4 %" fails 44/138 boards: statistically
+      infeasible at 60-80 first-name rows (real Wikidata frequencies fail it in a median 92 % of samples); <= 5 occurrences
+      and the expected share <= 4 % pass everywhere. Evidence: build/p/T6/.
+04:35 promotion rule (1 published entry equal to one of our generated initials runs -> shipped token list; English false
+      friends kept). Final: name_audit --v2 to 2031-09-25 PASS (4,527,626 players, 0 blocked, 0 > 16, pair rate 3.2e-5,
+      published-list whole matches of non-English words 0; 8,649 inside/false-friend matches reported by kind), 431 MB;
+      fixtures_v2 (staging build/p/T6/fixtures_v2/, for B2) after a fix for one-member cohorts; identity re-checked;
+      roll-up build/p/T6/acceptance.json (tools/v2/acceptance.py).
+
+## B2 SOCIAL-P — 2026-09-28 (PUBLISH, owner item 13; PLAN-P §4.4; the Swift port of T6's v2 world, then the freeze)
+14:46 claimed PathCore/Social + tests; read T6's v2.py / population.py / names.py / data.py and the staged fixtures.
+15:02 Swift port of M1-M11 (SocialWorldModel.shipped + SocialIntl; SocialIntlTables.swift generated from data_v2 by
+      Tests/tools/soc_v2_tables.py): soc_v2_{world,events,intl}.json bit for bit in Debug on the first run (fixtures_v2.py
+      re-run: byte-identical to T6's staged copies). v552 symbols renamed: SocialWorldModel.calibrated ("calibrated", tests
+      only), .shipped = v2 ("shipped"; social.json unchanged), SocialNameStyle/GroupSpec/RocketSpec/SkySpec .shipped*.
+15:11 the app ships ONE name file (App/Resources/Social/social_names.json = Tests/tools/soc_ship_names.py's build of
+      social_names_v2.json: 3 brand blocklist entries hashed (FNV-1a-64), 6 unshowable tokens marked U+0001 in place; the
+      v1 txt/tsv copies removed); SocialNamesTests proves 26,539 players' names identical to the design bank.
+15:27 design/social/FROZEN written (16 files: data_v2, the socialsim reference, SocialIntlTables.swift, the shipped
+      bank, the three v2 fixtures); SocialIntlTests.testTheShippedWorldIsFrozen + soc_freeze.py --check.
+16:37 perf + memory (exact): brackets split at local midnights (P is monotone inside a local day, so a fixed bracket
+      needs no re-check), World neighbours prune fixed-bracket straddlers by exact bounds, one direct-mapped session cache
+      per world, one pattern array per cohort (prefix sums re-added in order), shared archetypes, a compact style table.
+      -O: 147,454 golden values bit for bit; all SOC1 + B2 budgets pass (y3 World rank 0.42 ms, Country 0.14 ms, top-100
+      0.03 ms, neighbours 1.37 ms; 2031 world 0.41 / 0.14 / 0.03 / 1.67 ms); heap: v2 15 MB at 1 year, 61 MB at 3 years
+      (the calibrated world held 28.5 / 86.7 MB before B2). Full realism guards (138 country-weeks) and the 52-week bench
+      (0 invariant breaks) in build/p/B2/evidence2, bench2.

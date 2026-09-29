@@ -1,0 +1,25 @@
+{
+ "_about": "Screenshot captions for zh-Hans: caption N = keyword N of design/keywords.json (ASO rule), keyword only, no subline. Frames: 1 hero board mid-clear, 2 obstacles (door+key, pipe), 3 the tap, 4 a Hard/Super Hard level, 5 home (no banner).",
+ "captions": [
+  {
+   "headline": "Arrow Out",
+   "subline": ""
+  },
+  {
+   "headline": "箭头游戏",
+   "subline": ""
+  },
+  {
+   "headline": "箭头解谜",
+   "subline": ""
+  },
+  {
+   "headline": "烧脑游戏",
+   "subline": ""
+  },
+  {
+   "headline": "无广告游戏",
+   "subline": ""
+  }
+ ]
+}

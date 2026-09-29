@@ -1,0 +1,1022 @@
+{
+ "L001.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 1,
+   "per_round": [
+    3
+   ],
+   "moves": 3,
+   "free_at_start": 3
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L002.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 4,
+   "per_round": [
+    1,
+    1,
+    2,
+    2
+   ],
+   "moves": 6,
+   "free_at_start": 1
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L003.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 3,
+   "per_round": [
+    2,
+    4,
+    2
+   ],
+   "moves": 8,
+   "free_at_start": 2
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L004.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 4,
+   "per_round": [
+    1,
+    4,
+    2,
+    1
+   ],
+   "moves": 8,
+   "free_at_start": 1
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L005.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 8,
+   "per_round": [
+    6,
+    3,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2
+   ],
+   "moves": 17,
+   "free_at_start": 6
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L006.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    11,
+    4,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    2
+   ],
+   "moves": 29,
+   "free_at_start": 11
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L007.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 9,
+   "per_round": [
+    3,
+    2,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "moves": 14,
+   "free_at_start": 3
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L008.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 7,
+   "per_round": [
+    3,
+    4,
+    3,
+    1,
+    1,
+    2,
+    3
+   ],
+   "moves": 17,
+   "free_at_start": 3
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L009.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    7,
+    4,
+    2,
+    2,
+    1,
+    3,
+    3,
+    2,
+    1,
+    2
+   ],
+   "moves": 27,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L010.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 14,
+   "per_round": [
+    9,
+    4,
+    4,
+    2,
+    3,
+    2,
+    2,
+    2,
+    1,
+    3,
+    1,
+    2,
+    2,
+    1
+   ],
+   "moves": 38,
+   "free_at_start": 9
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L011.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 5,
+   "per_round": [
+    6,
+    2,
+    4,
+    1,
+    1
+   ],
+   "moves": 14,
+   "free_at_start": 6
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L012.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    4,
+    2,
+    1,
+    2,
+    3,
+    4,
+    3,
+    2,
+    2,
+    1
+   ],
+   "moves": 24,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L013.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 12,
+   "per_round": [
+    4,
+    3,
+    3,
+    3,
+    3,
+    4,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1
+   ],
+   "moves": 29,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L014.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 5,
+   "per_round": [
+    5,
+    3,
+    2,
+    4,
+    1
+   ],
+   "moves": 15,
+   "free_at_start": 5
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L015.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 11,
+   "per_round": [
+    8,
+    8,
+    6,
+    4,
+    6,
+    4,
+    3,
+    3,
+    2,
+    3,
+    1
+   ],
+   "moves": 48,
+   "free_at_start": 8
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L016.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    4,
+    3,
+    3,
+    5,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "moves": 24,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L017.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 14,
+   "per_round": [
+    7,
+    4,
+    3,
+    2,
+    3,
+    2,
+    2,
+    3,
+    5,
+    4,
+    6,
+    4,
+    2,
+    1
+   ],
+   "moves": 48,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L018.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    4,
+    3,
+    2,
+    3,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1
+   ],
+   "moves": 22,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L019.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 25,
+   "per_round": [
+    11,
+    2,
+    2,
+    2,
+    2,
+    1,
+    3,
+    1,
+    1,
+    3,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    4,
+    2,
+    3,
+    4,
+    2,
+    3,
+    2
+   ],
+   "moves": 62,
+   "free_at_start": 11
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L020.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 9,
+   "per_round": [
+    5,
+    3,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1
+   ],
+   "moves": 20,
+   "free_at_start": 5
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L021.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    1,
+    1,
+    3,
+    2,
+    4,
+    2,
+    1,
+    2,
+    3,
+    1
+   ],
+   "moves": 20,
+   "free_at_start": 1
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L022.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    6,
+    5,
+    4,
+    3,
+    2,
+    3,
+    2,
+    2,
+    1,
+    1
+   ],
+   "moves": 29,
+   "free_at_start": 6
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L023.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 18,
+   "per_round": [
+    7,
+    5,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    4,
+    1,
+    2,
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2
+   ],
+   "moves": 37,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L024.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 10,
+   "per_round": [
+    7,
+    5,
+    2,
+    2,
+    3,
+    3,
+    3,
+    2,
+    1,
+    1
+   ],
+   "moves": 29,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L025.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 24,
+   "per_round": [
+    10,
+    6,
+    4,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    3,
+    3,
+    3,
+    2,
+    2,
+    3,
+    1,
+    2,
+    1,
+    3,
+    2,
+    2,
+    2,
+    1
+   ],
+   "moves": 61,
+   "free_at_start": 10
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L026.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 12,
+   "per_round": [
+    4,
+    2,
+    3,
+    2,
+    1,
+    1,
+    3,
+    2,
+    3,
+    2,
+    2,
+    1
+   ],
+   "moves": 26,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L027.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 16,
+   "per_round": [
+    7,
+    4,
+    3,
+    3,
+    1,
+    3,
+    3,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "moves": 40,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L028.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 14,
+   "per_round": [
+    7,
+    1,
+    1,
+    4,
+    3,
+    5,
+    7,
+    2,
+    1,
+    1,
+    2,
+    4,
+    4,
+    1
+   ],
+   "moves": 43,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L029.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 29,
+   "per_round": [
+    13,
+    4,
+    1,
+    1,
+    2,
+    1,
+    1,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    6,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2,
+    4,
+    2,
+    2,
+    2
+   ],
+   "moves": 68,
+   "free_at_start": 13
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L030.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 7,
+   "per_round": [
+    9,
+    4,
+    2,
+    4,
+    3,
+    2,
+    1
+   ],
+   "moves": 25,
+   "free_at_start": 9
+  },
+  "random_dead_ends": "0/100"
+ },
+ "L031.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 12,
+   "per_round": [
+    8,
+    5,
+    4,
+    5,
+    1,
+    4,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   "moves": 35,
+   "free_at_start": 8
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L032.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 17,
+   "per_round": [
+    4,
+    4,
+    1,
+    3,
+    3,
+    2,
+    2,
+    4,
+    1,
+    4,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    2
+   ],
+   "moves": 40,
+   "free_at_start": 4
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L033.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 22,
+   "per_round": [
+    8,
+    4,
+    2,
+    2,
+    2,
+    4,
+    3,
+    2,
+    1,
+    2,
+    4,
+    5,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    3,
+    1,
+    1
+   ],
+   "moves": 53,
+   "free_at_start": 8
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L034.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 13,
+   "per_round": [
+    5,
+    3,
+    4,
+    3,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    3,
+    1,
+    2
+   ],
+   "moves": 32,
+   "free_at_start": 5
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L035.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 44,
+   "per_round": [
+    8,
+    4,
+    2,
+    3,
+    3,
+    2,
+    1,
+    3,
+    3,
+    2,
+    1,
+    2,
+    1,
+    3,
+    4,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    4,
+    3,
+    1,
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2
+   ],
+   "moves": 96,
+   "free_at_start": 8
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L036.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 14,
+   "per_round": [
+    3,
+    2,
+    3,
+    2,
+    2,
+    2,
+    4,
+    3,
+    5,
+    3,
+    3,
+    1,
+    2,
+    1
+   ],
+   "moves": 36,
+   "free_at_start": 3
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L037.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 23,
+   "per_round": [
+    7,
+    4,
+    5,
+    4,
+    4,
+    2,
+    3,
+    2,
+    1,
+    1,
+    2,
+    1,
+    3,
+    2,
+    2,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "moves": 55,
+   "free_at_start": 7
+  },
+  "random_dead_ends": "0/100"
+ },
+ "V2-L038.json": {
+  "schema": [],
+  "invariants": [],
+  "notes": [],
+  "solver": {
+   "solved": true,
+   "rounds": 12,
+   "per_round": [
+    6,
+    2,
+    3,
+    3,
+    1,
+    3,
+    3,
+    3,
+    4,
+    2,
+    2,
+    2
+   ],
+   "moves": 34,
+   "free_at_start": 6
+  },
+  "random_dead_ends": "0/100"
+ }
+}

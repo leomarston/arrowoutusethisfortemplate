@@ -1,0 +1,647 @@
+{
+ "version": 1,
+ "title": "R8 EVENT-ART lane (scene_events_d1.py): D1 event art + Up & Away",
+ "entries": [
+  {
+   "id": "treasureHeader",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-claw",
+   "purpose": "Treasure Climb page header: a timber-framed prize cabinet (teal felt back, brass-capped posts, lantern strip), a brass claw, the prize heap in D1 colours, R2's two cheering Diggers (char_digClawPair)",
+   "screen": "event page claw",
+   "size_pt": [
+    393,
+    240
+   ],
+   "size_px": [
+    1179,
+    720
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:treasureHeader",
+   "file": "art/out/treasureHeader@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces clawHeaderArt at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/meta-039-claw-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     243
+    ]
+   }
+  },
+  {
+   "id": "streakHeader",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-streak",
+   "purpose": "Hot Streak page header: R2's three Diggers in mine carts (char_digRacers) on timber trestle tracks out of a burrow tunnel portal; teal rock cavern, pit props, string lights, lanterns, crystals",
+   "screen": "event page streak",
+   "size_pt": [
+    393,
+    290
+   ],
+   "size_px": [
+    1179,
+    870
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:streakHeader",
+   "file": "art/out/streakHeader@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces workerRacers at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/203-streak-race-leaderboard.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     300
+    ]
+   }
+  },
+  {
+   "id": "rallyBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "Rocket Rally page backdrop: deep-teal night, copper-banded + ringed mint planets, a sandstone moon, the hoard (iron-strapped timber chest, coins, hearts) on a teal-grey rock, the lanes' deep teal",
+   "screen": "event page rocket",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:rallyBackdrop",
+   "file": "art/out/rallyBackdrop@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces rocketRaceBackdrop at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   }
+  },
+  {
+   "id": "rallyOfferScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "Rocket Rally offer popup field: the rally world (teal night, copper planet, sandstone moon, the hoard) over a cream / apricot cloud bank",
+   "screen": "event page rocket",
+   "size_pt": [
+    330,
+    504
+   ],
+   "size_px": [
+    990,
+    1512
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:rallyOfferScene",
+   "file": "art/out/rallyOfferScene@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces rocketOfferScene at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     32,
+     188,
+     362,
+     692
+    ]
+   }
+  },
+  {
+   "id": "rallyRocketMine",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "the player's race rocket: tangerine body, teal nose / band / fins, brass porthole (live count on the glass), painted exhaust",
+   "screen": "event page rocket",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:rallyRocketMine",
+   "file": "art/ui/out/rallyRocketMine@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces rocketMine at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png"
+   }
+  },
+  {
+   "id": "rallyRocketOther",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "the rivals' race rocket: cream body, teal trim, brass porthole, painted exhaust",
+   "screen": "event page rocket",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:rallyRocketOther",
+   "file": "art/ui/out/rallyRocketOther@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces rocketOther at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png"
+   }
+  },
+  {
+   "id": "hopBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop page backdrop: a dawn sky (deep teal -> mint -> apricot) over cream / apricot cloud banks with mint shadows",
+   "screen": "event page skyjump",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopBackdrop",
+   "file": "art/out/hopBackdrop@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpBackdrop at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   }
+  },
+  {
+   "id": "hopIsland",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop prize island: a floating earth islet (moss top, timber rim, copper band, teal-rock underside), a timber/brass chest quilted teal heaped with coins, a carved timber arrow sign (blank: PRIZE + amount are live text), a tangerine pad",
+   "screen": "event page skyjump",
+   "size_pt": [
+    260,
+    256
+   ],
+   "size_px": [
+    780,
+    768
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopIsland",
+   "file": "art/out/hopIsland@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpIsland at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     66,
+     306,
+     326,
+     562
+    ]
+   }
+  },
+  {
+   "id": "hopIslandFar",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop far-left islet with a tangerine-quilted chest",
+   "screen": "event page skyjump",
+   "size_pt": [
+    166,
+    158
+   ],
+   "size_px": [
+    498,
+    474
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopIslandFar",
+   "file": "art/out/hopIslandFar@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpIslandFar at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     6,
+     222,
+     172,
+     380
+    ]
+   }
+  },
+  {
+   "id": "hopIslandFar2",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop far-right islet (hazier) with a sunflower-quilted chest",
+   "screen": "event page skyjump",
+   "size_pt": [
+    144,
+    132
+   ],
+   "size_px": [
+    432,
+    396
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopIslandFar2",
+   "file": "art/out/hopIslandFar2@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpIslandFar2 at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     213,
+     214,
+     357,
+     346
+    ]
+   }
+  },
+  {
+   "id": "hopPad",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop jump drum: tangerine cushion, cream rings, riveted brass belt, teal foot, blank teal plate (live number)",
+   "screen": "event page skyjump",
+   "size_pt": [
+    112,
+    104
+   ],
+   "size_px": [
+    336,
+    312
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopPad",
+   "file": "art/out/hopPad@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpPad at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/080-skyjump-levels1of5-players82.png"
+   }
+  },
+  {
+   "id": "hopOfferScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "Cloud Hop offer popup art: a moss hill heaped with coins, the teal-quilted timber chest, the carved arrow sign, cream clouds",
+   "screen": "event page skyjump",
+   "size_pt": [
+    330,
+    190
+   ],
+   "size_px": [
+    990,
+    570
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopOfferScene",
+   "file": "art/out/hopOfferScene@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces skyJumpPopupScene at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     30,
+     270,
+     360,
+     460
+    ]
+   }
+  },
+  {
+   "id": "hopDrum",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "the Cloud Hop drum on its own (Profile 'Cloud Hop Wins' stat icon)",
+   "screen": "profile-shop-settings",
+   "size_pt": [
+    57,
+    52
+   ],
+   "size_px": [
+    171,
+    156
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:hopDrum",
+   "file": "art/ui/out/hopDrum@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces iconSkyDrum at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png"
+   }
+  },
+  {
+   "id": "cupPodium",
+   "family": "3d",
+   "route": "C1",
+   "group": "leaderboard",
+   "purpose": "Weekly Cup podium: three timber-plank blocks under pewter-mint (2nd) / brass (1st) / copper (3rd) caps, blank hex rank badges",
+   "screen": "leaderboard",
+   "size_pt": [
+    389,
+    206
+   ],
+   "size_px": [
+    1167,
+    618
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:cupPodium",
+   "file": "art/out/cupPodium@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces leaderboardPodium at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     2,
+     294,
+     391,
+     500
+    ]
+   }
+  },
+  {
+   "id": "treasureToken",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Treasure Climb token (home bar, page bar, Continue?, payout flight, Profile): a riveted brass hex nut, teal enamel, a tangerine up-arrow",
+   "screen": "home",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:treasureToken",
+   "file": "art/ui/out/treasureToken@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). Replaces iconHexArrow at A4's mapping step (art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png"
+   }
+  },
+  {
+   "id": "eventBadgeBalloon",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Up & Away token (the home bar's left end in an Up & Away week; Profile tile): the brass/teal hex plate with our patched balloon floating in it; rig art/out/badge_upaway_rig (body + balloon, bob +-1 pt / 4.0 s)",
+   "screen": "home",
+   "size_pt": [
+    46,
+    46
+   ],
+   "size_px": [
+    138,
+    138
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:eventBadgeBalloon",
+   "file": "art/out/eventBadgeBalloon@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/000-status.png"
+   }
+  },
+  {
+   "id": "eventBadgeBalloonLayers",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "the Up & Away token as layers for the idle loop: body (hex plate) + balloon (bob +-1 pt / 4.0 s, motion.json)",
+   "screen": "home",
+   "size_pt": [
+    46,
+    46
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:eventBadgeBalloon",
+   "file": "art/out/badge_upaway_rig",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/000-status.png"
+   },
+   "rig": true
+  },
+  {
+   "id": "balloonHero",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away balloon: a patched-canvas envelope (tangerine / cream over sunflower / tangerine, a stitched teal belt, teal crown + skirt, two patches), hemp ropes, a brass burner, R2's wicker basket with the lamp-hat Digger (char_digBalloon)",
+   "screen": "event page balloon",
+   "size_pt": [
+    150,
+    220
+   ],
+   "size_px": [
+    450,
+    660
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonHero",
+   "file": "art/out/balloonHero@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/002-balloon-page-settled.png"
+   }
+  },
+  {
+   "id": "balloonTowerTop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away page top: stars, the tower's gallery (timber deck, posts, rope rail), a teal drum under a riveted copper dome with brass ribs, a brass telescope, a tangerine pennant; the masonry below (tiles with balloonTowerShaft)",
+   "screen": "event page balloon",
+   "size_pt": [
+    393,
+    470
+   ],
+   "size_px": [
+    1179,
+    1410
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonTowerTop",
+   "file": "art/out/balloonTowerTop@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "build/p/PH0/016-scroll5.png"
+   }
+  },
+  {
+   "id": "balloonTowerShaft",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away tower shaft (painted, tiles every 340 pt): teal-grey masonry cylinder, a timber ring at each ledge line, a lit window slit, a copper downpipe, the recessed track groove at x 19..49",
+   "screen": "event page balloon",
+   "size_pt": [
+    112,
+    340
+   ],
+   "size_px": [
+    336,
+    1020
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonTowerShaft",
+   "file": "art/ui/out/balloonTowerShaft@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "build/p/PH0/008-balloon-scroll1.png"
+   }
+  },
+  {
+   "id": "balloonTowerFoot",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away page foot: the tower plinth with a burrow door + lantern, a plank walkway to the round timber launch pad on its braced post, a hillside town (half-timbered cottages, teal-slate roofs, lit windows, smoke), moss trees, far hills in haze",
+   "screen": "event page balloon",
+   "size_pt": [
+    393,
+    700
+   ],
+   "size_px": [
+    1179,
+    2100
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonTowerFoot",
+   "file": "art/out/balloonTowerFoot@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "full_bleed": true,
+   "ref": {
+    "shot": "build/p/PH0/024-balloon-bottom.png"
+   }
+  },
+  {
+   "id": "balloonLedge",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away platform: a plank balcony on iron knee braces, a teal plank door in a stone arch with a brass porthole, a lantern post, a blank timber sign board on chains (live 'Step N')",
+   "screen": "event page balloon",
+   "size_pt": [
+    240,
+    150
+   ],
+   "size_px": [
+    720,
+    450
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonLedge",
+   "file": "art/ui/out/balloonLedge@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/008-balloon-scroll1.png"
+   }
+  },
+  {
+   "id": "balloonCloudA",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away sky cloud (cream / apricot, mint shade)",
+   "screen": "event page balloon",
+   "size_pt": [
+    150,
+    70
+   ],
+   "size_px": [
+    450,
+    210
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonCloudA",
+   "file": "art/ui/out/balloonCloudA@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/008-balloon-scroll1.png"
+   }
+  },
+  {
+   "id": "balloonCloudB",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-balloon",
+   "purpose": "Up & Away sky cloud, small",
+   "screen": "event page balloon",
+   "size_pt": [
+    100,
+    56
+   ],
+   "size_px": [
+    300,
+    168
+   ],
+   "source": "art/ui/recipes/scene_events_d1.py:balloonCloudB",
+   "file": "art/ui/out/balloonCloudB@3x.png",
+   "status": "done",
+   "owner": "events-d1",
+   "notes": "R8 EVENT-ART (D1, ruling 46: today's composition and object types, restyled). NEW (Up & Away; B1's UpAwayArt ids / A4's page pieces, art/lanes/events-d1.handoff.json).",
+   "ref": {
+    "shot": "build/p/PH0/008-balloon-scroll1.png"
+   }
+  }
+ ]
+}

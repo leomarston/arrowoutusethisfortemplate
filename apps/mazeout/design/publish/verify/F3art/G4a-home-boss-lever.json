@@ -1,0 +1,101 @@
+{
+ "theirs": "research/shots/002-home-L32.png",
+ "kind": "art",
+ "crops": {
+  "boss crop 100,170,200,200": [
+   100,
+   170,
+   200,
+   200
+  ],
+  "boss head 140,170,120,110": [
+   140,
+   170,
+   120,
+   110
+  ],
+  "scene band y152-618": [
+   0,
+   152,
+   393,
+   466
+  ],
+  "crew band y470-615": [
+   0,
+   470,
+   393,
+   145
+  ],
+  "lever neighbourhood 230,260,90,90": [
+   230,
+   260,
+   90,
+   90
+  ]
+ },
+ "before": {
+  "boss crop 100,170,200,200": {
+   "ssim": 0.203,
+   "overlap": 0.074,
+   "passed": true
+  },
+  "boss head 140,170,120,110": {
+   "ssim": 0.266,
+   "overlap": 0.006,
+   "passed": true
+  },
+  "scene band y152-618": {
+   "ssim": 0.256,
+   "overlap": 0.107,
+   "passed": true
+  },
+  "crew band y470-615": {
+   "ssim": 0.25,
+   "overlap": 0.177,
+   "passed": true
+  },
+  "lever neighbourhood 230,260,90,90": {
+   "ssim": 0.281,
+   "overlap": 0.053,
+   "passed": true
+  },
+  "whole screen (screen kind)": {
+   "ssim_info": 0.295,
+   "overlap": 0.136,
+   "passed": true
+  }
+ },
+ "after": {
+  "boss crop 100,170,200,200": {
+   "ssim": 0.203,
+   "overlap": 0.074,
+   "passed": true
+  },
+  "boss head 140,170,120,110": {
+   "ssim": 0.266,
+   "overlap": 0.006,
+   "passed": true
+  },
+  "scene band y152-618": {
+   "ssim": 0.259,
+   "overlap": 0.107,
+   "passed": true
+  },
+  "crew band y470-615": {
+   "ssim": 0.25,
+   "overlap": 0.177,
+   "passed": true
+  },
+  "lever neighbourhood 230,260,90,90": {
+   "ssim": 0.269,
+   "overlap": 0.053,
+   "passed": true
+  },
+  "whole screen (screen kind)": {
+   "ssim_info": 0.296,
+   "overlap": 0.136,
+   "passed": true
+  }
+ },
+ "verdict": "PASS"
+}

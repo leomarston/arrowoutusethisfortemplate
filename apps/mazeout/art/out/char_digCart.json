@@ -1,0 +1,20 @@
+{
+ "case": "char_digCart",
+ "frame_pt": [
+  270.0,
+  280.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "eyeMid": [
+  [
+   112.91,
+   82.11
+  ]
+ ],
+ "feet": [
+  [
+   151.05,
+   234.65
+  ]
+ ]
+}

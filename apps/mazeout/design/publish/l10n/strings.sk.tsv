@@ -1,0 +1,260 @@
+en	sk	note
+# T2 L10N (2026-09-28) sk: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-sk.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	Úroveň %lld	fit 0.89
+Levels 1-4	Úrovne 1-4	fit 0.91
+Level 1-4	Úroveň 1-4	
+Tap to move!	Klepni na šípku!	fit 1.00
+Loading	Načítava sa	fit 1.00
+Unlocked!	Odomknuté!	fit 1.00
+Linked Arrows!	Spojené šípky!	fit 1.00
+LINKED ARROWS move together!	SPOJENÉ ŠÍPKY sa pohybujú spolu!	CAPS run: SPOJENÉ ŠÍPKY; fit 1.00
+Box!	Krabica!	fit 1.00
+Clear required amount of arrows to break the BOX!	Odstráň potrebný počet šípok a rozbi KRABICU!	CAPS run: KRABICU; fit 0.96
+Pipe!	Rúra!	fit 1.00
+Pass arrows through the PIPE to break it!	Prepusti šípky cez RÚRU a rozbi ju!	CAPS run: RÚRU; fit 1.00
+Elevator!	Výťah!	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	Odstráň všetky šípky z VÝŤAHU a spusti ho!	CAPS run: VÝŤAHU; fit 1.00
+Door!	Dvere!	fit 1.00
+Collect the KEY to open the DOOR!	Získaj KĽÚČ a otvor DVERE!	CAPS run: KĽÚČ DVERE; fit 1.00
+Corner!	Roh!	fit 1.00
+The CORNER turns arrows around!	ROH mení smer šípok!	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); CAPS run: ROH; fit 1.00
+Paused	Pauza	fit 1.00
+Sound	Zvuk	fit 1.00
+Haptic	Vibrácie	fit 0.94
+ON	ZAP.	fit 1.00
+OFF	VYP.	fit 1.00
+Resume	Hrať	fit 1.00
+Quit	Odísť	fit 1.00
+Quit Level?	Odísť?	fit 1.00
+You will lose a life!	Prídeš o život!	fit 1.00
+Out of Time!	Čas vypršal!	fit 1.00
++30 sec	+30 s	fit 1.00
+Add Time	Pridať čas	fit 0.96
+Out of Lives!	Došli životy!	fit 1.00
++3 Lives	+3 životy	fit 1.00
+Add Lives	Doplniť	fit 1.00
+Continue?	Pokračovať?	fit 0.79
+You will lose your streak!	Prídeš o svoju sériu!	fit 1.00
+You will lose %lld token and your streak!	Prídeš o žetóny: %lld a o svoju sériu!	fit 1.00
+Play On	Ďalej	fit 1.00
+Level Failed!	Úroveň nezvládnutá!	fit 1.00
+Try Again	Skúsiť znova	fit 0.81
+Perfect!	Perfektne!	fit 1.00
+Rewards:	Odmeny:	fit 1.00
+Continue	Ďalej	fit 1.00
+Hard Level	Ťažká úroveň	fit 0.89
+Super Hard	Veľmi ťažká	fit 1.00
++%lld	+%lld	
+Play	Hrať	fit 1.00
+LEVEL	ÚROVEŇ	fit 1.00
+Full	Plné	fit 1.00
+Finished	Hotovo	fit 0.82
+More Lives	Životy	fit 1.00
+Time to next live:	Ďalší život o:	fit 1.00
+Refill	Doplniť	fit 0.95
+Not enough coins	Nedostatok mincí	
+Congratulations!	Gratulujeme!	fit 1.00
+Tap to Claim	Klepni a vyzdvihni	fit 1.00
+Tap to Continue	Klepni a pokračuj	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	Skončené	
+Join	Pridaj sa	fit 0.79
+Home	Domov	fit 1.00
+Leaderboard	Rebríček	fit 1.00
+Time Freeze	Zmrazenie	fit 0.94
+Freeze the timer for 10 seconds!	Zmraz čas na 10 sekúnd!	fit 1.00
+Hint	Nápoveda	fit 0.99
+Find an arrow that can move!	Nájdi šípku, ktorá sa môže pohnúť!	fit 1.00
+Buy	Kúpiť	
+x%lld	x%lld	
+Shop	Obchod	fit 1.00
+Special Offers	Špeciálne ponuky	fit 0.98
+Special Offer	Špeciálna ponuka	fit 0.84
+STARTER	ÚVODNÝ	T1
+Bundles	Balíčky	fit 1.00
+Mini Bundle	Mini balíček	fit 1.00
+Epic Bundle	Epický balíček	fit 1.00
+Elite Bundle	Elitný balíček	fit 1.00
+Mega Bundle	Mega balíček	fit 1.00
+Legendary Bundle	Legendárny balíček	fit 0.75
+Popular	Obľúbené	fit 0.98
+Best Value	Výhodné	fit 1.00
+Coins	Mince	fit 1.00
+Purchase pending	Nákup sa spracúva	
+Settings	Nastavenia	fit 1.00
+Notifications	Upozornenia	fit 1.00
+Music	Hudba	fit 1.00
+Support	Podpora	fit 1.00
+Terms	Podmienky	fit 0.79
+Privacy	Súkromie	fit 0.91
+%@ Support	Podpora %@	
+Please describe your issue above. We will get back to you as soon as possible.	Popíš svoj problém vyššie. Ozveme sa ti čo najskôr.	
+Version : %@	Verzia: %@	
+Level : %lld	Úroveň: %lld	
+Write to us at	Napíš nám na adresu	
+Copy	Kopírovať	
+Copied	Skopírované	
+Profile	Profil	fit 1.00
+Level	Úroveň	fit 1.00
+General Stats	Štatistiky	fit 1.00
+First Try Wins	Výhry na prvý pokus	fit 1.00
+Weekly Cup Wins	Výhry v Týždennom pohári	T1; fit 0.93
+Hot Streak Wins	Výhry v Horúcej sérii	T1; fit 1.00
+Rocket Rally Wins	Výhry v Raketovej rely	T1; fit 1.00
+Cloud Hop Wins	Výhry v Oblačnom skoku	T1; fit 0.98
+Treasure Climb Wins	Výhry v Rebríku pokladov	T1; fit 0.94
+-	-	
+Username	Prezývka	fit 1.00
+Create your username:	Vytvor si prezývku:	fit 1.00
+Edit Profile	Upraviť	fit 1.00
+Save	Uložiť	fit 1.00
+Name must be 3-16 characters	Prezývka musí mať 3 až 16 znakov	
+This name is not allowed	Táto prezývka nie je povolená	
+Your lives are full! Time to play!	Životy sú doplnené! Čas hrať!	
+The Weekly Cup ends in 2 hours!	Týždenný pohár sa skončí o 2 hodiny!	T1
+%@ is a puzzle game.	%@ je logická hra.	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	Mince, životy, bonusy a ďalšie predmety v hre nemajú peňažnú hodnotu a mimo hry ich nemožno vymeniť ani refundovať.	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	Nákupy prebiehajú cez Apple a riadia sa podmienkami App Store. Tvoje platobné údaje nikdy nevidíme.	
+The game is provided as is. We may update the game and these terms.	Hra sa poskytuje tak, ako je. Hru a tieto podmienky môžeme aktualizovať.	
+Questions? Write to %@	Otázky? Napíš na %@	
+%@ has no accounts, no ads and no tracking.	%@ nemá účty, reklamy ani sledovanie.	T1
+Your progress, settings and profile name are stored only on this device.	Tvoj postup, nastavenia a meno profilu sa ukladajú iba v tomto zariadení.	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	Hra funguje offline. Nákupy spracúva Apple. Naša nákupná služba RevenueCat dostáva anonymný identifikátor a históriu tvojich nákupov.	T1
+Notifications are scheduled on your device and can be turned off in Settings.	Upozornenia sa plánujú v tvojom zariadení a môžeš ich vypnúť v Nastaveniach.	
+If you write to support, we use your message only to answer you.	Ak napíšeš podpore, tvoju správu použijeme iba na odpoveď.	
+Contact: %@	Kontakt: %@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	Klepni na šípku a vyletí po svojej dráhe. Ak jej niečo stojí v ceste, odrazí sa späť a prídeš o život. Odstráň všetky šípky skôr, ako vyprší čas!	
+Weekly	Týždeň	fit 1.00
+World	Svet	fit 1.00
+Turkey	Turecko	fit 1.00
+Germany	Nemecko	fit 1.00
+USA	USA	fit 1.00
+Score	Skóre	fit 1.00
+Score : %lld	Skóre: %lld	fit 1.00
+Bottom	Dole	fit 1.00
+Top	Hore	fit 1.00
+Reach level 50 to join the Weekly Cup!	Dosiahni úroveň 50 a zapoj sa do Týždenného pohára!	T1; fit 1.00
+Weekly Cup	Týždenný pohár	T1; fit 1.00
+Tap to join the Weekly Cup!	Klepni a zapoj sa do Týždenného pohára!	T1; fit 0.92
+Beat Levels!	Prechádzaj úrovne!	fit 1.00
+Contest with others!	Súťaž s ostatnými!	fit 1.00
+Win Rewards!	Získaj odmeny!	fit 1.00
+The top 3 win prizes!	Prví traja vyhrávajú ceny!	T1; fit 1.00
+There is a new contest every week!	Každý týždeň nová súťaž!	fit 1.00
+You finished #%lld!	Si na %lld. mieste!	fit 1.00
+Hot Streak	Horúca séria	T1; fit 1.00
+Beat levels without fail to get more rewards!	Vyhrávaj bez prehry a získaj viac odmien!	fit 1.00
+Beat levels without losing!	Prechádzaj úrovne bez prehry!	fit 1.00
+Increase your score multiplier!	Zvýš svoj násobiteľ skóre!	fit 1.00
+Earn more flags than others!	Získaj viac vlajok ako ostatní!	fit 1.00
+If you fail a level the multiplier will reset!	Ak prehráš úroveň, násobiteľ klesne na x1!	fit 0.98
+Treasure Climb	Rebrík pokladov	T1; fit 0.86
+Rocket Rally	Raketová rely	T1; fit 0.89
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	Vyhraj %lld-krát pred ostatnými a postúp do ďalších etáp za väčšie ceny!	fit 1.00
+Beat %lld levels before others to finish the race	Vyhraj %lld-krát pred ostatnými a dokonči preteky	fit 1.00
+You lost the race! Try again to win amazing rewards!	Prehra v pretekoch! Skús to znova a získaj úžasné odmeny!	fit 1.00
+You won the race! Claim your amazing rewards!	Víťazstvo v pretekoch! Vyzdvihni si úžasné odmeny!	fit 1.00
+Stage %lld	Etapa %lld	fit 0.86
+Start	Štart	fit 1.00
+Beat levels!	Prechádzaj úrovne!	fit 1.00
+Finish race before others!	Dokonči preteky pred ostatnými!	fit 1.00
+Win amazing rewards!	Získaj úžasné odmeny!	fit 1.00
+Advance to next stages for greater prizes!	Postúp do ďalších etáp za väčšie ceny!	fit 1.00
+Cloud Hop	Oblačný skok	T1; fit 0.88; 250 pt title: "Skok po oblakoch" measured 0.66; "Oblačný skok" 0.88
+Pass %lld Levels in a row on first try and advance to next stages!	Vyhraj %lld-krát za sebou bez prehry a postúp do ďalších etáp!	fit 1.00
+Finding players on your level.	Hľadáme hráčov na tvojej úrovni.	fit 1.00
+Start with 100 players!	Začínaš so 100 hráčmi!	fit 1.00
+Beat %lld levels!	Vyhraj %lld-krát!	fit 0.82
+Win your share of %lld coins!	Získaj svoj podiel z %lld mincí!	fit 1.00
+If you fail a level, you will fail the challenge!	Ak prehráš úroveň, prehráš výzvu!	fit 1.00
+Stages	Etapy	fit 1.00
+Levels	Úrovne	fit 1.00
+Players	Hráči	fit 1.00
+PRIZE	VÝHRA	fit 0.97
+You win!	Výhra!	fit 1.00
+You are sharing the reward with %lld other winners!	Delíš sa o odmenu! Ďalší víťazi: %lld	fit 1.00; ends on the number (plural-safe label form) instead of "!"
+You failed the challenge!	Výzva nesplnená!	fit 1.00
+%lld Levels	%lld-krát	HIGHLIGHT RUN (never shown alone): lit inside 'Vyhraj %lld-krát pred ostatnými a postúp do ďalších etáp za väčšie ceny!' / 'Vyhraj %lld-krát za sebou bez prehry a postúp do ďalších etáp!'
+%lld levels	%lld-krát	HIGHLIGHT RUN (never shown alone): lit inside 'Vyhraj %lld-krát pred ostatnými a dokonči preteky'
+%lld levels!	%lld-krát!	HIGHLIGHT RUN (never shown alone): lit inside 'Vyhraj %lld-krát!'
+100 players	100 hráčmi	HIGHLIGHT RUN (never shown alone): lit inside 'Začínaš so 100 hráčmi!'
+%lld coins	%lld mincí	HIGHLIGHT RUN (never shown alone): lit inside 'Získaj svoj podiel z %lld mincí!'
+greater prizes	väčšie ceny	HIGHLIGHT RUN (never shown alone): lit inside 'Postúp do ďalších etáp za väčšie ceny!'
+prizes	ceny	HIGHLIGHT RUN (never shown alone): lit inside 'Postúp do ďalších etáp za väčšie ceny!'
+rewards	odmeny	HIGHLIGHT RUN (never shown alone): lit inside 'Získaj úžasné odmeny!'
+Rewards!	odmeny!	HIGHLIGHT RUN (never shown alone): lit inside 'Získaj odmeny!'
+fail	prehráš	HIGHLIGHT RUN (never shown alone): lit inside 'Ak prehráš úroveň, násobiteľ klesne na x1!' / 'Ak prehráš úroveň, prehráš výzvu!' / 'Ak prehráš úroveň, jeden balón praskne!'
+Allow notifications in iOS Settings.	Povoľ upozornenia v Nastaveniach iOS.	
+Arrows turn when they hit the CORNER!	Šípky zatočia, keď narazia na ROH!	CAPS run: ROH
+Back	Späť	
+Boosters	Bonusy	
+Close	Zavrieť	
+How to play	Ako hrať	
+Info	Info	
+Lives	Životy	
+Pause	Pauza	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	Spustenie úrovne stojí jeden život; výhra ti ho vráti. Nový život pribudne každých 30 minút.	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	Presýpacie hodiny zastavia čas na 10 sekúnd. Žiarovka ukáže šípku, ktorá sa môže pohnúť.	
+Version %@ · Level %lld	Verzia %@ · Úroveň %lld	
+You will lose %lld token	Prídeš o žetóny: %lld	LINE 1 of 'Prídeš o žetóny: %lld a o svoju sériu!' (the number is drawn red); fit 1.00
+Your progress	Tvoj postup	
+Your progress and coins are saved only on this device. Deleting the game erases them.	Tvoj postup a mince sa ukladajú iba v tomto zariadení. Odstránením hry sa vymažú.	T1
+and your streak!	a o svoju sériu!	LINE 2 of 'Prídeš o žetóny: %lld a o svoju sériu!'; fit 1.00
+Up & Away	Do oblakov	T1
+NEW	NOVÉ	T1
+New Event!	Nová udalosť!	T1
+Double Event Week!	Týždeň dvoch udalostí!	T1
+Let's Go!	Poďme na to!	T1
+Ends in %@	Koniec o %@	T1
+Last day!	Posledný deň!	T1
+Coming next: %@	Nasleduje: %@	T1
+Starts in %@	Začiatok o %@	T1
+This event has ended.	Táto udalosť sa skončila.	T1
+%@ has started! Beat levels to win amazing rewards!	Začína sa %@! Prechádzaj úrovne a získaj úžasné odmeny!	T1
+Double Event Week! %@ and %@ are both on!	Týždeň dvoch udalostí! Prebiehajú %1$@ aj %2$@!	T1
+%@ ends in 3 hours!	%@ sa skončí o 3 hodiny!	T1
+Beat levels in a row to rise higher!	Prechádzaj úrovne za sebou a stúpaj vyššie!	T1
+Beat levels to fill your balloons with hot air!	Prechádzaj úrovne a naplň balóny horúcim vzduchom!	T1
+Hard levels give more hot air!	Ťažké úrovne dávajú viac horúceho vzduchu!	T1
+If you fail a level, a balloon pops!	Ak prehráš úroveň, jeden balón praskne!	T1
+Lose all 3 balloons and you fall to the start of the step!	Ak prídeš o všetky 3 balóny, padneš na začiatok kroku!	T1
+Reach the top for the big prize!	Dosiahni vrchol a získaj veľkú cenu!	T1
+hot air	horúcim vzduchom	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Prechádzaj úrovne a naplň balóny horúcim vzduchom!'
+Hard levels	Ťažké úrovne	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Ťažké úrovne dávajú viac horúceho vzduchu!'
+big prize	veľkú cenu	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Dosiahni vrchol a získaj veľkú cenu!'
+Step %lld	Krok %lld	T1
+Completed!	Hotovo!	T1
+You fell to the start of step %lld!	Späť na začiatok kroku %lld!	T1
+You will lose a balloon!	Prídeš o balón!	T1
+You will lose a balloon and your streak!	Prídeš o balón aj o svoju sériu!	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	Život	SUPERSEDED: dropped
+#~	Video not available	Video nie je k dispozícii	SUPERSEDED: dropped
+#~	90% OFF	90% ZĽAVA	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	Testovací obchod: nič sa neúčtuje	SUPERSEDED: dropped
+#~	Weekly Contest Wins	Výhry v Týždennej súťaži	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	Výhry v Sériových pretekoch	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	Výhry v Pretekoch rakiet	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	Výhry v Nebeskom skoku	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	Výhry vo Výzve s drapákom	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	Týždenná súťaž sa skončí o 2 hodiny!	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@ nezbiera žiadne osobné údaje. Nie sú tu žiadne účty, reklamy, analytika ani sledovanie.	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	Hra funguje offline. Nákupy spracúva Apple.	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	Dosiahni úroveň 50 a zapoj sa do Týždennej súťaže!	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	Týždenná súťaž	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	Klepni a zapoj sa do Týždennej súťaže!	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	Súťaž s kamarátmi!	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	Sériové preteky	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	Výzva s drapákom	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	Preteky rakiet	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	Nebeský skok	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	Tvoj postup sa ukladá v tomto zariadení.	SUPERSEDED: superseded by T1

@@ -1,0 +1,54 @@
+{
+ "wp": "F3-A (Wave 3 code hygiene, slot A 'Maze A')",
+ "when": "2026-09-29 13:02",
+ "ruling_52a": {
+  "what": "Release (store) build compiles out App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop (#if DEBUG || PC_MEASURE) and the WP0 placeholders PlaceholderBoard / PlaceholderLevel / BootPlaceholderView / LoadingPlaceholderView (#if DEBUG, with their contract defaults: contract amend 5, 3 frozen files re-hashed)",
+  "measure_configuration": "project.yml configs Debug/Release/Measure; Measure = Release's settings + SWIFT_ACTIVE_COMPILATION_CONDITIONS '$(inherited) PC_MEASURE' + the same lab-fixture exclusion (generated pbxproj diff Release vs Measure: that one key). Build log: ArrowOut/PathCore/RevenueCat all -O + whole-module in Measure; -DPC_MEASURE on ArrowOut only",
+  "how_to_build": {
+   "sim": "CONFIG=Measure tools/build.sh A  (tools/bench/bench.py's default CONFIG is now Measure)",
+   "phone_test_build": "build/owner-phone.sh  (CONFIG=Measure by default; prints APP=.../Measure-iphoneos/ArrowOut.app)",
+   "phone_store_identical": "CONFIG=Release build/owner-phone.sh",
+   "store": "Release archive (unchanged)"
+  },
+  "binary_check": "design/publish/verify/F3A-measure-strip.json (tools/bench/measure_strip_check.sh: harness markers 0 in Release, all found in Measure; placeholder markers 0 in Release and Measure, all found in Debug) PASS",
+  "runtime_check": {
+   "Measure": "-pc.frameWatch 1 -pc.glitchRun pause:2: '[PC][frame] watch on', 'glitch run pause:2' → 'glitch done pause:2' (build/p/F3A/runtime/Measure-glitch-frame.log)",
+   "Release": "the same flags log '[PC][frame][ERROR] -pc.frameWatch: no frame watch in this build (Release)…' and '[PC][glitch][ERROR] -pc.glitchRun: not in this build (Release)…' (build/p/F3A/runtime/Release-glitch-frame.log)"
+  },
+  "no_silent_pass": {
+   "bench.py": "exits when a measurement flag is asked of an app without the frame watch (checked on the Release app: EXIT; Measure app: proceeds)",
+   "build/p/A3/rec.sh": "refuses (exit 1) a -pc.glitchRun/-pc.frameWatch/-pc.tabLoop run on a store build; A3 script.sh exports CONFIG=Measure"
+  },
+  "release_gates": "tools/bench/release_gates.sh on the F3-A Release app: RESULT PASS (logs/release-gates-2.txt; gate 7: 469 files 0 hits). RC_OBJ = the Measure build's RevenueCat.o (same package source + flags; Release's product copy was absent from dd-A)",
+  "frozen_contracts": "BoardContract/PresentationContract/ShellContract re-hashed (these 3 lines only). App/Support/Tuning.swift FAILS the check since FIX2-A's 03:48 edit (TuningFile identity; its orig in build/p/FIX2/A/orig matches the frozen hash) — not F3-A's, left for the orchestrator"
+ },
+ "digger_wave": {
+  "what": "ui.json puppet.char_dig_homeL_rig: the hip arm's -25° rotation track replaced by a member swap armL → armL_wave (6.00-7.45, 12.50-13.95) + a wave on armL_wave (-22 → +6 ↔ -10 ×3 → -22, sine eases)",
+  "test": "ShellTests.testDiggerLWavesTheRaisedPawNeverTheHipArm (+ negative control on the pre-fix track: flags the hip-arm rotation and the missing swap)",
+  "looked_at": [
+   "build/p/F3A/wave/digL-release-wave-strip.png (Release captures frozen at t 0 / 6.18 / 6.4 / 6.62 / 7.4 / 12.9)",
+   "build/p/F3A/wave/rel-video-wave-sheet.png (22 s Release recording, one wave window 5.6-7.14 s)"
+  ]
+ },
+ "json_notes": {
+  "removed": {
+   "ui.json": "34 (25 win.logo.layers.*.note, 5 opacityRule, 4 opacityFrom)",
+   "game.json": "_about, _pending, _sources",
+   "rules.json": "_owner, _corrections, _pending"
+  },
+  "before_after": "build/p/F3A/notes-before-after.json",
+  "test": "TuningTests.testShippedResourceJSONCarriesNoDeveloperNotes (every shipped Tuning/Social/Levels-side JSON; planted control; curve.json _about pinned = CurveSpec.default's, B0's ruled exception)",
+  "not_changed": "Levels/curve.json _about (B0 ruling curve:_comment keep: the runtime compares the bundled curve with the compiled CurveSpec.default)"
+ },
+ "tests": {
+  "unit": "ArrowOutTests 255/255 twice on the final code (logs/unit-2, unit-3); unit-1 had 1 failure = my new control's expected sort order, fixed",
+  "ui": "ShellUITests + WinLogoUITests + FlowTests + AccessibilityIDTests: 18 passed / 0 failed / 1 skipped (FlowTests FTUE opt-in) twice (logs/ui-1, ui-2)",
+  "pathcore": "swift test --filter RulesTests 28/28 (reads the edited App/Resources/Tuning/rules.json)",
+  "builds": "Release + Measure (slot A) green, no warnings printed under -quiet"
+ },
+ "gate_7b_hardened": {
+  "what": "at F3-B's 12:36 invitation: App/Resources developer comments now FAIL gate 7b (were WATCH); KEPT = Levels/curve.json /_about only (B0's ruling); planted control extended (a Tuning layer note fails, curve.json's other comment key fails, only curve _about is kept)",
+  "final_release": "PASS: 178 JSON, 0 non-runtime keys outside the exception (build/p/F3A/logs/release-gates-2.txt)",
+  "negative_control": "the same Release .app with the pre-fix Tuning/ui.json: FAIL, 25 keys (build/p/F3A/logs/release-gates-neg-prefix-uijson.txt)"
+ }
+}

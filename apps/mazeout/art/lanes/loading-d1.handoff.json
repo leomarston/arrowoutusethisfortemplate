@@ -1,0 +1,44 @@
+{
+ "about": "R4 LOADING (PLAN-P §4.2; rulings 37b / 44 / 46 / 48) -> A4 ART-INTEG, A5 CODEMOD, the art director, V2-P / V3-P. The D1 Loading keeps today's composition (logo top-left, the machine on the left wall, the backlit doorway on the right, the boss at the centre, a flyer top-right, a front-left and a front-right figure, a small group at the back right and at the back left, the floor + a line on it at the bottom, the flying block arrows) with the D1 cast and D1 materials. LoadingScreen reads Art/char_loading_layout.json generically, so the swap needs NO Swift change: it is live in the next slot build (tools/sync_art.sh copies art/out).",
+ "shipped_now": {
+  "art/out/loadingBackdrop@3x.png": "REPLACED (same id, 1179 x 2556 RGBA, full bleed): art/ui/recipes/scene_loading_d1.py:loadingBackdrop (scene_make.py RECIPES += scene_loading_d1, after scene_loading, so its loadingBackdrop wins). The 09-27 file is kept at build/p/R4/prev/.",
+  "art/out/char_loading_layout.json": "REWRITTEN from scene_loading_d1.LAYOUT (art/review/tools/r4_loading.py layout): 6 characters, each in the slot of the figure it replaces (key 'replaces'); frames keep each render's aspect (checked), scale 0.78-1.2 of the native frame",
+  "art/out/char_digDockL@3x.png": "NEW (96 x 76 pt): the two small Diggers on the dock at the back left (R2's home-rig renders at ~0.4x); manifest id digDockL",
+  "art/out/arrowGlossy{Yellow,Orange,Red,Green,Cyan,Blue,Purple}@3x.png": "RECOLOURED to D1 enamel (sunflower, tangerine, coral, mint, aqua, deep teal, berry): same ids, shape, frame, light (3d-hud_arrows.py D1_SHADES; the v552 SHADES stay in the file for reference; appIcon untouched). Old files in build/p/R4/prev/",
+  "App colours (R9 owner:R4 'loading-base' rows, claimed + released in build/p/claims.txt)": {
+   "App/Resources/Tuning/ui.json colors.loading.base": "#ABA0D8 -> #B7A587",
+   "App/Shell/LoadingScreen.swift fallback": "0xABA0D8 -> 0xB7A587",
+   "App/Resources/Assets.xcassets/LaunchBackground.colorset": "#927E94 -> #938266",
+   "rule": "L* kept (R9 lmode keep: 68.6 / 55.2), hue + chroma = the new backdrop's linear-light mean (a* 1.8, b* 17.8); preview art/review/loading/launch-sequence.png (launch -> base -> art, today vs D1). swiftc -parse OK; not compiled here (no slot)."
+  }
+ },
+ "cast": {
+  "char_bossLoading (BOSS-EARS render)": "slot of char_scientistLoading: eyes at (182, 330) pt, x1.15",
+  "char_digFlyer": "slot of char_workerFlyer: eyes at (292, 220), x1.05 (moved right of the logo so the flying hard hat clears the ARROW plate)",
+  "char_digCart": "slot of char_workerCarrier: eyes at (118, 566), x1.0",
+  "char_digPop2": "slot of char_workerFist: eyes at (287, 528), x1.2",
+  "char_digPop1": "slot of char_workerRunners: eyes at (338, 420), x0.78",
+  "char_digDockL": "slot of char_workerCrowdLeft: frame (-6, 434, 96, 76)"
+ },
+ "A4": [
+  "Nothing to wire for the Loading itself (layout-driven; LoadingArt.start decodes every file the layout lists off the main thread).",
+  "Retire the 6 old loading ids only after a grep: scientistLoading, workerCarrier, workerCrowdLeft, workerFist, workerFlyer, workerRunners are no longer referenced by the layout, but UIArt.swift still has generated cases for them (UIArt.swift:178, 210-216, 392, 424-430, 608, 640-646, 824, 856 on 09-28 13:20) -> regenerate UIArt with uiart_gen.py after the director marks them superseded; do NOT delete the files before that (a UIArt case without its file would fail the sprite check).",
+  "arrowGlossy*: today only HomeScene's refill uses them (HomeScene.swift:117-118). Once HomeCentrepiece replaces ArrowPileView they may be unused; retire them then (grep first), or keep them as the D1 set."
+ ],
+ "A5": [
+  "The 'Loading' label outline #82251F -> #7E2A1C is already in R9's edits (danger-red family); nothing else on the Loading screen is A5's. The 3 loading-base rows are done (above), so skip them."
+ ],
+ "art_director": [
+  "Merge art/lanes/loading-d1.entries.json (9 entries: loadingBackdrop update, digDockL new, 7 arrowGlossy* purpose/notes updates; manifest_check --lanes art/lanes/loading-d1.entries.json passes all 9), then regenerate ID-MAP. Mark scientistLoading, workerCarrier, workerCrowdLeft, workerFist, workerFlyer, workerRunners superseded by R2's cast entries (bossLoading, digCart, digPop2, digFlyer, digPop1) and digDockL."
+ ],
+ "verify": {
+  "copygate (composed exactly as LoadingScreen draws it, vs research/store/iphone-8.png, kind screen: SSIM < 0.30 and overlap < 0.55)": "SSIM 0.204, overlap 0.168 PASS; art only 0.169 / 0.128; backdrop alone 0.204 / 0.073; scene band y230-760 0.134 / 0.158; control = today's Loading 0.489 / 0.662 FAIL (art/review/loading/proofs.json)",
+  "V2-P": "the proof is COMPOSED (PIL, PCDisplay-Black label approximating GameText), not a capture: re-run tools/copygate.py pair <Loading capture> research/store/iphone-8.png --kind screen on a real capture after the next build",
+  "V3-P / PH-3 (FEEL)": "decoded character pixels 2.96 -> 2.06 MP; the backdrop is the same 1179 x 2556 but its PNG is 1.74 MB (was 0.89 MB: more texture), decoded off-main by LoadingArt; confirm no first-presentation stall and 0 frames > 20 ms on the Loading (fresh install + warm launch)"
+ },
+ "evidence": {
+  "sheets": "art/review/loading/sheet-final.png (original | today | D1), loading-d1-final.png (real size), arrows-d1.png, launch-sequence.png",
+  "numbers": "art/review/loading/proofs.json",
+  "logs": "build/p/R4/logs/"
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "when": "2026-09-29 12:48:44",
+ "release": "build/dd-A/Build/Products/Release-iphonesimulator/ArrowOut.app",
+ "measure": "build/dd-A/Build/Products/Measure-iphonesimulator/ArrowOut.app",
+ "debug": "build/dd-A/Build/Products/Debug-iphonesimulator/ArrowOut.app",
+ "checks": [
+  {
+   "check": "H control: the harness markers are visible in the Measure binary",
+   "pass": true,
+   "measure_counts": {
+    "GlitchRun": 414,
+    "FrameWatch": 68,
+    "DebugTabLoop": 40,
+    "watch on (every presented frame > 20 ms is logged)": 2,
+    "tabLoop: home is not up": 2
+   }
+  },
+  {
+   "check": "H: no harness marker in the Release (store) binary",
+   "pass": true,
+   "release_counts": {
+    "GlitchRun": 0,
+    "FrameWatch": 0,
+    "DebugTabLoop": 0,
+    "watch on (every presented frame > 20 ms is logged)": 0,
+    "tabLoop: home is not up": 0
+   }
+  },
+  {
+   "check": "P control: the placeholder markers are visible in the Debug binary",
+   "pass": true,
+   "debug_counts": {
+    "PlaceholderBoard": 101,
+    "PlaceholderLevel": 32,
+    "BootPlaceholderView": 49,
+    "LoadingPlaceholderView": 45,
+    "BoardEntry.makeBoard: default (placeholder board)": 1,
+    "GameEntry.makeLevel: default (placeholder level)": 1,
+    "ShellEntry.makeRoot: default (WP0 boot placeholder)": 1,
+    ": GAME not installed": 1,
+    "loading.placeholder": 1,
+    "boot.placeholder": 1
+   }
+  },
+  {
+   "check": "P: no WP0 placeholder marker in the Release binary",
+   "pass": true,
+   "release_counts": {
+    "PlaceholderBoard": 0,
+    "PlaceholderLevel": 0,
+    "BootPlaceholderView": 0,
+    "LoadingPlaceholderView": 0,
+    "BoardEntry.makeBoard: default (placeholder board)": 0,
+    "GameEntry.makeLevel: default (placeholder level)": 0,
+    "ShellEntry.makeRoot: default (WP0 boot placeholder)": 0,
+    ": GAME not installed": 0,
+    "loading.placeholder": 0,
+    "boot.placeholder": 0
+   }
+  },
+  {
+   "check": "P: no WP0 placeholder marker in the Measure binary",
+   "pass": true,
+   "measure_counts": {
+    "PlaceholderBoard": 0,
+    "PlaceholderLevel": 0,
+    "BootPlaceholderView": 0,
+    "LoadingPlaceholderView": 0,
+    "BoardEntry.makeBoard: default (placeholder board)": 0,
+    "GameEntry.makeLevel: default (placeholder level)": 0,
+    "ShellEntry.makeRoot: default (WP0 boot placeholder)": 0,
+    ": GAME not installed": 0,
+    "loading.placeholder": 0,
+    "boot.placeholder": 0
+   }
+  }
+ ],
+ "result": "PASS"
+}

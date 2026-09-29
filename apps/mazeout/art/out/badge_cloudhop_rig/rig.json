@@ -1,0 +1,72 @@
+{
+ "character": "badge_cloudhop",
+ "frame_pt": [
+  80,
+  84
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../badgeCloudHop@3x.png",
+ "placement_pt": null,
+ "layers": [
+  {
+   "name": "body",
+   "file": "body@3x.png",
+   "z": 0,
+   "rect_pt": [
+    13.0,
+    5.333,
+    54.0,
+    75.667
+   ],
+   "pivots_pt": {
+    "ringBottom": [
+     40.0,
+     74.03
+    ]
+   },
+   "note": "medallion + pedestal (live countdown / Join)"
+  },
+  {
+   "name": "drum",
+   "file": "drum@3x.png",
+   "z": 1,
+   "rect_pt": [
+    18.0,
+    19.0,
+    44.0,
+    23.333
+   ],
+   "pivots_pt": {
+    "tag": [
+     40.0,
+     32.63
+    ]
+   },
+   "note": "the bounce drum: the hop (translateY -5 pt) + the live count on its tag"
+  },
+  {
+   "name": "clouds",
+   "file": "clouds@3x.png",
+   "z": 2,
+   "rect_pt": [
+    9.667,
+    34.0,
+    61.667,
+    23.333
+   ],
+   "pivots_pt": {
+    "centre": [
+     40.0,
+     45.79
+    ]
+   },
+   "note": "the clouds in front of the drum's foot: a small drift"
+  }
+ ],
+ "groups": {},
+ "proof": {
+  "mean_abs": 0.272,
+  "pct_gt40": 0.21
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

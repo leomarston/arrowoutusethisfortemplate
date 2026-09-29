@@ -1,0 +1,9 @@
+# App Factory — Python deps. Install: pip3 install -r requirements.txt
+pyjwt
+cryptography
+certifi
+requests
+pyyaml
+Pillow
+arabic-reshaper
+python-bidi

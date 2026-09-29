@@ -1,0 +1,10 @@
+{
+ "_source": "design/SPEC-gameplay.md \u00a715 social.json line, verbatim",
+ "unlocks": {
+  "clawChallenge": 33,
+  "rocketRace": 55,
+  "skyJump": 40,
+  "streakRace": 30,
+  "weeklyContest": 50
+ }
+}

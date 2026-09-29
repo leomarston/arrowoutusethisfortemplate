@@ -1,0 +1,236 @@
+{
+ "character": "dig_homeL",
+ "frame_pt": [
+  156,
+  152
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../char_dig_homeL@3x.png",
+ "placement_pt": {
+  "x": -7.84,
+  "y": 464.29,
+  "how": "frame top-left on the 393x852 pt screen: anchor feet at [70.0, 606.0] pt"
+ },
+ "layers": [
+  {
+   "name": "body_smile",
+   "file": "body_smile@3x.png",
+   "z": 0,
+   "rect_pt": [
+    35.333,
+    4.333,
+    80.333,
+    144.667
+   ],
+   "pivots_pt": {
+    "feet": [
+     77.84,
+     141.71
+    ],
+    "neck": [
+     75.72,
+     67.09
+    ]
+   },
+   "group": "body",
+   "default": true,
+   "note": "the Digger + vest, belt, hat; mouth smile"
+  },
+  {
+   "name": "body_open",
+   "file": "body_open@3x.png",
+   "z": 1,
+   "rect_pt": [
+    35.333,
+    4.333,
+    80.333,
+    144.667
+   ],
+   "pivots_pt": {
+    "feet": [
+     77.84,
+     141.71
+    ],
+    "neck": [
+     75.72,
+     67.09
+    ]
+   },
+   "group": "body",
+   "default": false,
+   "note": "the Digger + vest, belt, hat; mouth open"
+  },
+  {
+   "name": "eyes_open",
+   "file": "eyes_open@3x.png",
+   "z": 2,
+   "rect_pt": [
+    63.0,
+    27.667,
+    43.667,
+    26.667
+   ],
+   "pivots_pt": {
+    "eyes": [
+     86.93,
+     41.76
+    ]
+   },
+   "group": "eyes",
+   "default": true,
+   "parent": "body",
+   "note": "eyes open (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "eyes_half",
+   "file": "eyes_half@3x.png",
+   "z": 3,
+   "rect_pt": [
+    63.0,
+    27.667,
+    44.0,
+    26.667
+   ],
+   "pivots_pt": {
+    "eyes": [
+     86.93,
+     41.76
+    ]
+   },
+   "group": "eyes",
+   "default": false,
+   "parent": "body",
+   "note": "eyes half (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "eyes_closed",
+   "file": "eyes_closed@3x.png",
+   "z": 4,
+   "rect_pt": [
+    63.0,
+    27.667,
+    44.0,
+    26.667
+   ],
+   "pivots_pt": {
+    "eyes": [
+     86.93,
+     41.76
+    ]
+   },
+   "group": "eyes",
+   "default": false,
+   "parent": "body",
+   "note": "eyes closed (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "eyes_wink",
+   "file": "eyes_wink@3x.png",
+   "z": 5,
+   "rect_pt": [
+    63.0,
+    27.667,
+    44.0,
+    26.667
+   ],
+   "pivots_pt": {
+    "eyes": [
+     86.93,
+     41.76
+    ]
+   },
+   "group": "eyes",
+   "default": false,
+   "parent": "body",
+   "note": "eyes wink (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "armL",
+   "file": "armL@3x.png",
+   "z": 6,
+   "rect_pt": [
+    17.0,
+    60.667,
+    39.0,
+    64.333
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     51.65,
+     73.25
+    ]
+   },
+   "group": "armL",
+   "default": true,
+   "parent": "body"
+  },
+  {
+   "name": "armL_wave",
+   "file": "armL_wave@3x.png",
+   "z": 7,
+   "rect_pt": [
+    19.0,
+    24.667,
+    35.0,
+    58.0
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     51.65,
+     73.25
+    ]
+   },
+   "group": "armL",
+   "parent": "body",
+   "note": "idle-loop wave: the free paw raised, palm + claws to the camera"
+  },
+  {
+   "name": "armR",
+   "file": "armR@3x.png",
+   "z": 8,
+   "rect_pt": [
+    100.667,
+    54.333,
+    36.0,
+    93.667
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     99.32,
+     72.34
+    ]
+   },
+   "parent": "body"
+  }
+ ],
+ "groups": {
+  "body": {
+   "members": [
+    "body_smile",
+    "body_open"
+   ],
+   "default": "body_smile"
+  },
+  "eyes": {
+   "members": [
+    "eyes_open",
+    "eyes_half",
+    "eyes_closed",
+    "eyes_wink"
+   ],
+   "default": "eyes_open"
+  },
+  "armL": {
+   "members": [
+    "armL",
+    "armL_wave"
+   ],
+   "default": "armL"
+  }
+ },
+ "proof": {
+  "mean_abs": 0.086,
+  "pct_gt40": 0.0
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

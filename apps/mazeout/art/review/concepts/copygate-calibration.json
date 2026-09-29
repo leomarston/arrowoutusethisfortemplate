@@ -1,0 +1,516 @@
+{
+ "rows": [
+  {
+   "ssim": 0.9279105792095791,
+   "overlap": 0.8790595547475049,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "paused-vs-007",
+   "kind": "screen",
+   "role": "copy",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.5271532604987254,
+   "overlap": 0.838322897646053,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "home-v11-vs-002",
+   "kind": "screen",
+   "role": "copy",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.47289876592230834,
+   "overlap": 0.6718620818730239,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "loading-vs-store8",
+   "kind": "screen",
+   "role": "copy",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.18318828346471813,
+   "overlap": 0.40146612826108297,
+   "thumb_px": [
+    98,
+    213
+   ],
+   "id": "control-002-vs-069",
+   "kind": "screen",
+   "role": "control",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.12067704227323713,
+   "overlap": 0.13224136136610987,
+   "thumb_px": [
+    98,
+    213
+   ],
+   "id": "control-002-vs-003",
+   "kind": "screen",
+   "role": "control",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.14532800921268765,
+   "overlap": 0.5128139001994515,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "control-ourhome-vs-ourloading",
+   "kind": "screen",
+   "role": "control",
+   "note": "art-direction.md \u00a72.1"
+  },
+  {
+   "ssim": 0.9150626614069024,
+   "overlap": 0.6538322282004385,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "chrome": {
+    "n": 6,
+    "median": 25.77258538679023,
+    "min": 1.822182658059505,
+    "per_region": {
+     "pause.close": 1.8,
+     "pause.card": 11.1,
+     "pause.toggleKnob": 33.5,
+     "pause.bumperTL": 23.8,
+     "pause.field.l": 27.8,
+     "pause.bar.bottom": 31.9
+    }
+   },
+   "id": "D1-pause-mock-vs-007 [no chroma_min]",
+   "kind": "popup",
+   "role": "concept",
+   "note": "per-family LCh remap of pause-en (palette mock)"
+  },
+  {
+   "ssim": 0.9279105792095791,
+   "overlap": 0.8790595547475049,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "chrome": {
+    "n": 6,
+    "median": 2.1040184073941113,
+    "min": 0.635651405880811,
+    "per_region": {
+     "pause.close": 1.8,
+     "pause.card": 5.0,
+     "pause.toggleKnob": 0.6,
+     "pause.bumperTL": 4.5,
+     "pause.field.l": 1.8,
+     "pause.bar.bottom": 2.4
+    }
+   },
+   "id": "today-pause-vs-007 [no chroma_min]",
+   "kind": "popup",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.9095772856970492,
+   "overlap": 0.34402332361516036,
+   "thumb_px": [
+    98,
+    21
+   ],
+   "id": "D1-hud-mock-vs-003 [no chroma_min]",
+   "kind": "hud",
+   "role": "concept",
+   "note": "HUD band crop 0,40,393,85 pt"
+  },
+  {
+   "ssim": 0.9124532692260018,
+   "overlap": 0.9193391642371234,
+   "thumb_px": [
+    98,
+    21
+   ],
+   "id": "today-hud-vs-003 [no chroma_min]",
+   "kind": "hud",
+   "role": "copy",
+   "note": "HUD band crop 0,40,393,85 pt"
+  },
+  {
+   "ssim": 0.9150626614069024,
+   "overlap": 0.36342195898475,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "chroma_min": 8.0,
+   "chrome": {
+    "n": 6,
+    "median": 25.77258538679023,
+    "min": 1.822182658059505,
+    "per_region": {
+     "pause.close": 1.8,
+     "pause.card": 11.1,
+     "pause.toggleKnob": 33.5,
+     "pause.bumperTL": 23.8,
+     "pause.field.l": 27.8,
+     "pause.bar.bottom": 31.9
+    }
+   },
+   "id": "D1-pause-mock-vs-007",
+   "kind": "popup",
+   "role": "concept",
+   "note": "per-family LCh remap of pause-en (palette mock)"
+  },
+  {
+   "ssim": 0.9279105792095791,
+   "overlap": 0.759302920190488,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "chroma_min": 8.0,
+   "chrome": {
+    "n": 6,
+    "median": 2.1040184073941113,
+    "min": 0.635651405880811,
+    "per_region": {
+     "pause.close": 1.8,
+     "pause.card": 5.0,
+     "pause.toggleKnob": 0.6,
+     "pause.bumperTL": 4.5,
+     "pause.field.l": 1.8,
+     "pause.bar.bottom": 2.4
+    }
+   },
+   "id": "today-pause-vs-007",
+   "kind": "popup",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.9095772856970492,
+   "overlap": 0.0997549260370306,
+   "thumb_px": [
+    98,
+    21
+   ],
+   "chroma_min": 8.0,
+   "id": "D1-hud-mock-vs-003",
+   "kind": "hud",
+   "role": "concept",
+   "note": "HUD band crop 0,40,393,85 pt"
+  },
+  {
+   "ssim": 0.9124532692260018,
+   "overlap": 0.8867808777940935,
+   "thumb_px": [
+    98,
+    21
+   ],
+   "chroma_min": 8.0,
+   "id": "today-hud-vs-003",
+   "kind": "hud",
+   "role": "copy",
+   "note": "HUD band crop 0,40,393,85 pt"
+  },
+  {
+   "ssim": 0.5365843590840639,
+   "overlap": 0.19378479314906938,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "D1-home-mock(palette+cast)-vs-002",
+   "kind": "screen",
+   "role": "concept",
+   "note": "today's composition, D1 palette + new cast (home-mock-D1.png): expected to FAIL on SSIM until R3"
+  },
+  {
+   "ssim": 0.5696939452424442,
+   "overlap": 0.8378776538723699,
+   "thumb_px": [
+    98,
+    212
+   ],
+   "id": "today-home-L32-vs-002",
+   "kind": "screen",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.06371381383033144,
+   "overlap": 0.0952371534194644,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-partylights",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.05284616391502894,
+   "overlap": 0.142205892714998,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-whitenoise",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.1512435760284801,
+   "overlap": 0.063378056928169,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-hearup",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.43320947061368464,
+   "overlap": 0.554461220443464,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-hiddendevice",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.21904772610125323,
+   "overlap": 0.09734253664546529,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-twocam",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.266337194363548,
+   "overlap": 0.11445482305320856,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-storagecleaner",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.32104690227875743,
+   "overlap": 0.10877761011080671,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-pomodoro",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.10373877719071048,
+   "overlap": 0.6078210299163872,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-strobelight",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.14168731198337065,
+   "overlap": 0.42440684611450985,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-ledbanner",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.13367959115095157,
+   "overlap": 0.5239530988274707,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-trackdetect",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.3438661395078926,
+   "overlap": 0.07388942523234673,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-mater",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.17109862860252972,
+   "overlap": 0.1498163802491564,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-icon-vincam",
+   "kind": "icon",
+   "role": "control",
+   "note": "an unrelated factory app icon"
+  },
+  {
+   "ssim": 0.3188572798265219,
+   "overlap": 0.25368815013100576,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "today-icon-vs-store",
+   "kind": "icon",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.20723110237245673,
+   "overlap": 0.060677014114024236,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "IC1-draft-vs-store",
+   "kind": "icon",
+   "role": "concept",
+   "note": ""
+  },
+  {
+   "ssim": 0.17236601380457844,
+   "overlap": 0.6649985317984125,
+   "thumb_px": [
+    98,
+    78
+   ],
+   "id": "today-logo-vs-store8",
+   "kind": "logo",
+   "role": "copy",
+   "note": "both on grey (theirs: border-colour matte)"
+  },
+  {
+   "ssim": 0.10815630154887865,
+   "overlap": 0.1847378306301819,
+   "thumb_px": [
+    98,
+    78
+   ],
+   "id": "LG1-sketch-vs-store8",
+   "kind": "logo",
+   "role": "concept",
+   "note": "both on grey (theirs: border-colour matte)"
+  },
+  {
+   "ssim": 0.3217814451846677,
+   "overlap": 0.5540136054421769,
+   "thumb_px": [
+    98,
+    75
+   ],
+   "id": "today-boss-vs-002",
+   "kind": "character",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.3221349495735218,
+   "overlap": 0.34979591836734697,
+   "thumb_px": [
+    98,
+    75
+   ],
+   "id": "bossV2-vs-002",
+   "kind": "character",
+   "role": "concept",
+   "note": ""
+  },
+  {
+   "ssim": 0.33884121696782527,
+   "overlap": 0.4356948868056102,
+   "thumb_px": [
+    98,
+    116
+   ],
+   "id": "today-worker-vs-002",
+   "kind": "character",
+   "role": "copy",
+   "note": ""
+  },
+  {
+   "ssim": 0.3330914750386956,
+   "overlap": 0.2301909338385359,
+   "thumb_px": [
+    98,
+    116
+   ],
+   "id": "digger-vs-002",
+   "kind": "character",
+   "role": "concept",
+   "note": ""
+  },
+  {
+   "ssim": 0.4807121925592431,
+   "overlap": 0.6637859225322783,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-sci-vs-worker",
+   "kind": "character",
+   "role": "control",
+   "note": ""
+  },
+  {
+   "ssim": 0.41440604805809184,
+   "overlap": 0.5719491878384007,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "id": "control-digger-vs-boss",
+   "kind": "character",
+   "role": "control",
+   "note": ""
+  }
+ ]
+}

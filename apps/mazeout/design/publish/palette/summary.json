@@ -1,0 +1,126 @@
+{
+ "total": 3822,
+ "by_source": {
+  "swift": 1834,
+  "pathcore": 2,
+  "json": 684,
+  "colorset": 1,
+  "svg": 1301
+ },
+ "by_kind": {
+  "swift-split": 2,
+  "swift-dec": 8,
+  "swift-system": 10,
+  "swift-hexstr": 91,
+  "swift-hex": 1725,
+  "json-hex": 684,
+  "colorset": 1,
+  "py-hex": 1301
+ },
+ "by_family": {
+  "chrome-blue": 942,
+  "cream": 359,
+  "board-skin": 334,
+  "danger-red": 283,
+  "gold-accent": 272,
+  "go-green": 264,
+  "not-shipped": 236,
+  "berry": 199,
+  "neutral": 185,
+  "owned-svg": 161,
+  "heart": 159,
+  "medal": 94,
+  "fx-multicolour": 83,
+  "ink-brown": 69,
+  "logo": 63,
+  "ice": 42,
+  "plank": 34,
+  "board-mechanics": 20,
+  "debug-ui": 14,
+  "exit-accent": 5,
+  "loading-base": 3,
+  "non-colour": 1
+ },
+ "by_action": {
+  "map": 2101,
+  "keep": 1106,
+  "owner:R7": 496,
+  "owner:R6": 63,
+  "keep (sub-JND)": 49,
+  "owner:R2": 4,
+  "owner:R4": 3
+ },
+ "unclassified": 0,
+ "swift_app_hex_tokens": 1652,
+ "swift_app_files_with_hex": 60,
+ "ui_json_hex": 657,
+ "ui_json_distinct": 436,
+ "svg_generator_hex": 1301,
+ "comment_hex_not_counted": 859,
+ "non_colour_short_tokens": 58,
+ "gradient_groups_kept_whole": 15,
+ "gamut_clipped": 704,
+ "unique_mapped_pairs": 1086,
+ "manual_edits": 2,
+ "de00_mapped": {
+  "min": 1.01,
+  "median": 21.99,
+  "max": 50.0
+ },
+ "de00_by_family": {
+  "chrome-blue": {
+   "n": 942,
+   "median": 25.4,
+   "p10": 17.5
+  },
+  "go-green": {
+   "n": 264,
+   "median": 44.5,
+   "p10": 26.8
+  },
+  "plank": {
+   "n": 34,
+   "median": 10.8,
+   "p10": 8.8
+  },
+  "danger-red": {
+   "n": 270,
+   "median": 2.9,
+   "p10": 1.3
+  },
+  "cream": {
+   "n": 323,
+   "median": 3.1,
+   "p10": 1.1
+  },
+  "ink-brown": {
+   "n": 69,
+   "median": 4.3,
+   "p10": 2.4
+  },
+  "berry": {
+   "n": 199,
+   "median": 21.4,
+   "p10": 18.4
+  }
+ },
+ "mapped_chrome_left_in_old_blue_window": 0,
+ "swift_default_vs_ui_json": {
+  "paired": 310,
+  "mismatched": 0,
+  "examples": []
+ },
+ "unmapped_in_old_blue_window_by_family": {
+  "debug-ui": 3,
+  "fx-multicolour": 16,
+  "board-mechanics": 2,
+  "ice": 18,
+  "medal": 17,
+  "exit-accent": 2,
+  "not-shipped": 70,
+  "board-skin": 55,
+  "owned-svg": 55,
+  "logo": 10
+ },
+ "unmapped_in_old_blue_window_outside_allowed": 0
+}

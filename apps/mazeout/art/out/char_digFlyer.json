@@ -1,0 +1,14 @@
+{
+ "case": "char_digFlyer",
+ "frame_pt": [
+  180.0,
+  220.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "eyeMid": [
+  [
+   59.45,
+   72.31
+  ]
+ ]
+}

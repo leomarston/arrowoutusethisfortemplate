@@ -1,0 +1,764 @@
+{
+ "grader": "A",
+ "date": "2026-09-25",
+ "scope": "MANIFEST family svg + swiftui + code entries with an output (svg lane scratch manifest build/ui-art/lane_svg/MANIFEST.json for refs, characters lane for avatarDefault), the board sprites (tape, door, lock, key, pipe, box), and SwiftUI/code components visible in the app's own renders (build/s1, build/device)",
+ "scale": "A = ship; B = ok (same art, differences only on inspection); C = redo (different at a glance, wrong size/colour/silhouette, or not in the original)",
+ "counts": {
+  "A": 35,
+  "C": 11,
+  "B": 30
+ },
+ "remaining_c": [
+  "curtainCrate",
+  "tutorialHand",
+  "glyphMusic",
+  "glyphBell",
+  "iconPencil",
+  "statFirstTryIcon",
+  "statWeeklyWinsIcon",
+  "iconCheckeredFlag",
+  "rankBadgePlain",
+  "scoreChip",
+  "settingsRoundToggle"
+ ],
+ "not_graded": {
+  "ids": [
+   "avatarFrame",
+   "badgeDiscount",
+   "badgeJoin",
+   "badgeMultiplier",
+   "boardDotLattice",
+   "boardExitColour",
+   "boardSilhouetteBorder",
+   "boardTapRipple",
+   "boardTrailRainbow",
+   "boosterBadge",
+   "boosterBar",
+   "boosterButton",
+   "clawChevronChips",
+   "clawLadderNode",
+   "clawLogo",
+   "clawRewardCard",
+   "cornerWedge",
+   "countryFlag",
+   "curtainBurst",
+   "curtainCyan",
+   "elevatorPlatform",
+   "fxCoinFly",
+   "fxConfetti",
+   "fxFireworkStreak",
+   "fxKeyFlight",
+   "homeClawBar",
+   "hudBackButton",
+   "hudCoinPill",
+   "hudHardRibbon",
+   "hudLevelTab",
+   "hudPanel",
+   "hudTimerPill",
+   "leaderboardTabs",
+   "pipeTube",
+   "profileCard",
+   "profileEdit",
+   "raceBar",
+   "raceLane",
+   "rankRow",
+   "rocketRaceLogo",
+   "shopOfferCard",
+   "skyJumpLogo",
+   "streakBanner",
+   "streakChips",
+   "streakRaceLogo",
+   "unlockCard",
+   "weeklyContestPopup",
+   "wellDoneWord"
+  ],
+  "why": "no output yet (no file, no preview, not visible in any app render)"
+ },
+ "proofs_tool": "art/review/tools/gradeA_proofs.py",
+ "entries": [
+  {
+   "id": "tapeV4",
+   "grade": "A",
+   "note": "Pasted over L32 (003) at the lattice anchor it covers the original tape exactly: same band, the two crossing straps, pink tones and shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L35_L32.png, art/ui/sheets/m_tapeV4.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "tapeH4",
+   "grade": "A",
+   "note": "Pasted over L32 (003) at the lattice anchor it covers the original tape exactly: same band, the two crossing straps, pink tones and shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L35_L32.png, art/ui/sheets/m_tapeH4.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "tapeH2",
+   "grade": "A",
+   "note": "In place on L38 (056) it covers the 2-lane tape exactly; straps at the steeper angle as in the capture.",
+   "sheet": "art/ui/sheets/gA_tapes_2_3.png, art/ui/sheets/m_tapeH2.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "tapeV3",
+   "grade": "A",
+   "note": "In place on L44 (090) it covers the 3-lane tape exactly.",
+   "sheet": "art/ui/sheets/gA_tapes_2_3.png, art/ui/sheets/m_tapeV3.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "tapeH3",
+   "grade": "A",
+   "note": "Same recipe as the verified tapes (no 3-lane horizontal band on the phone yet, so judged next to L32's 4-lane look, not in place). Reads as the same tape.",
+   "sheet": "art/ui/sheets/gA_tapes_2_3.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "tapeV2",
+   "grade": "A",
+   "note": "Same recipe; the ref is the older video skin (blue arrows), so there is no in-place phone check. Reads as the phone tape at game size.",
+   "sheet": "art/ui/sheets/gA_tapes_2_3.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW4H4",
+   "grade": "A",
+   "note": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_doorW4H4.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW4H8",
+   "grade": "A",
+   "note": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_doorW4H8.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW4H12",
+   "grade": "A",
+   "note": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_doorW4H12.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW4H16",
+   "grade": "A",
+   "note": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_doorW4H16.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW4H20",
+   "grade": "A",
+   "note": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_doorW4H20.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW5H17",
+   "grade": "A",
+   "note": "Same generator as the L33 doors, checked in place on L34 (036). Identical at game size.",
+   "sheet": "art/ui/sheets/m_doorW5H17.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW13H4",
+   "grade": "A",
+   "note": "In place on L34 (036) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": "art/ui/sheets/gA_doors_L34_L37.png, art/ui/sheets/m_doorW13H4.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW11H10",
+   "grade": "A",
+   "note": "In place on L37 (052) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": "art/ui/sheets/gA_doors_L34_L37.png, art/ui/sheets/m_doorW11H10.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "doorW22H10",
+   "grade": "A",
+   "note": "In place on L37 (052) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": "art/ui/sheets/gA_doors_L34_L37.png, art/ui/sheets/m_doorW22H10.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "lockHex",
+   "grade": "A",
+   "note": "5 locks placed by the rule (door centre + 0.18 pitch) land on the capture's locks on L33; bevel facets, keyhole and blue socket read identical.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_lockHex.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "keyOnArrow",
+   "grade": "A",
+   "note": "In place on L33 (027) the key covers the original: purple ribbon loop, gold ring and bit, at the right anchor on the arrow.",
+   "sheet": "art/ui/sheets/gA_board_L33.png, art/ui/sheets/m_keyOnArrow.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "pipeMouth",
+   "grade": "A",
+   "note": "In place on L35 (042) the gold collar at the tube's end covers the original exactly.",
+   "sheet": "art/ui/sheets/gA_board_L35_L32.png, art/ui/sheets/m_pipeMouth.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "pipeCounter",
+   "grade": "A",
+   "note": "In place on L35 (042): gold collars, orange counter box and the live digit read identical at game size.",
+   "sheet": "art/ui/sheets/gA_board_L35_L32.png, art/ui/sheets/m_pipeCounter.png",
+   "family": "svg",
+   "owner": "pipeline"
+  },
+  {
+   "id": "curtainCrate",
+   "grade": "C",
+   "note": "As the BOX skin (SPEC 5.11: the phone's Box skin on every level): a gen_board.curtain_crate(10, 3) scratch render over L50 (135) reads as the same obstacle but visibly different. The corner studs are missing. The slab has dark vertical side shading and a dark bottom band, where the phone has a flat violet face with a light top bevel. The lug caps are big and flare outward (the phone's are short stubs). The generator scales the sphere with min(w, h)/3, but on the phone the sphere stays about 2.3-2.9 cells on every box size (L53 4x4, L56 10x9, L57 20x12). So a 10x9 box would get a huge sphere. The manifest still describes the V1 video 'curtain' (confirmed false).",
+   "sheet": "art/ui/sheets/gA_board_box.png, art/ui/sheets/gA_ref_phone_boxes.png, art/ui/sheets/m_curtainCrate.png",
+   "family": "svg",
+   "owner": "pipeline",
+   "fix": "Rebuild as the phone BOX: a flat violet slab with a light top edge and 4 corner studs (0.4-0.5 pitch in from each corner). Keep the sphere at a FIXED ~2.4-cell size (cap sc at ~1), with short lugs and the navy well inside a purple ring. Add boxW<w>H<h> entries for the sizes the levels use (3x3, 3x4, 4x3, 3x5, 5x3, 4x4, 10x3, 10x9, 20x12), and re-point the manifest purpose and ref at shots 135 / 154 / 174 / 179."
+  },
+  {
+   "id": "boardArrow",
+   "grade": "A",
+   "note": "Device grab of L32 (build/device/grab-L032-fit.png) next to 003: stroke 11-12 px vs 12 px, round caps and joins, head size and position all identical at game size.",
+   "sheet": "art/ui/sheets/gA_app_board_L32.png",
+   "family": "code",
+   "owner": "engine",
+   "judged_on": "build/device/grab-L032-fit.png"
+  },
+  {
+   "id": "boardVacatedDot",
+   "grade": "B",
+   "note": "Only seen in the 1x JPEG soak frames (build/device/frames/waves-mid). The pale-blue dots sit on the lattice, and their colour (206, 224, 245) is within JPEG error of #C5E1FF. There is no lossless in-app frame to confirm the size.",
+   "sheet": "build/device/frames/waves-mid/f0005908.jpg",
+   "family": "code",
+   "owner": "engine",
+   "judged_on": "device frames"
+  },
+  {
+   "id": "boardTrailStar",
+   "grade": "A",
+   "note": "White 5-point star tinted at runtime. Tinted with the trail hues next to store 1's trail stars, it reads the same.",
+   "sheet": "art/ui/sheets/gA_trailstar.png, art/ui/sheets/m_boardTrailStar.png",
+   "family": "svg",
+   "owner": "fx",
+   "lane_self_grade": "A-"
+  },
+  {
+   "id": "sparkleTwinkle",
+   "grade": "B",
+   "note": "4-point white star with a warm glow. The unlock-card sparkles on 040/134 are warmer (cream-yellow) and slightly bigger. Tint it warm at runtime.",
+   "sheet": "art/ui/sheets/m_sparkleTwinkle.png",
+   "family": "svg",
+   "owner": "fx",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "doorShards",
+   "grade": "B",
+   "note": "Six shards in the door palette (orange / blue / purple). Fine as FX particles; not compared frame by frame with the L33 burst clip.",
+   "sheet": "art/ui/sheets/m_doorShards.png",
+   "family": "svg",
+   "owner": "fx",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "pipeShards",
+   "grade": "B",
+   "note": "Cyan glass shards in the tube palette. At game size they are specks, as in the break clip; no frame-by-frame check.",
+   "sheet": "art/ui/sheets/m_pipeShards.png",
+   "family": "svg",
+   "owner": "fx",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "heartHUDHalves",
+   "grade": "B",
+   "note": "The HUD heart with a zig-zag crack, halves 2.4 px apart. Same heart family as heartHUD; one sprite for both halves (FX must mask by gen_icons.CRACK).",
+   "sheet": "art/ui/sheets/m_heartHUDHalves.png",
+   "family": "svg",
+   "owner": "fx",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "heartHUD",
+   "grade": "A",
+   "note": "Three hearts in place on 003 at the measured slots read identical (lobes, tip, specular, dark rim).",
+   "sheet": "art/ui/sheets/gA_hud.png, art/ui/sheets/m_heartHUD.png",
+   "family": "svg",
+   "owner": "ui-art"
+  },
+  {
+   "id": "heartHUDLost",
+   "grade": "A",
+   "note": "In place on 110 (after a bump), the flat #6C94DC slot heart with a darker edge is indistinguishable from the capture.",
+   "sheet": "art/ui/sheets/gA_hud.png, art/ui/sheets/m_heartHUDLost.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "A-"
+  },
+  {
+   "id": "iconStopwatch",
+   "grade": "A",
+   "note": "In place on 003 at 1.02x it reads the same. Ring tones match (sampled 252,187,7 / 233,136,4 vs the capture's 253,174,6 / 233,132,0).",
+   "sheet": "art/ui/sheets/gA_hud.png, art/ui/sheets/m_iconStopwatch.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "iconCoin",
+   "grade": "B",
+   "note": "Reads as the same coin in the HUD (at 0.89x) and on home. The outer orange rim is lighter and thinner than 003 and 026. The 30 pt frame is drawn at 1.27x on home (34 pt), which softens it.",
+   "sheet": "art/ui/sheets/gA_hud.png, art/ui/sheets/gA_home_top.png, art/ui/sheets/m_iconCoin.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Darken and thicken the outer rim ring. Ship a 34 pt frame (or iconCoinHome) so home is not upscaled.",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "iconPlusGreen",
+   "grade": "B",
+   "note": "Same green disc + white plus + dark outline as 026. The frame is 16 pt (ink 14) for an 18.7 pt slot, so the app upscales it 1.34x.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/m_iconPlusGreen.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame 20 x 20 pt (ink ~18.7).",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "iconStopwatchSmall",
+   "grade": "B",
+   "note": "On the Claw timer chip it reads as the same small watch; the ring is a touch yellower and slightly larger than 026's.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/m_iconStopwatchSmall.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "hudPauseButton",
+   "grade": "A",
+   "note": "SwiftUI render (build/ui-art/swiftui/pauseButton.png) in place on 003: IoU 0.927, dE00 3.9. The glossy squircle, rim and glyph read identical in the HUD row.",
+   "sheet": "art/ui/sheets/gA_hud.png, art/ui/sheets/ab_pauseButton.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/ui-art/swiftui/pauseButton.png"
+  },
+  {
+   "id": "glyphGear",
+   "grade": "A",
+   "note": "In place on 026 at 1:1, the white gear with the light-blue side reads the same; the teeth are marginally narrower.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/m_glyphGear.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "heartLives",
+   "grade": "B",
+   "note": "Same glossy red heart with the live count. Next to 026 ours is slightly rounder and brighter, with less dark shading at the lower lobes.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/gA_app_topbar.png, art/ui/sheets/m_heartLives.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "iconHexArrow",
+   "grade": "B",
+   "note": "The purple hexagon with the white up-arrow reads as 026's. Its ink is 42 x 40 pt against the measured 36.7 x 34 pt (home.clawHex), so at 1:1 it is ~1.15x too big (fitted at 0.84 in the proof). The arrow is whiter and the bevel rim thinner than 026's lavender rim.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/m_iconHexArrow.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Draw it at ink 37 x 34 pt (or tell the shell to draw it at 0.87), with a thicker lavender bevel.",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "heartInfiniteSmall",
+   "grade": "B",
+   "note": "The red heart with a white infinity sign reads the same on the Claw bar end. Our infinity strokes are fatter and the heart a bit rounder than 026's.",
+   "sheet": "art/ui/sheets/gA_home_top.png, art/ui/sheets/m_heartInfiniteSmall.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "avatarDefault",
+   "grade": "A",
+   "note": "Flat grey-blue tile with the lighter silhouette, the same as the phone's placeholder (meta-003, 026) at game size.",
+   "sheet": "art/ui/sheets/gA_home.png, art/ui/sheets/m_avatarDefault.png",
+   "family": "svg",
+   "owner": "characters"
+  },
+  {
+   "id": "glyphSound",
+   "grade": "A",
+   "note": "In the Paused panel (007) at its 1:1 frame, the cream speaker with the dark-brown outline and two waves is indistinguishable at game size.",
+   "sheet": "art/ui/sheets/gA_popup_pause.png, art/ui/sheets/m_glyphSound.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "The phone's Settings page (meta-029) shows the same glyph WHITE on a green button, so a white variant is needed there (see glyphMusic).",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "glyphHaptic",
+   "grade": "B",
+   "note": "Same drawing as 007. At its shipped 30 x 32 frame the ink is 28 x 26.7 pt, against 33 x 31.7 measured: ~0.85x, and visibly smaller than 007's in the 1:1 panel. Fitted to the measured ink it reads identical.",
+   "sheet": "art/ui/sheets/gA_popup_pause.png, art/ui/sheets/m_glyphHaptic.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame 34 x 33 (glyph_haptic(34, 33)), as the lane proposed.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "buttonGreen",
+   "grade": "B",
+   "note": "SwiftUI PanelButton in the Paused panel: same glossy green pill and size. Next to 007 the top glare line is heavier, the dark outline runs all round, and the face is a little more saturated. In the app render (build/s1/popup-pause.png) it reads the same.",
+   "sheet": "art/ui/sheets/gA_popup_pause.png, art/ui/sheets/gA_app_pause.png, art/ui/sheets/ab_buttonGreen.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/ui-art/swiftui/buttonGreen.png + build/s1"
+  },
+  {
+   "id": "buttonRed",
+   "grade": "B",
+   "note": "Same notes as buttonGreen (in-place dE00 5.1); reads as the same Quit button at game size.",
+   "sheet": "art/ui/sheets/gA_popup_pause.png, art/ui/sheets/gA_app_pause.png, art/ui/sheets/ab_buttonRed.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/ui-art/swiftui/buttonRed.png + build/s1"
+  },
+  {
+   "id": "unlockIconPipe",
+   "grade": "A",
+   "note": "In the Pipe! card (040) at 1:1 with a live '3': the gold collars, orange counter and U tube read identical. The tube's light band is a hair stripier.",
+   "sheet": "art/ui/sheets/gA_popup_unlock.png, art/ui/sheets/m_unlockIconPipe.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "unlockIconCurtain",
+   "grade": "B",
+   "note": "This is the BOX card icon. In the Box! card (134) it reads as the same purple slab with the silver 4-lug sphere and navy well. It is 0.92x of 134's icon, the sphere is paler/whiter, and the lug caps are larger. Note: design/levels.json unlocks call it 'unlockIconBox' while the manifest and UIArt.swift say unlockIconCurtain; one id must win.",
+   "sheet": "art/ui/sheets/gA_popup_unlock.png, art/ui/sheets/m_unlockIconCurtain.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame 132 x 132 (or 1.09x). Follow the BOX redo of curtainCrate (studs, flatter slab). Rename to unlockIconBox everywhere, or change levels.json.",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "unlockIconLinked",
+   "grade": "B",
+   "note": "The pink tape over two blue glossy arrows reads as V1's card. Our arrowheads are flatter triangles and the shafts thinner.",
+   "sheet": "art/ui/sheets/gA_unlock_linked_elevator_door.png, art/ui/sheets/m_unlockIconLinked.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "unlockIconElevator",
+   "grade": "B",
+   "note": "Two lavender sliding panels with hatching, as on V2's card (not on the phone). The stripes are a little stronger.",
+   "sheet": "art/ui/sheets/gA_unlock_linked_elevator_door.png, art/ui/sheets/m_unlockIconElevator.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "unlockIconDoor",
+   "grade": "B",
+   "note": "Our board door (4 x 4) + hex lock in the card; the same art family as the board. V1's card door is taller (~4 x 5 cells), so ours reads squatter.",
+   "sheet": "art/ui/sheets/gA_unlock_linked_elevator_door.png, art/ui/sheets/m_unlockIconDoor.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Optional: door(4, 5) for the card.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "tutorialHand",
+   "grade": "C",
+   "note": "About 0.66x the size of V1's hand at game size: the frame is 60 x 70 pt against the measured 70 x 100 pt without the shadow, which the lane flagged itself. The soft grey drop shadow under the hand, a large part of the reference's look, is missing. The palm is boxy with lumpy knuckles, where V1 has a long slim index finger and a smooth fist.",
+   "sheet": "art/ui/sheets/m_tutorialHand.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame 78 x 110 (tutorial_hand(78, 110)) with the fingertip anchor re-exported. Add the soft grey offset shadow, slim the palm and smooth the knuckles.",
+   "lane_self_grade": "B-"
+  },
+  {
+   "id": "pointerArrowYellow",
+   "grade": "B",
+   "note": "The curved yellow pointer with an orange outline reads as 025's. The head is slightly narrower. (The dark edge beside it in the proof is the erase, not the asset.)",
+   "sheet": "art/ui/sheets/gA_claw.png, art/ui/sheets/m_pointerArrowYellow.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "infoPathIcon",
+   "grade": "B",
+   "note": "Same white tile, blue border, 3D lower edge and arrow grammar as 025's info icon; the path layout is ours by design.",
+   "sheet": "art/ui/sheets/gA_claw.png, art/ui/sheets/m_infoPathIcon.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "glyphMusic",
+   "grade": "C",
+   "note": "Its only screen is Settings. The lane used V2, but the phone v552 Settings (meta-029) shows it: a WHITE glyph with a dark outline on a green button, red slash when off. Ours is the cream/brown Paused-panel style. On the green button in place it reads muddy and ~0.8x the size, and the red 'off' slash (code) is not there.",
+   "sheet": "art/ui/sheets/gA_settings.png, art/ui/sheets/m_glyphMusic.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Redo from meta-029: a white/cream face with a thin dark outline, ~30 pt ink. Add white Settings variants of glyphSound and glyphHaptic too (glyphSoundWhite, glyphHapticWhite), plus the red slash as an overlay sprite or code.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "glyphBell",
+   "grade": "C",
+   "note": "On meta-029's Notifications row, the bell is ~23 pt, white-to-ice-blue, with a navy outline and a clapper. Ours is a 17 pt ink cream bell with no outline and reads as a small blob next to the label.",
+   "sheet": "art/ui/sheets/gA_settings.png, art/ui/sheets/m_glyphBell.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Redo from meta-029: 24 x 26 pt frame, white face with an ice-blue shade, dark navy outline, round clapper.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "iconPencil",
+   "grade": "C",
+   "note": "The drawing matches (orange disc, white pencil with a dark outline). The size does not: on the phone's Profile (meta-002) and Edit Profile (meta-003), the disc is ~30 pt, ours 20 pt (0.6x). The 20 pt frame came from the older V2 build.",
+   "sheet": "art/ui/sheets/gA_profile.png, art/ui/sheets/gA_settings.png, art/ui/sheets/m_iconPencil.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Re-export at a 30 x 30 pt frame (ink ~29).",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "statFirstTryIcon",
+   "grade": "C",
+   "note": "On the phone's Profile (meta-002, General Stats) the dart target is ~44 pt across with a thick 3D red/cream ring; ours is ~26 pt (0.6x) and flatter. The frame came from V2.",
+   "sheet": "art/ui/sheets/gA_profile.png, art/ui/sheets/gA_stat_icons_vs_meta002.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame ~50 x 46 pt (target ~44 pt plus the purple dart), with a thicker glossy ring, placed overlapping the stat pill's left end as on meta-002.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "statWeeklyWinsIcon",
+   "grade": "C",
+   "note": "The phone's medal (meta-002) is ~39 x 49 pt with a wide red/white ribbon bar on top; ours is ~24 x 36 pt (0.62x).",
+   "sheet": "art/ui/sheets/gA_profile.png, art/ui/sheets/gA_stat_icons_vs_meta002.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Frame ~40 x 50 pt; widen the ribbon bar to the medal's width.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "iconCheckeredFlag",
+   "grade": "C",
+   "note": "In the Streak Race logo (016) the flags are large 3 x 2 checks in cream and slate blue, glossy and waving, with a pale pole tucked behind. Ours is a small 4 x 4 navy/white flat flag on a blue pole with a ball. At game size it reads as a different, emoji-like flag next to the original's.",
+   "sheet": "art/ui/sheets/gA_streak_flag.png, art/ui/sheets/m_iconCheckeredFlag.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Redo from 016: 3 x 2 checks (cream #F3EBDD / slate #3F5E8C), soft wave shading and a glossy highlight, short pale pole, ~26 x 28 pt.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "rankBadgeSilver",
+   "grade": "B",
+   "note": "In place on 203 row 2: the hexagon badge with the live '2' reads the same. Ours has a slightly lighter face and thinner bevel. (The pale column in the proof is the erase, not the asset.)",
+   "sheet": "art/ui/sheets/gA_streak.png, art/ui/sheets/m_rankBadgeSilver.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "rankBadgeBronze",
+   "grade": "B",
+   "note": "In place on 203 row 3 it reads the same; the bevel is a touch thinner.",
+   "sheet": "art/ui/sheets/gA_streak.png, art/ui/sheets/m_rankBadgeBronze.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "rankBadgeGold",
+   "grade": "B",
+   "note": "Same construction as silver/bronze, judged against store 6 (row 1 was not captured on the phone's Streak Race).",
+   "sheet": "art/ui/sheets/m_rankBadgeGold.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "lane_self_grade": "B+"
+  },
+  {
+   "id": "rankBadgePlain",
+   "grade": "C",
+   "note": "Not in the original: on the phone, ranks 4+ are plain outlined digits with no badge (203 row 4, meta-013 rows 4-7). Shipping it would add chrome the game does not have.",
+   "sheet": "art/ui/sheets/gA_streak.png, art/ui/sheets/gA_ref_profile_streak.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Do not ship; draw ranks 4+ as live outlined digits (as ui-measure's rank rows). Remove the entry, or mark it unused.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "scoreChip",
+   "grade": "C",
+   "note": "In place on 203 the green capsule is ~0.75x of the original and sits further right. The plate is one warm-brown tint on every row, where the phone's plate takes the row's hue (blue on silver, dark orange on bronze, dark green on the player's row). Reads visibly different on the silver row.",
+   "sheet": "art/ui/sheets/gA_streak.png, art/ui/sheets/m_scoreChip.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "The lane's own proposal: a capsule-only sprite at ~1.3x (capsule ~34 x 40 pt as on 203), with the plate as a SwiftUI shape tinted per row.",
+   "lane_self_grade": "C+"
+  },
+  {
+   "id": "sunburstRays",
+   "grade": "B",
+   "note": "White alpha rays on the cream reward card read like 023's. Ours fade out at ~0.65 of the frame, while 023's rays run to the card's edges.",
+   "sheet": "art/ui/sheets/gA_claw_rays.png, art/ui/sheets/m_sunburstRays.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Extend the rays to the frame edge (120 x 80) with a softer radial fade.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "prizeSign",
+   "grade": "B",
+   "note": "The green arrow sign with a coin reads as 069's at the ref box. The arrowhead is smaller and the tilt shallower. CONFLICT: the scene lane's skyJumpIsland and skyJumpPopupScene renders already bake a 3D PRIZE sign with a blank face (gA_skyjump_scene shows two signs). Exactly one sign must ship.",
+   "sheet": "art/ui/sheets/gA_skyjump_scene.png, art/ui/sheets/gA_skyjump.png, art/ui/sheets/m_prizeSign.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Decide: either drop the sign from the scene renders and use this svg + live text (then enlarge the head, tilt to 069's angle), or drop prizeSign and put live text on the scene's sign face.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "logoArrowOut",
+   "grade": "B",
+   "note": "Placed like the original logo (kickoff/state.png, 206.8 pt wide, +4 deg), it reads as the same kind of logo: an arched blue plate with a white rim, two pegs, and a purple arrow plate with OUT!. The ARROW letters are visibly thinner and flatter than MAZE's fat, puffy letters: 0.70 horizontal compression and a shallow extrusion. The blue plate's rim is flatter.",
+   "sheet": "art/ui/sheets/gA_loading.png, art/ui/sheets/gA_loading_logo.png, art/ui/sheets/m_logoArrowOut.png",
+   "family": "svg",
+   "owner": "ui-art",
+   "fix": "Less compression (widen the blue plate ~8 % or tighten the tracking instead), a deeper orange extrusion and inflated shading on the letters.",
+   "lane_self_grade": "B"
+  },
+  {
+   "id": "homeTopBar",
+   "grade": "A",
+   "note": "App render (build/s1/home-L33-normal.png) next to 002/026: the avatar frame, coin pill + icon + plus, lives pill + heart + 'Full', and gear button read identical in size, position and colour.",
+   "sheet": "art/ui/sheets/gA_app_topbar.png, art/ui/sheets/gA_app_home.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "homeLevelPlate",
+   "grade": "A",
+   "note": "The green 'LEVEL / 33' plate in the machine recess matches 026, and the red (L34) and purple (L39) plates match 035/060.",
+   "sheet": "art/ui/sheets/gA_app_home.png, art/ui/sheets/gA_app_hard_play.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "homePlayButton",
+   "grade": "A",
+   "note": "Green Play, red 'Hard Level' and purple 'Super Hard' variants in the blue frame match 026/035/060 at game size: glare, ribbon tab and label.",
+   "sheet": "art/ui/sheets/gA_app_home.png, art/ui/sheets/gA_app_hard_play.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "buttonPurple",
+   "grade": "A",
+   "note": "The Super Hard Play face matches 060's purple.",
+   "sheet": "art/ui/sheets/gA_app_hard_play.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "navBar",
+   "grade": "A",
+   "note": "The bar gradient and the raised cyan Home tab match 026 (the Home icon's size is grader B's navHome).",
+   "sheet": "art/ui/sheets/gA_app_home.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "panelFrame",
+   "grade": "B",
+   "note": "The Paused panel in the app render matches 007's size and rivets. The outer bumper is a uniform light-cyan ring, where 007 has lighter cyan corner bumpers with darker straight bars between them.",
+   "sheet": "art/ui/sheets/gA_app_pause.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "fix": "Split the outer ring into corner bumper pieces + darker side bars (pause.bumperTL in ui-measure).",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "panelRibbon",
+   "grade": "B",
+   "note": "The 'Paused' yellow plate is the same size (x 61.7-332.3 vs 64.7-329.0 pt). Its lower edge is less arched and its bottom rim lighter than 007's.",
+   "sheet": "art/ui/sheets/gA_app_pause.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "panelCream",
+   "grade": "A",
+   "note": "The cream inset card with its warm border matches 007.",
+   "sheet": "art/ui/sheets/gA_app_pause.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "panelClose",
+   "grade": "B",
+   "note": "The red X disc is the same size as 007's (37.7 vs 39 pt). Its navy/blue outer ring is thinner than 007's.",
+   "sheet": "art/ui/sheets/gA_app_pause.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "toggleOnOff",
+   "grade": "B",
+   "note": "The green ON pill with the blue knob reads the same. 007's track has a light border ring; ours is darker/greyer, and the knob is a bit taller.",
+   "sheet": "art/ui/sheets/gA_app_pause.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  },
+  {
+   "id": "settingsRoundToggle",
+   "grade": "C",
+   "note": "Not built, and the screen around it is wrong. The app's Settings (build/s1/popup-settings.png) is a Paused-style popup with four rows of pill toggles. The phone v552 Settings (meta-029) is a full-screen blue page: a Notifications row with a pill toggle; Sound / Music / Haptic as three round-cornered green glyph buttons (red slash when off); and Support / Terms / Privacy buttons.",
+   "sheet": "art/ui/sheets/gA_app_settings.png",
+   "family": "swiftui",
+   "owner": "shell",
+   "fix": "Shell: rebuild Settings on meta-029's layout with settingsRoundToggle + white glyphs (see glyphMusic).",
+   "judged_on": "build/s1 simulator renders (06:36-07:13)"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "engine": {
+    "ioBuffer": 0.005,
+    "voices": 8
+  },
+  "music": {
+    "enabled": false,
+    "crossfade": 0.3
+  },
+  "cues": {
+    "uiButton": "uiClick",
+    "celebrationSkip": "uiClick",
+    "dismissTap": "uiClick",
+    "unlockOverlay": "unlockChime",
+    "homePayout": "coinCollect",
+    "clawToken": "clawToken",
+    "clawMerge": "clawMerge",
+    "clawTick": "clawTick",
+    "clawComplete": "clawComplete",
+    "streakPop": "streakPop",
+    "arrowTap": ""
+  },
+  "gain": {
+    "uiClick": 1.0,
+    "unlockChime": 1.0,
+    "coinCollect": 1.0,
+    "clawToken": 1.0,
+    "clawMerge": 1.0,
+    "clawTick": 1.0,
+    "clawComplete": 1.0,
+    "streakPop": 1.0,
+    "tapTick": 0.6
+  },
+  "haptics": {
+    "tap": { "style": "rigid", "intensity": 0.70 },
+    "heartLost": { "style": "error", "intensity": 1.0 },
+    "bumpContact": { "style": "heavy", "intensity": 0.85 },
+    "fail": { "style": "warning", "intensity": 1.0 },
+    "clear": { "style": "medium", "intensity": 0.80 },
+    "win": { "style": "heavy", "intensity": 1.0 },
+    "burst": { "style": "medium", "intensity": 0.65 },
+    "button": { "style": "rigid", "intensity": 0.60 },
+    "booster": { "style": "medium", "intensity": 0.60 },
+    "coinLand": { "style": "soft", "intensity": 0.45 },
+    "logoLetter": { "style": "rigid", "intensity": 0.70 },
+    "logoBounce": { "style": "rigid", "intensity": 0.40 },
+    "firework": { "style": "soft", "intensity": 0.35 },
+    "rewardPop": { "style": "light", "intensity": 0.40 },
+    "logoSwell": { "style": "light", "intensity": 0.45 },
+    "keyTurn": { "style": "rigid", "intensity": 0.45 },
+    "play": { "style": "rigid", "intensity": 0.75 }
+  },
+  "hapticPriority": ["heartLost", "fail", "win", "burst", "bumpContact", "clear", "logoLetter", "logoSwell", "keyTurn", "booster", "rewardPop", "coinLand", "firework", "logoBounce", "tap", "play", "button"]
+}

@@ -1,0 +1,161 @@
+L032 session first tap 004125 rounds 2
+   r01 n=7 ms=[0, 729, 1431, 2121, 2844, 3538, 4367] last=43 right len=6 t=00:41:25
+   r02 n=2 ms=[0, 691] last=24 down len=29 t=00:41:35
+L032 session first tap 004623 rounds 5
+   r01 n=9 ms=[0, 818, 1522, 2222, 2915, 3636, 4344, 5028, 5823] last=49 right len=6 t=00:46:23
+   r02 n=3 ms=[0, 875, 1611] last=34 up len=8 t=00:46:37
+   r03 n=3 ms=[0, 726, 1587] last=24 right len=8 t=00:46:43
+   r04 n=1 ms=[0] last=16 right len=4 t=00:46:55
+   r05 n=2 ms=[0, 726] last=25 up len=4 t=00:47:03
+L032 session first tap 004943 rounds 13
+   r01 n=1 ms=[0] last=25 right len=4 t=00:49:43
+   r02 n=1 ms=[0] last=21 right len=9 t=00:49:48
+   r03 n=1 ms=[0] last=21 down len=6 t=00:49:54
+   r04 n=2 ms=[0, 664] last=22 down len=4 t=00:49:59
+   r05 n=2 ms=[0, 641] last=20 right len=4 t=00:50:02
+   r06 n=1 ms=[0] last=15 down len=18 t=00:50:06
+   r07 n=1 ms=[0] last=4 right len=25 t=00:50:10
+   r08 n=3 ms=[0, 782, 1415] last=16 up len=3 t=00:50:15
+   r09 n=2 ms=[0, 634] last=12 left len=4 t=00:50:19
+   r10 n=5 ms=[0, 653, 1291, 1938, 2585] last=15 left len=3 t=00:50:25
+   r11 n=1 ms=[0] last=8 down len=4 t=00:50:29
+   r12 n=1 ms=[0] last=0 right len=4 t=00:50:31
+   r13 n=1 ms=[0] last=0 up len=3 t=00:50:34
+L033 session first tap 010225 rounds 4
+   r01 n=2 ms=[0, 801] last=18 up len=6 t=01:02:25
+   r02 n=1 ms=[0] last=8 up len=11 t=01:02:29
+   r03 n=2 ms=[0, 661] last=11 up len=9 t=01:02:33
+   r04 n=4 ms=[0, 803, 1472, 2310] last=5 left len=4 t=01:02:39
+L033 session first tap 010503 rounds 16
+   r01 n=2 ms=[0, 653] last=5 left len=16 t=01:05:03
+   r02 n=3 ms=[0, 668, 1291] last=4 up len=6 t=01:05:11
+   r03 n=3 ms=[0, 819, 1512] last=2 up len=12 t=01:05:18
+   r04 n=3 ms=[0, 698, 1392] last=4 left len=3 t=01:05:27
+   r05 n=1 ms=[0] last=1 up len=8 t=01:05:34
+   r06 n=3 ms=[0, 711, 1395] last=6 left len=11 t=01:05:43
+   r07 n=1 ms=[0] last=2 up len=30 t=01:05:51
+   r08 n=2 ms=[0, 701] last=3 down len=3 t=01:05:59
+   r09 n=1 ms=[0] last=0 down len=6 t=01:06:06
+   r10 n=1 ms=[0] last=0 down len=4 t=01:06:16
+   r11 n=5 ms=[0, 683, 1374, 2071, 2764] last=6 left len=3 t=01:06:25
+   r12 n=1 ms=[0] last=14 down len=8 t=01:06:31
+   r13 n=1 ms=[0] last=11 right len=15 t=01:06:36
+   r14 n=2 ms=[0, 778] last=12 down len=3 t=01:06:44
+   r15 n=3 ms=[0, 643, 1285] last=10 right len=6 t=01:06:51
+   r16 n=1 ms=[0] last=0 right len=13 t=01:06:56
+L033 session first tap 011036 rounds 11
+   r01 n=5 ms=None last=[13] up len=9 t=01:10:36
+   r02 n=6 ms=None last=[8] left len=16 t=01:10:42
+   r04 n=9 ms=None last=[9] left len=11 t=01:10:51
+   r05 n=1 ms=None last=[0] up len=12 t=01:10:53
+   r06 n=3 ms=None last=[2] left len=4 t=01:10:57
+   r08 n=2 ms=None last=[3] up len=30 t=01:11:01
+   r10 n=4 ms=None last=[2] down len=4 t=01:11:07
+   r12 n=5 ms=None last=[6] left len=3 t=01:11:14
+   r13 n=2 ms=None last=[11] right len=15 t=01:11:16
+   r14 n=2 ms=None last=[12] down len=3 t=01:11:19
+   r15 n=11 ms=None last=[10] right len=6 t=01:11:27
+L034 session first tap 011836 rounds 9
+   r01 n=31 ms=None last=[75] down len=3 t=01:18:36
+   r02 n=7 ms=None last=[31] left len=12 t=01:18:42
+   r03 n=14 ms=None last=[0] down len=26 t=01:18:53
+   r05 n=7 ms=None last=[30] left len=4 t=01:19:00
+   r06 n=5 ms=None last=[9] down len=20 t=01:19:05
+   r08 n=9 ms=None last=[13] left len=4 t=01:19:14
+   r09 n=20 ms=None last=[34] down len=3 t=01:19:29
+   r10 n=1 ms=None last=[1] left len=27 t=01:19:31
+   r11 n=22 ms=None last=[21] left len=3 t=01:19:46
+L035 session first tap 012823 rounds 1
+   r01 n=18 ms=None last=[17] down len=3 t=01:28:23
+L036 session first tap 013116 rounds 2
+   r01 n=12 ms=None last=[25] down len=3 t=01:31:16
+   r02 n=4 ms=None last=[7] right len=3 t=01:31:20
+L036 session first tap 013250 rounds 4
+   r01 n=2 ms=None last=[6] left len=10 t=01:33:30
+   r03 n=3 ms=None last=[5] down len=39 t=01:33:35
+   r05 n=5 ms=None last=[0] up len=37 t=01:33:42
+   r07 n=5 ms=None last=[4] right len=4 t=01:33:48
+L037 session first tap 013757 rounds 11
+   r01 n=6 ms=None last=[13] down len=18 t=01:37:57
+   r03 n=10 ms=None last=[17] right len=22 t=01:38:07
+   r04 n=2 ms=None last=[8] left len=30 t=01:38:10
+   r06 n=4 ms=None last=[12] left len=11 t=01:38:15
+   r07 n=1 ms=None last=[11] down len=4 t=01:38:17
+   r09 n=1 ms=None last=[9] up len=28 t=01:38:21
+   r10 n=3 ms=None last=[13] up len=27 t=01:38:24
+   r12 n=1 ms=None last=[2] up len=30 t=01:38:28
+   r14 n=3 ms=None last=[9] down len=13 t=01:38:32
+   r15 n=2 ms=None last=[0] down len=33 t=01:38:35
+   r17 n=16 ms=None last=[15] right len=9 t=01:38:48
+L038 session first tap 013939 rounds 9
+   r01 n=1 ms=None last=[0] up len=3 t=01:39:39
+   r02 n=2 ms=None last=[1] up len=11 t=01:39:41
+   r03 n=2 ms=None last=[1] up len=17 t=01:39:44
+   r04 n=1 ms=None last=[0] up len=27 t=01:39:46
+   r05 n=4 ms=None last=[11] down len=7 t=01:39:50
+   r06 n=1 ms=None last=[0] up len=59 t=01:39:52
+   r07 n=2 ms=None last=[23] up len=6 t=01:39:55
+   r08 n=14 ms=None last=[21] left len=11 t=01:40:06
+   r09 n=12 ms=None last=[11] down len=4 t=01:40:16
+L039 session first tap 014217 rounds 3
+   r01 n=40 ms=None last=[34] down len=4 t=01:42:17
+   r02 n=40 ms=None last=[45] up len=10 t=01:42:44
+   r03 n=22 ms=None last=[21] up len=4 t=01:42:59
+L040 session first tap 014847 rounds 2
+   r01 n=17 ms=None last=[14] right len=11 t=01:48:47
+   r02 n=25 ms=None last=[24] down len=3 t=01:49:04
+L041 session first tap 015705 rounds 11
+   r01 n=11 ms=None last=[17] right len=40 t=01:57:05
+   r02 n=4 ms=None last=[15] up len=6 t=01:57:10
+   r03 n=1 ms=None last=[0] up len=4 t=01:57:12
+   r04 n=1 ms=None last=[0] up len=23 t=01:57:15
+   r05 n=3 ms=None last=[2] up len=13 t=01:57:18
+   r07 n=14 ms=None last=[27] left len=8 t=01:57:31
+   r08 n=2 ms=None last=[4] right len=8 t=01:57:35
+   r10 n=1 ms=None last=[2] right len=8 t=01:57:39
+   r11 n=1 ms=None last=[0] right len=31 t=01:57:42
+   r12 n=3 ms=None last=[4] down len=7 t=01:57:45
+   r13 n=7 ms=None last=[6] right len=12 t=01:57:51
+L042 session first tap 015933 rounds 17
+   r01 n=10 ms=None last=[9] up len=4 t=01:59:33
+   r03 n=1 ms=None last=[2] up len=19 t=01:59:37
+   r04 n=1 ms=None last=[2] up len=4 t=01:59:40
+   r05 n=1 ms=None last=[2] up len=12 t=01:59:42
+   r06 n=7 ms=None last=[31] up len=5 t=01:59:49
+   r07 n=2 ms=None last=[10] left len=4 t=01:59:52
+   r08 n=4 ms=None last=[1] down len=8 t=01:59:56
+   r10 n=1 ms=None last=[2] down len=2 t=02:00:01
+   r11 n=1 ms=None last=[1] down len=4 t=02:00:03
+   r13 n=8 ms=None last=[11] left len=22 t=02:00:12
+   r15 n=1 ms=None last=[1] down len=4 t=02:00:16
+   r16 n=1 ms=None last=[2] down len=14 t=02:00:19
+   r18 n=1 ms=None last=[1] down len=5 t=02:00:23
+   r20 n=1 ms=None last=[4] up len=2 t=02:00:27
+   r21 n=1 ms=None last=[2] up len=13 t=02:00:30
+   r23 n=1 ms=None last=[3] up len=8 t=02:00:34
+   r24 n=1 ms=None last=[2] up len=14 t=02:00:36
+L042 session first tap 020234 rounds 1
+   r01 n=2 ms=None last=[0] right len=4 t=02:02:34
+L043 session first tap 020435 rounds 6
+   r01 n=2 ms=None last=[16] right len=45 t=02:04:35
+   r03 n=8 ms=None last=[21] up len=12 t=02:04:44
+   r04 n=2 ms=None last=[14] right len=5 t=02:04:48
+   r05 n=2 ms=None last=[11] right len=3 t=02:04:51
+   r07 n=18 ms=None last=[29] down len=2 t=02:05:09
+   r08 n=27 ms=None last=[26] left len=6 t=02:05:30
+L044 session first tap 021155 rounds 15
+   r01 n=2 ms=None last=[1] up len=12 t=02:11:55
+   r02 n=2 ms=None last=[1] up len=10 t=02:11:58
+   r03 n=1 ms=None last=[0] up len=6 t=02:12:01
+   r04 n=2 ms=None last=[1] up len=4 t=02:12:04
+   r05 n=2 ms=None last=[1] up len=34 t=02:12:07
+   r07 n=1 ms=None last=[0] up len=40 t=02:12:12
+   r08 n=2 ms=None last=[1] up len=24 t=02:12:15
+   r10 n=1 ms=None last=[0] up len=6 t=02:12:20
+   r11 n=9 ms=None last=[25] left len=3 t=02:12:29
+   r12 n=13 ms=None last=[17] right len=4 t=02:12:40
+   r14 n=1 ms=None last=[6] right len=5 t=02:12:44
+   r15 n=1 ms=None last=[2] right len=6 t=02:12:47
+   r16 n=4 ms=None last=[5] up len=17 t=02:12:52
+   r18 n=24 ms=None last=[6] down len=38 t=02:13:12
+   r20 n=18 ms=None last=[21] up len=3 t=02:13:28

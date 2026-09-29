@@ -1,0 +1,969 @@
+{
+ "gate": "G1 TESTS x2 — core half (PLAN-P §8)",
+ "wp": "V1-core (Wave 3 V1-P, slot B; no simulator was needed or used)",
+ "date": "2026-09-29",
+ "result": "PASS (passes [1, 2] all green: True; inputs unchanged across the passes: True)",
+ "passes": {
+  "1": {
+   "all_green": true,
+   "checks": [
+    {
+     "check": "core.sh (debug, every default test)",
+     "pass_": true,
+     "evidence": "402 tests, 0 failures, 10 skipped (only the 10 documented env skips); build/p/V1/core/run-1/core.log"
+    },
+    {
+     "check": "PC_C4_FULL=1 (the 8 skipped C4Full tests, release)",
+     "pass_": true,
+     "evidence": "8/8 passed, 0 failures; build/p/V1/core/run-1/c4full.log"
+    },
+    {
+     "check": "frozen contracts",
+     "pass_": true,
+     "evidence": "18/18 OK (build/wp0/frozen-contracts.sha256)"
+    },
+    {
+     "check": "content tests (tools/levels/content_tests.sh, 12 steps)",
+     "pass_": true,
+     "evidence": "content tests: all passed; build/p/V1/core/run-1/content"
+    },
+    {
+     "check": "lvtool check: 0 structural errors",
+     "pass_": true,
+     "evidence": "check: 150 levels decoded by LevelLibrary (authoredCount 150); C2 greedy solved 150/150; HeadlessDriver won 150/150; 0 error(s), 1 warning(s)"
+    },
+    {
+     "check": "lvtool l2selftest (content negative controls)",
+     "pass_": true,
+     "evidence": "l2selftest: 40/40 mutations caught"
+    },
+    {
+     "check": "lvtool selftest (validator + diff negative controls)",
+     "pass_": true,
+     "evidence": "selftest: 22/22 validator mutations caught, 4/4 diff mutations caught"
+    },
+    {
+     "check": "design/tools/validator_selftest.py (Python validator)",
+     "pass_": true,
+     "evidence": "20 CAUGHT, 0 MISSED (20/20 caught)"
+    },
+    {
+     "check": "c4 negative controls fixture = a fresh regeneration",
+     "pass_": true,
+     "evidence": "20/20 CAUGHT on regeneration, Tests/Fixtures/c4_negative_controls.json byte-identical: True"
+    },
+    {
+     "check": "audio check.py + check_selftest.py",
+     "pass_": true,
+     "evidence": "check.py: all green (9 sound files, 0 music loops, 0 chains); self-test caught 31/31 applicable mutations"
+    },
+    {
+     "check": "events references (rotation_ref / balloon_ref --selftest)",
+     "pass_": true,
+     "evidence": "rotation_ref selftest: PASS; balloon_ref selftest: PASS (ok  negative controls 6/6 CAUGHT)"
+    },
+    {
+     "check": "strings selftest (content)",
+     "pass_": true,
+     "evidence": "strings selftest: 27/27 cases behave as required"
+    },
+    {
+     "check": "mutations c1 (core): build/p/V1/core/c1_mutations.py (V1 re-script of C1; see failures)",
+     "pass_": true,
+     "evidence": "7/7 CAUGHT (of 7 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-c1.txt"
+    },
+    {
+     "check": "mutations c2 (core): Packages/PathCore/Tests/tools/c2_mutations.py",
+     "pass_": true,
+     "evidence": "11/11 CAUGHT (of 11 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-c2.txt"
+    },
+    {
+     "check": "mutations c3 (core): Packages/PathCore/Tests/tools/c3_mutations.py",
+     "pass_": true,
+     "evidence": "11/11 CAUGHT (of 11 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-c3.txt"
+    },
+    {
+     "check": "mutations c4 (core/validator): Packages/PathCore/Tests/tools/c4_mutations.py",
+     "pass_": true,
+     "evidence": "6/6 CAUGHT (of 6 defined), baseline green: True [caught only by a crash/compile/hang: ['m2']]; not caught: none; build/p/V1/core/run-1/mutations-c4.txt"
+    },
+    {
+     "check": "mutations c4b (core/content/validator): Packages/PathCore/Tests/tools/c4b_mutations.py",
+     "pass_": true,
+     "evidence": "24/24 CAUGHT (of 24 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-c4b.txt"
+    },
+    {
+     "check": "mutations corefinal (core): build/corefinal/mutations.py (CORE-final spot checks, rulings 27-29 + WP0c)",
+     "pass_": true,
+     "evidence": "17/17 CAUGHT (of 17 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-corefinal.txt"
+    },
+    {
+     "check": "mutations core2 (core): build/core2/mutations.py (CORE-2 spot checks, rulings 30/31 + INTEG rebase)",
+     "pass_": true,
+     "evidence": "21/21 CAUGHT (of 21 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-core2.txt"
+    },
+    {
+     "check": "mutations events (events): Packages/PathCore/Tests/tools/events_mutations.py",
+     "pass_": true,
+     "evidence": "20/20 CAUGHT (of 20 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-events.txt"
+    },
+    {
+     "check": "mutations soc (social): Packages/PathCore/Tests/tools/soc_mutations.py",
+     "pass_": true,
+     "evidence": "39/39 CAUGHT (of 39 defined), baseline green: True; not caught: none; build/p/V1/core/run-1/mutations-soc.txt"
+    }
+   ]
+  },
+  "2": {
+   "all_green": true,
+   "checks": [
+    {
+     "check": "core.sh (debug, every default test)",
+     "pass_": true,
+     "evidence": "402 tests, 0 failures, 10 skipped (only the 10 documented env skips); build/p/V1/core/run-2/core.log"
+    },
+    {
+     "check": "PC_C4_FULL=1 (the 8 skipped C4Full tests, release)",
+     "pass_": true,
+     "evidence": "8/8 passed, 0 failures; build/p/V1/core/run-2/c4full.log"
+    },
+    {
+     "check": "frozen contracts",
+     "pass_": true,
+     "evidence": "18/18 OK (build/wp0/frozen-contracts.sha256)"
+    },
+    {
+     "check": "content tests (tools/levels/content_tests.sh, 12 steps)",
+     "pass_": true,
+     "evidence": "content tests: all passed; build/p/V1/core/run-2/content"
+    },
+    {
+     "check": "lvtool check: 0 structural errors",
+     "pass_": true,
+     "evidence": "check: 150 levels decoded by LevelLibrary (authoredCount 150); C2 greedy solved 150/150; HeadlessDriver won 150/150; 0 error(s), 1 warning(s)"
+    },
+    {
+     "check": "lvtool l2selftest (content negative controls)",
+     "pass_": true,
+     "evidence": "l2selftest: 40/40 mutations caught"
+    },
+    {
+     "check": "lvtool selftest (validator + diff negative controls)",
+     "pass_": true,
+     "evidence": "selftest: 22/22 validator mutations caught, 4/4 diff mutations caught"
+    },
+    {
+     "check": "design/tools/validator_selftest.py (Python validator)",
+     "pass_": true,
+     "evidence": "20 CAUGHT, 0 MISSED (20/20 caught)"
+    },
+    {
+     "check": "c4 negative controls fixture = a fresh regeneration",
+     "pass_": true,
+     "evidence": "20/20 CAUGHT on regeneration, Tests/Fixtures/c4_negative_controls.json byte-identical: True"
+    },
+    {
+     "check": "audio check.py + check_selftest.py",
+     "pass_": true,
+     "evidence": "check.py: all green (9 sound files, 0 music loops, 0 chains); self-test caught 31/31 applicable mutations"
+    },
+    {
+     "check": "events references (rotation_ref / balloon_ref --selftest)",
+     "pass_": true,
+     "evidence": "rotation_ref selftest: PASS; balloon_ref selftest: PASS (ok  negative controls 6/6 CAUGHT)"
+    },
+    {
+     "check": "strings selftest (content)",
+     "pass_": true,
+     "evidence": "strings selftest: 27/27 cases behave as required"
+    },
+    {
+     "check": "mutations c1 (core): build/p/V1/core/c1_mutations.py (V1 re-script of C1; see failures)",
+     "pass_": true,
+     "evidence": "7/7 CAUGHT (of 7 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-c1.txt"
+    },
+    {
+     "check": "mutations c2 (core): Packages/PathCore/Tests/tools/c2_mutations.py",
+     "pass_": true,
+     "evidence": "11/11 CAUGHT (of 11 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-c2.txt"
+    },
+    {
+     "check": "mutations c3 (core): Packages/PathCore/Tests/tools/c3_mutations.py",
+     "pass_": true,
+     "evidence": "11/11 CAUGHT (of 11 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-c3.txt"
+    },
+    {
+     "check": "mutations c4 (core/validator): Packages/PathCore/Tests/tools/c4_mutations.py",
+     "pass_": true,
+     "evidence": "6/6 CAUGHT (of 6 defined), baseline green: True [caught only by a crash/compile/hang: ['m2']]; not caught: none; build/p/V1/core/run-2/mutations-c4.txt"
+    },
+    {
+     "check": "mutations c4b (core/content/validator): Packages/PathCore/Tests/tools/c4b_mutations.py",
+     "pass_": true,
+     "evidence": "24/24 CAUGHT (of 24 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-c4b.txt"
+    },
+    {
+     "check": "mutations corefinal (core): build/corefinal/mutations.py (CORE-final spot checks, rulings 27-29 + WP0c)",
+     "pass_": true,
+     "evidence": "17/17 CAUGHT (of 17 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-corefinal.txt"
+    },
+    {
+     "check": "mutations core2 (core): build/core2/mutations.py (CORE-2 spot checks, rulings 30/31 + INTEG rebase)",
+     "pass_": true,
+     "evidence": "21/21 CAUGHT (of 21 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-core2.txt"
+    },
+    {
+     "check": "mutations events (events): Packages/PathCore/Tests/tools/events_mutations.py",
+     "pass_": true,
+     "evidence": "20/20 CAUGHT (of 20 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-events.txt"
+    },
+    {
+     "check": "mutations soc (social): Packages/PathCore/Tests/tools/soc_mutations.py",
+     "pass_": true,
+     "evidence": "39/39 CAUGHT (of 39 defined), baseline green: True; not caught: none; build/p/V1/core/run-2/mutations-soc.txt"
+    }
+   ]
+  }
+ },
+ "inputs_fingerprint": {
+  "fp-start.txt": "TOTAL 67bac891c6ba036588c2032254d73c5cad2e20650acde87451e63d91e3a48075 files=612",
+  "fp-pass1-end.txt": "TOTAL 67bac891c6ba036588c2032254d73c5cad2e20650acde87451e63d91e3a48075 files=612",
+  "fp-pass2-end.txt": "TOTAL 67bac891c6ba036588c2032254d73c5cad2e20650acde87451e63d91e3a48075 files=612"
+ },
+ "how": {
+  "core_sh": "tools/core.sh (import allow-list + swift build -j 2 + swift test -j 2, debug) — its 10 skips are the documented env-gated ones; the 8 PC_C4_FULL ones then run in their documented release recipe (GeneratorTests.swift:10) in the same pass",
+  "mutations": "each script imported UNCHANGED by build/p/V1/core/run_mut.py and run on its own package copy under build/p/V1/core/mut/<script>-r<N>/ (App/art/design/research/tools linked beside it); the harness replaces only the process runner: a timeout kills the WHOLE process tree (every ps descendant + the group) and after every run anything still running from the copy is killed. c4/c4b have no baseline of their own: the harness runs their suites on the unmutated copy first (must be green).",
+  "frozen": "shasum -a 256 -c build/wp0/frozen-contracts.sha256 (18 files) as re-hashed by the orchestrator on 09-29: contract amend 5 (F3-A, the #if DEBUG placeholder defaults in Board/Presentation/ShellContract) and amend 6 (SPEC.md ruling 54: Tuning.swift TuningFile.identity + SocialConfig decoded once; backup frozen-contracts.sha256.bak-amend6 differs in that one line)",
+  "content": "tools/levels/content_tests.sh (bundle --check x2, lvtool check, pclevels validate + bot, consistency, endless 1000 + Python verdict, l2selftest, strings) + lvtool selftest"
+ },
+ "evidence_dir": "build/p/V1/core/",
+ "scope": "G1's core half only (PLAN-P §8 G1 minus 'app unit + full UI twice' and 'Release build', which are slot A's V1-app). No simulator, no xcodebuild, no phone; no source, test, fixture or tool of the app was edited (every new file is under build/p/V1/core/ plus this JSON).",
+ "families": {
+  "core": "c1 (V1 re-script, see findings F-3), c2, c3, c4, c4b, corefinal, core2",
+  "content": "lvtool l2selftest + lvtool selftest (validator + diff controls) + strings selftest + c4b (the content recast's core port)",
+  "audio": "tools/audio/check.py + check_selftest.py",
+  "social": "soc_mutations.py",
+  "events": "events_mutations.py (e1-e12 + B1b's f1-f8) + design/publish/tools/rotation_ref.py / balloon_ref.py --selftest",
+  "validator": "design/tools/validator_selftest.py (Python validator, 20) + c4 negative-controls fixture regenerated and byte-compared + c4 m4 / c4b m20-m24 (the Swift validator)"
+ },
+ "failures": [],
+ "findings": [
+  {
+   "id": "F-1",
+   "severity": "P2",
+   "what": "c4_mutations m2 ('generator: the incremental DAG skips the cycle test') is caught only by a runaway, never by a failing assertion",
+   "evidence": "pass 1: under m2 the C4 suites' xctest grew to a 4.47 GB footprint and was killed by tools/memguard.sh at 13:48:09 (build/memguard.log: 'killed python pid 2900 footprint 4471 MB: .../xctest -XCTest PathCoreTests.C4FullSolverTests/...'); the script then reports plain 'CAUGHT' with no failing test named (build/p/V1/core/run-1/mutations-c4.txt: '2 CAUGHT ... []'). pass 2: the same mutant ran 600 s without a result and the harness killed its whole process tree at 17:06:49 (build/p/V1/core/mut/c4-r2/harness.log: 'TIMEOUT after 600 s ... killed tree [49114, 49126]'; no orphan left; run-2/mutations-c4.txt: '2 CAUGHT (the suite hangs: killed after 600 s)'; its test log mut/c4-r2/logs/006-test.log has no test output). B0 on 09-28 saw the same 600 s hang (build/p/B0/logs/mutations-1.log). The c4 script counts a hang as a catch by design; soc_mutations.py's rule ('a hang is a defect to fix, not a catch') would call it NOT JUDGED. Every other mutant of every script (155 of 156 per pass) fails by a named failing assertion.",
+   "fix_hint": "Add a bounded GeneratorTests case that performs one head flip closing a cycle on a tiny board and asserts the incremental DAG refuses it (and one that a non-cycling flip is accepted), so m2 fails by assertion in seconds instead of by runaway memory."
+  },
+  {
+   "id": "F-2",
+   "severity": "P2",
+   "what": "tools/memguard.sh classifies an xctest as python when its -XCTest list names a test containing 'Python' (e.g. testNegativeControlsAreCaughtWithThePythonMessages) followed by an apps/mazeout path, so the 3 GB python limit applies instead of the 6 GB xctest limit",
+   "evidence": "build/memguard.log 09-29 13:48:09 'killed python pid 2900 footprint 4471 MB: /Applications/Xcode.app/.../xctest -XCTest PathCoreTests.C4FullSolverTests/testEveryShippedLevel,...' — the case pattern *[Pp]ython*apps/mazeout* matched the xctest command line. Harmless here (the process was a runaway mutant), but a legitimate heavy PathCore test run between 3 and 6 GB would be killed.",
+   "fix_hint": "In tools/memguard.sh put the *xctest* case before the python case (or match the executable name via ps -o comm=) — orchestrator's tool, not edited by V1-core.",
+   "status": "FIXED by the orchestrator at 13:59 (build/blocked.md: memguard now goes by the executable, xctest limit 6 GB); pass 2 confirms it: the same runaway mutant then ran to the harness 600 s timeout instead of a 3 GB kill."
+  },
+  {
+   "id": "F-3",
+   "severity": "P2",
+   "what": "C1's mutation checks had no re-runnable script: build/c1/mut/run.sh took each mutation as shell arguments that were never saved (no transcript or file holds them)",
+   "evidence": "build/c1/mut/run.sh (usage: run.sh <name> <file> <old> <new>), build/c1/mutations.txt (11/11 on 09-25). V1-core re-scripted the four SPEC-architecture §4.17 requires (fit cap, a head offset, a kinematics constant, a cell-index off-by-one) + three of C1's extras (cell-at off by half, a relative zoom floor, the level-seed label) as build/p/V1/core/c1_mutations.py: 7/7 CAUGHT by failing assertions in both passes (identical first failures in pass 1 and pass 2), with the same first failures C1 recorded (31.65 vs 28.07 fit; apex up 0.36 vs 0.3; index 1 vs 0; [-1,0] vs [0,0]; 0.786 vs 0.50018; level seed 16104271240465288110).",
+   "fix_hint": "Adopt build/p/V1/core/c1_mutations.py as Packages/PathCore/Tests/tools/c1_mutations.py (a claimed, additive file) so the core family is fully scripted."
+  }
+ ],
+ "notes": [
+  "lvtool check / pclevels validate report 1 WARNING on L6 (27x22: fit pitch 13.55 pt below the 14.04 pt zoom floor) — the same documented warning as B0 and F3-B; 0 structural errors.",
+  "The frozen check is 18/18 against build/wp0/frozen-contracts.sha256 as amended by the orchestrator: contract amend 5 (F3-A's #if DEBUG placeholder defaults in BoardContract/PresentationContract/ShellContract) and amend 6 (SPEC.md ruling 54, 13:15: App/Support/Tuning.swift TuningFile.identity + SocialConfig decoded once; backup build/wp0/frozen-contracts.sha256.bak-amend6 differs in that one line only).",
+  "core.sh's 10 skips are exactly the documented env-gated tests: the 8 PC_C4_FULL ones (each pass then runs them un-skipped: PC_C4_FULL=1 swift test -c release -Xswiftc -enable-testing --filter C4Full, 8/8) + SocialBenchTests.testFiftyTwoWeekBench (SOC1_BENCH_DIR) + SocialCalibrationTests.testWriteOwnerSamples (SOC1_SAMPLES_DIR, a writer).",
+  "Pass 2's soc run uses the harness's incremental fresh_copy (only files whose bytes differ are rewritten; the resulting tree was checked identical to the script's own copy with diff -r) — pass 1 used the script's own full re-copy. Same mutants, same filters, same verdict code.",
+  "The mutation scripts' own evidence folders (build/c2, build/c3, build/soc1c, build/p/B1, build/corefinal, build/core2) were not touched: every run used its own copy under build/p/V1/core/mut/<script>-r<N>/ (build folders deleted after each script).",
+  "The orchestrator's 13:59 note ('memguard killed your C4Full xctest pid 2900 at 13:48:09 ... re-run that class') — that process was NOT the C4Full acceptance run: pipeline pass 1's C4Full run had finished at 13:22:18 (8/8, run-1/c4full.log); pid 2900 was the xctest of c4_mutations m2 in the scratch copy (mut/c4-r1/harness.log: the third swift test, 13:42:58-13:48:09, '-> 1 in 311 s'); its -XCTest list names C4Full* classes only because the script's filter 'SolverTests|ValidatorTests|...' also matches C4FullSolverTests / C4FullValidatorTests (skipped there without PC_C4_FULL). The C4Full acceptance ran again un-disturbed in pass 2 (16:32-16:35, 8/8) after the memguard fix."
+ ],
+ "open_issues": [],
+ "totals_per_pass": {
+  "mutation_scripts": "9 scripts, 156 mutants per pass: c1 7, c2 11, c3 11, c4 6, c4b 24, events 20, soc 39, corefinal 17, core2 21 — 156/156 CAUGHT in pass 1 and in pass 2 (155 by failing assertions, c4 m2 by a runaway/hang, F-1); every baseline green",
+  "tool_selftests": "lvtool selftest 22/22 + 4/4, lvtool l2selftest 40/40, validator_selftest 20/20, c4 negative controls 20/20 regenerated byte-identical to the fixture, audio check_selftest 31/31 applicable (check.py all green, 9 files), balloon_ref 6/6 negative controls + selftest PASS, rotation_ref selftest PASS, strings selftest 27/27 — both passes",
+  "core_sh": "402 tests, 0 failures, 10 documented env skips — both passes (pass 1 13:10-13:18, pass 2 16:22-16:32); PC_C4_FULL release 8/8 both passes",
+  "frozen": "18/18 both passes",
+  "content": "content_tests.sh 12/12 steps both passes; lvtool check 150/150 (C2 greedy 150/150, HeadlessDriver 150/150), 0 errors, 1 documented warning (L6)"
+ },
+ "timeline": "13:10 start (fingerprint 67bac891…, 612 files) · pass 1 13:10-16:22 (tracked scripts to 16:02, extras c1/corefinal/core2 16:02-16:22) · pass 2 16:22-19:22 · inputs fingerprint identical at start, after pass 1 and after pass 2",
+ "raw": [
+  {
+   "pass_": 1,
+   "steps": {
+    "core.sh": {
+     "status": "PASS",
+     "at": "13:18:39",
+     "detail": "(started 13:10) build/p/V1/core/run-1/core.log"
+    },
+    "c4full": {
+     "status": "PASS",
+     "at": "13:22:18",
+     "detail": "(219s) build/p/V1/core/run-1/c4full.log"
+    },
+    "frozen": {
+     "status": "PASS",
+     "at": "13:22:18",
+     "detail": "(0s) build/p/V1/core/run-1/frozen.txt"
+    },
+    "content_tests.sh": {
+     "status": "PASS",
+     "at": "13:24:33",
+     "detail": "(135s) build/p/V1/core/run-1/content.log"
+    },
+    "lvtool-selftest": {
+     "status": "PASS",
+     "at": "13:25:29",
+     "detail": "(56s) build/p/V1/core/run-1/lvtool-selftest.txt"
+    },
+    "validator_selftest": {
+     "status": "PASS",
+     "at": "13:30:08",
+     "detail": "(279s) build/p/V1/core/run-1/validator_selftest.txt"
+    },
+    "c4-negatives-regen": {
+     "status": "PASS",
+     "at": "13:30:25",
+     "detail": "(17s) build/p/V1/core/run-1/c4-negatives.txt"
+    },
+    "c4-negatives-in-sync": {
+     "status": "PASS",
+     "at": "13:30:25",
+     "detail": "(0s) build/p/V1/core/run-1/c4-negatives-diff.txt"
+    },
+    "audio-check": {
+     "status": "PASS",
+     "at": "13:30:26",
+     "detail": "(1s) build/p/V1/core/run-1/audio-check.txt"
+    },
+    "audio-selftest": {
+     "status": "PASS",
+     "at": "13:30:51",
+     "detail": "(25s) build/p/V1/core/run-1/audio-selftest.txt"
+    },
+    "rotation_ref-selftest": {
+     "status": "PASS",
+     "at": "13:30:53",
+     "detail": "(2s) build/p/V1/core/run-1/rotation_ref-selftest.txt"
+    },
+    "balloon_ref-selftest": {
+     "status": "PASS",
+     "at": "13:30:53",
+     "detail": "(0s) build/p/V1/core/run-1/balloon_ref-selftest.txt"
+    },
+    "strings-selftest": {
+     "status": "PASS",
+     "at": "13:30:54",
+     "detail": "(1s) build/p/V1/core/run-1/strings-selftest.txt"
+    },
+    "mutations-c2": {
+     "status": "PASS",
+     "at": "13:34:01",
+     "detail": "(187s) build/p/V1/core/run-1/mutations-c2.txt"
+    },
+    "mutations-c3": {
+     "status": "PASS",
+     "at": "13:35:50",
+     "detail": "(108s) build/p/V1/core/run-1/mutations-c3.txt"
+    },
+    "mutations-events": {
+     "status": "PASS",
+     "at": "13:39:39",
+     "detail": "(229s) build/p/V1/core/run-1/mutations-events.txt"
+    },
+    "mutations-c4": {
+     "status": "PASS",
+     "at": "13:54:39",
+     "detail": "(900s) build/p/V1/core/run-1/mutations-c4.txt"
+    },
+    "mutations-c4b": {
+     "status": "PASS",
+     "at": "14:27:13",
+     "detail": "(1953s) build/p/V1/core/run-1/mutations-c4b.txt"
+    },
+    "mutations-soc": {
+     "status": "PASS",
+     "at": "16:02:44",
+     "detail": "(5731s) build/p/V1/core/run-1/mutations-soc.txt"
+    },
+    "mutations-c1": {
+     "status": "PASS",
+     "at": "16:05:13",
+     "detail": "(134s) build/p/V1/core/run-1/mutations-c1.txt"
+    },
+    "mutations-corefinal": {
+     "status": "PASS",
+     "at": "16:18:06",
+     "detail": "(772s) build/p/V1/core/run-1/mutations-corefinal.txt"
+    },
+    "mutations-core2": {
+     "status": "PASS",
+     "at": "16:22:19",
+     "detail": "(253s) build/p/V1/core/run-1/mutations-core2.txt"
+    }
+   },
+   "core_sh": {
+    "result": {
+     "tests": 402,
+     "skipped": 10,
+     "failures": 0,
+     "unexpected": 0
+    },
+    "exit": "exit 0",
+    "import_check": "core.sh: import check ok (Sources/PathCore: Foundation + CoreGraphics only)",
+    "skipped": [
+     "C4FullEndlessTests testBoxCountersAboveTheRingArtMaxAreRerolled",
+     "C4FullEndlessTests testThousandServedLevelsAreInBandSolvableUniqueAndDeterministic",
+     "C4FullLibraryTests testEveryAuthoredLevelIsValidAndWonByTheDriver",
+     "C4FullSolverTests testEveryShippedLevel",
+     "C4FullTests testBandsAreTheDesignedEnvelope",
+     "C4FullTests testEveryDesignedLevelIsByteForByte",
+     "C4FullTests testRuntimeLevelsAgainstTheReference",
+     "C4FullValidatorTests testWholeDocumentMatchesThePythonValidator",
+     "SocialBenchTests testFiftyTwoWeekBench",
+     "SocialCalibrationTests testWriteOwnerSamples"
+    ],
+    "log": "build/p/V1/core/run-1/core.log"
+   },
+   "c4full": {
+    "result": {
+     "tests": 8,
+     "skipped": 0,
+     "failures": 0,
+     "unexpected": 0
+    },
+    "env": "PC_C4_FULL=1, swift test -c release -Xswiftc -enable-testing --filter C4Full",
+    "passed": [
+     "C4FullEndlessTests testBoxCountersAboveTheRingArtMaxAreRerolled",
+     "C4FullEndlessTests testThousandServedLevelsAreInBandSolvableUniqueAndDeterministic",
+     "C4FullLibraryTests testEveryAuthoredLevelIsValidAndWonByTheDriver",
+     "C4FullSolverTests testEveryShippedLevel",
+     "C4FullTests testBandsAreTheDesignedEnvelope",
+     "C4FullTests testEveryDesignedLevelIsByteForByte",
+     "C4FullTests testRuntimeLevelsAgainstTheReference",
+     "C4FullValidatorTests testWholeDocumentMatchesThePythonValidator"
+    ],
+    "failed": [],
+    "log": "build/p/V1/core/run-1/c4full.log"
+   },
+   "frozen": {
+    "ok": 18,
+    "lines": 18,
+    "not_ok": [],
+    "file": "build/wp0/frozen-contracts.sha256"
+   },
+   "content_tests": {
+    "steps": [
+     "PASS 1-bundle",
+     "PASS 1-bundle-python",
+     "PASS 2-check",
+     "PASS 3-validate",
+     "PASS 3-bot",
+     "PASS 4-consistency",
+     "PASS 5-endless",
+     "PASS 6-endless-python",
+     "PASS 7-l2selftest",
+     "PASS 8-strings-build",
+     "PASS 8-strings-coverage",
+     "PASS 8-strings-tr-review"
+    ],
+    "final": "content tests: all passed",
+    "lvtool_check": "check: 150 levels decoded by LevelLibrary (authoredCount 150); C2 greedy solved 150/150; HeadlessDriver won 150/150; 0 error(s), 1 warning(s)",
+    "lvtool_check_structural_errors": 0,
+    "l2selftest": "l2selftest: 40/40 mutations caught",
+    "log": "build/p/V1/core/run-1/content"
+   },
+   "lvtool_selftest": "selftest: 22/22 validator mutations caught, 4/4 diff mutations caught",
+   "validator_selftest": {
+    "caught": 20,
+    "missed": 0,
+    "final": "20/20 caught"
+   },
+   "c4_negative_controls": {
+    "regenerated_caught": 20,
+    "missed": 0,
+    "fixture_in_sync": true
+   },
+   "audio": {
+    "check": "check.py: all green (9 sound files, 0 music loops, 0 chains)",
+    "selftest": "caught 31/31 applicable mutations"
+   },
+   "rotation_ref_selftest": "selftest: PASS",
+   "balloon_ref_selftest": "selftest: PASS",
+   "balloon_negative_controls": "ok  negative controls 6/6 CAUGHT",
+   "strings_selftest": "strings selftest: 27/27 cases behave as required",
+   "mutations": {
+    "c1": {
+     "ran": true,
+     "baseline": "baseline: ok ('56', '0')",
+     "baseline_green": true,
+     "mutants": 7,
+     "caught": 7,
+     "counts": {
+      "CAUGHT": 7
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-c1.txt"
+    },
+    "c2": {
+     "ran": true,
+     "baseline": "baseline: ok ('76', '0')",
+     "baseline_green": true,
+     "mutants": 11,
+     "caught": 11,
+     "counts": {
+      "CAUGHT": 11
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-c2.txt"
+    },
+    "c3": {
+     "ran": true,
+     "baseline": "baseline: ok ('50', '0')",
+     "baseline_green": true,
+     "mutants": 11,
+     "caught": 11,
+     "counts": {
+      "CAUGHT": 11
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-c3.txt"
+    },
+    "c4": {
+     "ran": true,
+     "baseline": "baseline (no mutation, suites GeneratorTests|ValidatorTests|SolverTests|LevelLibraryTests): PASS Executed 41 tests, with 2 tests skipped and 0 failures (0 unexpected) in 71.509 (71.514) seconds",
+     "baseline_green": true,
+     "mutants": 6,
+     "caught": 6,
+     "counts": {
+      "CAUGHT": 5,
+      "CAUGHT_CRASH": 1
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [
+      "m2"
+     ],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-c4.txt"
+    },
+    "c4b": {
+     "ran": true,
+     "baseline": "baseline (no mutation, suites GeneratorTests|ValidatorTests|SolverTests|LevelLibraryTests|RulesTests|BotReplayTests): PASS Executed 70 tests, with 2 tests skipped and 0 failures (0 unexpected) in 62.227 (62.234) seconds",
+     "baseline_green": true,
+     "mutants": 24,
+     "caught": 24,
+     "counts": {
+      "CAUGHT": 24
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-c4b.txt"
+    },
+    "events": {
+     "ran": true,
+     "baseline": "baseline: ok ('52', '0')",
+     "baseline_green": true,
+     "mutants": 20,
+     "caught": 20,
+     "counts": {
+      "CAUGHT": 20
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-events.txt"
+    },
+    "soc": {
+     "ran": true,
+     "baseline": "baseline (no mutation): PASS",
+     "baseline_green": true,
+     "mutants": 39,
+     "caught": 39,
+     "counts": {
+      "CAUGHT": 39
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-soc.txt"
+    },
+    "corefinal": {
+     "ran": true,
+     "baseline": "M0 PASSED",
+     "baseline_green": true,
+     "mutants": 17,
+     "caught": 17,
+     "counts": {
+      "BASELINE_PASS": 1,
+      "CAUGHT": 17
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-corefinal.txt"
+    },
+    "core2": {
+     "ran": true,
+     "baseline": "M0 PASSED",
+     "baseline_green": true,
+     "mutants": 21,
+     "caught": 21,
+     "counts": {
+      "BASELINE_PASS": 1,
+      "CAUGHT": 21
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-1/mutations-core2.txt"
+    }
+   }
+  },
+  {
+   "pass_": 2,
+   "steps": {
+    "core.sh": {
+     "status": "PASS",
+     "at": "16:32:26",
+     "detail": "(596s) build/p/V1/core/run-2/core.log"
+    },
+    "c4full": {
+     "status": "PASS",
+     "at": "16:35:13",
+     "detail": "(167s) build/p/V1/core/run-2/c4full.log"
+    },
+    "frozen": {
+     "status": "PASS",
+     "at": "16:35:13",
+     "detail": "(0s) build/p/V1/core/run-2/frozen.txt"
+    },
+    "content_tests.sh": {
+     "status": "PASS",
+     "at": "16:37:37",
+     "detail": "(144s) build/p/V1/core/run-2/content.log"
+    },
+    "lvtool-selftest": {
+     "status": "PASS",
+     "at": "16:38:37",
+     "detail": "(60s) build/p/V1/core/run-2/lvtool-selftest.txt"
+    },
+    "validator_selftest": {
+     "status": "PASS",
+     "at": "16:42:52",
+     "detail": "(255s) build/p/V1/core/run-2/validator_selftest.txt"
+    },
+    "c4-negatives-regen": {
+     "status": "PASS",
+     "at": "16:43:10",
+     "detail": "(18s) build/p/V1/core/run-2/c4-negatives.txt"
+    },
+    "c4-negatives-in-sync": {
+     "status": "PASS",
+     "at": "16:43:10",
+     "detail": "(0s) build/p/V1/core/run-2/c4-negatives-diff.txt"
+    },
+    "audio-check": {
+     "status": "PASS",
+     "at": "16:43:11",
+     "detail": "(1s) build/p/V1/core/run-2/audio-check.txt"
+    },
+    "audio-selftest": {
+     "status": "PASS",
+     "at": "16:43:39",
+     "detail": "(28s) build/p/V1/core/run-2/audio-selftest.txt"
+    },
+    "rotation_ref-selftest": {
+     "status": "PASS",
+     "at": "16:43:41",
+     "detail": "(2s) build/p/V1/core/run-2/rotation_ref-selftest.txt"
+    },
+    "balloon_ref-selftest": {
+     "status": "PASS",
+     "at": "16:43:41",
+     "detail": "(0s) build/p/V1/core/run-2/balloon_ref-selftest.txt"
+    },
+    "strings-selftest": {
+     "status": "PASS",
+     "at": "16:43:42",
+     "detail": "(1s) build/p/V1/core/run-2/strings-selftest.txt"
+    },
+    "mutations-c1": {
+     "status": "PASS",
+     "at": "16:45:37",
+     "detail": "(115s) build/p/V1/core/run-2/mutations-c1.txt"
+    },
+    "mutations-c2": {
+     "status": "PASS",
+     "at": "16:48:33",
+     "detail": "(175s) build/p/V1/core/run-2/mutations-c2.txt"
+    },
+    "mutations-c3": {
+     "status": "PASS",
+     "at": "16:50:03",
+     "detail": "(90s) build/p/V1/core/run-2/mutations-c3.txt"
+    },
+    "mutations-events": {
+     "status": "PASS",
+     "at": "16:53:35",
+     "detail": "(211s) build/p/V1/core/run-2/mutations-events.txt"
+    },
+    "mutations-c4": {
+     "status": "PASS",
+     "at": "17:11:39",
+     "detail": "(1084s) build/p/V1/core/run-2/mutations-c4.txt"
+    },
+    "mutations-c4b": {
+     "status": "PASS",
+     "at": "17:44:52",
+     "detail": "(1992s) build/p/V1/core/run-2/mutations-c4b.txt"
+    },
+    "mutations-soc": {
+     "status": "PASS",
+     "at": "19:10:37",
+     "detail": "(5145s) build/p/V1/core/run-2/mutations-soc.txt"
+    },
+    "mutations-corefinal": {
+     "status": "PASS",
+     "at": "19:19:44",
+     "detail": "(547s) build/p/V1/core/run-2/mutations-corefinal.txt"
+    },
+    "mutations-core2": {
+     "status": "PASS",
+     "at": "19:22:40",
+     "detail": "(175s) build/p/V1/core/run-2/mutations-core2.txt"
+    }
+   },
+   "core_sh": {
+    "result": {
+     "tests": 402,
+     "skipped": 10,
+     "failures": 0,
+     "unexpected": 0
+    },
+    "exit": null,
+    "import_check": "core.sh: import check ok (Sources/PathCore: Foundation + CoreGraphics only)",
+    "skipped": [
+     "C4FullEndlessTests testBoxCountersAboveTheRingArtMaxAreRerolled",
+     "C4FullEndlessTests testThousandServedLevelsAreInBandSolvableUniqueAndDeterministic",
+     "C4FullLibraryTests testEveryAuthoredLevelIsValidAndWonByTheDriver",
+     "C4FullSolverTests testEveryShippedLevel",
+     "C4FullTests testBandsAreTheDesignedEnvelope",
+     "C4FullTests testEveryDesignedLevelIsByteForByte",
+     "C4FullTests testRuntimeLevelsAgainstTheReference",
+     "C4FullValidatorTests testWholeDocumentMatchesThePythonValidator",
+     "SocialBenchTests testFiftyTwoWeekBench",
+     "SocialCalibrationTests testWriteOwnerSamples"
+    ],
+    "log": "build/p/V1/core/run-2/core.log"
+   },
+   "c4full": {
+    "result": {
+     "tests": 8,
+     "skipped": 0,
+     "failures": 0,
+     "unexpected": 0
+    },
+    "env": "PC_C4_FULL=1, swift test -c release -Xswiftc -enable-testing --filter C4Full",
+    "passed": [
+     "C4FullEndlessTests testBoxCountersAboveTheRingArtMaxAreRerolled",
+     "C4FullEndlessTests testThousandServedLevelsAreInBandSolvableUniqueAndDeterministic",
+     "C4FullLibraryTests testEveryAuthoredLevelIsValidAndWonByTheDriver",
+     "C4FullSolverTests testEveryShippedLevel",
+     "C4FullTests testBandsAreTheDesignedEnvelope",
+     "C4FullTests testEveryDesignedLevelIsByteForByte",
+     "C4FullTests testRuntimeLevelsAgainstTheReference",
+     "C4FullValidatorTests testWholeDocumentMatchesThePythonValidator"
+    ],
+    "failed": [],
+    "log": "build/p/V1/core/run-2/c4full.log"
+   },
+   "frozen": {
+    "ok": 18,
+    "lines": 18,
+    "not_ok": [],
+    "file": "build/wp0/frozen-contracts.sha256"
+   },
+   "content_tests": {
+    "steps": [
+     "PASS 1-bundle",
+     "PASS 1-bundle-python",
+     "PASS 2-check",
+     "PASS 3-validate",
+     "PASS 3-bot",
+     "PASS 4-consistency",
+     "PASS 5-endless",
+     "PASS 6-endless-python",
+     "PASS 7-l2selftest",
+     "PASS 8-strings-build",
+     "PASS 8-strings-coverage",
+     "PASS 8-strings-tr-review"
+    ],
+    "final": "content tests: all passed",
+    "lvtool_check": "check: 150 levels decoded by LevelLibrary (authoredCount 150); C2 greedy solved 150/150; HeadlessDriver won 150/150; 0 error(s), 1 warning(s)",
+    "lvtool_check_structural_errors": 0,
+    "l2selftest": "l2selftest: 40/40 mutations caught",
+    "log": "build/p/V1/core/run-2/content"
+   },
+   "lvtool_selftest": "selftest: 22/22 validator mutations caught, 4/4 diff mutations caught",
+   "validator_selftest": {
+    "caught": 20,
+    "missed": 0,
+    "final": "20/20 caught"
+   },
+   "c4_negative_controls": {
+    "regenerated_caught": 20,
+    "missed": 0,
+    "fixture_in_sync": true
+   },
+   "audio": {
+    "check": "check.py: all green (9 sound files, 0 music loops, 0 chains)",
+    "selftest": "caught 31/31 applicable mutations"
+   },
+   "rotation_ref_selftest": "selftest: PASS",
+   "balloon_ref_selftest": "selftest: PASS",
+   "balloon_negative_controls": "ok  negative controls 6/6 CAUGHT",
+   "strings_selftest": "strings selftest: 27/27 cases behave as required",
+   "mutations": {
+    "c1": {
+     "ran": true,
+     "baseline": "baseline: ok ('56', '0')",
+     "baseline_green": true,
+     "mutants": 7,
+     "caught": 7,
+     "counts": {
+      "CAUGHT": 7
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-c1.txt"
+    },
+    "c2": {
+     "ran": true,
+     "baseline": "baseline: ok ('76', '0')",
+     "baseline_green": true,
+     "mutants": 11,
+     "caught": 11,
+     "counts": {
+      "CAUGHT": 11
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-c2.txt"
+    },
+    "c3": {
+     "ran": true,
+     "baseline": "baseline: ok ('50', '0')",
+     "baseline_green": true,
+     "mutants": 11,
+     "caught": 11,
+     "counts": {
+      "CAUGHT": 11
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-c3.txt"
+    },
+    "c4": {
+     "ran": true,
+     "baseline": "baseline (no mutation, suites GeneratorTests|ValidatorTests|SolverTests|LevelLibraryTests): PASS Executed 41 tests, with 2 tests skipped and 0 failures (0 unexpected) in 67.306 (67.312) seconds",
+     "baseline_green": true,
+     "mutants": 6,
+     "caught": 6,
+     "counts": {
+      "CAUGHT": 5,
+      "CAUGHT_HANG": 1
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [
+      "m2"
+     ],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-c4.txt"
+    },
+    "c4b": {
+     "ran": true,
+     "baseline": "baseline (no mutation, suites GeneratorTests|ValidatorTests|SolverTests|LevelLibraryTests|RulesTests|BotReplayTests): PASS Executed 70 tests, with 2 tests skipped and 0 failures (0 unexpected) in 65.791 (65.798) seconds",
+     "baseline_green": true,
+     "mutants": 24,
+     "caught": 24,
+     "counts": {
+      "CAUGHT": 24
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-c4b.txt"
+    },
+    "events": {
+     "ran": true,
+     "baseline": "baseline: ok ('52', '0')",
+     "baseline_green": true,
+     "mutants": 20,
+     "caught": 20,
+     "counts": {
+      "CAUGHT": 20
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-events.txt"
+    },
+    "soc": {
+     "ran": true,
+     "baseline": "baseline (no mutation): PASS",
+     "baseline_green": true,
+     "mutants": 39,
+     "caught": 39,
+     "counts": {
+      "CAUGHT": 39
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-soc.txt"
+    },
+    "corefinal": {
+     "ran": true,
+     "baseline": "M0 PASSED",
+     "baseline_green": true,
+     "mutants": 17,
+     "caught": 17,
+     "counts": {
+      "BASELINE_PASS": 1,
+      "CAUGHT": 17
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-corefinal.txt"
+    },
+    "core2": {
+     "ran": true,
+     "baseline": "M0 PASSED",
+     "baseline_green": true,
+     "mutants": 21,
+     "caught": 21,
+     "counts": {
+      "BASELINE_PASS": 1,
+      "CAUGHT": 21
+     },
+     "not_caught": [],
+     "caught_only_by_compile_or_hang": [],
+     "aborted": false,
+     "log": "build/p/V1/core/run-2/mutations-core2.txt"
+    }
+   }
+  }
+ ]
+}

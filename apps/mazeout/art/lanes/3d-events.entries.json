@@ -1,0 +1,587 @@
+{
+ "version": 1,
+ "title": "3d-events lane entries (scratch manifest for art_batch/manifest_sheets --manifest; the art director merges these into art/MANIFEST.json)",
+ "entries": [
+  {
+   "id": "eventBadgeStreak",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Streak Race badge: checkered flags on a round pedestal + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeStreak",
+   "file": "art/ui/out/eventBadgeStreak@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     4,
+     186,
+     94,
+     278
+    ],
+    "anchor_pt": [
+     49.0,
+     272.3
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: hex plaque (gold rim, blue panel) + blue drum + gold ring + crossed chequered flags; 76 x 77 pt art in an 80 x 84 frame, bottom-aligned (anchor = ring bottom centre); the live timer goes on the drum front",
+   "anchor_pt": [
+    40,
+    82
+   ]
+  },
+  {
+   "id": "eventBadgeSkyJump",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Sky Jump badge: pedestal with a gift box / counter + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeSkyJump",
+   "file": "art/ui/out/eventBadgeSkyJump@3x.png",
+   "ref": {
+    "shot": "research/shots/070-home-L40-skyjump-joined.png",
+    "box_pt": [
+     4,
+     286,
+     94,
+     378
+    ],
+    "anchor_pt": [
+     48.5,
+     372.3
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: shared badge base (purple) + the pad (pink cushion, cream layers, gold band, pink count plate) on lilac clouds; live count on the plate, live timer on the drum (070)",
+   "anchor_pt": [
+    40,
+    82
+   ]
+  },
+  {
+   "id": "eventBadgeRocket",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Rocket Race badge: rocket with a count + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeRocket",
+   "file": "art/ui/out/eventBadgeRocket@3x.png",
+   "ref": {
+    "shot": "research/shots/168-home-L055.png",
+    "box_pt": [
+     4,
+     286,
+     94,
+     378
+    ],
+    "anchor_pt": [
+     48.5,
+     372.3
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: shared badge base (navy starry panel, purple drum) + our red/yellow rocket; live count on the porthole glass, timer on the drum. Seen on the phone v552 (168), so confirmed",
+   "anchor_pt": [
+    40,
+    82
+   ]
+  },
+  {
+   "id": "coinBowl",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-streak",
+   "purpose": "coin pile in a red bowl (prize plate, live amount on the rim)",
+   "screen": "Streak Race prizes, Claw ladder, Sky Jump win",
+   "size_pt": [
+    74,
+    62
+   ],
+   "size_px": [
+    222,
+    186
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinBowl",
+   "file": "art/ui/out/coinBowl@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     200,
+     458,
+     292,
+     532
+    ],
+    "anchor_pt": [
+     241.75,
+     497.0
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: crimson band bowl + coin heap, fitted to 69 x 56 pt (023); the live amount is drawn by the app on the band front (lower ~40 % of the frame); one render shown at 60-100 pt",
+   "text_live": true
+  },
+  {
+   "id": "stageChestGreen",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, green lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestGreen",
+   "file": "art/ui/out/stageChestGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     58,
+     454,
+     126,
+     506
+    ],
+    "anchor_pt": [
+     91.7,
+     481.0
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: barrel-lid chest, gold end straps/seam/trim, diamond lock; 52 x 38.5 pt in the frame (065); the live \"Stage N\" label overlaps its lower edge"
+  },
+  {
+   "id": "stageChestBlue",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, blue lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestBlue",
+   "file": "art/ui/out/stageChestBlue@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     161,
+     454,
+     229,
+     506
+    ],
+    "anchor_pt": [
+     195.0,
+     481.0
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: same model, blue lid/body (065)"
+  },
+  {
+   "id": "stageChestPink",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, pink lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestPink",
+   "file": "art/ui/out/stageChestPink@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     266,
+     454,
+     334,
+     506
+    ],
+    "anchor_pt": [
+     300.4,
+     481.0
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: same model, pink lid/body (065)"
+  },
+  {
+   "id": "rocketMine",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "red rocket (the player)",
+   "screen": "Rocket Race lanes",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:rocketMine",
+   "file": "art/ui/out/rocketMine@3x.png",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png",
+    "box_pt": [
+     0,
+     544,
+     80,
+     650
+    ],
+    "anchor_pt": [
+     39.6,
+     597.8
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: red/yellow rocket (the player), 64 x 74 pt body + our painted flame below; seen on the phone (178), so confirmed"
+  },
+  {
+   "id": "rocketOther",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "blue rocket (simulated opponents)",
+   "screen": "Rocket Race lanes",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:rocketOther",
+   "file": "art/ui/out/rocketOther@3x.png",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png",
+    "box_pt": [
+     78,
+     452,
+     158,
+     558
+    ],
+    "anchor_pt": [
+     118.0,
+     506.2
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: same rocket, white-blue body + blue fins (opponents), phone 178"
+  },
+  {
+   "id": "trophyCup",
+   "family": "3d",
+   "route": "B3",
+   "group": "leaderboard",
+   "purpose": "gold trophy cup (Weekly Contest popup, profile stats)",
+   "screen": "Weekly Contest popup, Profile",
+   "size_pt": [
+    62,
+    58
+   ],
+   "size_px": [
+    186,
+    174
+   ],
+   "source": "art/ui/recipes/3d-events_trophy.py:trophyCup",
+   "file": "art/ui/out/trophyCup@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-017-weekly-contest-info-full.png",
+    "box_pt": [
+     24,
+     680,
+     92,
+     742
+    ],
+    "anchor_pt": [
+     57.2,
+     712.8
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: gold cup with an orange up-arrow emblem, 57 x 53 pt as measured on the phone Weekly Contest info (meta-017; the 120 x 130 web-frame estimate was dropped); the same design is the home nav trophy (navTrophy, another lane) -- the recipe can render it at 62 x 60 pt"
+  },
+  {
+   "id": "coinPackTiny",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #1 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackTiny",
+   "file": "art/ui/out/coinPackTiny@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     10,
+     412,
+     122,
+     492
+    ],
+    "anchor_pt": [
+     70.0,
+     484.7
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: our coin (star relief, painted gold ramp) instanced in stacks; pile fitted to the measured 82 x 38 pt bbox on meta-011, bottom-aligned (anchor = pile base centre); all six packs share the 102 x 66 frame so the card layout is one",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  },
+  {
+   "id": "coinPackSmall",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #2 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackSmall",
+   "file": "art/ui/out/coinPackSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     140,
+     412,
+     252,
+     492
+    ],
+    "anchor_pt": [
+     198.4,
+     485.7
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to 81 x 46 pt (meta-011); shared 102 x 66 frame, bottom-aligned",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  },
+  {
+   "id": "coinPackMedium",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #3 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackMedium",
+   "file": "art/ui/out/coinPackMedium@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     268,
+     412,
+     382,
+     492
+    ],
+    "anchor_pt": [
+     326.7,
+     485.1
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to 81 x 56 pt (meta-011); shared 102 x 66 frame, bottom-aligned",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  },
+  {
+   "id": "coinPackBig",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #4 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackBig",
+   "file": "art/ui/out/coinPackBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     10,
+     582,
+     122,
+     662
+    ],
+    "anchor_pt": [
+     70.2,
+     656.7
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to 98 x 56 pt (meta-011); shared 102 x 66 frame, bottom-aligned",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  },
+  {
+   "id": "coinPackSuper",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #5 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackSuper",
+   "file": "art/ui/out/coinPackSuper@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     140,
+     582,
+     252,
+     662
+    ],
+    "anchor_pt": [
+     198.7,
+     657.1
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to 95 x 58 pt (meta-011); shared 102 x 66 frame, bottom-aligned",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  },
+  {
+   "id": "coinPackGiant",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #6 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackGiant",
+   "file": "art/ui/out/coinPackGiant@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     268,
+     582,
+     382,
+     662
+    ],
+    "anchor_pt": [
+     326.2,
+     654.1
+    ]
+   },
+   "status": "done",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to 96 x 62 pt (meta-011); shared 102 x 66 frame, bottom-aligned",
+   "anchor_pt": [
+    51,
+    64
+   ]
+  }
+ ]
+}

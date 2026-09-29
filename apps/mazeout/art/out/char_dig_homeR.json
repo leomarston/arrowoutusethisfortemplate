@@ -1,0 +1,14 @@
+{
+ "case": "char_dig_homeR",
+ "frame_pt": [
+  144.0,
+  150.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "feet": [
+  [
+   71.94,
+   140.81
+  ]
+ ]
+}

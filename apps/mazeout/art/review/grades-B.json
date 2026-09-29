@@ -1,0 +1,1182 @@
+{
+ "grader": "B",
+ "date": "2026-09-25",
+ "scope": "every art/MANIFEST.json entry of family 3d (props, scenes, characters, avatars, glossy arrows, app icon), merged with the lane scratch manifests (characters, 3d-hud, 3d-events, scene), + the composed home and loading proofs",
+ "method": "Judged at GAME SIZE (1x the pt frame on a 393x852 screen, 3 px/pt @3x viewed at ~1-2 px/pt), never close-up: manifest_sheets side-by-sides (reference | ours on the ref backdrop | ours in place), compact contacts, and composed screens next to the reference shot at the same scale. Colours checked against STYLE.md's untinted samples where they apply. Lane self-grades are listed for comparison only.",
+ "scale": {
+  "A": "ship",
+  "B": "ok (same art, visible differences only on inspection)",
+  "C": "redo (different at a glance, wrong size/colour/silhouette, or a defect)",
+  "n/a": "not built, not shipped"
+ },
+ "counts": {
+  "B": 39,
+  "C": 23,
+  "A": 9,
+  "n/a": 8
+ },
+ "remaining_c": [
+  "boosterDome",
+  "navHome",
+  "homeConsole",
+  "homeArrowPileFull",
+  "homeArrowPileHalf",
+  "clawHeaderArt",
+  "skyJumpIsland",
+  "skyJumpIslandFar",
+  "skyJumpPopupScene",
+  "rocketRaceBackdrop",
+  "scientistLoading",
+  "workerCarrier",
+  "workerRunners",
+  "workerRacers",
+  "avatarWalkie",
+  "avatarCapGlasses",
+  "avatarDetective",
+  "avatarBurger",
+  "avatarScientist",
+  "avatarParty",
+  "avatarNotebook",
+  "avatarBoxHead",
+  "loadingBackdrop",
+  "loadingProof"
+ ],
+ "tools": "art/review/tools/gradeB_{merge,sheets,contact,compose}.py (sheets -> art/ui/sheets/gradeB/, gitignored)",
+ "entries": [
+  {
+   "id": "boosterFreeze",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Reads as the frozen hourglass inside the green button at 56 pt and covers the original in place. Snow caps are thinner than the capture's thick white caps; the drips read comb-like.",
+   "fix": "Fatter snow caps (optional).",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_boosterFreeze.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ]
+  },
+  {
+   "id": "boosterHint",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Reads as the bulb. Our glass is milk-white with no filament; the capture's is pale blue with a visible filament loop.",
+   "fix": "Pale-blue glass tint + a filament inside.",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_boosterHint.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ]
+  },
+  {
+   "id": "boosterPointer",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Yellow set-square reads (unconfirmed, V1 only). Ours is more lemon and rotated steeper than V1's orange set-square, so the original peeks out in place. The phone skin has only the 2-booster bar (SPEC 5.10).",
+   "fix": "Only if the 4-booster bar ships.",
+   "lane_self_grade": "C+",
+   "priority": "low",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_boosterPointer.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "boosterDome",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "C",
+   "note": "Ring-stack shape right, but rings and ball are deep royal blue where V1's are light sky/cyan; sits ~3 pt high. Unconfirmed: the phone skin has only 2 boosters (SPEC 5.10).",
+   "fix": "Light sky/cyan rings + ball; lower 3 pt. Only if the 4-booster bar ever ships.",
+   "lane_self_grade": "C+",
+   "priority": "low",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_boosterDome.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "navShop",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Same size and colours as 026. The slots are arched outlines where 026 has dark vertical cut-outs; the coin rides higher.",
+   "fix": "Dark rounded-rect slot cut-outs.",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_navShop.png",
+    "art/ui/sheets/gradeB/c_boosters.png",
+    "art/ui/sheets/gradeB/p_home_low.png"
+   ]
+  },
+  {
+   "id": "navHome",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "C",
+   "note": "Too small next to its neighbours: 026's raised Home icon is ~75 pt wide, ours ~53 pt (~0.7x), and the orange roof arch is thin. In the composed home it reads as a smaller, paler house under the tab.",
+   "fix": "Re-render ~1.4x (grow the frame to ~80 x 84 pt, or scale it in the tab) with a thicker orange arch and eaves.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_navHome.png",
+    "art/ui/sheets/gradeB/p_home.png",
+    "art/ui/sheets/gradeB/p_home_low.png"
+   ]
+  },
+  {
+   "id": "navTrophy",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Same size as 026. The handles are thin loops (026: thick squarish ears) and the stem is multi-tier (026: one tall foot slab).",
+   "fix": "Fuller handles, single foot slab.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_navTrophy.png",
+    "art/ui/sheets/gradeB/c_boosters.png",
+    "art/ui/sheets/gradeB/p_home_low.png"
+   ]
+  },
+  {
+   "id": "padlockGold",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Reads the same at 44 pt. Ours is more lemon than 023's orange-edged gold; the keyhole is reddish.",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_padlockGold.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ]
+  },
+  {
+   "id": "coinPileSmall",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "The same glowing mound of stacks. Ours is flatter with paler coins and less orange in the crevices.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPileSmall.png",
+    "art/ui/sheets/gradeB/c_boosters.png"
+   ]
+  },
+  {
+   "id": "stopwatchBig",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "A",
+   "note": "Same prop at 225 pt. The ticks are rounder pills than the capture's flat bars; that shows only at 2x.",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_stopwatchBig.png",
+    "art/ui/sheets/gradeB/c_popups.png"
+   ]
+  },
+  {
+   "id": "heartBroken",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Reads as the same broken heart. The lobes are flatter and wider than on 016, so the original peeks out under the left lobe in place.",
+   "fix": "Taller, rounder lobes (~+6 %).",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_heartBroken.png",
+    "art/ui/sheets/gradeB/c_popups.png"
+   ]
+  },
+  {
+   "id": "coinStackReward",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Same cluster (standing star coins in front, stacks behind), ~10 % small: 020's coins overflow ours in place.",
+   "fix": "Coins ~1.1x.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinStackReward.png",
+    "art/ui/sheets/gradeB/c_popups.png"
+   ]
+  },
+  {
+   "id": "heartInfinite",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-hud",
+   "grade": "A",
+   "note": "Same at game size; the tip is marginally sharper.",
+   "lane_self_grade": "B+",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_heartInfinite.png",
+    "art/ui/sheets/gradeB/c_popups.png"
+   ]
+  },
+  {
+   "id": "homeBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "B",
+   "note": "Every structure is on its measured spot and the composed home reads as 002. The tank area is greyer and less luminous (no vertical glass streaks) and the copper pipe is dull.",
+   "fix": "Lift the tank glow; add 2-3 soft vertical highlight bands.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeBackdrop.png",
+    "art/ui/sheets/gradeB/c_homeback.png",
+    "art/ui/sheets/gradeB/p_home.png",
+    "art/ui/sheets/gradeB/p_home_noui.png",
+    "art/ui/sheets/gradeB/p_home_mid.png"
+   ]
+  },
+  {
+   "id": "homeConsole",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "Too small and too pale next to the scientist. The rim spans x 112-283 pt vs 002's 100-293 (~0.9x). Ours is a flat cool-cream bowl with a thin blue lip; 002 has a bulging warm cream-to-yellow belly and a thick glossy blue rim. The scientist's hands sit ON it instead of gripping behind the rim.",
+   "fix": "Widen to ~193 pt at the rim, taller bulging belly with the warm gradient, thicker blue rim; then re-check the scientist's hands.",
+   "lane_self_grade": "B",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeConsole.png",
+    "art/ui/sheets/gradeB/p_sci_002.png",
+    "art/ui/sheets/gradeB/p_home.png",
+    "art/ui/sheets/gradeB/p_home_noui.png",
+    "art/ui/sheets/gradeB/p_home_mid.png"
+   ]
+  },
+  {
+   "id": "homeCapsuleMachine",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "B",
+   "note": "Shape, size and placement right. The window reads darker because the inner bevel is a thin light ring; 002 shows a thick (~12-15 pt) slanted light-cyan inner wall and the floor hatch.",
+   "fix": "Widen the slanted inner wall and show the window floor.",
+   "lane_self_grade": "B",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeCapsuleMachine.png",
+    "art/ui/sheets/gradeB/p_home_homeArrowPileLow.png",
+    "art/ui/sheets/gradeB/p_home.png",
+    "art/ui/sheets/gradeB/p_home_noui.png",
+    "art/ui/sheets/gradeB/p_home_mid.png"
+   ]
+  },
+  {
+   "id": "homeArrowPileFull",
+   "family": "3d",
+   "route": "C2",
+   "owner": "scene",
+   "grade": "C",
+   "note": "The heap is peaked and chaotic, with arrows on edge, and ~25 % narrower than 002's wide, flat mound. It also spills ~20 pt below the window's inner edge onto the bezel; 002's heap stays inside the glass. It is the focal point of the home screen, and at game size it reads as a different pile.",
+   "fix": "Wide, low mound clipped to the glass; most arrows lie face-up to the camera; balance the colour mix (more cyan/purple, less lime).",
+   "lane_self_grade": "B",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeArrowPileFull.png",
+    "art/ui/sheets/gradeB/p_home_mid.png",
+    "art/ui/sheets/gradeB/p_home.png"
+   ]
+  },
+  {
+   "id": "homeArrowPileHalf",
+   "family": "3d",
+   "route": "C2",
+   "owner": "scene",
+   "grade": "C",
+   "note": "Same overflow: a blue arrow crosses the lower-left bezel. 168 shows a vertical orange+cyan stream under the dispenser and a half heap inside the glass.",
+   "fix": "Clip to the window; make the stream 2 arrows.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeArrowPileHalf.png",
+    "art/ui/sheets/gradeB/p_home_homeArrowPileHalf.png"
+   ]
+  },
+  {
+   "id": "homeArrowPileLow",
+   "family": "3d",
+   "route": "C2",
+   "owner": "scene",
+   "grade": "B",
+   "note": "Reads as 'a few arrows plus one emerging'. Our arrows float mid-window (no floor), and the emerging arrow is cropped to a cone. 070's arrows lie on the window floor and the emerging green one shows its shaft.",
+   "fix": "Drop the arrows onto the window floor; show the emerging arrow's shaft.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homeArrowPileLow.png",
+    "art/ui/sheets/gradeB/p_home_homeArrowPileLow.png"
+   ]
+  },
+  {
+   "id": "homePlatform",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "B",
+   "note": "Right size and placement. Our dais rim is a crisp bright ring; 002's is glassier, with a soft reflection of the wall.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_homePlatform.png",
+    "art/ui/sheets/gradeB/c_homeplat.png",
+    "art/ui/sheets/gradeB/p_home_low.png"
+   ]
+  },
+  {
+   "id": "eventBadgeStreak",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads as the streak badge on 002/026. The flags are ~25 % smaller and flatter, so our navy hex plaque shows; the capture's cloth flags cover it.",
+   "fix": "Flags ~1.3x with bigger checks and folds.",
+   "lane_self_grade": "B-",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_eventBadgeStreak.png",
+    "art/ui/sheets/gradeB/c_events.png",
+    "art/ui/sheets/gradeB/p_home_top.png"
+   ]
+  },
+  {
+   "id": "eventBadgeSkyJump",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads as the Sky Jump badge. The pad spans ~70 % of the plaque; 070's pad spans it and its clouds overhang, so our purple hex interior shows above the pad.",
+   "fix": "Pad ~1.25x; wider, lower clouds.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_eventBadgeSkyJump.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "eventBadgeRocket",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Rocket is wider and shorter than 168's, and its fins end above the drum.",
+   "fix": "Narrower, taller body; fins down onto the drum.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_eventBadgeRocket.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "rocketMine",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads as the player's rocket. The nose is pointier, the body narrower at the band, and the flame smaller than 178's.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_rocketMine.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "rocketOther",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "The lower half is painted mid blue; 178's opponent rocket is white/pale down to the fins, with a blue nose and fins.",
+   "fix": "White body to the fins.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_rocketOther.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "trophyCup",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "The handles are thinner loops than meta-017's full ears, and the stand is shorter.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_trophyCup.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "coinBowl",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "The bowl is pinker than 023's crimson; the coin heap is 2-3 pt lower and lacks the tall coin on edge at the upper left.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinBowl.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "stageChestGreen",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "A",
+   "note": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_stageChestGreen.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "stageChestBlue",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "A",
+   "note": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_stageChestBlue.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "stageChestPink",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "A",
+   "note": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_stageChestPink.png",
+    "art/ui/sheets/gradeB/c_events.png"
+   ]
+  },
+  {
+   "id": "coinPackTiny",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackTiny.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "coinPackSmall",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it. The capture's centre column rises above ours.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackSmall.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "coinPackMedium",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it. 4 pt narrower than the capture.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackMedium.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "coinPackBig",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackBig.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "coinPackSuper",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackSuper.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "coinPackGiant",
+   "family": "3d",
+   "route": "B3",
+   "owner": "3d-events",
+   "grade": "B",
+   "note": "Reads like meta-011's pile at 102 pt. The stacks are shorter and the coins slightly smaller and more lemon than the capture's orange-gold. The soft base shadow is cut by the frame's bottom edge (bottom-row alpha up to ~75/255), which leaves a faint hard line where the card shows it.",
+   "fix": "Fade the shadow to 0 before the frame edge (or grow the frame 3 pt down); taller stacks, warmer gold.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_coinPackGiant.png",
+    "art/ui/sheets/gradeB/c_packs.png"
+   ]
+  },
+  {
+   "id": "clawHeaderArt",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "Ships WITHOUT its two workers: the file was built at 07:59, before char_workerClawPair landed at 08:50. At game size the header is an empty claw box, where 023 is two big workers behind the prizes. The box interior is also a little darker/purpler than 023's neon blue.",
+   "fix": "Re-run `scene_make.py build clawHeaderArt` (it composites char_workerClawPair at (200,115)), then regrade.",
+   "lane_self_grade": "B- (without workers)",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_clawHeaderArt.png",
+    "art/ui/sheets/gradeB/c_claw.png"
+   ]
+  },
+  {
+   "id": "skyJumpBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "A",
+   "note": "Composed with our islands and pad, it reads as 069 (sky over a pink cloud sea). Cloud sculpting is softer, which is fine at game size.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_skyJumpBackdrop.png",
+    "art/ui/sheets/gradeB/p_skyjump.png"
+   ]
+  },
+  {
+   "id": "skyJumpPad",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "A",
+   "note": "Matches 069's '4' pad in size, bands and glow.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_skyJumpPad.png",
+    "art/ui/sheets/gradeB/c_sky.png",
+    "art/ui/sheets/gradeB/p_skyjump.png"
+   ]
+  },
+  {
+   "id": "skyJumpIsland",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "(1) The baked haze reaches the frame edge (alpha up to 83/255 on 39 % of the border), which draws a visible rectangle on the backdrop. (2) The island is ~0.8x of 069's (~172 vs ~215 pt wide at the ref box). (3) The chest is pale lilac-white with the lid thrown back and no shield, and the coins are sparse; 069 has a lavender chest with a quilted green lid and the green shield, surrounded by dense coin stacks.",
+   "fix": "Fade the haze to 0 inside the frame; island ~1.25x; chest as 069 (lavender body, shield on the lid front); dense coin stacks.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_skyJumpIsland.png",
+    "art/ui/sheets/gradeB/c_sky.png",
+    "art/ui/sheets/gradeB/p_skyjump.png"
+   ]
+  },
+  {
+   "id": "skyJumpIslandFar",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "The same frame-edge haze rectangle (alpha up to 65/255). The island is ~0.8x of 069's far island, with a sparse coin heap.",
+   "fix": "As skyJumpIsland.",
+   "lane_self_grade": "B",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_skyJumpIslandFar.png",
+    "art/ui/sheets/gradeB/c_sky.png",
+    "art/ui/sheets/gradeB/p_skyjump.png"
+   ]
+  },
+  {
+   "id": "skyJumpPopupScene",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "The coins are a pale beige-yellow and the hill is thinner, where 065's hill is saturated orange-gold with a glow and fills the corners. The chest is pale with the lid thrown back and no shield (065: lavender chest, with the shield hanging over the front).",
+   "fix": "Warm saturated coin ramp + glow; denser hill to the corners; chest as on 065.",
+   "lane_self_grade": "B-",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_skyJumpPopupScene.png",
+    "art/ui/sheets/gradeB/c_sky.png"
+   ]
+  },
+  {
+   "id": "rocketRaceBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "Below the header, ours is a flat lavender #6A48BA; 167 is deep indigo (#16105C at the top of the lanes to #420FAC). The chest is seen straight-on as an upright blue drum (167: 3/4 top view, gold bands, diamond clasp), sitting on a thin flat coin band instead of a pyramid hoard on a rock. The moon surface is flat.",
+   "fix": "Dark indigo lane gradient + stars; chest in 3/4 view on a rock with a pyramid hoard.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_rocketRaceBackdrop.png",
+    "art/ui/sheets/gradeB/p_rocket.png"
+   ],
+   "confirmed": false
+  },
+  {
+   "id": "leaderboardPodium",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "A",
+   "note": "Blocks, colours, caps and hex sockets match meta-013 at game size.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_leaderboardPodium.png",
+    "art/ui/sheets/gradeB/c_racers.png"
+   ]
+  },
+  {
+   "id": "scientist",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "A",
+   "note": "Composed on 002 at game size, it reads as the same character recoloured pink: same pose, size, eye line, coat, badge and pen. Minor: the crown tuft is a thin side wisp (002: a centred spiky tuft). The hands are big fur mitts on top of the console, while 002's grip behind the rim; this follows the console fix.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_scientist.png",
+    "art/ui/sheets/gradeB/p_sci_002.png",
+    "art/ui/sheets/gradeB/p_home_mid.png"
+   ]
+  },
+  {
+   "id": "workerWalkie",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "B",
+   "note": "Same design recoloured blue, at the right size and spot on the composed home (rest frames 026/035). Differences that show at game size: noodle-thin arms and small hands (phone: thick arms, big 4-finger hands); the walkie is held up by the face (rest: held forward toward the machine); the default mouth is the open buck-tooth grin (035 rest: closed smile, which the rig's body_smile has); the egg body is a little squat. Separation from the royal-blue band is adequate but lower-contrast than the yellow originals.",
+   "fix": "Thicker arms + bigger hands, walkie forward at chest height, consider body_smile as the default.",
+   "lane_self_grade": "B-",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerWalkie.png",
+    "art/ui/sheets/gradeB/p_workers_035.png",
+    "art/ui/sheets/gradeB/p_workers_026.png",
+    "art/ui/sheets/gradeB/p_home.png"
+   ]
+  },
+  {
+   "id": "workerClipboard",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "B",
+   "note": "Glasses, cap and belt read. The clipboard shows its white paper face (002/035: the brown board back with spiral rings), the arms are thin, and the green cap reads dark.",
+   "fix": "Board-back clipboard, thicker arms.",
+   "lane_self_grade": "B-",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerClipboard.png",
+    "art/ui/sheets/gradeB/p_workers_035.png",
+    "art/ui/sheets/gradeB/p_home.png"
+   ]
+  },
+  {
+   "id": "scientistLoading",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Pose, expression and costume differ at game size. The fist is raised beside the head instead of punching toward the camera. The head is wide and flat with an open buck-tooth mouth (V1: a big open smile). Long puffy white sleeves cover the whole arm (V1: rolled short sleeves, bare fur arms). The torso is stiff and hidden behind the box and arrows.",
+   "fix": "Rebuild the run pose: fist forward, short rolled sleeves + fur forearms, white shirt, rounder head + smile, arrows held against the belly.",
+   "lane_self_grade": "C+",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_scientistLoading.png",
+    "art/ui/sheets/gradeB/p_loading.png",
+    "art/ui/sheets/gradeB/p_loading_mid.png"
+   ]
+  },
+  {
+   "id": "workerCarrier",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Too small, with the wrong proportions. V1's carrier is a tall bean whose legs reach the screen bottom (~y 830 pt); ours is a squat egg ending at ~y 700 pt, floating with dangling feet and no contact shadow. The box is a flat front slab whose two black hand-holes read as eyes (V1: 3/4 view from below, with arrows spilling out on top).",
+   "fix": "Taller body with running legs to the bottom edge; box in 3/4 view with arrows in it; a contact shadow.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerCarrier.png",
+    "art/ui/sheets/gradeB/p_loading.png",
+    "art/ui/sheets/gradeB/p_loading_low.png"
+   ]
+  },
+  {
+   "id": "workerFlyer",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "B",
+   "note": "Right place and pose (hanging under a red arrow, a small blue arrow in the other hand). The red arrow is long-shafted; V1's is a chunky block arrow.",
+   "fix": "Block-arrow red (the arrowGlossy family).",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerFlyer.png",
+    "art/ui/sheets/gradeB/p_loading.png"
+   ]
+  },
+  {
+   "id": "workerFist",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "B",
+   "note": "Right place and size. Thin arms, a buck-tooth grin (V1: a wide smile), and it floats slightly with no contact shadow.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerFist.png",
+    "art/ui/sheets/gradeB/p_loading_low.png"
+   ]
+  },
+  {
+   "id": "workerRunners",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "The background crowd reads as crisp, saturated stickers floating above the floor horizon. V1's crowd stands on the floor, hazed and defocused, and warmer. The left conveyor pair is missing. P1 per SPEC 5.16.",
+   "fix": "Ground them (feet on the floor near the horizon), stronger haze/defocus, add the conveyor pair.",
+   "lane_self_grade": "C+",
+   "priority": "low (P1)",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerRunners.png",
+    "art/ui/sheets/gradeB/p_loading_mid.png"
+   ]
+  },
+  {
+   "id": "workerClawPair",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "B",
+   "note": "Both workers read on 023 at the right size and placement. The arms are thin and both wear the same buck-tooth grin (023: a laughing left worker with a big fist). Not yet composited into clawHeaderArt.",
+   "lane_self_grade": "B-",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerClawPair.png",
+    "art/ui/sheets/gradeB/c_claw.png"
+   ]
+  },
+  {
+   "id": "workerRacers",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "The slide scene reads differently. The chute is a flat painted ribbon looping as a '9'; the riders stand upright on floating plates instead of sitting in sleds inside the chute; the room is flat and emptier; the checkered banner is missing.",
+   "fix": "Riders seated in sleds inside the chute, a modelled chute with depth, busier room, the checkered banner.",
+   "lane_self_grade": "C+",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_workerRacers.png",
+    "art/ui/sheets/gradeB/c_racers.png"
+   ]
+  },
+  {
+   "id": "avatarWalkie",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 2: their navy kepi + wave.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarWalkie.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarCapGlasses",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 3: their worker leans into the frame.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarCapGlasses.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarDetective",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 4: deerstalker + trench collar; ours wears a flat newsboy cap.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarDetective.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarBurger",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 5: their burger is big and in the open mouth (a bite); ours is small, held in front.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "C+",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarBurger.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarScientist",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 6: plate VIOLET by the lane's decision (pink character); the orange clipboard is missing.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarScientist.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarParty",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 7.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarParty.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarNotebook",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 8: plate SUNNY yellow by the lane's decision (a blue worker vanished on sky blue); OK.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarNotebook.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarBoxHead",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "C",
+   "note": "Framing: the character is ~0.7x of the phone's close-up. On meta-003 the head fills the tile width and is cropped by the frame; ours shows a small head plus the belt in the middle of the tile. Every portrait is frontal with the same open buck-tooth grin, where the phone set has 3/4 leaning poses and distinct expressions. Cell 9: their box is cropped by the frame top.",
+   "fix": "One change for the whole set: camera ~1.4x closer, eyes at ~40 % height, crop at the belt, lean/turn per cell, one expression per cell as on meta-003.",
+   "lane_self_grade": "B-",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_avatarBoxHead.png",
+    "art/ui/sheets/gradeB/c_avatars.png"
+   ]
+  },
+  {
+   "id": "avatarGreen",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarRed",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarCap",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarBlue",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarPoint",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarSpecs",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarShades",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "avatarPink",
+   "family": "3d",
+   "route": "C1",
+   "owner": "characters",
+   "grade": "n/a",
+   "note": "Not built and not shipped: the unconfirmed Jul-build arrow-character set is replaced by the phone's portrait set (SPEC 5.12). The manifest still lists it as todo, so the director should mark it superseded.",
+   "evidence": [],
+   "confirmed": false
+  },
+  {
+   "id": "arrowGlossyYellow",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyYellow.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyRed",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The loading screen's red arrow is more orange-red.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyRed.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyBlue",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyBlue.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyGreen",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The green leans lime.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyGreen.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyPurple",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The purple leans magenta against 026's lilac.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyPurple.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyOrange",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyOrange.png"
+   ]
+  },
+  {
+   "id": "arrowGlossyCyan",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The manifest ref points at store 8's red-orange loading arrow; judged against 026's cyan.",
+   "lane_self_grade": "B",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_arrowGlossyCyan.png"
+   ]
+  },
+  {
+   "id": "appIcon",
+   "family": "3d",
+   "route": "C2",
+   "owner": "3d-hud",
+   "grade": "B",
+   "note": "Our own composition, by design, in the same glossy family. At 60 px the arrows read thinner and the white ground emptier than the store icon (their heads are ~1.3x bigger with a plumper pillow bevel). Our flat face with an inset rim line reads more like a sticker.",
+   "fix": "Heads and shafts ~1.25x, rounder pillow bevel, keep the composition.",
+   "lane_self_grade": "B",
+   "priority": "medium",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_appIcon.png"
+   ]
+  },
+  {
+   "id": "loadingBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "owner": "scene",
+   "grade": "C",
+   "note": "The press on the left is flat painted panels (V1: a detailed blue/pink machine with a lilac girder and a conveyor). The floor grid is regular. A speckled noise band runs along the floor horizon (y ~570-590 pt) and shows at game size. There is no crowd, no conveyor and no depth of field, and the characters get no contact shadows on it.",
+   "fix": "Remove the speckle band; model the press + girder + conveyor; soft warm light/haze; bake contact shadows under the cast.",
+   "lane_self_grade": "C+",
+   "priority": "high",
+   "evidence": [
+    "art/ui/sheets/gradeB/m_loadingBackdrop.png",
+    "art/ui/sheets/gradeB/p_loading.png",
+    "art/ui/sheets/gradeB/p_loading_backdrop_only.png"
+   ]
+  }
+ ],
+ "composed": [
+  {
+   "id": "homeProof",
+   "grade": "B",
+   "note": "At game size the composed home (scene layers + the three rigs at rig.json placement_pt + a mocked top bar / streak badge / LEVEL plate / Play / nav) reads as 002/026: same layout, lighting and characters (pink scientist, blue workers). Three things block an A: the arrow pile (peaked, spills out of the window), the console (small and pale), and the nav Home icon (~0.7x). After those: the capsule window bevel, the workers' thin arms and walkie pose, and the streak badge's small flags.",
+   "evidence": [
+    "art/ui/sheets/gradeB/p_home.png",
+    "art/ui/sheets/gradeB/p_home_noui.png",
+    "art/ui/sheets/gradeB/p_home_mid.png",
+    "art/ui/sheets/gradeB/p_home_low.png",
+    "art/ui/sheets/gradeB/p_home_top.png",
+    "art/ui/sheets/gradeB/p_workers_035.png",
+    "art/ui/sheets/gradeB/p_workers_026.png",
+    "art/ui/sheets/gradeB/p_sci_002.png",
+    "art/ui/sheets/gradeB/p_home_homeArrowPileHalf.png",
+    "art/ui/sheets/gradeB/p_home_homeArrowPileLow.png",
+    "art/ui/sheets/gradeB/home_composed.png"
+   ]
+  },
+  {
+   "id": "loadingProof",
+   "grade": "C",
+   "note": "The layout matches V1 t=0 / store 8, and logoArrowOut sits at the original logo's spot and size (x 21-218, y 65-217 pt; ours scaled to 197 pt wide). It reads in the original's style: blue plate + yellow bubble word + purple OUT! arrow plate. Its letters are narrower than 'MAZE' (svg family, not graded here). The cast and backdrop miss: the scientist's pose/costume, the carrier's size and box, a floating crowd, a flat backdrop with a noise band, and no contact shadows on anyone.",
+   "evidence": [
+    "art/ui/sheets/gradeB/p_loading.png",
+    "art/ui/sheets/gradeB/p_loading_s8.png",
+    "art/ui/sheets/gradeB/p_loading_mid.png",
+    "art/ui/sheets/gradeB/p_loading_low.png",
+    "art/ui/sheets/gradeB/p_loading_backdrop_only.png",
+    "art/ui/sheets/gradeB/loading_composed.png"
+   ]
+  }
+ ]
+}

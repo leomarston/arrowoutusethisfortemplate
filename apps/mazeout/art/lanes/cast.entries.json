@@ -1,0 +1,418 @@
+{
+ "version": 1,
+ "title": "R2 CAST lane entries (D1 cast; scratch manifest for art_batch / manifest_sheets / manifest_check --lanes; the art director merges them into art/MANIFEST.json; the ids they replace are named in each entry's notes and in art/lanes/cast.handoff.json)",
+ "entries": [
+  {
+   "id": "boss",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "the pink boss v2 (furry pink ears, blush muzzle, amber eyes, fang, teal foreman coat, goggles) at the scaffold",
+   "screen": "home",
+   "size_pt": [
+    190,
+    164
+   ],
+   "size_px": [
+    570,
+    492
+   ],
+   "source": "art/pipeline/items/char_boss.py:boss_home",
+   "file": "art/out/char_boss_home_rig",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1); ears instead of horns by BOSS-EARS 2026-09-28 (SPEC ruling 44). Rig 8 layers, groups ['armR', 'head'], proof {'mean_abs': 0.093, 'pct_gt40': 0.0}; placement 109.0, 176.0 (today's centred spot, R3 09:19; R3 owns the spot). Same layer/group/pivot names as the rig it replaces. Replaces scientist (slot) at A4's mapping step.",
+   "rig": true
+  },
+  {
+   "id": "diggerShovel",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "Digger (velvet fur, hard hat + headlamp, hi-vis vest) with a shovel over the shoulder, waving member",
+   "screen": "home left",
+   "size_pt": [
+    156,
+    152
+   ],
+   "size_px": [
+    468,
+    456
+   ],
+   "source": "art/pipeline/items/char_crew_d1.py:dig_homeL",
+   "file": "art/out/char_dig_homeL_rig",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Rig 9 layers, groups ['armL', 'body', 'eyes'], proof {'mean_abs': 0.075, 'pct_gt40': 0.007}; placement -7.84, 464.29 (D1 draft; R3 owns the spot). Same layer/group/pivot names as the rig it replaces. Replaces workerWalkie (slot) at A4's mapping step.",
+   "rig": true
+  },
+  {
+   "id": "diggerMap",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "Digger with goggles down reading a tunnel map, marking it with a pencil",
+   "screen": "home right",
+   "size_pt": [
+    144,
+    150
+   ],
+   "size_px": [
+    432,
+    450
+   ],
+   "source": "art/pipeline/items/char_crew_d1.py:dig_homeR",
+   "file": "art/out/char_dig_homeR_rig",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Rig 8 layers, groups ['body', 'eyes'], proof {'mean_abs': 0.355, 'pct_gt40': 0.33}; placement 246.06, 465.19 (D1 draft; R3 owns the spot). Same layer/group/pivot names as the rig it replaces. Replaces workerClipboard (slot) at A4's mapping step.",
+   "rig": true
+  },
+  {
+   "id": "bossLoading",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "the boss behind a mossy rock raising a glowing lantern, pointing the way out",
+   "screen": "loading",
+   "size_pt": [
+    210.0,
+    250.0
+   ],
+   "size_px": [
+    630,
+    750
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_bossLoading",
+   "file": "art/out/char_bossLoading@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1); ears instead of horns by BOSS-EARS 2026-09-28 (SPEC ruling 44). Replaces scientistLoading (slot) at A4's mapping step."
+  },
+  {
+   "id": "digCart",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "a mine cart of painted arrow boards rolling at the camera, a Digger riding its front",
+   "screen": "loading",
+   "size_pt": [
+    270.0,
+    280.0
+   ],
+   "size_px": [
+    810,
+    840
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digCart",
+   "file": "art/out/char_digCart@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerCarrier (slot) at A4's mapping step."
+  },
+  {
+   "id": "digFlyer",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "a Digger tossed up holding a big arrow board, hard hat flying off",
+   "screen": "loading",
+   "size_pt": [
+    180.0,
+    220.0
+   ],
+   "size_px": [
+    540,
+    660
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digFlyer",
+   "file": "art/out/char_digFlyer@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerFlyer (slot) at A4's mapping step."
+  },
+  {
+   "id": "digPop1",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "a Digger bursting out of a dig hole, both paws up",
+   "screen": "loading",
+   "size_pt": [
+    170.0,
+    160.0
+   ],
+   "size_px": [
+    510,
+    480
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digPop1",
+   "file": "art/out/char_digPop1@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerFist (slot) at A4's mapping step."
+  },
+  {
+   "id": "digPop2",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "a goggles-down Digger peeking out of a dig hole, trowel raised",
+   "screen": "loading",
+   "size_pt": [
+    170.0,
+    160.0
+   ],
+   "size_px": [
+    510,
+    480
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digPop2",
+   "file": "art/out/char_digPop2@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerRunners + workerCrowdLeft (slot) at A4's mapping step."
+  },
+  {
+   "id": "digClawPair",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "two Diggers cheering (claw-machine event header; cut at the bottom by design)",
+   "screen": "claw event",
+   "size_pt": [
+    360.0,
+    170.0
+   ],
+   "size_px": [
+    1080,
+    510
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digClawPair",
+   "file": "art/out/char_digClawPair@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerClawPair (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "digRacers",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "three Diggers riding mine carts on short track stretches, near -> far (streak-race header)",
+   "screen": "streak event",
+   "size_pt": [
+    393.0,
+    210.0
+   ],
+   "size_px": [
+    1179,
+    630
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digRacers",
+   "file": "art/out/char_digRacers@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces workerRacers (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "digBalloon",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "a Digger waving from a wicker basket, rope stubs up to the balloon (balloon event)",
+   "screen": "balloon event",
+   "size_pt": [
+    150.0,
+    176.0
+   ],
+   "size_px": [
+    450,
+    528
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_digBalloon",
+   "file": "art/out/char_digBalloon@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). New (the balloon event)."
+  },
+  {
+   "id": "avatarMiner",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Miner)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarMiner",
+   "file": "art/out/char_avatarMiner@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarWalkie (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarMapper",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Mapper)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarMapper",
+   "file": "art/out/char_avatarMapper@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarCapGlasses (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarSleuth",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Sleuth)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarSleuth",
+   "file": "art/out/char_avatarSleuth@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarDetective (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarLunch",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Lunch)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarLunch",
+   "file": "art/out/char_avatarLunch@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarBurger (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarBoss",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Boss)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarBoss",
+   "file": "art/out/char_avatarBoss@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1); ears instead of horns by BOSS-EARS 2026-09-28 (SPEC ruling 44). Replaces avatarScientist (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarConfetti",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Confetti)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarConfetti",
+   "file": "art/out/char_avatarConfetti@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarParty (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarStrong",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Strong)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarStrong",
+   "file": "art/out/char_avatarStrong@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarNotebook (slot) at A4's mapping step.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarSleepy",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar portrait (Sleepy)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64.0,
+    64.0
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_cast_d1.py:char_avatarSleepy",
+   "file": "art/out/char_avatarSleepy@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R2 CAST (D1). Replaces avatarBoxHead (slot) at A4's mapping step.",
+   "full_bleed": true
+  }
+ ]
+}

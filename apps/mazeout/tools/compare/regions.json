@@ -1,0 +1,6436 @@
+{
+ "about": "VERIFY V2: the comparison regions for every capture of tools/capture/manifest.json -> tools/compare/regions.json.",
+ "units": "pt on 393x852",
+ "shots": [
+  {
+   "id": "home-L32",
+   "regions": [
+    {
+     "name": "home.avatarButton",
+     "r": [
+      23.7,
+      41.7,
+      53.4,
+      51.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.coinPill",
+     "r": [
+      130.8,
+      59.7,
+      65.7,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.gearButton",
+     "r": [
+      338.3,
+      53.0,
+      32.0,
+      31.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.livesPill",
+     "r": [
+      245.2,
+      59.0,
+      70.7,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.coinIcon",
+     "r": [
+      101.7,
+      59.0,
+      22.0,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.wallR",
+     "r": [
+      322,
+      296,
+      56,
+      44
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.platform",
+     "r": [
+      10,
+      726,
+      62,
+      30
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.scientist",
+     "r": [
+      160,
+      196,
+      76,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.console",
+     "r": [
+      110,
+      300,
+      60,
+      40
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.glass",
+     "r": [
+      118,
+      416,
+      158,
+      100
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.side",
+     "r": [
+      98,
+      425,
+      14,
+      80
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerL",
+     "r": [
+      38,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerR",
+     "r": [
+      282,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.levelCaption",
+     "r": [
+      170.5,
+      520.8,
+      51.0,
+      12.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.levelPlate",
+     "r": [
+      151.5,
+      540.8,
+      90.4,
+      24.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.left",
+     "r": [
+      96.1,
+      633.2,
+      40.9,
+      76.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.right",
+     "r": [
+      257,
+      633.2,
+      40.3,
+      76.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.label",
+     "r": [
+      142,
+      640,
+      110,
+      65
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "playFrame.bottom",
+     "r": [
+      91,
+      717,
+      212,
+      6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.l",
+     "r": [
+      3,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.r",
+     "r": [
+      364,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.navShop",
+     "r": [
+      46.0,
+      785.0,
+      44.7,
+      44.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navTrophy",
+     "r": [
+      299.6,
+      785.0,
+      49.7,
+      48.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navHomeIcon",
+     "r": [
+      167.5,
+      751.6,
+      58.4,
+      55.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "nav.homeTile.l",
+     "r": [
+      133,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeTile.r",
+     "r": [
+      239,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeLabel",
+     "r": [
+      158,
+      818,
+      78,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "event.streak",
+     "r": [
+      19.7,
+      125.4,
+      59.7,
+      64.1
+     ],
+     "kind": "art"
+    }
+   ]
+  },
+  {
+   "id": "home-L34-hard",
+   "regions": [
+    {
+     "name": "home.avatarButton",
+     "r": [
+      23.7,
+      41.7,
+      53.4,
+      51.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.coinPill",
+     "r": [
+      130.8,
+      59.7,
+      65.7,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.gearButton",
+     "r": [
+      338.3,
+      53.0,
+      32.0,
+      31.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.livesPill",
+     "r": [
+      245.2,
+      59.0,
+      70.7,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.coinIcon",
+     "r": [
+      101.7,
+      59.0,
+      22.0,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.clawHex",
+     "r": [
+      36.7,
+      116.8,
+      24.7,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claw.track.l",
+     "r": [
+      70,
+      121,
+      16,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "scene.wallR",
+     "r": [
+      322,
+      296,
+      56,
+      44
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.platform",
+     "r": [
+      10,
+      726,
+      62,
+      30
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.scientist",
+     "r": [
+      160,
+      196,
+      76,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.console",
+     "r": [
+      110,
+      300,
+      60,
+      40
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.glass",
+     "r": [
+      118,
+      416,
+      158,
+      100
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.side",
+     "r": [
+      98,
+      425,
+      14,
+      80
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerL",
+     "r": [
+      38,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerR",
+     "r": [
+      282,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.levelCaption",
+     "r": [
+      170.5,
+      520.8,
+      51.0,
+      12.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.levelPlateHard",
+     "r": [
+      151.5,
+      541.1,
+      90.4,
+      23.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.left",
+     "r": [
+      96.7,
+      657,
+      40.3,
+      53
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.right",
+     "r": [
+      257,
+      657,
+      40.2,
+      53
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.label",
+     "r": [
+      142,
+      655,
+      110,
+      55
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tier.ribbon",
+     "r": [
+      139.8,
+      623.5,
+      114.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "nav.bar.l",
+     "r": [
+      3,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.r",
+     "r": [
+      364,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.navShop",
+     "r": [
+      46.0,
+      785.0,
+      44.7,
+      44.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navTrophy",
+     "r": [
+      299.6,
+      785.0,
+      49.7,
+      48.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navHomeIcon",
+     "r": [
+      167.5,
+      751.6,
+      58.4,
+      55.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "nav.homeTile.l",
+     "r": [
+      133,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeTile.r",
+     "r": [
+      239,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeLabel",
+     "r": [
+      158,
+      818,
+      78,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "event.streak",
+     "r": [
+      19.7,
+      198.8,
+      59.7,
+      64.1
+     ],
+     "kind": "art"
+    }
+   ]
+  },
+  {
+   "id": "home-L39-super",
+   "regions": [
+    {
+     "name": "home.avatarButton",
+     "r": [
+      23.7,
+      41.7,
+      53.4,
+      51.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.coinPill",
+     "r": [
+      130.8,
+      59.7,
+      65.7,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.gearButton",
+     "r": [
+      338.3,
+      53.0,
+      32.0,
+      31.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.livesPill",
+     "r": [
+      245.2,
+      59.0,
+      70.7,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.coinIcon",
+     "r": [
+      101.7,
+      59.0,
+      22.0,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.clawHex",
+     "r": [
+      36.7,
+      116.8,
+      24.7,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claw.track.l",
+     "r": [
+      70,
+      121,
+      16,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "scene.wallR",
+     "r": [
+      322,
+      296,
+      56,
+      44
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.platform",
+     "r": [
+      10,
+      726,
+      62,
+      30
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.scientist",
+     "r": [
+      160,
+      196,
+      76,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.console",
+     "r": [
+      110,
+      300,
+      60,
+      40
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.glass",
+     "r": [
+      118,
+      416,
+      158,
+      100
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.side",
+     "r": [
+      98,
+      425,
+      14,
+      80
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerL",
+     "r": [
+      38,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerR",
+     "r": [
+      282,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.levelCaption",
+     "r": [
+      170.5,
+      520.8,
+      51.0,
+      12.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.levelPlateSuperHard",
+     "r": [
+      151.5,
+      540.8,
+      90.4,
+      24.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.left",
+     "r": [
+      96.7,
+      657,
+      40.3,
+      53
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.right",
+     "r": [
+      257,
+      657,
+      40.2,
+      53
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.label",
+     "r": [
+      142,
+      655,
+      110,
+      55
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tier.ribbon",
+     "r": [
+      139.8,
+      623.5,
+      114.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "nav.bar.l",
+     "r": [
+      3,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.r",
+     "r": [
+      364,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.navShop",
+     "r": [
+      46.0,
+      785.0,
+      44.7,
+      44.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navTrophy",
+     "r": [
+      299.6,
+      785.0,
+      49.7,
+      48.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navHomeIcon",
+     "r": [
+      167.5,
+      751.6,
+      58.4,
+      55.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "nav.homeTile.l",
+     "r": [
+      133,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeTile.r",
+     "r": [
+      239,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeLabel",
+     "r": [
+      158,
+      818,
+      78,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "event.streak",
+     "r": [
+      19.7,
+      198.8,
+      59.7,
+      64.1
+     ],
+     "kind": "art"
+    }
+   ]
+  },
+  {
+   "id": "home-L62",
+   "regions": [
+    {
+     "name": "home.avatarButton",
+     "r": [
+      23.7,
+      41.7,
+      53.4,
+      51.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.coinPill",
+     "r": [
+      130.8,
+      59.7,
+      65.7,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.gearButton",
+     "r": [
+      338.3,
+      53.0,
+      32.0,
+      31.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.livesPill",
+     "r": [
+      245.2,
+      59.0,
+      70.7,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.coinIcon",
+     "r": [
+      101.7,
+      59.0,
+      22.0,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.clawHex",
+     "r": [
+      36.7,
+      116.8,
+      24.7,
+      22.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claw.track.l",
+     "r": [
+      70,
+      121,
+      16,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "scene.wallR",
+     "r": [
+      322,
+      296,
+      56,
+      44
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.platform",
+     "r": [
+      10,
+      726,
+      62,
+      30
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "scene.scientist",
+     "r": [
+      160,
+      196,
+      76,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.console",
+     "r": [
+      110,
+      300,
+      60,
+      40
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.glass",
+     "r": [
+      118,
+      416,
+      158,
+      100
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.machine.side",
+     "r": [
+      98,
+      425,
+      14,
+      80
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerL",
+     "r": [
+      38,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "scene.workerR",
+     "r": [
+      282,
+      522,
+      70,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.levelCaption",
+     "r": [
+      170.5,
+      520.8,
+      51.0,
+      12.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "home.levelPlate",
+     "r": [
+      151.5,
+      540.8,
+      90.4,
+      24.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.left",
+     "r": [
+      96.1,
+      633.2,
+      40.9,
+      76.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.right",
+     "r": [
+      257,
+      633.2,
+      40.3,
+      76.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "play.label",
+     "r": [
+      142,
+      640,
+      110,
+      65
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "playFrame.bottom",
+     "r": [
+      91,
+      717,
+      212,
+      6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.l",
+     "r": [
+      3,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.r",
+     "r": [
+      364,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "home.navShop",
+     "r": [
+      46.0,
+      785.0,
+      44.7,
+      44.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navTrophy",
+     "r": [
+      299.6,
+      785.0,
+      49.7,
+      48.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "home.navHomeIcon",
+     "r": [
+      167.5,
+      751.6,
+      58.4,
+      55.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "nav.homeTile.l",
+     "r": [
+      133,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeTile.r",
+     "r": [
+      239,
+      773,
+      22,
+      70
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.homeLabel",
+     "r": [
+      158,
+      818,
+      78,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "event.streak",
+     "r": [
+      19.7,
+      198.8,
+      59.7,
+      64.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "event.rocket",
+     "r": [
+      16,
+      298,
+      60,
+      44
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "event.sky",
+     "r": [
+      16,
+      395,
+      60,
+      44
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "nav.newsBadge",
+     "r": [
+      328,
+      774,
+      9,
+      9
+     ],
+     "kind": "ui"
+    }
+   ]
+  },
+  {
+   "id": "hud-L32",
+   "regions": [
+    {
+     "name": "hud.back",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pause",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.stopwatch",
+     "r": [
+      97.7,
+      82.7,
+      19.0,
+      23.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.panel.bottom",
+     "r": [
+      121,
+      111,
+      178,
+      6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.panel.right",
+     "r": [
+      301,
+      65,
+      12,
+      50
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart2",
+     "r": [
+      242.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart3",
+     "r": [
+      278.6,
+      87.1,
+      18.4,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonLeft",
+     "r": [
+      18.3,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonRight",
+     "r": [
+      325.6,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.iconLeft",
+     "r": [
+      30.7,
+      778.3,
+      24.4,
+      28.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.iconRight",
+     "r": [
+      342.3,
+      778.0,
+      16.0,
+      29.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.badgeLeft",
+     "r": [
+      58.0,
+      806.7,
+      14.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayL.edge",
+     "r": [
+      2,
+      823,
+      12,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayR.edge",
+     "r": [
+      380,
+      823,
+      11,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.top",
+     "r": [
+      15,
+      135,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    },
+    {
+     "name": "board.bottom",
+     "r": [
+      15,
+      435.0,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "hud-L34-hard",
+   "regions": [
+    {
+     "name": "hud.back",
+     "r": [
+      24.3,
+      73.4,
+      29.7,
+      29.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pause",
+     "r": [
+      339.6,
+      73.4,
+      29.7,
+      29.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.stopwatch",
+     "r": [
+      97.7,
+      82.7,
+      19.0,
+      23.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.panel.bottom",
+     "r": [
+      121,
+      111,
+      178,
+      6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.panel.right",
+     "r": [
+      301,
+      65,
+      12,
+      50
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart2",
+     "r": [
+      242.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart3",
+     "r": [
+      278.6,
+      87.1,
+      18.4,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonLeft",
+     "r": [
+      18.3,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonRight",
+     "r": [
+      325.6,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.iconLeft",
+     "r": [
+      30.7,
+      778.3,
+      24.4,
+      28.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.iconRight",
+     "r": [
+      342.3,
+      778.0,
+      16.0,
+      29.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.badgeLeft",
+     "r": [
+      58.0,
+      806.7,
+      14.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayL.edge",
+     "r": [
+      2,
+      823,
+      12,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayR.edge",
+     "r": [
+      380,
+      823,
+      11,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.top",
+     "r": [
+      15,
+      135,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    },
+    {
+     "name": "board.bottom",
+     "r": [
+      15,
+      435.0,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "hud-L39-super",
+   "regions": [
+    {
+     "name": "hud.back",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      29.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pause",
+     "r": [
+      339.6,
+      73.1,
+      29.7,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.stopwatch",
+     "r": [
+      97.7,
+      82.7,
+      19.0,
+      23.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.panel.bottom",
+     "r": [
+      121,
+      111,
+      178,
+      6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.panel.right",
+     "r": [
+      301,
+      65,
+      12,
+      50
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart2",
+     "r": [
+      242.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart3",
+     "r": [
+      278.6,
+      87.1,
+      18.4,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonLeft",
+     "r": [
+      18.3,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.buttonRight",
+     "r": [
+      325.6,
+      768.0,
+      49.4,
+      48.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.iconLeft",
+     "r": [
+      30.7,
+      778.3,
+      24.4,
+      28.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.iconRight",
+     "r": [
+      342.3,
+      778.0,
+      16.0,
+      29.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "booster.badgeLeft",
+     "r": [
+      58.0,
+      806.7,
+      14.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayL.edge",
+     "r": [
+      2,
+      823,
+      12,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "booster.trayR.edge",
+     "r": [
+      380,
+      823,
+      11,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.top",
+     "r": [
+      15,
+      135,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    },
+    {
+     "name": "board.bottom",
+     "r": [
+      15,
+      435.0,
+      363,
+      300.0
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "pause",
+   "regions": [
+    {
+     "name": "pause.ribbon",
+     "r": [
+      68.1,
+      198.5,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "pause.close",
+     "r": [
+      346.6,
+      242.2,
+      29.4,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "pause.card",
+     "r": [
+      61.4,
+      309.6,
+      267.9,
+      145.8
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "pause.toggleSound",
+     "r": [
+      209.5,
+      331.6,
+      110.1,
+      31.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "pause.toggleKnob",
+     "r": [
+      268.2,
+      334.6,
+      48.4,
+      25.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "pause.iconSound",
+     "r": [
+      77.4,
+      335.6,
+      23.4,
+      20.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "pause.iconHaptic",
+     "r": [
+      76.4,
+      407.3,
+      25.0,
+      23.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "pause.resume",
+     "r": [
+      66.4,
+      492.1,
+      113.1,
+      77.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "pause.quit",
+     "r": [
+      212.5,
+      492.1,
+      113.1,
+      77.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "pause.bumperTL",
+     "r": [
+      21.7,
+      242.9,
+      34.4,
+      67.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "pause.field.l",
+     "r": [
+      22,
+      330,
+      22,
+      140
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "pause.bar.bottom",
+     "r": [
+      60,
+      610,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.boardLow",
+     "r": [
+      20,
+      700,
+      353,
+      40
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.boosterL",
+     "r": [
+      16,
+      768,
+      50,
+      46
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "quitLevel",
+   "regions": [
+    {
+     "name": "band.rail",
+     "r": [
+      70,
+      238,
+      250,
+      14
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field",
+     "r": [
+      20,
+      268,
+      40,
+      32
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.cream.l",
+     "r": [
+      12,
+      318,
+      36,
+      140
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field.low",
+     "r": [
+      20,
+      482,
+      50,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.railBottom",
+     "r": [
+      60,
+      622,
+      270,
+      12
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "quitLevel.ribbon",
+     "r": [
+      68.1,
+      201.5,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "quitLevel.close",
+     "r": [
+      344.0,
+      222.8,
+      36.4,
+      36.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "quitLevel.heart",
+     "r": [
+      145.8,
+      371.3,
+      98.8,
+      73.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "quitLevel.quit",
+     "r": [
+      97.1,
+      505.4,
+      199.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "quitLevel.msg",
+     "r": [
+      100,
+      330,
+      190,
+      20
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.boardLow",
+     "r": [
+      20,
+      660,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "outOfTime",
+   "regions": [
+    {
+     "name": "outOfTime.title",
+     "r": [
+      42.4,
+      179.1,
+      308.6,
+      43.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "outOfTime.close",
+     "r": [
+      335.3,
+      61.0,
+      29.4,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "outOfTime.stopwatch",
+     "r": [
+      116.7,
+      298.6,
+      158.2,
+      170.9
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "outOfTime.plus30",
+     "r": [
+      95.1,
+      517.4,
+      208.9,
+      43.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "outOfTime.addTimeFace",
+     "r": [
+      85.7,
+      638.9,
+      221.9,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "outOfTime.coinGroup",
+     "r": [
+      18.7,
+      68.4,
+      96.4,
+      32.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "glow.l",
+     "r": [
+      10,
+      380,
+      40,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "glow.r",
+     "r": [
+      343,
+      380,
+      40,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      745,
+      353,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "continue-streak",
+   "regions": [
+    {
+     "name": "band.rail",
+     "r": [
+      70,
+      238,
+      250,
+      14
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field",
+     "r": [
+      20,
+      268,
+      40,
+      32
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.cream.l",
+     "r": [
+      12,
+      318,
+      36,
+      140
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field.low",
+     "r": [
+      20,
+      482,
+      50,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.railBottom",
+     "r": [
+      60,
+      622,
+      270,
+      12
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueStreak.ribbon",
+     "r": [
+      68.1,
+      201.5,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.close",
+     "r": [
+      348.0,
+      222.8,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueStreak.chips",
+     "r": [
+      12.0,
+      376.0,
+      368.7,
+      58.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.chipLit",
+     "r": [
+      19.7,
+      383.7,
+      63.4,
+      43.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueStreak.playOn",
+     "r": [
+      85.7,
+      504.4,
+      221.9,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.message",
+     "r": [
+      62.7,
+      329.6,
+      268.2,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.coinGroup",
+     "r": [
+      18.7,
+      102.1,
+      93.1,
+      29.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardLow",
+     "r": [
+      20,
+      660,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "continue-token",
+   "regions": [
+    {
+     "name": "band.rail",
+     "r": [
+      70,
+      238,
+      250,
+      14
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field",
+     "r": [
+      20,
+      268,
+      40,
+      32
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.cream.l",
+     "r": [
+      12,
+      318,
+      36,
+      140
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field.low",
+     "r": [
+      20,
+      482,
+      50,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.railBottom",
+     "r": [
+      60,
+      622,
+      270,
+      12
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueStreak.ribbon",
+     "r": [
+      68.1,
+      201.5,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.close",
+     "r": [
+      348.0,
+      222.8,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "token.hex",
+     "r": [
+      58,
+      330,
+      39,
+      37
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "token.chips",
+     "r": [
+      36,
+      396,
+      274,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.playOn",
+     "r": [
+      85.7,
+      504.4,
+      221.9,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueStreak.coinGroup",
+     "r": [
+      18.7,
+      102.1,
+      93.1,
+      29.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardLow",
+     "r": [
+      20,
+      660,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "continue-life",
+   "regions": [
+    {
+     "name": "band.rail",
+     "r": [
+      70,
+      238,
+      250,
+      14
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field",
+     "r": [
+      20,
+      268,
+      40,
+      32
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.cream.l",
+     "r": [
+      12,
+      318,
+      36,
+      140
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.field.low",
+     "r": [
+      20,
+      482,
+      50,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "band.railBottom",
+     "r": [
+      60,
+      622,
+      270,
+      12
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueLife.ribbon",
+     "r": [
+      68.1,
+      201.5,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueLife.close",
+     "r": [
+      348.0,
+      222.8,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "continueLife.brokenHeart",
+     "r": [
+      148.1,
+      374.6,
+      95.1,
+      69.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "continueLife.playOn",
+     "r": [
+      86.7,
+      506.4,
+      219.9,
+      73.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueLife.message",
+     "r": [
+      62.7,
+      329.6,
+      268.2,
+      21.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "continueLife.coinGroup",
+     "r": [
+      18.7,
+      102.1,
+      93.1,
+      29.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardLow",
+     "r": [
+      20,
+      660,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "outOfLives",
+   "regions": [
+    {
+     "name": "outOfLives.heart",
+     "r": [
+      123.8,
+      340.6,
+      144.8,
+      115.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "outOfLives.close",
+     "r": [
+      329.6,
+      57.0,
+      40.0,
+      39.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "outOfLives.coinGroup",
+     "r": [
+      18.7,
+      68.4,
+      95.8,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "outOfLives.addLives",
+     "r": [
+      86.7,
+      639.5,
+      219.9,
+      74.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "title",
+     "r": [
+      45,
+      182,
+      303,
+      40
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "plus3",
+     "r": [
+      90,
+      510,
+      215,
+      55
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "glow.l",
+     "r": [
+      10,
+      380,
+      40,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "glow.r",
+     "r": [
+      343,
+      380,
+      40,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      745,
+      353,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "levelFailed",
+   "regions": [
+    {
+     "name": "failed.ribbon",
+     "r": [
+      68.1,
+      179.1,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "failed.close",
+     "r": [
+      346.3,
+      214.8,
+      30.0,
+      29.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "failed.card",
+     "r": [
+      64.7,
+      290.9,
+      263.9,
+      190.2
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "failed.brokenHeart",
+     "r": [
+      139.4,
+      320.9,
+      114.5,
+      83.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "failed.caption",
+     "r": [
+      123.1,
+      443.4,
+      147.5,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "failed.tryAgain",
+     "r": [
+      96.4,
+      523.1,
+      200.5,
+      76.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      300,
+      24,
+      180
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      645,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.rail",
+     "r": [
+      1,
+      704,
+      68,
+      11
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.field",
+     "r": [
+      3,
+      742,
+      57,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streakRace.logo",
+     "r": [
+      84.4,
+      693.9,
+      221.5,
+      41.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streakRace.timerChip",
+     "r": [
+      316.6,
+      710.3,
+      70.7,
+      22.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streakRace.chips",
+     "r": [
+      12.0,
+      766.0,
+      363.6,
+      56.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "win-normal",
+   "regions": [
+    {
+     "name": "win.ribbon",
+     "r": [
+      68.1,
+      157.8,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.close",
+     "r": [
+      346.6,
+      193.2,
+      29.4,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "win.perfect",
+     "r": [
+      114.8,
+      258.5,
+      164.5,
+      37.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.rewardsLabel",
+     "r": [
+      143.1,
+      309.9,
+      107.4,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.coins",
+     "r": [
+      159.1,
+      384.6,
+      84.1,
+      63.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "win.continue",
+     "r": [
+      96.4,
+      503.4,
+      200.5,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.field.r",
+     "r": [
+      347,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      625,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.rail",
+     "r": [
+      1,
+      704,
+      68,
+      11
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.field",
+     "r": [
+      3,
+      742,
+      57,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streakRace.logo",
+     "r": [
+      84.4,
+      693.9,
+      221.5,
+      41.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streakRace.timerChip",
+     "r": [
+      316.6,
+      710.3,
+      70.7,
+      22.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streakRace.chips",
+     "r": [
+      12.0,
+      766.0,
+      363.6,
+      56.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "win-hard",
+   "regions": [
+    {
+     "name": "win.ribbon",
+     "r": [
+      68.1,
+      158.1,
+      258.2,
+      74.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.close",
+     "r": [
+      346.6,
+      193.2,
+      29.4,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "win.perfect",
+     "r": [
+      114.8,
+      258.5,
+      164.5,
+      37.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.rewardsLabel",
+     "r": [
+      143.1,
+      309.9,
+      107.4,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.coins",
+     "r": [
+      159.1,
+      384.6,
+      84.1,
+      63.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "win.continue",
+     "r": [
+      96.4,
+      503.4,
+      200.5,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.field.r",
+     "r": [
+      347,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      625,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.rail",
+     "r": [
+      1,
+      704,
+      68,
+      11
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.field",
+     "r": [
+      3,
+      742,
+      57,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streakRace.logo",
+     "r": [
+      84.4,
+      693.9,
+      221.5,
+      41.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streakRace.timerChip",
+     "r": [
+      316.6,
+      710.3,
+      70.7,
+      22.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streakRace.chips",
+     "r": [
+      12.0,
+      766.0,
+      363.6,
+      56.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "win.tagRibbon",
+     "r": [
+      82.7,
+      106.1,
+      228.2,
+      44.7
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "win-super",
+   "regions": [
+    {
+     "name": "win.ribbon",
+     "r": [
+      68.1,
+      158.5,
+      258.2,
+      73.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.close",
+     "r": [
+      346.6,
+      193.2,
+      29.4,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "win.perfect",
+     "r": [
+      114.8,
+      258.5,
+      164.5,
+      37.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.rewardsLabel",
+     "r": [
+      143.1,
+      309.9,
+      107.4,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "win.coins",
+     "r": [
+      159.1,
+      384.6,
+      84.1,
+      63.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "win.continue",
+     "r": [
+      96.4,
+      503.4,
+      200.5,
+      76.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.field.r",
+     "r": [
+      347,
+      260,
+      24,
+      210
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      625,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.rail",
+     "r": [
+      1,
+      704,
+      68,
+      11
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "strip.field",
+     "r": [
+      3,
+      742,
+      57,
+      16
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streakRace.logo",
+     "r": [
+      84.4,
+      693.9,
+      221.5,
+      41.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streakRace.timerChip",
+     "r": [
+      316.6,
+      710.3,
+      70.7,
+      22.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streakRace.chips",
+     "r": [
+      12.0,
+      766.0,
+      363.6,
+      56.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "win.tagRibbon",
+     "r": [
+      82.7,
+      106.1,
+      228.2,
+      44.7
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "unlock-pipe",
+   "regions": [
+    {
+     "name": "unlock.title",
+     "r": [
+      134.4,
+      174.5,
+      124.8,
+      58.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.subtitle",
+     "r": [
+      134.8,
+      278.2,
+      124.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.icon",
+     "r": [
+      161.1,
+      368.3,
+      95.8,
+      84.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "unlock.card",
+     "r": [
+      48.7,
+      523.1,
+      295.9,
+      88.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "card.edgeL",
+     "r": [
+      44,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "card.edgeR",
+     "r": [
+      341,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardMid",
+     "r": [
+      20,
+      640,
+      353,
+      70
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "unlock-box",
+   "regions": [
+    {
+     "name": "unlock.title",
+     "r": [
+      134.4,
+      174.5,
+      124.8,
+      58.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.subtitle",
+     "r": [
+      134.8,
+      278.2,
+      124.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.icon",
+     "r": [
+      161.1,
+      368.3,
+      95.8,
+      84.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "unlock.card",
+     "r": [
+      48.7,
+      523.1,
+      295.9,
+      88.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "card.edgeL",
+     "r": [
+      44,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "card.edgeR",
+     "r": [
+      341,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardMid",
+     "r": [
+      20,
+      640,
+      353,
+      70
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "unlock-elevator",
+   "regions": [
+    {
+     "name": "unlock.title",
+     "r": [
+      134.4,
+      174.5,
+      124.8,
+      58.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.subtitle",
+     "r": [
+      134.8,
+      278.2,
+      124.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.icon",
+     "r": [
+      161.1,
+      368.3,
+      95.8,
+      84.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "unlock.card",
+     "r": [
+      48.7,
+      523.1,
+      295.9,
+      88.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "card.edgeL",
+     "r": [
+      44,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "card.edgeR",
+     "r": [
+      341,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardMid",
+     "r": [
+      20,
+      640,
+      353,
+      70
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "unlock-corner",
+   "regions": [
+    {
+     "name": "unlock.title",
+     "r": [
+      134.4,
+      174.5,
+      124.8,
+      58.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.subtitle",
+     "r": [
+      134.8,
+      278.2,
+      124.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.icon",
+     "r": [
+      161.1,
+      368.3,
+      95.8,
+      84.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "unlock.card",
+     "r": [
+      48.7,
+      523.1,
+      295.9,
+      88.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "card.edgeL",
+     "r": [
+      44,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "card.edgeR",
+     "r": [
+      341,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.boardMid",
+     "r": [
+      20,
+      640,
+      353,
+      70
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.hud",
+     "r": [
+      20,
+      64,
+      36,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "unlock-door",
+   "regions": [
+    {
+     "name": "unlock.title",
+     "r": [
+      134.4,
+      174.5,
+      124.8,
+      58.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.subtitle",
+     "r": [
+      134.8,
+      278.2,
+      124.1,
+      24.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "unlock.icon",
+     "r": [
+      161.1,
+      368.3,
+      95.8,
+      84.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "unlock.card",
+     "r": [
+      48.7,
+      523.1,
+      295.9,
+      88.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "card.edgeL",
+     "r": [
+      44,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "card.edgeR",
+     "r": [
+      341,
+      540,
+      8,
+      56
+     ],
+     "kind": "ui"
+    }
+   ]
+  },
+  {
+   "id": "claim-lives",
+   "regions": [
+    {
+     "name": "claim.title",
+     "r": [
+      16.0,
+      157.8,
+      361.7,
+      41.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claim.heart",
+     "r": [
+      169.8,
+      389.0,
+      54.1,
+      44.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claim.amount",
+     "r": [
+      169.1,
+      437.7,
+      53.7,
+      23.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claim.tap",
+     "r": [
+      100.7,
+      677.9,
+      192.2,
+      25.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.top",
+     "r": [
+      20,
+      240,
+      353,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      560,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "claim-coins",
+   "regions": [
+    {
+     "name": "claimCoins.title",
+     "r": [
+      21.3,
+      157.1,
+      351.0,
+      35.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claimCoins.coins",
+     "r": [
+      168.5,
+      392.7,
+      56.7,
+      40.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claimCoins.amount",
+     "r": [
+      172.5,
+      437.7,
+      48.7,
+      25.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claimCoins.tap",
+     "r": [
+      103.1,
+      681.9,
+      185.8,
+      24.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.top",
+     "r": [
+      20,
+      240,
+      353,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      560,
+      353,
+      60
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "noLives",
+   "regions": [
+    {
+     "name": "moreLives.ribbon",
+     "r": [
+      68.4,
+      144.8,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "moreLives.close",
+     "r": [
+      339.6,
+      176.1,
+      41.4,
+      44.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "moreLives.card",
+     "r": [
+      75.4,
+      258.5,
+      243.2,
+      150.8
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      260,
+      24,
+      380
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      690,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      725,
+      353,
+      40
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "moreLives.heart",
+     "r": [
+      162.1,
+      266.2,
+      71.1,
+      60.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "moreLives.timerChip",
+     "r": [
+      142.1,
+      381.0,
+      112.1,
+      36.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "moreLives.refill",
+     "r": [
+      86.7,
+      457.7,
+      219.9,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "moreLives.adLive",
+     "r": [
+      86.7,
+      573.5,
+      219.9,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "moreLives.coinGroup",
+     "r": [
+      19.0,
+      70.7,
+      93.1,
+      29.4
+     ],
+     "kind": "ui"
+    }
+   ]
+  },
+  {
+   "id": "boosterBuy",
+   "regions": [
+    {
+     "name": "moreLives.ribbon",
+     "r": [
+      68.4,
+      144.8,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "moreLives.close",
+     "r": [
+      339.6,
+      176.1,
+      41.4,
+      44.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "moreLives.card",
+     "r": [
+      75.4,
+      258.5,
+      243.2,
+      150.8
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      22,
+      260,
+      24,
+      380
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "panel.bar.bottom",
+     "r": [
+      60,
+      690,
+      270,
+      10
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      725,
+      353,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "shop",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "shop.coinPill",
+     "r": [
+      11.0,
+      63.7,
+      98.4,
+      26.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "shop.title",
+     "r": [
+      150,
+      60,
+      95,
+      35
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "shop.bg.offers",
+     "r": [
+      3,
+      170,
+      30,
+      16
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "shop.offerCard",
+     "r": [
+      18.0,
+      204.2,
+      353.7,
+      171.8
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "shop.offerBadge",
+     "r": [
+      13.7,
+      196.2,
+      41.4,
+      40.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "shop.offerPrice",
+     "r": [
+      237.9,
+      322.9,
+      120.1,
+      38.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "shop.sectionPurple",
+     "r": [
+      66.1,
+      126.8,
+      261.6,
+      45.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "shop.bundle.art",
+     "r": [
+      50,
+      505,
+      110,
+      70
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "shop.bundle.strip",
+     "r": [
+      12,
+      592,
+      168,
+      48
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.l",
+     "r": [
+      3,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "nav.bar.r",
+     "r": [
+      364,
+      800,
+      26,
+      44
+     ],
+     "kind": "ui"
+    }
+   ]
+  },
+  {
+   "id": "settings",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "settings.title",
+     "r": [
+      130,
+      60,
+      130,
+      35
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "settings.close",
+     "r": [
+      326.3,
+      50.0,
+      42.7,
+      43.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "settings.notifCard",
+     "r": [
+      25.0,
+      140.1,
+      343.3,
+      83.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "settings.notifToggle",
+     "r": [
+      238.9,
+      165.1,
+      114.8,
+      33.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "settings.audioCard",
+     "r": [
+      31.0,
+      260.5,
+      331.3,
+      128.5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "settings.soundBtn",
+     "r": [
+      66.0,
+      320.3,
+      50.1,
+      49.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "settings.musicBtn",
+     "r": [
+      170.1,
+      319.9,
+      49.7,
+      49.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "settings.hapticBtn",
+     "r": [
+      274.9,
+      319.6,
+      50.1,
+      49.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "settings.support",
+     "r": [
+      108.8,
+      444.4,
+      176.8,
+      65.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "settings.terms",
+     "r": [
+      58.0,
+      557.1,
+      111.8,
+      39.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "settings.privacy",
+     "r": [
+      223.5,
+      557.1,
+      111.8,
+      39.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "page.bg",
+     "r": [
+      20,
+      640,
+      353,
+      120
+     ],
+     "kind": "bg"
+    }
+   ]
+  },
+  {
+   "id": "terms",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "settings.close",
+     "r": [
+      326.3,
+      50.0,
+      42.7,
+      43.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "page.bg.l",
+     "r": [
+      3,
+      140,
+      12,
+      300
+     ],
+     "kind": "bg"
+    }
+   ]
+  },
+  {
+   "id": "profile",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "profile.close",
+     "r": [
+      333.9,
+      52.4,
+      43.1,
+      42.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "profile.card",
+     "r": [
+      24.3,
+      144.4,
+      343.6,
+      92.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "profile.avatar",
+     "r": [
+      33.4,
+      152.8,
+      83.4,
+      77.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "profile.pencil",
+     "r": [
+      100.1,
+      216.2,
+      25.4,
+      24.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "profile.levelPlate",
+     "r": [
+      264.2,
+      162.5,
+      98.1,
+      51.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "profile.bg",
+     "r": [
+      20,
+      620,
+      353,
+      120
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "profile.statPill1_1",
+     "r": [
+      60.7,
+      345.6,
+      113.1,
+      44.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "profile.statPill1_2",
+     "r": [
+      223.9,
+      345.6,
+      136.1,
+      44.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "profile.statIcon1_1",
+     "r": [
+      36.7,
+      346.6,
+      45.4,
+      40.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "profile.statIcon1_2",
+     "r": [
+      226.9,
+      347.6,
+      34.0,
+      41.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "profile.statPill3_1",
+     "r": [
+      60.7,
+      544.8,
+      113.1,
+      38.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "profile.statPill3_2",
+     "r": [
+      223.5,
+      544.5,
+      136.5,
+      36.7
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "editProfile",
+   "regions": [
+    {
+     "name": "editProfile.ribbon",
+     "r": [
+      68.4,
+      101.7,
+      258.2,
+      74.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "editProfile.close",
+     "r": [
+      338.3,
+      138.1,
+      41.0,
+      44.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "editProfile.card1",
+     "r": [
+      67.1,
+      212.2,
+      259.2,
+      81.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "editProfile.nameField",
+     "r": [
+      161.1,
+      233.2,
+      163.8,
+      35.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "editProfile.card2",
+     "r": [
+      63.7,
+      335.9,
+      265.9,
+      258.6
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "editProfile.tileSel",
+     "r": [
+      75.4,
+      347.6,
+      70.1,
+      68.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "editProfile.tile22",
+     "r": [
+      164.5,
+      435.4,
+      63.7,
+      64.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "editProfile.tile33",
+     "r": [
+      255.5,
+      522.4,
+      63.4,
+      64.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "editProfile.save",
+     "r": [
+      97.4,
+      636.2,
+      198.5,
+      74.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "panel.field.l",
+     "r": [
+      16,
+      240,
+      24,
+      360
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.header",
+     "r": [
+      14,
+      40,
+      40,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "username",
+   "regions": [
+    {
+     "name": "editProfile.close",
+     "r": [
+      338.3,
+      138.1,
+      41.0,
+      44.1
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.header",
+     "r": [
+      14,
+      40,
+      40,
+      36
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "lb-weekly",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.strip",
+     "r": [
+      3.0,
+      113.1,
+      387.0,
+      70.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.title",
+     "r": [
+      100,
+      60,
+      193,
+      35
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.timerChip",
+     "r": [
+      29.7,
+      169.8,
+      80.7,
+      21.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.tabWeeklyOn",
+     "r": [
+      14.0,
+      126.4,
+      117.4,
+      44.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.tabWorldOff",
+     "r": [
+      141.4,
+      126.4,
+      109.4,
+      44.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.tabCountryOff",
+     "r": [
+      264.9,
+      126.4,
+      109.4,
+      44.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.weeklyLogo",
+     "r": [
+      64.1,
+      197.5,
+      268.9,
+      42.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "lb.info",
+     "r": [
+      18.3,
+      247.9,
+      14.4,
+      12.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.podium1",
+     "r": [
+      143.4,
+      316.9,
+      106.8,
+      160.2
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "lb.podium2",
+     "r": [
+      24.0,
+      346.9,
+      87.4,
+      125.8
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "lb.podium3",
+     "r": [
+      283.6,
+      360.3,
+      85.8,
+      112.5
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "lb.rowMe",
+     "r": [
+      11.0,
+      509.8,
+      371.3,
+      54.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.row",
+     "r": [
+      13.7,
+      583.8,
+      366.0,
+      48.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.navTab",
+     "r": [
+      259.5,
+      740.0,
+      127.5,
+      106.8
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "lb-world",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.strip",
+     "r": [
+      3.0,
+      113.1,
+      387.0,
+      70.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.title",
+     "r": [
+      100,
+      60,
+      193,
+      35
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.timerChip",
+     "r": [
+      29.7,
+      169.8,
+      80.7,
+      21.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.weekly.off",
+     "r": [
+      14,
+      128,
+      114,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.world.on",
+     "r": [
+      141,
+      128,
+      111,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.country.off",
+     "r": [
+      264,
+      128,
+      111,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.worldRow",
+     "r": [
+      12.7,
+      212.2,
+      368.0,
+      50.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.hexGold",
+     "r": [
+      17.7,
+      223.9,
+      29.0,
+      28.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "lb.bg",
+     "r": [
+      386,
+      300,
+      5,
+      300
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "lb.navTab",
+     "r": [
+      259.5,
+      740.0,
+      127.5,
+      106.8
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "lb-country",
+   "regions": [
+    {
+     "name": "header.l",
+     "r": [
+      14,
+      58,
+      40,
+      36
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "header.lip",
+     "r": [
+      20,
+      105,
+      353,
+      5
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.strip",
+     "r": [
+      3.0,
+      113.1,
+      387.0,
+      70.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "lb.title",
+     "r": [
+      100,
+      60,
+      193,
+      35
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.timerChip",
+     "r": [
+      29.7,
+      169.8,
+      80.7,
+      21.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.weekly.off",
+     "r": [
+      14,
+      128,
+      114,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.world.off",
+     "r": [
+      141,
+      128,
+      111,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tab.country.on",
+     "r": [
+      264,
+      128,
+      111,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.countryRow",
+     "r": [
+      12.7,
+      210.8,
+      368.0,
+      50.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "lb.bg",
+     "r": [
+      386,
+      300,
+      5,
+      300
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "lb.navTab",
+     "r": [
+      259.5,
+      740.0,
+      127.5,
+      106.8
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "weeklyInfo",
+   "regions": [
+    {
+     "name": "wkInfo.mazeIcon",
+     "r": [
+      47.4,
+      163.5,
+      95.1,
+      95.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkInfo.podium",
+     "r": [
+      168.1,
+      329.3,
+      180.9,
+      96.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkInfo.coins",
+     "r": [
+      48.7,
+      541.1,
+      159.5,
+      51.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkInfo.trophy",
+     "r": [
+      36.7,
+      694.2,
+      41.0,
+      37.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkInfo.arrow1",
+     "r": [
+      198.8,
+      209.2,
+      25.7,
+      24.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkInfo.arrow2",
+     "r": [
+      235.2,
+      504.8,
+      24.7,
+      25.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "title",
+     "r": [
+      80,
+      50,
+      233,
+      42
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "tap",
+     "r": [
+      110,
+      776,
+      173,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.r",
+     "r": [
+      360,
+      150,
+      25,
+      100
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "weeklyTutorial",
+   "regions": [
+    {
+     "name": "wkTut.card",
+     "r": [
+      61.7,
+      520.8,
+      269.9,
+      70.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "wkTut.arrow",
+     "r": [
+      299.9,
+      651.2,
+      48.1,
+      73.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "wkTut.trophyTab",
+     "r": [
+      289.2,
+      782.3,
+      73.7,
+      60.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "dim.scene",
+     "r": [
+      30,
+      150,
+      80,
+      60
+     ],
+     "kind": "dim"
+    },
+    {
+     "name": "dim.nav",
+     "r": [
+      20,
+      790,
+      100,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "streakRace",
+   "regions": [
+    {
+     "name": "streak.header",
+     "r": [
+      30.0,
+      30.0,
+      333.0,
+      256.9
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streak.close",
+     "r": [
+      340.9,
+      57.7,
+      28.7,
+      28.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.info",
+     "r": [
+      13.3,
+      58.0,
+      24.0,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.logo",
+     "r": [
+      46.0,
+      304.9,
+      301.6,
+      42.7
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "streak.band.field",
+     "r": [
+      3,
+      360,
+      27,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.chips",
+     "r": [
+      15.7,
+      387.7,
+      364.6,
+      56.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.timerChip",
+     "r": [
+      157.8,
+      455.7,
+      78.1,
+      23.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.subtitle",
+     "r": [
+      20,
+      356,
+      353,
+      24
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.row1",
+     "r": [
+      12.0,
+      490.7,
+      369.3,
+      54.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.row2",
+     "r": [
+      10.3,
+      562.8,
+      372.7,
+      58.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.row3",
+     "r": [
+      10.3,
+      635.2,
+      372.7,
+      58.4
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "streakRace-fresh",
+   "regions": [
+    {
+     "name": "streak.close",
+     "r": [
+      340.9,
+      57.7,
+      28.7,
+      28.7
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.info",
+     "r": [
+      13.3,
+      58.0,
+      24.0,
+      24.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.chips",
+     "r": [
+      15.7,
+      387.7,
+      364.6,
+      56.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "streak.band.field",
+     "r": [
+      3,
+      360,
+      27,
+      110
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "streak.row1",
+     "r": [
+      12.0,
+      490.7,
+      369.3,
+      54.4
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "rocketRace",
+   "regions": [
+    {
+     "name": "rocket.header",
+     "r": [
+      20,
+      40,
+      300,
+      120
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "rocket.band",
+     "r": [
+      6.0,
+      232.9,
+      381.0,
+      98.1
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "rocket.logo",
+     "r": [
+      103.4,
+      176.8,
+      183.5,
+      86.8
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "rocket.timerTag",
+     "r": [
+      322.9,
+      194.2,
+      66.1,
+      28.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "rocket.lanes.l",
+     "r": [
+      5,
+      345,
+      70,
+      80
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "rocket.lanes.r",
+     "r": [
+      318,
+      345,
+      70,
+      80
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "rocket.tiles",
+     "r": [
+      5,
+      755,
+      383,
+      80
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "rocketOffer",
+   "regions": [
+    {
+     "name": "rocketOffer.panel",
+     "r": [
+      39.7,
+      210.2,
+      319.0,
+      467.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "rocketOffer.logo",
+     "r": [
+      75.4,
+      126.1,
+      242.9,
+      102.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "rocketOffer.close",
+     "r": [
+      346.3,
+      184.5,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "rocketOffer.timer",
+     "r": [
+      157.5,
+      237.5,
+      78.7,
+      21.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "rocketOffer.stages",
+     "r": [
+      46.7,
+      459.7,
+      300.9,
+      95.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "rocketOffer.start",
+     "r": [
+      97.4,
+      581.2,
+      198.8,
+      74.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      725,
+      353,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "skyJump",
+   "regions": [
+    {
+     "name": "skyMap.header",
+     "r": [
+      8.0,
+      111.4,
+      377.0,
+      87.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "skyMap.close",
+     "r": [
+      340.9,
+      57.0,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "skyMap.info",
+     "r": [
+      15.7,
+      63.0,
+      18.4,
+      18.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "sky.bg",
+     "r": [
+      20,
+      230,
+      100,
+      100
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "sky.bg2",
+     "r": [
+      280,
+      400,
+      100,
+      100
+     ],
+     "kind": "bg"
+    },
+    {
+     "name": "skyMap.tap",
+     "r": [
+      119.8,
+      774.7,
+      153.8,
+      21.0
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "skyOffer",
+   "regions": [
+    {
+     "name": "skyJump.panel",
+     "r": [
+      40.3,
+      202.8,
+      312.6,
+      476.5
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "skyJump.logo",
+     "r": [
+      76.7,
+      143.4,
+      246.9,
+      50.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "skyJump.close",
+     "r": [
+      346.3,
+      184.5,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "skyJump.timerChip",
+     "r": [
+      161.8,
+      212.5,
+      69.4,
+      17.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "skyJump.stages",
+     "r": [
+      46.7,
+      461.4,
+      297.9,
+      93.8
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "skyJump.start",
+     "r": [
+      95.7,
+      580.8,
+      200.5,
+      75.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "skyJump.rules",
+     "r": [
+      70.7,
+      522.8,
+      252.2,
+      25.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.low",
+     "r": [
+      20,
+      725,
+      353,
+      40
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "claw",
+   "regions": [
+    {
+     "name": "claw.header",
+     "r": [
+      40.0,
+      40.0,
+      313.0,
+      163.5
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claw.close",
+     "r": [
+      340.9,
+      57.0,
+      29.0,
+      29.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "claw.infoButton",
+     "r": [
+      15.7,
+      63.0,
+      18.4,
+      18.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "claw.logo",
+     "r": [
+      49.4,
+      214.5,
+      294.9,
+      46.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "claw.band.field",
+     "r": [
+      3,
+      300,
+      13,
+      130
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "claw.timerChip",
+     "r": [
+      165.8,
+      265.9,
+      61.7,
+      17.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claw.subtitle",
+     "r": [
+      16.3,
+      291.6,
+      361.0,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claw.chevrons",
+     "r": [
+      22.3,
+      319.3,
+      339.0,
+      47.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claw.progressBar",
+     "r": [
+      27.4,
+      384.3,
+      339.0,
+      33.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "claw.ladderRail",
+     "r": [
+      68.4,
+      438.7,
+      10.0,
+      409.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "claw.bg",
+     "r": [
+      20,
+      470,
+      30,
+      250
+     ],
+     "kind": "bg"
+    }
+   ]
+  },
+  {
+   "id": "clawInfo",
+   "regions": [
+    {
+     "name": "clawInfo.title",
+     "r": [
+      62.7,
+      56.0,
+      268.2,
+      38.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "clawInfo.mazeIcon",
+     "r": [
+      67.4,
+      148.8,
+      85.8,
+      85.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "clawInfo.chips",
+     "r": [
+      172.8,
+      344.6,
+      185.2,
+      50.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "clawInfo.coins",
+     "r": [
+      97.7,
+      531.4,
+      59.4,
+      31.4
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "clawInfo.caption1",
+     "r": [
+      54.0,
+      259.2,
+      115.4,
+      33.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "clawInfo.caption2",
+     "r": [
+      185.8,
+      411.0,
+      153.8,
+      33.7
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "dim.r",
+     "r": [
+      360,
+      600,
+      25,
+      100
+     ],
+     "kind": "dim"
+    }
+   ]
+  },
+  {
+   "id": "loading",
+   "regions": [
+    {
+     "name": "loading.logo",
+     "r": [
+      30.0,
+      76.7,
+      186.8,
+      140.1
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "loading.label",
+     "r": [
+      134.1,
+      769.6,
+      107.1,
+      32.0
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "ftue-s1",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    },
+    {
+     "name": "tutorial.caption",
+     "r": [
+      75,
+      271.5,
+      241,
+      35.2
+     ],
+     "kind": "text"
+    }
+   ]
+  },
+  {
+   "id": "ftue-s2",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "ftue-s3",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "ftue-s4",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "L5",
+   "regions": [
+    {
+     "name": "board.centre",
+     "r": [
+      96,
+      330,
+      200,
+      200
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "ftue-flow-s2",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "ftue-flow-s3",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "ftue-flow-s4",
+   "regions": [
+    {
+     "name": "hud.levelTab",
+     "r": [
+      151.5,
+      56.0,
+      90.4,
+      19.0
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.timerPill",
+     "r": [
+      115.4,
+      84.7,
+      67.4,
+      20.4
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "hud.backButton",
+     "r": [
+      24.0,
+      73.4,
+      30.0,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "board.centre",
+     "r": [
+      116,
+      360,
+      160,
+      160
+     ],
+     "kind": "board"
+    }
+   ]
+  },
+  {
+   "id": "fx-freeze",
+   "regions": [
+    {
+     "name": "frost.left",
+     "r": [
+      0,
+      440,
+      6,
+      40
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "frost.right",
+     "r": [
+      387,
+      440,
+      6,
+      40
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "frost.bottom",
+     "r": [
+      150,
+      842,
+      90,
+      8
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "freeze.tray",
+     "r": [
+      95.7,
+      121.4,
+      86.7,
+      19.0
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "freeze.digit",
+     "r": [
+      100,
+      122,
+      15,
+      16
+     ],
+     "kind": "text"
+    },
+    {
+     "name": "freeze.stopwatch",
+     "r": [
+      96.7,
+      81.7,
+      21.0,
+      25.0
+     ],
+     "kind": "art"
+    },
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.pauseButton",
+     "r": [
+      339.3,
+      73.1,
+      30.4,
+      30.0
+     ],
+     "kind": "ui"
+    }
+   ]
+  },
+  {
+   "id": "fx-heart-005",
+   "regions": [
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart2",
+     "r": [
+      242.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "heart3.breaking",
+     "r": [
+      275.6,
+      84.1,
+      24.4,
+      20.4
+     ],
+     "kind": "art"
+    }
+   ]
+  },
+  {
+   "id": "fx-heart-015",
+   "regions": [
+    {
+     "name": "hud.heart1",
+     "r": [
+      206.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "hud.heart2",
+     "r": [
+      242.5,
+      87.1,
+      18.7,
+      14.4
+     ],
+     "kind": "ui"
+    },
+    {
+     "name": "heart3.breaking",
+     "r": [
+      275.6,
+      84.1,
+      24.4,
+      20.4
+     ],
+     "kind": "art"
+    }
+   ]
+  }
+ ]
+}

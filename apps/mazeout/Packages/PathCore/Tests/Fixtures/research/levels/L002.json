@@ -1,0 +1,332 @@
+{
+ "level": 2,
+ "source": "video",
+ "video": "V1",
+ "t": 7.92,
+ "frame": "research/video-frames/V1/L002-start.png",
+ "shot": "research/video-frames/V1/L002-start.png",
+ "zoom": "fit",
+ "pitch_pt": 28.049,
+ "stroke_pt": 5.97,
+ "origin_pt": [
+  126.0,
+  367.18
+ ],
+ "cols": 6,
+ "rows": 6,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     1,
+     4
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     1
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     5,
+     1
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 3,
+   "cells": [
+    [
+     2,
+     4
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 4,
+   "cells": [
+    [
+     3,
+     4
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 5,
+   "cells": [
+    [
+     4,
+     4
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "dir": "up"
+  }
+ ],
+ "obstacles": [],
+ "taped_arrow_ids": [],
+ "timer_s": 180,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "pipes": [],
+ "door_cells": [],
+ "blocker_cells": [],
+ "elevators": [],
+ "fit_px": {
+  "pitch": 42.2516,
+  "x0": 20.792,
+  "y0": 3.83,
+  "c0": 4,
+  "r0": 13,
+  "stroke": 9.0,
+  "resid_px": 1.821,
+  "refined": "sub-pixel re-fit of pitch/origin to the start frame ink (batch A shade.py); cells unchanged"
+ },
+ "verify": {
+  "ink_iou": 0.8535,
+  "ink_iou_tol1px": 0.9782,
+  "ink_px": 12038,
+  "render_px": 13611,
+  "missed_ink_px": 62,
+  "extra_px": 239,
+  "head": {
+   "tip": 0.46,
+   "half": 0.3,
+   "base": 0.22
+  },
+  "stroke_px": 9.0,
+  "index_fit": {
+   "ink_iou": 0.8128,
+   "ink_iou_tol1px": 0.9655
+  },
+  "shading_aware": {
+   "ink_iou": 0.9482,
+   "ink_iou_tol1px": 0.99,
+   "missed_ink_px": 68,
+   "extra_px": 56,
+   "stroke_v_px": 8.0,
+   "stroke_h_px": 6.75,
+   "heads": {
+    "left": [
+     0.42,
+     0.34,
+     0.22
+    ],
+    "right": [
+     0.42,
+     0.34,
+     0.22
+    ],
+    "up": [
+     0.34,
+     0.34,
+     0.28
+    ]
+   },
+   "note": "4x-supersampled render with separate vertical/horizontal stroke widths and per-direction heads (the video skin shades the bottom edge of every stroke, so horizontal strokes and up/left heads read thinner/shorter in the ink mask); same cells"
+  }
+ },
+ "reader": "video-tools/vextract.py (bot.py reader adapted to the video skin); reviewed by level extractor batch A (research/video-levels-A.md)",
+ "label": "Levels 1-4",
+ "session": {
+  "label": "Levels 1-4",
+  "stage": 2,
+  "stages": 4,
+  "win_panel_tab": "Level 1-4",
+  "session_reward_coins": 80,
+  "note": "four boards played back to back as ONE level session: no win panel between boards; each board has its own 3:00 (frozen until its first tap) and 3 hearts; after board 4: the win celebration + panel \"Level 1-4 / Perfect! / Rewards: 80\"; Continue -> Level 5"
+ },
+ "reward_coins": null,
+ "checks": {
+  "ink_iou_tol1": {
+   "V1": {
+    "vextract_index_fit": 0.9655,
+    "vextract_final_fit": 0.9782,
+    "shading_aware": 0.99
+   }
+  },
+  "replay": {
+   "V1": {
+    "taps": 6,
+    "mapped": 6,
+    "exit_free": 6,
+    "gone_free": 0,
+    "consistent": 6,
+    "inconsistent": 0,
+    "miss": 0,
+    "late": 0,
+    "unexplained_stays": 0,
+    "stay_weak": 0,
+    "left_at_end": [],
+    "bumps": 0,
+    "note": ""
+   }
+  },
+  "solver": {
+   "bot_rules": {
+    "solved": true,
+    "units": 6,
+    "waves": 4,
+    "left": []
+   },
+   "model": {
+    "solved": true,
+    "units": 6,
+    "waves": 4,
+    "left": []
+   },
+   "free_at_start": 1,
+   "linked_groups": []
+  }
+ },
+ "video_play": {
+  "t_first_frame": 5.8,
+  "t_built": 6.12,
+  "t_board": 7.92,
+  "t_first_board_tap": 8.04,
+  "t_first_tick": 8.08,
+  "first_tick_delay_s": 0.04,
+  "t_clear": 10.36,
+  "t_win": null,
+  "timer_start": "3:00",
+  "timer_at_clear": "2:58",
+  "hearts_end": 3,
+  "taps_detected": 6
+ }
+}

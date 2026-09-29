@@ -1,0 +1,84 @@
+{
+ "version": 1,
+ "title": "R4 LOADING lane entries (the art director merges them into art/MANIFEST.json by id; arrowGlossy* rows only append a note)",
+ "entries": [
+  {
+   "id": "loadingBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "loading-win",
+   "purpose": "loading screen (D1 'Burrow Works'): a boarded teal vault under timber arch beams, copper pipes, the yard doorway in warm daylight, the sorting machine (teal iron / brass / copper / timber), the timber dock, sandstone flags, a hemp rope, D1 enamel flying block arrows",
+   "screen": "loading",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_loading_d1.py:loadingBackdrop",
+   "file": "art/out/loadingBackdrop@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "full_bleed": true,
+   "notes": "R4 LOADING (D1; ruling 46): same composition and object types as the 09-27 backdrop (scene_loading.py stays the geometry source), materials/colours changed. Proofs art/review/loading/ (copygate vs store 8 in proofs.json)."
+  },
+  {
+   "id": "digDockL",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "two small Diggers on the dock at the back left of the Loading screen (the map Digger and the shovel Digger, R2's home-rig renders at ~0.4x, a touch of room haze)",
+   "screen": "loading",
+   "size_pt": [
+    96.0,
+    76.0
+   ],
+   "size_px": [
+    288,
+    228
+   ],
+   "source": "art/ui/recipes/scene_loading_d1.py:char_digDockL",
+   "file": "art/out/char_digDockL@3x.png",
+   "status": "done",
+   "owner": "characters",
+   "notes": "R4 LOADING. Replaces char_workerCrowdLeft's slot in char_loading_layout.json."
+  },
+  {
+   "id": "arrowGlossyYellow",
+   "purpose": "glossy 3D arrow, D1 sunflower (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model) | R4 LOADING (D1): recoloured to D1 sunflower enamel (3d-hud_arrows.py D1_SHADES['yellow']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyOrange",
+   "purpose": "glossy 3D arrow, D1 tangerine (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family) | R4 LOADING (D1): recoloured to D1 tangerine enamel (3d-hud_arrows.py D1_SHADES['orange']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyRed",
+   "purpose": "glossy 3D arrow, D1 coral (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model) | R4 LOADING (D1): recoloured to D1 coral enamel (3d-hud_arrows.py D1_SHADES['red']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyGreen",
+   "purpose": "glossy 3D arrow, D1 mint (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family) | R4 LOADING (D1): recoloured to D1 mint enamel (3d-hud_arrows.py D1_SHADES['green']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyCyan",
+   "purpose": "glossy 3D arrow, D1 aqua (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family) | R4 LOADING (D1): recoloured to D1 aqua enamel (3d-hud_arrows.py D1_SHADES['cyan']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyBlue",
+   "purpose": "glossy 3D arrow, D1 deep teal (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model) | R4 LOADING (D1): recoloured to D1 deep teal enamel (3d-hud_arrows.py D1_SHADES['blue']); same id, shape, frame and light (the id keeps its old colour word)"
+  },
+  {
+   "id": "arrowGlossyPurple",
+   "purpose": "glossy 3D arrow, D1 berry (the id's colour word is the pre-D1 name)",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family) | R4 LOADING (D1): recoloured to D1 berry enamel (3d-hud_arrows.py D1_SHADES['purple']); same id, shape, frame and light (the id keeps its old colour word)"
+  }
+ ]
+}

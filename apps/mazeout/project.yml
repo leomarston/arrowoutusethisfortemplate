@@ -1,0 +1,191 @@
+# The one Xcode project (SPEC-architecture §2.2). LEAD-owned, frozen after WP0 (changes go through the orchestrator).
+# Regenerate with tools/gen.sh (mutex) after adding, removing or renaming any file. ArrowOut.xcodeproj is gitignored.
+name: ArrowOut
+options:
+  bundleIdPrefix: com.manycode
+  deploymentTarget: { iOS: "18.0" }
+  createIntermediateGroups: true
+  # A0 (SPEC.md §5 item 42): XcodeGen has no knownRegions option (it only derives en + tr from the xcstrings), so the ruled
+  # 13 locales (SPEC.md §5 item 37a) are written after every generation. Runs in this directory.
+  postGenCommand: python3 tools/known_regions.py ArrowOut.xcodeproj/project.pbxproj en de fr es it pt-BR tr ja ko zh-Hans pl sk sl
+packages:
+  PathCore: { path: Packages/PathCore }
+  # A0 (SPEC.md §5 item 42; release-plan §2.4/§2.5 S-4): RevenueCat in OBSERVER mode (our StoreKit 2 StoreService buys and
+  # grants; Purchases.recordPurchase reports). Pinned EXACTLY (the version the factory's newest apps resolved; the
+  # recordPurchase(_:) compile probe in build/p/A0 ran against it). Only the RevenueCat product, no RevenueCatUI.
+  RevenueCat:
+    url: https://github.com/RevenueCat/purchases-ios-spm
+    exactVersion: 5.89.0
+  # META (OWNER 2026-09-29 19:33, "why not implement it now and submit it with version 1.0"; memory meta-ads-sdk): Meta install
+  # attribution for the owner's app-install ads. Only the FacebookCore product (FBSDKCoreKit + its Basics/AEM kits, dynamic
+  # xcframeworks); no Login / Share / Gaming kit, no ad-serving SDK (tools/bench/release_gates.sh gate 8). Pinned EXACTLY.
+  FacebookSDK:
+    url: https://github.com/facebook/facebook-ios-sdk
+    exactVersion: 18.1.1
+# F3-A (SPEC.md ruling 52(a), 2026-09-29): three configurations. Release = the STORE build: the measurement harness
+# (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop) and the WP0 placeholders are compiled out.
+# Measure = Release's settings + the Swift condition PC_MEASURE (`#if DEBUG || PC_MEASURE`): the harness is compiled in,
+# nothing else differs (same -O / whole-module / exclusions), so its frame numbers are the store build's. Measure is for
+# measurement only (sim: `CONFIG=Measure tools/build.sh A`, tools/bench/bench.py's default; device: build/owner-phone.sh);
+# it never goes to App Store Connect. tools/bench/measure_strip_check.sh proves both sides on the built binaries.
+configs:
+  Debug: debug
+  Release: release
+  Measure: release
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    DEVELOPMENT_TEAM: GDU77F3MXL
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO          # tools/sync_art.sh writes into the product bundle
+    PC_BRAND_NAME: "Arrow Out"                  # the owner's product name (OWNER 02:33); the ONLY place it is spelled
+  # FIX-3 B (SPEC.md ruling 55(b), V1A-G8-2): the store build names no absolute build path. The Swift and clang file-prefix
+  # maps rewrite the SOURCE roots of this checkout (App, art, Packages under $(SRCROOT) = the internal folder apps/mazeout)
+  # to the neutral /ArrowOut wherever the compilers record a source path: the debug info (the dSYM; the debug map of an
+  # UNARCHIVED binary) and any embedded path. Only the source roots: DerivedData (build/dd-*) lives inside $(SRCROOT), and a
+  # whole-root map also rewrote the explicit-module / .pcm paths (META 20:52: 45 dsymutil + interface warnings). The archive's
+  # strip (STRIP_INSTALLED_PRODUCT, STRIP_STYLE all) removes the debug map from the binary itself; proved on an xcodebuild
+  # archive (build/p/FIX3: `strings -a` + `nm` of the archived binary, 0 'mazeout'); release_gates.sh 7c scans nm too.
+  # Measure takes the same maps, so it stays "Release's settings + PC_MEASURE" and nothing else.
+  configs:
+    Release: { SWIFT_OPTIMIZATION_LEVEL: "-O", SWIFT_COMPILATION_MODE: wholemodule,
+               OTHER_SWIFT_FLAGS: "$(inherited) -file-prefix-map $(SRCROOT)/App=/ArrowOut/App -file-prefix-map $(SRCROOT)/art=/ArrowOut/art
+                                  -file-prefix-map $(SRCROOT)/Packages=/ArrowOut/Packages",
+               OTHER_CFLAGS: "$(inherited) -ffile-prefix-map=$(SRCROOT)/App=/ArrowOut/App -ffile-prefix-map=$(SRCROOT)/art=/ArrowOut/art
+                             -ffile-prefix-map=$(SRCROOT)/Packages=/ArrowOut/Packages" }
+    Measure: { SWIFT_OPTIMIZATION_LEVEL: "-O", SWIFT_COMPILATION_MODE: wholemodule,
+               SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) PC_MEASURE",
+               OTHER_SWIFT_FLAGS: "$(inherited) -file-prefix-map $(SRCROOT)/App=/ArrowOut/App -file-prefix-map $(SRCROOT)/art=/ArrowOut/art
+                                  -file-prefix-map $(SRCROOT)/Packages=/ArrowOut/Packages",
+               OTHER_CFLAGS: "$(inherited) -ffile-prefix-map=$(SRCROOT)/App=/ArrowOut/App -ffile-prefix-map=$(SRCROOT)/art=/ArrowOut/art
+                             -ffile-prefix-map=$(SRCROOT)/Packages=/ArrowOut/Packages" }
+targets:
+  ArrowOut:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+        excludes: ["Info.plist", "Resources/StoreKit/**", "Resources/Levels/**", "Resources/Sounds/**",
+                   "Resources/Music/**", "Resources/Tuning/**", "Resources/Fonts/**", "Resources/Social/**",
+                   "Resources/Strings/**"]
+      - path: art/ui/code                        # GlossyChrome.swift (UI-ART owns it; compiled in as-is, D15)
+        includes: ["*.swift"]
+      - { path: App/Resources/Levels, type: folder, buildPhase: resources }   # -> bundle/Levels/
+      - { path: App/Resources/Sounds, type: folder, buildPhase: resources }   # -> bundle/Sounds/
+      - { path: App/Resources/Music,  type: folder, buildPhase: resources }   # -> bundle/Music/
+      - { path: App/Resources/Tuning, type: folder, buildPhase: resources }   # -> bundle/Tuning/
+      - { path: App/Resources/Fonts,  type: folder, buildPhase: resources }   # -> bundle/Fonts/
+      - { path: App/Resources/Social, type: folder, buildPhase: resources }   # -> bundle/Social/ (name lists)
+      - { path: App/Resources/StoreKit/ArrowOut.storekit, buildPhase: none }
+    dependencies:
+      - package: PathCore
+        product: PathCore
+      - package: RevenueCat
+        product: RevenueCat
+      - package: FacebookSDK                     # META: FacebookCore only (see packages)
+        product: FacebookCore
+    # META: the base plist (SPEC-architecture §2.3) is written by xcodegen from these properties at every tools/gen.sh (it was a
+    # hand-written App/Info.plist with the same keys; array keys have no INFOPLIST_KEY_ form and are dropped silently without a
+    # base plist: memory infoplist-array-keys-need-a-base-plist). Xcode merges the INFOPLIST_KEY_* settings below on top. Verify
+    # on the BUILT plist (MetaSDKLinkageTests), never here.
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"   # xcodegen writes 1.0 / 1 by default: the build settings stay the
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"        # one source (A0: 1.0.0 (1) = the ASC version record)
+        CADisableMinimumFrameDurationOnPhone: true           # ProMotion opt-in (the owner's iPhone 15 is 60 Hz; 120 Hz unverified)
+        UIAppFonts:                                          # PC Display (Nunito wght 1000, OFL, renamed; design/fonts.md §7)
+          - Fonts/PCDisplay-Black.ttf
+          - Fonts/PCDisplay-BlackItalic.ttf
+        UIStatusBarHidden: true                              # the original hides the status bar and draws into all 852 pt (§0.3)
+        UIViewControllerBasedStatusBarAppearance: false
+        UIRequiresFullScreen: true
+        UILaunchScreen: { UIColorName: LaunchBackground }    # Loading's base colour; SwiftUI's Loading takes the first frame (§6.3)
+        PCBrandName: "$(PC_BRAND_NAME)"                      # Brand.name reads it: the product name has ONE source
+        LSApplicationCategoryType: public.app-category.puzzle-games   # FEEL F5: iOS applies Game Mode like the original's
+        # --- META (App/Support/MetaAds.swift). The App ID is public; the CLIENT TOKEN is NOT here and NOT a build setting: the
+        # 'Meta token -> built Info.plist' phase below writes it into the BUILT plist from the factory .env (META_CLIENT_TOKEN),
+        # and a Release / Measure build without it FAILS at its first phase (tools/meta_token.py). Never commit a value here.
+        FacebookAppID: "2657116281470019"
+        FacebookClientToken: ""
+        FacebookDisplayName: "$(PC_BRAND_NAME)"
+        FacebookAutoLogAppEventsEnabled: false               # RFIX 09-29 (orchestrator 23:49): the SDK's own StoreKit purchase
+                                                             # logging needs auto-log AND the dashboard's "Log in-app events
+                                                             # automatically", so with it off a purchase is logged once, by
+                                                             # MetaAds, whatever the dashboard says. Installs + sessions stay:
+                                                             # MetaAds calls activateApp on every activation (publishInstall and
+                                                             # the session events are not behind auto-log). A server-sent
+                                                             # auto_log_app_events_enabled would still override it: the store
+                                                             # lanes gate that with tools/meta_dashboard_check.py
+        FacebookAdvertiserIDCollectionEnabled: false         # no IDFA until ATT says .authorized (MetaAds raises it then)
+        SKAdNetworkItems:                                    # Meta's SKAdNetwork ids: an unlisted network is never credited
+          - SKAdNetworkIdentifier: v9wttpbfk9.skadnetwork
+          - SKAdNetworkIdentifier: n38lu8286q.skadnetwork
+        # English; the 13 languages ship in App/Resources/InfoPlist.xcstrings (tools/strings/build.py from
+        # App/Resources/Strings/infoplist.tsv, which must carry this exact English). Neutral: it describes, never urges.
+        NSUserTrackingUsageDescription: "Meta uses this to tell us which of our ads brought you to the game, so we can improve those ads. The game works the same either way."
+    preBuildScripts:
+      - name: Meta token gate (Release / Measure fail without META_CLIENT_TOKEN in the factory .env)
+        script: '/usr/bin/python3 "$SRCROOT/tools/meta_token.py" check'
+        basedOnDependencyAnalysis: false
+    postCompileScripts:
+      - name: Sync art (art/ui/out -> UI/, art/out -> Art/)
+        script: '"$SRCROOT/tools/sync_art.sh"'
+        basedOnDependencyAnalysis: false
+    postBuildScripts:
+      # META: after ProcessInfoPlistFile (the input file orders it), before code signing. Writes FacebookClientToken into the
+      # BUILT Info.plist only; prints nothing about the value.
+      - name: Meta token -> built Info.plist
+        script: '/usr/bin/python3 "$SRCROOT/tools/meta_token.py" inject'
+        inputFiles:
+          - $(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)
+        basedOnDependencyAnalysis: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.manycode.arrowout
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "$(PC_BRAND_NAME)"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIStatusBarHidden: YES
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        TARGETED_DEVICE_FAMILY: "1"
+        MARKETING_VERSION: 1.0.0                 # A0: = the ASC version record create_app makes (release-plan S-6)
+        CURRENT_PROJECT_VERSION: 1
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      configs:
+        # FIX-2 lane B (L29, G4(c) RELEASE BLOCKER): BoardLab's lab fixtures App/Board/LabBoards/lab_L0NN.json (verbatim phone
+        # readings: 'shot'/'capture' paths into research/, 'reader', 'anomalies') and labb_L0NN.json never reach a Release bundle.
+        # No Release path reads them: LabBoards.level loads Levels/level_NNNN.json FIRST (all 150 ship), the warm-up uses the
+        # crafted 'warmfx' board. Debug keeps them (BoardLab scenarios, tests). tools/bench/release_gates.sh gate 7 checks it.
+        Release:
+          EXCLUDED_SOURCE_FILE_NAMES: "lab_L*.json labb_L*.json"
+        Measure:                                   # F3-A: the store bundle's contents, measured
+          EXCLUDED_SOURCE_FILE_NAMES: "lab_L*.json labb_L*.json"
+  ArrowOutTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies: [{ target: ArrowOut }, { package: PathCore, product: PathCore }]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.manycode.arrowout.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/ArrowOut.app/ArrowOut"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+  ArrowOutUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies: [{ target: ArrowOut }]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.manycode.arrowout.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: ArrowOut
+schemes:
+  ArrowOut:
+    build: { targets: { ArrowOut: all, ArrowOutTests: [test], ArrowOutUITests: [test] } }
+    run:  { config: Debug, storeKitConfiguration: App/Resources/StoreKit/ArrowOut.storekit }
+    test: { config: Debug, targets: [ArrowOutTests, ArrowOutUITests] }
+    profile: { config: Release }

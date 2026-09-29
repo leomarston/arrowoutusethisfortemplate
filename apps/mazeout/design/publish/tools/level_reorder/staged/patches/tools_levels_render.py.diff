@@ -1,0 +1,113 @@
+--- a/tools/levels/render.py
++++ b/tools/levels/render.py
+@@ -29,6 +29,10 @@
+       WHAT THE DOORS HIDE: every door of a recorded level, its hidden arrows (from the bundle) drawn over the bot's round shot
+       where that door is first open (research/bot/tmp, named by design/tools/work/reveals/Lnnn.json); at that shot every
+       arrow it hid is still in place, so inside the door rectangle ALL ink must be those arrows (a two-sided proof).
++Since the level re-order + provenance strip (PUBLISH item 12): the bundle no longer says where a board came from, so every
++bundled board is joined to its design/levels.json record first (design/tools/level_order.py: the gameplay must be equal, the
++capture / _from come back) and its research files are found by its RESEARCH slot (v552's number), not by the level it ships at.
++Output files and rows keep the shipped level number; rows add `board` (e.g. "v552 L69") when the two differ.
+ Writes <out>/L0NN-overlay.png (capture faded; red = capture ink we do not draw, orange = our ink the capture lacks, green
+ centre lines = the model), <out>/report.json and, with --sheet, contact sheets of the overlays to LOOK at.
+ """
+@@ -46,20 +50,32 @@
+ APP = os.path.abspath(os.path.join(HERE, '..', '..'))
+ sys.path.insert(0, os.path.join(APP, 'research', 'video-tools'))
+ import vextract  # noqa: E402  (read-only: the video skin's ink mask)
++sys.path.insert(0, os.path.join(APP, 'design', 'tools'))
++import level_order as LO  # noqa: E402  (board identity after the re-order)
+ 
+ LEVELS = os.path.join(APP, 'App', 'Resources', 'Levels')
+ RESEARCH = os.path.join(APP, 'research', 'levels')
+ PHONE_S = 1178.0 / 393.0
+ D = {'up': (0, -1), 'down': (0, 1), 'left': (-1, 0), 'right': (1, 0)}
+-SUBST = {35: 32, 45: 33, 51: 34, 52: 35, 62: 36, 63: 38, 64: 37}
++SUBST = {}          # was {level: V2 board}; the V2 boards are found from their provenance now (level_order.research_json)
+ GATE = {'recorded': 0.99, 'video': 0.97}
+ DEPTH_GATE = 1.5          # px (see prove())
+ 
+ 
++def load_board(path):
++    """A bundled level with its design/levels.json provenance (capture, _from, _rslot) restored and checked."""
++    return LO.with_provenance(json.load(open(path)))
++
++
+ def research_file(b):
+-    if b['level'] in SUBST:
++    b = b if '_rslot' in b else LO.with_provenance(b)
++    if b['level'] in SUBST:                                   # an explicit override (none by default)
+         return os.path.join(RESEARCH, 'video', 'V2-L%03d.json' % SUBST[b['level']])
+-    return os.path.join(RESEARCH, 'L%03d.json' % b['level'])
++    return LO.research_json(b)
++
++
++def board_note(b):
++    return '' if b['_rslot'] == b['level'] else ' = %s' % LO.label(b)
+ 
+ 
+ # ------------------------------------------------------------------------------------------------ geometry + style
+@@ -526,19 +542,21 @@
+     for name in sorted(os.listdir(LEVELS)):
+         if not name.startswith('level_'):
+             continue
+-        b = json.load(open(os.path.join(LEVELS, name)))
++        b = load_board(os.path.join(LEVELS, name))
+         if b['source'] != 'recorded' or not any(o['kind'] == 'door' for o in b['obstacles']):
+             continue
+         if only and b['level'] not in only:
+             continue
+         rj = json.load(open(research_file(b)))
+-        bf = json.load(open(os.path.join(APP, 'design', 'tools', 'work', 'reveals', 'L%03d.json' % b['level'])))
++        bf = json.load(open(os.path.join(APP, 'design', 'tools', 'work', 'reveals', 'L%03d.json' % b['_rslot'])))
+         shot_of = {d['order']: d['shot'] for d in bf['doors']}
+         for door in sorted([o for o in b['obstacles'] if o['kind'] == 'door'], key=lambda o: o['order']):
+             hidden = [a for a in b['arrows'] if a.get('hidden_by') == door['id']]
+             shot = os.path.join(APP, 'research', 'bot', 'tmp', shot_of[door['order']])
+             res, vis = prove(b, rj, shot, arrows_override=hidden, region=reveal_region(b, door, None))
+             res.update(door=door['id'], order=door['order'], hidden_arrows=len(hidden), shot=os.path.relpath(shot, APP))
++            if b['_rslot'] != b['level']:
++                res['board'] = LO.label(b)
+             png = os.path.join(out, 'L%03d-%s-reveal-overlay.png' % (b['level'], door['id']))
+             overlay_png(b, res, vis, png)
+             if '--negative' in argv and len(hidden) >= 2:
+@@ -549,8 +567,8 @@
+                                                          caught_by_iou_gate=mres['tol1'] < res['gate'],
+                                                          caught_by_local_check=not (mres['depth_ok'] and mres['coverage_ok'])))
+             rows.append(res)
+-            print('L%03d door %s (order %d) %2d hidden arrows on %s: IoU %.4f tol1 %.4f %s | depth %.1f/%.1f cov %.3f%s' % (
+-                b['level'], door['id'], door['order'], len(hidden), os.path.basename(shot), res['iou'], res['tol1'],
++            print('L%03d%s door %s (order %d) %2d hidden arrows on %s: IoU %.4f tol1 %.4f %s | depth %.1f/%.1f cov %.3f%s' % (
++                b['level'], board_note(b), door['id'], door['order'], len(hidden), os.path.basename(shot), res['iou'], res['tol1'],
+                 'PASS' if res['pass'] else 'FAIL', res['max_missed_depth_px'], res['max_extra_depth_px'],
+                 res['worst_arrow_coverage'], '' if res['depth_ok'] and res['coverage_ok'] else '  LOCAL-FLAG'), flush=True)
+             for nc in res.get('negative_controls', []):
+@@ -578,12 +596,14 @@
+     for name in sorted(os.listdir(LEVELS)):
+         if not name.startswith('level_'):
+             continue
+-        b = json.load(open(os.path.join(LEVELS, name)))
++        b = load_board(os.path.join(LEVELS, name))
+         if b['source'] not in GATE or (only and b['level'] not in only):
+             continue
+         rj = json.load(open(research_file(b)))
+         cap = os.path.join(APP, b['capture'])
+         res, vis = prove(b, rj, cap)
++        if b['_rslot'] != b['level']:
++            res['board'] = LO.label(b)
+         png = os.path.join(out, 'L%03d-overlay.png' % b['level'])
+         overlay_png(b, res, vis, png)
+         pngs.append(png)
+@@ -600,10 +620,10 @@
+                                                      worst_arrow_coverage=mres['worst_arrow_coverage'],
+                                                      caught_by_iou_gate=caught_iou, caught_by_local_check=caught_local))
+         rows.append(res)
+-        print('L%03d %-8s IoU %.4f tol1 %.4f gate %.2f %s | depth %.1f/%.1f px (stroke %.1f) cov %.3f%s' % (
++        print('L%03d %-8s IoU %.4f tol1 %.4f gate %.2f %s | depth %.1f/%.1f px (stroke %.1f) cov %.3f%s%s' % (
+             b['level'], b['source'], res['iou'], res['tol1'], res['gate'], 'PASS' if res['pass'] else 'FAIL',
+             res['max_missed_depth_px'], res['max_extra_depth_px'], res['stroke_px'], res['worst_arrow_coverage'],
+-            '' if res['depth_ok'] and res['coverage_ok'] else '  LOCAL-FLAG'), flush=True)
++            '' if res['depth_ok'] and res['coverage_ok'] else '  LOCAL-FLAG', board_note(b)), flush=True)
+         for nc in res.get('negative_controls', []):
+             print('      negative: %-40s tol1 %.4f  depth %.1f/%.1f cov %.3f -> %s' % (
+                 nc['mutation'], nc['tol1'], nc['max_missed_depth_px'], nc['max_extra_depth_px'], nc['worst_arrow_coverage'],

@@ -1,0 +1,1291 @@
+{
+ "collateral": {},
+ "cultures": {
+  "af": {
+   "blockedDropped": 3,
+   "blockedDroppedSha1": [
+    "68c40e7e",
+    "d0b702ff",
+    "b37a333b"
+   ],
+   "distributions": 14,
+   "n": 600,
+   "persons": 21709,
+   "publishedDropped": 3,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship NG+GH+KE+UG+TZ+ZA+ZW, born 1950-2008",
+   "top10": [
+    "David",
+    "John",
+    "Joseph",
+    "Emmanuel",
+    "Mary",
+    "Charles",
+    "Elizabeth",
+    "James",
+    "Grace",
+    "Daniel"
+   ]
+  },
+  "ar": {
+   "blockedDropped": 5,
+   "blockedDroppedSha1": [
+    "f86197dc",
+    "662a455e",
+    "33abd48b",
+    "338c9edb",
+    "2eaa24fb"
+   ],
+   "distributions": 22,
+   "n": 600,
+   "persons": 20815,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship SA+EG+JO+IQ+MA+DZ+TN+SY+LB+AE+KW, born 1950-2008",
+   "top10": [
+    "محمد",
+    "أحمد",
+    "علي",
+    "خالد",
+    "سارة",
+    "فاطمة",
+    "ليلى",
+    "إبراهيم",
+    "إيمان",
+    "مريم"
+   ]
+  },
+  "az": {
+   "blockedDropped": 7,
+   "blockedDroppedSha1": [
+    "0cb09881",
+    "68c40e7e",
+    "0050138c",
+    "fce22619",
+    "d9314f35",
+    "5f84d013",
+    "87bed148"
+   ],
+   "distributions": 2,
+   "n": 300,
+   "persons": 1657,
+   "publishedDropped": 0,
+   "singlesFilled": 84,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship AZ, born 1950-2008",
+   "top10": [
+    "Sabina",
+    "Yelena",
+    "Anna",
+    "Leyla",
+    "Nigar",
+    "Samir",
+    "Vüqar",
+    "Elçin",
+    "Eldar",
+    "Sevil"
+   ]
+  },
+  "bg": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "5e9bfba5"
+   ],
+   "distributions": 2,
+   "n": 300,
+   "persons": 5134,
+   "publishedDropped": 1,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship BG, born 1950-2008",
+   "top10": [
+    "Георги",
+    "Иван",
+    "Николай",
+    "Димитър",
+    "Александър",
+    "Мария",
+    "Елена",
+    "Владимир",
+    "Мартин",
+    "Мариана"
+   ]
+  },
+  "cs": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "7129fa37"
+   ],
+   "distributions": 2,
+   "n": 505,
+   "persons": 24387,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship CZ, born 1950-2008",
+   "top10": [
+    "Jan",
+    "Petr",
+    "Jiří",
+    "Martin",
+    "Jana",
+    "Tomáš",
+    "Pavel",
+    "Kateřina",
+    "Lucie",
+    "Michal"
+   ]
+  },
+  "de": {
+   "blockedDropped": 3,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "68c40e7e",
+    "8a6d7b08"
+   ],
+   "distributions": 4,
+   "n": 600,
+   "persons": 139551,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship DE+AT, born 1950-2008",
+   "top10": [
+    "Michael",
+    "Thomas",
+    "Andreas",
+    "Christian",
+    "Martin",
+    "Wolfgang",
+    "Barbara",
+    "Stefan",
+    "Julia",
+    "Anna"
+   ]
+  },
+  "easteu": {
+   "n": 83,
+   "source": "v1 (unused by v2 rows)"
+  },
+  "el": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "b76fb7b6"
+   ],
+   "distributions": 4,
+   "n": 395,
+   "persons": 8123,
+   "publishedDropped": 1,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship GR+CY, born 1950-2008",
+   "top10": [
+    "Μαρία",
+    "Γιώργος",
+    "Ανδρέας",
+    "Δημήτρης",
+    "Ελένη",
+    "Νίκος",
+    "Γιάννης",
+    "Άννα",
+    "Σοφία",
+    "Κώστας"
+   ]
+  },
+  "en": {
+   "n": 2478,
+   "source": "SSA (v1 data/given_en.txt), public domain"
+  },
+  "es": {
+   "blockedDropped": 3,
+   "blockedDroppedSha1": [
+    "b74b7042",
+    "8e7d820a",
+    "8a6d7b08"
+   ],
+   "distributions": 8,
+   "n": 600,
+   "persons": 105542,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship ES+MX+AR+CO, born 1950-2008",
+   "top10": [
+    "María",
+    "José",
+    "Carlos",
+    "Juan",
+    "Luis",
+    "Ana",
+    "Laura",
+    "Jorge",
+    "Daniel",
+    "Alejandro"
+   ]
+  },
+  "et": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "15ddf04c"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 17328,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship EE, born 1950-2008",
+   "top10": [
+    "Andres",
+    "Toomas",
+    "Tiina",
+    "Katrin",
+    "Jüri",
+    "Mart",
+    "Peeter",
+    "Mari",
+    "Urmas",
+    "Maria"
+   ]
+  },
+  "fa": {
+   "blockedDropped": 4,
+   "blockedDroppedSha1": [
+    "ff038b80",
+    "c9475ddd",
+    "e449b4e8",
+    "91054e15"
+   ],
+   "distributions": 6,
+   "n": 300,
+   "persons": 7005,
+   "publishedDropped": 1,
+   "singlesFilled": 39,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship IR+AF+TJ, born 1950-2008",
+   "top10": [
+    "محمد",
+    "فاطمه",
+    "علی",
+    "علیشیر",
+    "احمد",
+    "فريدة",
+    "زهرا",
+    "مهدی",
+    "شبنم",
+    "امیر"
+   ]
+  },
+  "fi": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "48dfabdb"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 33751,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship FI, born 1950-2008",
+   "top10": [
+    "Juha",
+    "Mikko",
+    "Antti",
+    "Jukka",
+    "Timo",
+    "Pekka",
+    "Mika",
+    "Jari",
+    "Matti",
+    "Johanna"
+   ]
+  },
+  "fr": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "8e7d820a"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 149670,
+   "publishedDropped": 1,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship FR, born 1950-2008",
+   "top10": [
+    "Philippe",
+    "Isabelle",
+    "Catherine",
+    "Dominique",
+    "Michel",
+    "Sylvie",
+    "Alain",
+    "Nathalie",
+    "Pierre",
+    "Anne"
+   ]
+  },
+  "he": {
+   "blockedDropped": 0,
+   "blockedDroppedSha1": [],
+   "distributions": 2,
+   "n": 600,
+   "persons": 13419,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship IL, born 1950-2008",
+   "top10": [
+    "יעל",
+    "מיכל",
+    "דניאל",
+    "דייוויד",
+    "מאיה",
+    "משה",
+    "ענת",
+    "תמר",
+    "אורי",
+    "שרון"
+   ]
+  },
+  "hr": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "8e7d820a"
+   ],
+   "distributions": 2,
+   "n": 472,
+   "persons": 5572,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship HR, born 1950-2008",
+   "top10": [
+    "Ivan",
+    "Ivana",
+    "Ana",
+    "Marko",
+    "Josip",
+    "Tomislav",
+    "Ante",
+    "Iva",
+    "Petra",
+    "Goran"
+   ]
+  },
+  "hu": {
+   "blockedDropped": 5,
+   "blockedDroppedSha1": [
+    "8a6d7b08",
+    "675abfbd",
+    "10cb4a1e",
+    "292cfa85",
+    "22a576ad"
+   ],
+   "distributions": 2,
+   "n": 558,
+   "persons": 23327,
+   "publishedDropped": 5,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship HU, born 1950-2008",
+   "top10": [
+    "László",
+    "Gábor",
+    "Zoltán",
+    "István",
+    "Tamás",
+    "Katalin",
+    "András",
+    "Ágnes",
+    "Attila",
+    "Éva"
+   ]
+  },
+  "hy": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "fe0aecd7"
+   ],
+   "distributions": 2,
+   "n": 204,
+   "persons": 1726,
+   "publishedDropped": 0,
+   "singlesFilled": 63,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship AM, born 1950-2008",
+   "top10": [
+    "Աննա",
+    "Արթուր",
+    "Կարինե",
+    "Արմեն",
+    "Դավիթ",
+    "Անահիտ",
+    "Արամ",
+    "Աշոտ",
+    "Հայկ",
+    "Կարեն"
+   ]
+  },
+  "id": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "d9314f35"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 5897,
+   "publishedDropped": 5,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship ID, born 1950-2008",
+   "top10": [
+    "Muhammed",
+    "Eddy",
+    "Amir",
+    "Retno",
+    "Ahmad",
+    "Eva",
+    "Farida",
+    "Herman",
+    "Annisa",
+    "Maria"
+   ]
+  },
+  "in": {
+   "blockedDropped": 4,
+   "blockedDroppedSha1": [
+    "0289c2be",
+    "8fbe9331",
+    "8135f79c",
+    "125755e7"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 8762,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship IN, born 1950-2008",
+   "top10": [
+    "Anil",
+    "Rahul",
+    "Neha",
+    "Priya",
+    "Rajesh",
+    "Vijay",
+    "Sunil",
+    "Ashok",
+    "Aditi",
+    "Ajay"
+   ]
+  },
+  "it": {
+   "blockedDropped": 3,
+   "blockedDroppedSha1": [
+    "3b5c0d27",
+    "8e7d820a",
+    "36ef82c7"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 67255,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship IT, born 1950-2008",
+   "top10": [
+    "Marco",
+    "Andrea",
+    "Francesco",
+    "Francesca",
+    "Alessandro",
+    "Paolo",
+    "Maria",
+    "Luca",
+    "Giuseppe",
+    "Stefano"
+   ]
+  },
+  "jp": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "61f1acc6"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 65215,
+   "publishedDropped": 5,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship JP, born 1950-2008",
+   "top10": [
+    "たかし",
+    "ゆうこ",
+    "けいこ",
+    "かおり",
+    "めぐみ",
+    "けんじ",
+    "ともこ",
+    "あきこ",
+    "だいすけ",
+    "こうじ"
+   ]
+  },
+  "ka": {
+   "blockedDropped": 0,
+   "blockedDroppedSha1": [],
+   "distributions": 2,
+   "n": 257,
+   "persons": 2898,
+   "publishedDropped": 1,
+   "singlesFilled": 70,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship GE, born 1950-2008",
+   "top10": [
+    "გიორგი",
+    "ნინო",
+    "ანა",
+    "დავით",
+    "მაია",
+    "ლევან",
+    "მარიამ",
+    "ირაკლი",
+    "ალექსანდრე",
+    "ნანა"
+   ]
+  },
+  "kk": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "4a4bc814"
+   ],
+   "distributions": 2,
+   "n": 300,
+   "persons": 2388,
+   "publishedDropped": 1,
+   "singlesFilled": 99,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship KZ, born 1950-2008",
+   "top10": [
+    "Александр",
+    "Сергей",
+    "Ольга",
+    "Андрей",
+    "Елена",
+    "Евгений",
+    "Алексей",
+    "Дмитрий",
+    "Ирина",
+    "Наталья"
+   ]
+  },
+  "kr": {
+   "blockedDropped": 0,
+   "blockedDroppedSha1": [],
+   "distributions": 2,
+   "n": 600,
+   "persons": 18895,
+   "publishedDropped": 0,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship KR, born 1950-2008",
+   "top10": [
+    "수진",
+    "지현",
+    "지영",
+    "지원",
+    "지연",
+    "유진",
+    "지훈",
+    "소영",
+    "민지",
+    "지은"
+   ]
+  },
+  "lt": {
+   "blockedDropped": 0,
+   "blockedDroppedSha1": [],
+   "distributions": 2,
+   "n": 450,
+   "persons": 5603,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship LT, born 1950-2008",
+   "top10": [
+    "Tomas",
+    "Vytautas",
+    "Eglė",
+    "Dalia",
+    "Rasa",
+    "Mindaugas",
+    "Andrius",
+    "Agnė",
+    "Jonas",
+    "Darius"
+   ]
+  },
+  "lv": {
+   "blockedDropped": 0,
+   "blockedDroppedSha1": [],
+   "distributions": 2,
+   "n": 401,
+   "persons": 4024,
+   "publishedDropped": 3,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship LV, born 1950-2008",
+   "top10": [
+    "Jānis",
+    "Ieva",
+    "Andris",
+    "Ilze",
+    "Anna",
+    "Juris",
+    "Mārtiņš",
+    "Kristīne",
+    "Artūrs",
+    "Edgars"
+   ]
+  },
+  "ms": {
+   "blockedDropped": 5,
+   "blockedDroppedSha1": [
+    "476432a3",
+    "aa6781a2",
+    "99dfd1b3",
+    "0cb09881",
+    "5f84d013"
+   ],
+   "distributions": 4,
+   "n": 300,
+   "persons": 2288,
+   "publishedDropped": 3,
+   "singlesFilled": 52,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship MY+BN, born 1950-2008",
+   "top10": [
+    "Mohd",
+    "Muhammad",
+    "Abdul",
+    "Siti",
+    "Mohammad",
+    "Sarah",
+    "Esther",
+    "Nik",
+    "Maria",
+    "Nina"
+   ]
+  },
+  "nl": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "7971ba9b",
+    "8e7d820a"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 33257,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship NL, born 1950-2008",
+   "top10": [
+    "Jan",
+    "Hans",
+    "Paul",
+    "Jeroen",
+    "Anne",
+    "Henk",
+    "Frank",
+    "Rob",
+    "Esther",
+    "Maria"
+   ]
+  },
+  "nordic": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "732b3561"
+   ],
+   "distributions": 6,
+   "n": 600,
+   "persons": 87167,
+   "publishedDropped": 6,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship SE+NO+DK, born 1950-2008",
+   "top10": [
+    "Lars",
+    "Anna",
+    "Anders",
+    "Anne",
+    "Thomas",
+    "Per",
+    "Maria",
+    "Martin",
+    "Jan",
+    "Henrik"
+   ]
+  },
+  "pl": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "199bf037"
+   ],
+   "distributions": 2,
+   "n": 591,
+   "persons": 40145,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship PL, born 1950-2008",
+   "top10": [
+    "Anna",
+    "Piotr",
+    "Katarzyna",
+    "Andrzej",
+    "Małgorzata",
+    "Krzysztof",
+    "Ewa",
+    "Agnieszka",
+    "Tomasz",
+    "Joanna"
+   ]
+  },
+  "pt": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "937bd951"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 38487,
+   "publishedDropped": 1,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship BR, born 1950-2008",
+   "top10": [
+    "Maria",
+    "José",
+    "Ana",
+    "João",
+    "Antonio",
+    "Carlos",
+    "Paulo",
+    "Marcelo",
+    "Luiz",
+    "Marcos"
+   ]
+  },
+  "ptpt": {
+   "blockedDropped": 3,
+   "blockedDroppedSha1": [
+    "2de5e370",
+    "f715ffaf",
+    "937bd951"
+   ],
+   "distributions": 2,
+   "n": 449,
+   "persons": 10518,
+   "publishedDropped": 6,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship PT, born 1950-2008",
+   "top10": [
+    "Ana",
+    "João",
+    "José",
+    "Pedro",
+    "Maria",
+    "António",
+    "Luís",
+    "Joana",
+    "Paulo",
+    "Miguel"
+   ]
+  },
+  "ro": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "8e7d820a"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 12953,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship RO, born 1950-2008",
+   "top10": [
+    "Maria",
+    "Alexandru",
+    "Adrian",
+    "Elena",
+    "Cristina",
+    "Andrei",
+    "Mihaela",
+    "Mihai",
+    "Andreea",
+    "Alexandra"
+   ]
+  },
+  "ru": {
+   "blockedDropped": 5,
+   "blockedDroppedSha1": [
+    "4a4bc814",
+    "66ae3212",
+    "5e9bfba5",
+    "196792a3",
+    "fab81321"
+   ],
+   "distributions": 4,
+   "n": 586,
+   "persons": 51090,
+   "publishedDropped": 6,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship RU+BY, born 1950-2008",
+   "top10": [
+    "Александр",
+    "Сергей",
+    "Ольга",
+    "Андрей",
+    "Анна",
+    "Анастасия",
+    "Владимир",
+    "Алёна",
+    "Дмитрий",
+    "Алексей"
+   ]
+  },
+  "sea": {
+   "n": 81,
+   "source": "v1 (unused by v2 rows)"
+  },
+  "sk": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "2de5e370"
+   ],
+   "distributions": 2,
+   "n": 341,
+   "persons": 6957,
+   "publishedDropped": 3,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship SK, born 1950-2008",
+   "top10": [
+    "Zuzana",
+    "Martin",
+    "Katarína",
+    "Jana",
+    "Ján",
+    "Michal",
+    "Lucia",
+    "Tomáš",
+    "Jozef",
+    "Mária"
+   ]
+  },
+  "sl": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "f9ff8e6e"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 14878,
+   "publishedDropped": 5,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship SI, born 1950-2008",
+   "top10": [
+    "Marko",
+    "Andrej",
+    "Mojca",
+    "Maja",
+    "Janez",
+    "Barbara",
+    "Alenka",
+    "Ana",
+    "Mateja",
+    "Tomaž"
+   ]
+  },
+  "sq": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "48d0ca34"
+   ],
+   "distributions": 4,
+   "n": 449,
+   "persons": 2409,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship AL+XK, born 1950-2008",
+   "top10": [
+    "Arben",
+    "Alban",
+    "Agnesa",
+    "Dafina",
+    "Donika",
+    "Marigona",
+    "Arta",
+    "Albina",
+    "Edona",
+    "Nora"
+   ]
+  },
+  "sr": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "cee85f06",
+    "8e7d820a"
+   ],
+   "distributions": 2,
+   "n": 406,
+   "persons": 6877,
+   "publishedDropped": 4,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship RS, born 1950-2008",
+   "top10": [
+    "Jelena",
+    "Marko",
+    "Ana",
+    "Aleksandar",
+    "Nikola",
+    "Ivana",
+    "Milan",
+    "Miloš",
+    "Marija",
+    "Vladimir"
+   ]
+  },
+  "th": {
+   "blockedDropped": 133,
+   "blockedDroppedSha1": [
+    "ba5abc8a",
+    "2dbeeafd",
+    "92c7f680",
+    "0756ef35",
+    "a18d21ab",
+    "bf15d064",
+    "14265294",
+    "4ddf1e0e",
+    "d449bc2e",
+    "b69554fa",
+    "b27d73b9",
+    "295e2138"
+   ],
+   "distributions": 2,
+   "n": 590,
+   "persons": 4928,
+   "publishedDropped": 6,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: Thai persons' own labels (first word)",
+   "top10": [
+    "วิทยา",
+    "อดิศักดิ์",
+    "ณัฐพล",
+    "ศุภชัย",
+    "สมศักดิ์",
+    "สุรศักดิ์",
+    "ณัฐวุฒิ",
+    "อานนท์",
+    "จักรพันธ์",
+    "มงคล"
+   ]
+  },
+  "tl": {
+   "blockedDropped": 11,
+   "blockedDroppedSha1": [
+    "8e7d820a",
+    "8a6d7b08",
+    "f715ffaf",
+    "4d8515bb",
+    "77357f5b",
+    "7971ba9b",
+    "12280ae6",
+    "d8fd5389",
+    "3b5c0d27",
+    "937bd951",
+    "a644d112"
+   ],
+   "distributions": 2,
+   "n": 590,
+   "persons": 3702,
+   "publishedDropped": 5,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship PH, born 1950-2008",
+   "top10": [
+    "Maria",
+    "Mark",
+    "John",
+    "Jose",
+    "Michael",
+    "Anna",
+    "Mary",
+    "Ana",
+    "Francis",
+    "Antonio"
+   ]
+  },
+  "tr": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "87bed148",
+    "bf069076"
+   ],
+   "distributions": 2,
+   "n": 600,
+   "persons": 27120,
+   "publishedDropped": 0,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship TR, born 1950-2008",
+   "top10": [
+    "Mehmet",
+    "Ali",
+    "Ahmet",
+    "Mustafa",
+    "Zeynep",
+    "Ayşe",
+    "Deniz",
+    "Asli",
+    "Murat",
+    "Elif"
+   ]
+  },
+  "uk": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "2bf9d713"
+   ],
+   "distributions": 2,
+   "n": 308,
+   "persons": 18992,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship UA, born 1950-2008",
+   "top10": [
+    "Олександр",
+    "Сергій",
+    "Наталія",
+    "Володимир",
+    "Ольга",
+    "Ігор",
+    "Ірина",
+    "Андрій",
+    "Олена",
+    "Юрій"
+   ]
+  },
+  "ur": {
+   "blockedDropped": 6,
+   "blockedDroppedSha1": [
+    "68c40e7e",
+    "aa6781a2",
+    "3caa8d27",
+    "39fba407",
+    "7cc51e20",
+    "0cb09881"
+   ],
+   "distributions": 4,
+   "n": 340,
+   "persons": 2432,
+   "publishedDropped": 3,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship PK+BD, born 1950-2008",
+   "top10": [
+    "Mohammad",
+    "Muhammad",
+    "Ali",
+    "Syed",
+    "Ahmed",
+    "Sadia",
+    "İmran",
+    "Sara",
+    "Abdul",
+    "Nadia"
+   ]
+  },
+  "uz": {
+   "blockedDropped": 2,
+   "blockedDroppedSha1": [
+    "20042b03",
+    "6606e29c"
+   ],
+   "distributions": 2,
+   "n": 300,
+   "persons": 891,
+   "publishedDropped": 1,
+   "singlesFilled": 150,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship UZ, born 1950-2008",
+   "top10": [
+    "Oleg",
+    "Sergey",
+    "Svetlana",
+    "Aleksandr",
+    "Ruslan",
+    "Vladimir",
+    "Elena",
+    "Irina",
+    "Olga",
+    "Alisher"
+   ]
+  },
+  "vi": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "f43c809a"
+   ],
+   "distributions": 2,
+   "n": 300,
+   "persons": 2945,
+   "publishedDropped": 0,
+   "singlesFilled": 67,
+   "source": "Wikidata CC0: Vietnamese persons' own labels (last word)",
+   "top10": [
+    "Anh",
+    "Phương",
+    "Thủy",
+    "Thanh",
+    "Linh",
+    "Hà",
+    "Dũng",
+    "Vân",
+    "Hương",
+    "Sơn"
+   ]
+  },
+  "zh": {
+   "blockedDropped": 1,
+   "blockedDroppedSha1": [
+    "2249952d"
+   ],
+   "distributions": 8,
+   "n": 600,
+   "persons": 9950,
+   "publishedDropped": 2,
+   "singlesFilled": 0,
+   "source": "Wikidata CC0: P735 first given name of humans with citizenship CN+TW+HK+SG, born 1950-2008",
+   "top10": [
+    "米歇尔",
+    "张张",
+    "阿蘭",
+    "马修",
+    "杰茜卡",
+    "丹尼尔",
+    "埃里克",
+    "萊恩",
+    "文森特",
+    "珍妮"
+   ]
+  }
+ },
+ "invented": {
+  "removedByPublishedList": 39,
+  "removedByRoot": 382,
+  "removedByStem": 16,
+  "removedByTokenStemAtAnEdge": 128,
+  "roots": 3,
+  "rootsSha1": [
+   "7c308c6e",
+   "8bcac5da",
+   "d8f45903"
+  ],
+  "v1": 40000,
+  "v2": 39435
+ },
+ "promoted": {
+  "count": 1,
+  "dictwordFalseFriends": 1,
+  "sha1": [
+   "0b348585"
+  ]
+ },
+ "publishedScreen": {
+  "entriesUsedInside": 1293,
+  "entriesUsedWhole": 2133,
+  "files": {
+   "ar": {
+    "entries": 38,
+    "used": 38
+   },
+   "cs": {
+    "entries": 41,
+    "used": 39
+   },
+   "da": {
+    "entries": 20,
+    "used": 20
+   },
+   "de": {
+    "entries": 66,
+    "used": 66
+   },
+   "en": {
+    "entries": 403,
+    "used": 274
+   },
+   "es": {
+    "entries": 68,
+    "used": 58
+   },
+   "fa": {
+    "entries": 45,
+    "used": 36
+   },
+   "fi": {
+    "entries": 130,
+    "used": 122
+   },
+   "fil": {
+    "entries": 14,
+    "used": 10
+   },
+   "fr": {
+    "entries": 91,
+    "used": 79
+   },
+   "hi": {
+    "entries": 119,
+    "used": 78
+   },
+   "hu": {
+    "entries": 96,
+    "used": 96
+   },
+   "it": {
+    "entries": 168,
+    "used": 157
+   },
+   "ja": {
+    "entries": 180,
+    "used": 163
+   },
+   "ko": {
+    "entries": 72,
+    "used": 72
+   },
+   "nl": {
+    "entries": 190,
+    "used": 163
+   },
+   "no": {
+    "entries": 40,
+    "used": 38
+   },
+   "pl": {
+    "entries": 54,
+    "used": 44
+   },
+   "pt": {
+    "entries": 76,
+    "used": 63
+   },
+   "ru": {
+    "entries": 151,
+    "used": 91
+   },
+   "sv": {
+    "entries": 43,
+    "used": 39
+   },
+   "th": {
+    "entries": 31,
+    "used": 29
+   },
+   "tr": {
+    "entries": 142,
+    "used": 126
+   },
+   "zh": {
+    "entries": 319,
+    "used": 289
+   }
+  },
+  "languages": 24,
+  "present": true,
+  "source": "LDNOOBW (CC BY 4.0), build-time screen only, never shipped"
+ },
+ "short": [
+  "hy",
+  "ka"
+ ]
+}

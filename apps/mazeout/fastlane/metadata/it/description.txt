@@ -1,0 +1,32 @@
+Tocca una freccia e scivolerà fuori dal tabellone lungo il suo percorso, se niente la blocca. Libera tutte le frecce prima che scada il tempo.
+
+Arrow Out è un rompicapo veloce e pulito, contro il tempo. I tabelloni hanno le forme più diverse e sono pieni di frecce, e ogni freccia può andare solo nella direzione in cui punta. Trova l'ordine giusto, conserva i cuori e batti il cronometro.
+
+COME SI GIOCA
+• Tocca una freccia per farla uscire nella sua direzione.
+• Se qualcosa le sbarra la strada, rimbalza indietro e perdi un cuore.
+• Libera tutto il tabellone prima che scada il tempo e vinci monete.
+
+FACILE DA INIZIARE, DIFFICILE DA SMETTERE
+• 150 livelli per cominciare, poi nuovi tabelloni arrivano di continuo: non finiscono mai.
+• I livelli Difficili e Super difficili danno più monete.
+• Gli ostacoli arrivano uno alla volta, ognuno con una breve spiegazione: frecce collegate, scatole, tubi, ascensori, porte e chiavi, angoli.
+
+BOOST PER I MOMENTI DIFFICILI
+• Un boost ferma il cronometro per 10 secondi.
+• Un altro ti mostra una freccia che può muoversi.
+
+QUALCOSA DI NUOVO OGNI SETTIMANA
+Gli eventi settimanali vanno e vengono: tieni viva una serie di vittorie, scala una torre dei premi, lancia un razzo, salta nel cielo o sali in mongolfiera fino in cima. Torna ogni settimana per scoprire le novità.
+
+UNA SENSAZIONE PIACEVOLE
+• Animazioni fluide e un feedback aptico preciso a ogni tocco.
+• Niente pubblicità, niente account.
+• Gioca offline: non serve il Wi-Fi per giocare.
+• Le vite si ricaricano col tempo, quindi c'è sempre un'altra partita.
+
+ACQUISTI IN-APP
+Arrow Out è gratis. Gli acquisti in-app facoltativi offrono pacchetti di monete e bundle con monete, boost e ore di vite infinite. I prezzi sono mostrati nella tua valuta prima dell'acquisto.
+
+Privacy: https://leomarston.github.io/manycode-legal/privacy-arrow-out.html
+Termini d'uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

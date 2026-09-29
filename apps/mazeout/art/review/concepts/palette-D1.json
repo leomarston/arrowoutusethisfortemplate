@@ -1,0 +1,44 @@
+{
+ "today": {
+  "ssim": 0.9279105792095791,
+  "overlap": 0.8790595547475049,
+  "thumb_px": [
+   98,
+   212
+  ],
+  "chrome": {
+   "n": 6,
+   "median": 2.1040184073941113,
+   "min": 0.635651405880811,
+   "per_region": {
+    "pause.close": 1.8,
+    "pause.card": 5.0,
+    "pause.toggleKnob": 0.6,
+    "pause.bumperTL": 4.5,
+    "pause.field.l": 1.8,
+    "pause.bar.bottom": 2.4
+   }
+  }
+ },
+ "mock": {
+  "ssim": 0.9150626614069024,
+  "overlap": 0.6538322282004385,
+  "thumb_px": [
+   98,
+   212
+  ],
+  "chrome": {
+   "n": 6,
+   "median": 25.77258538679023,
+   "min": 1.822182658059505,
+   "per_region": {
+    "pause.close": 1.8,
+    "pause.card": 11.1,
+    "pause.toggleKnob": 33.5,
+    "pause.bumperTL": 23.8,
+    "pause.field.l": 27.8,
+    "pause.bar.bottom": 31.9
+   }
+  }
+ }
+}

@@ -1,0 +1,342 @@
+{
+  "zoom": {
+    "min": 0.786,
+    "minPitch": 14.036,
+    "maxPitch": 28.07,
+    "bounces": true
+  },
+  "pan": {
+    "slackPt": 120,
+    "bounces": true,
+    "limit": "centreInGrid",
+    "deceleration": "normal"
+  },
+  "input": {
+    "slopPt": 10,
+    "hitRadiusPt": 22,
+    "tieBreak": "rightThenDown",
+    "tieTolerancePt": 1.0,
+    "tieTolerancePitch": 0.03
+  },
+  "combo": {
+    "ladder": [
+      "solid",
+      "solid",
+      "violet",
+      "rainbow"
+    ]
+  },
+  "color": {
+    "ink": "#000000",
+    "exit": "#FF8F1F",
+    "marked": "#EE0A13",
+    "dot": "#FFDDB0",
+    "hint": "#00DE00"
+  },
+  "rainbow": {
+    "palette": [
+      "#FF6500",
+      "#FFCE01",
+      "#9DE600",
+      "#37E500",
+      "#00E100",
+      "#00D3AF",
+      "#00C1FF",
+      "#4079FF",
+      "#8D5FFF",
+      "#BC4BF3",
+      "#FF2FC6",
+      "#FF5A85"
+    ],
+    "periodCells": 4.2,
+    "driftDegPerS": 0
+  },
+  "exit": {
+    "colourRamp": 0.09,
+    "v0": 7.67,
+    "vmax": 73.86,
+    "tau": 0.353,
+    "keyframeStep": 0.016667,
+    "farOutsetOfScreen": 0.25,
+    "leftBoardAt": "lastCell",
+    "tapMotionLead": 0.016666666666666666
+  },
+  "ripple": {
+    "times": [
+      0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.233
+    ],
+    "radiusPt": [
+      11,
+      14.5,
+      18,
+      20.5,
+      22,
+      22.5
+    ],
+    "coreLum": [
+      180,
+      199,
+      220,
+      237,
+      248,
+      250
+    ],
+    "ringLum": [
+      232,
+      233,
+      236,
+      243,
+      248,
+      250
+    ],
+    "coreRadiusPt": 8,
+    "coreFirstRadiusPt": 9.5,
+    "pool": 6
+  },
+  "load": {
+    "prepBudgetMs": 1.0
+  },
+  "vignette": {
+    "alpha": 0.42,
+    "decayPt": 27,
+    "hold": 0.035,
+    "total": 0.33,
+    "stopsPt": [
+      0,
+      5,
+      10,
+      20,
+      30,
+      45,
+      70,
+      90
+    ],
+    "stopsAlpha": [
+      0.42,
+      0.37,
+      0.31,
+      0.22,
+      0.16,
+      0.08,
+      0.02,
+      0
+    ]
+  },
+  "bump": {
+    "outBase": 0.075,
+    "outPerCell": 0.025,
+    "hold": 0,
+    "back": 0.14,
+    "redFrom": 0.017,
+    "redTo": 0.12,
+    "blockerRedFrom": 0.02,
+    "blockerRedTo": 0.12,
+    "blockerBlackAt": 0.33,
+    "badgePitch": 1.0,
+    "badgeInFrom": 0.017,
+    "badgeInTo": 0.12,
+    "badgeHoldTo": 0.33,
+    "badgeOutTo": 0.43,
+    "badgeScaleIn": 1.4,
+    "badgeScaleOut": 0.5,
+    "badgeFill": "#F62631",
+    "badgeOutline": "#7A0A10",
+    "obstacleTintAlpha": 0.6
+  },
+  "stageGap": 0.7,
+  "warmup": {
+    "speed": 20
+  },
+  "spriteCache": {
+    "capMB": 48
+  },
+  "perf": {
+    "hitchMs": 20
+  },
+  "layout": {
+    "playTop": 122,
+    "playBottomGap": 97
+  },
+  "arrow": {
+    "cornerFillet": 0.125,
+    "tailExtend": 0.03,
+    "strokeSnapPx": true,
+    "head": {
+      "width": 0.61,
+      "corner": 0.047,
+      "horizontal": {
+        "base": -0.22,
+        "tip": 0.375
+      },
+      "up": {
+        "base": -0.33,
+        "tip": 0.27
+      },
+      "down": {
+        "base": -0.13,
+        "tip": 0.47
+      }
+    }
+  },
+  "intro": {
+    "zoomFrom": 1.49,
+    "zoomDuration": 1.35,
+    "drawBase": 0.32,
+    "drawPerCell": 0.0216,
+    "drawStartFraction": [
+      0.1,
+      0.3
+    ],
+    "ackAt": 1.015,
+    "ftueAckAt": 0.36
+  },
+  "probe": {
+    "hz": 4
+  },
+  "violet": {
+    "palette": [
+      "#01ACFD",
+      "#3972FF",
+      "#7B3CFC",
+      "#B908FE",
+      "#7B3CFC",
+      "#3972FF"
+    ],
+    "periodCells": 3.75
+  },
+  "stars": {
+    "perCell": 2.4,
+    "sizePitch": 0.3,
+    "sizeRangePitch": 0.08,
+    "jitterPitch": 0.25,
+    "life": 0.4,
+    "endScale": 0.4,
+    "spinDegPerS": 90,
+    "solidColors": [
+      "#F27A12",
+      "#FFD68A"
+    ]
+  },
+  "dots": {
+    "mode": "static"
+  },
+  "stage": {
+    "dotsFadeFrom": 0.12,
+    "dotsFade": 0.56
+  },
+  "clearWave": {
+    "frontDuration": 0.45,
+    "total": 0.5,
+    "envelope": [
+      0,
+      0,
+      0.05,
+      1,
+      0.15,
+      1,
+      0.4,
+      0
+    ],
+    "trailFraction": 0.15
+  },
+  "key": {
+    "detachAt": 0.23,
+    "sagPitch": 0.48,
+    "sagDur": 0.08,
+    "wobbleDeg": 15,
+    "floatPitch": 2.3,
+    "floatDur": 0.22,
+    "diveGPitch": 357,
+    "diveMin": 0.16,
+    "diveMax": 0.4,
+    "insertDur": 0.15,
+    "insertScale": 0.7,
+    "turnGap": 0.08,
+    "turnDur": 0.1,
+    "turnDeg": 90,
+    "flashDur": 0.216,
+    "flashPitch": 0.9
+  },
+  "pipe": {
+    "breakAfterLeave": 0.05
+  },
+  "counter": {
+    "popScale": 1.0,
+    "popDur": 0
+  },
+  "elevator": {
+    "doorsAt": 0.02,
+    "doorsDur": 0.3,
+    "tintFrom": 0.55,
+    "frameFadeAt": 0.3,
+    "frameFadeDur": 0.15
+  },
+  "corner": {
+    "pressLead": 0.012,
+    "pressDur": 0.016,
+    "push": -0.093,
+    "holdEnd": -0.105,
+    "releaseAfterTail": 0.010,
+    "peak": [0.063, 0.079],
+    "trough": [0.124, -0.030],
+    "restAt": 0.229,
+    "pivot": -0.98,
+    "springLen": 0.694
+  },
+  "shards": {
+    "door": {
+      "count": 60,
+      "g": 1000,
+      "life": 0.9,
+      "fadeFrom": 0.65,
+      "vyMin": -90,
+      "vyMax": -10,
+      "vxMin": 20,
+      "vxMax": 90,
+      "spin": 360
+    },
+    "pipe": {
+      "count": 40,
+      "g": 1000,
+      "life": 1.4,
+      "fadeFrom": 1.0,
+      "vyMin": -220,
+      "vyMax": -80,
+      "vxMax": 140,
+      "spin": 300
+    },
+    "box": {
+      "count": 140,
+      "g": 1275,
+      "life": 0.67,
+      "fadeFrom": 0.35,
+      "vxMin": 60,
+      "vxMax": 180,
+      "spin": 240
+    }
+  },
+  "hint": {
+    "cameraDelay": 0.05,
+    "cameraDur": 0.8,
+    "cameraCurve": [
+      0.25,
+      0.1,
+      0.25,
+      1.0
+    ],
+    "blink": [
+      1.03,
+      0.2,
+      0.13,
+      0.17,
+      0.38,
+      0.19
+    ],
+    "returnDur": 0.5
+  }
+}

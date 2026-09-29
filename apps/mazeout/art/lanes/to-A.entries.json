@@ -1,0 +1,267 @@
+{
+ "version": 1,
+ "title": "to-A lane (round 4): the cheapest Round-4 candidates of art/REVIEW.md taken to A; see art/lanes/to-A.md",
+ "entries": [
+  {
+   "id": "iconStopwatchFrozen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "the HUD stopwatch iced over while the freeze booster runs (snow cap over the crown, snow collar + two icicles under the ring)",
+   "screen": "level HUD (freeze booster)",
+   "size_pt": [
+    34,
+    50
+   ],
+   "size_px": [
+    102,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconStopwatchFrozen",
+   "file": "art/ui/out/iconStopwatchFrozen@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     90.45,
+     72.4,
+     124.45,
+     122.4
+    ],
+    "anchor_pt": [
+     107.35,
+     95.4
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 31 x 33; the icicles hang to y 120 so the frame is 34 x 50. Frame top-left = hud.stopwatch origin + (-2.25, -5.3) pt (meta-065: the iced watch sits ~1 pt HIGHER than on 003); ring centre at frame (16.9, 23.0). SELF-GRADE B+: the capture's snow cap is lumpier and a touch taller over the right; icicles match.",
+   "anchor_pt": [
+    16.9,
+    23.0
+   ]
+  },
+  {
+   "id": "rankWings1",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-rocket",
+   "purpose": "gold winged rank badge of the race leader (the '1' is live text)",
+   "screen": "Rocket Race page, win-panel race bar",
+   "size_pt": [
+    52,
+    38
+   ],
+   "size_px": [
+    156,
+    114
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:rankWings1",
+   "file": "art/ui/out/rankWings1@3x.png",
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     13.5,
+     338.5,
+     65.5,
+     376.5
+    ],
+    "anchor_pt": [
+     39.85,
+     357.2
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: badge centre at frame (26.35, 18.7) pt = where the live '1' goes (white, outline #800100). 171 race bar: frame top-left (308.3, 713.8). LIVE TEXT: the '1' (white, outline #800100, ~20 pt) centred at frame (26.35, 18.5). SELF-GRADE B+: the capture's wings are a little taller at the outer end.",
+   "text_live": true,
+   "anchor_pt": [
+    26.35,
+    18.7
+   ]
+  },
+  {
+   "id": "iconCheck",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "big glossy lime check (Claw done cards, Sky Jump won stage)",
+   "screen": "Claw Challenge, Sky Jump",
+   "size_pt": [
+    60,
+    54
+   ],
+   "size_px": [
+    180,
+    162
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheck",
+   "file": "art/ui/out/iconCheck@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-039-claw-screen.png",
+    "box_pt": [
+     211.8,
+     738.2,
+     271.8,
+     792.2
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 54 x 46 (the ink is 55.7 x 47.4 + shadow). Claw card: frame top-left (211.8, 738.2); Sky Jump stage tile (096): the same art at 0.75 (ink 42 x 35.7 at (73.7, 462.0)). SELF-GRADE B+: the capture's extruded side is a little deeper along the lower-left arm; also fits 096 at 0.755."
+  },
+  {
+   "id": "iconCheckBadge",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "flat green check badge on the selected avatar tile (Edit Profile)",
+   "screen": "Edit Profile",
+   "size_pt": [
+    40,
+    34
+   ],
+   "size_px": [
+    120,
+    102
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheckBadge",
+   "file": "art/ui/out/iconCheckBadge@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     115.0,
+     392.6,
+     155.0,
+     426.6
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: a flatter drawing than iconCheck (thick dark outline + inner light contour, no extrusion), so its own id (SPEC-ui 4.2 had it as an iconCheck size). Frame top-left (115.0, 392.6) = selected tile (67.4, 339.6) + (47.6, 53.0). SELF-GRADE B+: the capture's badge overlaps the tile frame with a slightly thicker dark outline."
+  },
+  {
+   "id": "iconSkyDrum",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "the Sky Jump pad drum on its own (Profile 'Sky Jump Wins' stat icon)",
+   "screen": "Profile (General Stats)",
+   "size_pt": [
+    57,
+    52
+   ],
+   "size_px": [
+    171,
+    156
+   ],
+   "source": "art/ui/recipes/m3d_events.py:iconSkyDrum",
+   "file": "art/ui/out/iconSkyDrum@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     28,
+     538.5,
+     85,
+     590.5
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the scene lane's pad model (read-only) at a lower camera + a cyan glow under the foot. Frame top-left (28, 538.5) (SPEC-ui 2.14.1 stat icon 57 x 52 overlapping the pill's left end). SELF-GRADE B+: the phone's drum shows a touch more of the top cushion."
+  },
+  {
+   "id": "fxFrostVignette",
+   "family": "3d",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "full-screen frost frame of the hourglass (freeze) booster: streaky cyan ice at the edges, a translucent white haze inward, thin white ice cracks, sparkles and tiny snowflakes; transparent middle",
+   "screen": "Level screen while the freeze runs",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/m3d_fx.py:fxFrostVignette",
+   "file": "art/ui/out/fxFrostVignette@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: painted in code (value noise + random-walk cracks; no 3D model), built by m3d_make. SPEC-ui 4.2 proposed a code vignette (A) + a 120 pt crack tile (B2, the missing-svg lane's frostCracks); this one full-screen raster reproduces 065 in one texture and ALREADY CONTAINS cracks along every edge: use it ALONE, or the code vignette + frostCracks, never both. Draw it between the board and the HUD (065: the HUD and boosters stay crisp above the frost); fade in/out per SPEC-motion-audio. SELF-GRADE B: the phone's ice band is a little more saturated at the sides and its crack pattern denser in the corners. DIRECTOR R3 RULING: this overlay ships alone (frostCracks is not shipped). Draw it full-screen (.resizable, fill) between the board and the HUD while the freeze runs.",
+   "full_bleed": true
+  },
+  {
+   "id": "boxRing",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the Box's counter ring: silver sphere with four stubby lugs, purple ring, navy well (the counter is live text in the well); a FIXED size (2.2 pitch across the sphere + lugs)",
+   "screen": "level board (counter levels)",
+   "source": "art/ui/src/gen_board.py:boxRing",
+   "file": "art/ui/out/boxRing@3x.png",
+   "ref": {
+    "shot": "research/shots/135-L050-start.png",
+    "box_pt": [
+     165,
+     615,
+     228,
+     680
+    ],
+    "pitch_pt": 28.07
+   },
+   "status": "done",
+   "owner": "pipeline",
+   "pitch_pt": 32,
+   "text_live": true,
+   "notes": "director r2: centred on the block (anchor = frame centre = block centre); the engine scales it by pitch/32 like the slab (round 1's crate grew the sphere with the block: a 10 x 9 box got a huge sphere). Every box in levels.json is >= 3 cells on each side, so the fixed size always fits. Counter text: white, purple outline #4B1F86, ~0.8 pitch.",
+   "size_pt": [
+    76,
+    76
+   ],
+   "size_px": [
+    228,
+    228
+   ]
+  },
+  {
+   "id": "navHome",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "orange house/garage nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    80,
+    86
+   ],
+   "size_px": [
+    240,
+    258
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navHome",
+   "file": "art/ui/out/navHome@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     157,
+     730,
+     237,
+     816
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud; director r2: 66x66 -> 80x86 (026's raised Home icon is 74 x 82 pt: round 1 was 0.7x), wider body, thicker arch / eaves / door frame / corner blocks, deeper orange (orangeHouse). Frame top-left (157, 730) pt."
+  }
+ ]
+}

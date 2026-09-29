@@ -1,0 +1,25 @@
+    4.240 tap (174.7,465.3) gap  -1.00s  cyan  801 violet    0 magenta    0 warm    0 green    0 -> cyan
+    4.840 tap (216.8,464.5) gap   0.60s  cyan   45 violet  414 magenta   27 warm  135 green    9 -> rainbow
+    8.000 tap (259.0,376.0) gap   3.16s  cyan  369 violet    0 magenta    0 warm    0 green    0 -> cyan
+    8.560 tap (169.5,497.9) gap   0.56s  cyan  945 violet    0 magenta    0 warm    0 green    0 -> cyan
+    9.040 tap (230.1,401.8) gap   0.48s  cyan  486 violet  378 magenta    0 warm    0 green    0 -> cyan
+    9.440 tap (231.5,431.8) gap   0.40s  cyan  108 violet    9 magenta  117 warm  477 green  171 -> rainbow
+    9.800 tap (196.4,462.1) gap   0.36s  cyan   63 violet   54 magenta  108 warm  225 green  261 -> rainbow
+   10.040 tap (244.3,465.3) gap   0.24s  cyan   63 violet    9 magenta   27 warm  207 green  225 -> rainbow
+   12.440 tap (316.0,334.0) gap   2.40s  cyan  441 violet    0 magenta    0 warm    0 green    0 -> cyan
+   13.480 tap (285.5,533.4) gap   1.04s  cyan 1062 violet  252 magenta    0 warm    0 green    0 -> cyan
+   13.800 tap (301.7,483.7) gap   0.32s  cyan  522 violet  387 magenta    0 warm    0 green    0 -> cyan
+   14.800 tap ( 78.6,559.5) gap   1.00s  cyan  297 violet   27 magenta  198 warm  774 green  234 -> rainbow
+   15.640 tap (162.9,529.0) gap   0.84s  cyan   81 violet   72 magenta  495 warm  909 green  225 -> rainbow
+   16.560 tap (105.6,390.4) gap   0.92s  cyan   99 violet   27 magenta  279 warm  351 green  333 -> rainbow
+   19.480 tap (325.1,405.2) gap   2.92s  cyan  702 violet    0 magenta    0 warm    0 green    0 -> cyan
+   21.200 tap (123.0,347.9) gap   1.72s  cyan  531 violet    0 magenta    0 warm    0 green    0 -> cyan
+   21.800 tap (115.3,517.2) gap   0.60s  cyan 1503 violet    0 magenta    0 warm    0 green    0 -> cyan
+   22.200 tap (264.2,547.5) gap   0.40s  cyan  855 violet  639 magenta  171 warm  423 green  342 -> rainbow
+   22.440 tap (288.4,602.1) gap   0.24s  cyan  207 violet  144 magenta  108 warm  405 green  225 -> rainbow
+   22.840 tap (244.5,500.8) gap   0.40s  cyan  324 violet   45 magenta  279 warm 1224 green  756 -> rainbow
+   23.040 tap (227.5,487.2) gap   0.20s  cyan   72 violet   27 magenta  342 warm  900 green  549 -> rainbow
+   23.440 tap (317.2,382.0) gap   0.40s  cyan  189 violet  108 magenta  315 warm  387 green  288 -> rainbow
+   23.720 tap (249.0,283.0) gap   0.28s  cyan  108 violet  234 magenta  171 warm  396 green  288 -> rainbow
+   23.960 tap (141.0,256.0) gap   0.24s  cyan  639 violet  261 magenta   45 warm 1044 green   18 -> rainbow
+   24.120 tap (  4.5,709.0) gap   0.16s  cyan    0 violet 6327 magenta    0 warm    0 green    0 -> violet

@@ -1,0 +1,458 @@
+{
+ "version": 1,
+ "title": "missing-3d lane entries (SPEC-ui 4.2 unbuilt 3D-route ids: shop bundle art, Rocket Race offer scene + stage planets, the 069 far-right island, the Sky Jump drum icon, the Weekly Contest lettering, the freeze frost overlay); builder art/ui/recipes/m3d_make.py (BUILDS in m3d_shop.py / m3d_events.py / m3d_fx.py); log art/lanes/missing-3d.md",
+ "entries": [
+  {
+   "id": "bundleSpecial",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Special Offer card art: the 1 000 coin pile with glints (the 1 000 tile's pile drawn 1.23x)",
+   "screen": "Shop (Special Offer card)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleSpecial",
+   "file": "art/ui/out/bundleSpecial@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     16,
+     200,
+     192,
+     302
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: frame top-left (16, 200) on the Special card (card top 190.2); pile x 58-158, y 236-282 in the frame's shot coords. Same stacks + two big coins on edge as meta-012 (our arrangement). SELF-GRADE B: the left coin on edge faces more to the right than the phone's; the phone's glints are warmer/bigger."
+  },
+  {
+   "id": "bundleBag",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Mini Bundle art: a crimson coin sack tied with a rope on a lavender base, coin stacks either side",
+   "screen": "Shop (bundle card 1: Mini)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleBag",
+   "file": "art/ui/out/bundleBag@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     16,
+     480.4,
+     192,
+     582.4
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleBag. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the rope ends hang straighter and the rolled rim is thinner than the phone's; the coins in the mouth sit a little lower."
+  },
+  {
+   "id": "bundleBarrel",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Epic Bundle art: a crimson stave barrel with a lavender hoop, broken open at the front, coins spilling out, stacks either side, a broken stave",
+   "screen": "Shop (bundle card 2: Epic)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleBarrel",
+   "file": "art/ui/out/bundleBarrel@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     150.8,
+     192,
+     252.8
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2 proposed 'bundleChestRed' for Epic, but the phone's Epic art (meta-008) is a BARREL, so the id names what is drawn. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the phone's barrel is squatter with fatter staves; its spill is fewer, bigger coins."
+  },
+  {
+   "id": "bundleChest",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Elite Bundle ('Popular') art: an open crimson chest with lavender trim and a pink gem latch, heaped with coins, stacks either side",
+   "screen": "Shop (bundle card 3: Elite)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleChest",
+   "file": "art/ui/out/bundleChest@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     354.6,
+     192,
+     456.6
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2 proposed 'bundleChestPurple' for Elite; the phone's Elite art is a RED chest with lavender trim (meta-008). Built from the scene lane's chest model (scene_events.chest, read-only) stretched to 96 x 45 pt. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B-: the phone's lid is a lavender-framed barrel thrown back with the gem on its front edge; ours reads flatter and more frontal."
+  },
+  {
+   "id": "bundleSafe",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Mega Bundle art: a lavender safe with its wheel door swung open, coins pouring out, stacks at the right",
+   "screen": "Shop (bundle card 4: Mega)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleSafe",
+   "file": "art/ui/out/bundleSafe@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     558.1,
+     192,
+     660.1
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleSafe. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the phone shows the door's outer wheel face-on at the far left; ours shows the door edge-on with the bolts."
+  },
+  {
+   "id": "bundleCart",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Legendary Bundle ('Best Value') art: a crimson plank cart with lavender posts and a spoked wheel under a huge coin heap spilling to the ground",
+   "screen": "Shop (bundle card 5: Legendary)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleCart",
+   "file": "art/ui/out/bundleCart@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-010-shop-scroll3.png",
+    "box_pt": [
+     16,
+     156.1,
+     192,
+     258.1
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleCart. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B-: the phone's heap is a tall pyramid of big coins facing the viewer; ours is a wider mound of smaller coins with a bulge at the right."
+  },
+  {
+   "id": "rocketOfferScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "Rocket Race offer popup field: starry sky, banded planet, lilac moon, the gold/teal chest on its rock in a coin hoard with a red heart, a pink cloud bank below",
+   "screen": "Rocket Race offer popup (163 / 189)",
+   "size_pt": [
+    330,
+    504
+   ],
+   "size_px": [
+    990,
+    1512
+   ],
+   "source": "art/ui/recipes/m3d_events.py:rocketOfferScene",
+   "file": "art/out/rocketOfferScene@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     32,
+     188,
+     362,
+     692
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 2.17.1 'build from the rocketRaceBackdrop models' -- the rock, gold chest, coin hoard and heart are scene_events' models (read-only) + our coin mound; sky, moon, planet and clouds painted in code. Frame top-left (32, 188): full-bleed under the PanelFrame's field (its rim hides the edges). The stage strip, prize bubble, timer, logo and Start sit on top (UI). SELF-GRADE B: the phone's hoard sits higher on a visible bluish rock slab and its coins are brighter; its clouds are softer.",
+   "full_bleed": true
+  },
+  {
+   "id": "skyJumpIslandFar2",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "069's upper-right Sky Jump island (the purple-chest variant, further away and hazier)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    144,
+    132
+   ],
+   "size_px": [
+    432,
+    396
+   ],
+   "source": "art/ui/recipes/m3d_events.py:skyJumpIslandFar2",
+   "file": "art/out/skyJumpIslandFar2@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     213,
+     214,
+     357,
+     346
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the scene lane's island_farR + chest_purple models (read-only), framed from higher (pitch 34), a smaller chest set back, 34 % aerial haze. Frame top-left (213, 214) on the Sky Jump screen, drawn between skyJumpBackdrop and the pads. SELF-GRADE B: the phone's island is heaped with more coin stacks round the chest; its lower tier is paler."
+  },
+  {
+   "id": "iconSkyDrum",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "the Sky Jump pad drum on its own (Profile 'Sky Jump Wins' stat icon)",
+   "screen": "Profile (General Stats)",
+   "size_pt": [
+    57,
+    52
+   ],
+   "size_px": [
+    171,
+    156
+   ],
+   "source": "art/ui/recipes/m3d_events.py:iconSkyDrum",
+   "file": "art/ui/out/iconSkyDrum@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     28,
+     538.5,
+     85,
+     590.5
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the scene lane's pad model (read-only) at a lower camera + a cyan glow under the foot. Frame top-left (28, 538.5) (SPEC-ui 2.14.1 stat icon 57 x 52 overlapping the pill's left end). SELF-GRADE B+: the phone's drum shows a touch more of the top cushion."
+  },
+  {
+   "id": "planetStage1",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 1 planet (lilac / teal marbled bands)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    60,
+    60
+   ],
+   "size_px": [
+    180,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage1",
+   "file": "art/ui/out/planetStage1@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     62,
+     427,
+     122,
+     487
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: NOT in SPEC-ui 4.2's list, but 2.17.1 / 2.17.2 draw three planets on the stage tiles and in the tutorial. Painted in code (ours). Frame top-left (62, 427) on 163. SELF-GRADE B-: the phone's bands are broader and more contrasted (deep purple / magenta / teal / white), ours are finer and paler."
+  },
+  {
+   "id": "planetStage2",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 2 planet (pink-red banded)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    60,
+    60
+   ],
+   "size_px": [
+    180,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage2",
+   "file": "art/ui/out/planetStage2@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     165,
+     427,
+     225,
+     487
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: as planetStage1; frame top-left (165, 427). SELF-GRADE B-: as planetStage1 (the phone's white band is wider)."
+  },
+  {
+   "id": "planetStage3",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 3 planet (blue with a tilted cyan ring)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    104,
+    60
+   ],
+   "size_px": [
+    312,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage3",
+   "file": "art/ui/out/planetStage3@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     247,
+     427,
+     351,
+     487
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: as planetStage1; frame top-left (247, 427); the ring passes behind the planet at the upper left and in front at the lower right. SELF-GRADE B-: the phone's ring is thicker and glassier."
+  },
+  {
+   "id": "weeklyContestLogo",
+   "family": "3d",
+   "route": "B2",
+   "group": "leaderboard",
+   "purpose": "'Weekly Contest' event lettering (EN): yellow 'Weekly' + white 'Contest' in a blue outline with a cyan rim and a blue extrusion",
+   "screen": "Leaderboard (Weekly tab), Weekly Contest info",
+   "size_pt": [
+    277,
+    54
+   ],
+   "size_px": [
+    831,
+    162
+   ],
+   "source": "art/ui/recipes/m3d_events.py:weeklyContestLogo",
+   "file": "art/ui/out/weeklyContestLogo@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     60,
+     193.5,
+     337,
+     247.5
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2 lists it as B1 (a SwiftUI EventLogo with live text). Built here as a raster PER LANGUAGE (this EN file + weeklyContestLogoTR) from the game's OFL font (design/fonts/PCDisplay-Black.ttf, per-char tracking -0.9 pt) with the measured layer stack -- the lettering is the art, like logoArrowOut. If the shell prefers live text, the layer recipe (m3d_events.build_weekly_logo) ports 1:1 to a SwiftUI EventLogo. Frame 277 x 54 (SPEC-ui said 50: the 'y' descender + outline + extrusion reach y 245) at (60, 193.5). SELF-GRADE B: the phone's letters are a rounder, taller-x-height face; ours are PC Display."
+  },
+  {
+   "id": "weeklyContestLogoTR",
+   "family": "3d",
+   "route": "B2",
+   "group": "leaderboard",
+   "purpose": "'Haftalık Yarışma' event lettering (TR variant of weeklyContestLogo)",
+   "screen": "Leaderboard (Weekly tab), Weekly Contest info",
+   "size_pt": [
+    277,
+    54
+   ],
+   "size_px": [
+    831,
+    162
+   ],
+   "source": "art/ui/recipes/m3d_events.py:weeklyContestLogoTR",
+   "file": "art/ui/out/weeklyContestLogoTR@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     60,
+     193.5,
+     337,
+     247.5
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the TR file of weeklyContestLogo ('Haftalık' yellow + 'Yarışma' white, strings.tsv weekly.title), auto-shrunk to fit the same frame (SPEC-ui 14, min 0.7; here 0.93). The shell picks the file by the app language."
+  },
+  {
+   "id": "fxFrostVignette",
+   "family": "3d",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "full-screen frost frame of the hourglass (freeze) booster: streaky cyan ice at the edges, a translucent white haze inward, thin white ice cracks, sparkles and tiny snowflakes; transparent middle",
+   "screen": "Level screen while the freeze runs",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/m3d_fx.py:fxFrostVignette",
+   "file": "art/ui/out/fxFrostVignette@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "done",
+   "owner": "missing-3d",
+   "notes": "missing-3d: painted in code (value noise + random-walk cracks; no 3D model), built by m3d_make. SPEC-ui 4.2 proposed a code vignette (A) + a 120 pt crack tile (B2, the missing-svg lane's frostCracks); this one full-screen raster reproduces 065 in one texture and ALREADY CONTAINS cracks along every edge: use it ALONE, or the code vignette + frostCracks, never both. Draw it between the board and the HUD (065: the HUD and boosters stay crisp above the frost); fade in/out per SPEC-motion-audio. SELF-GRADE B: the phone's ice band is a little more saturated at the sides and its crack pattern denser in the corners.",
+   "full_bleed": true
+  }
+ ]
+}

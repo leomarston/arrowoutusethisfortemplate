@@ -1,0 +1,236 @@
+{
+ "paused": {
+  "text": "Paused",
+  "face_top": "#FFFFFF",
+  "face_mid": "#FFFFFF",
+  "face_bottom": "#FFFFFF",
+  "outline_top": "#7B1D01",
+  "outline_bottom": "#7B1D01",
+  "width_top_px": 6.0,
+  "width_bottom_px": 15.07,
+  "width_left_px": 5.41,
+  "width_right_px": 5.46,
+  "n": [
+   425,
+   101
+  ],
+  "side_mean_px": 5.62,
+  "bottom_extra_px": 9.45
+ },
+ "on_sound": {
+  "text": "ON",
+  "face_top": "#FFFCED",
+  "face_mid": "#FEF7E4",
+  "face_bottom": "#FDF3DC",
+  "outline_top": "#066A01",
+  "outline_bottom": "#066A01",
+  "width_top_px": 2.73,
+  "width_bottom_px": 6.01,
+  "width_left_px": 3.52,
+  "width_right_px": 2.72,
+  "n": [
+   86,
+   47
+  ],
+  "side_mean_px": 2.99,
+  "bottom_extra_px": 3.02
+ },
+ "on_haptic": {
+  "text": "ON",
+  "face_top": "#FFFCED",
+  "face_mid": "#FEF7E4",
+  "face_bottom": "#FDF3DC",
+  "outline_top": "#066A01",
+  "outline_bottom": "#066A01",
+  "width_top_px": 2.75,
+  "width_bottom_px": 5.96,
+  "width_left_px": 3.43,
+  "width_right_px": 2.72,
+  "n": [
+   86,
+   46
+  ],
+  "side_mean_px": 2.97,
+  "bottom_extra_px": 2.99
+ },
+ "resume": {
+  "text": "Resume",
+  "face_top": "#FFFCED",
+  "face_mid": "#FEF9E8",
+  "face_bottom": "#FDF4DD",
+  "outline_top": "#066A01",
+  "outline_bottom": "#066A01",
+  "width_top_px": 3.36,
+  "width_bottom_px": 7.45,
+  "width_left_px": 3.94,
+  "width_right_px": 5.51,
+  "n": [
+   268,
+   59
+  ],
+  "side_mean_px": 4.27,
+  "bottom_extra_px": 3.18
+ },
+ "quit": {
+  "text": "Quit",
+  "face_top": "#FFFCED",
+  "face_mid": "#FEF8E6",
+  "face_bottom": "#FDF4DC",
+  "outline_top": "#650000",
+  "outline_bottom": "#650000",
+  "width_top_px": 3.82,
+  "width_bottom_px": 8.62,
+  "width_left_px": 5.08,
+  "width_right_px": 4.32,
+  "n": [
+   168,
+   68
+  ],
+  "side_mean_px": 4.41,
+  "bottom_extra_px": 4.21
+ },
+ "level_tab": {
+  "text": "Level 32",
+  "face_top": "#FFF9EF",
+  "face_mid": "#FFF4E0",
+  "face_bottom": "#FFEDCB",
+  "outline_top": "#003691",
+  "outline_bottom": "#002985",
+  "width_top_px": 1.66,
+  "width_bottom_px": 4.14,
+  "width_left_px": 1.96,
+  "width_right_px": 2.21,
+  "n": [
+   171,
+   39
+  ],
+  "side_mean_px": 1.94,
+  "bottom_extra_px": 2.2
+ },
+ "play": {
+  "text": "Play",
+  "face_top": "#F1FFF2",
+  "face_mid": "#F1FFF2",
+  "face_bottom": "#F1FFF2",
+  "outline_top": "#066A01",
+  "outline_bottom": "#066A01",
+  "width_top_px": 5.68,
+  "width_bottom_px": 13.19,
+  "width_left_px": 6.49,
+  "width_right_px": 7.59,
+  "n": [
+   268,
+   134
+  ],
+  "side_mean_px": 6.59,
+  "bottom_extra_px": 6.6
+ },
+ "LEVEL": {
+  "text": "LEVEL",
+  "face_top": "#FFFFFF",
+  "face_mid": "#FFFFFF",
+  "face_bottom": "#FFFFFF",
+  "outline_top": "#093198",
+  "outline_bottom": "#093198",
+  "width_top_px": 1.37,
+  "width_bottom_px": 4.73,
+  "width_left_px": 3.01,
+  "width_right_px": 2.98,
+  "n": [
+   103,
+   29
+  ],
+  "side_mean_px": 2.45,
+  "bottom_extra_px": 2.28
+ },
+ "num32": {
+  "text": "32",
+  "face_top": "#FFFFFF",
+  "face_mid": "#FFFFFF",
+  "face_bottom": "#FFFFFF",
+  "outline_top": "#088500",
+  "outline_bottom": "#059D01",
+  "width_top_px": 14.57,
+  "width_bottom_px": 16.68,
+  "width_left_px": 17.16,
+  "width_right_px": 17.19,
+  "n": [
+   94,
+   67
+  ],
+  "side_mean_px": 16.31,
+  "bottom_extra_px": 0.37
+ },
+ "home": {
+  "text": "Home",
+  "face_top": "#FFFFFF",
+  "face_mid": "#FFFFFF",
+  "face_bottom": "#FFFFFF",
+  "outline_top": "#16388C",
+  "outline_bottom": "#16388C",
+  "width_top_px": 2.8,
+  "width_bottom_px": 4.69,
+  "width_left_px": 3.02,
+  "width_right_px": 3.02,
+  "n": [
+   111,
+   32
+  ],
+  "side_mean_px": 2.95,
+  "bottom_extra_px": 1.74
+ },
+ "loading": {
+  "text": "Loading",
+  "face_top": "#CCCCCC",
+  "face_mid": "#CCCCCC",
+  "face_bottom": "#CCCCCC",
+  "outline_top": "#681E1A",
+  "outline_bottom": "#681E1A",
+  "width_top_px": 2.45,
+  "width_bottom_px": 3.8,
+  "width_left_px": 2.87,
+  "width_right_px": 2.57,
+  "n": [
+   262,
+   72
+  ],
+  "side_mean_px": 2.63,
+  "bottom_extra_px": 1.17
+ },
+ "s_beat": {
+  "text": "Beat levels without fail to get more rewards!",
+  "face_top": "#FFFDFA",
+  "face_mid": "#FFF7E7",
+  "face_bottom": "#FFEFD0",
+  "outline_top": "#022880",
+  "outline_bottom": "#022880",
+  "width_top_px": 3.04,
+  "width_bottom_px": 8.24,
+  "width_left_px": 3.06,
+  "width_right_px": 3.21,
+  "n": [
+   1005,
+   52
+  ],
+  "side_mean_px": 3.1,
+  "bottom_extra_px": 5.14
+ },
+ "s_x10": {
+  "text": "x10",
+  "face_top": "#FFFDFA",
+  "face_mid": "#FFF6E6",
+  "face_bottom": "#FFEFD0",
+  "outline_top": "#68FC41",
+  "outline_bottom": "#005100",
+  "width_top_px": 16.55,
+  "width_bottom_px": 9.23,
+  "width_left_px": 5.21,
+  "width_right_px": 4.18,
+  "n": [
+   162,
+   76
+  ],
+  "side_mean_px": 8.65,
+  "bottom_extra_px": 0.58
+ }
+}

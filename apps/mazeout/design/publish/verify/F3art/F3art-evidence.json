@@ -1,0 +1,147 @@
+{
+ "lane": "F3-art (render lane; no simulator, no xcodebuild, App/** untouched)",
+ "date": "2026-09-29",
+ "files": {
+  "art/out/eventBadgeBalloon@3x.png": {
+   "md5_before": "973dec8dbb77870711ea2786e8a3c744",
+   "md5_after": "ab8c2e83843fba21f4b15a05ca089ed0",
+   "changed": true,
+   "size_before": [
+    138,
+    138
+   ],
+   "size_after": [
+    138,
+    138
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/badge_upaway_rig/balloon@3x.png": {
+   "md5_before": "4b6c62db0883a4285dcaeab7f63be5fe",
+   "md5_after": "cc38a13892348c440f167a962d772344",
+   "changed": true,
+   "size_before": [
+    64,
+    99
+   ],
+   "size_after": [
+    64,
+    99
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/badge_upaway_rig/body@3x.png": {
+   "md5_before": "98ab644674033bd302129192b5ff8b8e",
+   "md5_after": "98ab644674033bd302129192b5ff8b8e",
+   "changed": false,
+   "size_before": [
+    128,
+    116
+   ],
+   "size_after": [
+    128,
+    116
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/badge_upaway_rig/rig.json": {
+   "md5_before": "4ba6bbbd23d3c3fc016665c4557f1dea",
+   "md5_after": "4ba6bbbd23d3c3fc016665c4557f1dea",
+   "changed": false
+  },
+  "art/out/badge_upaway_rig/motion.json": {
+   "md5_before": "8a767ada97f06e90c318c5fc9bd8ab94",
+   "md5_after": "8a767ada97f06e90c318c5fc9bd8ab94",
+   "changed": false
+  },
+  "art/out/char_boss_home_rig/armR@3x.png": {
+   "md5_before": "d6f17361243d22a01abdfbd773ce1b8d",
+   "md5_after": "d72abe33677f04aa0ca759779b99493f",
+   "changed": true,
+   "size_before": [
+    154,
+    166
+   ],
+   "size_after": [
+    154,
+    166
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/char_boss_home_rig/armR_point@3x.png": {
+   "md5_before": "91621368955f6dd42cc7dcfba3e51c66",
+   "md5_after": "69742d2c891322972ce995e9147a2504",
+   "changed": true,
+   "size_before": [
+    154,
+    236
+   ],
+   "size_after": [
+    154,
+    236
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/char_boss_home_rig/rig.json": {
+   "md5_before": "3a96eed487419b967c2dc684e814ff3b",
+   "md5_after": "3a96eed487419b967c2dc684e814ff3b",
+   "changed": false
+  },
+  "art/out/char_boss_home@3x.png": {
+   "md5_before": "c3d52e384af3a50eba5b38ce665c820f",
+   "md5_after": "eed97d94722e60b6d4f461cb9a737107",
+   "changed": true,
+   "size_before": [
+    570,
+    492
+   ],
+   "size_after": [
+    570,
+    492
+   ],
+   "mode_before": "RGBA",
+   "mode_after": "RGBA"
+  },
+  "art/out/char_boss_home.json": {
+   "md5_before": "d54ef161f9d83b01b456353ff70a5378",
+   "md5_after": "d54ef161f9d83b01b456353ff70a5378",
+   "changed": false
+  }
+ },
+ "contract": {
+  "badge": "frame 46x46 pt, layer names body/balloon, rect_pt, the 'basket' pivot and motion.json identical; body@3x.png, rig.json, motion.json byte-identical; the full image recomposes from the layers (max 0.043/255 premultiplied)",
+  "boss": "rig.json, char_boss_home.json (eyeMid/neck) byte-identical; layer / group / pivot names, placement, frame and every file's px size unchanged; only the pixels of armR, armR_point and the full render change"
+ },
+ "rest_recompose": {
+  "test": "Tests/ShellTests.swift testPuppetRestPoseRecomposesTheFullRender bound mean <= 1.0/255 (measured here in Python, premultiplied RGBA bytes)",
+  "shipped_before": "mean |d| 0.073/255, 0.000 % bytes > 40",
+  "after": "mean |d| 0.071/255, 0.000 % bytes > 40",
+  "unpatched_full_would_be": "mean |d| 1.336/255 (FAILS the bound) -- hence the full render follows the occluded arm in 3,799 px"
+ },
+ "gates": {
+  "badge": "design/publish/verify/F3art/G4a-badge-upaway.json (kind art: PASS 3/3 crops; R8's shipped token FAILED 2/3)",
+  "badge_crop_sweep": "design/publish/verify/F3art/G4a-badge-upaway-cropsweep.json (150 shifted/scaled crops of theirs: after max SSIM 0.326, 9 fail; before max 0.321, 6 fail -- the residual is the kept hex-plate composition, not the balloon)",
+  "boss": "design/publish/verify/F3art/G4a-home-boss-lever.json (kind art crops unchanged or lower; PASS)"
+ },
+ "provenance_scan": "the 5 changed PNGs: chunks IHDR/IDAT/IEND only; 0 hits of maze/grand/v552/v582/research/phone/recorded/video/arrowjam",
+ "manifest_check": "349 entries, 0 failing (build/p/F3art/logs/manifest_check.log)",
+ "render_peaks_mb": {
+  "badge_b6.log": 43,
+  "badge_hero6.log": 264,
+  "badge_recipe.log": 42,
+  "home_compose.log": 63,
+  "lever_armR_point_stk.log": 500,
+  "lever_armR_st.log": 933,
+  "lever_armR_stk.log": 1096
+ },
+ "render_cap_mb": 2500,
+ "review": [
+  "build/p/F3art/review/F3-badge.png",
+  "build/p/F3art/review/F3-lever.png"
+ ]
+}

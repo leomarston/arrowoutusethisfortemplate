@@ -1,0 +1,933 @@
+{
+ "rule": "",
+ "pairs": [
+  {
+   "a": "V1-L011",
+   "b": "V2-L011",
+   "score": 1.0,
+   "identical": 14,
+   "arrows": [
+    14,
+    14
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L012",
+   "b": "V2-L012",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L012",
+   "b": "phone-L051",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L013",
+   "b": "V2-L013",
+   "score": 1.0,
+   "identical": 33,
+   "arrows": [
+    33,
+    33
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L014",
+   "b": "V2-L014",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L014",
+   "b": "phone-L052",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L015",
+   "b": "V2-L015",
+   "score": 1.0,
+   "identical": 48,
+   "arrows": [
+    48,
+    48
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L016",
+   "b": "V2-L016",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L017",
+   "b": "V2-L017",
+   "score": 1.0,
+   "identical": 54,
+   "arrows": [
+    54,
+    54
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L018",
+   "b": "V2-L018",
+   "score": 1.0,
+   "identical": 22,
+   "arrows": [
+    22,
+    22
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L019",
+   "b": "V2-L019",
+   "score": 1.0,
+   "identical": 62,
+   "arrows": [
+    62,
+    62
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V1-L020",
+   "b": "V2-L020",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V2-L012",
+   "b": "phone-L051",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V2-L014",
+   "b": "phone-L052",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V2-L021",
+   "b": "phone-L035",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  },
+  {
+   "a": "V2-L026",
+   "b": "phone-L045",
+   "score": 1.0,
+   "identical": 26,
+   "arrows": [
+    26,
+    26
+   ],
+   "shift": [
+    0,
+    0
+   ]
+  }
+ ],
+ "best": {
+  "V1-L011": {
+   "partner": "V2-L011",
+   "score": 1.0,
+   "identical": 14,
+   "arrows": [
+    14,
+    14
+   ]
+  },
+  "V2-L011": {
+   "partner": "V1-L011",
+   "score": 1.0,
+   "identical": 14,
+   "arrows": [
+    14,
+    14
+   ]
+  },
+  "V1-L012": {
+   "partner": "V2-L012",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ]
+  },
+  "V2-L012": {
+   "partner": "V1-L012",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ]
+  },
+  "phone-L051": {
+   "partner": "V1-L012",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ]
+  },
+  "V1-L013": {
+   "partner": "V2-L013",
+   "score": 1.0,
+   "identical": 33,
+   "arrows": [
+    33,
+    33
+   ]
+  },
+  "V2-L013": {
+   "partner": "V1-L013",
+   "score": 1.0,
+   "identical": 33,
+   "arrows": [
+    33,
+    33
+   ]
+  },
+  "V1-L014": {
+   "partner": "V2-L014",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ]
+  },
+  "V2-L014": {
+   "partner": "V1-L014",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ]
+  },
+  "phone-L052": {
+   "partner": "V1-L014",
+   "score": 1.0,
+   "identical": 15,
+   "arrows": [
+    15,
+    15
+   ]
+  },
+  "V1-L015": {
+   "partner": "V2-L015",
+   "score": 1.0,
+   "identical": 48,
+   "arrows": [
+    48,
+    48
+   ]
+  },
+  "V2-L015": {
+   "partner": "V1-L015",
+   "score": 1.0,
+   "identical": 48,
+   "arrows": [
+    48,
+    48
+   ]
+  },
+  "V1-L016": {
+   "partner": "V2-L016",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ]
+  },
+  "V2-L016": {
+   "partner": "V1-L016",
+   "score": 1.0,
+   "identical": 24,
+   "arrows": [
+    24,
+    24
+   ]
+  },
+  "V1-L017": {
+   "partner": "V2-L017",
+   "score": 1.0,
+   "identical": 54,
+   "arrows": [
+    54,
+    54
+   ]
+  },
+  "V2-L017": {
+   "partner": "V1-L017",
+   "score": 1.0,
+   "identical": 54,
+   "arrows": [
+    54,
+    54
+   ]
+  },
+  "V1-L018": {
+   "partner": "V2-L018",
+   "score": 1.0,
+   "identical": 22,
+   "arrows": [
+    22,
+    22
+   ]
+  },
+  "V2-L018": {
+   "partner": "V1-L018",
+   "score": 1.0,
+   "identical": 22,
+   "arrows": [
+    22,
+    22
+   ]
+  },
+  "V1-L019": {
+   "partner": "V2-L019",
+   "score": 1.0,
+   "identical": 62,
+   "arrows": [
+    62,
+    62
+   ]
+  },
+  "V2-L019": {
+   "partner": "V1-L019",
+   "score": 1.0,
+   "identical": 62,
+   "arrows": [
+    62,
+    62
+   ]
+  },
+  "V1-L020": {
+   "partner": "V2-L020",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ]
+  },
+  "V2-L020": {
+   "partner": "V1-L020",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ]
+  },
+  "V2-L021": {
+   "partner": "phone-L035",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ]
+  },
+  "phone-L035": {
+   "partner": "V2-L021",
+   "score": 1.0,
+   "identical": 20,
+   "arrows": [
+    20,
+    20
+   ]
+  },
+  "V2-L026": {
+   "partner": "phone-L045",
+   "score": 1.0,
+   "identical": 26,
+   "arrows": [
+    26,
+    26
+   ]
+  },
+  "phone-L045": {
+   "partner": "V2-L026",
+   "score": 1.0,
+   "identical": 26,
+   "arrows": [
+    26,
+    26
+   ]
+  },
+  "V2-L034": {
+   "partner": "V1-L017",
+   "score": 0.093,
+   "identical": 5,
+   "arrows": [
+    54,
+    40
+   ]
+  },
+  "V1-L003": {
+   "partner": "phone-L050",
+   "score": 0.062,
+   "identical": 1,
+   "arrows": [
+    8,
+    16
+   ]
+  },
+  "phone-L050": {
+   "partner": "V1-L003",
+   "score": 0.062,
+   "identical": 1,
+   "arrows": [
+    8,
+    16
+   ]
+  },
+  "V2-L024": {
+   "partner": "phone-L032",
+   "score": 0.057,
+   "identical": 3,
+   "arrows": [
+    37,
+    53
+   ]
+  },
+  "phone-L032": {
+   "partner": "V2-L024",
+   "score": 0.057,
+   "identical": 3,
+   "arrows": [
+    37,
+    53
+   ]
+  },
+  "V1-L008": {
+   "partner": "V2-L011",
+   "score": 0.053,
+   "identical": 1,
+   "arrows": [
+    19,
+    14
+   ]
+  },
+  "V1-L001": {
+   "partner": "V2-L034",
+   "score": 0.05,
+   "identical": 2,
+   "arrows": [
+    3,
+    40
+   ]
+  },
+  "V1-L002": {
+   "partner": "V2-L021",
+   "score": 0.05,
+   "identical": 1,
+   "arrows": [
+    6,
+    20
+   ]
+  },
+  "V1-L007": {
+   "partner": "V2-L021",
+   "score": 0.05,
+   "identical": 1,
+   "arrows": [
+    18,
+    20
+   ]
+  },
+  "phone-L033": {
+   "partner": "V1-L007",
+   "score": 0.05,
+   "identical": 1,
+   "arrows": [
+    18,
+    20
+   ]
+  },
+  "V2-L023": {
+   "partner": "phone-L061",
+   "score": 0.049,
+   "identical": 2,
+   "arrows": [
+    41,
+    39
+   ]
+  },
+  "phone-L061": {
+   "partner": "V2-L023",
+   "score": 0.049,
+   "identical": 2,
+   "arrows": [
+    41,
+    39
+   ]
+  },
+  "phone-L057": {
+   "partner": "V1-L001",
+   "score": 0.048,
+   "identical": 2,
+   "arrows": [
+    3,
+    42
+   ]
+  },
+  "phone-L038": {
+   "partner": "V2-L023",
+   "score": 0.048,
+   "identical": 2,
+   "arrows": [
+    41,
+    42
+   ]
+  },
+  "V1-L005": {
+   "partner": "V2-L012",
+   "score": 0.042,
+   "identical": 1,
+   "arrows": [
+    17,
+    24
+   ]
+  },
+  "phone-L055": {
+   "partner": "V1-L018",
+   "score": 0.042,
+   "identical": 2,
+   "arrows": [
+    22,
+    48
+   ]
+  },
+  "V2-L030": {
+   "partner": "V1-L002",
+   "score": 0.04,
+   "identical": 1,
+   "arrows": [
+    6,
+    25
+   ]
+  },
+  "V2-L028": {
+   "partner": "V1-L007",
+   "score": 0.039,
+   "identical": 2,
+   "arrows": [
+    18,
+    51
+   ]
+  },
+  "V1-L004": {
+   "partner": "phone-L043",
+   "score": 0.037,
+   "identical": 1,
+   "arrows": [
+    8,
+    27
+   ]
+  },
+  "phone-L043": {
+   "partner": "V1-L004",
+   "score": 0.037,
+   "identical": 1,
+   "arrows": [
+    8,
+    27
+   ]
+  },
+  "V1-L009": {
+   "partner": "V2-L016",
+   "score": 0.037,
+   "identical": 1,
+   "arrows": [
+    27,
+    24
+   ]
+  },
+  "phone-L058": {
+   "partner": "V1-L016",
+   "score": 0.037,
+   "identical": 1,
+   "arrows": [
+    24,
+    27
+   ]
+  },
+  "V2-L031": {
+   "partner": "V1-L011",
+   "score": 0.036,
+   "identical": 1,
+   "arrows": [
+    14,
+    28
+   ]
+  },
+  "phone-L046": {
+   "partner": "V1-L015",
+   "score": 0.036,
+   "identical": 2,
+   "arrows": [
+    48,
+    56
+   ]
+  },
+  "V2-L037": {
+   "partner": "phone-L046",
+   "score": 0.036,
+   "identical": 2,
+   "arrows": [
+    55,
+    56
+   ]
+  },
+  "V2-L035": {
+   "partner": "phone-L032",
+   "score": 0.035,
+   "identical": 2,
+   "arrows": [
+    57,
+    53
+   ]
+  },
+  "V2-L032": {
+   "partner": "V1-L005",
+   "score": 0.034,
+   "identical": 1,
+   "arrows": [
+    17,
+    29
+   ]
+  },
+  "V1-L006": {
+   "partner": "V2-L012",
+   "score": 0.034,
+   "identical": 1,
+   "arrows": [
+    29,
+    24
+   ]
+  },
+  "V2-L022": {
+   "partner": "V1-L006",
+   "score": 0.034,
+   "identical": 1,
+   "arrows": [
+    29,
+    29
+   ]
+  },
+  "phone-L047": {
+   "partner": "V1-L006",
+   "score": 0.034,
+   "identical": 1,
+   "arrows": [
+    29,
+    29
+   ]
+  },
+  "phone-L041": {
+   "partner": "V2-L022",
+   "score": 0.034,
+   "identical": 1,
+   "arrows": [
+    29,
+    27
+   ]
+  },
+  "phone-L053": {
+   "partner": "V1-L006",
+   "score": 0.033,
+   "identical": 1,
+   "arrows": [
+    29,
+    30
+   ]
+  },
+  "phone-L036": {
+   "partner": "V1-L016",
+   "score": 0.032,
+   "identical": 1,
+   "arrows": [
+    24,
+    31
+   ]
+  },
+  "V2-L029": {
+   "partner": "phone-L057",
+   "score": 0.03,
+   "identical": 2,
+   "arrows": [
+    67,
+    42
+   ]
+  },
+  "phone-L060": {
+   "partner": "V1-L001",
+   "score": 0.029,
+   "identical": 1,
+   "arrows": [
+    3,
+    34
+   ]
+  },
+  "V2-L038": {
+   "partner": "V1-L004",
+   "score": 0.029,
+   "identical": 1,
+   "arrows": [
+    8,
+    34
+   ]
+  },
+  "V2-L033": {
+   "partner": "V1-L006",
+   "score": 0.028,
+   "identical": 1,
+   "arrows": [
+    29,
+    36
+   ]
+  },
+  "V2-L036": {
+   "partner": "V1-L006",
+   "score": 0.028,
+   "identical": 1,
+   "arrows": [
+    29,
+    36
+   ]
+  },
+  "V2-L027": {
+   "partner": "V1-L002",
+   "score": 0.025,
+   "identical": 1,
+   "arrows": [
+    6,
+    40
+   ]
+  },
+  "phone-L040": {
+   "partner": "V1-L018",
+   "score": 0.024,
+   "identical": 1,
+   "arrows": [
+    22,
+    42
+   ]
+  },
+  "phone-L042": {
+   "partner": "V1-L001",
+   "score": 0.022,
+   "identical": 1,
+   "arrows": [
+    3,
+    45
+   ]
+  },
+  "phone-L048": {
+   "partner": "V1-L001",
+   "score": 0.021,
+   "identical": 1,
+   "arrows": [
+    3,
+    47
+   ]
+  },
+  "V1-L010": {
+   "partner": "V2-L013",
+   "score": 0.021,
+   "identical": 1,
+   "arrows": [
+    47,
+    33
+   ]
+  },
+  "phone-L049": {
+   "partner": "V1-L006",
+   "score": 0.017,
+   "identical": 1,
+   "arrows": [
+    29,
+    59
+   ]
+  },
+  "phone-L056": {
+   "partner": "V1-L012",
+   "score": 0.017,
+   "identical": 1,
+   "arrows": [
+    24,
+    60
+   ]
+  },
+  "V2-L025": {
+   "partner": "V1-L008",
+   "score": 0.016,
+   "identical": 1,
+   "arrows": [
+    19,
+    61
+   ]
+  },
+  "phone-L037": {
+   "partner": "V2-L025",
+   "score": 0.016,
+   "identical": 1,
+   "arrows": [
+    61,
+    14
+   ]
+  },
+  "phone-L054": {
+   "partner": "V1-L006",
+   "score": 0.014,
+   "identical": 1,
+   "arrows": [
+    29,
+    72
+   ]
+  },
+  "phone-L034": {
+   "partner": "V1-L006",
+   "score": 0.013,
+   "identical": 1,
+   "arrows": [
+    29,
+    76
+   ]
+  },
+  "phone-L059": {
+   "partner": "V1-L005",
+   "score": 0.012,
+   "identical": 1,
+   "arrows": [
+    17,
+    85
+   ]
+  },
+  "phone-L044": {
+   "partner": "V1-L005",
+   "score": 0.011,
+   "identical": 1,
+   "arrows": [
+    17,
+    91
+   ]
+  },
+  "phone-L039": {
+   "partner": "V1-L005",
+   "score": 0.01,
+   "identical": 1,
+   "arrows": [
+    17,
+    102
+   ]
+  }
+ }
+}

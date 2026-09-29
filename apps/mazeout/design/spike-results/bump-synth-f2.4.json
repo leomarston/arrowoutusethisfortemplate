@@ -1,0 +1,37 @@
+{
+  "appInit_ms_since_process_start" : 213.53805065155029,
+  "arrows" : 304,
+  "buildMs" : 1.5386666636914015,
+  "bump" : {
+    "arrow" : 125,
+    "contactTime_s" : 0.11720720219551997,
+    "contactTravel_pt" : 42.19459279038719
+  },
+  "bumpCandidates" : {
+    "all" : 251,
+    "gap>=3" : 2
+  },
+  "cells" : 873,
+  "firstFrame_ms_since_process_start" : 400.6190299987793,
+  "footprintMB_afterBuild" : 22.0380859375,
+  "footprintMB_now" : 22.4599609375,
+  "greedy_rounds" : 14,
+  "greedy_stuck" : 0,
+  "grid" : "40x40",
+  "layers_afterBuild" : 614,
+  "layers_now" : 617,
+  "level" : "synthetic heart seed 7 mean 3.0",
+  "maxFPS" : 60,
+  "pitch_pt" : 9.3571428571428577,
+  "ready_bump" : {
+    "hearts" : 2,
+    "hearts0" : 3
+  },
+  "scenario" : "bump",
+  "stars" : true,
+  "trail" : "solid",
+  "validate" : [
+
+  ],
+  "zoom" : 2.5
+}

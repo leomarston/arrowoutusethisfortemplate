@@ -1,0 +1,195 @@
+META-L062-bulb-hint: camera move (board ink centroid) + green hint arrow (G>120, G-R>60, G-B>60, y 150-760): count, mean RGB, bbox
+0.000 ink c=(197.6,523.9) n=9793
+0.017 ink c=(185.7,532.1) n=9681
+0.033 ink c=(190.2,535.3) n=9688
+0.050 ink c=(196.1,529.6) n=9870
+0.067 ink c=(198.1,530.3) n=10660
+0.083 ink c=(201.4,530.3) n=10089
+0.100 ink c=(204.6,530.3) n=10283
+0.117 ink c=(206.2,532.2) n=10382
+0.133 ink c=(210.0,532.4) n=10532
+0.150 ink c=(216.1,530.7) n=10742
+0.166 ink c=(215.9,522.2) n=9963
+0.183 ink c=(222.9,520.5) n=9706
+0.200 ink c=(224.2,524.2) n=9921
+0.216 ink c=(226.7,524.8) n=10387
+0.233 ink c=(230.4,517.1) n=10530
+0.250 ink c=(234.1,523.6) n=10328
+0.266 ink c=(238.2,525.3) n=10720
+0.283 ink c=(241.6,527.9) n=10877
+0.300 ink c=(243.9,528.6) n=10857
+0.316 ink c=(248.2,530.3) n=11219
+0.333 ink c=(253.7,532.5) n=11445
+0.349 ink c=(253.5,535.2) n=10951
+0.366 ink c=(254.5,537.1) n=11318
+0.383 ink c=(259.1,537.8) n=11833
+0.399 ink c=(262.9,537.1) n=11304
+0.416 ink c=(268.6,539.7) n=11700
+0.433 ink c=(269.0,542.0) n=11973
+0.449 ink c=(268.3,541.7) n=11595
+0.466 ink c=(269.4,539.3) n=12327
+0.483 ink c=(275.1,545.5) n=11852
+0.499 ink c=(273.4,547.0) n=11861
+0.516 ink c=(280.8,547.1) n=12129
+0.533 ink c=(284.0,548.8) n=12329
+0.549 ink c=(285.7,548.6) n=12566
+0.566 ink c=(277.1,545.2) n=11491
+0.582 ink c=(277.3,547.1) n=11118
+0.599 ink c=(277.0,546.3) n=11041
+0.616 ink c=(279.1,548.6) n=11290
+0.632 ink c=(278.3,544.0) n=11354
+0.649 ink c=(281.8,551.3) n=11599
+0.666 ink c=(282.0,553.3) n=11625
+0.682 ink c=(283.6,546.6) n=11763
+0.699 ink c=(285.6,553.4) n=11516
+0.716 ink c=(288.1,555.1) n=11746
+0.732 ink c=(287.6,554.8) n=11729
+0.749 ink c=(285.4,547.7) n=11845
+0.765 ink c=(289.1,555.2) n=11550
+0.782 ink c=(286.2,556.7) n=12068
+0.799 ink c=(288.9,556.0) n=11390
+0.815 ink c=(288.8,556.0) n=11365
+0.865 ink c=(289.4,555.8) n=11450
+0.882 ink c=(289.4,555.7) n=11453
+0.899 ink c=(289.4,555.7) n=11455
+0.915 ink c=(289.3,555.7) n=11457
+0.932 ink c=(289.3,555.7) n=11458
+0.949 ink c=(289.3,555.7) n=11460
+0.965 ink c=(289.3,555.7) n=11462
+0.982 ink c=(289.3,555.7) n=11467  green n=1 rgb=(np.int64(60), np.int64(121), np.int64(60)) bbox x 197-197 y 418-418
+0.998 ink c=(289.3,555.6) n=11469  green n=107 rgb=(np.int64(24), np.int64(132), np.int64(23)) bbox x 188-224 y 417-564
+1.015 ink c=(289.2,555.6) n=11472  green n=353 rgb=(np.int64(39), np.int64(142), np.int64(39)) bbox x 186-227 y 417-564
+1.032 ink c=(289.3,555.6) n=11464  green n=1395 rgb=(np.int64(15), np.int64(138), np.int64(15)) bbox x 186-227 y 417-566
+1.048 ink c=(290.1,556.3) n=11356  green n=1754 rgb=(np.int64(12), np.int64(146), np.int64(12)) bbox x 186-227 y 417-566
+1.065 ink c=(290.4,556.8) n=11312  green n=1901 rgb=(np.int64(10), np.int64(156), np.int64(10)) bbox x 186-227 y 416-567
+1.082 ink c=(291.5,558.1) n=11162  green n=2047 rgb=(np.int64(12), np.int64(165), np.int64(12)) bbox x 186-227 y 416-567
+1.098 ink c=(297.3,562.3) n=10450  green n=2084 rgb=(np.int64(10), np.int64(173), np.int64(11)) bbox x 186-227 y 416-567
+1.115 ink c=(297.5,562.5) n=10431  green n=2198 rgb=(np.int64(13), np.int64(180), np.int64(13)) bbox x 186-227 y 416-567
+1.132 ink c=(297.9,562.7) n=10381  green n=2208 rgb=(np.int64(11), np.int64(187), np.int64(11)) bbox x 185-227 y 416-567
+1.148 ink c=(300.3,564.6) n=10072  green n=2211 rgb=(np.int64(10), np.int64(192), np.int64(10)) bbox x 185-227 y 416-567
+1.165 ink c=(300.2,564.5) n=10064  green n=2216 rgb=(np.int64(9), np.int64(195), np.int64(9)) bbox x 185-227 y 416-567
+1.181 ink c=(300.7,564.8) n=10016  green n=2217 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.198 ink c=(300.7,564.8) n=10016  green n=2218 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.215 ink c=(300.7,564.8) n=10017  green n=2216 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.231 ink c=(300.7,564.8) n=10016  green n=2218 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.248 ink c=(300.7,564.8) n=10017  green n=2216 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.265 ink c=(300.7,564.8) n=10014  green n=2217 rgb=(np.int64(9), np.int64(197), np.int64(9)) bbox x 185-227 y 416-567
+1.281 ink c=(300.7,564.8) n=10014  green n=2215 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.298 ink c=(300.7,564.8) n=10012  green n=2215 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+1.315 ink c=(300.5,564.7) n=10042  green n=2214 rgb=(np.int64(9), np.int64(193), np.int64(9)) bbox x 185-227 y 416-567
+1.331 ink c=(297.8,562.9) n=10392  green n=2208 rgb=(np.int64(11), np.int64(188), np.int64(11)) bbox x 185-227 y 416-567
+1.348 ink c=(297.2,562.3) n=10462  green n=2201 rgb=(np.int64(12), np.int64(181), np.int64(12)) bbox x 185-227 y 416-567
+1.365 ink c=(297.3,562.3) n=10454  green n=2083 rgb=(np.int64(10), np.int64(174), np.int64(10)) bbox x 186-227 y 416-567
+1.381 ink c=(291.4,558.1) n=11175  green n=2048 rgb=(np.int64(12), np.int64(165), np.int64(12)) bbox x 186-227 y 416-567
+1.398 ink c=(290.4,556.9) n=11313  green n=1902 rgb=(np.int64(10), np.int64(156), np.int64(10)) bbox x 186-227 y 416-567
+1.414 ink c=(290.0,556.3) n=11363  green n=1761 rgb=(np.int64(12), np.int64(146), np.int64(12)) bbox x 186-227 y 416-566
+1.431 ink c=(289.4,555.6) n=11450  green n=1400 rgb=(np.int64(14), np.int64(138), np.int64(15)) bbox x 186-227 y 417-566
+1.448 ink c=(289.2,555.6) n=11472  green n=367 rgb=(np.int64(37), np.int64(141), np.int64(37)) bbox x 186-227 y 417-564
+1.464 ink c=(289.3,555.6) n=11469  green n=114 rgb=(np.int64(25), np.int64(133), np.int64(24)) bbox x 188-226 y 417-564
+1.481 ink c=(289.3,555.7) n=11467  green n=1 rgb=(np.int64(73), np.int64(136), np.int64(70)) bbox x 199-199 y 417-417
+1.498 ink c=(289.3,555.7) n=11465
+1.514 ink c=(289.3,555.7) n=11463
+1.531 ink c=(289.3,555.7) n=11462
+1.548 ink c=(289.3,555.7) n=11458
+1.564 ink c=(289.4,555.7) n=11457
+1.581 ink c=(289.4,555.8) n=11455
+1.598 ink c=(289.4,555.8) n=11455
+1.614 ink c=(289.4,555.8) n=11452
+1.631 ink c=(289.4,555.8) n=11452
+1.647 ink c=(289.4,555.8) n=11451
+1.664 ink c=(289.4,555.8) n=11452
+1.681 ink c=(289.4,555.8) n=11451
+1.697 ink c=(289.4,555.8) n=11452
+1.714 ink c=(289.4,555.8) n=11451
+1.731 ink c=(289.4,555.8) n=11453
+1.747 ink c=(289.4,555.8) n=11454
+1.764 ink c=(289.4,555.8) n=11455
+1.781 ink c=(289.4,555.7) n=11456
+1.797 ink c=(289.3,555.7) n=11459
+1.814 ink c=(289.3,555.7) n=11460
+1.830 ink c=(289.3,555.7) n=11464
+1.847 ink c=(289.3,555.7) n=11463
+1.864 ink c=(289.3,555.7) n=11467  green n=1 rgb=(np.int64(57), np.int64(121), np.int64(57)) bbox x 197-197 y 418-418
+1.880 ink c=(289.3,555.6) n=11469  green n=164 rgb=(np.int64(17), np.int64(131), np.int64(17)) bbox x 188-225 y 417-564
+1.897 ink c=(289.2,555.6) n=11472  green n=855 rgb=(np.int64(25), np.int64(133), np.int64(25)) bbox x 186-227 y 417-565
+1.914 ink c=(289.5,555.7) n=11440  green n=1406 rgb=(np.int64(14), np.int64(140), np.int64(14)) bbox x 186-227 y 417-566
+1.930 ink c=(290.2,556.6) n=11331  green n=1857 rgb=(np.int64(11), np.int64(147), np.int64(11)) bbox x 186-227 y 417-566
+1.947 ink c=(290.4,556.9) n=11311  green n=1903 rgb=(np.int64(10), np.int64(158), np.int64(10)) bbox x 186-227 y 416-567
+1.964 ink c=(295.7,561.1) n=10630  green n=2057 rgb=(np.int64(11), np.int64(166), np.int64(11)) bbox x 186-227 y 416-567
+1.980 ink c=(297.3,562.3) n=10457  green n=2085 rgb=(np.int64(10), np.int64(175), np.int64(10)) bbox x 186-227 y 416-567
+1.997 ink c=(297.1,562.3) n=10466  green n=2199 rgb=(np.int64(12), np.int64(182), np.int64(12)) bbox x 186-227 y 416-567
+2.014 ink c=(297.7,562.8) n=10398  green n=2208 rgb=(np.int64(11), np.int64(188), np.int64(11)) bbox x 185-227 y 416-567
+2.030 ink c=(300.7,564.8) n=10032  green n=2216 rgb=(np.int64(10), np.int64(194), np.int64(9)) bbox x 185-227 y 416-567
+2.047 ink c=(301.0,564.9) n=9993  green n=2218 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.064 ink c=(301.0,564.9) n=9990  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.080 ink c=(301.0,564.9) n=9988  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.097 ink c=(301.0,564.9) n=9990  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.130 ink c=(301.0,564.9) n=9990  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.147 ink c=(301.0,564.9) n=9991  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.163 ink c=(301.0,564.9) n=9991  green n=2219 rgb=(np.int64(9), np.int64(196), np.int64(9)) bbox x 185-227 y 416-567
+2.197 ink c=(301.0,565.0) n=9985  green n=2219 rgb=(np.int64(10), np.int64(197), np.int64(10)) bbox x 185-227 y 416-567
+2.230 ink c=(302.2,565.6) n=9882  green n=2214 rgb=(np.int64(13), np.int64(198), np.int64(13)) bbox x 185-227 y 416-567
+2.247 ink c=(302.3,565.6) n=9868  green n=2114 rgb=(np.int64(11), np.int64(199), np.int64(11)) bbox x 186-227 y 416-567
+2.263 ink c=(302.3,565.6) n=9871  green n=2106 rgb=(np.int64(13), np.int64(200), np.int64(13)) bbox x 186-227 y 416-567
+2.297 ink c=(301.6,565.2) n=9954  green n=1992 rgb=(np.int64(12), np.int64(204), np.int64(12)) bbox x 186-227 y 416-567
+2.330 ink c=(301.3,565.0) n=9991  green n=1983 rgb=(np.int64(14), np.int64(204), np.int64(14)) bbox x 186-227 y 416-567
+2.363 ink c=(299.2,563.9) n=10198  green n=1957 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.380 ink c=(299.2,563.9) n=10197  green n=1956 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.396 ink c=(299.1,563.9) n=10200  green n=1949 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.430 ink c=(298.6,563.6) n=10273  green n=2043 rgb=(np.int64(23), np.int64(203), np.int64(23)) bbox x 186-227 y 417-567
+2.463 ink c=(298.7,563.5) n=10271  green n=1839 rgb=(np.int64(12), np.int64(203), np.int64(11)) bbox x 186-227 y 417-567
+2.480 ink c=(299.5,563.9) n=10196  green n=1836 rgb=(np.int64(12), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.513 ink c=(299.6,564.1) n=10177  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.530 ink c=(299.6,564.1) n=10176  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.563 ink c=(299.5,563.9) n=10192  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.596 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.629 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.646 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.663 ink c=(299.5,563.9) n=10195  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.696 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.729 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.763 ink c=(299.5,563.9) n=10194  green n=1835 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.779 ink c=(299.6,564.1) n=10177  green n=1834 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.796 ink c=(299.6,564.1) n=10175  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.829 ink c=(299.6,564.1) n=10177  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.862 ink c=(299.6,564.1) n=10177  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.896 ink c=(299.6,564.1) n=10177  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.912 ink c=(299.6,564.1) n=10177  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.929 ink c=(299.6,564.1) n=10177  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.962 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+2.996 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.012 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.046 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.062 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.095 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.129 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.162 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.179 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.195 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.229 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.262 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.295 ink c=(299.6,564.1) n=10178  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.312 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.328 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.362 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.395 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.428 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.445 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.462 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.495 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.528 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.561 ink c=(299.6,564.1) n=10178  green n=1832 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.578 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.595 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.628 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.661 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.695 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.711 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.728 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.761 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.794 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.811 ink c=(300.0,564.2) n=10116  green n=1833 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.844 ink c=(300.0,564.2) n=10116  green n=1834 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.861 ink c=(300.0,564.2) n=10116  green n=1834 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.894 ink c=(300.0,564.2) n=10116  green n=1834 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567
+3.961 ink c=(300.0,564.2) n=10116  green n=1834 rgb=(np.int64(13), np.int64(203), np.int64(13)) bbox x 186-227 y 417-567

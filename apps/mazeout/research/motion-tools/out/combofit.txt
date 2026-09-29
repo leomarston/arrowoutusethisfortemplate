@@ -1,0 +1,98 @@
+W=0.5s  best split: cyan for c<=1, rainbow after: 51.6% (749 ok / 702 wrong)
+   c=1  cyan:428 violet:110 rainbow:513 green:17 other:314
+   c=2  cyan:144 violet:45 rainbow:180 green:2 other:42
+   c=3  cyan:25 violet:16 rainbow:79 green:1 other:13
+   c=4  cyan:11 violet:4 rainbow:34 green:0 other:11
+   c=5  cyan:4 violet:3 rainbow:10 green:0 other:7
+   c=6  cyan:1 violet:1 rainbow:7 green:0 other:5
+   c=7  cyan:0 violet:0 rainbow:5 green:0 other:2
+   c=8+ cyan:4 violet:0 rainbow:6 green:0 other:4
+W=0.7s  best split: cyan for c<=2, rainbow after: 61.2% (888 ok / 563 wrong)
+   c=1  cyan:329 violet:80 rainbow:301 green:16 other:289
+   c=2  cyan:201 violet:37 rainbow:175 green:2 other:44
+   c=3  cyan:43 violet:46 rainbow:135 green:1 other:18
+   c=4  cyan:24 violet:5 rainbow:98 green:1 other:12
+   c=5  cyan:8 violet:3 rainbow:52 green:0 other:15
+   c=6  cyan:5 violet:4 rainbow:29 green:0 other:7
+   c=7  cyan:1 violet:1 rainbow:23 green:0 other:5
+   c=8+ cyan:6 violet:3 rainbow:21 green:0 other:8
+W=0.9s  best split: cyan for c<=2, rainbow after: 70.1% (1017 ok / 434 wrong)
+   c=1  cyan:268 violet:48 rainbow:183 green:16 other:276
+   c=2  cyan:226 violet:38 rainbow:128 green:2 other:43
+   c=3  cyan:56 violet:68 rainbow:120 green:1 other:15
+   c=4  cyan:25 violet:8 rainbow:133 green:1 other:19
+   c=5  cyan:16 violet:6 rainbow:79 green:0 other:16
+   c=6  cyan:10 violet:5 rainbow:56 green:0 other:7
+   c=7  cyan:4 violet:2 rainbow:40 green:0 other:10
+   c=8+ cyan:12 violet:4 rainbow:95 green:0 other:12
+W=1.1s  best split: cyan for c<=2, rainbow after: 78.2% (1135 ok / 316 wrong)
+   c=1  cyan:212 violet:23 rainbow:89 green:14 other:251
+   c=2  cyan:248 violet:26 rainbow:70 green:2 other:37
+   c=3  cyan:66 violet:92 rainbow:75 green:1 other:17
+   c=4  cyan:32 violet:11 rainbow:134 green:2 other:18
+   c=5  cyan:15 violet:10 rainbow:106 green:0 other:19
+   c=6  cyan:13 violet:7 rainbow:77 green:0 other:12
+   c=7  cyan:8 violet:3 rainbow:59 green:1 other:13
+   c=8+ cyan:23 violet:7 rainbow:224 green:0 other:31
+W=1.3s  best split: cyan for c<=3, rainbow after: 83.5% (1212 ok / 239 wrong)
+   c=1  cyan:170 violet:10 rainbow:43 green:12 other:222
+   c=2  cyan:240 violet:18 rainbow:28 green:2 other:37
+   c=3  cyan:78 violet:95 rainbow:39 green:2 other:21
+   c=4  cyan:40 violet:18 rainbow:119 green:2 other:22
+   c=5  cyan:20 violet:16 rainbow:99 green:0 other:20
+   c=6  cyan:17 violet:7 rainbow:84 green:1 other:14
+   c=7  cyan:11 violet:3 rainbow:73 green:1 other:12
+   c=8+ cyan:41 violet:12 rainbow:349 green:0 other:50
+W=1.6s  best split: cyan for c<=3, rainbow after: 77.9% (1131 ok / 320 wrong)
+   c=1  cyan:122 violet:7 rainbow:26 green:11 other:156
+   c=2  cyan:175 violet:12 rainbow:24 green:1 other:47
+   c=3  cyan:81 violet:66 rainbow:31 green:1 other:26
+   c=4  cyan:46 violet:23 rainbow:85 green:0 other:25
+   c=5  cyan:32 violet:18 rainbow:71 green:1 other:22
+   c=6  cyan:27 violet:12 rainbow:70 green:3 other:16
+   c=7  cyan:17 violet:8 rainbow:68 green:1 other:16
+   c=8+ cyan:117 violet:33 rainbow:459 green:2 other:90
+W=2.0s  best split: cyan for c<=3, rainbow after: 71.4% (1036 ok / 415 wrong)
+   c=1  cyan:79 violet:6 rainbow:25 green:9 other:110
+   c=2  cyan:123 violet:12 rainbow:22 green:1 other:43
+   c=3  cyan:73 violet:48 rainbow:26 green:2 other:22
+   c=4  cyan:41 violet:17 rainbow:63 green:0 other:30
+   c=5  cyan:39 violet:18 rainbow:49 green:0 other:23
+   c=6  cyan:35 violet:16 rainbow:46 green:3 other:19
+   c=7  cyan:28 violet:7 rainbow:52 green:2 other:16
+   c=8+ cyan:199 violet:55 rainbow:551 green:3 other:135
+W=2.5s  best split: cyan for c<=3, rainbow after: 66.9% (970 ok / 481 wrong)
+   c=1  cyan:58 violet:4 rainbow:19 green:7 other:70
+   c=2  cyan:82 violet:10 rainbow:19 green:1 other:32
+   c=3  cyan:55 violet:31 rainbow:21 green:2 other:19
+   c=4  cyan:40 violet:12 rainbow:40 green:0 other:26
+   c=5  cyan:30 violet:16 rainbow:32 green:2 other:23
+   c=6  cyan:28 violet:11 rainbow:36 green:3 other:18
+   c=7  cyan:25 violet:5 rainbow:38 green:2 other:19
+   c=8+ cyan:299 violet:90 rainbow:629 green:3 other:191
+LADDER (cyan c<=2 / violet c=3 (cyan or rainbow also accepted) / rainbow c>=4):
+  W=0.80s pooled 1087/1630=66.7%  | exitscan_A_0_505.txt 342/498=68.7% | exitscan_B_0_1683.txt 745/1132=65.8%
+  W=0.85s pooled 1113/1630=68.3%  | exitscan_A_0_505.txt 351/498=70.5% | exitscan_B_0_1683.txt 762/1132=67.3%
+  W=0.90s pooled 1141/1630=70.0%  | exitscan_A_0_505.txt 365/498=73.3% | exitscan_B_0_1683.txt 776/1132=68.6%
+  W=0.95s pooled 1185/1630=72.7%  | exitscan_A_0_505.txt 380/498=76.3% | exitscan_B_0_1683.txt 805/1132=71.1%
+  W=1.00s pooled 1229/1630=75.4%  | exitscan_A_0_505.txt 399/498=80.1% | exitscan_B_0_1683.txt 830/1132=73.3%
+  W=1.05s pooled 1279/1630=78.5%  | exitscan_A_0_505.txt 408/498=81.9% | exitscan_B_0_1683.txt 871/1132=76.9%
+  W=1.10s pooled 1293/1630=79.3%  | exitscan_A_0_505.txt 420/498=84.3% | exitscan_B_0_1683.txt 873/1132=77.1%
+  W=1.15s pooled 1312/1630=80.5%  | exitscan_A_0_505.txt 425/498=85.3% | exitscan_B_0_1683.txt 887/1132=78.4%
+  W=1.20s pooled 1350/1630=82.8%  | exitscan_A_0_505.txt 431/498=86.5% | exitscan_B_0_1683.txt 919/1132=81.2%
+  W=1.25s pooled 1373/1630=84.2%  | exitscan_A_0_505.txt 429/498=86.1% | exitscan_B_0_1683.txt 944/1132=83.4%
+  W=1.30s pooled 1346/1630=82.6%  | exitscan_A_0_505.txt 427/498=85.7% | exitscan_B_0_1683.txt 919/1132=81.2%
+  W=1.35s pooled 1323/1630=81.2%  | exitscan_A_0_505.txt 427/498=85.7% | exitscan_B_0_1683.txt 896/1132=79.2%
+  W=1.40s pooled 1302/1630=79.9%  | exitscan_A_0_505.txt 416/498=83.5% | exitscan_B_0_1683.txt 886/1132=78.3%
+  W=1.45s pooled 1291/1630=79.2%  | exitscan_A_0_505.txt 415/498=83.3% | exitscan_B_0_1683.txt 876/1132=77.4%
+  W=1.50s pooled 1276/1630=78.3%  | exitscan_A_0_505.txt 413/498=82.9% | exitscan_B_0_1683.txt 863/1132=76.2%
+  W=1.55s pooled 1256/1630=77.1%  | exitscan_A_0_505.txt 411/498=82.5% | exitscan_B_0_1683.txt 845/1132=74.6%
+  W=1.60s pooled 1228/1630=75.3%  | exitscan_A_0_505.txt 400/498=80.3% | exitscan_B_0_1683.txt 828/1132=73.1%
+  W=1.65s pooled 1217/1630=74.7%  | exitscan_A_0_505.txt 398/498=79.9% | exitscan_B_0_1683.txt 819/1132=72.3%
+  W=1.70s pooled 1199/1630=73.6%  | exitscan_A_0_505.txt 390/498=78.3% | exitscan_B_0_1683.txt 809/1132=71.5%
+  W=1.75s pooled 1190/1630=73.0%  | exitscan_A_0_505.txt 386/498=77.5% | exitscan_B_0_1683.txt 804/1132=71.0%
+  W=1.80s pooled 1162/1630=71.3%  | exitscan_A_0_505.txt 380/498=76.3% | exitscan_B_0_1683.txt 782/1132=69.1%
+  W=1.85s pooled 1150/1630=70.6%  | exitscan_A_0_505.txt 377/498=75.7% | exitscan_B_0_1683.txt 773/1132=68.3%
+  W=1.90s pooled 1140/1630=69.9%  | exitscan_A_0_505.txt 374/498=75.1% | exitscan_B_0_1683.txt 766/1132=67.7%
+  W=1.95s pooled 1122/1630=68.8%  | exitscan_A_0_505.txt 370/498=74.3% | exitscan_B_0_1683.txt 752/1132=66.4%
+  W=2.00s pooled 1110/1630=68.1%  | exitscan_A_0_505.txt 367/498=73.7% | exitscan_B_0_1683.txt 743/1132=65.6%

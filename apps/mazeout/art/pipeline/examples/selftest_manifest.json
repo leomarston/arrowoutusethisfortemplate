@@ -1,0 +1,85 @@
+{
+ "version": 1,
+ "title": "pipeline self-test manifest (art_batch.py --manifest art/pipeline/examples/selftest_manifest.json --rigs --3d); scratch outputs only (build/)",
+ "entries": [
+  {
+   "id": "selftestWorkerRig",
+   "family": "3d",
+   "route": "C1",
+   "group": "selftest",
+   "purpose": "rig.py auto mode + holdout mattes",
+   "size_pt": [
+    112,
+    120
+   ],
+   "size_px": [
+    336,
+    360
+   ],
+   "source": "art/pipeline/examples/rig_worker_example.py:workerExample",
+   "file": "build/ui-art/rigs/rig_worker_example",
+   "rig": true,
+   "status": "done",
+   "owner": "pipeline",
+   "notes": "expected proof ~0.25/255, 0.18 % px > 40 (unbaked)",
+   "screen": "-"
+  },
+  {
+   "id": "selftestPremeshRig",
+   "family": "3d",
+   "route": "C1",
+   "group": "selftest",
+   "purpose": "premeshed parts + rig colour bake",
+   "size_pt": [
+    60,
+    60
+   ],
+   "size_px": [
+    180,
+    180
+   ],
+   "source": "art/pipeline/examples/premesh_example.py:premeshExample",
+   "file": "build/ui-art/rigs/rig_premesh_example",
+   "rig": true,
+   "status": "done",
+   "owner": "pipeline",
+   "notes": "expected proof ~0.10/255, 0.0 % px > 40 baked (0.25/255, 0.12 % unbaked)",
+   "screen": "-"
+  },
+  {
+   "id": "selftestIconExact",
+   "family": "3d",
+   "route": "C2",
+   "group": "selftest",
+   "purpose": "exact_px + full_bleed (app-icon path): exact size, RGB without alpha",
+   "screen": "-",
+   "source": "art/pipeline/examples/premesh_example.py:iconExample",
+   "file": "build/ui-art/selftest/selftestIconExact.png",
+   "exact_px": [
+    100,
+    100
+   ],
+   "full_bleed": true,
+   "status": "done",
+   "owner": "pipeline"
+  },
+  {
+   "id": "selftestIconResize",
+   "family": "3d",
+   "route": "C2",
+   "group": "selftest",
+   "purpose": "exact_px + full_bleed (app-icon path): exact size, RGB without alpha",
+   "screen": "-",
+   "source": "art/pipeline/examples/premesh_example.py:iconExample",
+   "file": "build/ui-art/selftest/selftestIconResize.png",
+   "exact_px": [
+    120,
+    120
+   ],
+   "full_bleed": true,
+   "status": "done",
+   "owner": "pipeline"
+  }
+ ],
+ "board_design_pitch_pt": 32
+}

@@ -1,0 +1,13 @@
+Arrow Out is a single-person puzzle game. No account or login is needed and there is nothing to set up.
+
+App Tracking Transparency: the tracking permission alert appears once, right after the tutorial levels. Launch the app and play "Levels 1-4", then Level 5 and Level 6 (after each win panel, Continue opens the next level; a few minutes in total). After the Level 6 win the game returns to the home screen for the first time, and once the +120 coin reward has landed the App Tracking Transparency alert appears. It is shown once per install (delete and reinstall the app to see it again) and iOS does not show it when Settings > Privacy & Security > Tracking > "Allow Apps to Request to Track" is off. The game plays the same whatever the answer.
+
+Advertising and data: the game shows no ads. It contains Meta's SDK (FacebookCore) only to measure our own app-install ads on Facebook and Instagram. The SDK sends Meta these app events: the app being installed and opened, the tutorial finished, each level won (with its level number) and each App Store purchase (its price and currency; sandbox test purchases are not sent), together with a random ID created by the SDK and basic device information. The device's advertising identifier (IDFA) is collected only after the person taps "Allow" in the alert above. Game progress, the profile name and the settings stay on the device. Purchases are processed by Apple and recorded by our purchase service, RevenueCat.
+
+In-app purchases: all 12 products are consumables (coin packs and bundles). To see them, tap the basket (Shop) tab at the bottom left of the home screen; every product is on that page. Coins are also offered when coins run short (More Lives, Out of Time and booster popups).
+
+Restore Purchases: every product is consumable, so there is nothing to restore and the app has no Restore Purchases button.
+
+Leaderboards and events run entirely on the device and work offline. Events unlock as the game progresses (from level 30; the weekly leaderboard at level 50).
+
+Support: Settings > Support inside the app.

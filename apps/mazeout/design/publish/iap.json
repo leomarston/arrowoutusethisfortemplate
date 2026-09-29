@@ -1,0 +1,837 @@
+{
+ "_about": "Arrow Out in-app purchases: the App Store Connect + RevenueCat source (T3 STORE). 12 consumables. id/usd/grant must equal App/Resources/Tuning/rules.json:shop and App/Resources/StoreKit/ArrowOut.storekit (tools/release/meta.py iap-check). Only the USA price is written; Apple generates every other storefront (release-plan §2.2). Limits: name <= 35, description <= 55 (ASC Help, INFERRED until T5's first POST). Booster wording is generic ('booster/bonus/aid'); the per-language booster names are T2's glossary. 'try' = Apple's current TRY equalisation of the USD point (release-plan §2.1, VERIFIED) = v552's TL list; T4's asc_consumables.py reads it as the TUR golden check.",
+ "appName": "Arrow Out",
+ "productPrefix": "com.manycode.arrowout.",
+ "excludeTerritories": [
+  "CHN"
+ ],
+ "familySharable": false,
+ "reviewNote": "Consumable in-game currency/bundle. Open the basket (Shop) tab at the bottom left of the home screen; every product is on that page. Coins are also offered when coins run short (More Lives, Out of Time, booster popups). No account or login.",
+ "locales": [
+  "en-US",
+  "de-DE",
+  "fr-FR",
+  "es-ES",
+  "it",
+  "pt-BR",
+  "tr",
+  "ja",
+  "ko",
+  "zh-Hans",
+  "pl",
+  "sk",
+  "sl-SI"
+ ],
+ "products": [
+  {
+   "id": "offer.special",
+   "productId": "com.manycode.arrowout.offer.special",
+   "type": "CONSUMABLE",
+   "usd": 0.99,
+   "try": 49.99,
+   "referenceName": "Special Offer",
+   "grant": {
+    "coins": 1000,
+    "boosters": {
+     "freeze": 1,
+     "hint": 1
+    },
+    "unlimitedLives": 3600
+   },
+   "locales": {
+    "en-US": {
+     "name": "Special Offer",
+     "description": "1,000 coins, 1 of each booster, 1h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Sonderangebot",
+     "description": "1.000 Münzen, je 1 Booster, 1 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Offre spéciale",
+     "description": "1 000 pièces, 1 bonus de chaque, vies infinies 1 h"
+    },
+    "es-ES": {
+     "name": "Oferta especial",
+     "description": "1000 monedas, potenciadores ×1, vidas infinitas 1 h"
+    },
+    "it": {
+     "name": "Offerta speciale",
+     "description": "1.000 monete, 1 boost per tipo, vite infinite 1 h"
+    },
+    "pt-BR": {
+     "name": "Oferta especial",
+     "description": "1.000 moedas, 1 de cada reforço, vidas infinitas 1 h"
+    },
+    "tr": {
+     "name": "Özel Teklif",
+     "description": "1.000 altın, 1'er güçlendirici, 1 saat sınırsız can"
+    },
+    "ja": {
+     "name": "スペシャルオファー",
+     "description": "コイン1,000枚、ブースター各1個、ライフ無制限1時間"
+    },
+    "ko": {
+     "name": "스페셜 오퍼",
+     "description": "코인 1,000개, 부스터 각 1개, 1시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "特别优惠",
+     "description": "1,000 金币，每种道具 1 个，1 小时无限生命"
+    },
+    "pl": {
+     "name": "Oferta specjalna",
+     "description": "1000 monet, 1× każdy bonus, 1 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Špeciálna ponuka",
+     "description": "1 000 mincí, 1× každý bonus, 1 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Posebna ponudba",
+     "description": "1.000 kovancev, bonusa ×1, 1 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "bundle.mini",
+   "productId": "com.manycode.arrowout.bundle.mini",
+   "type": "CONSUMABLE",
+   "usd": 4.99,
+   "try": 249.99,
+   "referenceName": "Mini Bundle",
+   "grant": {
+    "coins": 2000,
+    "boosters": {
+     "freeze": 1,
+     "hint": 1
+    },
+    "unlimitedLives": 10800
+   },
+   "locales": {
+    "en-US": {
+     "name": "Mini Bundle",
+     "description": "2,000 coins, 1 of each booster, 3h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Mini-Paket",
+     "description": "2.000 Münzen, je 1 Booster, 3 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Pack Mini",
+     "description": "2 000 pièces, 1 bonus de chaque, vies infinies 3 h"
+    },
+    "es-ES": {
+     "name": "Pack Mini",
+     "description": "2000 monedas, potenciadores ×1, vidas infinitas 3 h"
+    },
+    "it": {
+     "name": "Pacchetto Mini",
+     "description": "2.000 monete, 1 boost per tipo, vite infinite 3 h"
+    },
+    "pt-BR": {
+     "name": "Pacote Mini",
+     "description": "2.000 moedas, 1 de cada reforço, vidas infinitas 3 h"
+    },
+    "tr": {
+     "name": "Mini Paket",
+     "description": "2.000 altın, 1'er güçlendirici, 3 saat sınırsız can"
+    },
+    "ja": {
+     "name": "ミニパック",
+     "description": "コイン2,000枚、ブースター各1個、ライフ無制限3時間"
+    },
+    "ko": {
+     "name": "미니 번들",
+     "description": "코인 2,000개, 부스터 각 1개, 3시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "迷你礼包",
+     "description": "2,000 金币，每种道具 1 个，3 小时无限生命"
+    },
+    "pl": {
+     "name": "Pakiet Mini",
+     "description": "2000 monet, 1× każdy bonus, 3 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Mini balík",
+     "description": "2 000 mincí, 1× každý bonus, 3 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Mini paket",
+     "description": "2.000 kovancev, bonusa ×1, 3 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "bundle.epic",
+   "productId": "com.manycode.arrowout.bundle.epic",
+   "type": "CONSUMABLE",
+   "usd": 9.99,
+   "try": 499.99,
+   "referenceName": "Epic Bundle",
+   "grant": {
+    "coins": 4000,
+    "boosters": {
+     "freeze": 3,
+     "hint": 3
+    },
+    "unlimitedLives": 21600
+   },
+   "locales": {
+    "en-US": {
+     "name": "Epic Bundle",
+     "description": "4,000 coins, 3 of each booster, 6h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Episches Paket",
+     "description": "4.000 Münzen, je 3 Booster, 6 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Pack Épique",
+     "description": "4 000 pièces, 3 bonus de chaque, vies infinies 6 h"
+    },
+    "es-ES": {
+     "name": "Pack Épico",
+     "description": "4000 monedas, potenciadores ×3, vidas infinitas 6 h"
+    },
+    "it": {
+     "name": "Pacchetto Epico",
+     "description": "4.000 monete, 3 boost per tipo, vite infinite 6 h"
+    },
+    "pt-BR": {
+     "name": "Pacote Épico",
+     "description": "4.000 moedas, 3 de cada reforço, vidas infinitas 6 h"
+    },
+    "tr": {
+     "name": "Epik Paket",
+     "description": "4.000 altın, 3'er güçlendirici, 6 saat sınırsız can"
+    },
+    "ja": {
+     "name": "エピックパック",
+     "description": "コイン4,000枚、ブースター各3個、ライフ無制限6時間"
+    },
+    "ko": {
+     "name": "에픽 번들",
+     "description": "코인 4,000개, 부스터 각 3개, 6시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "史诗礼包",
+     "description": "4,000 金币，每种道具 3 个，6 小时无限生命"
+    },
+    "pl": {
+     "name": "Pakiet Epicki",
+     "description": "4000 monet, 3× każdy bonus, 6 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Epický balík",
+     "description": "4 000 mincí, 3× každý bonus, 6 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Epski paket",
+     "description": "4.000 kovancev, bonusa ×3, 6 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "bundle.elite",
+   "productId": "com.manycode.arrowout.bundle.elite",
+   "type": "CONSUMABLE",
+   "usd": 19.99,
+   "try": 999.99,
+   "referenceName": "Elite Bundle",
+   "grant": {
+    "coins": 8000,
+    "boosters": {
+     "freeze": 8,
+     "hint": 8
+    },
+    "unlimitedLives": 43200
+   },
+   "locales": {
+    "en-US": {
+     "name": "Elite Bundle",
+     "description": "8,000 coins, 8 of each booster, 12h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Elite-Paket",
+     "description": "8.000 Münzen, je 8 Booster, 12 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Pack Élite",
+     "description": "8 000 pièces, 8 bonus de chaque, vies infinies 12 h"
+    },
+    "es-ES": {
+     "name": "Pack Élite",
+     "description": "8000 monedas, potenciadores ×8, vidas infinitas 12 h"
+    },
+    "it": {
+     "name": "Pacchetto Élite",
+     "description": "8.000 monete, 8 boost per tipo, vite infinite 12 h"
+    },
+    "pt-BR": {
+     "name": "Pacote Elite",
+     "description": "8.000 moedas, 8 de cada reforço, vidas infinitas 12 h"
+    },
+    "tr": {
+     "name": "Elit Paket",
+     "description": "8.000 altın, 8'er güçlendirici, 12 saat sınırsız can"
+    },
+    "ja": {
+     "name": "エリートパック",
+     "description": "コイン8,000枚、ブースター各8個、ライフ無制限12時間"
+    },
+    "ko": {
+     "name": "엘리트 번들",
+     "description": "코인 8,000개, 부스터 각 8개, 12시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "精英礼包",
+     "description": "8,000 金币，每种道具 8 个，12 小时无限生命"
+    },
+    "pl": {
+     "name": "Pakiet Elitarny",
+     "description": "8000 monet, 8× każdy bonus, 12 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Elitný balík",
+     "description": "8 000 mincí, 8× každý bonus, 12 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Elitni paket",
+     "description": "8.000 kovancev, bonusa ×8, 12 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "bundle.mega",
+   "productId": "com.manycode.arrowout.bundle.mega",
+   "type": "CONSUMABLE",
+   "usd": 49.99,
+   "try": 2499.99,
+   "referenceName": "Mega Bundle",
+   "grant": {
+    "coins": 20000,
+    "boosters": {
+     "freeze": 18,
+     "hint": 18
+    },
+    "unlimitedLives": 129600
+   },
+   "locales": {
+    "en-US": {
+     "name": "Mega Bundle",
+     "description": "20,000 coins, 18 of each booster, 36h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Mega-Paket",
+     "description": "20.000 Münzen, je 18 Booster, 36 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Pack Méga",
+     "description": "20 000 pièces, 18 bonus de chaque, vies infinies 36 h"
+    },
+    "es-ES": {
+     "name": "Pack Mega",
+     "description": "20.000 monedas, potenciadores ×18, vidas infinitas 36 h"
+    },
+    "it": {
+     "name": "Pacchetto Mega",
+     "description": "20.000 monete, 18 boost per tipo, vite infinite 36 h"
+    },
+    "pt-BR": {
+     "name": "Pacote Mega",
+     "description": "20.000 moedas, 18 de cada reforço, vidas infinitas 36 h"
+    },
+    "tr": {
+     "name": "Mega Paket",
+     "description": "20.000 altın, 18'er güçlendirici, 36 saat sınırsız can"
+    },
+    "ja": {
+     "name": "メガパック",
+     "description": "コイン20,000枚、ブースター各18個、ライフ無制限36時間"
+    },
+    "ko": {
+     "name": "메가 번들",
+     "description": "코인 20,000개, 부스터 각 18개, 36시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "超级礼包",
+     "description": "20,000 金币，每种道具 18 个，36 小时无限生命"
+    },
+    "pl": {
+     "name": "Pakiet Mega",
+     "description": "20 000 monet, 18× każdy bonus, 36 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Mega balík",
+     "description": "20 000 mincí, 18× každý bonus, 36 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Mega paket",
+     "description": "20.000 kovancev, bonusa ×18, 36 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "bundle.legendary",
+   "productId": "com.manycode.arrowout.bundle.legendary",
+   "type": "CONSUMABLE",
+   "usd": 99.99,
+   "try": 4999.99,
+   "referenceName": "Legendary Bundle",
+   "grant": {
+    "coins": 60000,
+    "boosters": {
+     "freeze": 36,
+     "hint": 36
+    },
+    "unlimitedLives": 259200
+   },
+   "locales": {
+    "en-US": {
+     "name": "Legendary Bundle",
+     "description": "60,000 coins, 36 of each booster, 72h unlimited lives"
+    },
+    "de-DE": {
+     "name": "Legendäres Paket",
+     "description": "60.000 Münzen, je 36 Booster, 72 Std. unbegrenzte Leben"
+    },
+    "fr-FR": {
+     "name": "Pack Légendaire",
+     "description": "60 000 pièces, 36 bonus de chaque, vies infinies 72 h"
+    },
+    "es-ES": {
+     "name": "Pack Legendario",
+     "description": "60.000 monedas, potenciadores ×36, vidas infinitas 72 h"
+    },
+    "it": {
+     "name": "Pacchetto Leggendario",
+     "description": "60.000 monete, 36 boost per tipo, vite infinite 72 h"
+    },
+    "pt-BR": {
+     "name": "Pacote Lendário",
+     "description": "60.000 moedas, 36 de cada reforço, vidas infinitas 72 h"
+    },
+    "tr": {
+     "name": "Efsanevi Paket",
+     "description": "60.000 altın, 36'şar güçlendirici, 72 saat sınırsız can"
+    },
+    "ja": {
+     "name": "レジェンドパック",
+     "description": "コイン60,000枚、ブースター各36個、ライフ無制限72時間"
+    },
+    "ko": {
+     "name": "전설 번들",
+     "description": "코인 60,000개, 부스터 각 36개, 72시간 라이프 무제한"
+    },
+    "zh-Hans": {
+     "name": "传奇礼包",
+     "description": "60,000 金币，每种道具 36 个，72 小时无限生命"
+    },
+    "pl": {
+     "name": "Pakiet Legendarny",
+     "description": "60 000 monet, 36× każdy bonus, 72 h żyć bez limitu"
+    },
+    "sk": {
+     "name": "Legendárny balík",
+     "description": "60 000 mincí, 36× každý bonus, 72 h neobmedzené životy"
+    },
+    "sl-SI": {
+     "name": "Legendarni paket",
+     "description": "60.000 kovancev, bonusa ×36, 72 h življenj brez meja"
+    }
+   }
+  },
+  {
+   "id": "coins.1000",
+   "productId": "com.manycode.arrowout.coins.1000",
+   "type": "CONSUMABLE",
+   "usd": 1.99,
+   "try": 99.99,
+   "referenceName": "1,000 Coins",
+   "grant": {
+    "coins": 1000
+   },
+   "locales": {
+    "en-US": {
+     "name": "1,000 Coins",
+     "description": "A pack of 1,000 coins"
+    },
+    "de-DE": {
+     "name": "1.000 Münzen",
+     "description": "Ein Paket mit 1.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "1 000 pièces",
+     "description": "Un lot de 1 000 pièces"
+    },
+    "es-ES": {
+     "name": "1000 monedas",
+     "description": "Un lote de 1000 monedas"
+    },
+    "it": {
+     "name": "1.000 monete",
+     "description": "Un pacchetto di 1.000 monete"
+    },
+    "pt-BR": {
+     "name": "1.000 moedas",
+     "description": "Um pacote com 1.000 moedas"
+    },
+    "tr": {
+     "name": "1.000 Altın",
+     "description": "1.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン1,000枚",
+     "description": "コイン1,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 1,000개",
+     "description": "코인 1,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "1,000 金币",
+     "description": "一包 1,000 金币"
+    },
+    "pl": {
+     "name": "1000 monet",
+     "description": "Pakiet 1000 monet"
+    },
+    "sk": {
+     "name": "1 000 mincí",
+     "description": "Balík 1 000 mincí"
+    },
+    "sl-SI": {
+     "name": "1.000 kovancev",
+     "description": "Paket 1.000 kovancev"
+    }
+   }
+  },
+  {
+   "id": "coins.5000",
+   "productId": "com.manycode.arrowout.coins.5000",
+   "type": "CONSUMABLE",
+   "usd": 7.99,
+   "try": 399.99,
+   "referenceName": "5,000 Coins",
+   "grant": {
+    "coins": 5000
+   },
+   "locales": {
+    "en-US": {
+     "name": "5,000 Coins",
+     "description": "A pack of 5,000 coins"
+    },
+    "de-DE": {
+     "name": "5.000 Münzen",
+     "description": "Ein Paket mit 5.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "5 000 pièces",
+     "description": "Un lot de 5 000 pièces"
+    },
+    "es-ES": {
+     "name": "5000 monedas",
+     "description": "Un lote de 5000 monedas"
+    },
+    "it": {
+     "name": "5.000 monete",
+     "description": "Un pacchetto di 5.000 monete"
+    },
+    "pt-BR": {
+     "name": "5.000 moedas",
+     "description": "Um pacote com 5.000 moedas"
+    },
+    "tr": {
+     "name": "5.000 Altın",
+     "description": "5.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン5,000枚",
+     "description": "コイン5,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 5,000개",
+     "description": "코인 5,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "5,000 金币",
+     "description": "一包 5,000 金币"
+    },
+    "pl": {
+     "name": "5000 monet",
+     "description": "Pakiet 5000 monet"
+    },
+    "sk": {
+     "name": "5 000 mincí",
+     "description": "Balík 5 000 mincí"
+    },
+    "sl-SI": {
+     "name": "5.000 kovancev",
+     "description": "Paket 5.000 kovancev"
+    }
+   }
+  },
+  {
+   "id": "coins.10000",
+   "productId": "com.manycode.arrowout.coins.10000",
+   "type": "CONSUMABLE",
+   "usd": 14.99,
+   "try": 799.99,
+   "referenceName": "10,000 Coins",
+   "grant": {
+    "coins": 10000
+   },
+   "locales": {
+    "en-US": {
+     "name": "10,000 Coins",
+     "description": "A pack of 10,000 coins"
+    },
+    "de-DE": {
+     "name": "10.000 Münzen",
+     "description": "Ein Paket mit 10.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "10 000 pièces",
+     "description": "Un lot de 10 000 pièces"
+    },
+    "es-ES": {
+     "name": "10.000 monedas",
+     "description": "Un lote de 10.000 monedas"
+    },
+    "it": {
+     "name": "10.000 monete",
+     "description": "Un pacchetto di 10.000 monete"
+    },
+    "pt-BR": {
+     "name": "10.000 moedas",
+     "description": "Um pacote com 10.000 moedas"
+    },
+    "tr": {
+     "name": "10.000 Altın",
+     "description": "10.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン10,000枚",
+     "description": "コイン10,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 10,000개",
+     "description": "코인 10,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "10,000 金币",
+     "description": "一包 10,000 金币"
+    },
+    "pl": {
+     "name": "10 000 monet",
+     "description": "Pakiet 10 000 monet"
+    },
+    "sk": {
+     "name": "10 000 mincí",
+     "description": "Balík 10 000 mincí"
+    },
+    "sl-SI": {
+     "name": "10.000 kovancev",
+     "description": "Paket 10.000 kovancev"
+    }
+   }
+  },
+  {
+   "id": "coins.25000",
+   "productId": "com.manycode.arrowout.coins.25000",
+   "type": "CONSUMABLE",
+   "usd": 29.99,
+   "try": 1499.99,
+   "referenceName": "25,000 Coins",
+   "grant": {
+    "coins": 25000
+   },
+   "locales": {
+    "en-US": {
+     "name": "25,000 Coins",
+     "description": "A pack of 25,000 coins"
+    },
+    "de-DE": {
+     "name": "25.000 Münzen",
+     "description": "Ein Paket mit 25.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "25 000 pièces",
+     "description": "Un lot de 25 000 pièces"
+    },
+    "es-ES": {
+     "name": "25.000 monedas",
+     "description": "Un lote de 25.000 monedas"
+    },
+    "it": {
+     "name": "25.000 monete",
+     "description": "Un pacchetto di 25.000 monete"
+    },
+    "pt-BR": {
+     "name": "25.000 moedas",
+     "description": "Um pacote com 25.000 moedas"
+    },
+    "tr": {
+     "name": "25.000 Altın",
+     "description": "25.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン25,000枚",
+     "description": "コイン25,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 25,000개",
+     "description": "코인 25,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "25,000 金币",
+     "description": "一包 25,000 金币"
+    },
+    "pl": {
+     "name": "25 000 monet",
+     "description": "Pakiet 25 000 monet"
+    },
+    "sk": {
+     "name": "25 000 mincí",
+     "description": "Balík 25 000 mincí"
+    },
+    "sl-SI": {
+     "name": "25.000 kovancev",
+     "description": "Paket 25.000 kovancev"
+    }
+   }
+  },
+  {
+   "id": "coins.50000",
+   "productId": "com.manycode.arrowout.coins.50000",
+   "type": "CONSUMABLE",
+   "usd": 54.99,
+   "try": 2999.99,
+   "referenceName": "50,000 Coins",
+   "grant": {
+    "coins": 50000
+   },
+   "locales": {
+    "en-US": {
+     "name": "50,000 Coins",
+     "description": "A pack of 50,000 coins"
+    },
+    "de-DE": {
+     "name": "50.000 Münzen",
+     "description": "Ein Paket mit 50.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "50 000 pièces",
+     "description": "Un lot de 50 000 pièces"
+    },
+    "es-ES": {
+     "name": "50.000 monedas",
+     "description": "Un lote de 50.000 monedas"
+    },
+    "it": {
+     "name": "50.000 monete",
+     "description": "Un pacchetto di 50.000 monete"
+    },
+    "pt-BR": {
+     "name": "50.000 moedas",
+     "description": "Um pacote com 50.000 moedas"
+    },
+    "tr": {
+     "name": "50.000 Altın",
+     "description": "50.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン50,000枚",
+     "description": "コイン50,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 50,000개",
+     "description": "코인 50,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "50,000 金币",
+     "description": "一包 50,000 金币"
+    },
+    "pl": {
+     "name": "50 000 monet",
+     "description": "Pakiet 50 000 monet"
+    },
+    "sk": {
+     "name": "50 000 mincí",
+     "description": "Balík 50 000 mincí"
+    },
+    "sl-SI": {
+     "name": "50.000 kovancev",
+     "description": "Paket 50.000 kovancev"
+    }
+   }
+  },
+  {
+   "id": "coins.100000",
+   "productId": "com.manycode.arrowout.coins.100000",
+   "type": "CONSUMABLE",
+   "usd": 99.99,
+   "try": 4999.99,
+   "referenceName": "100,000 Coins",
+   "grant": {
+    "coins": 100000
+   },
+   "locales": {
+    "en-US": {
+     "name": "100,000 Coins",
+     "description": "A pack of 100,000 coins"
+    },
+    "de-DE": {
+     "name": "100.000 Münzen",
+     "description": "Ein Paket mit 100.000 Münzen"
+    },
+    "fr-FR": {
+     "name": "100 000 pièces",
+     "description": "Un lot de 100 000 pièces"
+    },
+    "es-ES": {
+     "name": "100.000 monedas",
+     "description": "Un lote de 100.000 monedas"
+    },
+    "it": {
+     "name": "100.000 monete",
+     "description": "Un pacchetto di 100.000 monete"
+    },
+    "pt-BR": {
+     "name": "100.000 moedas",
+     "description": "Um pacote com 100.000 moedas"
+    },
+    "tr": {
+     "name": "100.000 Altın",
+     "description": "100.000 altınlık paket"
+    },
+    "ja": {
+     "name": "コイン100,000枚",
+     "description": "コイン100,000枚のパック"
+    },
+    "ko": {
+     "name": "코인 100,000개",
+     "description": "코인 100,000개 묶음"
+    },
+    "zh-Hans": {
+     "name": "100,000 金币",
+     "description": "一包 100,000 金币"
+    },
+    "pl": {
+     "name": "100 000 monet",
+     "description": "Pakiet 100 000 monet"
+    },
+    "sk": {
+     "name": "100 000 mincí",
+     "description": "Balík 100 000 mincí"
+    },
+    "sl-SI": {
+     "name": "100.000 kovancev",
+     "description": "Paket 100.000 kovancev"
+    }
+   }
+  }
+ ]
+}

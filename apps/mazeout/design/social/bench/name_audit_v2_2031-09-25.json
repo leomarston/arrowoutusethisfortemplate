@@ -1,0 +1,149 @@
+{
+ "model": "v2",
+ "until": "2031-09-25",
+ "players": 4527626,
+ "cohorts": 59562,
+ "rule": "drawn: 0 blocked, 0 > 16, repeats at the phone rate",
+ "verdict": "PASS",
+ "fnv_duplicates": 1755226,
+ "distinct_names": 2772400,
+ "max_same_name": 3605,
+ "board_like_players": 2334439,
+ "board_like_pair_rate": 3.2e-05,
+ "phone_pair_rate": "1/1721 (95 % CI 1.5e-5 .. 3.2e-3)",
+ "most_common_first_names": [
+  [
+   "michael",
+   3605
+  ],
+  [
+   "maria",
+   2615
+  ],
+  [
+   "daniel",
+   2237
+  ],
+  [
+   "david",
+   2218
+  ],
+  [
+   "john",
+   1910
+  ],
+  [
+   "robert",
+   1880
+  ],
+  [
+   "james",
+   1874
+  ],
+  [
+   "patricia",
+   1826
+  ],
+  [
+   "thomas",
+   1727
+  ],
+  [
+   "sarah",
+   1614
+  ],
+  [
+   "barbara",
+   1568
+  ],
+  [
+   "william",
+   1528
+  ]
+ ],
+ "blocked_shown": 0,
+ "blocked_sha1": [],
+ "longer_than_16": 0,
+ "styles": {
+  "default": 2412231,
+  "given": 505262,
+  "invented": 757948,
+  "compound": 290155,
+  "leet": 63090,
+  "mixed": 396505,
+  "word": 20876,
+  "caps": 42159,
+  "underscore": 10424,
+  "initials": 10370,
+  "fallback": 18606
+ },
+ "seconds": 552.9,
+ "scripts": {
+  "LATIN": 4508306,
+  "CJK": 4582,
+  "ARABIC": 4366,
+  "CYRILLIC": 2699,
+  "HANGUL": 2301,
+  "HIRAGANA": 1916,
+  "THAI": 1352,
+  "KATAKANA": 1034,
+  "GREEK": 608,
+  "HEBREW": 462
+ },
+ "publishedList": {
+  "source": "LDNOOBW (CC BY 4.0) via tools/v2/pubscreen.py; audit only, never shipped",
+  "matches": 8649,
+  "wholeNonEnglishWord": 0,
+  "byKindAndStyle": {
+   "inside:mixed": 5143,
+   "inside:given": 3040,
+   "wholeEnglishWord:underscore": 216,
+   "inside:compound": 182,
+   "inside:underscore": 63,
+   "inside:initials": 5
+  },
+  "sha1": [
+   "d467301b",
+   "9a11d5a6",
+   "6a68b787",
+   "d298a8c1",
+   "18369d22",
+   "0aa2bf64",
+   "cb047d26",
+   "356e252e",
+   "8f2abe60",
+   "945325b6",
+   "57b072fd",
+   "d7edc1f8",
+   "37efe5e3",
+   "afd5d053",
+   "f2209618",
+   "d298a8c1",
+   "c3d7651e",
+   "51958d8b",
+   "5756700e",
+   "7b5ed43c",
+   "0b991098",
+   "e36be1b1",
+   "d298a8c1",
+   "b8c8ed85",
+   "a528b4b3",
+   "d298a8c1",
+   "90e9710a",
+   "f1e5ffe3",
+   "1a165ab4",
+   "fdaa6901",
+   "e9c8a5b7",
+   "8d274fd5",
+   "8a69a851",
+   "d298a8c1",
+   "d298a8c1",
+   "ed8c2b76",
+   "9f6910f6",
+   "c72449de",
+   "1315ae62",
+   "23e591e8"
+  ],
+  "kinds": "whole = the name or a token EQUALS a listed word (not an ordinary English word); wholeEnglishWord = equals a listed word that is also plain English (a false friend); inside = a listed word of >= 5 letters occurs inside a longer name (Scunthorpe cases)"
+ }
+}

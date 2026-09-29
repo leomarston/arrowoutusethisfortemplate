@@ -1,0 +1,65 @@
+{
+ "version": 1,
+ "title": "R5 ICON lane entries (PLAN-P §4.2 R5; SPEC rulings 45 + 47 and the OWNER's pick of option B 'Loop' 2026-09-28 11:07, build/p/ICON2/PICK -- finished by R5B, evidence build/p/R5B/). Scratch manifest for art_batch / manifest_check --lanes; the same three entries are in art/MANIFEST.json. appIcon REPLACES the 3d-hud / director / director-r3 appIcon entry (3d-hud_arrows.py:appIcon = the old blue/red/yellow-on-white icon that fails the copy gate: never re-render it into art/out/appIcon1024.png) and R5's option A (icon_v2.py:iconOptA*, superseded by the owner's pick). The three files reach the app only through App/Resources/Assets.xcassets/AppIcon.appiconset (never UIArt: they are not @3x files).",
+ "entries": [
+  {
+   "id": "appIcon",
+   "family": "3d",
+   "route": "C2",
+   "group": "app-icon",
+   "purpose": "app icon (default appearance + App Store): two glossy bent path arrows (our board arrow's round tail, tight bend and triangle head), tangerine + cyan, linked round a square loop -- each head passes OVER the other's tail, which comes out on its far side -- in the in-game arrows' view tilt, on the deep berry-pink ground; no text, no character",
+   "screen": "home screen, App Store",
+   "source": "art/ui/recipes/icon_v2.py:iconOptB",
+   "file": "art/out/appIcon1024.png",
+   "ref": {
+    "shot": "research/store/icon-1024.png",
+    "box_pt": [0, 0, 1024, 1024],
+    "px_per_pt": 1.0
+   },
+   "status": "done",
+   "owner": "R5B",
+   "notes": "R5B ICON 2026-09-28: the OWNER's pick (2026-09-28 11:07 'pick the icon B-loop its better', build/p/ICON2/PICK; supersedes ruling 47's A, which R5 had installed), finished: the in-game arrowGlossy view tilt (pitch -27, outlines pre-stretched by cos16/cos27 so the loop keeps the owner-sheet proportions); each tail starts a stub beyond the loop corner so it shows on both sides of the head crossing it, a steeper lift (ramp 0.55) and a shadow-casting frontal fill (contact shadow) so the over/under reads at 60/40 pt (the owner-sheet render read as the flat 'repeat' glyph there); same colours and berry ground. Opaque RGB 1024 px, full bleed (App Store: no alpha). Copy gate vs research/store/icon-1024.png (the NOT-like target, looked at only): SSIM 0.179 < 0.25, chroma overlap 0.064 < 0.40 (build/p/R5B/copygate.json); no arrow-arrow intersection (closest 0.081 u, build/p/R5B/overlap_check.json). Sheet art/review/icon/ICON-B-final.png. Replaces icon_v2.py:iconOptA (R5's A) and 3d-hud_arrows.py:appIcon (the old copy: 0.319 / 0.254, FAILS; never re-render it into this file).",
+   "exact_px": [1024, 1024],
+   "full_bleed": true
+  },
+  {
+   "id": "appIconDark",
+   "family": "3d",
+   "route": "C2",
+   "group": "app-icon",
+   "purpose": "app icon, iOS DARK appearance: the same two linked arrows and camera with their contact shadow as translucent black on a TRANSPARENT ground (Apple: the system paints the dark ground)",
+   "screen": "home screen (dark icons)",
+   "source": "art/ui/recipes/icon_v2.py:iconOptBDark",
+   "file": "art/out/appIcon1024Dark.png",
+   "ref": {
+    "shot": "research/store/icon-1024.png",
+    "box_pt": [0, 0, 1024, 1024],
+    "px_per_pt": 1.0
+   },
+   "status": "done",
+   "owner": "R5B",
+   "notes": "R5B ICON 2026-09-28: RGBA 1024 px (a dark appearance image may carry alpha; only the default one may not). Simulated on a system-like dark ground: copy gate SSIM 0.117 / overlap 0.140 (informative).",
+   "exact_px": [1024, 1024]
+  },
+  {
+   "id": "appIconTinted",
+   "family": "3d",
+   "route": "C2",
+   "group": "app-icon",
+   "purpose": "app icon, iOS TINTED appearance: the same arrows as an opaque grayscale on black, tangerine light and cyan mid-grey (a red-leaning grey mix: their plain luminances are nearly equal and would fuse the loop), walls and contact shadows dark; the system maps it to the user's tint",
+   "screen": "home screen (tinted icons)",
+   "source": "art/ui/recipes/icon_v2.py:iconOptBTinted",
+   "file": "art/out/appIcon1024Tinted.png",
+   "ref": {
+    "shot": "research/store/icon-1024.png",
+    "box_pt": [0, 0, 1024, 1024],
+    "px_per_pt": 1.0
+   },
+   "status": "done",
+   "owner": "R5B",
+   "notes": "R5B ICON 2026-09-28: RGB 1024 px with R = G = B, black corners (Apple: grayscale, opaque, black ground). Simulated amber tint: copy gate SSIM 0.142 / overlap 0.079 (informative).",
+   "exact_px": [1024, 1024],
+   "full_bleed": true
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>com.manycode.phonecapture</string>
+<key>CFBundleName</key><string>Phone Capture</string>
+<key>CFBundleExecutable</key><string>PhoneCapture</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>1.0</string>
+<key>LSUIElement</key><true/>
+<key>NSCameraUsageDescription</key><string>Phone Capture reads your connected iPhone's screen (it appears to macOS as a camera) so Claude can see the app you are showing it.</string>
+</dict></plist>

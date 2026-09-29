@@ -1,0 +1,288 @@
+# Locale.Region.isoRegions on the build Mac (Foundation, macOS 15.6 build 24G84), generated 2026-09-27T22:11Z by design/social/tools/v2/ios_regions.swift
+# code<TAB>English name (en_US)<TAB>containing region<TAB>number of sub-regions
+001	world	-	5
+002	Africa	001	5
+005	South America	019	16
+009	Oceania	001	5
+011	Western Africa	002	17
+013	Central America	019	8
+014	Eastern Africa	002	22
+015	Northern Africa	002	9
+017	Middle Africa	002	9
+018	Southern Africa	002	5
+019	Americas	001	4
+021	Northern America	019	5
+029	Caribbean	019	28
+030	Eastern Asia	142	8
+034	Southern Asia	142	9
+035	Southeast Asia	142	11
+039	Southern Europe	150	17
+053	Australasia	009	6
+054	Melanesia	009	5
+057	Micronesian Region	009	8
+061	Polynesia	009	10
+142	Asia	001	5
+143	Central Asia	142	5
+145	Western Asia	142	18
+150	Europe	001	4
+151	Eastern Europe	150	10
+154	Northern Europe	150	17
+155	Western Europe	150	9
+AC	Ascension Island	QO	0
+AD	Andorra	039	0
+AE	United Arab Emirates	145	0
+AF	Afghanistan	034	0
+AG	Antigua & Barbuda	029	0
+AI	Anguilla	029	0
+AL	Albania	039	0
+AM	Armenia	145	0
+AO	Angola	017	0
+AQ	Antarctica	QO	0
+AR	Argentina	005	0
+AS	American Samoa	061	0
+AT	Austria	155	0
+AU	Australia	053	0
+AW	Aruba	029	0
+AX	Åland Islands	154	0
+AZ	Azerbaijan	145	0
+BA	Bosnia & Herzegovina	039	0
+BB	Barbados	029	0
+BD	Bangladesh	034	0
+BE	Belgium	155	0
+BF	Burkina Faso	011	0
+BG	Bulgaria	151	0
+BH	Bahrain	145	0
+BI	Burundi	014	0
+BJ	Benin	011	0
+BL	St. Barthélemy	029	0
+BM	Bermuda	021	0
+BN	Brunei	035	0
+BO	Bolivia	005	0
+BQ	Caribbean Netherlands	029	0
+BR	Brazil	005	0
+BS	Bahamas	029	0
+BT	Bhutan	034	0
+BV	Bouvet Island	005	0
+BW	Botswana	018	0
+BY	Belarus	151	0
+BZ	Belize	013	0
+CA	Canada	021	0
+CC	Cocos (Keeling) Islands	053	0
+CD	Congo - Kinshasa	017	0
+CF	Central African Republic	017	0
+CG	Congo - Brazzaville	017	0
+CH	Switzerland	155	0
+CI	Côte d’Ivoire	011	0
+CK	Cook Islands	061	0
+CL	Chile	005	0
+CM	Cameroon	017	0
+CN	China mainland	030	0
+CO	Colombia	005	0
+CP	Clipperton Island	QO	0
+CQ	Sark	154	0
+CR	Costa Rica	013	0
+CU	Cuba	029	0
+CV	Cape Verde	011	0
+CW	Curaçao	029	0
+CX	Christmas Island	053	0
+CY	Cyprus	145	0
+CZ	Czechia	151	0
+DE	Germany	155	0
+DG	Diego Garcia	QO	0
+DJ	Djibouti	014	0
+DK	Denmark	154	0
+DM	Dominica	029	0
+DO	Dominican Republic	029	0
+DZ	Algeria	015	0
+EA	Ceuta & Melilla	015	0
+EC	Ecuador	005	0
+EE	Estonia	154	0
+EG	Egypt	015	0
+EH	Western Sahara	015	0
+ER	Eritrea	014	0
+ES	Spain	039	0
+ET	Ethiopia	014	0
+FI	Finland	154	0
+FJ	Fiji	054	0
+FK	Falkland Islands	005	0
+FM	Micronesia	057	0
+FO	Faroe Islands	154	0
+FR	France	155	0
+GA	Gabon	017	0
+GB	United Kingdom	154	0
+GD	Grenada	029	0
+GE	Georgia	145	0
+GF	French Guiana	005	0
+GG	Guernsey	154	0
+GH	Ghana	011	0
+GI	Gibraltar	039	0
+GL	Greenland	021	0
+GM	Gambia	011	0
+GN	Guinea	011	0
+GP	Guadeloupe	029	0
+GQ	Equatorial Guinea	017	0
+GR	Greece	039	0
+GS	So. Georgia & So. Sandwich Isl.	005	0
+GT	Guatemala	013	0
+GU	Guam	057	0
+GW	Guinea-Bissau	011	0
+GY	Guyana	005	0
+HK	Hong Kong	030	0
+HM	Heard & McDonald Islands	053	0
+HN	Honduras	013	0
+HR	Croatia	039	0
+HT	Haiti	029	0
+HU	Hungary	151	0
+IC	Canary Islands	015	0
+ID	Indonesia	035	0
+IE	Ireland	154	0
+IL	Israel	145	0
+IM	Isle of Man	154	0
+IN	India	034	0
+IO	Chagos Archipelago	014	0
+IQ	Iraq	145	0
+IR	Iran	034	0
+IS	Iceland	154	0
+IT	Italy	039	0
+JE	Jersey	154	0
+JM	Jamaica	029	0
+JO	Jordan	145	0
+JP	Japan	030	0
+KE	Kenya	014	0
+KG	Kyrgyzstan	143	0
+KH	Cambodia	035	0
+KI	Kiribati	057	0
+KM	Comoros	014	0
+KN	St. Kitts & Nevis	029	0
+KP	North Korea	030	0
+KR	South Korea	030	0
+KW	Kuwait	145	0
+KY	Cayman Islands	029	0
+KZ	Kazakhstan	143	0
+LA	Laos	035	0
+LB	Lebanon	145	0
+LC	St. Lucia	029	0
+LI	Liechtenstein	155	0
+LK	Sri Lanka	034	0
+LR	Liberia	011	0
+LS	Lesotho	018	0
+LT	Lithuania	154	0
+LU	Luxembourg	155	0
+LV	Latvia	154	0
+LY	Libya	015	0
+MA	Morocco	015	0
+MC	Monaco	155	0
+MD	Moldova	151	0
+ME	Montenegro	039	0
+MF	St. Martin	029	0
+MG	Madagascar	014	0
+MH	Marshall Islands	057	0
+MK	North Macedonia	039	0
+ML	Mali	011	0
+MM	Myanmar (Burma)	035	0
+MN	Mongolia	030	0
+MO	Macao	030	0
+MP	Northern Mariana Islands	057	0
+MQ	Martinique	029	0
+MR	Mauritania	011	0
+MS	Montserrat	029	0
+MT	Malta	039	0
+MU	Mauritius	014	0
+MV	Maldives	034	0
+MW	Malawi	014	0
+MX	Mexico	013	0
+MY	Malaysia	035	0
+MZ	Mozambique	014	0
+NA	Namibia	018	0
+NC	New Caledonia	054	0
+NE	Niger	011	0
+NF	Norfolk Island	053	0
+NG	Nigeria	011	0
+NI	Nicaragua	013	0
+NL	Netherlands	155	0
+NO	Norway	154	0
+NP	Nepal	034	0
+NR	Nauru	057	0
+NU	Niue	061	0
+NZ	New Zealand	053	0
+OM	Oman	145	0
+PA	Panama	013	0
+PE	Peru	005	0
+PF	French Polynesia	061	0
+PG	Papua New Guinea	054	0
+PH	Philippines	035	0
+PK	Pakistan	034	0
+PL	Poland	151	0
+PM	St. Pierre & Miquelon	021	0
+PN	Pitcairn Islands	061	0
+PR	Puerto Rico	029	0
+PS	Palestinian Territories	145	0
+PT	Portugal	039	0
+PW	Palau	057	0
+PY	Paraguay	005	0
+QA	Qatar	145	0
+QO	Outlying Oceania	009	5
+RE	Réunion	014	0
+RO	Romania	151	0
+RS	Serbia	039	0
+RU	Russia	151	0
+RW	Rwanda	014	0
+SA	Saudi Arabia	145	0
+SB	Solomon Islands	054	0
+SC	Seychelles	014	0
+SD	Sudan	015	0
+SE	Sweden	154	0
+SG	Singapore	035	0
+SH	St. Helena	011	0
+SI	Slovenia	039	0
+SJ	Svalbard & Jan Mayen	154	0
+SK	Slovakia	151	0
+SL	Sierra Leone	011	0
+SM	San Marino	039	0
+SN	Senegal	011	0
+SO	Somalia	014	0
+SR	Suriname	005	0
+SS	South Sudan	014	0
+ST	São Tomé & Príncipe	017	0
+SV	El Salvador	013	0
+SX	Sint Maarten	029	0
+SY	Syria	145	0
+SZ	Eswatini	018	0
+TA	Tristan da Cunha	QO	0
+TC	Turks & Caicos Islands	029	0
+TD	Chad	017	0
+TF	French Southern Territories	014	0
+TG	Togo	011	0
+TH	Thailand	035	0
+TJ	Tajikistan	143	0
+TK	Tokelau	061	0
+TL	Timor-Leste	035	0
+TM	Turkmenistan	143	0
+TN	Tunisia	015	0
+TO	Tonga	061	0
+TR	Türkiye	145	0
+TT	Trinidad & Tobago	029	0
+TV	Tuvalu	061	0
+TW	Taiwan	030	0
+TZ	Tanzania	014	0
+UA	Ukraine	151	0
+UG	Uganda	014	0
+UM	U.S. Outlying Islands	057	0
+US	United States	021	0
+UY	Uruguay	005	0
+UZ	Uzbekistan	143	0
+VA	Vatican City	039	0
+VC	St. Vincent & Grenadines	029	0
+VE	Venezuela	005	0
+VG	British Virgin Islands	029	0
+VI	U.S. Virgin Islands	029	0
+VN	Vietnam	035	0
+VU	Vanuatu	054	0
+WF	Wallis & Futuna	061	0
+WS	Samoa	061	0
+XK	Kosovo	039	0
+YE	Yemen	145	0
+YT	Mayotte	014	0
+ZA	South Africa	018	0
+ZM	Zambia	014	0
+ZW	Zimbabwe	014	0

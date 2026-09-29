@@ -1,0 +1,204 @@
+{
+ "character": "dig_homeR",
+ "frame_pt": [
+  144,
+  150
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../char_dig_homeR@3x.png",
+ "placement_pt": {
+  "x": 246.06,
+  "y": 465.19,
+  "how": "frame top-left on the 393x852 pt screen: anchor feet at [318.0, 606.0] pt"
+ },
+ "layers": [
+  {
+   "name": "body_smile",
+   "file": "body_smile@3x.png",
+   "z": 0,
+   "rect_pt": [
+    33.333,
+    2.0,
+    77.667,
+    146.0
+   ],
+   "pivots_pt": {
+    "feet": [
+     71.94,
+     140.81
+    ],
+    "neck": [
+     74.29,
+     62.7
+    ]
+   },
+   "group": "body",
+   "default": true,
+   "note": "the Digger + vest, belt, hat; mouth smile"
+  },
+  {
+   "name": "body_open",
+   "file": "body_open@3x.png",
+   "z": 1,
+   "rect_pt": [
+    33.333,
+    2.0,
+    77.667,
+    146.0
+   ],
+   "pivots_pt": {
+    "feet": [
+     71.94,
+     140.81
+    ],
+    "neck": [
+     74.29,
+     62.7
+    ]
+   },
+   "group": "body",
+   "default": false,
+   "note": "the Digger + vest, belt, hat; mouth open"
+  },
+  {
+   "name": "eyes_open",
+   "file": "eyes_open@3x.png",
+   "z": 2,
+   "rect_pt": [
+    38.333,
+    24.0,
+    41.333,
+    26.333
+   ],
+   "pivots_pt": {
+    "eyes": [
+     55.99,
+     38.48
+    ]
+   },
+   "group": "eyes",
+   "default": false,
+   "parent": "body",
+   "note": "eyes open (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "eyes_half",
+   "file": "eyes_half@3x.png",
+   "z": 3,
+   "rect_pt": [
+    38.333,
+    24.0,
+    41.333,
+    26.333
+   ],
+   "pivots_pt": {
+    "eyes": [
+     55.99,
+     38.48
+    ]
+   },
+   "group": "eyes",
+   "default": true,
+   "parent": "body",
+   "note": "eyes half (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "eyes_closed",
+   "file": "eyes_closed@3x.png",
+   "z": 4,
+   "rect_pt": [
+    38.333,
+    24.0,
+    41.333,
+    26.333
+   ],
+   "pivots_pt": {
+    "eyes": [
+     55.99,
+     38.48
+    ]
+   },
+   "group": "eyes",
+   "default": false,
+   "parent": "body",
+   "note": "eyes closed (swap group: blink = open -> half -> closed -> open)"
+  },
+  {
+   "name": "goggles",
+   "file": "goggles@3x.png",
+   "z": 5,
+   "rect_pt": [
+    43.333,
+    5.333,
+    24.667,
+    11.0
+   ],
+   "pivots_pt": {
+    "eyes": [
+     55.99,
+     38.48
+    ]
+   },
+   "parent": "body",
+   "note": "brass goggles pushed UP on the hard hat (the rig's goggles layer)"
+  },
+  {
+   "name": "armL",
+   "file": "armL@3x.png",
+   "z": 6,
+   "rect_pt": [
+    22.667,
+    60.0,
+    58.333,
+    47.667
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     53.9,
+     67.88
+    ]
+   },
+   "parent": "body"
+  },
+  {
+   "name": "armR",
+   "file": "armR@3x.png",
+   "z": 7,
+   "rect_pt": [
+    55.667,
+    56.667,
+    58.333,
+    45.667
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     95.33,
+     69.25
+    ]
+   },
+   "parent": "body"
+  }
+ ],
+ "groups": {
+  "body": {
+   "members": [
+    "body_smile",
+    "body_open"
+   ],
+   "default": "body_smile"
+  },
+  "eyes": {
+   "members": [
+    "eyes_open",
+    "eyes_half",
+    "eyes_closed"
+   ],
+   "default": "eyes_half"
+  }
+ },
+ "proof": {
+  "mean_abs": 0.109,
+  "pct_gt40": 0.007
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

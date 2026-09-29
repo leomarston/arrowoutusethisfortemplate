@@ -1,0 +1,1777 @@
+{
+ "version": 1,
+ "title": "R7 BOARD-UI (PUBLISH, PLAN-P §4.2): the D1 \"Burrow Works\" board skin -- obstacles, unlock icons, shards, tutorial hand, pointers, page pattern, corner layers. Same ids, frames and anchors as MANIFEST.json; sources: gen_board.py (skinned), gen_board_ui.py (wraps gen_icons / gen_missing), corner.py (+ d1_skin.corner_post).",
+ "entries": [
+  {
+   "id": "tapeV2",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 2 lanes, band VERTICAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV2",
+   "file": "art/ui/out/tapeV2@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 84.0,
+    "box_pt": [
+     100,
+     300,
+     300,
+     700
+    ],
+    "note": "L7 linked pairs (video build)"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    54
+   ],
+   "anchor_pt": [
+    19.5,
+    27.0
+   ],
+   "size_px": [
+    117,
+    162
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tapeV3",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 3 lanes, band VERTICAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV3",
+   "file": "art/ui/out/tapeV3@3x.png",
+   "ref": {
+    "shot": "research/shots/090-L044-start.png",
+    "box_pt": [
+     209.7,
+     168.3,
+     241.7,
+     229.4
+    ],
+    "pitch_pt": 14.566,
+    "anchor_pt": [
+     225.67,
+     198.85
+    ],
+    "level": 44
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    86
+   ],
+   "anchor_pt": [
+    19.5,
+    43.0
+   ],
+   "size_px": [
+    117,
+    258
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tapeV4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 4 lanes, band VERTICAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV4",
+   "file": "art/ui/out/tapeV4@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     42.8,
+     249.8,
+     82.1,
+     342.7
+    ],
+    "pitch_pt": 17.865,
+    "anchor_pt": [
+     62.43,
+     296.29
+    ],
+    "level": 32
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L32 top-left bundle || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    118
+   ],
+   "anchor_pt": [
+    19.5,
+    59.0
+   ],
+   "size_px": [
+    117,
+    354
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tapeH2",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 2 lanes, band HORIZONTAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH2",
+   "file": "art/ui/out/tapeH2@3x.png",
+   "ref": {
+    "shot": "research/shots/056-L038-start.png",
+    "box_pt": [
+     132.2,
+     285.6,
+     189.4,
+     324.9
+    ],
+    "pitch_pt": 17.868,
+    "anchor_pt": [
+     160.77,
+     305.22
+    ],
+    "level": 38
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L38 (the band spans 2 lanes) || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    54,
+    39
+   ],
+   "anchor_pt": [
+    27.0,
+    19.5
+   ],
+   "size_px": [
+    162,
+    117
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tapeH3",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 3 lanes, band HORIZONTAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH3",
+   "file": "art/ui/out/tapeH3@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     295.6,
+     285.8,
+     378.4,
+     322.3
+    ],
+    "note": "no 3-lane horizontal band on the phone yet: the L32 4-lane one for the look (not in place)"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    86,
+    39
+   ],
+   "anchor_pt": [
+    43.0,
+    19.5
+   ],
+   "size_px": [
+    258,
+    117
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tapeH4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "teal webbing tape (linked arrows): two stitched straps crossing over a teal band, 4 lanes, band HORIZONTAL on screen (D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH4",
+   "file": "art/ui/out/tapeH4@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     292.9,
+     285.6,
+     385.8,
+     324.9
+    ],
+    "pitch_pt": 17.865,
+    "anchor_pt": [
+     339.34,
+     305.22
+    ],
+    "level": 32
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L32 top-right || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    118,
+    39
+   ],
+   "anchor_pt": [
+    59.0,
+    19.5
+   ],
+   "size_px": [
+    354,
+    117
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW4H4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 4 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H4",
+   "file": "art/ui/out/doorW4H4@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     10.8,
+     539.2,
+     96.5,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     17.92,
+     546.32
+    ],
+    "level": 33
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    134
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    402
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW4H8",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 8 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H8",
+   "file": "art/ui/out/doorW4H8@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     82.2,
+     467.8,
+     167.9,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     89.35,
+     474.9
+    ],
+    "level": 33
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    262
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    786
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW4H12",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 12 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H12",
+   "file": "art/ui/out/doorW4H12@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     153.6,
+     396.3,
+     239.3,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     160.78,
+     403.47
+    ],
+    "level": 33
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    390
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1170
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW4H16",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 16 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H16",
+   "file": "art/ui/out/doorW4H16@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     225.1,
+     324.9,
+     310.8,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     232.21,
+     332.04
+    ],
+    "level": 33
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    518
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1554
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW4H20",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 20 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H20",
+   "file": "art/ui/out/doorW4H20@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     296.5,
+     253.5,
+     382.2,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     303.63,
+     260.61
+    ],
+    "level": 33
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    646
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1938
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW5H17",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 5 x 17 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW5H17",
+   "file": "art/ui/out/doorW5H17@3x.png",
+   "ref": {
+    "shot": "research/shots/036-L034-start.png",
+    "box_pt": [
+     8.6,
+     309.5,
+     93.1,
+     568.7
+    ],
+    "pitch_pt": 14.562,
+    "anchor_pt": [
+     14.46,
+     315.35
+    ],
+    "level": 34
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L34. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    166,
+    550
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    498,
+    1650
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW13H4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 13 x 4 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW13H4",
+   "file": "art/ui/out/doorW13H4@3x.png",
+   "ref": {
+    "shot": "research/shots/036-L034-start.png",
+    "box_pt": [
+     96.0,
+     178.5,
+     297.0,
+     248.4
+    ],
+    "pitch_pt": 14.562,
+    "anchor_pt": [
+     101.83,
+     184.29
+    ],
+    "level": 34
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L34. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    422,
+    134
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    1266,
+    402
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW11H10",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 11 x 10 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW11H10",
+   "file": "art/ui/out/doorW11H10@3x.png",
+   "ref": {
+    "shot": "research/shots/052-L037-start.png",
+    "box_pt": [
+     9.7,
+     350.7,
+     203.0,
+     527.7
+    ],
+    "pitch_pt": 16.381,
+    "anchor_pt": [
+     16.25,
+     357.3
+    ],
+    "level": 37
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L37. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    358,
+    326
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    1074,
+    978
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorW22H10",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 22 x 10 cells (D1 skin): teal-painted frame with iron bolts, iron inner frame, honey plank shutter (grain + nails, one plank per cell row)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW22H10",
+   "file": "art/ui/out/doorW22H10@3x.png",
+   "ref": {
+    "shot": "research/shots/052-L037-start.png",
+    "box_pt": [
+     9.7,
+     186.9,
+     383.2,
+     363.9
+    ],
+    "pitch_pt": 16.381,
+    "anchor_pt": [
+     16.25,
+     193.49
+    ],
+    "level": 37
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L37. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    710,
+    326
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    2130,
+    978
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "lockHex",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "brass hexagon lock with keyhole in an iron socket (on every locked door; D1 skin)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:lockHex",
+   "file": "art/ui/out/lockHex@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     28.6,
+     562.0,
+     78.6,
+     608.5
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     53.64,
+     585.25
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "1.962 x 1.81 pitch; anchor = centre; shatters with the door Round 2: corners r 0.13, keyhole x1.12, stronger bevel after m_lockHex round 1 read flat. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    73,
+    68
+   ],
+   "anchor_pt": [
+    36.5,
+    34.0
+   ],
+   "size_px": [
+    219,
+    204
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "keyOnArrow",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "gold key on a teal ribbon loop threaded on a key arrow (points DOWN as drawn; D1 skin: the ribbon fails DoorLayer.withoutRibbon's gold test, so the flying key drops it)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:keyOnArrow",
+   "file": "art/ui/out/keyOnArrow@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     9.0,
+     267.8,
+     44.7,
+     319.5
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     26.85,
+     287.4
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "anchor = the arrow's line (x) and the centre of the key's first cell on the tail side (y). up = rotate 180; right = transpose (x <-> y, see gen_board KEY); left INFERRED (right rotated 180). The key flies to the next door when its arrow exits (research/motion-tools/out/keytrack_L33.txt) Sheet: registration within ~1 pt; the capture's ribbon is a knotted double loop, ours one teardrop loop (grade it). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "size_pt": [
+    43,
+    78
+   ],
+   "anchor_pt": [
+    19.84,
+    27.52
+   ],
+   "size_px": [
+    129,
+    234
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pipeMouth",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "iron collar at a pipe mouth (1.22 x 0.61 pitch) with a dark copper interior, 4 orientations by rotation (D1 skin)",
+   "screen": "level board",
+   "size_pt": [
+    47,
+    30
+   ],
+   "size_px": [
+    141,
+    90
+   ],
+   "source": "art/ui/src/gen_board.py:pipeMouth",
+   "file": "art/ui/out/pipeMouth@3x.png",
+   "ref": {
+    "shot": "research/shots/042-L035-start.png",
+    "box_pt": [
+     322.7,
+     430.9,
+     378.9,
+     481.5
+    ],
+    "pitch_pt": 28.092,
+    "anchor_pt": [
+     350.78,
+     453.39
+    ],
+    "level": 35
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "anchor = the end cell centre; drawn opening DOWN, rotate for left/up/right. Round 2 (rounded ring) on m_pipeMouth; residual: the capture's ring bulges a little more at the bottom corners. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    23.04,
+    9.6
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pipeCounter",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "iron-framed teal counter plate on a pipe (live white number = uses left; D1 skin)",
+   "screen": "level board",
+   "size_pt": [
+    68,
+    53
+   ],
+   "size_px": [
+    204,
+    159
+   ],
+   "source": "art/ui/src/gen_board.py:pipeCounter",
+   "file": "art/ui/out/pipeCounter@3x.png",
+   "ref": {
+    "shot": "research/shots/042-L035-start.png",
+    "box_pt": [
+     216.4,
+     172.5,
+     289.4,
+     228.7
+    ],
+    "pitch_pt": 28.092,
+    "anchor_pt": [
+     252.88,
+     200.56
+    ],
+    "level": 35
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "anchor = box centre on the tube line; horizontal run as drawn, rotate 90 for vertical runs (the number is live text, stays upright). Round 2 layout collar | frame+face | collar matches m_pipeCounter in place. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "text_live": true,
+   "anchor_pt": [
+    34.0,
+    24.9
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "curtainCrate",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "CURTAIN counter gate (not used by the shipped levels): moss-stone block with the steel ring sphere, brass ring and deep teal well (D1 skin)",
+   "screen": "level board",
+   "size_pt": [
+    104,
+    104
+   ],
+   "size_px": [
+    312,
+    312
+   ],
+   "source": "art/ui/src/gen_board.py:curtainCrate",
+   "file": "art/ui/out/curtainCrate@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 186.0,
+    "box_pt": [
+     35.8,
+     136.8,
+     160.0,
+     260.9
+    ],
+    "note": "L11 top-left block '8'",
+    "pitch_pt": 28.214,
+    "anchor_pt": [
+     55.6,
+     156.5
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. The videos' Curtain/Box levels use the phone BOX skin: boxSlab + boxRing. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "text_live": true,
+   "confirmed": false,
+   "anchor_pt": [
+    4.0,
+    4.0
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "boxSlab",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the BOX obstacle slab (D1 skin: moss stone, four studs, bottom lip): authored at 3 x 3 cells, 9-sliced by the engine to any W x H block (cap insets 0.5 pitch + the 4 pt margin); the engine draws the slab in code (CounterLayer, same colours)",
+   "screen": "level board (counter levels)",
+   "source": "art/ui/src/gen_board.py:boxSlab",
+   "file": "art/ui/out/boxSlab@3x.png",
+   "ref": {
+    "shot": "research/shots/135-L050-start.png",
+    "box_pt": [
+     50,
+     600,
+     345,
+     700
+    ],
+    "pitch_pt": 28.07
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    4.0,
+    4.0
+   ],
+   "notes": "director r2 (grader A graded the curtain crate C as the BOX skin): measured on 135 (L50, 10 x 3 cells) -- corner r 0.40 pitch, face #BC5BF6, light top line, side darkening 0.26, bottom lip 0.28, rivets d 0.31 at 0.50 pitch from both edges, soft shadow 0.1 pitch. anchor = top-left of the cell block. The counter ring is a separate fixed-size sprite (boxRing). gen_board.box_case(w, h) renders any size for proofs (boxW10H3). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "size_pt": [
+    104,
+    104
+   ],
+   "size_px": [
+    312,
+    312
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "boxRing",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the Box's counter ring (D1 skin): steel sphere with four stubby lugs, brass ring, deep teal well (the counter is live text)",
+   "screen": "level board (counter levels)",
+   "source": "art/ui/src/gen_board.py:boxRing",
+   "file": "art/ui/out/boxRing@3x.png",
+   "ref": {
+    "shot": "research/shots/135-L050-start.png",
+    "box_pt": [
+     165,
+     615,
+     228,
+     680
+    ],
+    "pitch_pt": 28.07
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "text_live": true,
+   "notes": "director r2: centred on the block (anchor = frame centre = block centre); the engine scales it by pitch/32 like the slab (round 1's crate grew the sphere with the block: a 10 x 9 box got a huge sphere). Every box in levels.json is >= 3 cells on each side, so the fixed size always fits. Counter text: white, purple outline #4B1F86, ~0.8 pitch. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "size_pt": [
+    76,
+    76
+   ],
+   "size_px": [
+    228,
+    228
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconPipe",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "pipe unlock illustration (D1): copper U pipe, iron collars, teal counter plate (live digit)",
+   "screen": "Pipe! Unlocked!",
+   "size_pt": [
+    156,
+    124
+   ],
+   "size_px": [
+    468,
+    372
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:unlockIconPipe",
+   "file": "art/ui/out/unlockIconPipe@3x.png",
+   "ref": {
+    "shot": "research/shots/040-L35-pipe-unlocked.png",
+    "box_pt": [
+     117.8,
+     340.4,
+     273.8,
+     464.4
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": " || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "text_live": true,
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconLinked",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "linked-arrows unlock illustration (D1): two tangerine arrows bound by the stitched teal tape",
+   "screen": "Linked Arrows! Unlocked!",
+   "size_pt": [
+    150,
+    106
+   ],
+   "size_px": [
+    450,
+    318
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:unlockIconLinked",
+   "file": "art/ui/out/unlockIconLinked@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 78.0,
+    "box_pt": [
+     118,
+     348,
+     274,
+     470
+    ],
+    "scale": 1.25
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "polish r3: V1 t 78 s at 1:1 (141.7 x 97 pt art in a 150 x 106 frame; round 2 was 0.8x): 15.4 pt shafts, 45.5 x 47 rounded heads, the board tape at P 54. Shell: place the frame at (121.0, 360.7) or ink rect (125, 364.7, 141.7, 97). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconBox",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the Box unlock card icon (D1): moss-stone pillow slab, steel sphere + lugs, brass ring, deep teal well (live digit)",
+   "screen": "Box! Unlocked!",
+   "source": "art/ui/src/svg/gen_board_ui.py:unlockIconBox",
+   "file": "art/ui/out/unlockIconBox@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     130,
+     337,
+     262,
+     471
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "text_live": true,
+   "notes": "polish r3: its own card illustration (not the board sprites): pillow slab 121.5 x 127, sphere in a crease, four stubby cylinder lugs in front of the rim (upper pair steeper), tube-like purple ring, navy well 41 pt. Live digit centre: frame (65.55, 65.25) pt. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "size_pt": [
+    132,
+    134
+   ],
+   "size_px": [
+    396,
+    402
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconElevator",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "elevator unlock illustration (D1): two sand-plank sliding panels",
+   "screen": "Elevator! Unlocked!",
+   "size_pt": [
+    164,
+    112
+   ],
+   "size_px": [
+    492,
+    336
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:unlockIconElevator",
+   "file": "art/ui/out/unlockIconElevator@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 1182.5,
+    "box_pt": [
+     110,
+     348,
+     282,
+     470
+    ],
+    "scale": 1.37
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "polish r3: V2 t 1182.5 s at 1:1 (159.5 x 105 pt in a 164 x 112 frame): icy blue-grey panels, soft outline, faint wide stripes, flat #A1B1CB windows with a light bevel. Shell ink rect (117, 363.5, 159.5, 105). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "confirmed": false,
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "doorShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "door shatter fragments (D1: teal-painted wood, honey plank, iron bits) -- 6 small sprites",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:doorShards",
+   "file": "art/ui/out/doorShards@3x.png",
+   "ref": {
+    "shot": "research/shots/028-L33-after-key1.png",
+    "box_pt": [
+     0,
+     300,
+     393,
+     620
+    ],
+    "note": "look at S1-L33-key-first.mov frames"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": " || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pipeShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "pipe shatter shards (D1: copper glass bits)",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:pipeShards",
+   "file": "art/ui/out/pipeShards@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 560.0,
+    "box_pt": [
+     0,
+     150,
+     393,
+     700
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": " || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "tutorialHand",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "mint Digger glove pointing, with a hard-hat-yellow cuff and its big soft grey shadow (tap tutorial; D1 skin)",
+   "screen": "L1 'Tap to move!', obstacle tutorials",
+   "size_pt": [
+    102,
+    136
+   ],
+   "size_px": [
+    306,
+    408
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:tutorialHand",
+   "file": "art/ui/out/tutorialHand@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 1.2,
+    "box_pt": [
+     176,
+     410,
+     286,
+     555
+    ],
+    "anchor_pt": [
+     193,
+     424
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "director r2: frame 102 x 136 (hand ~80 x 99 pt as V1 t 1.2 shows it, + V1's big soft shadow down-right); anchor_pt = the fingertip in frame pt (the app places it on the target cell); slimmer, rounder palm. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "anchor_pt": [
+    20.3,
+    5.8
+   ],
+   "grade": "B",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pointerArrowYellow",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "tangerine curved pointer arrow (info overlays; D1 skin; id kept)",
+   "screen": "Claw / Sky Jump info",
+   "size_pt": [
+    46,
+    50
+   ],
+   "size_px": [
+    138,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:pointerArrowYellow",
+   "file": "art/ui/out/pointerArrowYellow@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     226,
+     218,
+     272,
+     268
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": " || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pointerArrowDown",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "straight tangerine down arrow of the Weekly Contest tutorial (points at the Leaderboard tab; D1 skin; id kept)",
+   "screen": "L50 Weekly tutorial",
+   "size_pt": [
+    78,
+    104
+   ],
+   "size_px": [
+    234,
+    312
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:pointerArrowDown",
+   "file": "art/ui/out/pointerArrowDown@3x.png",
+   "ref": {
+    "shot": "research/shots/130-weekly-contest-tutorial.png",
+    "box_pt": [
+     285.0,
+     635.2,
+     363.0,
+     739.2
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "missing-svg: SPEC-ui 4.2 listed it as 'pointerArrowYellow @ 72 x 97'; the capture's arrow is a different drawing (straight block arrow, not the curved Claw pointer), so a new id. Ink 72 x 97; frame top-left (285.0, 635.2); tip at frame (39.2, 101.0). SELF-GRADE A: none visible at game size; the rim is ~0.3 pt thinner. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "pageBgPattern",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "faint chunky-arrow pattern tile of the deep-teal page ground (Settings, Leaderboard, Claw, Shop bundles; D1 skin: #0A6266 at 10 %)",
+   "screen": "page grounds",
+   "size_pt": [
+    145,
+    79
+   ],
+   "size_px": [
+    435,
+    237
+   ],
+   "source": "art/ui/src/svg/gen_board_ui.py:pageBgPattern",
+   "file": "art/ui/out/pageBgPattern@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     145.0,
+     625.0,
+     290.0,
+     704.0
+    ]
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "missing-svg: SPEC-ui 4.2 guessed a 64 pt tile of 3 arrows; measured on meta-029: 2 chunky arrows per 145 x 79.3 pt repeat, lighter than the ground by (0, +4, +3.5). Transparent tile (arrows #0B4A97 at 0.10) drawn OVER the navy ground (page.bg.navy); tile origins in SCREEN pt at x = 145 i, y = -7 + 79 j (under the page header). SELF-GRADE B+: composed Settings page reads the same; the arrow outlines are our block arrows at the measured size/tilt/lattice. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png. Source moved to gen_board_ui.py (wraps the measured gen_icons/gen_missing case; never edits it).",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconDoor",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "door + lock unlock illustration (D1): teal-painted frame, iron trim, honey planks, brass lock",
+   "screen": "door intro",
+   "size_pt": [
+    128,
+    128
+   ],
+   "size_px": [
+    384,
+    384
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconDoor",
+   "file": "art/ui/out/unlockIconDoor@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 185.0,
+    "box_pt": [
+     92.9,
+     262.3,
+     305.4,
+     481.2
+    ],
+    "scale": 1.45
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "polish r3: V1 t 185 s: the card door is SQUARE 5 x 5 cells with the lock at the door's own pitch, 0.44 P below centre; drawn 120 x 120 in a 128 x 128 frame (the phone cards' size class). Shell ink rect (135.5, 351, 122, 122). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "confirmed": false,
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconCurtain",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "legacy crate card icon (not referenced by the shipped cards; D1 skin so no old palette sits in the bundle)",
+   "screen": "Curtain! Unlocked!",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconCurtain",
+   "file": "art/ui/out/unlockIconCurtain@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     127,
+     351,
+     267,
+     471
+    ],
+    "scale": 1.09
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. Replaced by unlockIconBox (the phone Box card, the id levels.json uses). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "confirmed": false,
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerWedge",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the CORNER: a mint rubber bumper on a brass coil, one cell (D1 skin); the ONE sprite the board code loads today (CornerLayer.swift rotates it per turn) = the UpRight corner",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerWedge",
+   "file": "art/ui/out/cornerWedge@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the orientation CornerNode draws at angle 0"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "corner lane (round 3/4, art/lanes/corner.md): 3D route (a rendered-look prop: glossy coils, a rounded plate; the v552 sprite is not flat), drawn at the design pitch 32 pt: a 2 x 2 pitch frame CENTRED on the corner cell centre (anchor = frame centre); the art overflows the cell (plate 1.25 x 0.36 p on the cell diagonal, spring 0.7 p behind it), so the code must size the layer to the sprite (64 pt x pitch/32), not to one cell (code request 1). Pixel-identical to cornerUpRightSpring + cornerUpRightPlate. Rotated as CornerNode does, it reproduces the original for upRight, downRight, downLeft; upLeft is a separate render in the original -> the per-turn layers are the 1:1 route (code request 2). Self-grade A at game size (sheets art/ui/sheets/corner/board_L0*.png, wedge_L0*.png). || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "pitch_pt": 32,
+   "confirmed": true,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerDownRightSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn DownRight: the brass coil + its domed foot (UNDER the plate) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownRightSpring",
+   "file": "art/ui/out/cornerDownRightSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/457-L070-after-unlock.png",
+    "box_pt": [
+     175.63,
+     532.52,
+     216.89,
+     573.77
+    ],
+    "pitch_pt": 20.629,
+    "anchor_pt": [
+     196.262,
+     553.146
+    ],
+    "level": 70,
+    "note": "L70 cell (8, 14), facing (1, -1): plate faces up-right; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerDownRightPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn DownRight: the mint bumper plate (OVER the coil) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownRightPlate",
+   "file": "art/ui/out/cornerDownRightPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/457-L070-after-unlock.png",
+    "box_pt": [
+     175.63,
+     532.52,
+     216.89,
+     573.77
+    ],
+    "pitch_pt": 20.629,
+    "anchor_pt": [
+     196.262,
+     553.146
+    ],
+    "level": 70,
+    "note": "L70 cell (8, 14), facing (1, -1): plate faces up-right; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerDownLeftSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn DownLeft: the brass coil + its domed foot (UNDER the plate) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownLeftSpring",
+   "file": "art/ui/out/cornerDownLeftSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/470-L071-start.png",
+    "box_pt": [
+     147.34,
+     586.62,
+     186.66,
+     625.94
+    ],
+    "pitch_pt": 19.659,
+    "anchor_pt": [
+     167.003,
+     606.283
+    ],
+    "level": 71,
+    "note": "L71 cell (7, 17), facing (-1, -1): plate faces up-left; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerDownLeftPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn DownLeft: the mint bumper plate (OVER the coil) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownLeftPlate",
+   "file": "art/ui/out/cornerDownLeftPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/470-L071-start.png",
+    "box_pt": [
+     147.34,
+     586.62,
+     186.66,
+     625.94
+    ],
+    "pitch_pt": 19.659,
+    "anchor_pt": [
+     167.003,
+     606.283
+    ],
+    "level": 71,
+    "note": "L71 cell (7, 17), facing (-1, -1): plate faces up-left; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerUpRightSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn UpRight: the brass coil + its domed foot (UNDER the plate) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpRightSpring",
+   "file": "art/ui/out/cornerUpRightSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerUpRightPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn UpRight: the mint bumper plate (OVER the coil) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpRightPlate",
+   "file": "art/ui/out/cornerUpRightPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerUpLeftSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn UpLeft: the brass coil + its domed foot (UNDER the plate) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpLeftSpring",
+   "file": "art/ui/out/cornerUpLeftSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/533-L082-start.png",
+    "box_pt": [
+     350.28,
+     439.22,
+     384.46,
+     473.39
+    ],
+    "pitch_pt": 17.089,
+    "anchor_pt": [
+     367.37,
+     456.305
+    ],
+    "level": 82,
+    "note": "L82 cell (20, 15), facing (-1, 1): plate faces down-left; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "cornerUpLeftPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn UpLeft: the mint bumper plate (OVER the coil) -- D1 skin: a mint rubber bumper on a brass coil",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpLeftPlate",
+   "file": "art/ui/out/cornerUpLeftPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/533-L082-start.png",
+    "box_pt": [
+     350.28,
+     439.22,
+     384.46,
+     473.39
+    ],
+    "pitch_pt": 17.089,
+    "anchor_pt": [
+     367.37,
+     456.305
+    ],
+    "level": 82,
+    "note": "L82 cell (20, 15), facing (-1, 1): plate faces down-left; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  },
+  {
+   "id": "unlockIconCorner",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "the Corner unlock card icon (D1): mint bumper on a brass coil",
+   "screen": "Corner! Unlocked! (L70)",
+   "size_pt": [
+    100,
+    100
+   ],
+   "size_px": [
+    300,
+    300
+   ],
+   "source": "art/ui/recipes/corner.py:unlockIconCorner",
+   "file": "art/ui/out/unlockIconCorner@3x.png",
+   "ref": {
+    "shot": "research/shots/456-L070-start.png",
+    "box_pt": [
+     146.55,
+     363.25,
+     246.55,
+     463.25
+    ],
+    "note": "the card over the dimmed L70 board; the sparkles around it are the live UnlockTwinkles"
+   },
+   "status": "done",
+   "owner": "board-ui",
+   "notes": "corner lane: the same model as the board sprite (card plate 92.5 pt long vs 26.0 pt on L70 at pitch 20.63 -> 73.4 pt per pitch) with a softer spring (rough 0.40), a lighter/longer foot, the spring graded onto 456's measured tone ramp and the plate's ends/back painted deep red (456: G 27/15/5 at u -0.4/+0.4/+0.58). Frame 100 x 100 pt CENTRED on 456's ink centre (196.55, 413.25); ink 149.6..244.6 x 365.9..461.9 pt (456: 150.3..242 x 367..458 + AA). No live text. UnlockOverlay needs its ink rect (code request 3): CGRect(146.55, 363.25, 100, 100) = the whole canvas. Self-grade A-/A. || R7 BOARD-UI 2026-09-28 (PLAN-P §4.2, SPEC rulings 38/44/46): D1 \"Burrow Works\" reskin by material maps (art/ui/src/d1_skin.py) on the unchanged measured generator -- frame, anchor and alpha bbox identical to the measured art (build/p/R7/geometry.json); in-place proofs build/p/R7/sheets/board_L0*.png.",
+   "grade": "A",
+   "grade_note": "R7 self-grade after looking at the contact sheets + in-place boards (director to confirm)"
+  }
+ ]
+}

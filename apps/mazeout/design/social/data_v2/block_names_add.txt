@@ -1,0 +1,4 @@
+# v2 additions to data/block_names.txt (never a token or a name): publishers and brands of other games, our own brand.
+arrow_out
+grandgame
+tapaway

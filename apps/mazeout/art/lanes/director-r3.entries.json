@@ -1,0 +1,6473 @@
+{
+ "version": 1,
+ "title": "art director round 3 (2026-09-25): rulings, fixes and grades, merged after every lane (sizes read from the files)",
+ "entries": [
+  {
+   "id": "weeklyContestLogo",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "leaderboard",
+   "purpose": "'Weekly Contest' / 'Haftalik Yarisma' lettering on the Weekly page rail: the SwiftUI EventLogo with LIVE text",
+   "screen": "Leaderboard (Weekly tab), Weekly Contest info",
+   "size_pt": [
+    277,
+    54
+   ],
+   "size_px": [
+    831,
+    162
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:EventLogo",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     60,
+     193.5,
+     337,
+     247.5
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "DIRECTOR R3 RULING (the missing-3d lane asked): SwiftUI EventLogo with live text, as SPEC-ui 2.15.3 / 4.2 route B1 says and like the other four event logos (streakRaceLogo, clawLogo, skyJumpLogo, rocketRaceLogo); PIPELINE's rule is never to bake translatable text. The lane's per-language renders are the LOOK TARGET the EventLogo must match (graded B+ as art: bevels, blue outline, cyan rim, extrusion) -- `targets` (EN, TR; committed, never bundled). Layer recipe to port: art/ui/recipes/m3d_events.py build_weekly_logo (face #FFED40 -> #FAB910 'Weekly' + white 'Contest', 2.5 pt #034AC8 outline, #14C4F9 rim, 3 pt extrusion). Frame 277 x 54 at (60.1, 193.5) (SPEC-ui said 50: the 'y' descender + outline + extrusion reach 54).",
+   "text_live": true,
+   "preview": "art/ui/code/targets/weeklyContestLogo@3x.png",
+   "targets": [
+    "art/ui/code/targets/weeklyContestLogo@3x.png",
+    "art/ui/code/targets/weeklyContestLogoTR@3x.png"
+   ],
+   "variants": [
+    "weeklyContestLogoTR"
+   ]
+  },
+  {
+   "id": "weeklyContestLogoTR",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "leaderboard",
+   "purpose": "the TR look of the Weekly Contest EventLogo ('Haftalik Yarisma', live text) -- the same SwiftUI component as weeklyContestLogo",
+   "screen": "Leaderboard (Weekly tab), Weekly Contest info",
+   "size_pt": [
+    277,
+    54
+   ],
+   "size_px": [
+    831,
+    162
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:EventLogo",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     60,
+     193.5,
+     337,
+     247.5
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "DIRECTOR R3 RULING: see weeklyContestLogo (SwiftUI EventLogo, live text). This id only keeps the TR render as the look target (`preview`); it is not a separate component or file.",
+   "text_live": true,
+   "preview": "art/ui/code/targets/weeklyContestLogoTR@3x.png"
+  },
+  {
+   "id": "frostCracks",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "white ice cracks + snowflakes + sparkle dots for one screen corner of the freeze vignette (the gradient is code: fxFrostVignette)",
+   "screen": "level (freeze booster)",
+   "size_pt": [
+    120,
+    120
+   ],
+   "size_px": [
+    360,
+    360
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:frostCracks",
+   "file": "art/ui/out/frostCracks@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     6,
+     6,
+     126,
+     126
+    ],
+    "anchor_pt": [
+     0,
+     0
+    ],
+    "note": "box starts 6 pt in so the sheet's padded crop is not clamped at the screen edge; anchor = the screen corner"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "NOT SHIPPED (director r3): kept for provenance, confirmed false; no build agent references it. Ruling: fxFrostVignette ships ALONE (one full-screen overlay that already paints the cracks); this 120 pt corner tile served SPEC-ui's other route (code gradient + tile) and would double the cracks. missing-svg: OPTIONAL -- the SPEC-ui 4.2 route (code gradient + this crack tile). The missing-3d lane ships fxFrostVignette as ONE full-screen raster that already paints cracks; if that raster ships, do NOT also draw frostCracks (the cracks would double). TOP-LEFT corner tile (the corner at frame (0",
+   "anchor_pt": [
+    0,
+    0
+   ],
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "fxFrostVignette",
+   "family": "3d",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "full-screen frost frame of the hourglass (freeze) booster: streaky cyan ice at the edges, a translucent white haze inward, thin white ice cracks, sparkles and tiny snowflakes; transparent middle",
+   "screen": "Level screen while the freeze runs",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/m3d_fx.py:fxFrostVignette",
+   "file": "art/ui/out/fxFrostVignette@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: painted in code (value noise + random-walk cracks; no 3D model), built by m3d_make. SPEC-ui 4.2 proposed a code vignette (A) + a 120 pt crack tile (B2, the missing-svg lane's frostCracks); this one full-screen raster reproduces 065 in one texture and ALREADY CONTAINS cracks along every edge: use it ALONE, or the code vignette + frostCracks, never both. Draw it between the board and the HUD (065: the HUD and boosters stay crisp above the frost); fade in/out per SPEC-motion-audio. SELF-GRADE B: the phone's ice band is a little more saturated at the sides and its crack pattern denser in the corners. DIRECTOR R3 RULING: this overlay ships alone (frostCracks is not shipped). Draw it full-screen (.resizable, fill) between the board and the HUD while the freeze runs.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "heartBig",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "whole glossy red heart for Out of Lives! (the red radial glow behind it is code)",
+   "screen": "Out of Lives!",
+   "size_pt": [
+    194,
+    164
+   ],
+   "size_px": [
+    582,
+    492
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartBig",
+   "file": "art/ui/out/heartBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-088-L062-hearts-out-1.png",
+    "box_pt": [
+     99.5,
+     316.0,
+     293.5,
+     480.0
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 said B3 (3D); shipped as SVG (the missing-3d lane's 3D heart is a route candidate at build/ui-art/route3d/heartBig.png, never in art/ui/out -- m3d_fx.py DEST). Drawn as SVG (the reference is a smooth two-lobe gloss that gradients carry; heartHUD precedent). Frame top-left at (99.5, 316.0) pt (SPEC-ui 2.6.2 heart 103.8 . 320.6 . 184.8 . 155.1 = the body box at frame (4.5, 5.0)). SELF-GRADE B: silhouette IoU 0.986 on the red body; at game size our lobes read a little flatter/less sculpted than meta-088's (its gloss has larger soft lobe highlights). DIRECTOR R3: the SVG ships (the 3D candidate at build/ui-art/route3d/heartBig.png has a fatter silhouette and a shallow notch next to 088). Fixed: the speculars' gradients were rotated twice (hard edges), the notch smudges removed, a lighter top band, 088's soft right-lobe streak + shoulder crescent. SHELL: OutOfTimePopup draws a code heart today -- use UIArt.heartBig at (99.5, 316) 194 x 164.",
+   "grade": "A"
+  },
+  {
+   "id": "bundleBarrel",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Epic Bundle art: a crimson stave barrel with a lavender hoop, broken open at the front, coins spilling out, stacks either side, a broken stave",
+   "screen": "Shop (bundle card 2: Epic)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleBarrel",
+   "file": "art/ui/out/bundleBarrel@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     150.8,
+     192,
+     252.8
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2 proposed 'bundleChestRed' for Epic, but the phone's Epic art (meta-008) is a BARREL, so the id names what is drawn. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the phone's barrel is squatter with fatter staves; its spill is fewer, bigger coins. Ids: SPEC-ui 4.2's bundleChestRed / bundleChestPurple do not exist -- Epic = bundleBarrel, Elite = bundleChest (what the phone draws).",
+   "grade": "B"
+  },
+  {
+   "id": "bundleChest",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Elite Bundle ('Popular') art: an open crimson chest with lavender trim and a pink gem latch, heaped with coins, stacks either side",
+   "screen": "Shop (bundle card 3: Elite)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleChest",
+   "file": "art/ui/out/bundleChest@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     354.6,
+     192,
+     456.6
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2 proposed 'bundleChestPurple' for Elite; the phone's Elite art is a RED chest with lavender trim (meta-008). Built from the scene lane's chest model (scene_events.chest, read-only) stretched to 96 x 45 pt. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B-: the phone's lid is a lavender-framed barrel thrown back with the gem on its front edge; ours reads flatter and more frontal. DIRECTOR R3: heap coins drawn bigger at 0.64 diameter spacing (m3d_shop big_heap / big_stack): the scale-1 heaps packed coins at 0.47 of a diameter, so each showed only a crescent and the heaps read as noodles.",
+   "grade": "B"
+  },
+  {
+   "id": "bundleSafe",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Mega Bundle art: a lavender safe with its wheel door swung open, coins pouring out, stacks at the right",
+   "screen": "Shop (bundle card 4: Mega)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleSafe",
+   "file": "art/ui/out/bundleSafe@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-008-shop-scroll1.png",
+    "box_pt": [
+     16,
+     558.1,
+     192,
+     660.1
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleSafe. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the phone shows the door's outer wheel face-on at the far left; ours shows the door edge-on with the bolts. DIRECTOR R3: heap coins drawn bigger at 0.64 diameter spacing (m3d_shop big_heap / big_stack): the scale-1 heaps packed coins at 0.47 of a diameter, so each showed only a crescent and the heaps read as noodles. No cast shadows (a hard diagonal shadow wedge crossed the coins).",
+   "grade": "B"
+  },
+  {
+   "id": "bundleCart",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Legendary Bundle ('Best Value') art: a crimson plank cart with lavender posts and a spoked wheel under a huge coin heap spilling to the ground",
+   "screen": "Shop (bundle card 5: Legendary)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleCart",
+   "file": "art/ui/out/bundleCart@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-010-shop-scroll3.png",
+    "box_pt": [
+     16,
+     156.1,
+     192,
+     258.1
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleCart. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B-: the phone's heap is a tall pyramid of big coins facing the viewer; ours is a wider mound of smaller coins with a bulge at the right. DIRECTOR R3: heap coins drawn bigger at 0.64 diameter spacing (m3d_shop big_heap / big_stack): the scale-1 heaps packed coins at 0.47 of a diameter, so each showed only a crescent and the heaps read as noodles.",
+   "grade": "B"
+  },
+  {
+   "id": "planetStage1",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 1 planet (lilac / teal marbled bands)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    60,
+    60
+   ],
+   "size_px": [
+    180,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage1",
+   "file": "art/ui/out/planetStage1@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     62,
+     427,
+     122,
+     487
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: NOT in SPEC-ui 4.2's list, but 2.17.1 / 2.17.2 draw three planets on the stage tiles and in the tutorial. Painted in code (ours). Frame top-left (62, 427) on 163. SELF-GRADE B-: the phone's bands are broader and more contrasted (deep purple / magenta / teal / white), ours are finer and paler. DIRECTOR R3: coloured by latitude bands read off 163 (m3d_events._lat_planet) instead of thin sine lines; less glass haze.",
+   "grade": "B"
+  },
+  {
+   "id": "planetStage2",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 2 planet (pink-red banded)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    60,
+    60
+   ],
+   "size_px": [
+    180,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage2",
+   "file": "art/ui/out/planetStage2@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     165,
+     427,
+     225,
+     487
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: as planetStage1; frame top-left (165, 427). SELF-GRADE B-: as planetStage1 (the phone's white band is wider). DIRECTOR R3: coloured by latitude bands read off 163 (m3d_events._lat_planet) instead of thin sine lines; less glass haze.",
+   "grade": "B"
+  },
+  {
+   "id": "planetStage3",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "Rocket Race stage 3 planet (blue with a tilted cyan ring)",
+   "screen": "Rocket Race offer (stage strip), tutorial",
+   "size_pt": [
+    104,
+    60
+   ],
+   "size_px": [
+    312,
+    180
+   ],
+   "source": "art/ui/recipes/m3d_events.py:planetStage3",
+   "file": "art/ui/out/planetStage3@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     247,
+     427,
+     351,
+     487
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: as planetStage1; frame top-left (247, 427); the ring passes behind the planet at the upper left and in front at the lower right. SELF-GRADE B-: the phone's ring is thicker and glassier. DIRECTOR R3: coloured by latitude bands read off 163 (m3d_events._lat_planet) instead of thin sine lines; less glass haze; a fatter, brighter ring.",
+   "grade": "B"
+  },
+  {
+   "id": "iconSkull",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "cream skull each side of the red 'Hard Level' tag ribbon on the Win panel",
+   "screen": "Win (Hard)",
+   "size_pt": [
+    30,
+    32
+   ],
+   "size_px": [
+    90,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconSkull",
+   "file": "art/ui/out/iconSkull@3x.png",
+   "ref": {
+    "shot": "research/shots/037-L34-win.png",
+    "box_pt": [
+     101.0,
+     117.5,
+     131.0,
+     149.5
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: left skull frame top-left (101.0, 117.5); the right one is the same drawing (not mirrored) at the other side of the label. Outline = the tag label outline #69000C; the eye sockets are HOLES (the red ribbon shows through, as on 037). SELF-GRADE B+: the capture's sockets are more slanted (angrier) and the cranium a little rounder. DIRECTOR R3: the cranium is a dome (ellipse), not a rounded box (shared with iconSkullBones).",
+   "grade": "A"
+  },
+  {
+   "id": "iconSkullBones",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "skull and crossbones each side of the purple 'Super Hard' tag ribbon on the Win panel",
+   "screen": "Win (Super Hard)",
+   "size_pt": [
+    38,
+    38
+   ],
+   "size_px": [
+    114,
+    114
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconSkullBones",
+   "file": "art/ui/out/iconSkullBones@3x.png",
+   "ref": {
+    "shot": "research/shots/063-L039-end-popup.png",
+    "box_pt": [
+     95.5,
+     114.0,
+     133.5,
+     152.0
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: the Super Hard variant (063 shows crossbones; 037's Hard skull has none). Outline #3A007C; eye sockets are holes (the purple ribbon shows through). Left frame top-left (95.5, 114.0). SELF-GRADE B: bones a little longer than 063's, skull slightly squarer. DIRECTOR R3: dome cranium; fatter bones (shaft 4.0 pt) and knobs (2.85 pt).",
+   "grade": "B"
+  },
+  {
+   "id": "logoArrowOut",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "OUR 'ARROW OUT!' logo: yellow bubble word ARROW on a blue rounded plate + a purple 'OUT!' arrow plate (same style as the original's logo, our lettering)",
+   "screen": "win splash, loading",
+   "size_pt": [
+    306,
+    236
+   ],
+   "size_px": [
+    918,
+    708
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:logoArrowOut",
+   "file": "art/ui/out/logoArrowOut@3x.png",
+   "ref": {
+    "shot": "research/shots/049-L036-end.png",
+    "box_pt": [
+     44,
+     292,
+     350,
+     528
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: puffier letters (sx 0.80, inflation 34 / OUT! 26), a SOLID graded extrusion (no shifted copy), an SVG inner-bevel filter per letter (dark lower rim, light upper-left rim), shallower depth (58 / 44), bouncier tilts, OUT! cap 335 at full width. DIRECTOR R3: the letters no longer melt together -- a compression per letter (0.75 0.77 0.77 0.73 0.60), span 222-1828 design px, inflation 32, baseline 635, extrusion 50, OUT! at cap 312. SHELL: WinLogoSequence LogoParts.split cuts = [0, Int(0.2470 * Double(W)), Int(0.3950 * Double(W)), Int(0.5545 * Double(W)), Int(0.7370 * Double(W)), W] (fractions of W, the letter gaps measured on this render; they supersede art/lanes/polish.md section A.8's).",
+   "grade": "B"
+  },
+  {
+   "id": "tapeV4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 4 lanes, band VERTICAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV4",
+   "file": "art/ui/out/tapeV4@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     42.8,
+     249.8,
+     82.1,
+     342.7
+    ],
+    "pitch_pt": 17.865,
+    "anchor_pt": [
+     62.43,
+     296.29
+    ],
+    "level": 32
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L32 top-left bundle",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    118
+   ],
+   "anchor_pt": [
+    19.5,
+    59.0
+   ],
+   "size_px": [
+    117,
+    354
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "tapeH4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 4 lanes, band HORIZONTAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH4",
+   "file": "art/ui/out/tapeH4@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     292.9,
+     285.6,
+     385.8,
+     324.9
+    ],
+    "pitch_pt": 17.865,
+    "anchor_pt": [
+     339.34,
+     305.22
+    ],
+    "level": 32
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L32 top-right",
+   "pitch_pt": 32,
+   "size_pt": [
+    118,
+    39
+   ],
+   "anchor_pt": [
+    59.0,
+    19.5
+   ],
+   "size_px": [
+    354,
+    117
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "tapeH2",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 2 lanes, band HORIZONTAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH2",
+   "file": "art/ui/out/tapeH2@3x.png",
+   "ref": {
+    "shot": "research/shots/056-L038-start.png",
+    "box_pt": [
+     132.2,
+     285.6,
+     189.4,
+     324.9
+    ],
+    "pitch_pt": 17.868,
+    "anchor_pt": [
+     160.77,
+     305.22
+    ],
+    "level": 38
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top. L38 (the band spans 2 lanes)",
+   "pitch_pt": 32,
+   "size_pt": [
+    54,
+    39
+   ],
+   "anchor_pt": [
+    27.0,
+    19.5
+   ],
+   "size_px": [
+    162,
+    117
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "tapeV3",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 3 lanes, band VERTICAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV3",
+   "file": "art/ui/out/tapeV3@3x.png",
+   "ref": {
+    "shot": "research/shots/090-L044-start.png",
+    "box_pt": [
+     209.7,
+     168.3,
+     241.7,
+     229.4
+    ],
+    "pitch_pt": 14.566,
+    "anchor_pt": [
+     225.67,
+     198.85
+    ],
+    "level": 44
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top.",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    86
+   ],
+   "anchor_pt": [
+    19.5,
+    43.0
+   ],
+   "size_px": [
+    117,
+    258
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "tapeH3",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 3 lanes, band HORIZONTAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeH3",
+   "file": "art/ui/out/tapeH3@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     295.6,
+     285.8,
+     378.4,
+     322.3
+    ],
+    "note": "no 3-lane horizontal band on the phone yet: the L32 4-lane one for the look (not in place)"
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top.",
+   "pitch_pt": 32,
+   "size_pt": [
+    86,
+    39
+   ],
+   "anchor_pt": [
+    43.0,
+    19.5
+   ],
+   "size_px": [
+    258,
+    117
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "tapeV2",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "pink tape (linked arrows), 2 lanes, band VERTICAL on screen",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:tapeV2",
+   "file": "art/ui/out/tapeV2@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 84.0,
+    "box_pt": [
+     100,
+     300,
+     300,
+     700
+    ],
+    "note": "L7 linked pairs (video build)"
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch (32 pt/cell); engine scales by pitch/32. Anchor = centre of the bundle's cell block. Base band UNDER the arrows (lane strokes show through), straps over them; TL->BR strap on top.",
+   "pitch_pt": 32,
+   "size_pt": [
+    39,
+    54
+   ],
+   "anchor_pt": [
+    19.5,
+    27.0
+   ],
+   "size_px": [
+    117,
+    162
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW4H4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 4 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H4",
+   "file": "art/ui/out/doorW4H4@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     10.8,
+     539.2,
+     96.5,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     17.92,
+     546.32
+    ],
+    "level": 33
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    134
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    402
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW4H8",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 8 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H8",
+   "file": "art/ui/out/doorW4H8@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     82.2,
+     467.8,
+     167.9,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     89.35,
+     474.9
+    ],
+    "level": 33
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    262
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    786
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW4H12",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 12 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H12",
+   "file": "art/ui/out/doorW4H12@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     153.6,
+     396.3,
+     239.3,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     160.78,
+     403.47
+    ],
+    "level": 33
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    390
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1170
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW4H16",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 16 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H16",
+   "file": "art/ui/out/doorW4H16@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     225.1,
+     324.9,
+     310.8,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     232.21,
+     332.04
+    ],
+    "level": 33
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    518
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1554
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW4H20",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 4 x 20 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW4H20",
+   "file": "art/ui/out/doorW4H20@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     296.5,
+     253.5,
+     382.2,
+     624.9
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     303.63,
+     260.61
+    ],
+    "level": 33
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L33.",
+   "pitch_pt": 32,
+   "size_pt": [
+    134,
+    646
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    402,
+    1938
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW5H17",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 5 x 17 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW5H17",
+   "file": "art/ui/out/doorW5H17@3x.png",
+   "ref": {
+    "shot": "research/shots/036-L034-start.png",
+    "box_pt": [
+     8.6,
+     309.5,
+     93.1,
+     568.7
+    ],
+    "pitch_pt": 14.562,
+    "anchor_pt": [
+     14.46,
+     315.35
+    ],
+    "level": 34
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L34.",
+   "pitch_pt": 32,
+   "size_pt": [
+    166,
+    550
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    498,
+    1650
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW13H4",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 13 x 4 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW13H4",
+   "file": "art/ui/out/doorW13H4@3x.png",
+   "ref": {
+    "shot": "research/shots/036-L034-start.png",
+    "box_pt": [
+     96.0,
+     178.5,
+     297.0,
+     248.4
+    ],
+    "pitch_pt": 14.562,
+    "anchor_pt": [
+     101.83,
+     184.29
+    ],
+    "level": 34
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L34.",
+   "pitch_pt": 32,
+   "size_pt": [
+    422,
+    134
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    1266,
+    402
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW11H10",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 11 x 10 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW11H10",
+   "file": "art/ui/out/doorW11H10@3x.png",
+   "ref": {
+    "shot": "research/shots/052-L037-start.png",
+    "box_pt": [
+     9.7,
+     350.7,
+     203.0,
+     527.7
+    ],
+    "pitch_pt": 16.381,
+    "anchor_pt": [
+     16.25,
+     357.3
+    ],
+    "level": 37
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L37.",
+   "pitch_pt": 32,
+   "size_pt": [
+    358,
+    326
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    1074,
+    978
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "doorW22H10",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "locked door 22 x 10 cells: orange riveted frame, purple inner frame, blue slatted shutter",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:doorW22H10",
+   "file": "art/ui/out/doorW22H10@3x.png",
+   "ref": {
+    "shot": "research/shots/052-L037-start.png",
+    "box_pt": [
+     9.7,
+     186.9,
+     383.2,
+     363.9
+    ],
+    "pitch_pt": 16.381,
+    "anchor_pt": [
+     16.25,
+     193.49
+    ],
+    "level": 37
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "board sprite at the design pitch 32 pt/cell; anchor = top-left corner of the door's cell block. Frame + shutter only: the lock is lockHex, placed at the door bbox centre + (0, 0.18 pitch). One slat per cell row. Other sizes: `manifest.py add-door W H` (the generator makes any size) or 9-slice (slats tile by whole cells). Seen on L37.",
+   "pitch_pt": 32,
+   "size_pt": [
+    710,
+    326
+   ],
+   "anchor_pt": [
+    3.0,
+    3.0
+   ],
+   "size_px": [
+    2130,
+    978
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "lockHex",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "purple hexagon lock with keyhole in a blue socket (on every locked door)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:lockHex",
+   "file": "art/ui/out/lockHex@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     28.6,
+     562.0,
+     78.6,
+     608.5
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     53.64,
+     585.25
+    ]
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "1.962 x 1.81 pitch; anchor = centre; shatters with the door Round 2: corners r 0.13, keyhole x1.12, stronger bevel after m_lockHex round 1 read flat.",
+   "pitch_pt": 32,
+   "size_pt": [
+    73,
+    68
+   ],
+   "anchor_pt": [
+    36.5,
+    34.0
+   ],
+   "size_px": [
+    219,
+    204
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "keyOnArrow",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "gold key on a purple ribbon loop threaded on a key arrow (points DOWN as drawn)",
+   "screen": "level board",
+   "source": "art/ui/src/gen_board.py:keyOnArrow",
+   "file": "art/ui/out/keyOnArrow@3x.png",
+   "ref": {
+    "shot": "research/shots/027-L33-start.png",
+    "box_pt": [
+     9.0,
+     267.8,
+     44.7,
+     319.5
+    ],
+    "pitch_pt": 17.857,
+    "anchor_pt": [
+     26.85,
+     287.4
+    ]
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "anchor = the arrow's line (x) and the centre of the key's first cell on the tail side (y). up = rotate 180; right = transpose (x <-> y, see gen_board KEY); left INFERRED (right rotated 180). The key flies to the next door when its arrow exits (research/motion-tools/out/keytrack_L33.txt) Sheet: registration within ~1 pt; the capture's ribbon is a knotted double loop, ours one teardrop loop (grade it).",
+   "pitch_pt": 32,
+   "size_pt": [
+    43,
+    78
+   ],
+   "anchor_pt": [
+    19.84,
+    27.52
+   ],
+   "size_px": [
+    129,
+    234
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "pipeMouth",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "gold rim at a pipe mouth (1.22 x 0.61 pitch), 4 orientations by rotation",
+   "screen": "level board",
+   "size_pt": [
+    47,
+    30
+   ],
+   "size_px": [
+    141,
+    90
+   ],
+   "source": "art/ui/src/gen_board.py:pipeMouth",
+   "file": "art/ui/out/pipeMouth@3x.png",
+   "ref": {
+    "shot": "research/shots/042-L035-start.png",
+    "box_pt": [
+     322.7,
+     430.9,
+     378.9,
+     481.5
+    ],
+    "pitch_pt": 28.092,
+    "anchor_pt": [
+     350.78,
+     453.39
+    ],
+    "level": 35
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "anchor = the end cell centre; drawn opening DOWN, rotate for left/up/right. Round 2 (rounded ring) on m_pipeMouth; residual: the capture's ring bulges a little more at the bottom corners.",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    23.04,
+    9.6
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "pipeCounter",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "orange counter box on a pipe (live white number = uses left)",
+   "screen": "level board",
+   "size_pt": [
+    68,
+    53
+   ],
+   "size_px": [
+    204,
+    159
+   ],
+   "source": "art/ui/src/gen_board.py:pipeCounter",
+   "file": "art/ui/out/pipeCounter@3x.png",
+   "ref": {
+    "shot": "research/shots/042-L035-start.png",
+    "box_pt": [
+     216.4,
+     172.5,
+     289.4,
+     228.7
+    ],
+    "pitch_pt": 28.092,
+    "anchor_pt": [
+     252.88,
+     200.56
+    ],
+    "level": 35
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "notes": "anchor = box centre on the tube line; horizontal run as drawn, rotate 90 for vertical runs (the number is live text, stays upright). Round 2 layout collar | frame+face | collar matches m_pipeCounter in place.",
+   "pitch_pt": 32,
+   "text_live": true,
+   "anchor_pt": [
+    34.0,
+    24.9
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "curtainCrate",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "CURTAIN counter gate, V1 (Aug) skin: purple rounded block (~3 x 3 cells) with a steel 4-lug counter plate and a live number; opens after N arrows are cleared",
+   "screen": "level board",
+   "size_pt": [
+    104,
+    104
+   ],
+   "size_px": [
+    312,
+    312
+   ],
+   "source": "art/ui/src/gen_board.py:curtainCrate",
+   "file": "art/ui/out/curtainCrate@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 186.0,
+    "box_pt": [
+     35.8,
+     136.8,
+     160.0,
+     260.9
+    ],
+    "note": "L11 top-left block '8'",
+    "pitch_pt": 28.214,
+    "anchor_pt": [
+     55.6,
+     156.5
+    ]
+   },
+   "status": "done",
+   "owner": "pipeline",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. The videos' Curtain/Box levels use the phone BOX skin: boxSlab + boxRing.",
+   "pitch_pt": 32,
+   "text_live": true,
+   "confirmed": false,
+   "anchor_pt": [
+    4.0,
+    4.0
+   ],
+   "grade": "n/a"
+  },
+  {
+   "id": "boardArrow",
+   "family": "code",
+   "route": "A",
+   "group": "board",
+   "purpose": "snake arrow: black round-cap stroke 0.22 pitch + rounded triangle head",
+   "screen": "level board",
+   "source": "engine",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     10,
+     255,
+     385,
+     612
+    ]
+   },
+   "status": "todo",
+   "owner": "engine",
+   "notes": "STYLE §A engine recipe. SKIN: black on #FFFFFF on the phone (v552); the owner's videos (L1-38) show BLUE arrows on a pale blue-grey ground with a dot lattice -- which skin ships is a SPEC decision; both are code, zero bitmaps.",
+   "grade": "A"
+  },
+  {
+   "id": "boardVacatedDot",
+   "family": "code",
+   "route": "A",
+   "group": "board",
+   "purpose": "vacated-cell dot #C5E1FF d 0.192 pitch",
+   "screen": "level board",
+   "source": "engine",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/004-L32-after-first.png",
+    "box_pt": [
+     10,
+     255,
+     385,
+     612
+    ]
+   },
+   "status": "todo",
+   "owner": "engine",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "boardTrailStar",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "5-point rounded star particle (white, tinted at runtime) behind exiting arrows",
+   "screen": "level board",
+   "size_pt": [
+    12,
+    12
+   ],
+   "size_px": [
+    36,
+    36
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:boardTrailStar",
+   "file": "art/ui/out/boardTrailStar@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-1.png",
+    "box_pt": [
+     140,
+     400,
+     200,
+     460
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "sparkleTwinkle",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "4-point white twinkle sparkle",
+   "screen": "rewards, unlock icons",
+   "size_pt": [
+    16,
+    16
+   ],
+   "size_px": [
+    48,
+    48
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:sparkleTwinkle",
+   "file": "art/ui/out/sparkleTwinkle@3x.png",
+   "ref": {
+    "shot": "research/shots/020-L32-win-1.png",
+    "box_pt": [
+     150,
+     385,
+     170,
+     405
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "doorShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "door shatter fragments (orange frame, blue slat, purple bits) -- 6 small sprites",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:doorShards",
+   "file": "art/ui/out/doorShards@3x.png",
+   "ref": {
+    "shot": "research/shots/028-L33-after-key1.png",
+    "box_pt": [
+     0,
+     300,
+     393,
+     620
+    ],
+    "note": "look at S1-L33-key-first.mov frames"
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "pipeShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "pipe shatter shards (cyan glass bits)",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:pipeShards",
+   "file": "art/ui/out/pipeShards@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 560.0,
+    "box_pt": [
+     0,
+     150,
+     393,
+     700
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "heartHUDHalves",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "the HUD heart split in two halves for the break animation",
+   "screen": "level HUD",
+   "size_pt": [
+    31,
+    27
+   ],
+   "size_px": [
+    93,
+    81
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartHUDHalves",
+   "file": "art/ui/out/heartHUDHalves@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     198,
+     80,
+     232,
+     108
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "heartHUD",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "red glossy life heart (3 in the timer panel)",
+   "screen": "level HUD",
+   "size_pt": [
+    31,
+    27
+   ],
+   "size_px": [
+    93,
+    81
+   ],
+   "source": "art/ui/src/gen_chrome.py:heartHUD",
+   "file": "art/ui/out/heartHUD@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     198,
+     80,
+     232,
+     108
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "art spike: silhouette IoU 0.981, ΔE00 4.47 (ab_heartHUD.png)",
+   "grade": "A"
+  },
+  {
+   "id": "heartHUDLost",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "lost / pale heart state (after a bump; greyed during the level intro)",
+   "screen": "level HUD",
+   "size_pt": [
+    31,
+    27
+   ],
+   "size_px": [
+    93,
+    81
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartHUDLost",
+   "file": "art/ui/out/heartHUDLost@3x.png",
+   "ref": {
+    "shot": "research/shots/110-L047-after-bump.png",
+    "box_pt": [
+     272.1,
+     80.6,
+     303.1,
+     107.6
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "look at the bump clip frames; may be heartHUD at reduced saturation/alpha in code instead",
+   "grade": "A"
+  },
+  {
+   "id": "iconStopwatch",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "gold stopwatch icon (timer pill, event timers)",
+   "screen": "level HUD, events",
+   "size_pt": [
+    33,
+    33
+   ],
+   "size_px": [
+    99,
+    99
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconStopwatch",
+   "file": "art/ui/out/iconStopwatch@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     90.7,
+     76.5,
+     123.7,
+     109.5
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "iconCoin",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "gold coin with a star (HUD + prices + rewards)",
+   "screen": "HUD, home top bar, prices",
+   "size_pt": [
+    39,
+    39
+   ],
+   "size_px": [
+    117,
+    117
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconCoin",
+   "file": "art/ui/out/iconCoin@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     15,
+     27,
+     45,
+     57
+    ],
+    "scale": 0.89
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: re-measured on 002's clean home coin; frame 39 pt (ink 34.4) so home's 38.5 pt rect draws it 1:1 (was 30 pt at 1.28x); thicker darker edge + 6 pt thickness band, recess wall in shadow, chubby star with an extruded orange side, no white glints. Embedded coins (prizeSign, statWeeklyWinsIcon) keep the round-2 drawing (icon_coin_r2).",
+   "grade": "A"
+  },
+  {
+   "id": "iconPlusGreen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "green round + badge on the coin pill",
+   "screen": "home top bar, Out of Time",
+   "size_pt": [
+    24,
+    24
+   ],
+   "size_px": [
+    72,
+    72
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconPlusGreen",
+   "file": "art/ui/out/iconPlusGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/013-L32-popup.png",
+    "box_pt": [
+     38,
+     84,
+     58,
+     104
+    ],
+    "scale": 1.17,
+    "note": "badge 18.7 pt (ui-measure home.plusBadge)"
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: 24 pt frame (the shell's 23.5 pt rect: 1:1); vivid flat green disc, top-only light ring, dark lower rim, SHORT CHUNKY cream plus with a 4 px dark drop (002).",
+   "grade": "A"
+  },
+  {
+   "id": "iconStopwatchSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "small stopwatch in event timer chips ('3d 9h')",
+   "screen": "home Claw bar, events",
+   "size_pt": [
+    26,
+    28
+   ],
+   "size_px": [
+    78,
+    84
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconStopwatchSmall",
+   "file": "art/ui/out/iconStopwatchSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     162,
+     146,
+     180,
+     172
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: 204's chip watch is 22.7 x 26 pt of ink -> frame 26 x 28 (was 18: drawn ~0.7x); dome crown, warmer ring, long tick pills, fat wedge hand at 40 deg (the original's hand turns).",
+   "grade": "A"
+  },
+  {
+   "id": "hudPauseButton",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "hud",
+   "purpose": "square glossy pause button (colour follows difficulty)",
+   "screen": "level HUD",
+   "size_pt": [
+    44,
+    44
+   ],
+   "size_px": [
+    132,
+    132
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:BlueSquareButton",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     331,
+     66,
+     375,
+     110
+    ]
+   },
+   "status": "graded",
+   "owner": "shell",
+   "notes": "art spike: in-place ΔE00 3.88 (ab_pauseButton.png)",
+   "grade": "A"
+  },
+  {
+   "id": "glyphGear",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "white gear glyph on the blue square button",
+   "screen": "home",
+   "size_pt": [
+    26,
+    26
+   ],
+   "size_px": [
+    78,
+    78
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphGear",
+   "file": "art/ui/out/glyphGear@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     341.3,
+     55.4,
+     367.3,
+     81.4
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "heartLives",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "lives heart with the live count inside",
+   "screen": "home top bar",
+   "size_pt": [
+    42,
+    40
+   ],
+   "size_px": [
+    126,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartLives",
+   "file": "art/ui/out/heartLives@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     212.5,
+     53,
+     251.5,
+     86
+    ],
+    "scale": 1.1
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 42 x 40 = the shell's livesHeartArt rect (42.3 x 39.8, 1:1); HEART2 at 002's 39.7 x 33.7 (round 2 was 11 % too tall once scaled); deeper crimson, dark top band, softer outline. The live count's centre in the frame: (21.3, 19.4) pt.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "iconHexArrow",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "purple hexagon with a white up-arrow (Claw points icon)",
+   "screen": "home Claw bar, Claw screen",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconHexArrow",
+   "file": "art/ui/out/iconHexArrow@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     30,
+     106,
+     78,
+     150
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 40 x 40 with the ink 37.3 x 35 at 1:1 (was 48 x 44, ~1.15x too big); thick 3D pale side at the lower left, sky arrow with a dark-PURPLE edge (not navy) and its own slab side. Shell: rect (29.0, 109.2, 40, 40).",
+   "grade": "A"
+  },
+  {
+   "id": "heartInfiniteSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "small ∞-heart for bars and chips",
+   "screen": "home Claw bar, reward ladder",
+   "size_pt": [
+    46,
+    42
+   ],
+   "size_px": [
+    138,
+    126
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartInfiniteSmall",
+   "file": "art/ui/out/heartInfiniteSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     323,
+     108,
+     369,
+     150
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: same 46 x 42 frame; heart 42 x 36.4 (was 45 x 39) at the slot's top-left (323.6, 108.4); rounder cream infinity with a thin outline. Live duration text centre: frame (22.6, 32.9) pt.",
+   "grade": "A"
+  },
+  {
+   "id": "avatarDefault",
+   "family": "svg",
+   "route": "B2",
+   "group": "avatars",
+   "purpose": "default avatar: grey-blue silhouette on a grey tile (the player's until they pick one)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/src/characters/gen_avatars.py:avatarDefault",
+   "file": "art/ui/out/avatarDefault@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     338.6,
+     147.1,
+     418.7
+    ],
+    "note": "cell 1 (the green frame + check = UI)"
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Grey-blue silhouette (#637F93) on #86A3AE, measured on meta-003 cell 1; full bleed, the frame covers the edges.",
+   "full_bleed": true,
+   "grade": "A"
+  },
+  {
+   "id": "glyphSound",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "speaker glyph",
+   "screen": "Paused, Settings",
+   "size_pt": [
+    30,
+    30
+   ],
+   "size_px": [
+    90,
+    90
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphSound",
+   "file": "art/ui/out/glyphSound@3x.png",
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     74,
+     331,
+     104,
+     361
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "glyphHaptic",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "phone-vibrating glyph",
+   "screen": "Paused, Settings",
+   "size_pt": [
+    34,
+    33
+   ],
+   "size_px": [
+    102,
+    99
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphHaptic",
+   "file": "art/ui/out/glyphHaptic@3x.png",
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     74,
+     403,
+     105,
+     435
+    ],
+    "scale": 1.12
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "007 Paused panel (cream face, brown outline); director r2: frame 34 x 33 (the measured ink 32.4 x 31.1 pt no longer shrinks to 0.9). Settings uses glyphHapticWhite.",
+   "grade": "B"
+  },
+  {
+   "id": "buttonGreen",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "wide green glossy button (Play On, Continue, Try Again, Resume, Start)",
+   "screen": "popups",
+   "size_pt": [
+    127,
+    91
+   ],
+   "size_px": [
+    381,
+    273
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PanelButton",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     80,
+     485,
+     207,
+     576
+    ]
+   },
+   "status": "graded",
+   "owner": "shell",
+   "notes": "art spike ΔE00 3.94 (ab_buttonGreen.png)",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "buttonRed",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "wide red glossy button (Quit, Hard Play)",
+   "screen": "popups, home",
+   "size_pt": [
+    127,
+    91
+   ],
+   "size_px": [
+    381,
+    273
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PanelButton",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     226,
+     485,
+     353,
+     576
+    ]
+   },
+   "status": "graded",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "unlockIconPipe",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "pipe unlock illustration: U pipe with a counter cap '3' and sparkles",
+   "screen": "Pipe! Unlocked!",
+   "size_pt": [
+    156,
+    124
+   ],
+   "size_px": [
+    468,
+    372
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconPipe",
+   "file": "art/ui/out/unlockIconPipe@3x.png",
+   "ref": {
+    "shot": "research/shots/040-L35-pipe-unlocked.png",
+    "box_pt": [
+     117.8,
+     340.4,
+     273.8,
+     464.4
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "unlockIconCurtain",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "curtain unlock illustration = the locked DOOR icon (orange frame, blue shutter, hex lock) with sparkles",
+   "screen": "Curtain! Unlocked!",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconCurtain",
+   "file": "art/ui/out/unlockIconCurtain@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     127,
+     351,
+     267,
+     471
+    ],
+    "scale": 1.09
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. Replaced by unlockIconBox (the phone Box card, the id levels.json uses).",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "unlockIconLinked",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "linked-arrows unlock illustration: two arrows bound by pink tape",
+   "screen": "Linked Arrows! Unlocked!",
+   "size_pt": [
+    150,
+    106
+   ],
+   "size_px": [
+    450,
+    318
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconLinked",
+   "file": "art/ui/out/unlockIconLinked@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 78.0,
+    "box_pt": [
+     118,
+     348,
+     274,
+     470
+    ],
+    "scale": 1.25
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: V1 t 78 s at 1:1 (141.7 x 97 pt art in a 150 x 106 frame; round 2 was 0.8x): 15.4 pt shafts, 45.5 x 47 rounded heads, the board tape at P 54. Shell: place the frame at (121.0, 360.7) or ink rect (125, 364.7, 141.7, 97).",
+   "grade": "A"
+  },
+  {
+   "id": "unlockIconElevator",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "elevator unlock illustration",
+   "screen": "Elevator! Unlocked!",
+   "size_pt": [
+    164,
+    112
+   ],
+   "size_px": [
+    492,
+    336
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconElevator",
+   "file": "art/ui/out/unlockIconElevator@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 1182.5,
+    "box_pt": [
+     110,
+     348,
+     282,
+     470
+    ],
+    "scale": 1.37
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: V2 t 1182.5 s at 1:1 (159.5 x 105 pt in a 164 x 112 frame): icy blue-grey panels, soft outline, faint wide stripes, flat #A1B1CB windows with a light bevel. Shell ink rect (117, 363.5, 159.5, 105).",
+   "confirmed": false,
+   "grade": "A"
+  },
+  {
+   "id": "unlockIconDoor",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "door + key unlock illustration (no popup seen on the phone at L33)",
+   "screen": "door intro",
+   "size_pt": [
+    128,
+    128
+   ],
+   "size_px": [
+    384,
+    384
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconDoor",
+   "file": "art/ui/out/unlockIconDoor@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 185.0,
+    "box_pt": [
+     92.9,
+     262.3,
+     305.4,
+     481.2
+    ],
+    "scale": 1.45
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: V1 t 185 s: the card door is SQUARE 5 x 5 cells with the lock at the door's own pitch, 0.44 P below centre; drawn 120 x 120 in a 128 x 128 frame (the phone cards' size class). Shell ink rect (135.5, 351, 122, 122).",
+   "confirmed": false,
+   "grade": "A"
+  },
+  {
+   "id": "tutorialHand",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "yellow emoji-style pointing hand with its big soft grey shadow (tap tutorial)",
+   "screen": "L1 'Tap to move!', obstacle tutorials",
+   "size_pt": [
+    102,
+    136
+   ],
+   "size_px": [
+    306,
+    408
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:tutorialHand",
+   "file": "art/ui/out/tutorialHand@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 1.2,
+    "box_pt": [
+     176,
+     410,
+     286,
+     555
+    ],
+    "anchor_pt": [
+     193,
+     424
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: frame 102 x 136 (hand ~80 x 99 pt as V1 t 1.2 shows it, + V1's big soft shadow down-right); anchor_pt = the fingertip in frame pt (the app places it on the target cell); slimmer, rounder palm.",
+   "anchor_pt": [
+    20.3,
+    5.8
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "pointerArrowYellow",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "yellow curved pointer arrow (info overlays)",
+   "screen": "Claw / Sky Jump info",
+   "size_pt": [
+    46,
+    50
+   ],
+   "size_px": [
+    138,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:pointerArrowYellow",
+   "file": "art/ui/out/pointerArrowYellow@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     226,
+     218,
+     272,
+     268
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "infoPathIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "maze icon tile: blue squircle with white arrows",
+   "screen": "Claw / Sky Jump info",
+   "size_pt": [
+    118,
+    118
+   ],
+   "size_px": [
+    354,
+    354
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:infoPathIcon",
+   "file": "art/ui/out/infoPathIcon@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     60,
+     128,
+     178,
+     246
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "glyphMusic",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "music-note glyph, WHITE on the green Settings button (the red off-slash is live UI)",
+   "screen": "Settings",
+   "size_pt": [
+    38,
+    36
+   ],
+   "size_px": [
+    114,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphMusic",
+   "file": "art/ui/out/glyphMusic@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     172,
+     320,
+     221,
+     367
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: redrawn from the phone's Settings page meta-029 (white face, thin dark-green outline, on a green square button), frame 38 x 36; round 1 was the Paused panel's cream/brown style from the V2 build (muddy on green).",
+   "grade": "A"
+  },
+  {
+   "id": "glyphBell",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "notification bell (Settings, Notifications row): white-to-ice-blue face, navy outline, clapper",
+   "screen": "Settings",
+   "size_pt": [
+    30,
+    36
+   ],
+   "size_px": [
+    90,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphBell",
+   "file": "art/ui/out/glyphBell@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     43,
+     163,
+     76,
+     201
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: redrawn from meta-029 (round 1 followed the V2 build: a 17 pt cream bell without an outline); frame 30 x 36.",
+   "grade": "B"
+  },
+  {
+   "id": "iconPencil",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "edit pencil in the name field",
+   "screen": "Edit Profile",
+   "size_pt": [
+    32,
+    32
+   ],
+   "size_px": [
+    96,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconPencil",
+   "file": "art/ui/out/iconPencil@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     95,
+     209,
+     130,
+     244
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: the same drawing at the phone size (meta-002 disc ~33 pt; round 1 was 0.6x): frame 32 pt.",
+   "grade": "A"
+  },
+  {
+   "id": "statFirstTryIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "red/white target with an arrow (General Stats: First Try Wins)",
+   "screen": "Profile",
+   "size_pt": [
+    56,
+    54
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:statFirstTryIcon",
+   "file": "art/ui/out/statFirstTryIcon@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     29,
+     339,
+     85,
+     391
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: meta-002 size (~51 x 50 pt; round 1 0.6x) and a thick glossy red side; frame 56 x 54.",
+   "size_px": [
+    168,
+    162
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "statWeeklyWinsIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "gold medal on a ribbon with '1' (General Stats: Weekly Contest Wins)",
+   "screen": "Profile",
+   "size_pt": [
+    48,
+    51
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:statWeeklyWinsIcon",
+   "file": "art/ui/out/statWeeklyWinsIcon@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     219,
+     340,
+     263,
+     394
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: meta-002 size (~38 x 51 pt, coin ~36 pt; round 1 0.62x), ribbon as wide as the medal, a wider gold bar; frame 48 x 51. The '1' is baked (a fixed part of the medal).",
+   "size_px": [
+    144,
+    153
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "iconCheckeredFlag",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "small checkered flag",
+   "screen": "Streak Race logo, race bar finish",
+   "size_pt": [
+    30,
+    32
+   ],
+   "size_px": [
+    90,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconCheckeredFlag",
+   "file": "art/ui/out/iconCheckeredFlag@3x.png",
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     83,
+     703,
+     113,
+     735
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: redrawn from 016's Streak Race logo flags (grader A: a different flag): grey-lilac pole + silver knob leaning left, a thick waving cloth with BIG glossy 3 x 2 checks (cream #F5EEDD / slate #4A6696), navy outline.",
+   "grade": "B"
+  },
+  {
+   "id": "rankBadgeSilver",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (silver) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeSilver",
+   "file": "art/ui/out/rankBadgeSilver@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     661,
+     56,
+     701
+    ],
+    "scale": 1.19
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "rankBadgeBronze",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (bronze) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeBronze",
+   "file": "art/ui/out/rankBadgeBronze@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "rankBadgeGold",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (gold) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeGold",
+   "file": "art/ui/out/rankBadgeGold@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     581,
+     56,
+     621
+    ],
+    "scale": 1.19
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "rankBadgePlain",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (plain blue) for ranks 4+",
+   "screen": "leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgePlain",
+   "file": "art/ui/out/rankBadgePlain@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "NOT SHIPPED; re-rendered at the new 40 pt badge frame so the generator and the manifest agree.",
+   "text_live": true,
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "scoreChip",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "the green capsule (flag roll) at the left of a Streak Race score (the number plate behind it is a row-tinted SwiftUI shape; the score is live text on it)",
+   "screen": "Streak Race rows",
+   "size_pt": [
+    40,
+    44
+   ],
+   "size_px": [
+    120,
+    132
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:scoreChip",
+   "file": "art/ui/out/scoreChip@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     335,
+     584,
+     400,
+     622
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: CAPSULE ONLY at store 6's size (~36 x 40 pt; round 1 0.75x in a 64 x 36 frame with one brown plate for every row). SHELL: draw the plate as a SwiftUI capsule tinted per row (gold row #A0500A, silver row #4A5AA8, bronze row #9A3A1A at ~0.9) with the capsule's centre on its left end. The same sprite is SPEC-ui's proposed iconFlagRoll.",
+   "text_live": false,
+   "grade": "B"
+  },
+  {
+   "id": "sunburstRays",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "soft cream sunburst rays behind a prize",
+   "screen": "reward cards, Congratulations",
+   "size_pt": [
+    190,
+    86
+   ],
+   "size_px": [
+    570,
+    258
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:sunburstRays",
+   "file": "art/ui/out/sunburstRays@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     180,
+     458,
+     310,
+     540
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 190 x 86 = 023's cream reward field (rays reach its edges, clipped to its r 22 corners), centre at the prize (0.5 W, 0.34 H), 22 wedges, a soft centre glow. Shell: draw 1:1 on the field (147.5, 455, 190, 85 in 023).",
+   "grade": "A"
+  },
+  {
+   "id": "prizeSign",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-skyjump",
+   "purpose": "green arrow sign 'PRIZE' with a coin (live amount)",
+   "screen": "Sky Jump",
+   "size_pt": [
+    92,
+    64
+   ],
+   "size_px": [
+    276,
+    192
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:prizeSign",
+   "file": "art/ui/out/prizeSign@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     78,
+     365,
+     170,
+     429
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. Director r2 (grader A: two PRIZE signs on Sky Jump): the scene lane's islands and popup scene bake the 3D sign (blank face, live text), so this flat sprite is not used.",
+   "text_live": true,
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "homeTopBar",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "home",
+   "purpose": "top bar: avatar frame, coin pill +, lives pill (heart + count + Full/timer), gear",
+   "screen": "home",
+   "size_pt": [
+    360,
+    70
+   ],
+   "size_px": [
+    1080,
+    210
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:HomeTopBar",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     16,
+     40,
+     376,
+     110
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "homeLevelPlate",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "home",
+   "purpose": "'LEVEL N' plate (green; red Hard; purple Super Hard)",
+   "screen": "home",
+   "size_pt": [
+    110,
+    66
+   ],
+   "size_px": [
+    330,
+    198
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:LevelPlate",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     140,
+     510,
+     250,
+     576
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "homePlayButton",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "home",
+   "purpose": "big Play button (green; red + 'Hard Level' ribbon; purple + 'Super Hard')",
+   "screen": "home",
+   "size_pt": [
+    218,
+    104
+   ],
+   "size_px": [
+    654,
+    312
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PanelButton",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     88,
+     618,
+     306,
+     722
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "buttonPurple",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "wide purple glossy button (Super Hard Play)",
+   "screen": "home",
+   "size_pt": [
+    210,
+    100
+   ],
+   "size_px": [
+    630,
+    300
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PanelButton",
+   "file": null,
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 1680.0,
+    "box_pt": [
+     100,
+     610,
+     300,
+     700
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "navBar",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "home",
+   "purpose": "bottom nav bar (3 tabs, raised selected Home tab)",
+   "screen": "home, shop, leaderboard",
+   "size_pt": [
+    393,
+    122
+   ],
+   "size_px": [
+    1179,
+    366
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:NavBar",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     0,
+     730,
+     393,
+     852
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "panelFrame",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "blue riveted popup frame (+ red/purple Hard/Super Hard)",
+   "screen": "every popup",
+   "size_pt": [
+    356,
+    460
+   ],
+   "size_px": [
+    1068,
+    1380
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PanelFrame",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     18,
+     200,
+     374,
+     660
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "grade": "B"
+  },
+  {
+   "id": "panelRibbon",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "yellow title plate ('Level 32', 'Paused', 'Continue?')",
+   "screen": "popups",
+   "size_pt": [
+    270,
+    76
+   ],
+   "size_px": [
+    810,
+    228
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:TitlePlate",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     60,
+     184,
+     330,
+     260
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "panelCream",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "cream inset card with a warm border",
+   "screen": "popups",
+   "size_pt": [
+    285,
+    210
+   ],
+   "size_px": [
+    855,
+    630
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:CreamCard",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     55,
+     278,
+     340,
+     490
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "panelClose",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "red round close X",
+   "screen": "popups, events",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:CloseButton",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     336,
+     207,
+     374,
+     245
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "X must work; 2 s delay rule does not apply (no paywall)",
+   "grade": "B"
+  },
+  {
+   "id": "toggleOnOff",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "popups",
+   "purpose": "ON/OFF pill toggle (green ON + blue knob)",
+   "screen": "Paused, Settings",
+   "size_pt": [
+    125,
+    40
+   ],
+   "size_px": [
+    375,
+    120
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:PillToggle",
+   "file": null,
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     222,
+     328,
+     347,
+     368
+    ]
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "settingsRoundToggle",
+   "family": "swiftui",
+   "route": "B1",
+   "group": "profile-shop-settings",
+   "purpose": "round glyph toggle (Sound / Music / Haptic, green on / red off)",
+   "screen": "Settings",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/code/GlossyChrome.swift:RoundToggle",
+   "file": null,
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 85.0,
+    "box_pt": [
+     79.7,
+     239.0,
+     292.1,
+     312.0
+    ],
+    "note": "Paused (Jul build): round Sound / Haptic toggles"
+   },
+   "status": "todo",
+   "owner": "shell",
+   "notes": "",
+   "grade": "C"
+  },
+  {
+   "id": "boosterFreeze",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "time-freeze booster: frozen hourglass / ice crystal",
+   "screen": "booster button, shop, rewards",
+   "size_pt": [
+    56,
+    56
+   ],
+   "size_px": [
+    168,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterFreeze",
+   "file": "art/ui/out/boosterFreeze@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     14,
+     760,
+     76,
+     822
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: frozen hourglass; the art fills ~37 x 40 pt of the 56 pt frame so it registers with the booster button when centred (003); the same PNG scaled ~1.7x serves the ~90 x 100 pt flight in the freeze animation",
+   "grade": "B"
+  },
+  {
+   "id": "boosterHint",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "hint booster: glossy light bulb",
+   "screen": "booster button, shop, Claw prize",
+   "size_pt": [
+    56,
+    56
+   ],
+   "size_px": [
+    168,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterHint",
+   "file": "art/ui/out/boosterHint@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     318,
+     760,
+     378,
+     822
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: glass opacity 0.94 (a faint filament shows through); fills ~37 x 45 pt of the 56 pt frame (003 registration)",
+   "grade": "B"
+  },
+  {
+   "id": "boosterPointer",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "yellow arrow-cursor booster (video build, 4-bar)",
+   "screen": "booster bar",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterPointer",
+   "file": "art/ui/out/boosterPointer@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 30.0,
+    "box_pt": [
+     62,
+     760,
+     112,
+     810
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. 3d-hud, unconfirmed (V1 4-bar only): yellow set-square. ref box corrected: the manifest's box_pt y 795..840 frames the LOWER half of the button; the icon sits at y ~760..810",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "boosterDome",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "blue dome/bell booster (video build, 4-bar)",
+   "screen": "booster bar",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterDome",
+   "file": "art/ui/out/boosterDome@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 30.0,
+    "box_pt": [
+     282,
+     760,
+     332,
+     810
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. 3d-hud, unconfirmed (V1 4-bar only): ring-stack toy (yellow base, two blue rings, blue ball). ref box corrected as boosterPointer",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "navShop",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "orange shopping basket nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    62,
+    62
+   ],
+   "size_px": [
+    186,
+    186
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navShop",
+   "file": "art/ui/out/navShop@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     38,
+     772,
+     100,
+     834
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud",
+   "grade": "B"
+  },
+  {
+   "id": "navHome",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "orange house/garage nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    80,
+    86
+   ],
+   "size_px": [
+    240,
+    258
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navHome",
+   "file": "art/ui/out/navHome@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     157,
+     730,
+     237,
+     816
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud; director r2: 66x66 -> 80x86 (026's raised Home icon is 74 x 82 pt: round 1 was 0.7x), wider body, thicker arch / eaves / door frame / corner blocks, deeper orange (orangeHouse). Frame top-left (157, 730) pt.",
+   "grade": "B"
+  },
+  {
+   "id": "navTrophy",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "gold trophy cup with a red arrow nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    68,
+    62
+   ],
+   "size_px": [
+    204,
+    186
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navTrophy",
+   "file": "art/ui/out/navTrophy@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     288,
+     772,
+     356,
+     834
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud",
+   "grade": "B"
+  },
+  {
+   "id": "padlockGold",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-claw",
+   "purpose": "gold padlock on a locked reward",
+   "screen": "Claw ladder",
+   "size_pt": [
+    44,
+    54
+   ],
+   "size_px": [
+    132,
+    162
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:padlockGold",
+   "file": "art/ui/out/padlockGold@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     308,
+     508,
+     352,
+     562
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: 3 px orange-brown sticker rim like the capture",
+   "grade": "B"
+  },
+  {
+   "id": "coinPileSmall",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-claw",
+   "purpose": "small loose coin pile",
+   "screen": "Claw info overlay",
+   "size_pt": [
+    68,
+    56
+   ],
+   "size_px": [
+    204,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:coinPileSmall",
+   "file": "art/ui/out/coinPileSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     84,
+     522,
+     152,
+     578
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: ~70 grooved coin stacks + 3 front star coins; includes our warm glow (post_fit)",
+   "grade": "B"
+  },
+  {
+   "id": "stopwatchBig",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "big blue stopwatch with glow (Out of Time!)",
+   "screen": "Out of Time popup",
+   "size_pt": [
+    225,
+    225
+   ],
+   "size_px": [
+    675,
+    675
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:stopwatchBig",
+   "file": "art/ui/out/stopwatchBig@3x.png",
+   "ref": {
+    "shot": "research/shots/013-L32-popup.png",
+    "box_pt": [
+     85,
+     268,
+     310,
+     493
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: includes our blue glow (post_fit) behind the watch; the watch fills 0.975 of the frame like the capture",
+   "grade": "A"
+  },
+  {
+   "id": "heartBroken",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "broken red glossy heart",
+   "screen": "Continue? (lose a life), Level Failed",
+   "size_pt": [
+    160,
+    132
+   ],
+   "size_px": [
+    480,
+    396
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:heartBroken",
+   "file": "art/ui/out/heartBroken@3x.png",
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     117,
+     296,
+     277,
+     428
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: two halves + a dark crack wall, 3 px dark-red sticker rim",
+   "grade": "B"
+  },
+  {
+   "id": "coinStackReward",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "coin stack reward with sparkles",
+   "screen": "win popup 'Rewards:'",
+   "size_pt": [
+    110,
+    100
+   ],
+   "size_px": [
+    330,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:coinStackReward",
+   "file": "art/ui/out/coinStackReward@3x.png",
+   "ref": {
+    "shot": "research/shots/020-L32-win-1.png",
+    "box_pt": [
+     133,
+     360,
+     243,
+     460
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: 9 thick star coins + two twinkles (ours, 2D post); the '20' is live text",
+   "grade": "B"
+  },
+  {
+   "id": "heartInfinite",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "red heart with an infinity sign (unlimited lives reward)",
+   "screen": "Claw reward, home lives",
+   "size_pt": [
+    92,
+    84
+   ],
+   "size_px": [
+    276,
+    252
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:heartInfinite",
+   "file": "art/ui/out/heartInfinite@3x.png",
+   "ref": {
+    "shot": "research/shots/033-after-L33.png",
+    "box_pt": [
+     152,
+     368,
+     244,
+     452
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: cream infinity sign raised in a 0.03 recess; the gold sparkles around it on 033 are FX (not baked)",
+   "grade": "A"
+  },
+  {
+   "id": "homeBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "lab interior backdrop: walls, purple/white striped pipes, valve wheel, vents, floor",
+   "screen": "home",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeBackdrop",
+   "file": "art/out/homeBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "render at 393 x 852 (safe area inside); layers behind the scientist",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "homeConsole",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "console desk in front of the scientist (buttons, levers, green dome button)",
+   "screen": "home",
+   "size_pt": [
+    214,
+    109
+   ],
+   "size_px": [
+    642,
+    327
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeConsole",
+   "file": "art/out/homeConsole@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     95,
+     266,
+     309,
+     375
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: rebuilt against 002: rim x 99..294 pt (193 wide; round 1 ~0.9x), a THICK glossy blue rim band (RIM_H 1.45 u), a deeper bulging belly with a warm cream-to-yellow gradient, a short base; fitted by width, bottom at 373 pt; frame 214 x 109 at (95, 266).",
+   "grade": "B"
+  },
+  {
+   "id": "homeCapsuleMachine",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "capsule machine body + glass window",
+   "screen": "home",
+   "size_pt": [
+    206,
+    215
+   ],
+   "size_px": [
+    618,
+    645
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeCapsuleMachine",
+   "file": "art/out/homeCapsuleMachine@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     95,
+     365,
+     301,
+     580
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: slanted light-cyan inner walls (002's ~24 pt bevel) taper the cavity; the arrow piles hold this machine out (machine_hold) so they stay inside the window.",
+   "grade": "B"
+  },
+  {
+   "id": "homeArrowPileFull",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (L33: full)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileFull",
+   "file": "art/out/homeArrowPileFull@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: re-laid from 002 / 168 / 070 at 6 px/pt: chunky block arrows (head 0.58, shaft 0.54 x 0.54), a wide low mound in four depth rows (Full), face-on (pitch -14..-34), weighted colour mix (lilac/sky most, lime least); the machine is a holdout so nothing crosses the bezel (round 1 spilled ~20 pt out of the window).",
+   "grade": "A"
+  },
+  {
+   "id": "homeArrowPileHalf",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (between)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileHalf",
+   "file": "art/out/homeArrowPileHalf@3x.png",
+   "ref": {
+    "shot": "research/shots/168-home-L055.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: re-laid from 002 / 168 / 070 at 6 px/pt: chunky block arrows (head 0.58, shaft 0.54 x 0.54), a wide low mound in four depth rows (Full), face-on (pitch -14..-34), weighted colour mix (lilac/sky most, lime least); the machine is a holdout so nothing crosses the bezel (round 1 spilled ~20 pt out of the window).",
+   "grade": "B"
+  },
+  {
+   "id": "homeArrowPileLow",
+   "family": "3d",
+   "route": "C2",
+   "group": "home",
+   "purpose": "glossy 3D arrow pile inside the machine (L40: ~6 arrows)",
+   "screen": "home",
+   "size_pt": [
+    186,
+    126
+   ],
+   "size_px": [
+    558,
+    378
+   ],
+   "source": "art/ui/recipes/scene_home.py:homeArrowPileLow",
+   "file": "art/out/homeArrowPileLow@3x.png",
+   "ref": {
+    "shot": "research/shots/070-home-L40-skyjump-joined.png",
+    "box_pt": [
+     104,
+     402,
+     290,
+     528
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: re-laid from 002 / 168 / 070 at 6 px/pt: chunky block arrows (head 0.58, shaft 0.54 x 0.54), a wide low mound in four depth rows (Full), face-on (pitch -14..-34), weighted colour mix (lilac/sky most, lime least); the machine is a holdout so nothing crosses the bezel (round 1 spilled ~20 pt out of the window).",
+   "grade": "B"
+  },
+  {
+   "id": "homePlatform",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "round light floor dais under the workers and Play",
+   "screen": "home",
+   "size_pt": [
+    393,
+    182
+   ],
+   "size_px": [
+    1179,
+    546
+   ],
+   "source": "art/ui/recipes/scene_home.py:homePlatform",
+   "file": "art/out/homePlatform@3x.png",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     0,
+     576,
+     393,
+     758
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "eventBadgeStreak",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Streak Race badge: checkered flags on a round pedestal + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeStreak",
+   "file": "art/ui/out/eventBadgeStreak@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     4,
+     186,
+     94,
+     278
+    ],
+    "anchor_pt": [
+     49.0,
+     272.3
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: hex plaque (gold rim, blue panel) + blue drum + gold ring + crossed chequered flags; 76 x 77 pt art in an 80 x 84 frame, bottom-aligned (anchor = ring bottom centre); the live timer goes on the drum front",
+   "anchor_pt": [
+    40,
+    82
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "eventBadgeSkyJump",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Sky Jump badge: pedestal with a gift box / counter + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeSkyJump",
+   "file": "art/ui/out/eventBadgeSkyJump@3x.png",
+   "ref": {
+    "shot": "research/shots/070-home-L40-skyjump-joined.png",
+    "box_pt": [
+     4,
+     286,
+     94,
+     378
+    ],
+    "anchor_pt": [
+     48.5,
+     372.3
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: shared badge base (purple) + the pad (pink cushion, cream layers, gold band, pink count plate) on lilac clouds; live count on the plate, live timer on the drum (070)",
+   "anchor_pt": [
+    40,
+    82
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "eventBadgeRocket",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Rocket Race badge: rocket with a count + timer",
+   "screen": "home left column",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:eventBadgeRocket",
+   "file": "art/ui/out/eventBadgeRocket@3x.png",
+   "ref": {
+    "shot": "research/shots/168-home-L055.png",
+    "box_pt": [
+     4,
+     286,
+     94,
+     378
+    ],
+    "anchor_pt": [
+     48.5,
+     372.3
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: shared badge base (navy starry panel, purple drum) + our red/yellow rocket; live count on the porthole glass, timer on the drum. Seen on the phone v552 (168), so confirmed",
+   "confirmed": false,
+   "anchor_pt": [
+    40,
+    82
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "rocketMine",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "red rocket (the player)",
+   "screen": "Rocket Race lanes",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:rocketMine",
+   "file": "art/ui/out/rocketMine@3x.png",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png",
+    "box_pt": [
+     0,
+     544,
+     80,
+     650
+    ],
+    "anchor_pt": [
+     39.6,
+     597.8
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: red/yellow rocket (the player), 64 x 74 pt body + our painted flame below; seen on the phone (178), so confirmed",
+   "confirmed": false,
+   "grade": "B"
+  },
+  {
+   "id": "rocketOther",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-rocket",
+   "purpose": "blue rocket (simulated opponents)",
+   "screen": "Rocket Race lanes",
+   "size_pt": [
+    68,
+    98
+   ],
+   "size_px": [
+    204,
+    294
+   ],
+   "source": "art/ui/recipes/3d-events_badges.py:rocketOther",
+   "file": "art/ui/out/rocketOther@3x.png",
+   "ref": {
+    "shot": "research/shots/178-rocket-race-progress.png",
+    "box_pt": [
+     78,
+     452,
+     158,
+     558
+    ],
+    "anchor_pt": [
+     118.0,
+     506.2
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: same rocket, white-blue body + blue fins (opponents), phone 178",
+   "confirmed": false,
+   "grade": "B"
+  },
+  {
+   "id": "trophyCup",
+   "family": "3d",
+   "route": "B3",
+   "group": "leaderboard",
+   "purpose": "gold trophy cup (Weekly Contest popup, profile stats)",
+   "screen": "Weekly Contest popup, Profile",
+   "size_pt": [
+    62,
+    58
+   ],
+   "size_px": [
+    186,
+    174
+   ],
+   "source": "art/ui/recipes/3d-events_trophy.py:trophyCup",
+   "file": "art/ui/out/trophyCup@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-017-weekly-contest-info-full.png",
+    "box_pt": [
+     24,
+     680,
+     92,
+     742
+    ],
+    "anchor_pt": [
+     57.2,
+     712.8
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: gold cup with an orange up-arrow emblem, 57 x 53 pt as measured on the phone Weekly Contest info (meta-017; the 120 x 130 web-frame estimate was dropped); the same design is the home nav trophy (navTrophy, another lane) -- the recipe can render it at 62 x 60 pt",
+   "grade": "B"
+  },
+  {
+   "id": "coinBowl",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-streak",
+   "purpose": "coin pile in a red bowl (prize plate, live amount on the rim)",
+   "screen": "Streak Race prizes, Claw ladder, Sky Jump win",
+   "size_pt": [
+    74,
+    62
+   ],
+   "size_px": [
+    222,
+    186
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinBowl",
+   "file": "art/ui/out/coinBowl@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     200,
+     458,
+     292,
+     532
+    ],
+    "anchor_pt": [
+     241.75,
+     497.0
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: crimson band bowl + coin heap, fitted to 69 x 56 pt (023); the live amount is drawn by the app on the band front (lower ~40 % of the frame); one render shown at 60-100 pt",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "stageChestGreen",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, green lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestGreen",
+   "file": "art/ui/out/stageChestGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     58,
+     454,
+     126,
+     506
+    ],
+    "anchor_pt": [
+     91.7,
+     481.0
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: barrel-lid chest, gold end straps/seam/trim, diamond lock; 52 x 38.5 pt in the frame (065); the live \"Stage N\" label overlaps its lower edge",
+   "grade": "A"
+  },
+  {
+   "id": "stageChestBlue",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, blue lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestBlue",
+   "file": "art/ui/out/stageChestBlue@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     161,
+     454,
+     229,
+     506
+    ],
+    "anchor_pt": [
+     195.0,
+     481.0
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: same model, blue lid/body (065)",
+   "grade": "A"
+  },
+  {
+   "id": "stageChestPink",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-skyjump",
+   "purpose": "treasure chest, pink lid (stage marker)",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    56,
+    42
+   ],
+   "size_px": [
+    168,
+    126
+   ],
+   "source": "art/ui/recipes/3d-events_chest.py:stageChestPink",
+   "file": "art/ui/out/stageChestPink@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     266,
+     454,
+     334,
+     506
+    ],
+    "anchor_pt": [
+     300.4,
+     481.0
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: same model, pink lid/body (065)",
+   "grade": "A"
+  },
+  {
+   "id": "coinPackTiny",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #1 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackTiny",
+   "file": "art/ui/out/coinPackTiny@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     10,
+     412,
+     122,
+     492
+    ],
+    "anchor_pt": [
+     70.0,
+     484.7
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "coinPackSmall",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #2 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackSmall",
+   "file": "art/ui/out/coinPackSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     140,
+     412,
+     252,
+     492
+    ],
+    "anchor_pt": [
+     198.4,
+     485.7
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "coinPackMedium",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #3 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackMedium",
+   "file": "art/ui/out/coinPackMedium@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     268,
+     412,
+     382,
+     492
+    ],
+    "anchor_pt": [
+     326.7,
+     485.1
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "coinPackBig",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #4 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackBig",
+   "file": "art/ui/out/coinPackBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     10,
+     582,
+     122,
+     662
+    ],
+    "anchor_pt": [
+     70.2,
+     656.7
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "coinPackSuper",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #5 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackSuper",
+   "file": "art/ui/out/coinPackSuper@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     140,
+     582,
+     252,
+     662
+    ],
+    "anchor_pt": [
+     198.7,
+     657.1
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "coinPackGiant",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "coin pack art #6 (pile grows with the pack)",
+   "screen": "Shop",
+   "size_pt": [
+    102,
+    66
+   ],
+   "size_px": [
+    306,
+    198
+   ],
+   "source": "art/ui/recipes/3d-events_coins.py:coinPackGiant",
+   "file": "art/ui/out/coinPackGiant@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-011-shop-bottom.png",
+    "box_pt": [
+     268,
+     582,
+     382,
+     662
+    ],
+    "anchor_pt": [
+     326.2,
+     654.1
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-events",
+   "notes": "3d-events: pile fitted to its meta-011 bbox; shared 102 x 66 frame, bottom-aligned; director r2: the base shadow fades to 0 before the frame's bottom edge (round 1 cut it: a faint hard line on the card).",
+   "anchor_pt": [
+    51,
+    64
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "clawHeaderArt",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-claw",
+   "purpose": "claw machine interior: claw, glass top light, prizes (hearts, bulbs, hourglasses, cubes); workerClawPair composited in",
+   "screen": "Claw Challenge",
+   "size_pt": [
+    393,
+    240
+   ],
+   "size_px": [
+    1179,
+    720
+   ],
+   "source": "art/ui/recipes/scene_events.py:clawHeaderArt",
+   "file": "art/out/clawHeaderArt@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     240
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: rebuilt with char_workerClawPair composited behind the prizes (round 1 was built before the pair existed).",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "skyJumpBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "sky gradient + soft pink/white clouds (full screen)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpBackdrop",
+   "file": "art/out/skyJumpBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "",
+   "full_bleed": true,
+   "grade": "A"
+  },
+  {
+   "id": "skyJumpPad",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "pink cushion jump pad on a white/gold drum (live number plate)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    112,
+    104
+   ],
+   "size_px": [
+    336,
+    312
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpPad",
+   "file": "art/out/skyJumpPad@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     51,
+     503,
+     163,
+     607
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "skyJumpIsland",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "prize island: cream platform with a pink pad, open treasure chest of coins, coin scatter, PRIZE arrow sign (live amount)",
+   "screen": "Sky Jump screen, popups",
+   "size_pt": [
+    260,
+    256
+   ],
+   "size_px": [
+    780,
+    768
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpIsland",
+   "file": "art/out/skyJumpIsland@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     66,
+     306,
+     326,
+     562
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: fitted by the island's width (069: ~220 pt; round 1 ~172), thicker cream/gold layers, the 069 chest (lavender body, green quilt lid open 36 deg with the green shield on it), tall coin stacks, deeper gold; the haze fades out inside the frame (round 1 drew a rectangle). Frame 260 x 256 at (66, 306). The PRIZE sign is baked blank (live text: face box as art/lanes/scene.md, scaled).",
+   "text_live": true,
+   "grade": "B"
+  },
+  {
+   "id": "skyJumpIslandFar",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "smaller upper islands (later stages, blue/pink chests)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    166,
+    158
+   ],
+   "size_px": [
+    498,
+    474
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpIslandFar",
+   "file": "art/out/skyJumpIslandFar@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     6,
+     222,
+     172,
+     380
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: as skyJumpIsland (width fit ~139 pt, dense stacks, haze inside the frame). Frame 166 x 158 at (6, 222). The upper-right purple-chest island of 069 has no id yet (round 2: skyJumpIslandFar2).",
+   "grade": "B"
+  },
+  {
+   "id": "skyJumpPopupScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "popup art: chest overflowing with coins on clouds + PRIZE sign",
+   "screen": "Sky Jump popup",
+   "size_pt": [
+    330,
+    190
+   ],
+   "size_px": [
+    990,
+    570
+   ],
+   "source": "art/ui/recipes/scene_events.py:skyJumpPopupScene",
+   "file": "art/out/skyJumpPopupScene@3x.png",
+   "ref": {
+    "shot": "research/shots/065-join-event.png",
+    "box_pt": [
+     30,
+     270,
+     360,
+     460
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: deeper orange-gold coins, a warm glow behind the heap, the 065 chest (lavender, quilt lid + shield). Remaining: 065's lid is opened wider over a heap of coins.",
+   "grade": "B"
+  },
+  {
+   "id": "rocketRaceBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "space backdrop with planets + prize chest of coins at the top",
+   "screen": "Rocket Race",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_events.py:rocketRaceBackdrop",
+   "file": "art/out/rocketRaceBackdrop@3x.png",
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: the moon ground ends under the banner and the lane area is deep indigo (#16105C -> #420FAC) with faint stars (round 1: flat lavender); the hoard is seen from higher with the chest turned 18 deg.",
+   "full_bleed": true,
+   "confirmed": true,
+   "grade": "B"
+  },
+  {
+   "id": "leaderboardPodium",
+   "family": "3d",
+   "route": "C1",
+   "group": "leaderboard",
+   "purpose": "podium of 3 (silver / gold / bronze blocks) with avatars on top",
+   "screen": "Leaderboard Weekly",
+   "size_pt": [
+    389,
+    206
+   ],
+   "size_px": [
+    1167,
+    618
+   ],
+   "source": "art/ui/recipes/scene_events.py:leaderboardPodium",
+   "file": "art/out/leaderboardPodium@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-013-leaderboard-weekly.png",
+    "box_pt": [
+     2,
+     294,
+     391,
+     500
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "",
+   "grade": "A"
+  },
+  {
+   "id": "scientist",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "top monster: furry scientist in a lab coat at the console -- PINK recolour",
+   "screen": "home",
+   "size_pt": [
+    190,
+    164
+   ],
+   "size_px": [
+    570,
+    492
+   ],
+   "source": "art/pipeline/items/char_scientist.py:sci_home",
+   "file": "art/out/char_sci_home_rig",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     104,
+     168,
+     300,
+     340
+    ],
+    "anchor_pt": [
+     204.23,
+     258.52
+    ],
+    "note": "002 (the manifest's 026 is a different animation frame: head 49 px lower)"
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Rig (8 layers, baked, proof 0.115/255): torso, armL, armR|armR_point, headSmile|headOpen, lidsHalf/lidsClosed overlays; placement rig.json placement_pt (109.23, 176.52) by the eye whites (v6 2026-09-25: body narrowed 0.80 + shifted under the head, head roll 8 / yaw -6, eye bias 10 px; coat rows now within ~5-15 px of 002's). OWNER 02:33: the original's design, PINK.",
+   "rig": true,
+   "anchor_pt": [
+    95,
+    82
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "workerWalkie",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker: yellow capsule -> BLUE, navy cap, walkie-talkie, wrench on the belt",
+   "screen": "home left",
+   "size_pt": [
+    150,
+    132
+   ],
+   "size_px": [
+    450,
+    396
+   ],
+   "source": "art/pipeline/items/char_worker.py:wk_homeL_blue",
+   "file": "art/out/char_wk_homeL_blue_rig",
+   "ref": {
+    "shot": "research/shots/035-home-L34.png",
+    "box_pt": [
+     0,
+     470,
+     175,
+     630
+    ],
+    "anchor_pt": [
+     93.04,
+     549.66
+    ],
+    "note": "phone rest frame (002 is mid-animation)"
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Rig (9 layers, baked, proof 0.076/255): body_smile|body_open, eyes_open|half|closed|wink, armL|armL_wave, armR (+ walkie); placement (18.04, 483.66) = feet anchor (85.74, 606.18) pt. r3: NEW members eyes_wink (SPEC-motion-audio §15.4 UI-ART request: the screen-right eye closed) and armL_wave (the free arm raised, open hand, for the §8.2 wave); every existing layer re-exported pixel-identical (max |d| 0). BLUE + warm rim.",
+   "rig": true,
+   "anchor_pt": [
+    75,
+    66
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "workerClipboard",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker: green cap, big glasses, clipboard + pen (BLUE body)",
+   "screen": "home right",
+   "size_pt": [
+    150,
+    132
+   ],
+   "size_px": [
+    450,
+    396
+   ],
+   "source": "art/pipeline/items/char_worker.py:wk_homeR_blue",
+   "file": "art/out/char_wk_homeR_blue_rig",
+   "ref": {
+    "shot": "research/shots/035-home-L34.png",
+    "box_pt": [
+     225,
+     470,
+     393,
+     630
+    ],
+    "anchor_pt": [
+     319.93,
+     549.33
+    ],
+    "note": "phone rest frame"
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Rig (8 layers, baked 0.177/255): body_smile|body_open, eyes_half|open|closed, glasses, armL (+ clipboard), armR (+ pencil); placement (244.93, 483.33) = feet anchor (318.60, 605.85) pt. BLUE + warm rim.",
+   "rig": true,
+   "anchor_pt": [
+    75,
+    66
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "scientistLoading",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "scientist holding a big glossy arrow (loading / splash pose)",
+   "screen": "loading",
+   "size_pt": [
+    318,
+    306
+   ],
+   "size_px": [
+    954,
+    918
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_scientistLoading",
+   "file": "art/out/char_scientistLoading@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     30,
+     220,
+     370,
+     540
+    ],
+    "anchor_pt": [
+     208.66,
+     377.34
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "r3 (2026-09-25, characters lane): rebuilt as the 'load' pose + style on store 8 / V1 measured about the eye line (90 pt/u): squat WIDE torso (x 1.05 / y 0.90) whose shoulders rise to the cheeks, centred right of the face; the fist a clenched ball beside the mouth (forearm from a rolled cuff); the other mitt gripping an orange (up-left) + red (left) arrow at the right side; the far leg kicked back; head turned 16 deg left with a taller, fuller dome (skin rows within ~5 pt of theirs), raised thinner brows, a CRESCENT smile with a small two-tooth band (16 x 5 pt vs their 19 x 5), fur ladder lifted (median S 0.67 V 0.81 vs theirs 0.67 / 0.82; hue kept PINK); camera pitch +5 (seen from a little above like store 8). Layout (49.66, 224.34) by the eye whites (target biased 3.5 pt left / 3 pt down). Left: the mouth still reads a little more open than theirs; no notched lapel.",
+   "anchor_pt": [
+    159.0,
+    153.0
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "workerCarrier",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker carrying a cardboard box (loading screen, foreground)",
+   "screen": "loading",
+   "size_pt": [
+    236,
+    400
+   ],
+   "size_px": [
+    708,
+    1200
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_workerCarrier",
+   "file": "art/out/char_workerCarrier@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     360,
+     250,
+     770
+    ],
+    "anchor_pt": [
+     139.12,
+     563.5
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "r3: full bean (girth 0.97, tall 1.13, belt lowered to 0.48) turned 16 deg to screen LEFT, arms nearly vertical to the box's lower corners (gloves on its front edge), SHORT CHUNKY legs with big round shoe feet (new char_worker.leg_chunky; the near foot toe-on under the belly, the far foot kicked back-left), a tall laughing D mouth with a short tooth band, eye whites matched to store 8 within ~2 pt (eyeMid anchor +0.075 u to the visible whites). Layout (21.12, 363.5). BLUE.",
+   "anchor_pt": [
+    118.0,
+    200.0
+   ],
+   "grade": "B"
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "worker flying in with a big red arrow held overhead (loading screen, top right)",
+   "status": "graded",
+   "source": "art/pipeline/items/char_loading.py:char_workerFlyer",
+   "file": "art/out/char_workerFlyer@3x.png",
+   "size_pt": [
+    170,
+    220
+   ],
+   "anchor_pt": [
+    85,
+    110
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     180,
+     70,
+     360,
+     300
+    ],
+    "anchor_pt": [
+     274.93,
+     190.2
+    ]
+   },
+   "notes": "NEW id (was char_ld_flyer). Layout (189.93, 80.2); frame 170 x 220 (v1 150 x 204 clipped the feet + the small arrow). BLUE.",
+   "size_px": [
+    510,
+    660
+   ],
+   "id": "workerFlyer",
+   "grade": "B"
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "worker in a green cap + big glasses running, fist up, notebook under the arm (loading screen, right)",
+   "status": "graded",
+   "source": "art/pipeline/items/char_loading.py:char_workerFist",
+   "file": "art/out/char_workerFist@3x.png",
+   "size_pt": [
+    236,
+    236
+   ],
+   "anchor_pt": [
+    118.0,
+    118.0
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     170,
+     420,
+     393,
+     650
+    ],
+    "anchor_pt": [
+     279.14,
+     541.94
+    ]
+   },
+   "notes": "r3: ~20 % bigger (79 pt/u, frame 208 x 212 -> 236 x 236), rounder bean (girth 1.14), bigger square glasses, the flexed fist below-left of the glasses (thick arm, hand r 0.18), a SPIRAL NOTEBOOK (brown cover, cream pages, lilac rings) held at his right side, a wide grin without teeth, chunky running legs with shoe feet. Layout (161.14, 423.94). BLUE.",
+   "size_px": [
+    708,
+    708
+   ],
+   "id": "workerFist",
+   "grade": "B"
+  },
+  {
+   "id": "workerRunners",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "small running workers with arrows/boxes (loading screen background)",
+   "screen": "loading",
+   "size_pt": [
+    156,
+    200
+   ],
+   "size_px": [
+    468,
+    600
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_workerRunners",
+   "file": "art/out/char_workerRunners@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     280,
+     340,
+     393,
+     520
+    ],
+    "anchor_pt": [
+     340,
+     435
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "r3: the right crowd at store 8's sizes/spots (38 pt/u; frame 112 x 164 -> 156 x 200 at (262, 335), z -1): top-hat worker (fist out + wave) at eyes (333, 388) x 0.80, the waver (both arms up) at (369, 401) x 0.74, the burger eater in front at (357, 438) x 1.25 (no floating brows, burger lower at a bigger mouth); chunky running legs; lightly softened (1.1 px blur + 12 % room haze; r2's 2.2 px + 36 % read as pale ghosts).",
+   "anchor_pt": [
+    78,
+    100
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "workerClawPair",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "two workers cheering inside the claw machine (Claw header)",
+   "screen": "Claw Challenge",
+   "size_pt": [
+    360,
+    170
+   ],
+   "size_px": [
+    1080,
+    510
+   ],
+   "source": "art/pipeline/items/char_events.py:char_workerClawPair",
+   "file": "art/out/char_workerClawPair@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     20,
+     30,
+     380,
+     200
+    ],
+    "anchor_pt": [
+     200,
+     115
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Composited by scene clawHeaderArt centred at (200, 115) pt behind its claw + prizes (rebuild clawHeaderArt). Frame 360 x 170 (x 20..380, y 30..200 on the header); the bodies are cut at the frame bottom BY DESIGN (under the prize heap) -> full_bleed. LEFT navy cap, laugh, fist pumped + joystick; RIGHT green cap + glasses, hands up. BLUE.",
+   "full_bleed": true,
+   "anchor_pt": [
+    180,
+    85
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "workerRacers",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "workers riding sleds down a pink race track (Streak Race header)",
+   "screen": "Streak Race",
+   "size_pt": [
+    393,
+    290
+   ],
+   "size_px": [
+    1179,
+    870
+   ],
+   "source": "art/pipeline/items/char_events.py:char_workerRacers",
+   "file": "art/out/char_workerRacers@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-045-streak-race-badge.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     290
+    ],
+    "note": "phone v552 (the manifest's store 6 is older)"
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "The whole Streak Race header art (no scene entry exists): our pink spiral slide (premeshed sweep along a path traced on meta-045) + 4 BLUE riders on cyan sleds + a painted, defocused room (pipes, lamps, cream machine, crates, floor tiles, checkered banner). The logo plate / chips are UI on top.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "avatarWalkie",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a small navy cap waving, open laugh, wrench + pouch (green -> yellow plate)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarWalkie",
+   "file": "art/out/char_avatarWalkie@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     338.6,
+     236.2,
+     418.7
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 2); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Id kept; v552 cell 2 shows no walkie.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "avatarCapGlasses",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a green cap + big glasses (pink tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarCapGlasses",
+   "file": "art/out/char_avatarCapGlasses@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     338.6,
+     327.2,
+     418.7
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 3); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "avatarDetective",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a deerstalker with a moustache and trench coat, hand on chin (pink tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarDetective",
+   "file": "art/out/char_avatarDetective@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     427.4,
+     147.1,
+     507.5
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 4); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "owner": "characters",
+   "size_pt": [
+    64,
+    64
+   ],
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "purpose": "avatar: worker biting a burger held in gloved hands (orange-red plate)",
+   "status": "graded",
+   "source": "art/pipeline/items/char_avatars.py:char_avatarBurger",
+   "file": "art/out/char_avatarBurger@3x.png",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     427.4,
+     236.2,
+     507.5
+    ]
+   },
+   "notes": "NEW id. Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 5); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "size_px": [
+    192,
+    192
+   ],
+   "id": "avatarBurger",
+   "grade": "B"
+  },
+  {
+   "id": "avatarScientist",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: the PINK scientist, open smile, lab coat (VIOLET plate)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarScientist",
+   "file": "art/out/char_avatarScientist@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     427.4,
+     327.2,
+     507.5
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 6); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Plate VIOLET, not their pink: our scientist is pink (deliberate).",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "avatarParty",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a party hat + pink glasses, wrench (purple tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarParty",
+   "file": "art/out/char_avatarParty@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     514.4,
+     147.1,
+     594.5
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 7); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "owner": "characters",
+   "size_pt": [
+    64,
+    64
+   ],
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "purpose": "avatar: worker in a green cap + big glasses, fist up, notebook at his side (SUNNY yellow plate)",
+   "status": "graded",
+   "source": "art/pipeline/items/char_avatars.py:char_avatarNotebook",
+   "file": "art/out/char_avatarNotebook@3x.png",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     514.4,
+     236.2,
+     594.5
+    ]
+   },
+   "notes": "NEW id. Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 8); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Plate SUNNY yellow, not their sky blue: our blue worker vanished on it (deliberate).",
+   "size_px": [
+    192,
+    192
+   ],
+   "id": "avatarNotebook",
+   "grade": "B"
+  },
+  {
+   "id": "avatarBoxHead",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker holding a cardboard box on its head (green tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarBoxHead",
+   "file": "art/out/char_avatarBoxHead@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     514.4,
+     327.2,
+     594.5
+    ]
+   },
+   "status": "graded",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 9); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "avatarGreen",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: green arrow-shaped character, big grin (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarGreen@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     357,
+     238,
+     441
+    ],
+    "note": "Edit Profile grid cell 2"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarRed",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: red arrow-shaped character with sunglasses pushed up (teal tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarRed@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     357,
+     335,
+     441
+    ],
+    "note": "Edit Profile grid cell 3"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarCap",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: orange arrow-shaped character in a black star cap, winking, thumbs up (purple tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarCap@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     57,
+     451,
+     141,
+     535
+    ],
+    "note": "Edit Profile grid cell 4"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarBlue",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: blue arrow-shaped character, surprised (red-pink tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarBlue@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     451,
+     238,
+     535
+    ],
+    "note": "Edit Profile grid cell 5"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarPoint",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: orange arrow-shaped character pointing, smirk (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarPoint@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     451,
+     335,
+     535
+    ],
+    "note": "Edit Profile grid cell 6"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarSpecs",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: yellow arrow-shaped character in round glasses (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarSpecs@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     57,
+     544,
+     141,
+     628
+    ],
+    "note": "Edit Profile grid cell 7"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarShades",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: yellow arrow character in a party hat + confetti sunglasses, tongue out (magenta tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarShades@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     544,
+     238,
+     628
+    ],
+    "note": "Edit Profile grid cell 8"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "avatarPink",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: pink arrow-shaped character, winking (green tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarPink@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     544,
+     335,
+     628
+    ],
+    "note": "Edit Profile grid cell 9"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC-ui 4.4; director r2): kept for provenance, confirmed false; no build agent references it. NOT SHIPPED (SPEC §5.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false,
+   "grade": "n/a"
+  },
+  {
+   "id": "arrowGlossyYellow",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, yellow (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyYellow",
+   "file": "art/out/arrowGlossyYellow@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyRed",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, red (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyRed",
+   "file": "art/out/arrowGlossyRed@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyBlue",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, blue (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyBlue",
+   "file": "art/out/arrowGlossyBlue@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyGreen",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, green (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyGreen",
+   "file": "art/out/arrowGlossyGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyPurple",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, purple (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyPurple",
+   "file": "art/out/arrowGlossyPurple@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyOrange",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, orange (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyOrange",
+   "file": "art/out/arrowGlossyOrange@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)",
+   "grade": "B"
+  },
+  {
+   "id": "arrowGlossyCyan",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, cyan (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyCyan",
+   "file": "art/out/arrowGlossyCyan@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-8.png",
+    "box_pt": [
+     300,
+     100,
+     440,
+     250
+    ]
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)",
+   "grade": "B"
+  },
+  {
+   "id": "appIcon",
+   "family": "3d",
+   "route": "C2",
+   "group": "app-icon",
+   "purpose": "app icon: glossy 3D arrows (yellow/red/blue) in OUR composition on a light ground",
+   "screen": "home screen",
+   "source": "art/ui/recipes/3d-hud_arrows.py:appIcon",
+   "file": "art/out/appIcon1024.png",
+   "ref": {
+    "shot": "research/store/icon-1024.png",
+    "box_pt": [
+     0,
+     0,
+     1024,
+     1024
+    ],
+    "px_per_pt": 1.0
+   },
+   "status": "graded",
+   "owner": "3d-hud",
+   "notes": "3d-hud: OUR composition -- blue <- from the right edge (top), yellow ^ from the bottom edge (right), red -> from the left edge (bottom); store-icon style (long-shaft glossy arrows, painted bevel, white ground, soft shadows); opaque RGB 1024 px",
+   "exact_px": [
+    1024,
+    1024
+   ],
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "loadingBackdrop",
+   "family": "3d",
+   "route": "C1",
+   "group": "loading-win",
+   "purpose": "loading screen: bright factory floor, flying glossy arrows, boxes",
+   "screen": "loading",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_loading.py:loadingBackdrop",
+   "file": "art/out/loadingBackdrop@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "status": "graded",
+   "owner": "scene",
+   "notes": "scene; director r2: the floor's far-tile speckle band is gone (seams + per-tile jitter fade where a tile is < ~16 pt), tiles 1.6x bigger, the room behind the cast defocused (4.5 px) and hazed toward the backlit opening, soft contact shadows baked under the grounded cast (from char_loading_layout.json). Remaining: the left press is still flat panels, no conveyor.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "boxSlab",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the phone's BOX obstacle slab (violet, four rivets, bottom lip): authored at 3 x 3 cells, 9-sliced by the engine to any W x H block (cap insets 0.5 pitch + the 4 pt margin)",
+   "screen": "level board (counter levels)",
+   "source": "art/ui/src/gen_board.py:boxSlab",
+   "file": "art/ui/out/boxSlab@3x.png",
+   "ref": {
+    "shot": "research/shots/135-L050-start.png",
+    "box_pt": [
+     50,
+     600,
+     345,
+     700
+    ],
+    "pitch_pt": 28.07
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    4.0,
+    4.0
+   ],
+   "notes": "director r2 (grader A graded the curtain crate C as the BOX skin): measured on 135 (L50, 10 x 3 cells) -- corner r 0.40 pitch, face #BC5BF6, light top line, side darkening 0.26, bottom lip 0.28, rivets d 0.31 at 0.50 pitch from both edges, soft shadow 0.1 pitch. anchor = top-left of the cell block. The counter ring is a separate fixed-size sprite (boxRing). gen_board.box_case(w, h) renders any size for proofs (boxW10H3).",
+   "size_pt": [
+    104,
+    104
+   ],
+   "size_px": [
+    312,
+    312
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "boxRing",
+   "family": "svg",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the Box's counter ring: silver sphere with four stubby lugs, purple ring, navy well (the counter is live text in the well); a FIXED size (2.2 pitch across the sphere + lugs)",
+   "screen": "level board (counter levels)",
+   "source": "art/ui/src/gen_board.py:boxRing",
+   "file": "art/ui/out/boxRing@3x.png",
+   "ref": {
+    "shot": "research/shots/135-L050-start.png",
+    "box_pt": [
+     165,
+     615,
+     228,
+     680
+    ],
+    "pitch_pt": 28.07
+   },
+   "status": "graded",
+   "owner": "pipeline",
+   "pitch_pt": 32,
+   "text_live": true,
+   "notes": "director r2: centred on the block (anchor = frame centre = block centre); the engine scales it by pitch/32 like the slab (round 1's crate grew the sphere with the block: a 10 x 9 box got a huge sphere). Every box in levels.json is >= 3 cells on each side, so the fixed size always fits. Counter text: white, purple outline #4B1F86, ~0.8 pitch.",
+   "size_pt": [
+    76,
+    76
+   ],
+   "size_px": [
+    228,
+    228
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "unlockIconBox",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the Box unlock card icon: the board's Box slab (rounder, no rivets) + the counter ring nearly filling it; the digit is live text in the well",
+   "screen": "Box! Unlocked!",
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconBox",
+   "file": "art/ui/out/unlockIconBox@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     130,
+     337,
+     262,
+     471
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "text_live": true,
+   "notes": "polish r3: its own card illustration (not the board sprites): pillow slab 121.5 x 127, sphere in a crease, four stubby cylinder lugs in front of the rim (upper pair steeper), tube-like purple ring, navy well 41 pt. Live digit centre: frame (65.55, 65.25) pt.",
+   "size_pt": [
+    132,
+    134
+   ],
+   "size_px": [
+    396,
+    402
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "glyphSoundWhite",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "speaker glyph, WHITE on the green Settings button (Sound)",
+   "screen": "Settings",
+   "source": "art/ui/src/svg/gen_icons.py:glyphSoundWhite",
+   "file": "art/ui/out/glyphSoundWhite@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     68,
+     322,
+     116,
+     368
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: the Settings variant of glyphSound (meta-029: white face, dark-green outline; grader A asked for white Settings variants of sound and haptic).",
+   "size_pt": [
+    42,
+    38
+   ],
+   "size_px": [
+    126,
+    114
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "glyphHapticWhite",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "vibrating-phone glyph, WHITE on the green Settings button (Haptic)",
+   "screen": "Settings",
+   "source": "art/ui/src/svg/gen_icons.py:glyphHapticWhite",
+   "file": "art/ui/out/glyphHapticWhite@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     276,
+     322,
+     324,
+     368
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "director r2: the Settings variant of glyphHaptic (meta-029).",
+   "size_pt": [
+    42,
+    38
+   ],
+   "size_px": [
+    126,
+    114
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "iconStopwatchFrozen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "the HUD stopwatch iced over while the freeze booster runs (snow cap over the crown, snow collar + two icicles under the ring)",
+   "screen": "level HUD (freeze booster)",
+   "size_pt": [
+    34,
+    50
+   ],
+   "size_px": [
+    102,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconStopwatchFrozen",
+   "file": "art/ui/out/iconStopwatchFrozen@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     90.45,
+     72.4,
+     124.45,
+     122.4
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 31 x 33; the icicles hang to y 120 so the frame is 34 x 50. Frame top-left = hud.stopwatch origin + (-2.25, -5.3) pt (meta-065: the iced watch sits ~1 pt HIGHER than on 003); ring centre at frame (16.9, 23.0). SELF-GRADE B+: the capture's snow cap is lumpier and a touch taller over the right; icicles match.",
+   "anchor_pt": [
+    16.9,
+    23.0
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "heartGlossySmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the lives-heart style at button size, next to the video icon on the More Lives '+1 Live' ad button ('+1' is live text)",
+   "screen": "More Lives",
+   "size_pt": [
+    46,
+    40
+   ],
+   "size_px": [
+    138,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartGlossySmall",
+   "file": "art/ui/out/heartGlossySmall@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     140.0,
+     592.0,
+     186.0,
+     632.0
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.adLive heart 141.8 . 593.8 . 42.7 . 36.4 (no id there); the heartLivesBig generator (same glossy style: orange left-lobe specular, dark-red outline). Frame top-left (140.0, 592.0); '+1' live text (white, dark-green outline #0B5A18 like the button labels) over its lower right. LIVE TEXT: '+1' centred at frame (36.5, 31.9) pt (meta-095), ~22 pt, face #FFFBE6, outline #0B5A18. SELF-GRADE B+: same style as heartLivesBig; the capture's specular is a touch larger.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "heartLivesBig",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the lives heart at popup size in the More Lives card (count + white '+' are live text)",
+   "screen": "More Lives",
+   "size_pt": [
+    100,
+    90
+   ],
+   "size_px": [
+    300,
+    270
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartLivesBig",
+   "file": "art/ui/out/heartLivesBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     146.9,
+     250.5,
+     246.9,
+     340.5
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.heart 150.1 . 254.2 . 95.1 . 84.1 (incl. anti-aliasing); fitted heart box incl. outline (150.4, 254.3) 92.5 x 79.4. Frame top-left (146.9, 250.5). Count '3' 50.3 pt centred at frame (50, 42); '+' 28 pt at frame (88, 75) (both face #FFFBE6, outline #870400). LIVE TEXT (measured on meta-095): count '3' centred at frame (49.3, 42.5) pt, 50.3 pt, face #FFFBE6, outline #870400 1.7; white '+' ~28 pt centred at frame (80.8, 78.2) (it overhangs the frame: draw it over the art, not clipped). SELF-GRADE B+: silhouette IoU 0.975 (fitted); the orange left-lobe specular is slightly smaller than meta-095's.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "iconVideoAd",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "video clapper on rewarded-ad buttons (dark-green toon, cream fill, the play triangle is a hole showing the button)",
+   "screen": "More Lives (+1 Live)",
+   "size_pt": [
+    40,
+    41
+   ],
+   "size_px": [
+    120,
+    123
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconVideoAd",
+   "file": "art/ui/out/iconVideoAd@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     97.0,
+     589.7,
+     137.0,
+     630.7
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.adLive icon 98.8 . 591.5 . 35.7 . 37; frame top-left at (97.0, 589.7) pt. The button routes through the offline AdSlot (SPEC.md 18). SELF-GRADE A: none visible at game size (the stick is a hair thinner at 3x).",
+   "grade": "A"
+  },
+  {
+   "id": "iconCheck",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "big glossy lime check (Claw done cards, Sky Jump won stage)",
+   "screen": "Claw Challenge, Sky Jump",
+   "size_pt": [
+    60,
+    54
+   ],
+   "size_px": [
+    180,
+    162
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheck",
+   "file": "art/ui/out/iconCheck@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-039-claw-screen.png",
+    "box_pt": [
+     211.8,
+     738.2,
+     271.8,
+     792.2
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 54 x 46 (the ink is 55.7 x 47.4 + shadow). Claw card: frame top-left (211.8, 738.2); Sky Jump stage tile (096): the same art at 0.75 (ink 42 x 35.7 at (73.7, 462.0)). SELF-GRADE B+: the capture's extruded side is a little deeper along the lower-left arm; also fits 096 at 0.755.",
+   "grade": "B"
+  },
+  {
+   "id": "iconCheckBadge",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "flat green check badge on the selected avatar tile (Edit Profile)",
+   "screen": "Edit Profile",
+   "size_pt": [
+    40,
+    34
+   ],
+   "size_px": [
+    120,
+    102
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheckBadge",
+   "file": "art/ui/out/iconCheckBadge@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     115.0,
+     392.6,
+     155.0,
+     426.6
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: a flatter drawing than iconCheck (thick dark outline + inner light contour, no extrusion), so its own id (SPEC-ui 4.2 had it as an iconCheck size). Frame top-left (115.0, 392.6) = selected tile (67.4, 339.6) + (47.6, 53.0). SELF-GRADE B+: the capture's badge overlaps the tile frame with a slightly thicker dark outline.",
+   "grade": "B"
+  },
+  {
+   "id": "rankWings1",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-rocket",
+   "purpose": "gold winged rank badge of the race leader (the '1' is live text)",
+   "screen": "Rocket Race page, win-panel race bar",
+   "size_pt": [
+    52,
+    38
+   ],
+   "size_px": [
+    156,
+    114
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:rankWings1",
+   "file": "art/ui/out/rankWings1@3x.png",
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     13.5,
+     338.5,
+     65.5,
+     376.5
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: badge centre at frame (26.35, 18.7) pt = where the live '1' goes (white, outline #800100). 171 race bar: frame top-left (308.3, 713.8). LIVE TEXT: the '1' (white, outline #800100, ~20 pt) centred at frame (26.35, 18.5). SELF-GRADE B+: the capture's wings are a little taller at the outer end.",
+   "text_live": true,
+   "anchor_pt": [
+    26.35,
+    18.7
+   ],
+   "grade": "B"
+  },
+  {
+   "id": "shopSeal",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "red scalloped seal with a gold rim on the Special Offer card ('90%' / 'OFF' live text)",
+   "screen": "Shop",
+   "size_pt": [
+    66,
+    66
+   ],
+   "size_px": [
+    198,
+    198
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:shopSeal",
+   "file": "art/ui/out/shopSeal@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     6,
+     186,
+     63,
+     247
+    ],
+    "anchor_pt": [
+     34.4,
+     216.3
+    ],
+    "note": "anchor = the seal centre (the red body's centroid); box kept 6 pt off the screen edge (sheet crop)"
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: 8 lobes (measured); the red body is 52.4 x 52.4 at (8.3, 190.3) = SPEC-ui's 53.4 x 52.4 seal box; the gold rim adds ~3.2 pt. Frame top-left (1.4, 183.3), seal centre = frame centre. Text tilted -12 deg: '90%' 18.5 pt / 'OFF' 15.2 pt white outline #69000C (TR '%90' / 'İNDİRİM'). LIVE TEXT: '90%' / 'OFF' centred on the seal (frame (33, 33)), rotated -12 deg. SELF-GRADE B+: lobes, rim and colours match; the text is live.",
+   "text_live": true,
+   "grade": "A"
+  },
+  {
+   "id": "pageBgPattern",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "faint chunky-arrow pattern tile of the navy page ground (Settings, Leaderboard, Claw, Shop bundles)",
+   "screen": "page grounds",
+   "size_pt": [
+    145,
+    79
+   ],
+   "size_px": [
+    435,
+    237
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:pageBgPattern",
+   "file": "art/ui/out/pageBgPattern@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     145.0,
+     625.0,
+     290.0,
+     704.0
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 guessed a 64 pt tile of 3 arrows; measured on meta-029: 2 chunky arrows per 145 x 79.3 pt repeat, lighter than the ground by (0, +4, +3.5). Transparent tile (arrows #0B4A97 at 0.10) drawn OVER the navy ground (page.bg.navy); tile origins in SCREEN pt at x = 145 i, y = -7 + 79 j (under the page header). SELF-GRADE B+: composed Settings page reads the same; the arrow outlines are our block arrows at the measured size/tilt/lattice.",
+   "grade": "A"
+  },
+  {
+   "id": "pointerArrowDown",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "straight yellow down arrow of the Weekly Contest tutorial (points at the Leaderboard tab)",
+   "screen": "L50 Weekly tutorial",
+   "size_pt": [
+    78,
+    104
+   ],
+   "size_px": [
+    234,
+    312
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:pointerArrowDown",
+   "file": "art/ui/out/pointerArrowDown@3x.png",
+   "ref": {
+    "shot": "research/shots/130-weekly-contest-tutorial.png",
+    "box_pt": [
+     285.0,
+     635.2,
+     363.0,
+     739.2
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 listed it as 'pointerArrowYellow @ 72 x 97'; the capture's arrow is a different drawing (straight block arrow, not the curved Claw pointer), so a new id. Ink 72 x 97; frame top-left (285.0, 635.2); tip at frame (39.2, 101.0). SELF-GRADE A: none visible at game size; the rim is ~0.3 pt thinner.",
+   "grade": "A"
+  },
+  {
+   "id": "glyphOffSlash",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "glossy red OFF rod across a Settings square toggle (Sound / Music / Haptic OFF)",
+   "screen": "Settings",
+   "size_pt": [
+    56,
+    52
+   ],
+   "size_px": [
+    168,
+    156
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:glyphOffSlash",
+   "file": "art/ui/out/glyphOffSlash@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     166.55,
+     316.75,
+     222.55,
+     368.75
+    ]
+   },
+   "status": "graded",
+   "owner": "ui-art",
+   "notes": "missing-svg: optional art for SPEC-ui 1.6.14's SwiftUI slash; identical on every toggle. anchor_pt = the button FACE centre (the rod sits 2.5 pt above it). SELF-GRADE A: in place on meta-029 it covers the capture's rod exactly.",
+   "anchor_pt": [
+    28.6,
+    28.4
+   ],
+   "grade": "A"
+  },
+  {
+   "id": "bundleSpecial",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Special Offer card art: the 1 000 coin pile with glints (the 1 000 tile's pile drawn 1.23x)",
+   "screen": "Shop (Special Offer card)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleSpecial",
+   "file": "art/ui/out/bundleSpecial@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     16,
+     200,
+     192,
+     302
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: frame top-left (16, 200) on the Special card (card top 190.2); pile x 58-158, y 236-282 in the frame's shot coords. Same stacks + two big coins on edge as meta-012 (our arrangement). SELF-GRADE B: the left coin on edge faces more to the right than the phone's; the phone's glints are warmer/bigger.",
+   "grade": "B"
+  },
+  {
+   "id": "bundleBag",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "Mini Bundle art: a crimson coin sack tied with a rope on a lavender base, coin stacks either side",
+   "screen": "Shop (bundle card 1: Mini)",
+   "size_pt": [
+    176,
+    102
+   ],
+   "size_px": [
+    528,
+    306
+   ],
+   "source": "art/ui/recipes/m3d_shop.py:bundleBag",
+   "file": "art/ui/out/bundleBag@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     16,
+     480.4,
+     192,
+     582.4
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 4.2's bundleBag. Frame 176 x 102 pt, top-left at (16, card top + 7.7) = (16, cream top - 1) on every bundle card (SPEC-ui 2.12.2); the art is fitted to its measured bbox inside it, bottom-aligned on a soft warm contact pool; the amount is live text over the art's lower right, as on the phone. Coins = the shop coin (3d-events_coins.py) under the coin packs' light. SELF-GRADE B: the rope ends hang straighter and the rolled rim is thinner than the phone's; the coins in the mouth sit a little lower.",
+   "grade": "B"
+  },
+  {
+   "id": "rocketOfferScene",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-rocket",
+   "purpose": "Rocket Race offer popup field: starry sky, banded planet, lilac moon, the gold/teal chest on its rock in a coin hoard with a red heart, a pink cloud bank below",
+   "screen": "Rocket Race offer popup (163 / 189)",
+   "size_pt": [
+    330,
+    504
+   ],
+   "size_px": [
+    990,
+    1512
+   ],
+   "source": "art/ui/recipes/m3d_events.py:rocketOfferScene",
+   "file": "art/out/rocketOfferScene@3x.png",
+   "ref": {
+    "shot": "research/shots/163-rocket-race-offer.png",
+    "box_pt": [
+     32,
+     188,
+     362,
+     692
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: SPEC-ui 2.17.1 'build from the rocketRaceBackdrop models' -- the rock, gold chest, coin hoard and heart are scene_events' models (read-only) + our coin mound; sky, moon, planet and clouds painted in code. Frame top-left (32, 188): full-bleed under the PanelFrame's field (its rim hides the edges). The stage strip, prize bubble, timer, logo and Start sit on top (UI). SELF-GRADE B: the phone's hoard sits higher on a visible bluish rock slab and its coins are brighter; its clouds are softer.",
+   "full_bleed": true,
+   "grade": "B"
+  },
+  {
+   "id": "skyJumpIslandFar2",
+   "family": "3d",
+   "route": "C1",
+   "group": "events-skyjump",
+   "purpose": "069's upper-right Sky Jump island (the purple-chest variant, further away and hazier)",
+   "screen": "Sky Jump screen",
+   "size_pt": [
+    144,
+    132
+   ],
+   "size_px": [
+    432,
+    396
+   ],
+   "source": "art/ui/recipes/m3d_events.py:skyJumpIslandFar2",
+   "file": "art/out/skyJumpIslandFar2@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     213,
+     214,
+     357,
+     346
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the scene lane's island_farR + chest_purple models (read-only), framed from higher (pitch 34), a smaller chest set back, 34 % aerial haze. Frame top-left (213, 214) on the Sky Jump screen, drawn between skyJumpBackdrop and the pads. SELF-GRADE B: the phone's island is heaped with more coin stacks round the chest; its lower tier is paler.",
+   "grade": "B"
+  },
+  {
+   "id": "iconSkyDrum",
+   "family": "3d",
+   "route": "B3",
+   "group": "profile-shop-settings",
+   "purpose": "the Sky Jump pad drum on its own (Profile 'Sky Jump Wins' stat icon)",
+   "screen": "Profile (General Stats)",
+   "size_pt": [
+    57,
+    52
+   ],
+   "size_px": [
+    171,
+    156
+   ],
+   "source": "art/ui/recipes/m3d_events.py:iconSkyDrum",
+   "file": "art/ui/out/iconSkyDrum@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-002-avatar-tap.png",
+    "box_pt": [
+     28,
+     538.5,
+     85,
+     590.5
+    ]
+   },
+   "status": "graded",
+   "owner": "missing-3d",
+   "notes": "missing-3d: the scene lane's pad model (read-only) at a lower camera + a cyan glow under the foot. Frame top-left (28, 538.5) (SPEC-ui 2.14.1 stat icon 57 x 52 overlapping the pill's left end). SELF-GRADE B+: the phone's drum shows a touch more of the top cushion.",
+   "grade": "B"
+  },
+  {
+   "id": "workerCrowdLeft",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "loading background, left edge: a worker holding a clipboard + two small workers seen from behind on the conveyor (P1)",
+   "status": "graded",
+   "source": "art/pipeline/items/char_loading.py:char_workerCrowdLeft",
+   "file": "art/out/char_workerCrowdLeft@3x.png",
+   "size_pt": [
+    124,
+    106
+   ],
+   "size_px": [
+    372,
+    318
+   ],
+   "anchor_pt": [
+    62,
+    53
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     440,
+     110,
+     545
+    ],
+    "anchor_pt": [
+     32,
+     489
+    ]
+   },
+   "notes": "NEW id r3 (P1; the review's missing 'left conveyor pair'): navy-cap worker with a clipboard at the screen edge (eyes (4, 479) pt) + two ~0.56-scale workers from behind (one pointing) where store 8's conveyor is; defocused (1.8 px + 16 % haze). Layout z -2 at (-30, 436) in char_loading_layout.json. The conveyor platform itself is the scene lane's (loadingBackdrop). BLUE.",
+   "grade": "B"
+  }
+ ]
+}

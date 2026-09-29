@@ -1,0 +1,38 @@
+{
+ "sym": 0,
+ "shift": [
+  0,
+  0
+ ],
+ "nA": 20,
+ "nB": 20,
+ "identical": 20,
+ "onlyA": [],
+ "onlyB": [],
+ "obstacles": {
+  "A": 0,
+  "B": 0,
+  "same_cells": 0,
+  "same_counter": 0,
+  "diffs": []
+ },
+ "elevators": {
+  "A": 0,
+  "B": 0,
+  "match": []
+ },
+ "files": [
+  "levels/video/V1-L020.json",
+  "levels/video/V2-L020.json"
+ ],
+ "dims": [
+  [
+   14,
+   20
+  ],
+  [
+   14,
+   20
+  ]
+ ]
+}

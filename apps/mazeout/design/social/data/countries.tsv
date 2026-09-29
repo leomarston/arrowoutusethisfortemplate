@@ -1,0 +1,54 @@
+# iso	weight	utc_offset_min	culture	bucket	note
+# Country mix of the player world (weights are relative; normalised at load). A casual English-language puzzle game:
+# US-heavy, then the Anglosphere, Western Europe, Brazil/LatAm, Turkey, Asia. Written by us (DECISION, social spec §2).
+# A country may appear on several rows (US east/west); the bucket groups rows that share a timezone band.
+US	21.0	-300	en	AMER_E	US east + central
+US	9.0	-480	en	AMER_W	US west + mountain
+CA	5.0	-300	en	AMER_E
+MX	2.5	-360	es	AMER_E
+CO	0.8	-300	es	AMER_E
+PE	0.3	-300	es	AMER_E
+BR	4.0	-180	pt	AMER_S
+AR	1.0	-180	es	AMER_S
+CL	0.6	-240	es	AMER_S
+GB	7.0	0	en	EUR_W
+IE	0.8	0	en	EUR_W
+PT	0.6	0	pt	EUR_W
+DE	4.5	60	de	EUR_C
+AT	0.6	60	de	EUR_C
+CH	0.6	60	de	EUR_C
+FR	3.5	60	fr	EUR_C
+BE	0.8	60	nl	EUR_C
+NL	1.5	60	nl	EUR_C
+ES	2.0	60	es	EUR_C
+IT	2.0	60	it	EUR_C
+SE	1.0	60	nordic	EUR_C
+NO	0.6	60	nordic	EUR_C
+DK	0.6	60	nordic	EUR_C
+PL	1.5	60	pl	EUR_C
+CZ	0.4	60	easteu	EUR_C
+HU	0.3	60	easteu	EUR_C
+FI	0.5	120	nordic	EUR_E
+RO	0.5	120	easteu	EUR_E
+GR	0.4	120	easteu	EUR_E
+UA	0.4	120	easteu	EUR_E
+IL	0.5	120	en	EUR_E
+EG	0.4	120	ar	EUR_E
+ZA	0.8	120	en	EUR_E
+RU	0.5	180	easteu	EUR_E
+TR	2.0	180	tr	EUR_E
+SA	0.8	180	ar	EUR_E
+AE	0.6	240	ar	ASIA_S
+IN	2.0	330	in	ASIA_S
+TH	0.8	420	sea	ASIA_SE
+VN	0.3	420	sea	ASIA_SE
+ID	1.5	420	sea	ASIA_SE
+PH	2.0	480	sea	ASIA_SE
+MY	0.8	480	sea	ASIA_SE
+SG	0.6	480	sea	ASIA_SE
+TW	0.5	480	en	ASIA_SE
+HK	0.4	480	en	ASIA_SE
+JP	1.5	540	jp	ASIA_E
+KR	1.0	540	kr	ASIA_E
+AU	4.5	600	en	ASIA_E
+NZ	0.8	720	en	ASIA_E

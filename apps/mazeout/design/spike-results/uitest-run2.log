@@ -1,0 +1,21 @@
+Writing result bundle at path:
+	/private/tmp/claude-501/-Users-yago-Downloads-app-factory/67834757-7bc9-4e4f-a907-36f39cf8e3e8/scratchpad/uitest.xcresult
+
+/Users/yago/Downloads/app-factory/apps/mazeout/build/spike/App/Bench.swift:122:70: warning: passing non-Sendable parameter 'f' to function expecting a '@Sendable' closure
+        DispatchQueue.main.asyncAfter(deadline: .now() + s, execute: f)
+                                                                     ^
+/Users/yago/Downloads/app-factory/apps/mazeout/build/spike/App/Bench.swift:121:39: note: parameter 'f' is implicitly non-Sendable
+    private func after(_ s: Double, _ f: @escaping () -> Void) {
+                                      ^
+                                         @Sendable 
+/Users/yago/Downloads/app-factory/apps/mazeout/build/spike/App/Bench.swift:122:70: warning: passing non-Sendable parameter 'f' to function expecting a '@Sendable' closure
+        DispatchQueue.main.asyncAfter(deadline: .now() + s, execute: f)
+                                                                     ^
+/Users/yago/Downloads/app-factory/apps/mazeout/build/spike/App/Bench.swift:121:39: note: parameter 'f' is implicitly non-Sendable
+    private func after(_ s: Double, _ f: @escaping () -> Void) {
+                                      ^
+                                         @Sendable 
+2026-09-25 01:30:34.514 xcodebuild[34525:42332585] [MT] IDETestOperationsObserverDebug: 24.294 elapsed -- Testing started completed.
+2026-09-25 01:30:34.514 xcodebuild[34525:42332585] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-09-25 01:30:34.514 xcodebuild[34525:42332585] [MT] IDETestOperationsObserverDebug: 24.295 sec, +24.294 sec -- end
+Testing started

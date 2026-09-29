@@ -1,0 +1,80 @@
+{
+ "model": "reference",
+ "until": "2027-09-25",
+ "players": 1162304,
+ "cohorts": 8658,
+ "rule": "unique: 0 duplicates, 0 blocked",
+ "verdict": "PASS",
+ "fnv_duplicates": 0,
+ "distinct_names": 1162304,
+ "max_same_name": 1,
+ "board_like_players": 697407,
+ "board_like_pair_rate": 0.0,
+ "phone_pair_rate": "1/1721 (95 % CI 1.5e-5 .. 3.2e-3)",
+ "most_common_first_names": [
+  [
+   "molly",
+   1
+  ],
+  [
+   "gabriella",
+   1
+  ],
+  [
+   "madelynn",
+   1
+  ],
+  [
+   "jordyn",
+   1
+  ],
+  [
+   "shane",
+   1
+  ],
+  [
+   "alina",
+   1
+  ],
+  [
+   "thelma",
+   1
+  ],
+  [
+   "shamika",
+   1
+  ],
+  [
+   "garret",
+   1
+  ],
+  [
+   "bobbi",
+   1
+  ],
+  [
+   "abby",
+   1
+  ],
+  [
+   "carol",
+   1
+  ]
+ ],
+ "blocked_shown": 0,
+ "blocked_sha1": [],
+ "longer_than_16": 571,
+ "styles": {
+  "default": 777918,
+  "invented": 53370,
+  "word": 26690,
+  "given": 129597,
+  "compound": 72470,
+  "underscore": 37907,
+  "initials": 18466,
+  "mixed": 27387,
+  "caps": 15145,
+  "fallback": 3354
+ },
+ "seconds": 66.6
+}

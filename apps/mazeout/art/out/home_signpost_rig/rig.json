@@ -1,0 +1,148 @@
+{
+ "character": "home_signpost",
+ "frame_pt": [
+  190,
+  128
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../homeSignpost@3x.png",
+ "placement_pt": {
+  "x": 101.5,
+  "y": 385.96,
+  "how": "frame top-left on the 393x852 pt screen: anchor foot at [196.5, 505.0] pt"
+ },
+ "layers": [
+  {
+   "name": "base",
+   "file": "base@3x.png",
+   "z": 0,
+   "rect_pt": [
+    78.333,
+    13.333,
+    24.333,
+    108.667
+   ],
+   "pivots_pt": {
+    "foot": [
+     95.0,
+     119.04
+    ]
+   },
+   "note": "the carved post, foot block, finial and the lantern hook (static)"
+  },
+  {
+   "name": "lantern",
+   "file": "lantern@3x.png",
+   "z": 1,
+   "rect_pt": [
+    74.667,
+    17.0,
+    11.0,
+    22.667
+   ],
+   "pivots_pt": {
+    "hook": [
+     80.24,
+     19.31
+    ]
+   },
+   "note": "the brass lantern on the post's hook: an idle swing about `hook`"
+  },
+  {
+   "name": "board1",
+   "file": "board1@3x.png",
+   "z": 2,
+   "rect_pt": [
+    98.0,
+    33.333,
+    57.667,
+    19.0
+   ],
+   "pivots_pt": {
+    "hinge": [
+     100.88,
+     46.32
+    ]
+   },
+   "note": "tangerine arrow board + its bracket (right); sway + the refill flip-in about `hinge`"
+  },
+  {
+   "name": "board2",
+   "file": "board2@3x.png",
+   "z": 3,
+   "rect_pt": [
+    37.333,
+    48.0,
+    54.667,
+    19.0
+   ],
+   "pivots_pt": {
+    "hinge": [
+     89.16,
+     61.01
+    ]
+   },
+   "note": "teal arrow board + its bracket (left); sway + the refill flip-in about `hinge`"
+  },
+  {
+   "name": "board3",
+   "file": "board3@3x.png",
+   "z": 4,
+   "rect_pt": [
+    98.0,
+    67.667,
+    54.667,
+    18.333
+   ],
+   "pivots_pt": {
+    "hinge": [
+     100.81,
+     75.51
+    ]
+   },
+   "note": "sunflower arrow board + its bracket (right); sway + the refill flip-in about `hinge`"
+  },
+  {
+   "name": "board4",
+   "file": "board4@3x.png",
+   "z": 5,
+   "rect_pt": [
+    35.667,
+    83.667,
+    56.333,
+    21.333
+   ],
+   "pivots_pt": {
+    "hinge": [
+     89.23,
+     89.46
+    ]
+   },
+   "note": "coral arrow board + its bracket (left); sway + the refill flip-in about `hinge`"
+  },
+  {
+   "name": "board5",
+   "file": "board5@3x.png",
+   "z": 6,
+   "rect_pt": [
+    98.333,
+    94.0,
+    56.333,
+    18.667
+   ],
+   "pivots_pt": {
+    "hinge": [
+     100.74,
+     103.24
+    ]
+   },
+   "note": "sky arrow board + its bracket (right); sway + the refill flip-in about `hinge`"
+  }
+ ],
+ "groups": {},
+ "proof": {
+  "mean_abs": 0.038,
+  "pct_gt40": 0.026
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

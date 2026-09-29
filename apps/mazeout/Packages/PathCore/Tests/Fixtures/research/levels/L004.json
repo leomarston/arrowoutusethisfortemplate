@@ -1,0 +1,704 @@
+{
+ "level": 4,
+ "source": "video",
+ "video": "V1",
+ "t": 19.36,
+ "frame": "research/video-frames/V1/L004-start.png",
+ "shot": "research/video-frames/V1/L004-start.png",
+ "zoom": "fit",
+ "pitch_pt": 28.067,
+ "stroke_pt": 5.97,
+ "origin_pt": [
+  84.08,
+  254.97
+ ],
+ "cols": 9,
+ "rows": 14,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     7,
+     4
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     7,
+     2
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     8,
+     4
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     6,
+     4
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     0,
+     10
+    ],
+    [
+     0,
+     11
+    ],
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     13
+    ],
+    [
+     1,
+     13
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     8,
+     11
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     7,
+     10
+    ],
+    [
+     6,
+     10
+    ],
+    [
+     5,
+     10
+    ],
+    [
+     4,
+     10
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     5
+    ],
+    [
+     8,
+     5
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     1,
+     10
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     10
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     1,
+     3
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 3,
+   "cells": [
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     1,
+     9
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 4,
+   "cells": [
+    [
+     1,
+     11
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     3,
+     11
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     11
+    ],
+    [
+     7,
+     11
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 5,
+   "cells": [
+    [
+     1,
+     12
+    ],
+    [
+     2,
+     12
+    ],
+    [
+     3,
+     12
+    ],
+    [
+     4,
+     12
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     7,
+     12
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 6,
+   "cells": [
+    [
+     5,
+     6
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     8,
+     6
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 7,
+   "cells": [
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     6,
+     8
+    ],
+    [
+     5,
+     8
+    ]
+   ],
+   "dir": "left"
+  }
+ ],
+ "obstacles": [],
+ "taped_arrow_ids": [],
+ "timer_s": 180,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "pipes": [],
+ "door_cells": [],
+ "blocker_cells": [],
+ "elevators": [],
+ "fit_px": {
+  "pitch": 42.2794,
+  "x0": 42.091,
+  "y0": 3.559,
+  "c0": 2,
+  "r0": 9,
+  "stroke": 9.0,
+  "resid_px": 0.983,
+  "refined": "sub-pixel re-fit of pitch/origin to the start frame ink (batch A shade.py); cells unchanged"
+ },
+ "verify": {
+  "ink_iou": 0.8655,
+  "ink_iou_tol1px": 0.9875,
+  "ink_px": 42435,
+  "render_px": 48052,
+  "missed_ink_px": 91,
+  "extra_px": 516,
+  "head": {
+   "tip": 0.46,
+   "half": 0.3,
+   "base": 0.22
+  },
+  "stroke_px": 9.0,
+  "index_fit": {
+   "ink_iou": 0.854,
+   "ink_iou_tol1px": 0.9824
+  },
+  "shading_aware": {
+   "ink_iou": 0.9371,
+   "ink_iou_tol1px": 0.9948,
+   "missed_ink_px": 64,
+   "extra_px": 169,
+   "stroke_v_px": 8.75,
+   "stroke_h_px": 7.25,
+   "heads": {
+    "down": [
+     0.46,
+     0.34,
+     0.16
+    ],
+    "left": [
+     0.42,
+     0.34,
+     0.22
+    ],
+    "right": [
+     0.38,
+     0.34,
+     0.22
+    ]
+   },
+   "note": "4x-supersampled render with separate vertical/horizontal stroke widths and per-direction heads (the video skin shades the bottom edge of every stroke, so horizontal strokes and up/left heads read thinner/shorter in the ink mask); same cells"
+  }
+ },
+ "reader": "video-tools/vextract.py (bot.py reader adapted to the video skin); reviewed by level extractor batch A (research/video-levels-A.md)",
+ "label": "Levels 1-4",
+ "session": {
+  "label": "Levels 1-4",
+  "stage": 4,
+  "stages": 4,
+  "win_panel_tab": "Level 1-4",
+  "session_reward_coins": 80,
+  "note": "four boards played back to back as ONE level session: no win panel between boards; each board has its own 3:00 (frozen until its first tap) and 3 hearts; after board 4: the win celebration + panel \"Level 1-4 / Perfect! / Rewards: 80\"; Continue -> Level 5"
+ },
+ "reward_coins": null,
+ "checks": {
+  "ink_iou_tol1": {
+   "V1": {
+    "vextract_index_fit": 0.9824,
+    "vextract_final_fit": 0.9875,
+    "shading_aware": 0.9948
+   }
+  },
+  "replay": {
+   "V1": {
+    "taps": 5,
+    "mapped": 4,
+    "exit_free": 4,
+    "gone_free": 4,
+    "consistent": 8,
+    "inconsistent": 0,
+    "miss": 1,
+    "late": 0,
+    "unexplained_stays": 0,
+    "stay_weak": 0,
+    "left_at_end": [],
+    "bumps": 0,
+    "note": ""
+   }
+  },
+  "solver": {
+   "bot_rules": {
+    "solved": true,
+    "units": 8,
+    "waves": 4,
+    "left": []
+   },
+   "model": {
+    "solved": true,
+    "units": 8,
+    "waves": 4,
+    "left": []
+   },
+   "free_at_start": 1,
+   "linked_groups": []
+  }
+ },
+ "video_play": {
+  "t_first_frame": 17.88,
+  "t_built": 18.4,
+  "t_board": 19.36,
+  "t_first_board_tap": 19.48,
+  "t_first_tick": 20.16,
+  "first_tick_delay_s": 0.68,
+  "t_clear": 24.12,
+  "t_win": 24.2,
+  "timer_start": "3:00",
+  "timer_at_clear": "2:56",
+  "hearts_end": 3,
+  "taps_detected": 5
+ }
+}

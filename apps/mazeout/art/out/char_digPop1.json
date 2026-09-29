@@ -1,0 +1,14 @@
+{
+ "case": "char_digPop1",
+ "frame_pt": [
+  170.0,
+  160.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "eyeMid": [
+  [
+   36.94,
+   64.93
+  ]
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "reader": "verify/myread.py (independent)",
+ "frame": "/Users/yago/Downloads/app-factory/apps/mazeout/research/video-frames/V1/L001-start.png",
+ "cols": 3,
+ "rows": 4,
+ "pitch_pt": 27.482,
+ "origin_pt": [
+  168.18,
+  398.59
+ ],
+ "stroke_pt": 5.97,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [],
+ "anomalies": [],
+ "fit": {
+  "pitch_x_px0": 43.12,
+  "pitch_y_px0": 29.04,
+  "score_x": 76.9,
+  "score_y": 5.4,
+  "harmonic_fix": [
+   43.12,
+   29.04
+  ],
+  "pitch_x_px": 42.085,
+  "resid_x_px": 0.063,
+  "pitch_y_px": 40.71,
+  "resid_y_px": 0.0,
+  "pitch_px": 41.397,
+  "phase_px": [
+   0.824,
+   30.489
+  ],
+  "stroke_px": 9.0
+ }
+}

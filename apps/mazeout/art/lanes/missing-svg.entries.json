@@ -1,0 +1,486 @@
+{
+ "version": 1,
+ "title": "missing-svg lane entries (SPEC-ui 4.2's unbuilt SVG ids + the Settings OFF slash); generator art/ui/src/svg/gen_missing.py",
+ "entries": [
+  {
+   "id": "iconStopwatchFrozen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "the HUD stopwatch iced over while the freeze booster runs (snow cap over the crown, snow collar + two icicles under the ring)",
+   "screen": "level HUD (freeze booster)",
+   "size_pt": [
+    34,
+    50
+   ],
+   "size_px": [
+    102,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconStopwatchFrozen",
+   "file": "art/ui/out/iconStopwatchFrozen@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     90.45,
+     72.4,
+     124.45,
+     122.4
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 31 x 33; the icicles hang to y 120 so the frame is 34 x 50. Frame top-left = hud.stopwatch origin + (-2.25, -5.3) pt (meta-065: the iced watch sits ~1 pt HIGHER than on 003); ring centre at frame (16.9, 23.0). SELF-GRADE B+: the capture's snow cap is lumpier and a touch taller over the right; icicles match.",
+   "anchor_pt": [
+    16.9,
+    23.0
+   ]
+  },
+  {
+   "id": "frostCracks",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "white ice cracks + snowflakes + sparkle dots for one screen corner of the freeze vignette (the gradient is code: fxFrostVignette)",
+   "screen": "level (freeze booster)",
+   "size_pt": [
+    120,
+    120
+   ],
+   "size_px": [
+    360,
+    360
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:frostCracks",
+   "file": "art/ui/out/frostCracks@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-065-L062-after-hourglass.png",
+    "box_pt": [
+     6,
+     6,
+     126,
+     126
+    ],
+    "anchor_pt": [
+     0,
+     0
+    ],
+    "note": "box starts 6 pt in so the sheet's padded crop is not clamped at the screen edge; anchor = the screen corner"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: OPTIONAL -- the SPEC-ui 4.2 route (code gradient + this crack tile). The missing-3d lane ships fxFrostVignette as ONE full-screen raster that already paints cracks; if that raster ships, do NOT also draw frostCracks (the cracks would double). TOP-LEFT corner tile (the corner at frame (0, 0)); mirror it (scaleX / scaleY -1) for the other three corners; over the code gradient, under popups. Alpha <= 0.8 so it reads as frost, not lines. SELF-GRADE B: our own crack web (authored nodes); the capture's corners also show soft blurred snowflakes in the vignette, which belong to the code gradient.",
+   "anchor_pt": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "heartBig",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "whole glossy red heart for Out of Lives! (the red radial glow behind it is code)",
+   "screen": "Out of Lives!",
+   "size_pt": [
+    194,
+    164
+   ],
+   "size_px": [
+    582,
+    492
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartBig",
+   "file": "art/ui/out/heartBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-088-L062-hearts-out-1.png",
+    "box_pt": [
+     99.5,
+     316.0,
+     293.5,
+     480.0
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 said B3 (3D); shipped as SVG (the missing-3d lane's 3D heart is a route candidate at build/ui-art/route3d/heartBig.png, never in art/ui/out -- m3d_fx.py DEST). Drawn as SVG (the reference is a smooth two-lobe gloss that gradients carry; heartHUD precedent). Frame top-left at (99.5, 316.0) pt (SPEC-ui 2.6.2 heart 103.8 . 320.6 . 184.8 . 155.1 = the body box at frame (4.5, 5.0)). SELF-GRADE B: silhouette IoU 0.986 on the red body; at game size our lobes read a little flatter/less sculpted than meta-088's (its gloss has larger soft lobe highlights)."
+  },
+  {
+   "id": "heartGlossySmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the lives-heart style at button size, next to the video icon on the More Lives '+1 Live' ad button ('+1' is live text)",
+   "screen": "More Lives",
+   "size_pt": [
+    46,
+    40
+   ],
+   "size_px": [
+    138,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartGlossySmall",
+   "file": "art/ui/out/heartGlossySmall@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     140.0,
+     592.0,
+     186.0,
+     632.0
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.adLive heart 141.8 . 593.8 . 42.7 . 36.4 (no id there); the heartLivesBig generator (same glossy style: orange left-lobe specular, dark-red outline). Frame top-left (140.0, 592.0); '+1' live text (white, dark-green outline #0B5A18 like the button labels) over its lower right. LIVE TEXT: '+1' centred at frame (36.5, 31.9) pt (meta-095), ~22 pt, face #FFFBE6, outline #0B5A18. SELF-GRADE B+: same style as heartLivesBig; the capture's specular is a touch larger.",
+   "text_live": true
+  },
+  {
+   "id": "heartLivesBig",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the lives heart at popup size in the More Lives card (count + white '+' are live text)",
+   "screen": "More Lives",
+   "size_pt": [
+    100,
+    90
+   ],
+   "size_px": [
+    300,
+    270
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:heartLivesBig",
+   "file": "art/ui/out/heartLivesBig@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     146.9,
+     250.5,
+     246.9,
+     340.5
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.heart 150.1 . 254.2 . 95.1 . 84.1 (incl. anti-aliasing); fitted heart box incl. outline (150.4, 254.3) 92.5 x 79.4. Frame top-left (146.9, 250.5). Count '3' 50.3 pt centred at frame (50, 42); '+' 28 pt at frame (88, 75) (both face #FFFBE6, outline #870400). LIVE TEXT (measured on meta-095): count '3' centred at frame (49.3, 42.5) pt, 50.3 pt, face #FFFBE6, outline #870400 1.7; white '+' ~28 pt centred at frame (80.8, 78.2) (it overhangs the frame: draw it over the art, not clipped). SELF-GRADE B+: silhouette IoU 0.975 (fitted); the orange left-lobe specular is slightly smaller than meta-095's.",
+   "text_live": true
+  },
+  {
+   "id": "iconVideoAd",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "video clapper on rewarded-ad buttons (dark-green toon, cream fill, the play triangle is a hole showing the button)",
+   "screen": "More Lives (+1 Live)",
+   "size_pt": [
+    40,
+    41
+   ],
+   "size_px": [
+    120,
+    123
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconVideoAd",
+   "file": "art/ui/out/iconVideoAd@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-095-lives-pill-3.png",
+    "box_pt": [
+     97.0,
+     589.7,
+     137.0,
+     630.7
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 2.9 moreLives.adLive icon 98.8 . 591.5 . 35.7 . 37; frame top-left at (97.0, 589.7) pt. The button routes through the offline AdSlot (SPEC.md 18). SELF-GRADE A: none visible at game size (the stick is a hair thinner at 3x)."
+  },
+  {
+   "id": "iconCheck",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "big glossy lime check (Claw done cards, Sky Jump won stage)",
+   "screen": "Claw Challenge, Sky Jump",
+   "size_pt": [
+    60,
+    54
+   ],
+   "size_px": [
+    180,
+    162
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheck",
+   "file": "art/ui/out/iconCheck@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-039-claw-screen.png",
+    "box_pt": [
+     211.8,
+     738.2,
+     271.8,
+     792.2
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 proposed 54 x 46 (the ink is 55.7 x 47.4 + shadow). Claw card: frame top-left (211.8, 738.2); Sky Jump stage tile (096): the same art at 0.75 (ink 42 x 35.7 at (73.7, 462.0)). SELF-GRADE B+: the capture's extruded side is a little deeper along the lower-left arm; also fits 096 at 0.755."
+  },
+  {
+   "id": "iconCheckBadge",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "flat green check badge on the selected avatar tile (Edit Profile)",
+   "screen": "Edit Profile",
+   "size_pt": [
+    40,
+    34
+   ],
+   "size_px": [
+    120,
+    102
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconCheckBadge",
+   "file": "art/ui/out/iconCheckBadge@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     115.0,
+     392.6,
+     155.0,
+     426.6
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: a flatter drawing than iconCheck (thick dark outline + inner light contour, no extrusion), so its own id (SPEC-ui 4.2 had it as an iconCheck size). Frame top-left (115.0, 392.6) = selected tile (67.4, 339.6) + (47.6, 53.0). SELF-GRADE B+: the capture's badge overlaps the tile frame with a slightly thicker dark outline."
+  },
+  {
+   "id": "iconSkull",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "cream skull each side of the red 'Hard Level' tag ribbon on the Win panel",
+   "screen": "Win (Hard)",
+   "size_pt": [
+    30,
+    32
+   ],
+   "size_px": [
+    90,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconSkull",
+   "file": "art/ui/out/iconSkull@3x.png",
+   "ref": {
+    "shot": "research/shots/037-L34-win.png",
+    "box_pt": [
+     101.0,
+     117.5,
+     131.0,
+     149.5
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: left skull frame top-left (101.0, 117.5); the right one is the same drawing (not mirrored) at the other side of the label. Outline = the tag label outline #69000C; the eye sockets are HOLES (the red ribbon shows through, as on 037). SELF-GRADE B+: the capture's sockets are more slanted (angrier) and the cranium a little rounder."
+  },
+  {
+   "id": "iconSkullBones",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "skull and crossbones each side of the purple 'Super Hard' tag ribbon on the Win panel",
+   "screen": "Win (Super Hard)",
+   "size_pt": [
+    38,
+    38
+   ],
+   "size_px": [
+    114,
+    114
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:iconSkullBones",
+   "file": "art/ui/out/iconSkullBones@3x.png",
+   "ref": {
+    "shot": "research/shots/063-L039-end-popup.png",
+    "box_pt": [
+     95.5,
+     114.0,
+     133.5,
+     152.0
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: the Super Hard variant (063 shows crossbones; 037's Hard skull has none). Outline #3A007C; eye sockets are holes (the purple ribbon shows through). Left frame top-left (95.5, 114.0). SELF-GRADE B: bones a little longer than 063's, skull slightly squarer."
+  },
+  {
+   "id": "rankWings1",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-rocket",
+   "purpose": "gold winged rank badge of the race leader (the '1' is live text)",
+   "screen": "Rocket Race page, win-panel race bar",
+   "size_pt": [
+    52,
+    38
+   ],
+   "size_px": [
+    156,
+    114
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:rankWings1",
+   "file": "art/ui/out/rankWings1@3x.png",
+   "ref": {
+    "shot": "research/shots/167-rocket-race-screen.png",
+    "box_pt": [
+     13.5,
+     338.5,
+     65.5,
+     376.5
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: badge centre at frame (26.35, 18.7) pt = where the live '1' goes (white, outline #800100). 171 race bar: frame top-left (308.3, 713.8). LIVE TEXT: the '1' (white, outline #800100, ~20 pt) centred at frame (26.35, 18.5). SELF-GRADE B+: the capture's wings are a little taller at the outer end.",
+   "text_live": true,
+   "anchor_pt": [
+    26.35,
+    18.7
+   ]
+  },
+  {
+   "id": "shopSeal",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "red scalloped seal with a gold rim on the Special Offer card ('90%' / 'OFF' live text)",
+   "screen": "Shop",
+   "size_pt": [
+    66,
+    66
+   ],
+   "size_px": [
+    198,
+    198
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:shopSeal",
+   "file": "art/ui/out/shopSeal@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-012-shop-top.png",
+    "box_pt": [
+     6,
+     186,
+     63,
+     247
+    ],
+    "anchor_pt": [
+     34.4,
+     216.3
+    ],
+    "note": "anchor = the seal centre (the red body's centroid); box kept 6 pt off the screen edge (sheet crop)"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: 8 lobes (measured); the red body is 52.4 x 52.4 at (8.3, 190.3) = SPEC-ui's 53.4 x 52.4 seal box; the gold rim adds ~3.2 pt. Frame top-left (1.4, 183.3), seal centre = frame centre. Text tilted -12 deg: '90%' 18.5 pt / 'OFF' 15.2 pt white outline #69000C (TR '%90' / 'İNDİRİM'). LIVE TEXT: '90%' / 'OFF' centred on the seal (frame (33, 33)), rotated -12 deg. SELF-GRADE B+: lobes, rim and colours match; the text is live.",
+   "text_live": true
+  },
+  {
+   "id": "pageBgPattern",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "faint chunky-arrow pattern tile of the navy page ground (Settings, Leaderboard, Claw, Shop bundles)",
+   "screen": "page grounds",
+   "size_pt": [
+    145,
+    79
+   ],
+   "size_px": [
+    435,
+    237
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:pageBgPattern",
+   "file": "art/ui/out/pageBgPattern@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     145.0,
+     625.0,
+     290.0,
+     704.0
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 guessed a 64 pt tile of 3 arrows; measured on meta-029: 2 chunky arrows per 145 x 79.3 pt repeat, lighter than the ground by (0, +4, +3.5). Transparent tile (arrows #0B4A97 at 0.10) drawn OVER the navy ground (page.bg.navy); tile origins in SCREEN pt at x = 145 i, y = -7 + 79 j (under the page header). SELF-GRADE B+: composed Settings page reads the same; the arrow outlines are our block arrows at the measured size/tilt/lattice."
+  },
+  {
+   "id": "pointerArrowDown",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "straight yellow down arrow of the Weekly Contest tutorial (points at the Leaderboard tab)",
+   "screen": "L50 Weekly tutorial",
+   "size_pt": [
+    78,
+    104
+   ],
+   "size_px": [
+    234,
+    312
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:pointerArrowDown",
+   "file": "art/ui/out/pointerArrowDown@3x.png",
+   "ref": {
+    "shot": "research/shots/130-weekly-contest-tutorial.png",
+    "box_pt": [
+     285.0,
+     635.2,
+     363.0,
+     739.2
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: SPEC-ui 4.2 listed it as 'pointerArrowYellow @ 72 x 97'; the capture's arrow is a different drawing (straight block arrow, not the curved Claw pointer), so a new id. Ink 72 x 97; frame top-left (285.0, 635.2); tip at frame (39.2, 101.0). SELF-GRADE A: none visible at game size; the rim is ~0.3 pt thinner."
+  },
+  {
+   "id": "glyphOffSlash",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "glossy red OFF rod across a Settings square toggle (Sound / Music / Haptic OFF)",
+   "screen": "Settings",
+   "size_pt": [
+    56,
+    52
+   ],
+   "size_px": [
+    168,
+    156
+   ],
+   "source": "art/ui/src/svg/gen_missing.py:glyphOffSlash",
+   "file": "art/ui/out/glyphOffSlash@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-029-settings.png",
+    "box_pt": [
+     166.55,
+     316.75,
+     222.55,
+     368.75
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "missing-svg: optional art for SPEC-ui 1.6.14's SwiftUI slash; identical on every toggle. anchor_pt = the button FACE centre (the rod sits 2.5 pt above it). SELF-GRADE A: in place on meta-029 it covers the capture's rod exactly.",
+   "anchor_pt": [
+    28.6,
+    28.4
+   ]
+  }
+ ]
+}

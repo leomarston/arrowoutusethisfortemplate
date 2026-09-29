@@ -1,0 +1,37 @@
+   27.143 len  0.023 peak   -7.0 dBFS cen 2304 Hz peaks [345, 388, 301, 431, 258] | 
+   28.220 len  0.023 peak   -7.5 dBFS cen 2284 Hz peaks [345, 388, 301, 431, 258] | 
+   43.538 len  0.022 peak   -7.5 dBFS cen 2262 Hz peaks [345, 388, 301, 431, 258] | 
+   44.860 len  0.023 peak   -7.5 dBFS cen 2275 Hz peaks [345, 388, 301, 431, 258] | 
+   72.049 len  0.024 peak   -7.6 dBFS cen 2255 Hz peaks [345, 388, 301, 431, 258] | 
+   73.646 len  4.843 peak    0.0 dBFS cen 7025 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ A8- A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+   79.858 len  0.045 peak   -7.8 dBFS cen 2215 Hz peaks [345, 388, 301, 431, 258] | F4
+   93.500 len  0.031 peak   -7.6 dBFS cen 2213 Hz peaks [345, 388, 301, 431, 258] | F4
+   94.541 len  2.827 peak   -1.1 dBFS cen 6890 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 A8- D#9 D9+ A8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  114.574 len  2.830 peak   -0.4 dBFS cen 6983 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 D#9 D#9 D9+ A8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ A8- A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  118.204 len  0.029 peak   -7.6 dBFS cen 2226 Hz peaks [355, 312, 398, 441, 269] | F4+
+  137.394 len  0.035 peak   -7.4 dBFS cen 2185 Hz peaks [345, 388, 301, 431, 258] | F4+
+  139.331 len  2.826 peak   -1.0 dBFS cen 7362 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 D#9 D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  179.239 len  0.042 peak   -7.6 dBFS cen 2238 Hz peaks [345, 388, 301, 431, 258] | F4
+  180.376 len  4.936 peak    0.0 dBFS cen 7017 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 D#9 D#9 D#9 G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  185.639 len  0.040 peak   -7.3 dBFS cen 2235 Hz peaks [355, 312, 398, 441, 269] | F4
+  198.396 len  0.044 peak   -7.5 dBFS cen 2213 Hz peaks [345, 388, 301, 431, 258] | F4+
+  199.565 len  2.827 peak   -0.7 dBFS cen 7192 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  221.063 len  0.023 peak   -7.6 dBFS cen 2280 Hz peaks [345, 388, 301, 431, 258] | 
+  222.061 len  2.830 peak   -0.5 dBFS cen 7008 Hz peaks [6869, 6525, 6826, 6202, 6944] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 D9+ D#9 D#9 G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ A8- A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  225.169 len  0.035 peak   -7.6 dBFS cen 2197 Hz peaks [345, 388, 301, 431, 258] | F4
+  257.882 len  2.950 peak   -0.4 dBFS cen 7024 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- D#9 D#9 D#9 D#9 D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ A8- A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  274.622 len  0.023 peak   -7.6 dBFS cen 2254 Hz peaks [345, 388, 301, 431, 258] | 
+  275.653 len  2.826 peak   -1.0 dBFS cen 7041 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  315.357 len  0.023 peak   -7.6 dBFS cen 2260 Hz peaks [345, 388, 301, 431, 258] | 
+  316.345 len  2.827 peak   -0.7 dBFS cen 7227 Hz peaks [6869, 6525, 6826, 6202, 6718] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 A8- D#9 D#9 G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  335.176 len  0.040 peak   -7.6 dBFS cen 2202 Hz peaks [345, 388, 301, 431, 258] | F4
+  336.602 len  2.830 peak   -0.2 dBFS cen 6976 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- G#8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  383.623 len  0.023 peak   -7.7 dBFS cen 2237 Hz peaks [345, 388, 301, 431, 258] | 
+  384.952 len  2.831 peak   -0.5 dBFS cen 6978 Hz peaks [6869, 6525, 6826, 6202, 6934] | G8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D9+ D#9 D9+ D#9 D9+ A8- G#8- A8- G#8- G#8- A8- G#8- G#8- G#8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- A8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  389.266 len  0.024 peak   -7.5 dBFS cen 2222 Hz peaks [345, 388, 301, 431, 258] | 
+  406.749 len  0.024 peak   -7.6 dBFS cen 2237 Hz peaks [345, 388, 301, 431, 258] | 
+  407.726 len  2.830 peak   -0.5 dBFS cen 7169 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D9+ D#9 D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  411.560 len  0.023 peak   -7.5 dBFS cen 2237 Hz peaks [345, 388, 301, 431, 258] | 
+  470.841 len  2.830 peak   -0.0 dBFS cen 7063 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- D#9 D#9 D9+ D9+ D#9 A8- D#9 D9+ G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+
+  473.906 len  0.024 peak   -7.4 dBFS cen 2235 Hz peaks [345, 388, 301, 431, 258] | 
+  495.374 len  2.638 peak   -0.9 dBFS cen 7341 Hz peaks [6869, 6525, 6826, 6934, 6202] | A8- G#8- G#8- A8- A8- G#8- G#8- D#9 D#9 D9+ D#9 D#9 D#9 D#9 G#8- G#8- A8- G#8- G#8- A8- G#8- G#8- A8- A8- G#8- A8- G#8- A8- A8- G#8+ G#8+ A8- G#8- A8- G#8+ A8- G#8- G#8- G#8- G#8+

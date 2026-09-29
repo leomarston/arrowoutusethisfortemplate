@@ -1,0 +1,95 @@
+{
+ "level": 87,
+ "source": "recorded",
+ "shot": "research/bot/tmp/L087-150026-r14.png",
+ "zoom": "open",
+ "pitch_pt": 19.673,
+ "stroke_pt": 4.34,
+ "origin_pt": [
+  29.1,
+  193.04
+ ],
+ "cols": 18,
+ "rows": 26,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     1,
+     24
+    ],
+    [
+     1,
+     23
+    ],
+    [
+     1,
+     22
+    ],
+    [
+     2,
+     22
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     4,
+     18
+    ],
+    [
+     3,
+     18
+    ],
+    [
+     2,
+     18
+    ],
+    [
+     2,
+     19
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     12,
+     16
+    ],
+    [
+     13,
+     16
+    ],
+    [
+     14,
+     16
+    ],
+    [
+     14,
+     17
+    ],
+    [
+     14,
+     18
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [],
+ "taped_arrow_ids": [],
+ "timer_s": null,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "note": "state after 1 door(s) opened (arrows revealed); cells in the START json frame"
+}

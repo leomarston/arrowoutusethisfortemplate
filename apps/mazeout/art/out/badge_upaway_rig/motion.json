@@ -1,0 +1,25 @@
+{
+ "cycle": 4.0,
+ "note": "idle: the balloon bobs +-1 pt on a 4.0 s sine loop",
+ "tracks": [
+  {
+   "layer": "balloon",
+   "prop": "translateY",
+   "t": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+   ],
+   "v": [
+    0.0,
+    -1.0,
+    0.0,
+    1.0,
+    0.0
+   ],
+   "curve": "sine"
+  }
+ ]
+}

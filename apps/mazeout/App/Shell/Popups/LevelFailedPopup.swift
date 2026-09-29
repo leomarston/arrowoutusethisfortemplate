@@ -1,0 +1,68 @@
+import SwiftUI
+import PathCore
+
+// SHELL S2 (SPEC-ui §2.6.5; uim `failed.*`, VERIFIED 016 / 031 / meta-072 / 080 / 090 / 093). The end of the fail chain:
+// the blue panel 10 · 198.2 · 373.3 · 464.4 (n 6.0), the ribbon with the level label ("Level 62"; "Level 1-4" for the FTUE
+// session), the cream card 54.7 · 280.9 · 283.9 · 210.2 with the broken heart and "Level Failed!" (25 / −0.7 #622100), the
+// framed green "Try Again" 90.4 · 517.1 · 212.5 · 88.4 (37.7 / −1.9), the X (361.3, 229.7) and, from the Streak Race unlock,
+// the Streak Race strip under it with the lit chip sliding back to x1 (SPEC-motion-audio §5 "Fail panel").
+// Answers: Try Again → .primary (GAME: the same board, the lives gate); X → .close (home; before the first home a retry,
+// CONSISTENCY §21 item 17 — GAME's routing).
+
+struct LevelFailedPopup: View {
+    let levels: [Int]
+    let reason: LossReason
+    let answer: PopupAnswer
+    @Environment(AppModel.self) private var app
+    @State private var shownAt: Double?
+
+    var body: some View {
+        let t = app.tuning.ui.tokens
+        let face = t.frame("failed.tryAgain", CGRect(90.4, 517.1, 212.5, 88.4))
+        ZStack(alignment: .topLeading) {
+            PopupPanelFrame(n: t.superellipseN("failed.panel", 6.04), t: t).placed(t.frame("failed.panel", CGRect(10.0, 198.2, 373.3, 464.4)))
+            PopupCard(radius: t.radius("failed.card", 24.19), t: t).placed(t.frame("failed.card", CGRect(54.7, 280.9, 283.9, 210.2)))
+            InkImage(art: .heartBroken, ink: t.frame("failed.brokenHeart", CGRect(121.25, 302.45, 154.1, 122.0)))
+            TokenText(id: "failed.caption.caption", source: .copy("Level Failed!"), style: .s2(25.0, -0.71, [0x5A2801]),
+                      baseline: 463.3, centreX: 196.8, maxWidth: 260)
+            WellFramedButton(id: "popup.levelFailed.primary", title: "Try Again", colors: .green, frame: face,
+                         well: t.frame("failed.tryAgainFrame", face.insetBy(dx: -11.3, dy: -8.7).offsetBy(dx: 0, dy: 0.2)),
+                         n: t.superellipseN("failed.tryAgain", 4.6),
+                         style: t.text("failed.tryAgain.label", .s2(37.7, -1.94, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.6, drop: 1.83)),
+                         baseline: CGFloat(t.number("text.failed.tryAgain.label.baseline", 570.1)),
+                         centreX: CGFloat(t.number("text.failed.tryAgain.label.centreX", 196.5)),
+                         maxWidth: t.textMaxWidth("failed.tryAgain.label", 176), t: t) { answer(PopupResult.primary) }
+            PopupTitle(title: PanelLabel.resource(levels), frame: t.frame("failed.ribbon", CGRect(60.1, 171.1, 274.2, 90.4)), t: t,
+                       baselineFromTop: CGFloat(t.number("text.failed.ribbon.title.baseline", 229.9)) - 171.1)
+            PopupCloseButton(id: "popup.levelFailed.close", t: t) { answer(PopupResult.close) }
+                .placed(t.frame("failed.closeDisc", CGRect(338.8, 207.2, 45, 45)))
+            if let strip = StreakStripSource.data(app, level: levels.last ?? 0, outcomes: [], lost: true) {
+                StreakStrip(data: strip, shownAt: shownAt)
+            }
+        }
+        .onAppear { shownAt = app.clock.gameTime() }
+    }
+}
+
+/// The panels' ribbon label: "Level 32", or the session's panel label ("Level 1-4", Levels/sessions.json `panel_label`).
+@MainActor enum PanelLabel {
+    private static var sessionLabels: [[Int]: String]?
+
+    static func resource(_ levels: [Int]) -> LocalizedStringResource {
+        if levels.count > 1, let key = labels()[levels] { return LocalizedStringResource(String.LocalizationValue(key)) }
+        let n = levels.first ?? 0
+        return "Level \(n)"
+    }
+
+    private static func labels() -> [[Int]: String] {
+        if let sessionLabels { return sessionLabels }
+        struct File: Decodable { struct S: Decodable { let levels: [Int]; let panel_label: String? }; let sessions: [S] }
+        var out: [[Int]: String] = [:]
+        if let url = Bundle.main.url(forResource: "sessions", withExtension: "json", subdirectory: "Levels"),
+           let data = try? Data(contentsOf: url), let f = try? JSONDecoder().decode(File.self, from: data) {
+            for s in f.sessions { if let l = s.panel_label { out[s.levels] = l } }
+        }
+        sessionLabels = out
+        return out
+    }
+}

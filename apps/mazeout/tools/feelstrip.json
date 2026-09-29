@@ -1,0 +1,1193 @@
+{
+ "about": "tools/feelstrip.py presets: the v552 (or V2) reference moment, how to find its anchor, the beats a strip shows, and what is measured. Times are seconds after the anchor. Rects are [x, y, w, h] in pt on the 393 x 852 screen. 'catalog' = the documented numbers the self-test checks the measurement against (never used to judge ours: ours is judged against v552 measured the same way).",
+ "presets": {
+  "pause-punch": {
+   "about": "Paused popup: dim in 1 frame, panel scale punch 1.022 -> 0.967 -> 1.000 over 0.133 s (owner item 8; G3)",
+   "source": "motion-catalog.md §3.2 Paused + Appendix A1 (VERIFIED v552 S3-L092 1.514-1.647)",
+   "ref": {
+    "clip": "S3-L092-pause-open-close.mov",
+    "anchor": 1.514,
+    "window": [
+     1.4,
+     1.8
+    ]
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     150,
+     393,
+     80
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     195,
+     393,
+     460
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.017,
+     0.033,
+     0.05,
+     0.067,
+     0.083,
+     0.1,
+     0.117,
+     0.133,
+     0.2
+    ]
+   },
+   "measure": {
+    "kind": "scale",
+    "rect": [
+     0,
+     235,
+     393,
+     400
+    ],
+    "center": [
+     200,
+     429.5
+    ],
+    "settle": 0.3,
+    "beats": [
+     0,
+     0.017,
+     0.033,
+     0.05,
+     0.067,
+     0.083,
+     0.1,
+     0.117,
+     0.133
+    ],
+    "tol": 0.005,
+    "unit": "scale",
+    "catalog": [
+     1.022,
+     0.98,
+     0.969,
+     0.967,
+     0.969,
+     0.976,
+     0.986,
+     0.995,
+     1.0
+    ]
+   }
+  },
+  "band-punch-v2": {
+   "about": "Quit Level? punch on the OLDER build V2 (the v552 band entrance is unrecorded: phone R1 decides between this punch and a drop from the top)",
+   "source": "motion-catalog.md §3.2 Quit Level? (VERIFIED V2 80.563-80.748 only)",
+   "ref": {
+    "clip": "owner/V2-levels-11-38.mp4",
+    "seek": true,
+    "anchor": 80.597,
+    "window": [
+     80.4,
+     80.95
+    ],
+    "anchor_note": "first dim frame, found by this tool's lum_drop detector (the catalog gives only the window 80.563-80.748)"
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     150,
+     393,
+     80
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     195,
+     393,
+     460
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.017,
+     0.034,
+     0.05,
+     0.067,
+     0.084,
+     0.1,
+     0.117,
+     0.134,
+     0.2
+    ]
+   },
+   "measure": {
+    "kind": "scale",
+    "rect": [
+     0,
+     235,
+     393,
+     400
+    ],
+    "center": [
+     196.5,
+     426
+    ],
+    "settle": 0.3,
+    "beats": [
+     0,
+     0.0168,
+     0.0335,
+     0.0503,
+     0.067,
+     0.0838,
+     0.1006,
+     0.1174,
+     0.1341
+    ],
+    "tol": 0.005,
+    "unit": "scale",
+    "catalog": [
+     1.02,
+     0.983,
+     0.969,
+     0.966,
+     0.966,
+     0.972,
+     0.983,
+     0.994,
+     1.0
+    ]
+   }
+  },
+  "tab-slide": {
+   "about": "Bottom-tab push slide: both pages move as one strip, x = D (1 - u)^2.56, u = t / 0.50 s; the nav stays still (owner item 2; A2 / G3: within ±2 pt at u = 0.1 ... 1.0)",
+   "source": "motion-catalog.md §3.1 + Appendix A2 (v552 S1-weekly-contest-open tail, VERIFIED) + A3 (V2 whole curve 28.436-28.872)",
+   "ref": {
+    "clip": "S1-weekly-contest-open.mov",
+    "anchor": 0.0,
+    "window": [
+     0.0,
+     0.4
+    ],
+    "partial": "the v552 clip starts mid-slide at offset 90 pt"
+   },
+   "anchor": {
+    "kind": "motion_start",
+    "rect": [
+     0,
+     100,
+     393,
+     500
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     0,
+     0.05,
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.4,
+     0.5
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "shift_x",
+    "rect": [
+     0,
+     120,
+     393,
+     400
+    ],
+    "settle": 0.216,
+    "range": [
+     -400,
+     400
+    ],
+    "beats": [
+     0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15,
+     0.1667,
+     0.1833,
+     0.2,
+     0.2167
+    ],
+    "tol": 2.0,
+    "unit": "pt",
+    "catalog": [
+     90,
+     77,
+     65,
+     54,
+     45,
+     36,
+     28.5,
+     22,
+     16,
+     11,
+     7,
+     4,
+     2,
+     0
+    ],
+    "model": {
+     "curve": "power",
+     "exp": 2.56,
+     "T": 0.5,
+     "check_u": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+     ]
+    },
+    "settle_note": "v552 reference: the slide ends at +0.216 and the forced Weekly tutorial dims the page at +0.233, so the settled frame is +0.216"
+   }
+  },
+  "hud-drop": {
+   "about": "Level intro: the top HUD row drops from above, easeOutBack(3.42), 0.334 s at K + 1.015 ('the close menu comes from top' reading of owner item 8)",
+   "source": "research/motion-tools/out/hud_intro_L48.txt + hudfit_L48.txt (VERIFIED v552 S1-L48-play-intro, pause-button bottom y)",
+   "ref": {
+    "clip": "S1-L48-play-intro.mov",
+    "anchor": 1.398,
+    "window": [
+     1.2,
+     1.95
+    ]
+   },
+   "anchor": {
+    "kind": "motion_start",
+    "rect": [
+     300,
+     0,
+     93,
+     150
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     200
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.033,
+     0.066,
+     0.1,
+     0.133,
+     0.166,
+     0.2,
+     0.233,
+     0.266,
+     0.3,
+     0.35
+    ]
+   },
+   "measure": {
+    "kind": "shift_y",
+    "rect": [
+     0,
+     52,
+     393,
+     110
+    ],
+    "settle": 0.4,
+    "range": [
+     -120,
+     60
+    ],
+    "beats": [
+     0.033,
+     0.05,
+     0.066,
+     0.083,
+     0.1,
+     0.116,
+     0.133,
+     0.15,
+     0.166,
+     0.183,
+     0.199,
+     0.216,
+     0.233,
+     0.249,
+     0.266,
+     0.283
+    ],
+    "tol": 2.0,
+    "unit": "pt",
+    "catalog": [
+     -41.0,
+     -20.0,
+     -2.5,
+     11.0,
+     22.0,
+     29.5,
+     34.5,
+     37.0,
+     37.5,
+     36.0,
+     32.5,
+     27.0,
+     21.0,
+     14.0,
+     6.5,
+     0.0
+    ],
+    "note": "beats 0 and +0.016 (offset -95.5 / -66 pt) are not measured: the HUD is still above y 52, where the status bar never moves"
+   }
+  },
+  "unlock-dismiss": {
+   "about": "Unlock card dismiss: the content goes in ONE frame, then the dim fades LINEARLY over 0.233 s (G3)",
+   "source": "motion-catalog.md §3.2 + Appendix A6 (VERIFIED v552 S3-L100 1.148 -> 1.381, S2-L070 1.398 -> 1.631)",
+   "ref": {
+    "clip": "S3-L100-elevator-unlock-dismiss.mov",
+    "anchor": 1.148,
+    "window": [
+     1.05,
+     1.5
+    ]
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.05,
+     0.1,
+     0.15,
+     0.2,
+     0.233,
+     0.25,
+     0.3
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "ramp",
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "settle": 0.3,
+    "beats": [
+     0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15,
+     0.1667,
+     0.1833,
+     0.2,
+     0.2167,
+     0.2333,
+     0.25
+    ],
+    "tol": 0.08,
+    "unit": "fraction of the ramp",
+    "end_tol": 0.021,
+    "catalog": [
+     35,
+     48,
+     61,
+     74,
+     88,
+     101,
+     114,
+     128,
+     141,
+     154,
+     167,
+     181,
+     194,
+     207,
+     219,
+     220
+    ]
+   }
+  },
+  "claim": {
+   "about": "Sky Jump claim staging: letters left -> right by S+0.43, island S+0.28 -> 0.68, 'You win!' S+0.88 -> 1.28, counter LINEAR S+1.38 -> 2.38, 'Tap to Claim' ~S+2.36 (owner item 8; G3 ±1 frame)",
+   "source": "motion-catalog.md §3.2 Claim (VERIFIED v552 S3-skyjump3-win-claim 60 Hz)",
+   "ref": {
+    "clip": "S3-skyjump3-win-claim.mov",
+    "anchor": null,
+    "window": [
+     1.1,
+     4.4
+    ]
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     0,
+     0.1,
+     0.2,
+     0.3,
+     0.43,
+     0.6,
+     0.88,
+     1.0,
+     1.28,
+     1.38,
+     1.6,
+     1.9,
+     2.2,
+     2.38,
+     2.44,
+     2.8
+    ],
+    "scale": 0.3
+   },
+   "measure": {
+    "kind": "onsets",
+    "horizon": 3.2,
+    "thr": 10,
+    "regions": {
+     "title": [
+      0,
+      85,
+      393,
+      55
+     ],
+     "island": [
+      85,
+      145,
+      225,
+      200
+     ],
+     "youwin": [
+      145,
+      355,
+      105,
+      22
+     ],
+     "counter": [
+      155,
+      450,
+      90,
+      30
+     ],
+     "portrait": [
+      160,
+      500,
+      75,
+      75
+     ],
+     "sharing": [
+      30,
+      590,
+      333,
+      50
+     ],
+     "winners": [
+      40,
+      655,
+      315,
+      95
+     ],
+     "tapclaim": [
+      120,
+      770,
+      150,
+      30
+     ]
+    },
+    "tol": 0.021,
+    "unit": "s",
+    "catalog": {
+     "title.settle": 0.43,
+     "island.onset": 0.28,
+     "island.settle": 0.68,
+     "youwin.onset": 0.88,
+     "youwin.settle": 1.28,
+     "portrait.onset": 1.2,
+     "sharing.onset": 1.53,
+     "winners.onset": 1.61,
+     "tapclaim.onset": 2.36
+    }
+   },
+   "width": 197
+  },
+  "win-logo": {
+   "about": "Win celebration beats on W (the board-clear wave start): sign, letters, OUT!, slam, bounce, fireworks, panel at W + 4.034 (owner items 3/7; G3). W is NOT auto-detected: pass --anchor-ours (our W from the app's log)",
+   "source": "build/logo/ref/REFERENCE.md §1-§2 + LOGO-SPEC.md (VERIFIED v552 S3-L089-win W = 0.958; S1-L50-win-seq-1 W = 0.665)",
+   "ref": {
+    "clip": "S3-L089-win.mov",
+    "anchor": 0.958,
+    "window": [
+     0.85,
+     5.2
+    ]
+   },
+   "anchor": {
+    "kind": "manual"
+   },
+   "strip": {
+    "rect": [
+     0,
+     150,
+     393,
+     560
+    ],
+    "beats": [
+     0.457,
+     0.706,
+     0.723,
+     0.815,
+     0.947,
+     1.039,
+     1.139,
+     1.655,
+     1.688,
+     1.828,
+     2.365,
+     3.195,
+     4.001,
+     4.034
+    ],
+    "scale": 0.4
+   },
+   "measure": {
+    "kind": "event",
+    "rect": [
+     0,
+     250,
+     393,
+     400
+    ],
+    "after": 3.8,
+    "thr": 25,
+    "tol": 0.021,
+    "unit": "s",
+    "catalog": {
+     "removal": 4.018,
+     "panel": 4.034
+    }
+   },
+   "width": 197
+  },
+  "badges": {
+   "about": "Home event badges idle loops: flags wave, rocket lift-off (+9 pt, 8.47 -> 10.33 s), drum hop (owner item 8). Look + activity windows; the loop timing is a DECISION (motion-catalog §6.4), so no pass/fail",
+   "source": "motion-catalog.md §3.5 + Appendix A5 (VERIFIED v552 META-home-idle-12s)",
+   "ref": {
+    "clip": "META-home-idle-12s.mov",
+    "anchor": 0.0,
+    "window": [
+     0.0,
+     15.2
+    ]
+   },
+   "anchor": {
+    "kind": "manual"
+   },
+   "strip": {
+    "rect": [
+     10,
+     190,
+     90,
+     280
+    ],
+    "beats": [
+     8.3,
+     8.4,
+     8.5,
+     8.6,
+     8.7,
+     8.84,
+     9.0,
+     9.2,
+     9.6,
+     10.0,
+     10.33,
+     10.6
+    ],
+    "scale": 1.0
+   },
+   "measure": {
+    "kind": "activity",
+    "regions": {
+     "streak": [
+      15,
+      200,
+      70,
+      75
+     ],
+     "rocket": [
+      15,
+      295,
+      70,
+      75
+     ],
+     "sky": [
+      15,
+      390,
+      70,
+      75
+     ]
+    },
+    "thr": 0.5,
+    "unit": "active windows (s)",
+    "catalog": {
+     "streak": [
+      [
+       0.03,
+       8.14
+      ]
+     ],
+     "rocket": [
+      [
+       8.47,
+       10.33
+      ]
+     ],
+     "sky": [
+      [
+       3.78,
+       4.94
+      ],
+      [
+       6.71,
+       7.47
+      ],
+      [
+       9.2,
+       9.87
+      ],
+      [
+       14.54,
+       15.14
+      ]
+     ]
+    },
+    "note": "activity = mean |frame - frame 1/30 s earlier| per region > thr (the catalog's hop windows are 'drum up > 2 pt', a different quantity; compare ours vs v552 by looking)"
+   },
+   "width": 197,
+   "every": 2
+  },
+  "band-drop-v582": {
+   "about": "Quit Level? band drops from above the screen: overshoot 28 pt, dip 6 pt, rest at +0.283 s (owner item 8 'comes from top'; A2 / G3)",
+   "source": "motion-catalog.md §11.2 (VERIFIED v582 S4-R1a 2.330, S4-R1b 4.693; A2 added this preset)",
+   "ref": {
+    "clip": "S4-R1a-L109-back-quit-x.mov",
+    "anchor": null,
+    "window": [
+     2.2,
+     2.8
+    ]
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     700,
+     393,
+     100
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.033,
+     0.067,
+     0.1,
+     0.133,
+     0.167,
+     0.183,
+     0.217,
+     0.25,
+     0.283,
+     0.35
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "shift_y",
+    "rect": [
+     0,
+     0,
+     393,
+     700
+    ],
+    "settle": 0.45,
+    "range": [
+     -660,
+     60
+    ],
+    "beats": [
+     0.0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15,
+     0.1667,
+     0.1833,
+     0.2,
+     0.2167,
+     0.2333,
+     0.25,
+     0.2667,
+     0.2833
+    ],
+    "tol": 5.0,
+    "unit": "pt",
+    "catalog": [
+     -576,
+     -497,
+     -415,
+     -333,
+     -254,
+     -179,
+     -112,
+     -56,
+     -14,
+     14,
+     26,
+     28,
+     23,
+     14,
+     4,
+     -4,
+     -6,
+     0
+    ],
+    "note": "tolerance ±5 pt = the doc's 'one table within ±5 pt serves both' (Quit vs Continue rows)"
+   }
+  },
+  "pause-punch-v582": {
+   "about": "Paused popup punch on v582 (Super Hard purple; = v552 within 0.004; A2 / G3)",
+   "source": "motion-catalog.md §11.3 (VERIFIED v582 S4-R1b 2.196, S4-R6 1.980; A2 added this preset)",
+   "ref": {
+    "clip": "S4-R1b-L109-pause-quit-x.mov",
+    "anchor": null,
+    "window": [
+     2.1,
+     2.6
+    ]
+   },
+   "anchor": {
+    "kind": "lum_drop",
+    "rect": [
+     0,
+     150,
+     393,
+     80
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     195,
+     393,
+     460
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.017,
+     0.033,
+     0.05,
+     0.067,
+     0.083,
+     0.1,
+     0.117,
+     0.133,
+     0.2
+    ]
+   },
+   "measure": {
+    "kind": "scale",
+    "rect": [
+     0,
+     235,
+     393,
+     400
+    ],
+    "center": [
+     200,
+     429.5
+    ],
+    "settle": 0.3,
+    "beats": [
+     0,
+     0.017,
+     0.033,
+     0.05,
+     0.067,
+     0.083,
+     0.1,
+     0.117,
+     0.133
+    ],
+    "tol": 0.005,
+    "unit": "scale",
+    "catalog": [
+     1.022,
+     0.984,
+     0.973,
+     0.967,
+     0.967,
+     0.973,
+     0.984,
+     0.995,
+     1.0
+    ]
+   }
+  },
+  "tab-slide-v582": {
+   "about": "Bottom-tab push slide on v582 from its first frame: remaining = D (1 - u)^2.51, u = t / 0.488 s (A2 / G3: within ±2 pt at u = 0.1 ... 1.0)",
+   "source": "motion-catalog.md §11.3 R2 (VERIFIED v582 S4-R2-tabs-chain 1.980, 5 slides; A2 added this preset)",
+   "ref": {
+    "clip": "S4-R2-tabs-chain.mov",
+    "anchor": null,
+    "window": [
+     1.9,
+     2.6
+    ]
+   },
+   "anchor": {
+    "kind": "motion_start",
+    "rect": [
+     0,
+     100,
+     393,
+     500
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     0,
+     0.05,
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.4,
+     0.5
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "shift_x",
+    "rect": [
+     0,
+     120,
+     393,
+     400
+    ],
+    "settle": 0.5,
+    "range": [
+     -400,
+     400
+    ],
+    "beats": [
+     0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15,
+     0.1667,
+     0.1833,
+     0.2,
+     0.2167
+    ],
+    "tol": 2.0,
+    "unit": "pt",
+    "catalog": [
+     393,
+     359,
+     329,
+     299,
+     271,
+     245,
+     220,
+     197,
+     175,
+     155,
+     137,
+     120,
+     104,
+     90
+    ],
+    "model": {
+     "curve": "power",
+     "exp": 2.51,
+     "T": 0.488,
+     "check_u": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+     ]
+    }
+   }
+  },
+  "band-rise-v582": {
+   "about": "X on Quit Level?: the band RISES off the top, easeOutQuad 0.302 s / 654 pt, the dim fades linearly 0.300 s (A2 / G3)",
+   "source": "motion-catalog.md §11.2 exits (VERIFIED v582 S4-R1a 4.976, S4-R1b 7.189; A2 added this preset)",
+   "ref": {
+    "clip": "S4-R1a-L109-back-quit-x.mov",
+    "anchor": null,
+    "window": [
+     4.85,
+     5.45
+    ]
+   },
+   "anchor": {
+    "kind": "motion_start",
+    "rect": [
+     0,
+     190,
+     393,
+     460
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.033,
+     0.067,
+     0.1,
+     0.133,
+     0.167,
+     0.2,
+     0.233,
+     0.267,
+     0.3
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "shift_y",
+    "rect": [
+     0,
+     0,
+     393,
+     700
+    ],
+    "settle": -0.05,
+    "range": [
+     -700,
+     40
+    ],
+    "beats": [
+     0.0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15
+    ],
+    "tol": 5.0,
+    "unit": "pt",
+    "catalog": [
+     -73,
+     -137,
+     -199,
+     -258,
+     -312,
+     -362,
+     -408,
+     -451,
+     -489,
+     -523
+    ],
+    "note": "frames 10-14 are not measured: the band is almost all above the screen (a sliver the fit cannot hold)"
+   }
+  },
+  "band-fall-v582": {
+   "about": "Quit on Quit Level? (go on with the fail): a 2-frame lift, then the band FALLS off the bottom; the dim stays (A2 / G3)",
+   "source": "motion-catalog.md §11.2 exits (VERIFIED v582 S4-PH0b-L112-quit-step2 2.297, S4-R5-L109-continue-x 2.063; A2 added this preset)",
+   "ref": {
+    "clip": "S4-PH0b-L112-quit-step2.mov",
+    "anchor": null,
+    "window": [
+     2.15,
+     2.75
+    ]
+   },
+   "anchor": {
+    "kind": "motion_start",
+    "rect": [
+     0,
+     190,
+     393,
+     460
+    ]
+   },
+   "strip": {
+    "rect": [
+     0,
+     0,
+     393,
+     852
+    ],
+    "beats": [
+     -0.017,
+     0,
+     0.033,
+     0.067,
+     0.1,
+     0.133,
+     0.167,
+     0.2,
+     0.233,
+     0.267
+    ],
+    "scale": 0.35
+   },
+   "measure": {
+    "kind": "shift_y",
+    "rect": [
+     0,
+     150,
+     393,
+     702
+    ],
+    "settle": -0.05,
+    "range": [
+     -60,
+     700
+    ],
+    "beats": [
+     0.0,
+     0.0167,
+     0.0333,
+     0.05,
+     0.0667,
+     0.0833,
+     0.1,
+     0.1167,
+     0.1333,
+     0.15,
+     0.1667,
+     0.1833,
+     0.2
+    ],
+    "tol": 5.0,
+    "unit": "pt",
+    "catalog": [
+     -27,
+     -39,
+     -11,
+     29,
+     79,
+     137,
+     201,
+     269,
+     339,
+     410,
+     479,
+     545,
+     606
+    ]
+   }
+  }
+ }
+}

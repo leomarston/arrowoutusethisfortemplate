@@ -1,0 +1,32 @@
+Toca una flecha y saldrá del tablero siguiendo su camino, siempre que nada se lo impida. Despeja todas las flechas antes de que se acabe el tiempo.
+
+Arrow Out es un puzle rápido y limpio, contrarreloj. Los tableros tienen todo tipo de formas y están llenos de flechas, y cada flecha solo puede ir hacia donde apunta. Descubre el orden, conserva tus corazones y gana al reloj.
+
+CÓMO SE JUEGA
+• Toca una flecha para lanzarla en la dirección a la que apunta.
+• Si algo bloquea su camino, rebota y pierdes un corazón.
+• Despeja el tablero antes de que se acabe el tiempo y gana monedas.
+
+FÁCIL DE EMPEZAR, DIFÍCIL DE DEJAR
+• 150 niveles para empezar y, después, tableros nuevos sin parar: nunca te quedarás sin partidas.
+• Los niveles Difíciles y Muy difíciles dan más monedas.
+• Los obstáculos llegan de uno en uno, cada uno con una breve explicación: flechas enlazadas, cajas, tuberías, ascensores, puertas y llaves, y esquinas.
+
+POTENCIADORES PARA LOS APUROS
+• Uno congela el reloj durante 10 segundos.
+• Otro te muestra una flecha que se puede mover.
+
+ALGO NUEVO CADA SEMANA
+Los eventos semanales van y vienen: mantén viva una racha de victorias, sube una torre de premios, lanza un cohete, salta por el cielo o sube en globo hasta la cima. Vuelve cada semana para ver qué toca.
+
+UNA SENSACIÓN GENIAL
+• Animaciones fluidas y una respuesta háptica nítida en cada toque.
+• Sin anuncios y sin cuenta.
+• Juega sin conexión: no necesitas wifi para jugar.
+• Las vidas se recargan con el tiempo, así que siempre hay otra partida.
+
+COMPRAS DENTRO DE LA APP
+Arrow Out es gratis. Las compras opcionales dentro de la app ofrecen lotes de monedas y packs con monedas, potenciadores y horas de vidas infinitas. Verás los precios en tu moneda local antes de comprar.
+
+Privacidad: https://leomarston.github.io/manycode-legal/privacy-arrow-out.html
+Condiciones de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

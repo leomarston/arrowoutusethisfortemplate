@@ -1,0 +1,260 @@
+en	zh-Hans	note
+# T2 L10N (2026-09-28) zh-Hans: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-zh-Hans.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	第%lld关	fit 1.00
+Levels 1-4	第1-4关	fit 1.00
+Level 1-4	第1-4关	
+Tap to move!	点击箭头！	fit 1.00
+Loading	加载中	fit 1.00
+Unlocked!	已解锁！	fit 1.00
+Linked Arrows!	连体箭头！	fit 1.00
+LINKED ARROWS move together!	连体箭头会一起移动！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Box!	箱子！	fit 1.00
+Clear required amount of arrows to break the BOX!	消除足够数量的箭头来打破箱子！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Pipe!	管道！	fit 1.00
+Pass arrows through the PIPE to break it!	让箭头穿过管道来打破它！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Elevator!	电梯！	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	清空电梯上的所有箭头来启动它！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Door!	门！	fit 1.00
+Collect the KEY to open the DOOR!	拿到钥匙就能打开门！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Corner!	拐角！	fit 1.00
+The CORNER turns arrows around!	拐角会让箭头转向！	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run); fit 1.00
+Paused	已暂停	fit 1.00
+Sound	音效	fit 1.00
+Haptic	振动	fit 1.00
+ON	开	fit 1.00
+OFF	关	fit 1.00
+Resume	继续	fit 1.00
+Quit	退出	fit 1.00
+Quit Level?	退出关卡？	fit 1.00
+You will lose a life!	你将失去一条生命！	fit 1.00
+Out of Time!	时间到！	fit 1.00
++30 sec	+30秒	fit 1.00
+Add Time	增加时间	fit 1.00
+Out of Lives!	生命耗尽！	fit 1.00
++3 Lives	+3条生命	fit 1.00
+Add Lives	增加生命	fit 1.00
+Continue?	要继续吗？	fit 1.00
+You will lose your streak!	你将失去连胜纪录！	fit 1.00
+You will lose %lld token and your streak!	你将失去%lld个代币和连胜纪录！	fit 1.00
+Play On	继续游戏	fit 0.89
+Level Failed!	闯关失败！	fit 1.00
+Try Again	再试一次	fit 1.00
+Perfect!	完美！	fit 1.00
+Rewards:	奖励：	fit 1.00
+Continue	继续	fit 1.00
+Hard Level	困难关卡	fit 1.00
+Super Hard	超级困难	fit 1.00
++%lld	+%lld	
+Play	开始	fit 1.00
+LEVEL	关卡	fit 1.00
+Full	已满	fit 1.00
+Finished	已恢复	fit 0.98
+More Lives	更多生命	fit 1.00
+Time to next live:	距下一条生命：	fit 1.00
+Refill	补满	fit 1.00
+Not enough coins	金币不足	
+Congratulations!	恭喜！	fit 1.00
+Tap to Claim	点击领取	fit 1.00
+Tap to Continue	点击继续	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	已结束	
+Join	加入	fit 1.00
+Home	主页	fit 1.00
+Leaderboard	排行榜	fit 1.00
+Time Freeze	时间冻结	fit 1.00
+Freeze the timer for 10 seconds!	冻结计时10秒！	fit 1.00
+Hint	提示	fit 1.00
+Find an arrow that can move!	找到一个可以移动的箭头！	fit 1.00
+Buy	购买	
+x%lld	x%lld	
+Shop	商店	fit 1.00
+Special Offers	特别优惠	fit 1.00
+Special Offer	特别优惠	fit 1.00
+STARTER	新手	T1
+Bundles	礼包	fit 1.00
+Mini Bundle	迷你礼包	fit 1.00
+Epic Bundle	史诗礼包	fit 1.00
+Elite Bundle	精英礼包	fit 1.00
+Mega Bundle	超级礼包	fit 1.00
+Legendary Bundle	传奇礼包	fit 1.00
+Popular	热门	fit 1.00
+Best Value	超值	fit 1.00
+Coins	金币	fit 1.00
+Purchase pending	购买处理中	
+Settings	设置	fit 1.00
+Notifications	通知	fit 1.00
+Music	音乐	fit 1.00
+Support	客服	fit 1.00
+Terms	条款	fit 1.00
+Privacy	隐私	fit 1.00
+%@ Support	%@ 客服	
+Please describe your issue above. We will get back to you as soon as possible.	请在上方描述你遇到的问题，我们会尽快回复你。	
+Version : %@	版本：%@	
+Level : %lld	关卡：%lld	
+Write to us at	发送邮件至	
+Copy	复制	
+Copied	已复制	
+Profile	个人资料	fit 1.00
+Level	关卡	fit 1.00
+General Stats	总体数据	fit 1.00
+First Try Wins	一次通关	fit 1.00
+Weekly Cup Wins	每周杯赛获胜	T1; fit 1.00
+Hot Streak Wins	火热连胜获胜	T1; fit 1.00
+Rocket Rally Wins	火箭拉力赛获胜	T1; fit 1.00
+Cloud Hop Wins	云朵跳跳获胜	T1; fit 1.00
+Treasure Climb Wins	寻宝攀登获胜	T1; fit 1.00
+-	-	
+Username	用户名	fit 1.00
+Create your username:	创建你的用户名：	fit 1.00
+Edit Profile	编辑	fit 1.00
+Save	保存	fit 1.00
+Name must be 3-16 characters	名称须为3-16个字符	
+This name is not allowed	不允许使用该名称	
+Your lives are full! Time to play!	生命已补满！快来玩吧！	
+The Weekly Cup ends in 2 hours!	每周杯赛将在2小时后结束！	T1
+%@ is a puzzle game.	%@是一款益智游戏。	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	游戏中的金币、生命、道具及其他物品不具有货币价值，不能在游戏外兑换或退款。	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	购买通过Apple进行，并遵守App Store条款。我们绝不会看到你的支付信息。	
+The game is provided as is. We may update the game and these terms.	本游戏按现状提供。我们可能会更新游戏及本条款。	
+Questions? Write to %@	有疑问？请发邮件至%@	
+%@ has no accounts, no ads and no tracking.	%@没有账户、没有广告，也没有追踪。	T1
+Your progress, settings and profile name are stored only on this device.	你的进度、设置和个人资料名称仅保存在此设备上。	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	游戏可离线运行。购买由Apple处理。我们的购买服务RevenueCat会收到一个匿名ID和你的购买记录。	T1
+Notifications are scheduled on your device and can be turned off in Settings.	通知由你的设备本地定时发送，可在“设置”中关闭。	
+If you write to support, we use your message only to answer you.	如果你联系客服，我们只会用你的消息来回复你。	
+Contact: %@	联系方式：%@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	点击箭头，它就会沿着自己的路径飞出。如果前方有障碍，它会弹回来，你会失去一条生命。在时间结束前清空所有箭头！	
+Weekly	每周	fit 1.00
+World	世界	fit 1.00
+Turkey	土耳其	fit 1.00
+Germany	德国	fit 1.00
+USA	美国	fit 1.00
+Score	分数	fit 1.00
+Score : %lld	分数：%lld	fit 1.00
+Bottom	底部	fit 1.00
+Top	顶部	fit 1.00
+Reach level 50 to join the Weekly Cup!	达到第50关即可参加每周杯赛！	T1; fit 1.00
+Weekly Cup	每周杯赛	T1; fit 1.00
+Tap to join the Weekly Cup!	点击参加每周杯赛！	T1; fit 1.00
+Beat Levels!	闯过关卡！	fit 1.00
+Contest with others!	与其他玩家比拼！	fit 1.00
+Win Rewards!	赢取奖励！	fit 1.00
+The top 3 win prizes!	前3名可获得奖品！	T1; fit 1.00
+There is a new contest every week!	每周都有新竞赛！	fit 1.00
+You finished #%lld!	你获得了第%lld名！	fit 1.00
+Hot Streak	火热连胜	T1; fit 1.00
+Beat levels without fail to get more rewards!	连续通关不失败，赢取更多奖励！	fit 1.00
+Beat levels without losing!	不输一关，连续通关！	fit 1.00
+Increase your score multiplier!	提升得分倍数！	fit 1.00
+Earn more flags than others!	收集比别人更多的旗帜！	fit 1.00
+If you fail a level the multiplier will reset!	一旦闯关失败，倍数就会回到x1！	fit 1.00
+Treasure Climb	寻宝攀登	T1; fit 1.00
+Rocket Rally	火箭拉力赛	T1; fit 1.00
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	比其他人先通过%lld关即可获胜，并进入下一阶段赢取更丰厚的奖品！	fit 1.00; one-line (no CJK break) 0.67
+Beat %lld levels before others to finish the race	比其他人先通过%lld关即可完成比赛	fit 1.00
+You lost the race! Try again to win amazing rewards!	比赛输了！再试一次，赢取超棒奖励！	fit 1.00
+You won the race! Claim your amazing rewards!	比赛赢了！领取你的超棒奖励！	fit 1.00
+Stage %lld	第%lld阶段	fit 0.87
+Start	开始	fit 1.00
+Beat levels!	闯过关卡！	fit 1.00
+Finish race before others!	比其他人先完成比赛！	fit 1.00
+Win amazing rewards!	赢取超棒奖励！	fit 1.00
+Advance to next stages for greater prizes!	进入下一阶段，赢取更丰厚的奖品！	fit 1.00
+Cloud Hop	云朵跳跳	T1; fit 1.00
+Pass %lld Levels in a row on first try and advance to next stages!	连续%lld关一次通过，进入下一阶段！	fit 1.00
+Finding players on your level.	正在寻找与你水平相当的玩家。	fit 1.00
+Start with 100 players!	与100名玩家一起开始！	fit 1.00
+Beat %lld levels!	通过%lld关！	fit 1.00
+Win your share of %lld coins!	瓜分%lld金币！	fit 1.00
+If you fail a level, you will fail the challenge!	一旦闯关失败，挑战就失败了！	fit 1.00
+Stages	阶段	fit 1.00
+Levels	关卡	fit 1.00
+Players	玩家	fit 1.00
+PRIZE	奖金	fit 1.00
+You win!	你赢了！	fit 1.00
+You are sharing the reward with %lld other winners!	你将与另外%lld名获胜者平分奖励！	fit 1.00
+You failed the challenge!	挑战失败！	fit 1.00
+%lld Levels	%lld关	HIGHLIGHT RUN (never shown alone): lit inside '比其他人先通过%lld关即可获胜，并进入下一阶段赢取更丰厚的奖品！' / '连续%lld关一次通过，进入下一阶段！'
+%lld levels	%lld关	HIGHLIGHT RUN (never shown alone): lit inside '比其他人先通过%lld关即可完成比赛'
+%lld levels!	%lld关！	HIGHLIGHT RUN (never shown alone): lit inside '通过%lld关！'
+100 players	100名玩家	HIGHLIGHT RUN (never shown alone): lit inside '与100名玩家一起开始！'
+%lld coins	%lld金币	HIGHLIGHT RUN (never shown alone): lit inside '瓜分%lld金币！'
+greater prizes	更丰厚的奖品	HIGHLIGHT RUN (never shown alone): lit inside '进入下一阶段，赢取更丰厚的奖品！'
+prizes	奖品	HIGHLIGHT RUN (never shown alone): lit inside '进入下一阶段，赢取更丰厚的奖品！'
+rewards	奖励	HIGHLIGHT RUN (never shown alone): lit inside '赢取超棒奖励！'
+Rewards!	奖励！	HIGHLIGHT RUN (never shown alone): lit inside '赢取奖励！'
+fail	失败	HIGHLIGHT RUN (never shown alone): lit inside '一旦闯关失败，倍数就会回到x1！' / '一旦闯关失败，挑战就失败了！' / '一旦闯关失败，就会爆掉一个气球！'
+Allow notifications in iOS Settings.	请在iOS设置中允许通知。	
+Arrows turn when they hit the CORNER!	箭头碰到拐角时会转向！	unlock card: no letter case, so MultiRunText lights nothing (B3: needs a marked run)
+Back	返回	
+Boosters	道具	
+Close	关闭	
+How to play	玩法说明	
+Info	信息	
+Lives	生命	
+Pause	暂停	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	开始一个关卡会消耗一条生命，获胜后返还。每30分钟恢复一条生命。	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	沙漏可冻结计时10秒。灯泡会显示一个可以移动的箭头。	
+Version %@ · Level %lld	版本 %@ · 第%lld关	
+You will lose %lld token	你将失去%lld个代币	LINE 1 of '你将失去%lld个代币和连胜纪录！' (the number is drawn red); fit 1.00
+Your progress	你的进度	
+Your progress and coins are saved only on this device. Deleting the game erases them.	你的进度和金币仅保存在此设备上。删除游戏会清除这些数据。	T1
+and your streak!	和连胜纪录！	LINE 2 of '你将失去%lld个代币和连胜纪录！'; fit 1.00
+Up & Away	直上云霄	T1
+NEW	新	T1
+New Event!	新活动！	T1
+Double Event Week!	双活动周！	T1
+Let's Go!	出发！	T1
+Ends in %@	%@后结束	T1
+Last day!	最后一天！	T1
+Coming next: %@	即将到来：%@	T1
+Starts in %@	%@后开始	T1
+This event has ended.	该活动已结束。	T1
+%@ has started! Beat levels to win amazing rewards!	%@开始啦！闯关赢取超棒奖励！	T1
+Double Event Week! %@ and %@ are both on!	双活动周！%1$@和%2$@同时进行中！	T1
+%@ ends in 3 hours!	%@将在3小时后结束！	T1
+Beat levels in a row to rise higher!	连续通关，越飞越高！	T1
+Beat levels to fill your balloons with hot air!	闯关为气球充满热气！	T1
+Hard levels give more hot air!	困难关卡给更多热气！	T1
+If you fail a level, a balloon pops!	一旦闯关失败，就会爆掉一个气球！	T1
+Lose all 3 balloons and you fall to the start of the step!	失去全部3个气球，就会掉回这一级的起点！	T1
+Reach the top for the big prize!	登顶赢取大奖！	T1
+hot air	热气	T1; HIGHLIGHT RUN (never shown alone): lit inside '闯关为气球充满热气！'
+Hard levels	困难关卡	T1; HIGHLIGHT RUN (never shown alone): lit inside '困难关卡给更多热气！'
+big prize	大奖	T1; HIGHLIGHT RUN (never shown alone): lit inside '登顶赢取大奖！'
+Step %lld	第%lld级	T1
+Completed!	已完成！	T1
+You fell to the start of step %lld!	你掉回了第%lld级的起点！	T1
+You will lose a balloon!	你将失去一个气球！	T1
+You will lose a balloon and your streak!	你将失去一个气球和连胜纪录！	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	生命	SUPERSEDED: dropped
+#~	Video not available	视频暂不可用	SUPERSEDED: dropped
+#~	90% OFF	90% 优惠	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	测试商店：不会扣费	SUPERSEDED: dropped
+#~	Weekly Contest Wins	每周竞赛获胜	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	连胜竞速获胜	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	火箭竞速获胜	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	天空跳跃获胜	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	抓娃娃挑战获胜	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	每周竞赛将在2小时后结束！	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@不收集任何个人数据。没有账户、没有广告、没有分析，也没有追踪。	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	游戏可离线运行。购买由Apple处理。	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	达到第50关即可参加每周竞赛！	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	每周竞赛	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	点击参加每周竞赛！	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	与好友一较高下！	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	连胜竞速	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	抓娃娃挑战	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	火箭竞速	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	天空跳跃	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	你的进度保存在此设备上。	SUPERSEDED: superseded by T1

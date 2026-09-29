@@ -1,0 +1,390 @@
+{
+ "overlap": {
+  "note": "signpost: every board vs every other board, the post, the lantern; every bracket vs the other boards (its own board and the post are its mount). PASS = no surface sample inside another solid.",
+  "boards": 5,
+  "samples": {
+   "board1": 19958,
+   "board2": 19602,
+   "board3": 19364,
+   "board4": 20058,
+   "board5": 19576,
+   "lantern": 7940,
+   "bracket1": 2712,
+   "bracket2": 2752,
+   "bracket3": 2722,
+   "bracket4": 2654,
+   "bracket5": 2702
+  },
+  "voxel_u": 0.008,
+  "pt_per_u": 40.0,
+  "min_signed_distance_u": 0.0206,
+  "min_clearance_pt": 0.82,
+  "pass_": true,
+  "closest": [
+   [
+    "board1->post",
+    0.0206
+   ],
+   [
+    "board4->post",
+    0.0344
+   ],
+   [
+    "board2->post",
+    0.0392
+   ],
+   [
+    "board3->post",
+    0.0398
+   ],
+   [
+    "board5->post",
+    0.0408
+   ],
+   [
+    "board1->board2",
+    0.06
+   ]
+  ],
+  "pairs": {
+   "board1->board2": 0.06,
+   "board1->board3": 0.06,
+   "board1->board4": 0.06,
+   "board1->board5": 0.06,
+   "board1->post": 0.0206,
+   "board1->lantern": 0.06,
+   "board2->board1": 0.06,
+   "board2->board3": 0.06,
+   "board2->board4": 0.06,
+   "board2->board5": 0.06,
+   "board2->post": 0.0392,
+   "board2->lantern": 0.06,
+   "board3->board1": 0.06,
+   "board3->board2": 0.06,
+   "board3->board4": 0.06,
+   "board3->board5": 0.06,
+   "board3->post": 0.0398,
+   "board3->lantern": 0.06,
+   "board4->board1": 0.06,
+   "board4->board2": 0.06,
+   "board4->board3": 0.06,
+   "board4->board5": 0.06,
+   "board4->post": 0.0344,
+   "board4->lantern": 0.06,
+   "board5->board1": 0.06,
+   "board5->board2": 0.06,
+   "board5->board3": 0.06,
+   "board5->board4": 0.06,
+   "board5->post": 0.0408,
+   "board5->lantern": 0.06,
+   "lantern->board1": 0.06,
+   "lantern->board2": 0.06,
+   "lantern->board3": 0.06,
+   "lantern->board4": 0.06,
+   "lantern->board5": 0.06,
+   "lantern->post": 0.06,
+   "bracket1->board2": 0.06,
+   "bracket1->board3": 0.06,
+   "bracket1->board4": 0.06,
+   "bracket1->board5": 0.06,
+   "bracket1->lantern": 0.06,
+   "bracket2->board1": 0.06,
+   "bracket2->board3": 0.06,
+   "bracket2->board4": 0.06,
+   "bracket2->board5": 0.06,
+   "bracket2->lantern": 0.06,
+   "bracket3->board1": 0.06,
+   "bracket3->board2": 0.06,
+   "bracket3->board4": 0.06,
+   "bracket3->board5": 0.06,
+   "bracket3->lantern": 0.06,
+   "bracket4->board1": 0.06,
+   "bracket4->board2": 0.06,
+   "bracket4->board3": 0.06,
+   "bracket4->board5": 0.06,
+   "bracket4->lantern": 0.06,
+   "bracket5->board1": 0.06,
+   "bracket5->board2": 0.06,
+   "bracket5->board3": 0.06,
+   "bracket5->board4": 0.06,
+   "bracket5->lantern": 0.06
+  }
+ },
+ "rects": {
+  "rects_compared": 39,
+  "changed": {},
+  "max_diff_pt": 0,
+  "levelPlate_on_recess": {
+   "alpha_min": 255,
+   "luma_median": 44.4,
+   "note": "the plate covers the cabinet's recess: opaque and dark behind it"
+  }
+ },
+ "badges": {
+  "hotstreak": {
+   "rig": "badge_hotstreak_rig",
+   "full": "badgeHotStreak",
+   "replaces": "eventBadgeStreak",
+   "event": "streakRace",
+   "layers": [
+    [
+     "body",
+     false
+    ],
+    [
+     "pennantL",
+     false
+    ],
+    [
+     "pennantR",
+     false
+    ]
+   ],
+   "anchors": {
+    "case": "badgeHotStreak",
+    "frame_pt": [
+     80.0,
+     84.0
+    ],
+    "note": "points in pt within the image (origin top-left)",
+    "ringBottom": [
+     [
+      40.0,
+      74.03
+     ]
+    ],
+    "textBand": [
+     [
+      40.0,
+      64.68
+     ]
+    ]
+   }
+  },
+  "rocketrally": {
+   "rig": "badge_rocketrally_rig",
+   "full": "badgeRocketRally",
+   "replaces": "eventBadgeRocket",
+   "event": "rocketRace",
+   "layers": [
+    [
+     "body",
+     false
+    ],
+    [
+     "exhaustA",
+     true
+    ],
+    [
+     "exhaustB",
+     true
+    ],
+    [
+     "rocket",
+     false
+    ]
+   ],
+   "anchors": {
+    "case": "badgeRocketRally",
+    "frame_pt": [
+     80.0,
+     84.0
+    ],
+    "note": "points in pt within the image (origin top-left)",
+    "ringBottom": [
+     [
+      40.0,
+      74.03
+     ]
+    ],
+    "textBand": [
+     [
+      40.0,
+      64.68
+     ]
+    ],
+    "porthole": [
+     [
+      40.0,
+      30.45
+     ]
+    ]
+   }
+  },
+  "cloudhop": {
+   "rig": "badge_cloudhop_rig",
+   "full": "badgeCloudHop",
+   "replaces": "eventBadgeSkyJump",
+   "event": "skyJump",
+   "layers": [
+    [
+     "body",
+     false
+    ],
+    [
+     "drum",
+     false
+    ],
+    [
+     "clouds",
+     false
+    ]
+   ],
+   "anchors": {
+    "case": "badgeCloudHop",
+    "frame_pt": [
+     80.0,
+     84.0
+    ],
+    "note": "points in pt within the image (origin top-left)",
+    "ringBottom": [
+     [
+      40.0,
+      74.03
+     ]
+    ],
+    "textBand": [
+     [
+      40.0,
+      64.68
+     ]
+    ],
+    "tag": [
+     [
+      40.0,
+      32.63
+     ]
+    ]
+   }
+  }
+ },
+ "compose": {
+  "note": "the composed home at real size (1179 x 2556) vs 002 (v552 home), kind screen: SSIM < 0.30 and chroma overlap < 0.55. The UI is a D1-token MOCK at ui.json's rects.",
+  "pieces_rendered": {
+   "homeWorkshop": true,
+   "homeScaffold": true,
+   "homeFloor": true,
+   "homeCabinet": true,
+   "homeSignpost": true
+  },
+  "gates": [
+   {
+    "state": "claw",
+    "ours": "art/review/home/home-claw.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.232,
+    "overlap": 0.161,
+    "pass_": true
+   },
+   {
+    "state": "claw (UI = R9's palette-map preview)",
+    "ours": "art/review/home/home-claw-r9ui.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.26,
+    "overlap": 0.162,
+    "pass_": true
+   },
+   {
+    "state": "claw scene band y152-618",
+    "ours": "art/review/home/home-claw.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     152,
+     393,
+     466
+    ],
+    "ssim": 0.201,
+    "overlap": 0.156,
+    "pass_": true
+   },
+   {
+    "state": "claw (no UI: the art alone)",
+    "ours": "build/p/R3/home-claw-noui.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.184,
+    "overlap": 0.122,
+    "pass_": true
+   },
+   {
+    "state": "plain",
+    "ours": "art/review/home/home-plain.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.266,
+    "overlap": 0.161,
+    "pass_": true
+   },
+   {
+    "state": "plain (UI = R9's palette-map preview)",
+    "ours": "art/review/home/home-plain-r9ui.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.291,
+    "overlap": 0.163,
+    "pass_": true
+   },
+   {
+    "state": "plain scene band y152-618",
+    "ours": "art/review/home/home-plain.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     152,
+     393,
+     466
+    ],
+    "ssim": 0.236,
+    "overlap": 0.154,
+    "pass_": true
+   },
+   {
+    "state": "plain (no UI: the art alone)",
+    "ours": "build/p/R3/home-plain-noui.png",
+    "theirs": "research/shots/002-home-L32.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.184,
+    "overlap": 0.122,
+    "pass_": true
+   }
+  ]
+ },
+ "idle": {
+  "signpost": {
+   "cycle": 36.0,
+   "samples": 360,
+   "px_outside_window_max": 0,
+   "touches_frame_edge": false,
+   "pass_": true
+  },
+  "hotstreak": {
+   "cycle": 16.0,
+   "top_px_min": 19,
+   "top_pt_min": 6.33,
+   "pass_": true
+  },
+  "rocketrally": {
+   "cycle": 12.0,
+   "top_px_min": 6,
+   "top_pt_min": 2.0,
+   "pass_": true
+  },
+  "cloudhop": {
+   "cycle": 12.0,
+   "top_px_min": 19,
+   "top_pt_min": 6.33,
+   "pass_": true
+  }
+ }
+}

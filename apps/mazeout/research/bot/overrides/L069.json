@@ -1,0 +1,2 @@
+{"note": "L69 (Super Hard; bot round shot tmp/L069-124510-r05.png): the key on the col-1 arrow touches the pipe's counter box, so the arrow is read as pieces and the pipe gets a 3rd 'end'. Real arrow (verified by eye on a grid-labelled crop, session 2): tail (4,47) -> (1,47) -> up col 1 -> head (1,43) pointing UP, key over (1,44)-(1,45).",
+ "add_arrows": [{"cells": [[4,47],[3,47],[2,47],[1,47],[1,46],[1,45],[1,44],[1,43]], "dir": "up", "key": true, "present_if_ink": [[4,47],[1,43]]}]}

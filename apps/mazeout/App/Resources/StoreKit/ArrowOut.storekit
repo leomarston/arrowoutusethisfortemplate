@@ -1,0 +1,259 @@
+{
+  "identifier": "F2D19B45-D86D-5706-84C5-4A2C27EF772B",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "0.99",
+      "familyShareable": false,
+      "internalID": "6900001101",
+      "localizations": [
+        {
+          "description": "1,000 coins, 1 of each booster, 1h unlimited lives",
+          "displayName": "Special Offer",
+          "locale": "en_US"
+        },
+        {
+          "description": "1.000 altın, 1'er güçlendirici, 1 saat sınırsız can",
+          "displayName": "Özel Teklif",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.offer.special",
+      "referenceName": "Special Offer",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "4.99",
+      "familyShareable": false,
+      "internalID": "6900001102",
+      "localizations": [
+        {
+          "description": "2,000 coins, 1 of each booster, 3h unlimited lives",
+          "displayName": "Mini Bundle",
+          "locale": "en_US"
+        },
+        {
+          "description": "2.000 altın, 1'er güçlendirici, 3 saat sınırsız can",
+          "displayName": "Mini Paket",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.bundle.mini",
+      "referenceName": "Mini Bundle",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "9.99",
+      "familyShareable": false,
+      "internalID": "6900001103",
+      "localizations": [
+        {
+          "description": "4,000 coins, 3 of each booster, 6h unlimited lives",
+          "displayName": "Epic Bundle",
+          "locale": "en_US"
+        },
+        {
+          "description": "4.000 altın, 3'er güçlendirici, 6 saat sınırsız can",
+          "displayName": "Epik Paket",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.bundle.epic",
+      "referenceName": "Epic Bundle",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "19.99",
+      "familyShareable": false,
+      "internalID": "6900001104",
+      "localizations": [
+        {
+          "description": "8,000 coins, 8 of each booster, 12h unlimited lives",
+          "displayName": "Elite Bundle",
+          "locale": "en_US"
+        },
+        {
+          "description": "8.000 altın, 8'er güçlendirici, 12 saat sınırsız can",
+          "displayName": "Elit Paket",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.bundle.elite",
+      "referenceName": "Elite Bundle",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "49.99",
+      "familyShareable": false,
+      "internalID": "6900001105",
+      "localizations": [
+        {
+          "description": "20,000 coins, 18 of each booster, 36h unlimited lives",
+          "displayName": "Mega Bundle",
+          "locale": "en_US"
+        },
+        {
+          "description": "20.000 altın, 18'er güçlendirici, 36 saat sınırsız can",
+          "displayName": "Mega Paket",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.bundle.mega",
+      "referenceName": "Mega Bundle",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "99.99",
+      "familyShareable": false,
+      "internalID": "6900001106",
+      "localizations": [
+        {
+          "description": "60,000 coins, 36 of each booster, 72h unlimited lives",
+          "displayName": "Legendary Bundle",
+          "locale": "en_US"
+        },
+        {
+          "description": "60.000 altın, 36'şar güçlendirici, 72 saat sınırsız can",
+          "displayName": "Efsanevi Paket",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.bundle.legendary",
+      "referenceName": "Legendary Bundle",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "6900001107",
+      "localizations": [
+        {
+          "description": "A pack of 1,000 coins",
+          "displayName": "1,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "1.000 altınlık paket",
+          "displayName": "1.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.1000",
+      "referenceName": "1,000 Coins",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "7.99",
+      "familyShareable": false,
+      "internalID": "6900001108",
+      "localizations": [
+        {
+          "description": "A pack of 5,000 coins",
+          "displayName": "5,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "5.000 altınlık paket",
+          "displayName": "5.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.5000",
+      "referenceName": "5,000 Coins",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "14.99",
+      "familyShareable": false,
+      "internalID": "6900001109",
+      "localizations": [
+        {
+          "description": "A pack of 10,000 coins",
+          "displayName": "10,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "10.000 altınlık paket",
+          "displayName": "10.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.10000",
+      "referenceName": "10,000 Coins",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "29.99",
+      "familyShareable": false,
+      "internalID": "6900001110",
+      "localizations": [
+        {
+          "description": "A pack of 25,000 coins",
+          "displayName": "25,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "25.000 altınlık paket",
+          "displayName": "25.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.25000",
+      "referenceName": "25,000 Coins",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "54.99",
+      "familyShareable": false,
+      "internalID": "6900001111",
+      "localizations": [
+        {
+          "description": "A pack of 50,000 coins",
+          "displayName": "50,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "50.000 altınlık paket",
+          "displayName": "50.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.50000",
+      "referenceName": "50,000 Coins",
+      "type": "Consumable"
+    },
+    {
+      "displayPrice": "99.99",
+      "familyShareable": false,
+      "internalID": "6900001112",
+      "localizations": [
+        {
+          "description": "A pack of 100,000 coins",
+          "displayName": "100,000 Coins",
+          "locale": "en_US"
+        },
+        {
+          "description": "100.000 altınlık paket",
+          "displayName": "100.000 Altın",
+          "locale": "tr"
+        }
+      ],
+      "productID": "com.manycode.arrowout.coins.100000",
+      "referenceName": "100,000 Coins",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_applicationInternalID": "0",
+    "_developerTeamID": "GDU77F3MXL",
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

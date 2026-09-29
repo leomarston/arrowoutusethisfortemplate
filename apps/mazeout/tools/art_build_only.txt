@@ -1,0 +1,25 @@
+# tools/art_build_only.txt — FIX-2 lane B (A4-r6): manifest ids the art pipeline needs but NO code draws, so they never
+# ship (tools/uiart_gen.py makes no UIArt case for them; tools/sync_art.sh leaves their files and art/out sidecars out of the
+# bundle). One id per line; '#' starts a comment. The rule and its tests: uiart_gen.py docstring, UIArtBundleTests.
+# Remove an id from here (and regenerate UIArt.swift) the day a screen draws it.
+
+# R8's event composites were built from these crew renders; since the D1 home (A4, the signpost centrepiece) no screen
+# draws them (HomeScene.swift:7 names them only in a comment) — ~1.15 MB
+digBalloon
+digClawPair
+digRacers
+
+# the 3-D HUD "BLOCK" arrows of the retired capsule-machine / arrow-pile home (owner item 4 replaced the pile by the signpost)
+arrowGlossyYellow
+arrowGlossyRed
+arrowGlossyBlue
+arrowGlossyGreen
+arrowGlossyPurple
+arrowGlossyOrange
+arrowGlossyCyan
+
+# the 1024 px icon renders are the INPUT of App/Resources/Assets.xcassets/AppIcon.appiconset (the only icon the app uses);
+# a copy in Art/ is dead weight (~0.7 MB)
+appIcon
+appIconDark
+appIconTinted

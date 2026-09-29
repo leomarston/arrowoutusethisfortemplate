@@ -1,0 +1,52 @@
+--- a/tools/levels/replay_bundle.py
++++ b/tools/levels/replay_bundle.py
+@@ -12,6 +12,10 @@
+ is read-only for build agents).
+ 
+   python3 tools/levels/replay_bundle.py [--levels 1,2,35] [--out build/l1/replay]     (~10-20 min for all 48 replays)
++
++Since the level re-order + provenance strip (PUBLISH item 12): which video board a bundled level is comes from its
++design/levels.json record (design/tools/level_order.py; the bundle's gameplay must equal it), never from the level it ships at.
++`--levels` and the output names use the shipped level number.
+ """
+ import json
+ import os
+@@ -22,17 +26,19 @@
+ APP = os.path.abspath(os.path.join(HERE, '..', '..'))
+ sys.path.insert(0, os.path.join(APP, 'research', 'video-tools'))
+ import vextract  # noqa: E402
++sys.path.insert(0, os.path.join(APP, 'design', 'tools'))
++import level_order as LO  # noqa: E402  (board identity after the re-order)
+ 
+ LEVELS = os.path.join(APP, 'App', 'Resources', 'Levels')
+ RESEARCH = os.path.join(APP, 'research', 'levels')
+-SUBST = {35: 32, 45: 33, 51: 34, 52: 35, 62: 36, 63: 38, 64: 37}    # bundle level -> the V2 board it ships (ORCH 19)
+ 
+ 
+-def plays(level):
+-    """[(video, video level number, research geometry file)] for a bundled video level."""
+-    if level in SUBST:
+-        n = SUBST[level]
+-        return [('V2', n, os.path.join(RESEARCH, 'video', 'V2-L%03d.json' % n))]
++def plays(b):
++    """[(video, video level number, research geometry file)] for a bundled video level (provenance restored)."""
++    if LO.is_substitute(b):                   # a V2 board in a phone slot (ORCH 19 substitutes, ORCH 26 spares)
++        v, n = LO.video_board(b)
++        return [(v, n, os.path.join(RESEARCH, 'video', '%s-L%03d.json' % (v, n)))]
++    level = b['_rslot']                       # L1-L31: the video's own level number
+     if level <= 10:
+         return [('V1', level, os.path.join(RESEARCH, 'L%03d.json' % level))]
+     if level <= 20:
+@@ -98,10 +104,10 @@
+     for name in sorted(os.listdir(LEVELS)):
+         if not name.startswith('level_'):
+             continue
+-        b = json.load(open(os.path.join(LEVELS, name)))
++        b = LO.with_provenance(json.load(open(os.path.join(LEVELS, name))))
+         if b['source'] != 'video' or (only and b['level'] not in only):
+             continue
+-        for V, n, geo in plays(b['level']):
++        for V, n, geo in plays(b):
+             base = json.load(open(geo))
+             base['_path'] = geo
+             js = to_research(b, base)

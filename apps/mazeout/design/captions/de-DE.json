@@ -1,0 +1,25 @@
+{
+ "_about": "Screenshot captions for de-DE: caption N = keyword N of design/keywords.json (ASO rule), keyword only, no subline. Frames: 1 hero board mid-clear, 2 obstacles (door+key, pipe), 3 the tap, 4 a Hard/Super Hard level, 5 home (no banner).",
+ "captions": [
+  {
+   "headline": "Arrow Out",
+   "subline": ""
+  },
+  {
+   "headline": "Pfeil Puzzle",
+   "subline": ""
+  },
+  {
+   "headline": "Pfeile entfernen",
+   "subline": ""
+  },
+  {
+   "headline": "Logik Rätsel",
+   "subline": ""
+  },
+  {
+   "headline": "Rätsel Spiele offline",
+   "subline": ""
+  }
+ ]
+}

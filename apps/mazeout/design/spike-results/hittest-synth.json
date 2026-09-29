@@ -1,0 +1,31 @@
+{
+  "arrows" : 304,
+  "buildMs" : 1.5272917225956917,
+  "cells" : 873,
+  "footprintMB_afterBuild" : 22.3037109375,
+  "footprintMB_now" : 22.3349609375,
+  "greedy_rounds" : 14,
+  "greedy_stuck" : 0,
+  "grid" : "40x40",
+  "hittest" : {
+    "cellPoints" : 873,
+    "random100k_us_per_query" : 0.35387624986469746,
+    "randomHits" : 70993,
+    "wrong" : 0
+  },
+  "layers_afterBuild" : 614,
+  "layers_now" : 614,
+  "level" : "synthetic heart seed 7 mean 3.0",
+  "maxFPS" : 60,
+  "pitch_pt" : 9.3571428571428577,
+  "ready_hittest" : {
+
+  },
+  "scenario" : "hittest",
+  "stars" : true,
+  "trail" : "solid",
+  "validate" : [
+
+  ],
+  "zoom" : 1
+}

@@ -1,0 +1,26 @@
+{
+ "case": "badgeRocketRally",
+ "frame_pt": [
+  80.0,
+  84.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "ringBottom": [
+  [
+   40.0,
+   74.03
+  ]
+ ],
+ "textBand": [
+  [
+   40.0,
+   64.68
+  ]
+ ],
+ "porthole": [
+  [
+   40.0,
+   30.45
+  ]
+ ]
+}

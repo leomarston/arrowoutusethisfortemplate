@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 192 192">
+<defs><linearGradient id="tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93A7A0"/><stop offset="0.55" stop-color="#8FA39C"/><stop offset="1" stop-color="#8A9C95"/></linearGradient></defs>
+<rect x="0" y="0" width="192.0" height="192.0" fill="url(#tile)"/>
+<g fill="#6B807A"><circle cx="96.00" cy="78.51" r="54.95"/><ellipse cx="96.00" cy="197.70" rx="81.00" ry="72.00"/></g>
+</svg>

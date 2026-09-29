@@ -1,0 +1,236 @@
+{
+ "about": "R2 CAST director pass (PLAN-P §4.2; art-direction.md §1.3 A-bar R1-R8 + §7.4 grade scale: A = reads as the same finish as our pink boss at game size (3 px/pt, calibration card art/review/cast/crew.png), passes R1-R8, the 1/3 thumbnail identifies species + pose, rig/idle proofs pass, no visible penetration; B = same finish with visible modelling gaps at 2x; C = redo). Every final render below was LOOKED AT at game size, at 2x and at 1/3 (sheets in art/review/cast/). Graded by the R2 agent in a separate pass after production (no second agent was available to this lane: say so honestly); the owner's verdict overrides.",
+ "date": "2026-09-28",
+ "direction": "D1 Burrow Works (ruling 38)",
+ "summary": {
+  "heroes": {
+   "ids": [
+    "boss",
+    "diggerShovel",
+    "diggerMap",
+    "bossLoading",
+    "digCart",
+    "digFlyer",
+    "digPop1",
+    "digPop2"
+   ],
+   "A": 8,
+   "of": 8,
+   "pct_A": 100.0,
+   "note": "heroes per art-direction §7.4 that are R2's: boss, the 2 home crew, the loading cast (the centrepiece, icon and logo are R3 / R5 / R6)"
+  },
+  "overall": {
+   "A": 14,
+   "A-": 3,
+   "B+": 2,
+   "of": 19,
+   "pct_A": 73.7
+  },
+  "gate": "100 % A on heroes: MET; >= 70 % A overall: MET (14 / 19)"
+ },
+ "grades": [
+  {
+   "id": "boss",
+   "hero": true,
+   "file": "art/out/char_boss_home_rig",
+   "grade": "A",
+   "R1": "strand fur head (48 k strands) now covering the two EARS too (~5.5 k strands combed to the tip + a short tuft at each tip; the hollowed inner ear = short velvet in the blush), 11-band blush blend for the muzzle + inner ears, brow fur, 11 k fur per paw; heathered canvas coat",
+   "R2": "canvas sleeve -> corduroy cuff -> fur forearm; the ears are smooth-unioned into the head skin (ONE material) and the strand set runs continuously over the joint (no collar, no seam)",
+   "R3": "fur 0.60, canvas 0.82, corduroy 0.86, brass 0.26, gloss eyes 0.18, glass lenses, leather 0.50, tooth 0.28; no clearcoat on fur (the ivory horn material is gone; still >= 3 materials, roughness 0.18-0.86)",
+   "R4": "today's sockets + fur brows + 2 glints; amber irises; lidsHalf / lidsClosed overlays",
+   "R5": "two broad furry pink monster ears angled out + up at the dome's top corners (neither R2's horns nor the original's centred crown tuft) with the goggles between them; at 1/3 the ears still read by silhouette + the lighter inner ear, and the thumbnail reads pink furry boss at his scaffold",
+   "R6": "LIGHT_D1 (CHAR_LIGHT family, rim 1150 lx, D1 room map)",
+   "R7": "closed coat: placket, 4 brass buttons, corduroy collar, breast pocket + blueprint roll, 2 hip pockets, waist seam",
+   "R8": "same 8 layers / 2 groups / pivots as char_sci_home_rig, frame 190 x 164, torso + arm rects unchanged; the head layers' rect is [50.67, 1.67, 94.0, 84.0] pt (the ears; alpha 2 pt clear of the frame top, top row 0); baked proof 0.093/255, 0.0 % px > 40; independent recompose 0.054/255; idle loop 48 frames on the old rig's ui.json tracks: rest holes 105 px, max +23 px @3x (R2's horns: 154 / +44)",
+   "fixes_from_R1": "muzzle = one groom + 7 LUT bands + a blush skin under it (no speckle at 2x, orchestrator 04:32); fang x1.4 clean ivory, reads at 1/3; open-mouth fang moved in front of the mouth's back wall; placket no longer cut at y 1.0",
+   "remaining": "the right sleeve runs out of the 190-pt frame (the scientist's framing; R3 checks the 1-pt flat at real size); the inner ear reads as short velvet only at 2x (smooth at game size); the muzzle stays ~10 deg warmer than the body under the D1 key (reads light pink, not beige); the scaffold is R3's",
+   "sheets": [
+    "art/review/cast/BOSS-EARS.png",
+    "art/ui/sheets/char_boss_home_puppet.png",
+    "build/p/BOSSEARS/idle_boss_home.png",
+    "build/p/BOSSEARS/bossgate-after_ears.png"
+   ],
+   "ears": "BOSS-EARS 2026-09-28 (SPEC ruling 44, owner: 'the horns of our new pink monster should not be horns but ears'; ruling 46: nothing else changed): the ivory horns, their rings, horn material/tone fn and the fur collars are gone; two ears in the head's own pink strand fur (rounded leaves, slightly pointed tips leaning out), a softer lighter-pink inner ear with shorter fur; snaggle fang, amber eyes, goggles, teal foreman coat, rail + lever, pose, size, camera and anchors unchanged",
+   "muzzle": "re-done (the 04:3x note: it still read pale / frosted): the blush ladder keeps the body's saturation (+ a touch cooler against the warm key), a small root -> tip step (no whitish tips), 11 bands, denser and barely shorter fur over a matching skin, calmer tone jitter. Measured on the home render (build/p/BOSSEARS/muzzle-*.json, CIELAB, fur px only): core L* 62.5 -> 58.9, C* 30.2 -> 32.9, hue 22.9 -> 16.0 deg (body 6.2: less peach / beige); fine speckle 3.18 -> 2.75 = 1.51x -> 1.34x the body's (~1.15x once scaled by its higher L*); the weight ramp rises smoothly body -> core. At 2x: a clean soft lighter pink, no frost, no stain",
+   "copygate": "vs the original's boss: the boss frame crop (109, 176, 190 x 164 pt) of the D1 draft home vs 002: SSIM 0.253 / overlap 0.077 PASS (horns: 0.255 / 0.076); whole home draft 0.176 / 0.115 PASS, scene band 0.154 / 0.095 PASS. Informative (not a gate: copygate 'character' kind): silhouette IoU vs the original's boss (char_sci_home_rig = the measured 1:1 copy) 0.838 head band / 0.856 whole (horns 0.872 / 0.87): the same size, pose and spot by rulings 38 / 46, so art-direction 2.1's proposed IoU < 0.55 is not met by either version; distance comes from the ears, colours, materials, outfit and station",
+   "placement": "rig placement = TODAY's spot, centred behind the station (R3 HOME 09:19, ruling 46): frame top-left (109.0, 176.0), eyeMid (205.61, 211.99); R2's D1 draft had (203, 180)",
+   "before_horns": "build/p/BOSSEARS/before/ (R2's horned renders + rig + this row as R2 wrote it)",
+   "graded_by": "BOSS-EARS agent, 2026-09-28 (the agent that made the change; no second reviewer was available -- the owner's verdict overrides)"
+  },
+  {
+   "id": "diggerShovel",
+   "hero": true,
+   "file": "art/out/char_dig_homeL_rig",
+   "grade": "A",
+   "R1": "velvet strand fur 140 k body + 20 k per arm, 5-band cream belly / snout blend; low root->tip contrast (plush, not frosted)",
+   "R2": "limbs join under fur; vest / belt / hat / goggles / claws / pads / soles meet the fur at constructed edges",
+   "R3": "fur 0.62, vest 0.78, leather 0.52, brass 0.26-0.30, painted steel 0.34, hat 0.32, iron lamp 0.34, gloss eyes 0.18, nose 0.26 + clearcoat (nose only)",
+   "R4": "eyes in sockets under fur lid shells + crease, brows of dark fur, 2 glints; open / half / closed / wink",
+   "R5": "hard hat + headlamp + snout + planted shovel: species and pose read at 1/3",
+   "R6": "LIGHT_D1",
+   "R7": "vest = shell with arm holes, V neck, binding, zip + pull, reflective stripe",
+   "R8": "same 9 layers / groups / pivots as char_wk_homeL_blue_rig (body_smile|open, eyes x4, armL|armL_wave, armR); baked proof 0.075/255, 0.007 %; idle loop: only motion gaps (arm + shovel swinging off the vest, <= 77 px @3x)",
+   "fixes_from_R1": "headlamp rebuilt (iron body, brass bezel, glowing lens; was a grey stub), shovel = painted steel with bright worn edges + brass rivets, gripping claws follow the finger curl, bigger head + eyes, bear-like mouth on the snout (was hidden under it), plush fur (the orchestrator's 'not patchy at 1/3')",
+   "remaining": "at 2x the hard hat's crown ridge reads as a crease; the eyes' upward look is a touch 'worried' at 2x (fine at game size)",
+   "sheets": [
+    "art/review/cast/crew.png",
+    "art/review/cast/swaps.png",
+    "art/review/cast/idle_dig_homeL.png"
+   ]
+  },
+  {
+   "id": "diggerMap",
+   "hero": true,
+   "file": "art/out/char_dig_homeR_rig",
+   "grade": "A",
+   "R1": "as diggerShovel (sage-mint ladder)",
+   "R2": "as diggerShovel",
+   "R3": "+ glass goggle lenses, parchment 0.78, ink, pencil paint 0.40",
+   "R4": "eyes read through the goggles; half lids by default (reading)",
+   "R5": "goggles-down face + map: reads at 1/3",
+   "R6": "LIGHT_D1",
+   "R7": "vest as above; the map is a parchment sheet on two rollers inked with tunnels, an arrow and a red X",
+   "R8": "same 8-layer contract as char_wk_homeR_blue_rig (a 'goggles' layer where 'glasses' was; no track targets it); baked proof 0.355/255, 0.33 % px > 40 (the glass lenses: within the pipeline's 2/255 + 1 % and ShellTests' 1/255); idle loop: only motion gaps (<= 43 px @3x) round the map / trowel",
+   "remaining": "hat crown crease at 2x (as L)",
+   "sheets": [
+    "art/review/cast/crew.png",
+    "art/review/cast/swaps.png",
+    "art/review/cast/idle_dig_homeR.png"
+   ]
+  },
+  {
+   "id": "bossLoading",
+   "hero": true,
+   "file": "art/out/char_bossLoading@3x.png",
+   "grade": "A",
+   "reads": "laughing boss (fang visible) with his furry pink ears (lighter inner ear) and goggles, behind a hewn boulder, a glowing lantern hanging from the raised fist, pointing the way out",
+   "rounds": "4: v1 green-topped 'cake' rock + lantern beside the fist (C); v2 chiselled boulder; v3 bent arm + fang fixed; v4 bail in the fist, moss removed",
+   "remaining": "the coat is plain below the waist (hidden by the rock)",
+   "sheets": [
+    "art/review/cast/BOSS-EARS.png",
+    "art/review/cast/figures.png",
+    "build/p/BOSSEARS/loading-proof-D1draft.png"
+   ],
+   "ears": "BOSS-EARS 2026-09-28: re-rendered with the eared head (same recipe, pose, frame 210 x 250, anchors eyeMid (107.55, 75.46) / feet (103.1, 213.21) unchanged); ears 50 pt clear of the frame top; looked at full size, 2x and 1/3: the ears read at 1/3",
+   "graded_by": "BOSS-EARS agent, 2026-09-28 (the agent that made the change; no second reviewer was available -- the owner's verdict overrides)"
+  },
+  {
+   "id": "digCart",
+   "hero": true,
+   "file": "art/out/char_digCart@3x.png",
+   "grade": "A",
+   "reads": "a timber mine cart (iron bands, rivets, wheels, open tub) with three hand-painted arrow boards standing in it; a grinning Digger riding the front, waving",
+   "rounds": "3: v1 boards sat low and read as wings + a closed lid; v2 boards up + clean paint (edge-only wear); v3 open tub",
+   "overlap_gate": "arrow boards pairwise: no sample within 0.06 u of another board (art/review/cast/proofs.json overlap)"
+  },
+  {
+   "id": "digFlyer",
+   "hero": true,
+   "file": "art/out/char_digFlyer@3x.png",
+   "grade": "A",
+   "reads": "a Digger tossed up holding a big coral arrow board by its shaft, legs dangling, the hard hat flying off",
+   "rounds": "3: v1 paws missed the board + the hat still on the head (spec hat=None was ignored; now hat=False)"
+  },
+  {
+   "id": "digPop1",
+   "hero": true,
+   "file": "art/out/char_digPop1@3x.png",
+   "grade": "A",
+   "reads": "bursting out of a dig hole in a dirt patch, both paws up, laughing",
+   "rounds": "3: v1 a floating mound ring with the legs showing under it; v2 a ground patch still showed the legs; v3 the digger is clipped at the ground plane (clip_below)"
+  },
+  {
+   "id": "digPop2",
+   "hero": true,
+   "file": "art/out/char_digPop2@3x.png",
+   "grade": "A",
+   "reads": "goggles-down Digger peeking out of a hole, one paw on the rim, a trowel raised",
+   "rounds": "3 (as digPop1 + the trowel moved into the paw)"
+  },
+  {
+   "id": "digClawPair",
+   "hero": false,
+   "file": "art/out/char_digClawPair@3x.png",
+   "grade": "A",
+   "reads": "two Diggers cheering close up (arms up; paws clasped at the mouth), cut at the bottom by design"
+  },
+  {
+   "id": "digRacers",
+   "hero": false,
+   "file": "art/out/char_digRacers@3x.png",
+   "grade": "A-",
+   "reads": "three Diggers in mine carts on short track stretches, near -> far, waving",
+   "why_not_A": "the far riders are small and their hard-hat crowns look faceted at game size; R8 composes them on its header"
+  },
+  {
+   "id": "digBalloon",
+   "hero": false,
+   "file": "art/out/char_digBalloon@3x.png",
+   "grade": "A",
+   "reads": "a Digger waving from a wicker basket (open top), four rope stubs up for R8's envelope (sidecar anchors)",
+   "rounds": "2: v1 the feet hung below a basket with a closed lid"
+  },
+  {
+   "id": "avatarMiner",
+   "hero": false,
+   "grade": "A",
+   "reads": "lamp hat, grin, waving; honey plate"
+  },
+  {
+   "id": "avatarMapper",
+   "hero": false,
+   "grade": "A",
+   "reads": "goggles down, the tunnel map; teal plate"
+  },
+  {
+   "id": "avatarSleuth",
+   "hero": false,
+   "grade": "A",
+   "reads": "a brass magnifier over one eye; sky plate"
+  },
+  {
+   "id": "avatarLunch",
+   "hero": false,
+   "grade": "B+",
+   "reads": "holding a red lunch pail",
+   "why_not_A": "the pail sits at the chin and half-covers the snout at 64 pt"
+  },
+  {
+   "id": "avatarBoss",
+   "hero": false,
+   "grade": "A",
+   "reads": "the boss laughing, fang, furry pink ears (lighter inner ear), goggles, coat collar; amber plate",
+   "ears": "BOSS-EARS 2026-09-28: re-rendered with the eared head (same portrait pose, 64 pt frame, plate); the ears read at 64, 30 and 20 pt (art/review/cast/BOSS-EARS.png)",
+   "graded_by": "BOSS-EARS agent, 2026-09-28 (the agent that made the change; no second reviewer was available -- the owner's verdict overrides)"
+  },
+  {
+   "id": "avatarConfetti",
+   "hero": false,
+   "grade": "A-",
+   "reads": "a teal party hat with dots, waving; coral plate",
+   "why_not_A": "the party hat is small at 30 pt"
+  },
+  {
+   "id": "avatarStrong",
+   "hero": false,
+   "grade": "B+",
+   "reads": "both fists up, determined grin; crystal plate",
+   "why_not_A": "the double-biceps pose can read as 'hands up' at 30 pt"
+  },
+  {
+   "id": "avatarSleepy",
+   "hero": false,
+   "grade": "A-",
+   "reads": "striped nightcap, eyes closed, no vest; dusk plate",
+   "why_not_A": "a plain body below the face"
+  }
+ ],
+ "copy_distance": {
+  "rule": "copygate 'character' kind is informative only (R1 recalibration): characters are gated IN CONTEXT",
+  "home_D1_draft": "cast + scaffold at the D1 placements on a draft burrow backdrop + a flat D1-token UI mock: SSIM 0.168 / overlap 0.118 vs 002 (screen gate < 0.30 / < 0.55: PASS); scene band only 0.140 / 0.098 PASS; for reference R1's mock (new cast on TODAY's composition) 0.537 / 0.194 FAILS -- the final home pass is R3's (backdrop + Signpost)",
+  "loading_D1_draft": "5 loading figures at char_cast_d1.LOADING_LAYOUT on a draft tunnel-exit backdrop + R1's LG-1 logo sketch: SSIM 0.233 / overlap 0.114 vs store 8: PASS (R4 owns the final)",
+  "profile_mock": "the 8 avatars in a D1 page mock: page kind overlap 0.059 < 0.55: PASS (SSIM informative 0.239)",
+  "evidence": "art/review/cast/proofs.json + art/review/cast/*-proof-*.png",
+  "boss_ears_recheck": "2026-09-28 BOSS-EARS re-ran R2's compositions with the eared boss (build/p/BOSSEARS/proofs.json; the boss now at today's centred spot per R3): home D1 draft SSIM 0.176 / overlap 0.115 PASS, scene band 0.154 / 0.095 PASS; loading 0.232 / 0.115 PASS; profile page overlap 0.059 PASS; the boss frame crop vs 002's boss 0.253 / 0.077 PASS"
+ }
+}

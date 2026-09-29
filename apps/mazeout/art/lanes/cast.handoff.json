@@ -1,0 +1,100 @@
+{
+ "about": "R2 CAST (PLAN-P §4.2) -> A4 ART-INTEG / R3 HOME / R4 LOADING / R8 EVENT-ART. What landed where and the ONE mapping step each consumer needs. Nothing under App/, Tests/, UITests/ or ui.json was edited by R2 (hot files: App/Shell/Home/** is A2 -> B1 -> A4 -> A5).",
+ "recipes": {
+  "art/pipeline/items/char_d1kit.py": "helper (no ASSETS): D1 room map + LIGHT_D1, palettes, wood/canvas/rock/wear v-functions, painted metal, the BANDED FUR BLEND, arrow boards, lantern",
+  "art/pipeline/items/char_boss.py": "boss v2 model + RIGS['boss_home'] + route3d cases char_bossStage (proof) and char_bossStation (the scaffold rendered from the rig camera)",
+  "art/pipeline/items/char_crew_d1.py": "the Digger species + RIGS['dig_homeL'], RIGS['dig_homeR']",
+  "art/pipeline/items/char_cast_d1.py": "loading figures, event figures, 8 avatars (ASSETS char_<id>)",
+  "art/review/tools/r2_cast.py": "recompose / idle / sheets / composed proofs + copygate / lane manifest"
+ },
+ "commands": {
+  "rigs": "PY art/pipeline/items/char_make.py rig boss_home dig_homeL dig_homeR   (each ~10-20 min; one at a time; >= 1 GB free swap)",
+  "rig re-place only": "PY art/ui/tools/rig.py --recipes art/pipeline/items <rig> --skip-render   (after editing the `place` target in the recipe)",
+  "figures": "PY art/pipeline/items/char_make.py render char_bossLoading char_digCart char_digFlyer char_digPop1 char_digPop2 char_digClawPair char_digRacers char_digBalloon char_avatarMiner ...",
+  "proofs": "PY art/review/tools/r2_cast.py recompose; ... idle; ... sheet boss crew swaps figures avatars; ... home; ... loading; ... profile; ... manifest"
+ },
+ "rig_mapping_A4": {
+  "rule": "the new rigs carry the SAME layer names, groups, group defaults and pivot names as the rigs they replace, so PuppetStage, PuppetPart.scientistArms and every ui.json puppet track apply unchanged; only the folder names change",
+  "folders": {
+   "char_sci_home_rig": "char_boss_home_rig",
+   "char_wk_homeL_blue_rig": "char_dig_homeL_rig",
+   "char_wk_homeR_blue_rig": "char_dig_homeR_rig"
+  },
+  "sites (grep before editing; names only, same assertions)": [
+   "App/Shell/Home/HomeView.swift:66,68,76,77 (Puppet(rigName:))",
+   "App/Shell/ShellLab.swift:144",
+   "App/Resources/Tuning/ui.json puppet.<rig> keys (3; the track bodies unchanged)",
+   "Tests/ShellTests.swift:22,39,42,47,236 (rig names; the pinned facts hold: boss rest layers == {torso, armL, armR, headSmile}, neck pivot, left eyes default eyes_open + feet pivot, right eyes default eyes_half, cycles 3.16 / 10.2 / 17.3)"
+  ],
+  "boss_frame": "190 x 164 pt, 66.8 pt/u, the scientist's camera: ui.json's torso scaleY pivot [95.3, 164.0] (= the frame's bottom centre) stays valid",
+  "boss_station": "the scaffold rail + brass lever is NOT a rig layer (ShellTests pins the rest layers). It is char_bossStation (route3d, same camera / frame as the rig): draw it where homeConsole is drawn today, i.e. BETWEEN Puppet(.excluding(scientistArms)) and Puppet(.only(scientistArms)); R3 HOME owns the shipped homeScaffold (it may re-render char_boss.station() from this camera)",
+  "placements": "rig.json placement_pt = the D1 draft spots (art-direction §3.1): boss right of centre (frame top-left ~(200, 180)), Digger L feet (70, 606), Digger R feet (318, 606); R3 owns the final composition (change the `place` target and re-export with --skip-render)",
+  "left wave": "dig_homeL has armL (default, the paw on the hip) + armL_wave (raised, palm to camera) exactly like wk_homeL_blue; the old characters-lane finding stands: ui.json's armL rotation -25 swings the resting paw INTO the body -- the motion owner may switch that beat to the armL_wave member (not changed by R2)"
+ },
+ "loading_R4": {
+  "figures": [
+   "char_bossLoading",
+   "char_digCart",
+   "char_digFlyer",
+   "char_digPop1",
+   "char_digPop2"
+  ],
+  "draft_layout": "char_cast_d1.LOADING_LAYOUT (frame top-left pt, z): digPop2 (228, 430, -2), bossLoading (-14, 238, -1), digFlyer (208, 168, 0), digPop1 (-14, 532, 1), digCart (96, 468, 2); LoadingScreen reads Art/char_loading_layout.json generically -- R4 rewrites that file with its final layout",
+  "retires (A4, after grep)": [
+   "char_scientistLoading",
+   "char_workerCarrier",
+   "char_workerFlyer",
+   "char_workerFist",
+   "char_workerRunners",
+   "char_workerCrowdLeft"
+  ],
+  "frames_pt": {
+   "char_bossLoading": [
+    210,
+    250
+   ],
+   "char_digCart": [
+    270,
+    280
+   ],
+   "char_digFlyer": [
+    180,
+    220
+   ],
+   "char_digPop1": [
+    170,
+    160
+   ],
+   "char_digPop2": [
+    170,
+    160
+   ]
+  },
+  "note": "the pop figures carry their own dirt patch + hole (the digger is clipped at the ground plane); the cart's arrow boards passed the pairwise no-intersection check"
+ },
+ "events_R8": {
+  "char_digClawPair": "replaces char_workerClawPair (360 x 170, cut at the bottom by design; scene_events.build_claw composites the pair file by name -> point it at the new file)",
+  "char_digRacers": "replaces char_workerRacers' riders (the old file also painted the room; R8 paints the D1 header and composites the carts)",
+  "char_digBalloon": "the balloon event's rider (new); the sidecar char_digBalloon.json carries the four rope-stub tips (ropeTL/TR/FL/FR) for the envelope"
+ },
+ "avatars_A4": {
+  "slot_order": "App/Shell/Profile/AvatarArt.arts keeps its 9 slots; replace the 8 ids in place (the social engine indexes the slots, not the names)",
+  "replaces": {
+   "avatarWalkie": "avatarMiner",
+   "avatarCapGlasses": "avatarMapper",
+   "avatarDetective": "avatarSleuth",
+   "avatarBurger": "avatarLunch",
+   "avatarScientist": "avatarBoss",
+   "avatarParty": "avatarConfetti",
+   "avatarNotebook": "avatarStrong",
+   "avatarBoxHead": "avatarSleepy"
+  },
+  "files": "art/out/char_<new id>@3x.png, 64 x 64 pt, plated (full bleed), same as the old set; UIArt cases via uiart_gen.py after the director merges art/lanes/cast.entries.json"
+ },
+ "evidence": {
+  "sheets": "art/review/cast/{boss,crew,swaps,figures,avatars}.png, idle_<rig>.png, *-proof-*.png",
+  "numbers": "art/review/cast/proofs.json (recompose, idle, overlap, home/loading/profile copygate)",
+  "grades": "art/review/grades-director-v2.json",
+  "lane manifest": "art/lanes/cast.entries.json (19 entries; manifest_check --lanes: all 19 pass)"
+ }
+}

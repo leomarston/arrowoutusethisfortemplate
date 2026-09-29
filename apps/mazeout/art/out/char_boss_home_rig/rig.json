@@ -1,0 +1,185 @@
+{
+ "character": "boss_home",
+ "frame_pt": [
+  190,
+  164
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../char_boss_home@3x.png",
+ "placement_pt": {
+  "x": 109.0,
+  "y": 176.0,
+  "how": "frame top-left on the 393x852 pt screen: anchor eyeMid at [205.61, 211.99] pt"
+ },
+ "layers": [
+  {
+   "name": "torso",
+   "file": "torso@3x.png",
+   "z": 0,
+   "rect_pt": [
+    44.0,
+    46.667,
+    109.0,
+    117.333
+   ],
+   "note": "foreman coat; behind the scaffold (homeScaffold / char_bossStation); the head and arms sit on it"
+  },
+  {
+   "name": "armL",
+   "file": "armL@3x.png",
+   "z": 1,
+   "rect_pt": [
+    8.667,
+    65.667,
+    50.333,
+    60.0
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     61.21,
+     83.68
+    ]
+   },
+   "note": "paw grips the scaffold rail's front edge (drawn in front of the scaffold)"
+  },
+  {
+   "name": "armR",
+   "file": "armR@3x.png",
+   "z": 2,
+   "rect_pt": [
+    138.667,
+    68.333,
+    51.333,
+    55.333
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     136.68,
+     86.66
+    ]
+   },
+   "group": "armR",
+   "default": true,
+   "note": "paw wrapped over the lever's T-handle (drawn in front of the scaffold)"
+  },
+  {
+   "name": "armR_point",
+   "file": "armR_point@3x.png",
+   "z": 3,
+   "rect_pt": [
+    138.667,
+    43.0,
+    51.333,
+    78.667
+   ],
+   "pivots_pt": {
+    "shoulder": [
+     136.68,
+     86.66
+    ]
+   },
+   "group": "armR",
+   "note": "gesture: forearm up, index claw raised"
+  },
+  {
+   "name": "headSmile",
+   "file": "headSmile@3x.png",
+   "z": 4,
+   "rect_pt": [
+    50.0,
+    1.667,
+    95.0,
+    84.0
+   ],
+   "pivots_pt": {
+    "neck": [
+     95.06,
+     70.77
+    ]
+   },
+   "group": "head",
+   "default": true,
+   "note": "closed smile + snaggle fang, lidded eyes on the viewer, furry ears, goggles"
+  },
+  {
+   "name": "headOpen",
+   "file": "headOpen@3x.png",
+   "z": 5,
+   "rect_pt": [
+    51.0,
+    1.667,
+    93.667,
+    83.667
+   ],
+   "pivots_pt": {
+    "neck": [
+     95.06,
+     70.77
+    ]
+   },
+   "group": "head",
+   "note": "open laugh (fang beside the tooth band)"
+  },
+  {
+   "name": "lidsHalf",
+   "file": "lidsHalf@3x.png",
+   "z": 6,
+   "rect_pt": [
+    79.0,
+    22.333,
+    39.0,
+    17.0
+   ],
+   "pivots_pt": {
+    "neck": [
+     95.06,
+     70.77
+    ]
+   },
+   "overlay": true,
+   "parent": "head",
+   "note": "half-closed lids over the eyes (blink in-between)"
+  },
+  {
+   "name": "lidsClosed",
+   "file": "lidsClosed@3x.png",
+   "z": 7,
+   "rect_pt": [
+    79.0,
+    22.333,
+    39.0,
+    26.667
+   ],
+   "pivots_pt": {
+    "neck": [
+     95.06,
+     70.77
+    ]
+   },
+   "overlay": true,
+   "parent": "head",
+   "note": "closed happy eyes (blink / laugh)"
+  }
+ ],
+ "groups": {
+  "armR": {
+   "members": [
+    "armR",
+    "armR_point"
+   ],
+   "default": "armR"
+  },
+  "head": {
+   "members": [
+    "headSmile",
+    "headOpen"
+   ],
+   "default": "headSmile"
+  }
+ },
+ "proof": {
+  "mean_abs": 0.087,
+  "pct_gt40": 0.0
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

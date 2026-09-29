@@ -1,0 +1,170 @@
+{
+ "gate": "VERIFY of the combined META (Meta SDK in 1.0) + FIX-3 (ruling 55 b/c, V1A-T1, gate 7c) tree",
+ "wp": "VERIFY (slot A 'Maze A', build/dd-A; lane B without a simulator)",
+ "written": "2026-09-29T23:15:19+03:00",
+ "tree": {
+  "fingerprint": "caff8adca91b8d96",
+  "method": "build/p/VERIFY/common.sh fingerprint(): sha256 over App Tests UITests art/ui/code art/ui/out art/out PathCore Sources+Tests+Package.swift project.yml project.pbxproj art/MANIFEST.json tools/{sync_art.sh,strip_bundle_json.py,uiart_gen.py,art_build_only.txt,bench/release_gates.sh,bench/meta_sdk_check.py,meta_token.py,strings/build.py} fastlane/{Fastfile,metadata/app_privacy_details.json} build/owner-phone.sh build/p/V1/app/g8.py",
+  "unchanged": "run2 (22:08-23:07) and run3 (23:08-23:12) fp-start == fp-end; core lane ran on 8f4a43b6 = caff8adc minus UITests/UITestSupport.swift (restored byte-identical, see verify_edits)",
+  "factory_env_META_CLIENT_TOKEN": "absent at 21:45, during every build, and at 23:15 (tools/meta_token.py status); the factory .env was last modified 2026-07-26"
+ },
+ "verify_edits": [
+  "Tests/ShellStoreKitTests.swift: +2 tests (a REAL SKTestSession transaction reaches the Meta reporter with StoreKit's price/currency/quantity, a replay reports nothing; the TUR storefront reports the transaction's own currency TRY). New tests only.",
+  "UITests/TrackingPromptUITests.swift: +1 opt-in test testCFreshInstallAsksForTrackingOnlyAfterTheFTUE (TEST_RUNNER_META_FRESH=1 after uninstall + simctl privacy reset all). New test only.",
+  "build/p/V1/app/g8.py: new 'meta' check = meta_sdk_check.check (gate 8) + the ATT purpose in all 13 .lproj/InfoPlist.strings; an EMPTY token now FAILS G8 (it only reported it before); verdict line names the owner action. Pre-edit copy build/p/VERIFY/g8.py.pre-verify.",
+  "UITests/UITestSupport.swift: META's suggested probe() fix (try? e.snapshot()) was applied and made probe() return nil on EVERY call (run1: 10 of the first 16 UI tests failed 'the probe never showed … arrows'); reverted at once, byte-identical to build/mazeout (md5 fb3577f8). Not applied."
+ ],
+ "checks": [
+  {
+   "check": "clean Debug build-for-testing",
+   "pass": true,
+   "evidence": "0 warnings, 0 errors, 61 s; build/p/VERIFY/run2/bft.log"
+  },
+  {
+   "check": "app unit target ArrowOutTests (once)",
+   "pass": true,
+   "evidence": "276 = 275 passed + 1 skipped, 0 failed (run2/unit-summary.txt; also 275+1 on run1's tree). The skip: MetaSDKLinkageTests.testAReleaseBuildCarriesTheFactoryEnvToken = OWNER ACTION (no META_CLIENT_TOKEN). MetaEventsTests 13/13, MetaSDKLinkageTests 4/4 + 1 skip, ShellStoreKitTests 7/7 incl. VERIFY's two."
+  },
+  {
+   "check": "FULL UI test plan ArrowOutUITests, every suite (once)",
+   "pass": true,
+   "evidence": "95 = 91 passed + 4 opt-in skips (FlowTests fresh V1, GameG2 fresh + recorder, TrackingPrompt C fresh), 0 failed, 22:11-22:40, load 3-6 (run2/ui-summary.txt, ui.xcresult). TrackingPromptUITests A+B, MetaTests 6/6, GameG2UITests 7/7 (no probe race at low load)."
+  },
+  {
+   "check": "opt-in real-first-run tests, each right after simctl uninstall",
+   "pass": true,
+   "evidence": "FlowTests V1 fresh FTUE PASS, GameG2 fresh FTUE PASS, TrackingPrompt C fresh ATT PASS (run2/fresh-*-summary.txt)"
+  },
+  {
+   "check": "Meta end to end on the simulator: ATT only after the FTUE, answered",
+   "pass": true,
+   "evidence": "fresh install + privacy reset, launch with only -pc.att 1: notification prompt over Loading declined; 0 system alerts at the start and win panel of Levels 1-4, L5, L6; at the first home after 1000 -> 1120 the ATT alert appeared (purpose text shown) and was answered Allow; Play opened L7's card; no further alert. App log (run2/fresh-meta-log.txt): 'mode logOnly (debug build, app id set, client token absent, ATT not determined)', 'level achieved 1..6' (fb_mobile_level_achieved each), 'tutorial completed (the FTUE's first home, level 7)', 'ATT prompt requested … level 7', 'ATT answered: authorized; IDFA collection on'. Screenshots run2/shots/att-first-home.png, att-then-L7-card.png"
+  },
+  {
+   "check": "purchase event value/currency from a StoreKit-test purchase",
+   "pass": true,
+   "evidence": "unit level with REAL StoreKit transactions (SKTestSession.buyProduct -> Transaction.updates -> StoreService -> PurchasePipeline -> reporter): coins.1000 reported 1.99 USD (= Transaction.price / .currency = Product.price $1.99), fb_mobile_purchase valueToSum 1.99 fb_currency USD, replay reports nothing; TUR storefront: reported 1.99 TRY = the transaction's currency. Product.purchase() itself cannot run in the unit host (ShellStoreKitTests note) and the UI tests use the FakeStore, so no UI-level StoreKit purchase."
+  },
+  {
+   "check": "nothing breaks without the token",
+   "pass": true,
+   "evidence": "every DEBUG unit / UI / fresh run above had no token (mode logOnly); the Release verification build launched on slot A: '[PC][meta] mode off (release build, app id set, client token absent, ATT not determined)', 0 ERROR lines, Loading + notification prompt (run3/release-smoke-console.txt, release-smoke-14s.png)"
+  },
+  {
+   "check": "PathCore core.sh (once)",
+   "pass": true,
+   "evidence": "403 tests, 10 documented skips (8 C4Full*, SocialBench, SocialCalibration), 0 failures, 495 s (build/p/VERIFY/core/core.log); content_tests.sh 12/12 PASS incl. 8-strings-tr-review; frozen contracts 18/18"
+  },
+  {
+   "check": "plain Release / Measure builds stop without the token",
+   "pass": true,
+   "evidence": "rel0 (Release sim) and meas0 (Measure sim) both FAILED at 'Meta token gate' with the clear error (run2/rel0.log, meas0.log) — as designed"
+  },
+  {
+   "check": "Release sim + unsigned device builds (verification switch)",
+   "pass": true,
+   "evidence": "0 warnings besides the intended 'META VERIFICATION BUILD' notice; run3/rel.log, run2/dev.log"
+  },
+  {
+   "check": "release_gates.sh, every gate incl. provenance + ad-framework negative controls",
+   "pass": false,
+   "owner_action_only": true,
+   "evidence": "sim (run3/gates-sim.txt) and device (run2/gates-dev.txt): gates 1, 2, 2b, 3, 7, 7b, 7c PASS; planted controls 7, 7b, 7c, 8 all caught; 7c 0 unattributed (device WATCH: 1,846 debug-map entries in an UNARCHIVED build, removed by the archive strip); gate 8's only FAIL = the EMPTY FacebookClientToken (OWNER ACTION)"
+  },
+  {
+   "check": "G8 checklist (build/p/V1/app/g8.py, adapted for the Meta SDK)",
+   "pass": false,
+   "owner_action_only": true,
+   "evidence": "sim + dev: fakestore, privacy (tracking true, exactly ep1.facebook.com, 0 missing reasons), lproj 13, version 1.0.0 (1), portrait, ads, otool (exactly FBAEMKit/FBSDKCoreKit/FBSDKCoreKit_Basics, all proven pinned by LC_UUID), icon, harness, claude_md PASS; meta FAILS only on the empty token; ATT purpose == infoplist.tsv in all 13 .lproj; debug control PASS (run3/g8.json, g8.txt)"
+  },
+  {
+   "check": "token path POSITIVE control inside a real xcodebuild",
+   "pass": true,
+   "evidence": "scratch snapshot with a DUMMY token in its own <scratch>/fac/.env: plain Release build passed the gate (501 s, 0 warnings), the BUILT Info.plist carries the dummy while App/Info.plist keeps \"\", codesign --verify --deep --strict valid, gate 8 PASS (token = .env), and FAIL with a different .env token (build/p/VERIFY/tokpos/, lane-b.log). Scratch deleted."
+  },
+  {
+   "check": "Measure build compiles (phone test configuration)",
+   "pass": true,
+   "evidence": "Measure sim (verification switch) 226 s, 1 intended warning; measure_strip_check PASS (harness in Measure, out of Release; no placeholders). Device Measure through the owner-phone.sh copy: 240 s, BUILD_EXIT 0, harness in (op/measure-strip-device.txt)"
+  },
+  {
+   "check": "build/owner-phone.sh still works (no phone, nothing installed)",
+   "pass": false,
+   "evidence": "its snapshot steps + a generic-iOS unsigned Measure build succeed (build/p/VERIFY/owner-phone-verify.sh = the script with only destination / signing / .env sourcing / -quiet changed; diff owner-phone-verify.diff) — BUT see failure F1: the snapshot can never see the factory .env token"
+  },
+  {
+   "check": "no token leak into build logs",
+   "pass": true,
+   "evidence": "a NON-quiet xcodebuild prints ~1,750 script-phase 'export' lines, all build settings; an environment variable set for the build (PC_META_VERIFICATION_BUILD) appears 0 times, so a sourced factory .env does not put META_CLIENT_TOKEN into a gym / xcodebuild log"
+  }
+ ],
+ "failures": [
+  {
+   "id": "F1",
+   "severity": "blocker for the phone runs with Meta live (PH-2/PH-3)",
+   "owner": "META (tools/meta_token.py) + F3-A (build/owner-phone.sh)",
+   "what": "tools/meta_token.py finds the factory .env at <script>/../../../.env. owner-phone.sh builds from a snapshot at apps/mazeout/build/owner-phone/tree, so the snapshot's copy reads apps/mazeout/build/.env (never exists): once the owner adds META_CLIENT_TOKEN, every owner-phone.sh Measure/Release build STILL stops at the Meta token gate, and a PC_META_VERIFICATION_BUILD=1 phone build ships an empty token (Meta off on the phone).",
+   "evidence": "python3 build/owner-phone/tree/tools/meta_token.py status -> '…/apps/mazeout/build/.env: absent'; lane-b.log 'the snapshot's meta_token.py reads …/build/p/VERIFY/.env'; scratch control (dummy token in a scratch factory .env): the main-tree copy reads it 'present', the snapshot copy reports 'absent' and its Measure check stops.",
+   "fix": "resolve the factory .env explicitly: an override (e.g. PC_FACTORY_ENV, exported by owner-phone.sh as /Users/yago/Downloads/app-factory/.env) or walk up to the first parent holding both .env and apps/; the same in meta_sdk_check.env_token and MetaSDKLinkageTests (both use root/../../.env) if they ever run from a snapshot."
+  },
+  {
+   "id": "F2",
+   "severity": "OWNER ACTION (known)",
+   "owner": "owner",
+   "what": "META_CLIENT_TOKEN is not in the factory .env: release_gates gate 8 and G8 'meta' fail on the empty token, the token unit test skips, plain Release / Measure builds stop, fastlane refuses to build.",
+   "evidence": "tools/meta_token.py status -> absent (21:45 … 23:15; .env mtime 2026-07-26); run3/gates-sim.txt, run2/gates-dev.txt, run3/g8.txt"
+  },
+  {
+   "id": "F3",
+   "severity": "submission blocker (known, META open (a)/(b))",
+   "owner": "orchestrator / owner",
+   "what": "store copy still false for a build with the Meta SDK: review_information/notes.txt 'contains no advertising SDK' and 'No personal data leaves the device except the purchase record'; every privacy_url.txt + description line 31 point at privacy.html ('no advertising SDKs, no analytics SDKs, and no third-party tracking'); privacy-ads.html still names only Storage Cleaner – FreeUp ('On first run', subscription / paywall events) and has 0 'Arrow Out' (fetched 23:15).",
+   "evidence": "fastlane/metadata/review_information/notes.txt; fastlane/metadata/en-US/privacy_url.txt; curl of both pages"
+  },
+  {
+   "id": "F4",
+   "severity": "decision needed before S2",
+   "owner": "orchestrator (FIX-3 open S2)",
+   "what": "fastlane gym sets no include_symbols / uploadSymbols, so the default uploads symbols; FIX-3 measured the dSYM naming the build tree 2,110x and ruling 55(b) wants a dSYM-less IPA.",
+   "evidence": "grep include_symbols|uploadSymbols fastlane/Fastfile -> none; build/p/FIX3/summary.json"
+  },
+  {
+   "id": "F5",
+   "severity": "tooling hazard (false failure, not a product defect)",
+   "owner": "VERIFY note for every lane",
+   "what": "a Measure build in the same DerivedData rewrote Release-iphonesimulator's package swiftmodules and REMOVED its RevenueCat.o / PathCore.o / FacebookCore.o / FacebookAEM.o and resource bundles (observed 23:01, during meas0); g8 then failed fakestore / privacy / ads on the sim product (run2/g8.json). A fresh Release build followed directly by the gates / g8 passes (run3). release_gates gate 2 / 7c would fail the same way (RC_OBJ missing).",
+   "evidence": "build/p/VERIFY/run2/g8.json vs run3/g8.json; ls -la timestamps of build/dd-A/Build/Products/Release-iphonesimulator at 23:05"
+  },
+  {
+   "id": "F6",
+   "severity": "low",
+   "owner": "F3-A (build/owner-phone.sh)",
+   "what": "owner-phone.sh reads CONFIG from the caller's environment; tools/slot.sh EXPORTS CONFIG=Debug, so a shell that sourced slot.sh builds a DEBUG app for the phone without saying so (VERIFY's first copy run did exactly that: APP=…/Debug-iphoneos).",
+   "evidence": "build/p/VERIFY/lane-b.log",
+   "fix": "a dedicated variable (PHONE_CONFIG) or refuse CONFIG=Debug"
+  },
+  {
+   "id": "F7",
+   "severity": "low (test strength)",
+   "owner": "META (UITests/TrackingPromptUITests.swift)",
+   "what": "testANoTrackingPromptDuringTheFTUEChain passes vacuously when the simulator already answered ATT (nothing resets it in the suite). VERIFY's opt-in test C is the non-vacuous check (the alert IS asserted after the FTUE, none before).",
+   "evidence": "UITests/TrackingPromptUITests.swift"
+  },
+  {
+   "id": "F8",
+   "severity": "known flake, fix NOT applied",
+   "owner": "VERIFY (UITestSupport.swift)",
+   "what": "META's board.probe exists→value race under load stays: the suggested snapshot() read breaks probe() entirely. The full plan was green at load 3-6.",
+   "evidence": "build/p/VERIFY/lane-a-run1-probe-snapshot-broken.log, run1-probe-snapshot-broken/ui-summary partial"
+  }
+ ],
+ "not_verified_here": [
+  "a LIVE Meta run (the SDK started, events reaching Events Manager): impossible without the owner's client token; never attempted with a dummy token (it would call Meta)",
+  "the ATT alert and IDFA on the real phone (phone not used)",
+  "a UI-level StoreKit purchase (Product.purchase) — unit level with real session transactions instead",
+  "signing of the owner-phone build (built unsigned for generic iOS; signing proved by the 21:02 phone build)"
+ ],
+ "pass": false,
+ "summary": "Everything VERIFY can prove without the token is green on one unchanged tree: unit 275+1 owner-action skip, the FULL UI plan 91/0 + 4 opt-in skips, the three fresh-install runs incl. the ATT end to end, core.sh 403/0, content 12/12, frozen 18/18, Release sim + device + Measure builds, release_gates 1-7c with every negative control caught, G8 all but the token. Not green: gate 8 / G8 meta on the empty token (owner action), and F1 — owner-phone.sh's snapshot cannot see the factory .env, so the phone builds stay blocked even after the owner adds the token.",
+ "status": "partial"
+}

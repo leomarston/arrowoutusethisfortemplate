@@ -1,0 +1,20 @@
+{
+ "until": "2031-09-25",
+ "players": 4875008,
+ "cohorts": 33111,
+ "fnv_duplicates": 0,
+ "dup_hashes": [],
+ "styles": {
+  "default": 3263256,
+  "invented": 223736,
+  "word": 111708,
+  "given": 543008,
+  "compound": 303798,
+  "underscore": 159131,
+  "initials": 77838,
+  "mixed": 114333,
+  "caps": 63670,
+  "fallback": 14530
+ },
+ "seconds": 186.8
+}

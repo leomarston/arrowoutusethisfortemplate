@@ -1,0 +1,1549 @@
+{
+ "grader": "art director round 3",
+ "date": "2026-09-25",
+ "scale": "A = ship (a player takes it for the same art at game size), B = ok (differences only on inspection), C = redo; n/a = not shipped (SPEC-ui 4.4), not counted",
+ "before": "art/review/grades-director-r2.json (round 2)",
+ "entries": {
+  "tapeV4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Pasted over L32 (003) at the lattice anchor it covers the original tape exactly: same band, the two crossing straps, pink tones and shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "tapeH4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Pasted over L32 (003) at the lattice anchor it covers the original tape exactly: same band, the two crossing straps, pink tones and shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "tapeH2": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L38 (056) it covers the 2-lane tape exactly; straps at the steeper angle as in the capture.",
+   "sheet": ""
+  },
+  "tapeV3": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L44 (090) it covers the 3-lane tape exactly.",
+   "sheet": ""
+  },
+  "tapeH3": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Same recipe as the verified tapes (no 3-lane horizontal band on the phone yet, so judged next to L32's 4-lane look, not in place). Reads as the same tape.",
+   "sheet": ""
+  },
+  "tapeV2": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Same recipe; the ref is the older video skin (blue arrows), so there is no in-place phone check. Reads as the phone tape at game size.",
+   "sheet": ""
+  },
+  "doorW4H4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "doorW4H8": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "doorW4H12": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "doorW4H16": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "doorW4H20": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The L33 staircase recomposed from our 5 doors + 5 hex locks + the key covers 027 exactly: orange frame, gold rivets, purple inner frame, one slat per row, shadow. Identical at game size.",
+   "sheet": ""
+  },
+  "doorW5H17": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Same generator as the L33 doors, checked in place on L34 (036). Identical at game size.",
+   "sheet": ""
+  },
+  "doorW13H4": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L34 (036) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": ""
+  },
+  "doorW11H10": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L37 (052) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": ""
+  },
+  "doorW22H10": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L37 (052) it covers the original door exactly (frame, rivets, slat count per row). The 22-wide door's top chamfer reads the same.",
+   "sheet": ""
+  },
+  "lockHex": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "5 locks placed by the rule (door centre + 0.18 pitch) land on the capture's locks on L33; bevel facets, keyhole and blue socket read identical.",
+   "sheet": ""
+  },
+  "keyOnArrow": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L33 (027) the key covers the original: purple ribbon loop, gold ring and bit, at the right anchor on the arrow.",
+   "sheet": ""
+  },
+  "pipeMouth": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L35 (042) the gold collar at the tube's end covers the original exactly.",
+   "sheet": ""
+  },
+  "pipeCounter": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on L35 (042): gold collars, orange counter box and the live digit read identical at game size.",
+   "sheet": ""
+  },
+  "curtainCrate": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "A",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "director/box_135.png"
+  },
+  "boardArrow": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Device grab of L32 (build/device/grab-L032-fit.png) next to 003: stroke 11-12 px vs 12 px, round caps and joins, head size and position all identical at game size.",
+   "sheet": ""
+  },
+  "boardVacatedDot": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Only seen in the 1x JPEG soak frames (build/device/frames/waves-mid). The pale-blue dots sit on the lattice, and their colour (206, 224, 245) is within JPEG error of #C5E1FF. There is no lossless in-app frame to confirm the size.",
+   "sheet": ""
+  },
+  "boardTrailStar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "White 5-point star tinted at runtime. Tinted with the trail hues next to store 1's trail stars, it reads the same.",
+   "sheet": ""
+  },
+  "sparkleTwinkle": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "4-point white star with a warm glow. The unlock-card sparkles on 040/134 are warmer (cream-yellow) and slightly bigger. Tint it warm at runtime.",
+   "sheet": ""
+  },
+  "doorShards": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Six shards in the door palette (orange / blue / purple). Fine as FX particles; not compared frame by frame with the L33 burst clip.",
+   "sheet": ""
+  },
+  "pipeShards": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Cyan glass shards in the tube palette. At game size they are specks, as in the break clip; no frame-by-frame check.",
+   "sheet": ""
+  },
+  "heartHUDHalves": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The HUD heart with a zig-zag crack, halves 2.4 px apart. Same heart family as heartHUD; one sprite for both halves (FX must mask by gen_icons.CRACK).",
+   "sheet": ""
+  },
+  "heartHUD": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Three hearts in place on 003 at the measured slots read identical (lobes, tip, specular, dark rim).",
+   "sheet": ""
+  },
+  "heartHUDLost": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on 110 (after a bump), the flat #6C94DC slot heart with a darker edge is indistinguishable from the capture.",
+   "sheet": ""
+  },
+  "iconStopwatch": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on 003 at 1.02x it reads the same. Ring tones match (sampled 252,187,7 / 233,136,4 vs the capture's 253,174,6 / 233,132,0).",
+   "sheet": ""
+  },
+  "iconCoin": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Re-measured on 002's home coin: darker thick outline, a 6 pt thickness band, the recess's shaded top wall, a chubby star with an extruded side, no white glints; frame 39 pt (home draws it 1:1).",
+   "gap": "Judged on home (002) and 003's HUD crop, not yet in an app render of the HUD (~0.68x).",
+   "sheet": "polish/hud_002.png"
+  },
+  "iconPlusGreen": {
+   "grade": "A",
+   "before": "A",
+   "grader": "polish",
+   "changed": "Frame 24 pt (the 23.5 pt rect draws it 1:1), vivid flat green, top light ring, short chunky cream plus.",
+   "gap": "none visible at game size",
+   "sheet": "polish/hud_002.png"
+  },
+  "iconStopwatchSmall": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Frame 26 x 28 (204's chip watch is 22.7 x 26 pt of ink; the old 18 pt frame drew it at 0.7x): dome crown, warmer ring, long tick pills, fat wedge hand.",
+   "gap": "The hand angle is fixed (the original's turns).",
+   "sheet": "polish/hud_watch.png"
+  },
+  "hudPauseButton": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "SwiftUI render (build/ui-art/swiftui/pauseButton.png) in place on 003: IoU 0.927, dE00 3.9. The glossy squircle, rim and glyph read identical in the HUD row.",
+   "sheet": ""
+  },
+  "glyphGear": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In place on 026 at 1:1, the white gear with the light-blue side reads the same; the teeth are marginally narrower.",
+   "sheet": ""
+  },
+  "heartLives": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Frame 42 x 40 = the shell's rect at 1:1; HEART2 at 002's 39.7 x 33.7; deeper crimson, dark top band, softer darker outline.",
+   "gap": "none visible at game size",
+   "sheet": "polish/hud_002.png"
+  },
+  "iconHexArrow": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Frame 40 x 40, ink 37.3 x 35 at 1:1 (was ~1.15x); thick pale 3D side, sky-blue arrow with a dark-purple edge.",
+   "gap": "The chain hook belongs to the bar (shell).",
+   "sheet": "polish/hud_168.png"
+  },
+  "heartInfiniteSmall": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Heart 42 x 36.4 (was 45 x 39); a rounder, thinner-edged cream infinity.",
+   "gap": "none visible at game size",
+   "sheet": "polish/hud_168.png"
+  },
+  "avatarDefault": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Flat grey-blue tile with the lighter silhouette, the same as the phone's placeholder (meta-003, 026) at game size.",
+   "sheet": ""
+  },
+  "glyphSound": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In the Paused panel (007) at its 1:1 frame, the cream speaker with the dark-brown outline and two waves is indistinguishable at game size.",
+   "sheet": ""
+  },
+  "glyphHaptic": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Zig-zags still a little short.",
+   "sheet": "-"
+  },
+  "buttonGreen": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "SwiftUI PanelButton in the Paused panel: same glossy green pill and size. Next to 007 the top glare line is heavier, the dark outline runs all round, and the face is a little more saturated. In the app render (build/s1/popup-pause.png) it reads the same.",
+   "sheet": ""
+  },
+  "buttonRed": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Same notes as buttonGreen (in-place dE00 5.1); reads as the same Quit button at game size.",
+   "sheet": ""
+  },
+  "unlockIconPipe": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "In the Pipe! card (040) at 1:1 with a live '3': the gold collars, orange counter and U tube read identical. The tube's light band is a hair stripier.",
+   "sheet": ""
+  },
+  "unlockIconCurtain": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "A",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "unlockIconLinked": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "V1 t 78 s at 1:1 in a 150 x 106 frame (round 2 was 0.8x): 15.4 pt shafts, rounded heads, the board tape.",
+   "gap": "The V1 skin is the older build's (no phone card).",
+   "sheet": "polish/unlock.png"
+  },
+  "unlockIconElevator": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "V2 t 1182.5 s at 1:1 in 164 x 112: icy blue-grey panels, soft outline, faint wide stripes, flat windows.",
+   "gap": "Unconfirmed on the phone (video-only obstacle).",
+   "sheet": "polish/unlock.png"
+  },
+  "unlockIconDoor": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "V1 t 185 s: a SQUARE 5 x 5-cell card door, lock at the door's pitch; frame 128 x 128.",
+   "gap": "Unconfirmed on the phone (no v552 door card).",
+   "sheet": "polish/unlock.png"
+  },
+  "tutorialHand": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The fist is still ~14 % wider.",
+   "sheet": "director/svg_misc2.png"
+  },
+  "pointerArrowYellow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The curved yellow pointer with an orange outline reads as 025's. The head is slightly narrower. (The dark edge beside it in the proof is the erase, not the asset.)",
+   "sheet": ""
+  },
+  "infoPathIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Same white tile, blue border, 3D lower edge and arrow grammar as 025's info icon; the path layout is ours by design.",
+   "sheet": ""
+  },
+  "glyphMusic": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "none visible at game size",
+   "sheet": "director/settings_meta029.png"
+  },
+  "glyphBell": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The lip band is narrower than the phone's.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "iconPencil": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "none visible at game size",
+   "sheet": "director/profile_meta002.png"
+  },
+  "statFirstTryIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The target face is slightly smaller than meta-002's.",
+   "sheet": "director/profile_meta002.png"
+  },
+  "statWeeklyWinsIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "1.33x bigger (48 x 51), ribbon as wide as the medal, wider gold bar.",
+   "sheet": "director/profile_meta002.png"
+  },
+  "iconCheckeredFlag": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Redrawn from 016: grey pole + silver knob, a waving cloth with big glossy cream/slate 3 x 2 checks.",
+   "sheet": "director/svg_misc.png"
+  },
+  "rankBadgeSilver": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "As gold (203 row 2 at 1:1).",
+   "gap": "none visible at game size",
+   "sheet": "polish/streak_badges.png"
+  },
+  "rankBadgeBronze": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "As gold (203 row 3 at 1:1).",
+   "gap": "none visible at game size",
+   "sheet": "polish/streak_badges.png"
+  },
+  "rankBadgeGold": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "203 at 1:1: 37.3 x 36.3 pt badge in a 40 frame, thin dark outline, 1.7 pt side, rim band, window ring; gold from store 6.",
+   "gap": "Gold is not captured on the phone.",
+   "sheet": "polish/streak_badges.png"
+  },
+  "rankBadgePlain": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "A",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "scoreChip": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "Caps slightly paler gold.",
+   "sheet": "director/svg_misc.png"
+  },
+  "sunburstRays": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Frame 190 x 86 = 023's cream reward field clipped to its r 22 corners; rays reach the edges, centred on the prize.",
+   "gap": "none visible at game size",
+   "sheet": "polish/rays.png"
+  },
+  "prizeSign": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "A",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "logoArrowOut": {
+   "grade": "B",
+   "before": "B",
+   "grader": "polish + director",
+   "changed": "polish: solid graded extrusion + inner-bevel filter, fatter letters. director: the five letters were 63 design px wider than their span BEFORE the 34 px inflation, so they melted into one blob; now a compression per letter (W most), a wider span, inflation 32, baseline 25 px higher, extrusion 50 (the undersides stay on the blue face), OUT! at cap 312 with a purple margin.",
+   "gap": "near A: MAZE's letters are wider blocks with a crisper 3D side; ours are rounder (our OFL font, five letters in the same plate).",
+   "sheet": "director3/logo_049.png"
+  },
+  "homeTopBar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "App render (build/s1/home-L33-normal.png) next to 002/026: the avatar frame, coin pill + icon + plus, lives pill + heart + 'Full', and gear button read identical in size, position and colour.",
+   "sheet": ""
+  },
+  "homeLevelPlate": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The green 'LEVEL / 33' plate in the machine recess matches 026, and the red (L34) and purple (L39) plates match 035/060.",
+   "sheet": ""
+  },
+  "homePlayButton": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "Green Play, red 'Hard Level' and purple 'Super Hard' variants in the blue frame match 026/035/060 at game size: glare, ribbon tab and label.",
+   "sheet": ""
+  },
+  "buttonPurple": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The Super Hard Play face matches 060's purple.",
+   "sheet": ""
+  },
+  "navBar": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The bar gradient and the raised cyan Home tab match 026 (the Home icon's size is grader B's navHome).",
+   "sheet": ""
+  },
+  "panelFrame": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The Paused panel in the app render matches 007's size and rivets. The outer bumper is a uniform light-cyan ring, where 007 has lighter cyan corner bumpers with darker straight bars between them.",
+   "sheet": ""
+  },
+  "panelRibbon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The 'Paused' yellow plate is the same size (x 61.7-332.3 vs 64.7-329.0 pt). Its lower edge is less arched and its bottom rim lighter than 007's.",
+   "sheet": ""
+  },
+  "panelCream": {
+   "grade": "A",
+   "before": "A",
+   "grader": "A",
+   "changed": "",
+   "gap": "The cream inset card with its warm border matches 007.",
+   "sheet": ""
+  },
+  "panelClose": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The red X disc is the same size as 007's (37.7 vs 39 pt). Its navy/blue outer ring is thinner than 007's.",
+   "sheet": ""
+  },
+  "toggleOnOff": {
+   "grade": "B",
+   "before": "B",
+   "grader": "A",
+   "changed": "",
+   "gap": "The green ON pill with the blue knob reads the same. 007's track has a light border ring; ours is darker/greyer, and the knob is a bit taller.",
+   "sheet": ""
+  },
+  "settingsRoundToggle": {
+   "grade": "C",
+   "before": "C",
+   "grader": "A",
+   "changed": "",
+   "gap": "Owner: shell.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "boosterFreeze": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Fatter snow caps (optional).",
+   "sheet": ""
+  },
+  "boosterHint": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Pale-blue glass tint + a filament inside.",
+   "sheet": ""
+  },
+  "boosterPointer": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "boosterDome": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "navShop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Dark rounded-rect slot cut-outs.",
+   "sheet": ""
+  },
+  "navHome": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The eaves sit a little low.",
+   "sheet": "director/navhome_after.png"
+  },
+  "navTrophy": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Fuller handles, single foot slab.",
+   "sheet": ""
+  },
+  "padlockGold": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Reads the same at 44 pt. Ours is more lemon than 023's orange-edged gold; the keyhole is reddish.",
+   "sheet": ""
+  },
+  "coinPileSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The same glowing mound of stacks. Ours is flatter with paler coins and less orange in the crevices.",
+   "sheet": ""
+  },
+  "stopwatchBig": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Same prop at 225 pt. The ticks are rounder pills than the capture's flat bars; that shows only at 2x.",
+   "sheet": ""
+  },
+  "heartBroken": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Taller, rounder lobes (~+6 %).",
+   "sheet": ""
+  },
+  "coinStackReward": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Coins ~1.1x.",
+   "sheet": ""
+  },
+  "heartInfinite": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Same at game size; the tip is marginally sharper.",
+   "sheet": ""
+  },
+  "homeBackdrop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Lift the tank glow; add 2-3 soft vertical highlight bands.",
+   "sheet": ""
+  },
+  "homeConsole": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Sits ~4 pt higher than 002; the belly's warm yellow is paler.",
+   "sheet": "director/console_after.png"
+  },
+  "homeCapsuleMachine": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The glass sheen is still painted.",
+   "sheet": "director/win_homeArrowPileFull.png"
+  },
+  "homeArrowPileFull": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "none visible at game size",
+   "sheet": "director/win_homeArrowPileFull.png, director/p_home.png"
+  },
+  "homeArrowPileHalf": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "168's heap is a taller centre column.",
+   "sheet": "director/win_homeArrowPileHalf.png"
+  },
+  "homeArrowPileLow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "070's arrows cluster more.",
+   "sheet": "director/win_homeArrowPileLow.png"
+  },
+  "homePlatform": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Right size and placement. Our dais rim is a crisp bright ring; 002's is glassier, with a soft reflection of the wall.",
+   "sheet": ""
+  },
+  "eventBadgeStreak": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Flags ~1.3x with bigger checks and folds.",
+   "sheet": ""
+  },
+  "eventBadgeSkyJump": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Pad ~1.25x; wider, lower clouds.",
+   "sheet": ""
+  },
+  "eventBadgeRocket": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Narrower, taller body; fins down onto the drum.",
+   "sheet": ""
+  },
+  "rocketMine": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Reads as the player's rocket. The nose is pointier, the body narrower at the band, and the flame smaller than 178's.",
+   "sheet": ""
+  },
+  "rocketOther": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "White body to the fins.",
+   "sheet": ""
+  },
+  "trophyCup": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The handles are thinner loops than meta-017's full ears, and the stand is shorter.",
+   "sheet": ""
+  },
+  "coinBowl": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The bowl is pinker than 023's crimson; the coin heap is 2-3 pt lower and lacks the tall coin on edge at the upper left.",
+   "sheet": ""
+  },
+  "stageChestGreen": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "sheet": ""
+  },
+  "stageChestBlue": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "sheet": ""
+  },
+  "stageChestPink": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Matches 065's stage tile at 56 x 42 pt (colour, lid, lock plate).",
+   "sheet": ""
+  },
+  "coinPackTiny": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fades before the frame edge (no hard line).",
+   "sheet": "-"
+  },
+  "coinPackSmall": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackMedium": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackBig": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackSuper": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "coinPackGiant": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Shadow fixed.",
+   "sheet": "-"
+  },
+  "clawHeaderArt": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "023's workers are bigger/closer, the box bluer.",
+   "sheet": "director/claw.png"
+  },
+  "skyJumpBackdrop": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Composed with our islands and pad, it reads as 069 (sky over a pink cloud sea). Cloud sculpting is softer, which is fine at game size.",
+   "sheet": ""
+  },
+  "skyJumpPad": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Matches 069's '4' pad in size, bands and glow.",
+   "sheet": ""
+  },
+  "skyJumpIsland": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The sign stands left of the chest (069: overlapping it).",
+   "sheet": "director/sky_069.png"
+  },
+  "skyJumpIslandFar": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Same fixes (~139 pt, stacks, haze inside the frame).",
+   "sheet": "director/sky_069.png"
+  },
+  "skyJumpPopupScene": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "065's lid is open wider over the coins.",
+   "sheet": "director/sky_065.png"
+  },
+  "rocketRaceBackdrop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The chest is still an upright blue barrel; 167's is a gold-banded chest seen from above.",
+   "sheet": "director/rocket_after.png"
+  },
+  "leaderboardPodium": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Blocks, colours, caps and hex sockets match meta-013 at game size.",
+   "sheet": ""
+  },
+  "scientist": {
+   "grade": "A",
+   "before": "A",
+   "grader": "B",
+   "changed": "",
+   "gap": "Composed on 002 at game size, it reads as the same character recoloured pink: same pose, size, eye line, coat, badge and pen. Minor: the crown tuft is a thin side wisp (002: a centred spiky tuft). The hands are big fur mitts on top of the console, while 002's grip behind the rim; this follows the console fix.",
+   "sheet": ""
+  },
+  "workerWalkie": {
+   "grade": "B",
+   "before": "B",
+   "grader": "characters",
+   "changed": "Rig gained eyes_wink + armL_wave (existing layers re-exported pixel-identical).",
+   "gap": "Arms still thinner than theirs; the wave/wink need ui.json tracks (shell).",
+   "sheet": "characters/idle_wk_homeL_blue.png"
+  },
+  "workerClipboard": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Clipboard still shows the paper side.",
+   "sheet": "director/p_home.png"
+  },
+  "scientistLoading": {
+   "grade": "B",
+   "before": "B",
+   "grader": "characters",
+   "changed": "New 'load' pose: squat wide torso, the fist a clenched BALL beside the mouth, arrows held at his side, fuller dome, raised brows, crescent smile, lighter fur, camera from a little above.",
+   "gap": "near A: the mouth opens rounder and deeper than store 8's grin (visible at game size side by side); no lapel; the held arrows are thinner than store 8's chunky ones.",
+   "sheet": "characters/p_loading_r2_r3_s8_1x.png, characters/final_sci.png"
+  },
+  "workerCarrier": {
+   "grade": "B",
+   "before": "B",
+   "grader": "characters",
+   "changed": "Full bean turned left, arms near-vertical to the box, short chunky legs with shoe feet, tall laughing D, box seen from a little above; eye whites within ~2 pt of store 8.",
+   "gap": "near A: the mouth fills more of the face than store 8's; the legs are the body colour and blobby (store 8: separate legs with shoes under purple pants).",
+   "sheet": "characters/carrier8.png"
+  },
+  "workerFlyer": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Block-arrow red (the arrowGlossy family).",
+   "sheet": ""
+  },
+  "workerFist": {
+   "grade": "B",
+   "before": "B",
+   "grader": "characters",
+   "changed": "~20 % bigger, rounder bean, bigger glasses, fist on a thick arm, spiral notebook, wide grin, chunky legs.",
+   "gap": "The flexed arm is smaller; the fist sits partly behind the carrier's box; no cap tabs.",
+   "sheet": "characters/fist7.png"
+  },
+  "workerRunners": {
+   "grade": "B",
+   "before": "B",
+   "grader": "characters",
+   "changed": "The right crowd at store 8's sizes and spots (top-hat worker, waver, burger eater), chunky running legs, lighter haze (1.1 px / 12 %).",
+   "gap": "The burger eater's mouth is hidden behind the burger (store 8: gaping around it).",
+   "sheet": "characters/crowd4.png"
+  },
+  "workerClawPair": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Both workers read on 023 at the right size and placement. The arms are thin and both wear the same buck-tooth grin (023: a laughing left worker with a big fist). Not yet composited into clawHeaderArt.",
+   "sheet": ""
+  },
+  "workerRacers": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The chute is still a flat ribbon and the checkered banner is missing.",
+   "sheet": "director/racers.png"
+  },
+  "avatarWalkie": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarCapGlasses": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarDetective": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarBurger": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarScientist": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Still ~0.85x of the phone's head in its tile.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarParty": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarNotebook": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarBoxHead": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The phone's leans are stronger.",
+   "sheet": "director/avatars.png"
+  },
+  "avatarGreen": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarRed": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarCap": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarBlue": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarPoint": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarSpecs": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarShades": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "avatarPink": {
+   "grade": "n/a",
+   "before": "n/a",
+   "grader": "B",
+   "changed": "",
+   "gap": "not shipped",
+   "sheet": "-"
+  },
+  "arrowGlossyYellow": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "sheet": ""
+  },
+  "arrowGlossyRed": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The loading screen's red arrow is more orange-red.",
+   "sheet": ""
+  },
+  "arrowGlossyBlue": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "sheet": ""
+  },
+  "arrowGlossyGreen": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The green leans lime.",
+   "sheet": ""
+  },
+  "arrowGlossyPurple": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The purple leans magenta against 026's lilac.",
+   "sheet": ""
+  },
+  "arrowGlossyOrange": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt.",
+   "sheet": ""
+  },
+  "arrowGlossyCyan": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "A chunky block arrow in the capsule-pile family (soft bevel, visible lower wall, saturated face); reads right at 40-60 pt. The manifest ref points at store 8's red-orange loading arrow; judged against 026's cyan.",
+   "sheet": ""
+  },
+  "appIcon": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "Heads and shafts ~1.25x, rounder pillow bevel, keep the composition.",
+   "sheet": ""
+  },
+  "loadingBackdrop": {
+   "grade": "B",
+   "before": "B",
+   "grader": "B",
+   "changed": "",
+   "gap": "The left press is still flat panels (no conveyor).",
+   "sheet": "director/p_loading.png"
+  },
+  "boxSlab": {
+   "grade": "A",
+   "before": "A",
+   "grader": "director",
+   "changed": "",
+   "gap": "none visible at game size",
+   "sheet": "director/box_135.png"
+  },
+  "boxRing": {
+   "grade": "B",
+   "before": "B",
+   "grader": "director",
+   "changed": "",
+   "gap": "The lugs are a touch longer and whiter than 135's.",
+   "sheet": "director/box_135.png"
+  },
+  "unlockIconBox": {
+   "grade": "A",
+   "before": "B",
+   "grader": "polish",
+   "changed": "Its own card illustration (no longer the board sprites): pillow slab, sphere in a dark crease, four stubby lugs in front of the rim, tube-like purple ring, 41 pt navy well.",
+   "gap": "The lug caps are a touch flatter than 134's (2x only).",
+   "sheet": "polish/unlock.png"
+  },
+  "glyphSoundWhite": {
+   "grade": "A",
+   "before": "A",
+   "grader": "director",
+   "changed": "",
+   "gap": "none visible at game size",
+   "sheet": "director/settings_meta029.png"
+  },
+  "glyphHapticWhite": {
+   "grade": "B",
+   "before": "B",
+   "grader": "director",
+   "changed": "",
+   "gap": "meta-029's white vibrating phone; ~0.85x of the phone's glyph width.",
+   "sheet": "director/settings_meta029.png"
+  },
+  "iconStopwatchFrozen": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "iconStopwatch's drawing at 1.02x under a snow cap with icicles, frame 34 x 50 (the icicles hang to y 120).",
+   "gap": "near A: the capture's cap is lumpier and a touch smaller, its icicle clump longer.",
+   "sheet": "m_iconStopwatchFrozen.png"
+  },
+  "frostCracks": {
+   "grade": "n/a",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "A 120 pt corner crack tile for SPEC-ui's code-vignette route.",
+   "gap": "not shipped: fxFrostVignette ships alone (it already paints the cracks)",
+   "sheet": "m_frostCracks.png"
+  },
+  "heartBig": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg + director",
+   "changed": "missing-svg: the fitted two-ellipse heart (IoU 0.986 on 088). director: the speculars' gradients were rotated twice (hard ellipse edges, a white parallelogram on the right lobe); the dark lip smudges at the notch are gone; the top band is lighter; the right-lobe streak and shoulder crescent are 088's soft ones.",
+   "gap": "The notch reads a hair sharper than 088's (2x only).",
+   "sheet": "director3/heart_088.png"
+  },
+  "heartGlossySmall": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The More Lives '+1 Live' button heart (had no id), the heartLivesBig style at 46 x 40.",
+   "gap": "The capture's specular is a touch larger (2x only).",
+   "sheet": "m_heartGlossySmall.png"
+  },
+  "heartLivesBig": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The popup lives heart (meta-095), fitted box 92.5 x 79.4 in 100 x 90, orange specular.",
+   "gap": "The specular is a touch small (2x only).",
+   "sheet": "m_heartLivesBig.png"
+  },
+  "iconVideoAd": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The clapper with the play triangle punched as a HOLE.",
+   "gap": "none visible at game size",
+   "sheet": "m_iconVideoAd.png"
+  },
+  "iconCheck": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The glossy extruded Claw / Sky Jump check, 60 x 54.",
+   "gap": "The capture's extruded side is deeper and its short arm rounder.",
+   "sheet": "m_iconCheck.png"
+  },
+  "iconCheckBadge": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The flatter Edit Profile badge (thick outline + inner light contour), 40 x 34.",
+   "gap": "The capture's dark outline is thicker and its green brighter.",
+   "sheet": "m_iconCheckBadge.png"
+  },
+  "iconSkull": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg + director",
+   "changed": "Hard win-tag skull (037), eye sockets are holes; director: the cranium is a dome (an ellipse), not a rounded box.",
+   "gap": "none visible at game size",
+   "sheet": "director3/skulls.png"
+  },
+  "iconSkullBones": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-svg + director",
+   "changed": "Super Hard skull over crossbones (063); director: dome cranium, fatter bones and knobs.",
+   "gap": "The bone shafts show a little longer between knob and skull than 063's.",
+   "sheet": "director3/skulls.png"
+  },
+  "rankWings1": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "Gold diamond badge with wings (167/171), the '1' live.",
+   "gap": "near A: the wings are flatter and less notched than 167's.",
+   "sheet": "m_rankWings1.png"
+  },
+  "shopSeal": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "Red 8-lobe scalloped seal with a gold rim, text live, -12 deg.",
+   "gap": "none visible at game size",
+   "sheet": "m_shopSeal.png"
+  },
+  "pageBgPattern": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "meta-029's page pattern: 2 chunky arrows per 145 x 79.3 pt repeat at alpha 0.10.",
+   "gap": "none visible at game size",
+   "sheet": "m_pageBgPattern.png"
+  },
+  "pointerArrowDown": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The Weekly tutorial's straight block arrow (130), a new drawing.",
+   "gap": "none visible at game size",
+   "sheet": "m_pointerArrowDown.png"
+  },
+  "glyphOffSlash": {
+   "grade": "A",
+   "before": "new",
+   "grader": "missing-svg",
+   "changed": "The Settings OFF rod as art (optional; the shell may keep its SwiftUI rod).",
+   "gap": "none visible at game size",
+   "sheet": "m_glyphOffSlash.png"
+  },
+  "bundleSpecial": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "The 1 000 pile at the Special card's size + glints, frame 176 x 102.",
+   "gap": "The left coin on edge faces further right; the phone's glints are warmer and bigger.",
+   "sheet": "m3d_bundleSpecial.png"
+  },
+  "bundleBag": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "Crimson sack with a twisted rope and knot on a lavender base, stacks either side.",
+   "gap": "The rope ends hang straighter and longer; the rolled rim is thinner.",
+   "sheet": "m3d_bundleBag.png"
+  },
+  "bundleBarrel": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "Crimson stave barrel, lavender hoop, broken hole, spill; director: the spill coins 1.4x at 0.64 spacing and the top heap 1.2x (the scale-1 heaps read as rings).",
+   "gap": "The phone's barrel is squatter with fatter staves; its hole shows coins pouring out.",
+   "sheet": "director3/shop_bundles.png"
+  },
+  "bundleChest": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "Red chest, lavender frame, pink gem; director: heap coins 1.45x at 0.64 spacing (they read as noodles), stacks re-spaced, a brighter core.",
+   "gap": "The phone's chest is turned to show its left end, fills more of the card, and its lid is thrown back.",
+   "sheet": "director3/shop_bundles.png"
+  },
+  "bundleSafe": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "Lavender safe, open door, coins pouring out; director: no cast shadows (a hard diagonal shadow wedge crossed the coins), coins 1.45x at 0.64 spacing.",
+   "gap": "The phone shows the door's wheel face-on at the far left; ours shows the door edge-on.",
+   "sheet": "director3/shop_bundles.png"
+  },
+  "bundleCart": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "Crimson cart, lavender posts and wheels; director: heap coins 1.6x at 0.64 spacing (the scale-1 heap was a tangle of crescents), one taller load + a spill, stacks re-spaced.",
+   "gap": "The phone's cart is bigger in the card and its heap one continuous pyramid.",
+   "sheet": "director3/shop_bundles.png"
+  },
+  "rocketOfferScene": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "Stars, banded planet, lilac moon, the gold/teal chest on a coin mound with a heart, pink cloud bank (330 x 504 full bleed).",
+   "gap": "The chest is seen straight on (163: turned, from above); the hoard lacks 163's rock slab; paler coins.",
+   "sheet": "m3d_rocketOfferScene.png"
+  },
+  "skyJumpIslandFar2": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "069's upper-right purple-chest island, 144 x 132 at (213, 214).",
+   "gap": "Paler and seen from higher; fewer coin stacks round the chest; the pad is pinker than 069's magenta.",
+   "sheet": "m3d_skyJumpIslandFar2.png"
+  },
+  "iconSkyDrum": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "The Profile drum: pink cushion, cream rings, gold belt + plate, purple foot, cyan glow.",
+   "gap": "near A: our body is taller and the plate smaller than meta-002's.",
+   "sheet": "m3d_iconSkyDrum.png"
+  },
+  "planetStage1": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "director: coloured by LATITUDE bands read off 163 (magenta streaks, a broad white-mint belt, purple below) instead of thin sine lines; less glass haze.",
+   "gap": "Paler and less contrasted than 163's marble.",
+   "sheet": "director3/planets_163.png"
+  },
+  "planetStage2": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "director: latitude bands (cream / pink-red), darker below.",
+   "gap": "163's red bands are deeper and more streaked.",
+   "sheet": "director3/planets_163.png"
+  },
+  "planetStage3": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d + director",
+   "changed": "director: latitude bands with navy streaks; a fatter, brighter cyan ring.",
+   "gap": "163's ring glows at its ends; the planet is a little more cyan.",
+   "sheet": "director3/planets_163.png"
+  },
+  "fxFrostVignette": {
+   "grade": "B",
+   "before": "new",
+   "grader": "missing-3d",
+   "changed": "One full-screen frost overlay (streaky cyan edge ice, translucent white haze, cracks, sparkles), clear middle; between the board and the HUD.",
+   "gap": "near A: 065's side ice is a little more saturated and its corner cracks denser.",
+   "sheet": "m3d_fxFrostVignette.png"
+  },
+  "workerCrowdLeft": {
+   "grade": "B",
+   "before": "new",
+   "grader": "characters",
+   "changed": "The loading screen's left group (P1): a clipboard worker at the edge + two back-view workers, defocused.",
+   "gap": "The two back-view workers stand on nothing: store 8's conveyor platform (scene lane, loadingBackdrop) is unbuilt.",
+   "sheet": "characters/crowdL1.png"
+  }
+ },
+ "composed": {
+  "homeProof": {
+   "grade": "A",
+   "before": "B",
+   "changed": "Pile inside the window and shaped like 002's, console at 002's width, the Home nav icon at 026's size; at game size the composed home reads as 002 (recoloured characters).",
+   "sheet": "director/p_home.png"
+  },
+  "loadingProof": {
+   "grade": "B",
+   "before": "B",
+   "sheet": "characters/p_loading_r2_r3_s8_1x.png, director3/logo_049.png",
+   "changed": "Round 3: the cast re-posed against store 8 (scientist's ball fist and side-held arrows, the carrier turned with chunky legs, the right crowd at store 8's spots, a new left group) and a cleaner logo. Visibly closer at game size.",
+   "gap": "The loadingBackdrop's conveyor + press are still unbuilt (the left group stands on nothing) and its contact shadows were baked for the old layout (scene lane)."
+  },
+  "popupChromePrototype": {
+   "grade": "A",
+   "before": "B",
+   "sheet": "polish/popup_pause_gamesize.png, polish/popup.png",
+   "changed": "The polish lane's SwiftUI prototype of the popup chrome (panel frame, ribbon, close X, Resume/Quit) rendered next to the shell's chrome over 007: at game size it reads as 007.",
+   "gap": "A PROPOSAL: the app still draws the old chrome, so buttonGreen / buttonRed / panelFrame / panelRibbon / panelClose stay B in the manifest until the shell applies art/lanes/polish.md section B."
+  }
+ },
+ "counts": {
+  "A": 72,
+  "B": 101,
+  "C": 1,
+  "n/a": 15,
+  "share_A": 0.414
+ }
+}

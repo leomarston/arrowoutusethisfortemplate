@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="34" viewBox="0 0 120 102">
+<defs><filter id="f1" filterUnits="userSpaceOnUse" x="-360" y="-306" width="960" height="816"><feGaussianBlur stdDeviation="1.6"/></filter><linearGradient id="l2" gradientUnits="userSpaceOnUse" x1="0" y1="5.25" x2="0" y2="85.95"><stop offset="0" stop-color="#D2750D"/><stop offset="0.5" stop-color="#BA630C"/><stop offset="1" stop-color="#9F4F0B"/></linearGradient><linearGradient id="l3" gradientUnits="userSpaceOnUse" x1="0" y1="15.75" x2="0" y2="75.45"><stop offset="0" stop-color="#FEBC41"/><stop offset="0.5" stop-color="#FCA125"/><stop offset="1" stop-color="#ED8B17"/></linearGradient></defs>
+<path d="M28.8 43.5L50.7 66L93.6 27.6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#3B1C00" stroke-opacity="0.35" stroke-width="43.3" transform="translate(0.5 1.8)" filter="url(#f1)"/>
+<path d="M28.8 42.3L50.7 64.8L93.6 26.4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#773800" stroke-width="42.3"/>
+<path d="M28.8 43.5L50.7 66L93.6 27.6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#773800" stroke-width="42.3"/>
+<path d="M28.8 43.5L50.7 66L93.6 27.6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#l2)" stroke-width="38.1"/>
+<path d="M28.8 42.3L50.7 64.8L93.6 26.4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#l2)" stroke-width="38.1"/>
+<path d="M28.8 42.3L50.7 64.8L93.6 26.4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#FAD685" stroke-width="21.3"/>
+<path d="M28.8 42.3L50.7 64.8L93.6 26.4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="url(#l3)" stroke-width="18.3"/>
+</svg>

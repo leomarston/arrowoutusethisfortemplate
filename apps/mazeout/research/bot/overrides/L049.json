@@ -1,0 +1,2 @@
+{"note": "L49 start (shots/126): the key's gold body touches the left pipe's counter box, so the key arrow is read as broken pieces. Real arrow (verified by eye on a grid-labelled crop): tail (1,21) -> (1,22) -> (2,22) -> (3,22) -> head (4,22) pointing RIGHT, key ring at (1-2,22).",
+ "add_arrows": [{"cells": [[1,21],[1,22],[2,22],[3,22],[4,22]], "dir": "right", "key": true, "present_if_ink": [[1,21],[4,22]]}]}

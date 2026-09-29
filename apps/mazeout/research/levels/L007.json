@@ -1,0 +1,1106 @@
+{
+ "level": 7,
+ "source": "video",
+ "video": "V1",
+ "t": 81.04,
+ "frame": "research/video-frames/V1/L007-start.png",
+ "shot": "research/video-frames/V1/L007-start.png",
+ "zoom": "fit",
+ "pitch_pt": 28.074,
+ "stroke_pt": 5.97,
+ "origin_pt": [
+  69.9,
+  240.69
+ ],
+ "cols": 10,
+ "rows": 15,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     0,
+     10
+    ],
+    [
+     0,
+     11
+    ],
+    [
+     0,
+     12
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     3,
+     12
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     1,
+     13
+    ],
+    [
+     0,
+     13
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     6,
+     11
+    ],
+    [
+     6,
+     10
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 3,
+   "cells": [
+    [
+     1,
+     9
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     4
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 4,
+   "cells": [
+    [
+     1,
+     12
+    ],
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     10
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 5,
+   "cells": [
+    [
+     2,
+     12
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     2,
+     10
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 6,
+   "cells": [
+    [
+     4,
+     4
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 7,
+   "cells": [
+    [
+     9,
+     2
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     6,
+     4
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     6,
+     8
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 8,
+   "cells": [
+    [
+     4,
+     11
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     5,
+     10
+    ],
+    [
+     4,
+     10
+    ],
+    [
+     3,
+     10
+    ],
+    [
+     3,
+     11
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 9,
+   "cells": [
+    [
+     4,
+     2
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 10,
+   "cells": [
+    [
+     4,
+     12
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     4,
+     14
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 11,
+   "cells": [
+    [
+     5,
+     2
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 12,
+   "cells": [
+    [
+     5,
+     12
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     5,
+     14
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 13,
+   "cells": [
+    [
+     6,
+     12
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     9,
+     11
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     9,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     9,
+     7
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 14,
+   "cells": [
+    [
+     7,
+     2
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     7,
+     4
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 15,
+   "cells": [
+    [
+     8,
+     5
+    ],
+    [
+     7,
+     5
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     8,
+     6
+    ],
+    [
+     9,
+     6
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     9,
+     4
+    ],
+    [
+     9,
+     3
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 16,
+   "cells": [
+    [
+     8,
+     11
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     7,
+     10
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     12
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 17,
+   "cells": [
+    [
+     8,
+     2
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     8,
+     4
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [
+  {
+   "kind": "tape_pink",
+   "cells": [
+    [
+     4,
+     1
+    ],
+    [
+     5,
+     1
+    ]
+   ],
+   "bbox_px": [
+    265,
+    384,
+    326,
+    426
+   ],
+   "mean_rgb": [
+    231,
+    56,
+    118
+   ]
+  },
+  {
+   "kind": "tape_pink",
+   "cells": [
+    [
+     7,
+     3
+    ],
+    [
+     8,
+     3
+    ]
+   ],
+   "bbox_px": [
+    392,
+    468,
+    453,
+    510
+   ],
+   "mean_rgb": [
+    232,
+    57,
+    119
+   ]
+  },
+  {
+   "kind": "tape_pink",
+   "cells": [
+    [
+     1,
+     11
+    ],
+    [
+     2,
+     11
+    ]
+   ],
+   "bbox_px": [
+    138,
+    807,
+    199,
+    848
+   ],
+   "mean_rgb": [
+    232,
+    55,
+    118
+   ]
+  },
+  {
+   "kind": "tape_pink",
+   "cells": [
+    [
+     4,
+     13
+    ],
+    [
+     5,
+     13
+    ]
+   ],
+   "bbox_px": [
+    265,
+    891,
+    326,
+    933
+   ],
+   "mean_rgb": [
+    231,
+    56,
+    118
+   ]
+  }
+ ],
+ "taped_arrow_ids": [
+  4,
+  5,
+  9,
+  10,
+  11,
+  12,
+  14,
+  17
+ ],
+ "timer_s": 180,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [
+  [
+   "partial",
+   [
+    1,
+    10
+   ],
+   [
+    1,
+    11
+   ]
+  ],
+  [
+   "partial",
+   [
+    1,
+    11
+   ],
+   [
+    1,
+    12
+   ]
+  ],
+  [
+   "partial",
+   [
+    2,
+    10
+   ],
+   [
+    2,
+    11
+   ]
+  ],
+  [
+   "partial",
+   [
+    2,
+    11
+   ],
+   [
+    2,
+    12
+   ]
+  ],
+  [
+   "partial",
+   [
+    4,
+    0
+   ],
+   [
+    4,
+    1
+   ]
+  ],
+  [
+   "partial",
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ]
+  ],
+  [
+   "partial",
+   [
+    4,
+    12
+   ],
+   [
+    4,
+    13
+   ]
+  ],
+  [
+   "partial",
+   [
+    4,
+    13
+   ],
+   [
+    4,
+    14
+   ]
+  ],
+  [
+   "partial",
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    1
+   ]
+  ],
+  [
+   "partial",
+   [
+    5,
+    1
+   ],
+   [
+    5,
+    2
+   ]
+  ],
+  [
+   "partial",
+   [
+    5,
+    12
+   ],
+   [
+    5,
+    13
+   ]
+  ],
+  [
+   "partial",
+   [
+    5,
+    13
+   ],
+   [
+    5,
+    14
+   ]
+  ],
+  [
+   "partial",
+   [
+    7,
+    2
+   ],
+   [
+    7,
+    3
+   ]
+  ],
+  [
+   "partial",
+   [
+    7,
+    3
+   ],
+   [
+    7,
+    4
+   ]
+  ],
+  [
+   "partial",
+   [
+    8,
+    2
+   ],
+   [
+    8,
+    3
+   ]
+  ],
+  [
+   "partial",
+   [
+    8,
+    3
+   ],
+   [
+    8,
+    4
+   ]
+  ]
+ ],
+ "pipes": [],
+ "door_cells": [],
+ "blocker_cells": [],
+ "elevators": [],
+ "fit_px": {
+  "pitch": 42.289,
+  "x0": 20.723,
+  "y0": 24.247,
+  "c0": 2,
+  "r0": 8,
+  "stroke": 9.0,
+  "resid_px": 1.679,
+  "refined": "sub-pixel re-fit of pitch/origin to the start frame ink (batch A shade.py); cells unchanged"
+ },
+ "verify": {
+  "ink_iou": 0.8587,
+  "ink_iou_tol1px": 0.9626,
+  "ink_px": 43153,
+  "render_px": 46699,
+  "missed_ink_px": 635,
+  "extra_px": 1172,
+  "head": {
+   "tip": 0.4,
+   "half": 0.3,
+   "base": 0.22
+  },
+  "stroke_px": 9.0,
+  "index_fit": {
+   "ink_iou": 0.8392,
+   "ink_iou_tol1px": 0.9687
+  },
+  "shading_aware": {
+   "ink_iou": 0.9446,
+   "ink_iou_tol1px": 0.992,
+   "missed_ink_px": 144,
+   "extra_px": 213,
+   "stroke_v_px": 8.25,
+   "stroke_h_px": 6.75,
+   "heads": {
+    "down": [
+     0.46,
+     0.34,
+     0.16
+    ],
+    "left": [
+     0.42,
+     0.34,
+     0.22
+    ],
+    "right": [
+     0.42,
+     0.34,
+     0.22
+    ],
+    "up": [
+     0.34,
+     0.34,
+     0.28
+    ]
+   },
+   "note": "4x-supersampled render with separate vertical/horizontal stroke widths and per-direction heads (the video skin shades the bottom edge of every stroke, so horizontal strokes and up/left heads read thinner/shorter in the ink mask); same cells"
+  }
+ },
+ "reader": "video-tools/vextract.py (bot.py reader adapted to the video skin); reviewed by level extractor batch A (research/video-levels-A.md)",
+ "label": "Level 7",
+ "reward_coins": 20,
+ "intro_popup": {
+  "kind": "unlock_popup",
+  "obstacle": "linked_arrows (= the phone's tape_pink)",
+  "title": "Linked Arrows!",
+  "subtitle": "Unlocked!",
+  "card": "LINKED ARROWS move together!",
+  "when": "first Play tap on L7: the level opens under a ~90% black overlay, popup builds in, tap anywhere to dismiss",
+  "video_t": [
+   76.42,
+   80.12
+  ],
+  "ref": "research/tutorials.md section 6"
+ },
+ "checks": {
+  "ink_iou_tol1": {
+   "V1": {
+    "vextract_index_fit": 0.9687,
+    "vextract_final_fit": 0.9626,
+    "shading_aware": 0.992
+   }
+  },
+  "replay": {
+   "V1": {
+    "taps": 13,
+    "mapped": 12,
+    "exit_free": 12,
+    "gone_free": 3,
+    "consistent": 15,
+    "inconsistent": 0,
+    "miss": 1,
+    "late": 0,
+    "unexplained_stays": 0,
+    "stay_weak": 0,
+    "left_at_end": [],
+    "bumps": 0,
+    "note": "final sync frame at t_clear + 0.1 s instead of + 0.4 s: at 91.72 s the win logo's blue sign covers a cell of arrow 14 and reads as stroke ink"
+   }
+  },
+  "solver": {
+   "bot_rules": {
+    "solved": true,
+    "units": 14,
+    "waves": 9,
+    "left": []
+   },
+   "model": {
+    "solved": true,
+    "units": 14,
+    "waves": 9,
+    "left": []
+   },
+   "free_at_start": 3,
+   "linked_groups": [
+    [
+     9,
+     11
+    ],
+    [
+     14,
+     17
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     10,
+     12
+    ]
+   ]
+  }
+ },
+ "video_play": {
+  "t_first_frame": 80.12,
+  "t_built": 80.12,
+  "t_board": 81.04,
+  "t_first_board_tap": 81.16,
+  "t_first_tick": 81.36,
+  "first_tick_delay_s": 0.2,
+  "t_clear": 91.32,
+  "t_win": 91.4,
+  "timer_start": "3:00",
+  "timer_at_clear": "2:50",
+  "hearts_end": 3,
+  "taps_detected": 13
+ }
+}

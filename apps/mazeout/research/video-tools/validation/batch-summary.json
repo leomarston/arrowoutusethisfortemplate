@@ -1,0 +1,1125 @@
+[
+ {
+  "video": "V1",
+  "level": 1,
+  "arrows": 3,
+  "hidden": 0,
+  "grid": [
+   3,
+   4
+  ],
+  "pitch_pt": 28.546,
+  "iou": 0.7348,
+  "iou_tol1": 0.8681,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 4,
+  "consistent": 3,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 2,
+  "arrows": 6,
+  "hidden": 0,
+  "grid": [
+   6,
+   6
+  ],
+  "pitch_pt": 27.982,
+  "iou": 0.8128,
+  "iou_tol1": 0.9655,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 6,
+  "consistent": 6,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 3,
+  "arrows": 8,
+  "hidden": 0,
+  "grid": [
+   10,
+   9
+  ],
+  "pitch_pt": 28.025,
+  "iou": 0.8566,
+  "iou_tol1": 0.9801,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 6,
+  "consistent": 8,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 4,
+  "arrows": 8,
+  "hidden": 0,
+  "grid": [
+   9,
+   14
+  ],
+  "pitch_pt": 28.047,
+  "iou": 0.854,
+  "iou_tol1": 0.9824,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 5,
+  "consistent": 8,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 5,
+  "arrows": 17,
+  "hidden": 0,
+  "grid": [
+   12,
+   14
+  ],
+  "pitch_pt": 28.039,
+  "iou": 0.8518,
+  "iou_tol1": 0.9759,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 15,
+  "consistent": 17,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 6,
+  "arrows": 29,
+  "hidden": 0,
+  "grid": [
+   27,
+   22
+  ],
+  "pitch_pt": 13.559,
+  "iou": 0.7305,
+  "iou_tol1": 0.9872,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 27,
+  "consistent": 29,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 4,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 7,
+  "arrows": 18,
+  "hidden": 0,
+  "grid": [
+   10,
+   15
+  ],
+  "pitch_pt": 28.007,
+  "iou": 0.8392,
+  "iou_tol1": 0.9687,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 13,
+  "consistent": 15,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 8,
+  "arrows": 19,
+  "hidden": 0,
+  "grid": [
+   12,
+   17
+  ],
+  "pitch_pt": 28.07,
+  "iou": 0.8403,
+  "iou_tol1": 0.9711,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 15,
+  "consistent": 17,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 9,
+  "arrows": 27,
+  "hidden": 0,
+  "grid": [
+   14,
+   19
+  ],
+  "pitch_pt": 24.55,
+  "iou": 0.8033,
+  "iou_tol1": 0.9749,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 27,
+  "consistent": 27,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 10,
+  "arrows": 47,
+  "hidden": 0,
+  "grid": [
+   20,
+   22
+  ],
+  "pitch_pt": 17.857,
+  "iou": 0.8022,
+  "iou_tol1": 0.9821,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 35,
+  "consistent": 38,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 4,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 11,
+  "arrows": 14,
+  "hidden": 0,
+  "grid": [
+   10,
+   20
+  ],
+  "pitch_pt": 28.011,
+  "iou": 0.8533,
+  "iou_tol1": 0.9757,
+  "anomalies": 0,
+  "obstacles": [
+   "curtain"
+  ],
+  "taps": 16,
+  "consistent": 14,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 12,
+  "arrows": 24,
+  "hidden": 0,
+  "grid": [
+   15,
+   21
+  ],
+  "pitch_pt": 23.109,
+  "iou": 0.8181,
+  "iou_tol1": 0.9731,
+  "anomalies": 0,
+  "obstacles": [
+   "curtain"
+  ],
+  "taps": 23,
+  "consistent": 24,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 2,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 13,
+  "arrows": 33,
+  "hidden": 0,
+  "grid": [
+   14,
+   18
+  ],
+  "pitch_pt": 24.52,
+  "iou": 0.8357,
+  "iou_tol1": 0.9767,
+  "anomalies": 0,
+  "obstacles": [
+   "curtain",
+   "tape_pink"
+  ],
+  "taps": 26,
+  "consistent": 31,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 2,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 14,
+  "arrows": 15,
+  "hidden": 0,
+  "grid": [
+   13,
+   16
+  ],
+  "pitch_pt": 26.174,
+  "iou": 0.8493,
+  "iou_tol1": 0.9785,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 15,
+  "consistent": 15,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 15,
+  "arrows": 48,
+  "hidden": 0,
+  "grid": [
+   20,
+   25
+  ],
+  "pitch_pt": 17.85,
+  "iou": 0.791,
+  "iou_tol1": 0.9808,
+  "anomalies": 0,
+  "obstacles": [
+   "curtain"
+  ],
+  "taps": 44,
+  "consistent": 48,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 16,
+  "arrows": 24,
+  "hidden": 0,
+  "grid": [
+   13,
+   15
+  ],
+  "pitch_pt": 26.191,
+  "iou": 0.8365,
+  "iou_tol1": 0.9664,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 21,
+  "consistent": 24,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 17,
+  "arrows": 54,
+  "hidden": 0,
+  "grid": [
+   19,
+   24
+  ],
+  "pitch_pt": 18.698,
+  "iou": 0.8049,
+  "iou_tol1": 0.9671,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 46,
+  "consistent": 50,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 4,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 18,
+  "arrows": 22,
+  "hidden": 0,
+  "grid": [
+   14,
+   17
+  ],
+  "pitch_pt": 24.566,
+  "iou": 0.8776,
+  "iou_tol1": 0.9866,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 21,
+  "consistent": 22,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 19,
+  "arrows": 62,
+  "hidden": 0,
+  "grid": [
+   20,
+   31
+  ],
+  "pitch_pt": 17.852,
+  "iou": 0.8204,
+  "iou_tol1": 0.9807,
+  "anomalies": 0,
+  "obstacles": [
+   "curtain"
+  ],
+  "taps": 58,
+  "consistent": 62,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 5,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V1",
+  "level": 20,
+  "arrows": 20,
+  "hidden": 0,
+  "grid": [
+   14,
+   20
+  ],
+  "pitch_pt": 24.546,
+  "iou": 0.8224,
+  "iou_tol1": 0.9779,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 19,
+  "consistent": 20,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 11,
+  "arrows": 14,
+  "hidden": 0,
+  "grid": [
+   10,
+   20
+  ],
+  "pitch_pt": 27.954,
+  "iou": 0.7864,
+  "iou_tol1": 0.9456,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 20,
+  "consistent": 14,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 5,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 12,
+  "arrows": 24,
+  "hidden": 0,
+  "grid": [
+   15,
+   21
+  ],
+  "pitch_pt": 23.098,
+  "iou": 0.8185,
+  "iou_tol1": 0.9795,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 23,
+  "consistent": 24,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 13,
+  "arrows": 33,
+  "hidden": 0,
+  "grid": [
+   14,
+   18
+  ],
+  "pitch_pt": 24.503,
+  "iou": 0.8024,
+  "iou_tol1": 0.9719,
+  "anomalies": 0,
+  "obstacles": [
+   "box",
+   "tape_pink"
+  ],
+  "taps": 32,
+  "consistent": 29,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 3,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 14,
+  "arrows": 15,
+  "hidden": 0,
+  "grid": [
+   13,
+   16
+  ],
+  "pitch_pt": 26.167,
+  "iou": 0.791,
+  "iou_tol1": 0.9683,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 15,
+  "consistent": 15,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 15,
+  "arrows": 48,
+  "hidden": 0,
+  "grid": [
+   20,
+   25
+  ],
+  "pitch_pt": 17.847,
+  "iou": 0.7907,
+  "iou_tol1": 0.981,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 47,
+  "consistent": 48,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 2,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 16,
+  "arrows": 24,
+  "hidden": 0,
+  "grid": [
+   13,
+   15
+  ],
+  "pitch_pt": 26.191,
+  "iou": 0.8074,
+  "iou_tol1": 0.9595,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 24,
+  "consistent": 24,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 17,
+  "arrows": 54,
+  "hidden": 0,
+  "grid": [
+   19,
+   24
+  ],
+  "pitch_pt": 18.692,
+  "iou": 0.8122,
+  "iou_tol1": 0.9767,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 46,
+  "consistent": 50,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 3,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 18,
+  "arrows": 22,
+  "hidden": 0,
+  "grid": [
+   14,
+   17
+  ],
+  "pitch_pt": 24.567,
+  "iou": 0.8138,
+  "iou_tol1": 0.9826,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 20,
+  "consistent": 22,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 19,
+  "arrows": 62,
+  "hidden": 0,
+  "grid": [
+   20,
+   31
+  ],
+  "pitch_pt": 17.843,
+  "iou": 0.8275,
+  "iou_tol1": 0.9841,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 61,
+  "consistent": 62,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 2,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 20,
+  "arrows": 20,
+  "hidden": 0,
+  "grid": [
+   14,
+   20
+  ],
+  "pitch_pt": 24.52,
+  "iou": 0.7859,
+  "iou_tol1": 0.9732,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 20,
+  "consistent": 20,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 21,
+  "arrows": 20,
+  "hidden": 0,
+  "grid": [
+   12,
+   18
+  ],
+  "pitch_pt": 28.03,
+  "iou": 0.7908,
+  "iou_tol1": 0.9678,
+  "anomalies": 0,
+  "obstacles": [
+   "pipe"
+  ],
+  "taps": 24,
+  "consistent": 20,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 4,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 22,
+  "arrows": 29,
+  "hidden": 0,
+  "grid": [
+   14,
+   23
+  ],
+  "pitch_pt": 24.559,
+  "iou": 0.8451,
+  "iou_tol1": 0.9724,
+  "anomalies": 0,
+  "obstacles": [
+   "pipe"
+  ],
+  "taps": 29,
+  "consistent": 29,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 23,
+  "arrows": 41,
+  "hidden": 0,
+  "grid": [
+   16,
+   22
+  ],
+  "pitch_pt": 21.785,
+  "iou": 0.8168,
+  "iou_tol1": 0.9657,
+  "anomalies": 0,
+  "obstacles": [
+   "pipe",
+   "tape_pink"
+  ],
+  "taps": 37,
+  "consistent": 37,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 24,
+  "arrows": 37,
+  "hidden": 0,
+  "grid": [
+   17,
+   27
+  ],
+  "pitch_pt": 20.667,
+  "iou": 0.8131,
+  "iou_tol1": 0.9717,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 28,
+  "consistent": 31,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 25,
+  "arrows": 61,
+  "hidden": 0,
+  "grid": [
+   19,
+   30
+  ],
+  "pitch_pt": 18.687,
+  "iou": 0.8142,
+  "iou_tol1": 0.9747,
+  "anomalies": 0,
+  "obstacles": [
+   "box",
+   "pipe"
+  ],
+  "taps": 60,
+  "consistent": 61,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 5,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 26,
+  "arrows": 26,
+  "hidden": 0,
+  "grid": [
+   15,
+   19
+  ],
+  "pitch_pt": 23.075,
+  "iou": 0.8479,
+  "iou_tol1": 0.9824,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 26,
+  "consistent": 26,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 27,
+  "arrows": 40,
+  "hidden": 0,
+  "grid": [
+   16,
+   26
+  ],
+  "pitch_pt": 21.819,
+  "iou": 0.8039,
+  "iou_tol1": 0.9642,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 41,
+  "consistent": 40,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 28,
+  "arrows": 51,
+  "hidden": 0,
+  "grid": [
+   19,
+   24
+  ],
+  "pitch_pt": 18.697,
+  "iou": 0.8203,
+  "iou_tol1": 0.9842,
+  "anomalies": 0,
+  "obstacles": [
+   "box",
+   "tape_pink"
+  ],
+  "taps": 42,
+  "consistent": 43,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 3,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 29,
+  "arrows": 67,
+  "hidden": 0,
+  "grid": [
+   20,
+   32
+  ],
+  "pitch_pt": 17.844,
+  "iou": 0.8099,
+  "iou_tol1": 0.9812,
+  "anomalies": 1,
+  "obstacles": [
+   "pipe"
+  ],
+  "taps": 67,
+  "consistent": 67,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 30,
+  "arrows": 25,
+  "hidden": 0,
+  "grid": [
+   16,
+   16
+  ],
+  "pitch_pt": 21.832,
+  "iou": 0.8192,
+  "iou_tol1": 0.969,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 25,
+  "consistent": 25,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 31,
+  "arrows": 35,
+  "hidden": 7,
+  "grid": [
+   16,
+   17
+  ],
+  "pitch_pt": 21.805,
+  "iou": 0.8115,
+  "iou_tol1": 0.9778,
+  "anomalies": 0,
+  "obstacles": [
+   "elevator"
+  ],
+  "taps": 31,
+  "consistent": 35,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 3,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 32,
+  "arrows": 40,
+  "hidden": 11,
+  "grid": [
+   17,
+   21
+  ],
+  "pitch_pt": 20.659,
+  "iou": 0.8076,
+  "iou_tol1": 0.9749,
+  "anomalies": 0,
+  "obstacles": [
+   "elevator"
+  ],
+  "taps": 41,
+  "consistent": 42,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 2,
+  "left_at_end": 0,
+  "bumps": 2
+ },
+ {
+  "video": "V2",
+  "level": 33,
+  "arrows": 53,
+  "hidden": 17,
+  "grid": [
+   17,
+   23
+  ],
+  "pitch_pt": 20.651,
+  "iou": 0.7989,
+  "iou_tol1": 0.9697,
+  "anomalies": 0,
+  "obstacles": [
+   "box",
+   "elevator"
+  ],
+  "taps": 47,
+  "consistent": 53,
+  "inconsistent": 0,
+  "unexplained_stays": 1,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 34,
+  "arrows": 40,
+  "hidden": 0,
+  "grid": [
+   18,
+   23
+  ],
+  "pitch_pt": 19.631,
+  "iou": 0.8415,
+  "iou_tol1": 0.9836,
+  "anomalies": 0,
+  "obstacles": [
+   "tape_pink"
+  ],
+  "taps": 30,
+  "consistent": 36,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 0,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 35,
+  "arrows": 96,
+  "hidden": 39,
+  "grid": [
+   20,
+   32
+  ],
+  "pitch_pt": 17.841,
+  "iou": 0.8004,
+  "iou_tol1": 0.9796,
+  "anomalies": 0,
+  "obstacles": [
+   "elevator",
+   "pipe"
+  ],
+  "taps": 89,
+  "consistent": 96,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 4,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 36,
+  "arrows": 36,
+  "hidden": 0,
+  "grid": [
+   20,
+   23
+  ],
+  "pitch_pt": 17.851,
+  "iou": 0.7888,
+  "iou_tol1": 0.9795,
+  "anomalies": 0,
+  "obstacles": [],
+  "taps": 36,
+  "consistent": 36,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 3,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 37,
+  "arrows": 55,
+  "hidden": 0,
+  "grid": [
+   20,
+   33
+  ],
+  "pitch_pt": 17.851,
+  "iou": 0.8028,
+  "iou_tol1": 0.9801,
+  "anomalies": 0,
+  "obstacles": [
+   "box"
+  ],
+  "taps": 54,
+  "consistent": 55,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ },
+ {
+  "video": "V2",
+  "level": 38,
+  "arrows": 34,
+  "hidden": 0,
+  "grid": [
+   16,
+   20
+  ],
+  "pitch_pt": 21.816,
+  "iou": 0.8042,
+  "iou_tol1": 0.9703,
+  "anomalies": 0,
+  "obstacles": [
+   "pipe"
+  ],
+  "taps": 33,
+  "consistent": 34,
+  "inconsistent": 0,
+  "unexplained_stays": 0,
+  "miss": 1,
+  "left_at_end": 0,
+  "bumps": 0
+ }
+]

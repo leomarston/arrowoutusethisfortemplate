@@ -1,0 +1,42 @@
+{
+ "character": "badge_upaway",
+ "frame_pt": [
+  46.0,
+  46.0
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); both layers share the full render's camera, so drawing each at rect_pt recomposes the full image",
+ "full": "../eventBadgeBalloon@3x.png",
+ "placement_pt": null,
+ "layers": [
+  {
+   "name": "body",
+   "file": "body@3x.png",
+   "z": 0,
+   "rect_pt": [
+    1.667,
+    6.0,
+    42.667,
+    38.667
+   ],
+   "note": "brass hex plate + teal enamel face (static)"
+  },
+  {
+   "name": "balloon",
+   "file": "balloon@3x.png",
+   "z": 1,
+   "rect_pt": [
+    12.333,
+    5.333,
+    21.333,
+    33.0
+   ],
+   "note": "the balloon + basket: the idle bob (translateY)",
+   "pivots_pt": {
+    "basket": [
+     23.0,
+     38.333
+    ]
+   }
+  }
+ ]
+}

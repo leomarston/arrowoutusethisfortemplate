@@ -1,0 +1,15 @@
+old_key	proposed_key	why	pinned_by (must be re-stated in the same change; never weakened)
+# T1 2026-09-28: OPTIONAL English polish, NOT part of the frozen key list (build/p/T1/keys.sha). These rows are the original's copy kept
+# verbatim, with its errors. Identical odd English is an easy "copied" tell (art-direction §2.2 rows 12 and 17 rate the copy MED), and
+# the rows read badly in a published game. Accepting any row changes the freeze, so the orchestrator should rule BEFORE T2 batch 1
+# translates these keys. Each accepted row: new key in en.tsv, the literal/data site renamed, a sources.json `superseded` entry,
+# keys.sha regenerated (python3 -B build/p/T1/verify_keys.py prints the diff).
+Time to next live:	Time to next life:	a typo copied from the original ('live' for 'life')	App/Shell/Popups/NoLivesPopup.swift:82 (no test pin)
+You will lose %lld token	You will lose %lld tokens	the line only shows while the multiplier is above x1 (5..100), so the noun is always plural	App/Shell/Popups/ContinuePopup.swift TokenText; tools/strings/tr_review.py EXTRA_FIT continueToken.l1
+Clear required amount of arrows to break the BOX!	Clear enough arrows to break the BOX!	ungrammatical original wording on the L11 unlock card	App/Resources/Levels/unlocks.json; Packages/PathCore/Tests/Fixtures/content/levels.json; Tests/AppTests/LevelsBundleTests.swift:60; UITests/FlowTests.swift:130; Tests/ShellS2Tests.swift:103,116,135 (line breaks re-derived from the new text)
+Finish race before others!	Finish the race first!	missing article (Rocket Rally tutorial card 2)	App/Shell/Social/RocketRaceViews.swift
+Advance to next stages for greater prizes!	Advance to the next stages for greater prizes!	missing article; the highlight runs 'greater prizes' and 'prizes' stay substrings	App/Shell/Social/RocketRaceViews.swift, SkyJumpViews.swift
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	Beat %lld levels before the others to win, then advance for greater prizes!	mid-sentence capital and missing articles; the highlight becomes the existing '%lld levels' run	App/Shell/Social/RocketRaceViews.swift; tools/strings/tr_review.py EXTRA_FIT rocket.offer + GLOSSARY_EXEMPT (S-30)
+Pass %lld Levels in a row on first try and advance to next stages!	Pass %lld levels in a row on the first try to advance!	same; with both rows changed the '%lld Levels' highlight key has no user and can go	App/Shell/Social/RocketRaceViews.swift, SkyJumpViews.swift
+If you fail a level the multiplier will reset!	If you fail a level, the multiplier resets!	missing comma; the red highlight 'fail' stays a substring	App/Shell/Social/StreakRaceViews.swift
+Contest with others!	Compete with others!	'contest' used as a verb (Weekly Cup (i) line)	App/Shell/Social/WeeklyViews.swift

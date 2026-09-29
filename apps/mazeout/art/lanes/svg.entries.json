@@ -1,0 +1,1192 @@
+{
+ "version": 1,
+ "title": "svg lane entries (the lane's scratch copy build/ui-art/lane_svg/MANIFEST.json, statuses from art/lanes/svg.md; written by the art director round 2)",
+ "entries": [
+  {
+   "id": "boardTrailStar",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "5-point rounded star particle (white, tinted at runtime) behind exiting arrows",
+   "screen": "level board",
+   "size_pt": [
+    12,
+    12
+   ],
+   "size_px": [
+    36,
+    36
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:boardTrailStar",
+   "file": "art/ui/out/boardTrailStar@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-1.png",
+    "box_pt": [
+     140,
+     400,
+     200,
+     460
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "doorShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "door shatter fragments (orange frame, blue slat, purple bits) -- 6 small sprites",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:doorShards",
+   "file": "art/ui/out/doorShards@3x.png",
+   "ref": {
+    "shot": "research/shots/028-L33-after-key1.png",
+    "box_pt": [
+     0,
+     300,
+     393,
+     620
+    ],
+    "note": "look at S1-L33-key-first.mov frames"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "pipeShards",
+   "family": "svg",
+   "route": "B2",
+   "group": "board",
+   "purpose": "pipe shatter shards (cyan glass bits)",
+   "screen": "level board",
+   "size_pt": [
+    48,
+    48
+   ],
+   "size_px": [
+    144,
+    144
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:pipeShards",
+   "file": "art/ui/out/pipeShards@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 560.0,
+    "box_pt": [
+     0,
+     150,
+     393,
+     700
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "iconCoin",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "gold coin with a star (HUD + prices + rewards)",
+   "screen": "HUD, home top bar, prices",
+   "size_pt": [
+    30,
+    30
+   ],
+   "size_px": [
+    90,
+    90
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconCoin",
+   "file": "art/ui/out/iconCoin@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     15,
+     27,
+     45,
+     57
+    ],
+    "scale": 0.89
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "iconPlusGreen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "green round + badge on the coin pill",
+   "screen": "home top bar, Out of Time",
+   "size_pt": [
+    16,
+    16
+   ],
+   "size_px": [
+    48,
+    48
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconPlusGreen",
+   "file": "art/ui/out/iconPlusGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/013-L32-popup.png",
+    "box_pt": [
+     38,
+     84,
+     58,
+     104
+    ],
+    "scale": 1.17,
+    "note": "badge 18.7 pt (ui-measure home.plusBadge)"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "iconStopwatch",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "gold stopwatch icon (timer pill, event timers)",
+   "screen": "level HUD, events",
+   "size_pt": [
+    33,
+    33
+   ],
+   "size_px": [
+    99,
+    99
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconStopwatch",
+   "file": "art/ui/out/iconStopwatch@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     90.7,
+     76.5,
+     123.7,
+     109.5
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "iconStopwatchSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "small stopwatch in event timer chips ('3d 9h')",
+   "screen": "home Claw bar, events",
+   "size_pt": [
+    18,
+    18
+   ],
+   "size_px": [
+    54,
+    54
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconStopwatchSmall",
+   "file": "art/ui/out/iconStopwatchSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     162,
+     146,
+     180,
+     172
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "heartHUDLost",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "lost / pale heart state (after a bump; greyed during the level intro)",
+   "screen": "level HUD",
+   "size_pt": [
+    31,
+    27
+   ],
+   "size_px": [
+    93,
+    81
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartHUDLost",
+   "file": "art/ui/out/heartHUDLost@3x.png",
+   "ref": {
+    "shot": "research/shots/110-L047-after-bump.png",
+    "box_pt": [
+     272.1,
+     80.6,
+     303.1,
+     107.6
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "look at the bump clip frames; may be heartHUD at reduced saturation/alpha in code instead"
+  },
+  {
+   "id": "heartHUDHalves",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "the HUD heart split in two halves for the break animation",
+   "screen": "level HUD",
+   "size_pt": [
+    31,
+    27
+   ],
+   "size_px": [
+    93,
+    81
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartHUDHalves",
+   "file": "art/ui/out/heartHUDHalves@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     198,
+     80,
+     232,
+     108
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "glyphSound",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "speaker glyph",
+   "screen": "Paused, Settings",
+   "size_pt": [
+    30,
+    30
+   ],
+   "size_px": [
+    90,
+    90
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphSound",
+   "file": "art/ui/out/glyphSound@3x.png",
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     74,
+     331,
+     104,
+     361
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "glyphHaptic",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "phone-vibrating glyph",
+   "screen": "Paused, Settings",
+   "size_pt": [
+    30,
+    32
+   ],
+   "size_px": [
+    90,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphHaptic",
+   "file": "art/ui/out/glyphHaptic@3x.png",
+   "ref": {
+    "shot": "research/shots/007-L32-pause.png",
+    "box_pt": [
+     74,
+     403,
+     105,
+     435
+    ],
+    "scale": 1.12
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "glyphMusic",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "music-note glyph",
+   "screen": "Settings",
+   "size_pt": [
+    30,
+    30
+   ],
+   "size_px": [
+    90,
+    90
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphMusic",
+   "file": "art/ui/out/glyphMusic@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 48.0,
+    "box_pt": [
+     168,
+     300,
+     238,
+     360
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "sparkleTwinkle",
+   "family": "svg",
+   "route": "B2",
+   "group": "fx",
+   "purpose": "4-point white twinkle sparkle",
+   "screen": "rewards, unlock icons",
+   "size_pt": [
+    16,
+    16
+   ],
+   "size_px": [
+    48,
+    48
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:sparkleTwinkle",
+   "file": "art/ui/out/sparkleTwinkle@3x.png",
+   "ref": {
+    "shot": "research/shots/020-L32-win-1.png",
+    "box_pt": [
+     150,
+     385,
+     170,
+     405
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "heartInfiniteSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "small ∞-heart for bars and chips",
+   "screen": "home Claw bar, reward ladder",
+   "size_pt": [
+    46,
+    42
+   ],
+   "size_px": [
+    138,
+    126
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartInfiniteSmall",
+   "file": "art/ui/out/heartInfiniteSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     323,
+     108,
+     369,
+     150
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "unlockIconPipe",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "pipe unlock illustration: U pipe with a counter cap '3' and sparkles",
+   "screen": "Pipe! Unlocked!",
+   "size_pt": [
+    156,
+    124
+   ],
+   "size_px": [
+    468,
+    372
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconPipe",
+   "file": "art/ui/out/unlockIconPipe@3x.png",
+   "ref": {
+    "shot": "research/shots/040-L35-pipe-unlocked.png",
+    "box_pt": [
+     117.8,
+     340.4,
+     273.8,
+     464.4
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "unlockIconLinked",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "linked-arrows unlock illustration: two arrows bound by pink tape",
+   "screen": "Linked Arrows! Unlocked!",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconLinked",
+   "file": "art/ui/out/unlockIconLinked@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 78.0,
+    "box_pt": [
+     118,
+     348,
+     274,
+     470
+    ],
+    "scale": 1.25
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "unlockIconCurtain",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "curtain unlock illustration = the locked DOOR icon (orange frame, blue shutter, hex lock) with sparkles",
+   "screen": "Curtain! Unlocked!",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconCurtain",
+   "file": "art/ui/out/unlockIconCurtain@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     127,
+     351,
+     267,
+     471
+    ],
+    "scale": 1.09
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "owner video V1 t=185: the popup 'Curtain! / Unlocked! / Clear required amount of arrows to open the CURTAIN!' shows the DOOR art, while that build's board piece is the purple counter block (curtainCrate). v552 uses the same door art ON the board, opened by keys (L33). Same drawing as unlockIconDoor: build one, alias the other.",
+   "confirmed": true
+  },
+  {
+   "id": "unlockIconElevator",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "elevator unlock illustration",
+   "screen": "Elevator! Unlocked!",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconElevator",
+   "file": "art/ui/out/unlockIconElevator@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 1182.5,
+    "box_pt": [
+     110,
+     348,
+     282,
+     470
+    ],
+    "scale": 1.37
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "confirmed": false
+  },
+  {
+   "id": "unlockIconDoor",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "door + key unlock illustration (no popup seen on the phone at L33)",
+   "screen": "door intro",
+   "size_pt": [
+    120,
+    110
+   ],
+   "size_px": [
+    360,
+    330
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconDoor",
+   "file": "art/ui/out/unlockIconDoor@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 185.0,
+    "box_pt": [
+     92.9,
+     262.3,
+     305.4,
+     481.2
+    ],
+    "scale": 1.45
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "same art as unlockIconCurtain (see there); the phone showed no popup before L33",
+   "confirmed": false
+  },
+  {
+   "id": "tutorialHand",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "white pointing hand (tap tutorial)",
+   "screen": "L1 'Tap to move!', obstacle tutorials",
+   "size_pt": [
+    60,
+    70
+   ],
+   "size_px": [
+    180,
+    210
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:tutorialHand",
+   "file": "art/ui/out/tutorialHand@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 1.2,
+    "box_pt": [
+     176,
+     410,
+     276,
+     535
+    ],
+    "scale": 1.52,
+    "anchor_pt": [
+     193,
+     424
+    ],
+    "note": "fingertip at (193, 424) pt (tutorials.md §3); hand 70 x 99 pt incl. shadow"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "look at the owner's V1 video L1-4 tutorial frames for the exact hand",
+   "anchor_pt": [
+    15.4,
+    3.6
+   ]
+  },
+  {
+   "id": "pointerArrowYellow",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "yellow curved pointer arrow (info overlays)",
+   "screen": "Claw / Sky Jump info",
+   "size_pt": [
+    46,
+    50
+   ],
+   "size_px": [
+    138,
+    150
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:pointerArrowYellow",
+   "file": "art/ui/out/pointerArrowYellow@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     226,
+     218,
+     272,
+     268
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "infoPathIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "maze icon tile: blue squircle with white arrows",
+   "screen": "Claw / Sky Jump info",
+   "size_pt": [
+    118,
+    118
+   ],
+   "size_px": [
+    354,
+    354
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:infoPathIcon",
+   "file": "art/ui/out/infoPathIcon@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     60,
+     128,
+     178,
+     246
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "glyphGear",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "white gear glyph on the blue square button",
+   "screen": "home",
+   "size_pt": [
+    26,
+    26
+   ],
+   "size_px": [
+    78,
+    78
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphGear",
+   "file": "art/ui/out/glyphGear@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     341.3,
+     55.4,
+     367.3,
+     81.4
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "heartLives",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "lives heart with the live count inside",
+   "screen": "home top bar",
+   "size_pt": [
+    34,
+    32
+   ],
+   "size_px": [
+    102,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartLives",
+   "file": "art/ui/out/heartLives@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     212.5,
+     53,
+     251.5,
+     86
+    ],
+    "scale": 1.1
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "iconHexArrow",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "purple hexagon with a white up-arrow (Claw points icon)",
+   "screen": "home Claw bar, Claw screen",
+   "size_pt": [
+    48,
+    44
+   ],
+   "size_px": [
+    144,
+    132
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconHexArrow",
+   "file": "art/ui/out/iconHexArrow@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     30,
+     106,
+     78,
+     150
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "iconCheckeredFlag",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "small checkered flag",
+   "screen": "Streak Race logo, race bar finish",
+   "size_pt": [
+    30,
+    32
+   ],
+   "size_px": [
+    90,
+    96
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconCheckeredFlag",
+   "file": "art/ui/out/iconCheckeredFlag@3x.png",
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     83,
+     703,
+     113,
+     735
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "rankBadgeGold",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (gold) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    36,
+    36
+   ],
+   "size_px": [
+    108,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeGold",
+   "file": "art/ui/out/rankBadgeGold@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     581,
+     56,
+     621
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgeSilver",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (silver) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    36,
+    36
+   ],
+   "size_px": [
+    108,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeSilver",
+   "file": "art/ui/out/rankBadgeSilver@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     661,
+     56,
+     701
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgeBronze",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (bronze) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    36,
+    36
+   ],
+   "size_px": [
+    108,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeBronze",
+   "file": "art/ui/out/rankBadgeBronze@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgePlain",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (plain blue) for ranks 4+",
+   "screen": "leaderboards",
+   "size_pt": [
+    36,
+    36
+   ],
+   "size_px": [
+    108,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgePlain",
+   "file": "art/ui/out/rankBadgePlain@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "scoreChip",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "green capsule score chip (live number)",
+   "screen": "Streak Race rows",
+   "size_pt": [
+    64,
+    36
+   ],
+   "size_px": [
+    192,
+    108
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:scoreChip",
+   "file": "art/ui/out/scoreChip@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     335,
+     584,
+     400,
+     622
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "sunburstRays",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "soft cream sunburst rays behind a prize",
+   "screen": "reward cards, Congratulations",
+   "size_pt": [
+    120,
+    80
+   ],
+   "size_px": [
+    360,
+    240
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:sunburstRays",
+   "file": "art/ui/out/sunburstRays@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     180,
+     458,
+     310,
+     540
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "prizeSign",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-skyjump",
+   "purpose": "green arrow sign 'PRIZE' with a coin (live amount)",
+   "screen": "Sky Jump",
+   "size_pt": [
+    92,
+    64
+   ],
+   "size_px": [
+    276,
+    192
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:prizeSign",
+   "file": "art/ui/out/prizeSign@3x.png",
+   "ref": {
+    "shot": "research/shots/069-skyjump-screen.png",
+    "box_pt": [
+     78,
+     365,
+     170,
+     429
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "text_live": true
+  },
+  {
+   "id": "iconPencil",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "edit pencil in the name field",
+   "screen": "Edit Profile",
+   "size_pt": [
+    20,
+    20
+   ],
+   "size_px": [
+    60,
+    60
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconPencil",
+   "file": "art/ui/out/iconPencil@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 70.0,
+    "box_pt": [
+     130,
+     225,
+     160,
+     255
+    ],
+    "note": "the orange edit disc at the avatar corner"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "glyphBell",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "notification bell glyph",
+   "screen": "Settings",
+   "size_pt": [
+    20,
+    20
+   ],
+   "size_px": [
+    60,
+    60
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:glyphBell",
+   "file": "art/ui/out/glyphBell@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 48.0,
+    "box_pt": [
+     52,
+     170,
+     82,
+     200
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": ""
+  },
+  {
+   "id": "logoArrowOut",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "OUR 'ARROW OUT!' logo: yellow bubble word ARROW on a blue rounded plate + a purple 'OUT!' arrow plate (same style as the original's logo, our lettering)",
+   "screen": "win splash, loading",
+   "size_pt": [
+    306,
+    236
+   ],
+   "size_px": [
+    918,
+    708
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:logoArrowOut",
+   "file": "art/ui/out/logoArrowOut@3x.png",
+   "ref": {
+    "shot": "research/shots/049-L036-end.png",
+    "box_pt": [
+     44,
+     292,
+     350,
+     528
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "OWNER 02:33: the name is 'Arrow Out'. Brand asset (not translated). Never trace their lettering: letterforms from our OFL display font (PCDisplay-Black) inflated + our bevel; decide SVG layered bevel vs 3D extruded glyphs on its sheet"
+  },
+  {
+   "id": "statFirstTryIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "red/white target with an arrow (General Stats: First Try Wins)",
+   "screen": "Profile",
+   "size_pt": [
+    34,
+    34
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:statFirstTryIcon",
+   "file": "art/ui/out/statFirstTryIcon@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 70.0,
+    "box_pt": [
+     110,
+     368,
+     144,
+     402
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "size_px": [
+    102,
+    102
+   ]
+  },
+  {
+   "id": "statWeeklyWinsIcon",
+   "family": "svg",
+   "route": "B2",
+   "group": "profile-shop-settings",
+   "purpose": "gold medal on a ribbon with '1' (General Stats: Weekly Contest Wins)",
+   "screen": "Profile",
+   "size_pt": [
+    30,
+    38
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:statWeeklyWinsIcon",
+   "file": "art/ui/out/statWeeklyWinsIcon@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 70.0,
+    "box_pt": [
+     248,
+     368,
+     278,
+     406
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "",
+   "size_px": [
+    90,
+    114
+   ]
+  }
+ ]
+}

@@ -1,0 +1,975 @@
+{
+ "version": 1,
+ "title": "characters lane entries (scratch manifest for art_batch / manifest_sheets / manifest_check --manifest; the art director merges these into art/MANIFEST.json)",
+ "entries": [
+  {
+   "id": "scientist",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "top monster: furry scientist in a lab coat at the console -- PINK recolour",
+   "screen": "home",
+   "size_pt": [
+    190,
+    164
+   ],
+   "size_px": [
+    570,
+    492
+   ],
+   "source": "art/pipeline/items/char_scientist.py:sci_home",
+   "file": "art/out/char_sci_home_rig",
+   "ref": {
+    "shot": "research/shots/002-home-L32.png",
+    "box_pt": [
+     104,
+     168,
+     300,
+     340
+    ],
+    "anchor_pt": [
+     204.23,
+     258.52
+    ],
+    "note": "002 (the manifest's 026 is a different animation frame: head 49 px lower)"
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Rig (8 layers, baked, proof 0.115/255): torso, armL, armR|armR_point, headSmile|headOpen, lidsHalf/lidsClosed overlays; placement rig.json placement_pt (109.23, 176.52) by the eye whites (v6 2026-09-25: body narrowed 0.80 + shifted under the head, head roll 8 / yaw -6, eye bias 10 px; coat rows now within ~5-15 px of 002's). OWNER 02:33: the original's design, PINK.",
+   "rig": true,
+   "anchor_pt": [
+    95,
+    82
+   ]
+  },
+  {
+   "id": "workerWalkie",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker: yellow capsule -> BLUE, navy cap, walkie-talkie, wrench on the belt",
+   "screen": "home left",
+   "size_pt": [
+    150,
+    132
+   ],
+   "size_px": [
+    450,
+    396
+   ],
+   "source": "art/pipeline/items/char_worker.py:wk_homeL_blue",
+   "file": "art/out/char_wk_homeL_blue_rig",
+   "ref": {
+    "shot": "research/shots/035-home-L34.png",
+    "box_pt": [
+     0,
+     470,
+     175,
+     630
+    ],
+    "anchor_pt": [
+     93.04,
+     549.66
+    ],
+    "note": "phone rest frame (002 is mid-animation)"
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Rig (9 layers, baked, proof 0.076/255): body_smile|body_open, eyes_open|half|closed|wink, armL|armL_wave, armR (+ walkie); placement (18.04, 483.66) = feet anchor (85.74, 606.18) pt. r3: NEW members eyes_wink (SPEC-motion-audio \u00a715.4 UI-ART request: the screen-right eye closed) and armL_wave (the free arm raised, open hand, for the \u00a78.2 wave); every existing layer re-exported pixel-identical (max |d| 0). BLUE + warm rim.",
+   "rig": true,
+   "anchor_pt": [
+    75,
+    66
+   ]
+  },
+  {
+   "id": "workerClipboard",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker: green cap, big glasses, clipboard + pen (BLUE body)",
+   "screen": "home right",
+   "size_pt": [
+    150,
+    132
+   ],
+   "size_px": [
+    450,
+    396
+   ],
+   "source": "art/pipeline/items/char_worker.py:wk_homeR_blue",
+   "file": "art/out/char_wk_homeR_blue_rig",
+   "ref": {
+    "shot": "research/shots/035-home-L34.png",
+    "box_pt": [
+     225,
+     470,
+     393,
+     630
+    ],
+    "anchor_pt": [
+     319.93,
+     549.33
+    ],
+    "note": "phone rest frame"
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Rig (8 layers, baked 0.177/255): body_smile|body_open, eyes_half|open|closed, glasses, armL (+ clipboard), armR (+ pencil); placement (244.93, 483.33) = feet anchor (318.60, 605.85) pt. BLUE + warm rim.",
+   "rig": true,
+   "anchor_pt": [
+    75,
+    66
+   ]
+  },
+  {
+   "id": "scientistLoading",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "scientist holding a big glossy arrow (loading / splash pose)",
+   "screen": "loading",
+   "size_pt": [
+    318,
+    306
+   ],
+   "size_px": [
+    954,
+    918
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_scientistLoading",
+   "file": "art/out/char_scientistLoading@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     30,
+     220,
+     370,
+     540
+    ],
+    "anchor_pt": [
+     208.66,
+     377.34
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "r3 (2026-09-25, characters lane): rebuilt as the 'load' pose + style on store 8 / V1 measured about the eye line (90 pt/u): squat WIDE torso (x 1.05 / y 0.90) whose shoulders rise to the cheeks, centred right of the face; the fist a clenched ball beside the mouth (forearm from a rolled cuff); the other mitt gripping an orange (up-left) + red (left) arrow at the right side; the far leg kicked back; head turned 16 deg left with a taller, fuller dome (skin rows within ~5 pt of theirs), raised thinner brows, a CRESCENT smile with a small two-tooth band (16 x 5 pt vs their 19 x 5), fur ladder lifted (median S 0.67 V 0.81 vs theirs 0.67 / 0.82; hue kept PINK); camera pitch +5 (seen from a little above like store 8). Layout (49.66, 224.34) by the eye whites (target biased 3.5 pt left / 3 pt down). Left: the mouth still reads a little more open than theirs; no notched lapel.",
+   "anchor_pt": [
+    159.0,
+    153.0
+   ]
+  },
+  {
+   "id": "workerCarrier",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "worker carrying a cardboard box (loading screen, foreground)",
+   "screen": "loading",
+   "size_pt": [
+    236,
+    400
+   ],
+   "size_px": [
+    708,
+    1200
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_workerCarrier",
+   "file": "art/out/char_workerCarrier@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     360,
+     250,
+     770
+    ],
+    "anchor_pt": [
+     139.12,
+     563.5
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "r3: full bean (girth 0.97, tall 1.13, belt lowered to 0.48) turned 16 deg to screen LEFT, arms nearly vertical to the box's lower corners (gloves on its front edge), SHORT CHUNKY legs with big round shoe feet (new char_worker.leg_chunky; the near foot toe-on under the belly, the far foot kicked back-left), a tall laughing D mouth with a short tooth band, eye whites matched to store 8 within ~2 pt (eyeMid anchor +0.075 u to the visible whites). Layout (21.12, 363.5). BLUE.",
+   "anchor_pt": [
+    118.0,
+    200.0
+   ]
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "worker flying in with a big red arrow held overhead (loading screen, top right)",
+   "status": "done",
+   "source": "art/pipeline/items/char_loading.py:char_workerFlyer",
+   "file": "art/out/char_workerFlyer@3x.png",
+   "size_pt": [
+    170,
+    220
+   ],
+   "anchor_pt": [
+    85,
+    110
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     180,
+     70,
+     360,
+     300
+    ],
+    "anchor_pt": [
+     274.93,
+     190.2
+    ]
+   },
+   "notes": "NEW id (was char_ld_flyer). Layout (189.93, 80.2); frame 170 x 220 (v1 150 x 204 clipped the feet + the small arrow). BLUE.",
+   "size_px": [
+    510,
+    660
+   ],
+   "id": "workerFlyer"
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "worker in a green cap + big glasses running, fist up, notebook under the arm (loading screen, right)",
+   "status": "done",
+   "source": "art/pipeline/items/char_loading.py:char_workerFist",
+   "file": "art/out/char_workerFist@3x.png",
+   "size_pt": [
+    236,
+    236
+   ],
+   "anchor_pt": [
+    118.0,
+    118.0
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     170,
+     420,
+     393,
+     650
+    ],
+    "anchor_pt": [
+     279.14,
+     541.94
+    ]
+   },
+   "notes": "r3: ~20 % bigger (79 pt/u, frame 208 x 212 -> 236 x 236), rounder bean (girth 1.14), bigger square glasses, the flexed fist below-left of the glasses (thick arm, hand r 0.18), a SPIRAL NOTEBOOK (brown cover, cream pages, lilac rings) held at his right side, a wide grin without teeth, chunky running legs with shoe feet. Layout (161.14, 423.94). BLUE.",
+   "size_px": [
+    708,
+    708
+   ],
+   "id": "workerFist"
+  },
+  {
+   "id": "workerRunners",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "small running workers with arrows/boxes (loading screen background)",
+   "screen": "loading",
+   "size_pt": [
+    156,
+    200
+   ],
+   "size_px": [
+    468,
+    600
+   ],
+   "source": "art/pipeline/items/char_loading.py:char_workerRunners",
+   "file": "art/out/char_workerRunners@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     280,
+     340,
+     393,
+     520
+    ],
+    "anchor_pt": [
+     340,
+     435
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "r3: the right crowd at store 8's sizes/spots (38 pt/u; frame 112 x 164 -> 156 x 200 at (262, 335), z -1): top-hat worker (fist out + wave) at eyes (333, 388) x 0.80, the waver (both arms up) at (369, 401) x 0.74, the burger eater in front at (357, 438) x 1.25 (no floating brows, burger lower at a bigger mouth); chunky running legs; lightly softened (1.1 px blur + 12 % room haze; r2's 2.2 px + 36 % read as pale ghosts).",
+   "anchor_pt": [
+    78,
+    100
+   ]
+  },
+  {
+   "id": "workerClawPair",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "two workers cheering inside the claw machine (Claw header)",
+   "screen": "Claw Challenge",
+   "size_pt": [
+    360,
+    170
+   ],
+   "size_px": [
+    1080,
+    510
+   ],
+   "source": "art/pipeline/items/char_events.py:char_workerClawPair",
+   "file": "art/out/char_workerClawPair@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     20,
+     30,
+     380,
+     200
+    ],
+    "anchor_pt": [
+     200,
+     115
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Composited by scene clawHeaderArt centred at (200, 115) pt behind its claw + prizes (rebuild clawHeaderArt). Frame 360 x 170 (x 20..380, y 30..200 on the header); the bodies are cut at the frame bottom BY DESIGN (under the prize heap) -> full_bleed. LEFT navy cap, laugh, fist pumped + joystick; RIGHT green cap + glasses, hands up. BLUE.",
+   "full_bleed": true,
+   "anchor_pt": [
+    180,
+    85
+   ]
+  },
+  {
+   "id": "workerRacers",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "purpose": "workers riding sleds down a pink race track (Streak Race header)",
+   "screen": "Streak Race",
+   "size_pt": [
+    393,
+    290
+   ],
+   "size_px": [
+    1179,
+    870
+   ],
+   "source": "art/pipeline/items/char_events.py:char_workerRacers",
+   "file": "art/out/char_workerRacers@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-045-streak-race-badge.png",
+    "box_pt": [
+     0,
+     0,
+     393,
+     290
+    ],
+    "note": "phone v552 (the manifest's store 6 is older)"
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "The whole Streak Race header art (no scene entry exists): our pink spiral slide (premeshed sweep along a path traced on meta-045) + 4 BLUE riders on cyan sleds + a painted, defocused room (pipes, lamps, cream machine, crates, floor tiles, checkered banner). The logo plate / chips are UI on top.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarDefault",
+   "family": "svg",
+   "route": "B2",
+   "group": "avatars",
+   "purpose": "default avatar: grey-blue silhouette on a grey tile (the player's until they pick one)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/src/characters/gen_avatars.py:avatarDefault",
+   "file": "art/ui/out/avatarDefault@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     338.6,
+     147.1,
+     418.7
+    ],
+    "note": "cell 1 (the green frame + check = UI)"
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Grey-blue silhouette (#637F93) on #86A3AE, measured on meta-003 cell 1; full bleed, the frame covers the edges.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarWalkie",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a small navy cap waving, open laugh, wrench + pouch (green -> yellow plate)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarWalkie",
+   "file": "art/out/char_avatarWalkie@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     338.6,
+     236.2,
+     418.7
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 2); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Id kept; v552 cell 2 shows no walkie.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarCapGlasses",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a green cap + big glasses (pink tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarCapGlasses",
+   "file": "art/out/char_avatarCapGlasses@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     338.6,
+     327.2,
+     418.7
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 3); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarDetective",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a deerstalker with a moustache and trench coat, hand on chin (pink tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarDetective",
+   "file": "art/out/char_avatarDetective@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     427.4,
+     147.1,
+     507.5
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 4); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "owner": "characters",
+   "size_pt": [
+    64,
+    64
+   ],
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "purpose": "avatar: worker biting a burger held in gloved hands (orange-red plate)",
+   "status": "done",
+   "source": "art/pipeline/items/char_avatars.py:char_avatarBurger",
+   "file": "art/out/char_avatarBurger@3x.png",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     427.4,
+     236.2,
+     507.5
+    ]
+   },
+   "notes": "NEW id. Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 5); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "size_px": [
+    192,
+    192
+   ],
+   "id": "avatarBurger"
+  },
+  {
+   "id": "avatarScientist",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: the PINK scientist, open smile, lab coat (VIOLET plate)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarScientist",
+   "file": "art/out/char_avatarScientist@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     427.4,
+     327.2,
+     507.5
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 6); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Plate VIOLET, not their pink: our scientist is pink (deliberate).",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarParty",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker in a party hat + pink glasses, wrench (purple tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarParty",
+   "file": "art/out/char_avatarParty@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     67.4,
+     514.4,
+     147.1,
+     594.5
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 7); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true
+  },
+  {
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "owner": "characters",
+   "size_pt": [
+    64,
+    64
+   ],
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "purpose": "avatar: worker in a green cap + big glasses, fist up, notebook at his side (SUNNY yellow plate)",
+   "status": "done",
+   "source": "art/pipeline/items/char_avatars.py:char_avatarNotebook",
+   "file": "art/out/char_avatarNotebook@3x.png",
+   "full_bleed": true,
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     156.5,
+     514.4,
+     236.2,
+     594.5
+    ]
+   },
+   "notes": "NEW id. Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 8); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt. Plate SUNNY yellow, not their sky blue: our blue worker vanished on it (deliberate).",
+   "size_px": [
+    192,
+    192
+   ],
+   "id": "avatarNotebook"
+  },
+  {
+   "id": "avatarBoxHead",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "avatar: worker holding a cardboard box on its head (green tile)",
+   "screen": "profile, leaderboards, races, Sky Jump fans, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/pipeline/items/char_avatars.py:char_avatarBoxHead",
+   "file": "art/out/char_avatarBoxHead@3x.png",
+   "ref": {
+    "shot": "research/shots/meta-003-profile-edit.png",
+    "box_pt": [
+     247.5,
+     514.4,
+     327.2,
+     594.5
+    ]
+   },
+   "status": "done",
+   "owner": "characters",
+   "notes": "Phone v552 Edit Profile set (meta-003 3 x 3 grid, cell 9); our BLUE worker / PINK scientist in their pose, on the cell's plate colour (sampled). 64 x 64 pt full bleed: the UI frame (avatarFrame, green = the player) covers ~4.5 pt of each edge, the visible interior is the central 55 pt.",
+   "full_bleed": true
+  },
+  {
+   "id": "avatarGreen",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: green arrow-shaped character, big grin (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarGreen@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     357,
+     238,
+     441
+    ],
+    "note": "Edit Profile grid cell 2"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarRed",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: red arrow-shaped character with sunglasses pushed up (teal tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarRed@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     357,
+     335,
+     441
+    ],
+    "note": "Edit Profile grid cell 3"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarCap",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: orange arrow-shaped character in a black star cap, winking, thumbs up (purple tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarCap@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     57,
+     451,
+     141,
+     535
+    ],
+    "note": "Edit Profile grid cell 4"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarBlue",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: blue arrow-shaped character, surprised (red-pink tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarBlue@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     451,
+     238,
+     535
+    ],
+    "note": "Edit Profile grid cell 5"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarPoint",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: orange arrow-shaped character pointing, smirk (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarPoint@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     451,
+     335,
+     535
+    ],
+    "note": "Edit Profile grid cell 6"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarSpecs",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: yellow arrow-shaped character in round glasses (blue tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarSpecs@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     57,
+     544,
+     141,
+     628
+    ],
+    "note": "Edit Profile grid cell 7"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarShades",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: yellow arrow character in a party hat + confetti sunglasses, tongue out (magenta tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarShades@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     154,
+     544,
+     238,
+     628
+    ],
+    "note": "Edit Profile grid cell 8"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "avatarPink",
+   "family": "3d",
+   "route": "C1",
+   "group": "avatars",
+   "purpose": "profile avatar: pink arrow-shaped character, winking (green tile)",
+   "screen": "profile, leaderboards, races, top bar",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": null,
+   "file": "art/out/char_avatarPink@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 60.0,
+    "box_pt": [
+     251,
+     544,
+     335,
+     628
+    ],
+    "note": "Edit Profile grid cell 9"
+   },
+   "status": "todo",
+   "owner": "characters",
+   "notes": "NOT SHIPPED (SPEC \u00a75.12: the older arrow-character set is not shipped; the phone v552 set is avatarDefault + the 8 portraits). Characters lane did not build it; the art director may drop the entry.",
+   "confirmed": false
+  },
+  {
+   "id": "workerCrowdLeft",
+   "family": "3d",
+   "route": "C1",
+   "group": "characters",
+   "owner": "characters",
+   "screen": "loading",
+   "purpose": "loading background, left edge: a worker holding a clipboard + two small workers seen from behind on the conveyor (P1)",
+   "status": "done",
+   "source": "art/pipeline/items/char_loading.py:char_workerCrowdLeft",
+   "file": "art/out/char_workerCrowdLeft@3x.png",
+   "size_pt": [
+    124,
+    106
+   ],
+   "size_px": [
+    372,
+    318
+   ],
+   "anchor_pt": [
+    62,
+    53
+   ],
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 0.0,
+    "box_pt": [
+     0,
+     440,
+     110,
+     545
+    ],
+    "anchor_pt": [
+     32,
+     489
+    ]
+   },
+   "notes": "NEW id r3 (P1; the review's missing 'left conveyor pair'): navy-cap worker with a clipboard at the screen edge (eyes (4, 479) pt) + two ~0.56-scale workers from behind (one pointing) where store 8's conveyor is; defocused (1.8 px + 16 % haze). Layout z -2 at (-30, 436) in char_loading_layout.json. The conveyor platform itself is the scene lane's (loadingBackdrop). BLUE."
+  }
+ ]
+}

@@ -1,0 +1,327 @@
+{
+ "version": 1,
+ "title": "R3 HOME lane entries (D1 home scene, signpost centrepiece, event badges as layers, nav icons; scratch manifest for manifest_check --lanes; the art director merges them into art/MANIFEST.json; the ids they replace are in each entry's notes and in art/lanes/home.handoff.json)",
+ "entries": [
+  {
+   "id": "homeWorkshop",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the home's back wall + floor (D1: teal plank wall under a bolted header beam, copper pipes + brass valve / portholes, timber ledge, stone courses, timber deck beam + rope rails, honey plank wainscot, stone plinth, packed earth)",
+   "screen": "home",
+   "size_pt": [
+    393,
+    852
+   ],
+   "size_px": [
+    1179,
+    2556
+   ],
+   "source": "art/ui/recipes/scene_home_d1.py:homeWorkshop",
+   "file": "art/out/homeWorkshop@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homeBackdrop at A4's mapping step (art/lanes/home.handoff.json).",
+   "full_bleed": true
+  },
+  {
+   "id": "homeScaffold",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the boss's station: R2's timber scaffold rail + brass lever (char_bossStation, the rig camera), rail ends rounded, posts carried down onto the deck beam; drawn between the boss's torso/head and his arms",
+   "screen": "home",
+   "size_pt": [
+    191,
+    192
+   ],
+   "size_px": [
+    573,
+    576
+   ],
+   "source": "art/ui/recipes/scene_home_d1.py:homeScaffold",
+   "file": "art/out/homeScaffold@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homeConsole at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "homeFloor",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the round plank work-pad in an iron hoop on the packed-earth floor (carries the Play frame; the Diggers' contact shadows baked)",
+   "screen": "home",
+   "size_pt": [
+    393,
+    182
+   ],
+   "size_px": [
+    1179,
+    546
+   ],
+   "source": "art/ui/recipes/scene_home_d1.py:homeFloor",
+   "file": "art/out/homeFloor@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homePlatform at A4's mapping step (art/lanes/home.handoff.json).",
+   "full_bleed": true
+  },
+  {
+   "id": "homeCabinet",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the timber cabinet (today's machine silhouette): brass bezel + rivets, brass corner plates, dark timber inner walls, a deep-teal planked back wall, the LEVEL plate recess; the signpost stands inside",
+   "screen": "home",
+   "size_pt": [
+    206,
+    215
+   ],
+   "size_px": [
+    618,
+    645
+   ],
+   "source": "art/ui/recipes/scene_home_d1.py:homeCabinet",
+   "file": "art/out/homeCabinet@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homeCapsuleMachine at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "homeSignpost",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the centrepiece (owner item 4), full render: a carved post, five painted arrow boards each on its own iron bracket, a lantern on the post's hook (no two arrows can touch)",
+   "screen": "home",
+   "size_pt": [
+    190,
+    128
+   ],
+   "size_px": [
+    570,
+    384
+   ],
+   "source": "art/pipeline/items/char_home_signpost.py:home_signpost",
+   "file": "art/out/homeSignpost@3x.png",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homeArrowPileFull at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "homeSignpostLayers",
+   "family": "3d",
+   "route": "C1",
+   "group": "home",
+   "purpose": "the centrepiece as layers (base, lantern, board1..5; pivots hinge / hook): idle sway + the refill flip-in",
+   "screen": "home",
+   "size_pt": [
+    190,
+    128
+   ],
+   "size_px": [
+    570,
+    384
+   ],
+   "source": "art/pipeline/items/char_home_signpost.py:home_signpost",
+   "file": "art/out/home_signpost_rig",
+   "status": "done",
+   "owner": "scene",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces homeArrowPileHalf + homeArrowPileLow (+ the refill's arrowGlossy drop sprites in HomeScene) at A4's mapping step (art/lanes/home.handoff.json). Rig 7 layers ['base', 'lantern', 'board1', 'board2', 'board3', 'board4', 'board5']; proof {'mean_abs': 0.038, 'pct_gt40': 0.026}.",
+   "rig": true
+  },
+  {
+   "id": "badgeHotStreak",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Hot Streak home badge (full render): brass-rimmed teal medallion, crossed timber poles with tangerine / coral pennants (flame mark), timber drum with the teal text band",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badgeHotStreak",
+   "file": "art/out/badgeHotStreak@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces eventBadgeStreak at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "badgeRocketRally",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Rocket Rally home badge (full render): a teal riveted rocket, tangerine nose + fins, a brass porthole (live rank)",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badgeRocketRally",
+   "file": "art/out/badgeRocketRally@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces eventBadgeRocket at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "badgeCloudHop",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Cloud Hop home badge (full render): a bounce drum (tangerine hide top, teal laced shell, brass tag for the live count) on cream clouds",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badgeCloudHop",
+   "file": "art/out/badgeCloudHop@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces eventBadgeSkyJump at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "badgeHotStreakLayers",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Hot Streak badge as layers: body, pennantL, pennantR (pivots `pole`): the flutter",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badge_hotstreak",
+   "file": "art/out/badge_hotstreak_rig",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Layered companion of the full render (A4: PuppetStage-style loops). Rig 3 layers ['body', 'pennantL', 'pennantR']; proof {'mean_abs': 0.131, 'pct_gt40': 0.002}.",
+   "rig": true
+  },
+  {
+   "id": "badgeRocketRallyLayers",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Rocket Rally badge as layers: body, exhaustA / exhaustB (painted flicker overlays), rocket: the lift-off",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badge_rocketrally",
+   "file": "art/out/badge_rocketrally_rig",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Layered companion of the full render (A4: PuppetStage-style loops). Rig 4 layers ['body', 'exhaustA', 'exhaustB', 'rocket']; proof {'mean_abs': 0.134, 'pct_gt40': 0.048}.",
+   "rig": true
+  },
+  {
+   "id": "badgeCloudHopLayers",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "Cloud Hop badge as layers: body, drum, clouds: the hop + cloud bob",
+   "screen": "home",
+   "size_pt": [
+    80,
+    84
+   ],
+   "size_px": [
+    240,
+    252
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:badge_cloudhop",
+   "file": "art/out/badge_cloudhop_rig",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Layered companion of the full render (A4: PuppetStage-style loops). Rig 3 layers ['body', 'drum', 'clouds']; proof {'mean_abs': 0.272, 'pct_gt40': 0.21}.",
+   "rig": true
+  },
+  {
+   "id": "navCart",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "bottom-nav Shop: a tangerine mine cart on iron wheels heaped with star coins",
+   "screen": "home",
+   "size_pt": [
+    62,
+    62
+   ],
+   "size_px": [
+    186,
+    186
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:navCart",
+   "file": "art/ui/out/navCart@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces navShop at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "navLodge",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "bottom-nav Home (raised tab): a plank lodge, steep teal shingle roof, round tangerine door, brass-capped chimney",
+   "screen": "home",
+   "size_pt": [
+    80,
+    86
+   ],
+   "size_px": [
+    240,
+    258
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:navLodge",
+   "file": "art/ui/out/navLodge@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces navHome at A4's mapping step (art/lanes/home.handoff.json)."
+  },
+  {
+   "id": "navCup",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "bottom-nav Leaderboard (+ the Weekly header icon): a gold cup with a teal star emblem on a timber plinth",
+   "screen": "home",
+   "size_pt": [
+    68,
+    62
+   ],
+   "size_px": [
+    204,
+    186
+   ],
+   "source": "art/ui/recipes/3d-home_d1.py:navCup",
+   "file": "art/ui/out/navCup@3x.png",
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "R3 HOME (D1, ruling 46: today's composition, restyled). Replaces navTrophy at A4's mapping step (art/lanes/home.handoff.json)."
+  }
+ ]
+}

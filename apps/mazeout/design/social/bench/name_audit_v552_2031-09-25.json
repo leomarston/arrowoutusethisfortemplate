@@ -1,0 +1,81 @@
+{
+ "model": "v552",
+ "until": "2031-09-25",
+ "players": 4875040,
+ "cohorts": 33111,
+ "rule": "drawn: 0 blocked, 0 > 16, repeats at the phone rate",
+ "verdict": "PASS",
+ "fnv_duplicates": 1971688,
+ "distinct_names": 2903352,
+ "max_same_name": 5753,
+ "board_like_players": 2513524,
+ "board_like_pair_rate": 7.18e-05,
+ "phone_pair_rate": "1/1721 (95 % CI 1.5e-5 .. 3.2e-3)",
+ "most_common_first_names": [
+  [
+   "james",
+   5753
+  ],
+  [
+   "john",
+   3593
+  ],
+  [
+   "david",
+   3218
+  ],
+  [
+   "robert",
+   3189
+  ],
+  [
+   "william",
+   3062
+  ],
+  [
+   "christopher",
+   2995
+  ],
+  [
+   "joseph",
+   2851
+  ],
+  [
+   "mary",
+   2850
+  ],
+  [
+   "richard",
+   2832
+  ],
+  [
+   "daniel",
+   2788
+  ],
+  [
+   "brian",
+   2756
+  ],
+  [
+   "jennifer",
+   2733
+  ]
+ ],
+ "blocked_shown": 0,
+ "blocked_sha1": [],
+ "longer_than_16": 0,
+ "styles": {
+  "default": 2597709,
+  "given": 544094,
+  "mixed": 427052,
+  "invented": 816082,
+  "compound": 312478,
+  "initials": 11272,
+  "leet": 67900,
+  "underscore": 11330,
+  "caps": 45212,
+  "fallback": 19355,
+  "word": 22556
+ },
+ "seconds": 247.3
+}

@@ -1,0 +1,385 @@
+{
+ "_source": "design/SPEC-gameplay.md \u00a715 rules.json block, verbatim (C3 decodes economy/lives/streak/claw/shop)",
+ "boosters": {
+  "actions": {
+   "freeze": "freezeTimer",
+   "hint": "hint"
+  },
+  "freezeFlight": 1.5,
+  "freezeRunsBeforeStart": false,
+  "freezeSeconds": 10,
+  "hintUnits": 1
+ },
+ "box": {
+  "countAt": "tap"
+ },
+ "bump": {
+  "repeatOnMarkedCostsHeart": false,
+  "startsTimer": true
+ },
+ "claw": {
+  "ladder": [
+   {
+    "grant": {
+     "unlimitedLives": 1800
+    },
+    "threshold": 1
+   },
+   {
+    "grant": {
+     "coins": 100
+    },
+    "threshold": 200
+   },
+   {
+    "grant": {
+     "unlimitedLives": 1800
+    },
+    "threshold": 300
+   },
+   {
+    "grant": {
+     "coins": 200
+    },
+    "threshold": 400
+   },
+   {
+    "grant": {
+     "unlimitedLives": 3600
+    },
+    "threshold": 300
+   },
+   {
+    "grant": {
+     "boosters": {
+      "hint": 1
+     }
+    },
+    "threshold": 500
+   },
+   {
+    "grant": {
+     "coins": 300
+    },
+    "threshold": 500
+   },
+   {
+    "grant": {
+     "unlimitedLives": 7200
+    },
+    "threshold": 600
+   },
+   {
+    "grant": {
+     "coins": 400
+    },
+    "threshold": 600
+   },
+   {
+    "grant": {
+     "unlimitedLives": 10800
+    },
+    "threshold": 700
+   },
+   {
+    "grant": {
+     "boosters": {
+      "freeze": 2
+     }
+    },
+    "threshold": 700
+   },
+   {
+    "grant": {
+     "unlimitedLives": 14400
+    },
+    "threshold": 800
+   },
+   {
+    "grant": {
+     "boosters": {
+      "hint": 2
+     }
+    },
+    "threshold": 800
+   },
+   {
+    "grant": {
+     "coins": 2000
+    },
+    "threshold": 1000
+   },
+   {
+    "grant": {
+     "unlimitedLives": 18000
+    },
+    "threshold": 900
+   },
+   {
+    "grant": {
+     "coins": 500
+    },
+    "threshold": 1000
+   },
+   {
+    "grant": {
+     "boosters": {
+      "hint": 1
+     }
+    },
+    "threshold": 1000
+   },
+   {
+    "grant": {
+     "coins": 600
+    },
+    "threshold": 1100
+   },
+   {
+    "grant": {
+     "unlimitedLives": 21600
+    },
+    "threshold": 1200
+   },
+   {
+    "grant": {
+     "coins": 10000
+    },
+    "threshold": 1500
+   }
+  ],
+  "period": "week"
+ },
+ "clock": {
+  "alerts": [],
+  "emptyTapStartsTimer": false
+ },
+ "economy": {
+  "boosterPack": {
+   "count": 3,
+   "price": 900
+  },
+  "startBoosters": {
+   "freeze": 3,
+   "hint": 3
+  },
+  "startCoins": 1000
+ },
+ "elevator": {
+  "emptyCellsBlock": false
+ },
+ "failChain": {
+  "outOfHearts": [
+   {
+    "amount": 3,
+    "grant": "refillHearts",
+    "price": 900,
+    "warning": "none"
+   },
+   {
+    "amount": 3,
+    "grant": "refillHearts",
+    "onlyWithStreak": true,
+    "price": 900,
+    "warning": "token"
+   },
+   {
+    "amount": 3,
+    "grant": "refillHearts",
+    "price": 900,
+    "warning": "life"
+   }
+  ],
+  "outOfTime": [
+   {
+    "amount": 30,
+    "grant": "addTime",
+    "price": 900,
+    "warning": "none"
+   },
+   {
+    "amount": 30,
+    "grant": "addTime",
+    "onlyWithStreak": true,
+    "price": 900,
+    "warning": "token"
+   },
+   {
+    "amount": 30,
+    "grant": "addTime",
+    "price": 900,
+    "warning": "life"
+   }
+  ]
+ },
+ "hit": {
+  "radiusPt": 22,
+  "tieBreak": "rightThenDown"
+ },
+ "lives": {
+  "killIsLoss": true,
+  "max": 5,
+  "refillPrice": 900,
+  "refillSeconds": 1800
+ },
+ "pipe": {
+  "bumpConsumes": false,
+  "countAt": "leave",
+  "maxHops": 16,
+  "missingCounterIsUnlimited": true
+ },
+ "rewards": {
+  "hard": 60,
+  "normal": 20,
+  "session": {
+   "L1-4": 80
+  },
+  "superHard": 100
+ },
+ "shop": {
+  "products": [
+   {
+    "badge": "STARTER",
+    "grant": {
+     "boosters": {
+      "freeze": 1,
+      "hint": 1
+     },
+     "coins": 1000,
+     "unlimitedLives": 3600
+    },
+    "id": "offer.special",
+    "try": 49.99,
+    "usd": 0.99
+   },
+   {
+    "grant": {
+     "boosters": {
+      "freeze": 1,
+      "hint": 1
+     },
+     "coins": 2000,
+     "unlimitedLives": 10800
+    },
+    "id": "bundle.mini",
+    "try": 249.99,
+    "usd": 4.99
+   },
+   {
+    "grant": {
+     "boosters": {
+      "freeze": 3,
+      "hint": 3
+     },
+     "coins": 4000,
+     "unlimitedLives": 21600
+    },
+    "id": "bundle.epic",
+    "try": 499.99,
+    "usd": 9.99
+   },
+   {
+    "badge": "Popular",
+    "grant": {
+     "boosters": {
+      "freeze": 8,
+      "hint": 8
+     },
+     "coins": 8000,
+     "unlimitedLives": 43200
+    },
+    "id": "bundle.elite",
+    "try": 999.99,
+    "usd": 19.99
+   },
+   {
+    "grant": {
+     "boosters": {
+      "freeze": 18,
+      "hint": 18
+     },
+     "coins": 20000,
+     "unlimitedLives": 129600
+    },
+    "id": "bundle.mega",
+    "try": 2499.99,
+    "usd": 49.99
+   },
+   {
+    "badge": "Best Value",
+    "grant": {
+     "boosters": {
+      "freeze": 36,
+      "hint": 36
+     },
+     "coins": 60000,
+     "unlimitedLives": 259200
+    },
+    "id": "bundle.legendary",
+    "try": 4999.99,
+    "usd": 99.99
+   },
+   {
+    "grant": {
+     "coins": 1000
+    },
+    "id": "coins.1000",
+    "try": 99.99,
+    "usd": 1.99
+   },
+   {
+    "grant": {
+     "coins": 5000
+    },
+    "id": "coins.5000",
+    "try": 399.99,
+    "usd": 7.99
+   },
+   {
+    "grant": {
+     "coins": 10000
+    },
+    "id": "coins.10000",
+    "try": 799.99,
+    "usd": 14.99
+   },
+   {
+    "grant": {
+     "coins": 25000
+    },
+    "id": "coins.25000",
+    "try": 1499.99,
+    "usd": 29.99
+   },
+   {
+    "grant": {
+     "coins": 50000
+    },
+    "id": "coins.50000",
+    "try": 2999.99,
+    "usd": 54.99
+   },
+   {
+    "grant": {
+     "coins": 100000
+    },
+    "id": "coins.100000",
+    "try": 4999.99,
+    "usd": 99.99
+   }
+  ],
+  "specialOfferOnce": true
+ },
+ "streak": {
+  "steps": [
+   1,
+   5,
+   10,
+   25,
+   100
+  ]
+ },
+ "tape": {
+  "blockedPolicy": "bundleBumps"
+ }
+}

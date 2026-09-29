@@ -1,0 +1,8 @@
+{
+ "_about": "App Store text for this locale (T3 STORE). Written to fastlane/metadata by tools/release/meta.py write; checked by meta.py audit. Keywords live in design/keywords.json, never here.",
+ "_research": "Vocabulary from the CN store (CN is NOT sold, ruling 38; zh-Hans is read in SG/MY and by zh users elsewhere): '箭头消除', '箭头游戏', '箭头解谜'. '箭头消消乐' avoided (an app name + the 消消乐 brand). Raw: build/p/T3/aso/hints-zh-Hans.json; keywords: design/publish/aso-evidence.json.",
+ "name": "Arrow Out: 箭头消除解谜游戏",
+ "subtitle": "点击箭头，与时间赛跑",
+ "promotional_text": "点击箭头，清空盘面，战胜时间！巧妙的障碍、每周更新的活动，而且没有广告。",
+ "description": "点击箭头，只要前方没有阻挡，它就会沿着自己的路线滑出盘面。在时间耗尽前清除所有箭头。\n\nArrow Out 是一款与时间赛跑的轻快解谜游戏。盘面形状千变万化，布满箭头，每个箭头只能朝它所指的方向移动。找出顺序，守住红心，战胜时间。\n\n■ 玩法\n• 点击箭头，它就会朝所指方向飞出。\n• 如果路线被挡住，箭头会弹回，你会失去一颗心。\n• 在时间耗尽前清空整个盘面，即可赢得金币。\n\n■ 上手容易，欲罢不能\n• 先有 150 个关卡，之后新盘面源源不断，永远玩不完。\n• “困难”和“超难”关卡奖励更多金币。\n• 新障碍逐个登场，每个都附带简短说明：相连的箭头、箱子、管道、电梯、门和钥匙、拐角。\n\n■ 关键时刻的道具\n• 一个道具可让计时器暂停 10 秒。\n• 另一个道具会提示一支可以移动的箭头。\n\n■ 每周都有新鲜事\n每周活动轮番登场：保持连胜、攀登奖励塔、发射火箭、在天空中跳跃，或乘坐热气球直达顶端。每周回来看看有什么新活动。\n\n■ 手感出色\n• 流畅的动画，每次点击都有清脆的触感反馈。\n• 无广告，无需注册账号。\n• 离线畅玩：游戏无需 Wi-Fi。\n• 生命会随时间恢复，随时都能再来一局。\n\n■ App 内购买\nArrow Out 可免费游玩。可选的 App 内购买提供金币包，以及包含金币、道具和数小时无限生命的礼包。购买前会以你所在地区的货币显示价格。\n\n隐私政策：https://leomarston.github.io/manycode-legal/privacy-arrow-out.html\n使用条款：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+}

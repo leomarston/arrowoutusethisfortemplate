@@ -1,0 +1,1 @@
+{"schema":1,"tutorials":[{"caption":"Tap to move!","dismiss":"anyTap","hand":{"arrow":1,"at":[0.89,1.06]},"holdTimer":false,"id":"tapToMove","level":1,"stage":0,"trigger":"stageReady"}]}

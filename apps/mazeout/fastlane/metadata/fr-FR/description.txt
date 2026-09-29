@@ -1,0 +1,32 @@
+Touchez une flèche : elle glisse hors du plateau en suivant sa trajectoire, à condition que rien ne lui barre la route. Videz le plateau avant la fin du chrono.
+
+Arrow Out est un casse-tête rapide et net, contre la montre. Les plateaux prennent toutes sortes de formes et regorgent de flèches, et chaque flèche ne peut aller que dans la direction qu'elle indique. Trouvez le bon ordre, gardez vos cœurs et battez la montre.
+
+COMMENT JOUER
+• Touchez une flèche pour la faire sortir dans sa direction.
+• Si quelque chose bloque son chemin, elle rebondit et vous perdez un cœur.
+• Videz tout le plateau avant la fin du temps pour gagner des pièces.
+
+FACILE À PRENDRE EN MAIN, DIFFICILE À LÂCHER
+• 150 niveaux pour commencer, puis de nouveaux plateaux arrivent sans cesse : vous n'en manquerez jamais.
+• Les niveaux Difficiles et Très difficiles rapportent plus de pièces.
+• Les obstacles arrivent un par un, chacun avec une courte présentation : flèches liées, caisses, tuyaux, ascenseurs, portes et clés, coins.
+
+DES BONUS POUR LES MOMENTS SERRÉS
+• Un bonus fige le chrono pendant 10 secondes.
+• Un autre vous montre une flèche qui peut bouger.
+
+DU NOUVEAU CHAQUE SEMAINE
+Des événements hebdomadaires vont et viennent : entretenez une série de victoires, gravissez une tour à récompenses, lancez une fusée, bondissez à travers le ciel ou montez en ballon jusqu'au sommet. Revenez chaque semaine pour découvrir le programme.
+
+AGRÉABLE EN MAIN
+• Des animations fluides et un retour haptique net à chaque toucher.
+• Pas de pub, pas de compte.
+• Jouez hors connexion : pas besoin de Wi-Fi pour jouer.
+• Les vies se rechargent avec le temps : il y a toujours une autre partie.
+
+ACHATS INTÉGRÉS
+Arrow Out est gratuit. Des achats intégrés facultatifs proposent des lots de pièces et des packs avec des pièces, des bonus et des heures de vies illimitées. Les prix sont affichés dans votre devise avant l'achat.
+
+Confidentialité : https://leomarston.github.io/manycode-legal/privacy-arrow-out.html
+Conditions d'utilisation : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

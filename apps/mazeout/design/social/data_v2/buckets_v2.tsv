@@ -1,0 +1,11 @@
+# buckets_v2.tsv — GENERATED (build_countries_v2.py): timezone band, the schedule offset (min) of its cohorts
+AMER_W	-480
+AMER_E	-300
+AMER_S	-180
+EUR_W	0
+EUR_C	60
+EUR_E	180
+ASIA_S	330
+ASIA_SE	480
+ASIA_E	540
+OCEANIA	720

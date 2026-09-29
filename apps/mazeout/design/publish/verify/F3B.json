@@ -1,0 +1,49 @@
+{
+ "wp": "F3-B",
+ "date": "2026-09-29",
+ "slot": "B (Maze B)",
+ "content_p0_check": {
+  "lvtool_check_40_errors": {
+   "what": "lvtool check (CONTENT's L1 gate) lacked two door rules that SPEC-gameplay §3.5 / SPEC.md ruling 26, C4's PathCore Validator and the reference design/tools/validate_levels.py already have: (1) an obstacle lying wholly inside a door is UNDER it and may share its cells (L59 = v552 L69: pipes p0/p1/p2 under d0/d1/d2 -> 38 'overlaps' errors; L99 = v552 L89: corner x0 under d0 -> 1); (2) a door-hidden arrow may poke out of its door where no ray reaches it (L58 = v552 L62: key arrow 49's 4-cell humps over d0's top frame -> 1 'sticks out'). The structural errors made check skip the solve of those 3 levels (greedy/driver 147/150).",
+   "verdict": "checker-rule gap (P2); boards = their design (bundle --check byte-equal) = the recorded v552 boards (LEVELS.md §2.5/§2.6)",
+   "fix": "tools/levels/lvtool/Sources/lvtool/Validate.swift: both rules ported (doors checked first; under-door obstacles may share only their host door's cells; NEW stricter checks: two obstacles under one door may not share a cell, an under-door obstacle may not share a cell with an arrow its door hides; stub cells must be unoccupied and unreachable by any other arrow's ray on C2's rules (stubReach: that door shut, other doors open, boxes broken, pipes/corners intact, each arrow alone))",
+   "after": "check 150/150: C2 greedy solved 150/150, HeadlessDriver won 150/150, 0 errors (L58 72 units 30 rounds 137.4 s left; L59 99/36 60.7 s; L99 99/36 91.2 s; 0 dead ends in 40 random orders on L59/L99; every pipe passed / door opened)",
+   "negative_controls": "lvtool selftest 22/22 (+5 new: L69 door narrowed so p0 half outside -> 'overlaps'; box under d0 on p0 -> 'both under d0'; box under d0 on a hidden arrow -> 'shares'; L62 arrow 23 reversed -> 'pokes out … arrow 23's ray can reach'; box on a stub cell -> 'onto an occupied cell') + 4/4 diff, twice"
+  },
+  "l2selftest_baseline": {
+   "was": "endless 5 / render 3 / consistency 128 findings (baseline must be 0): corners 'not shipped' (stale since ruling 26), unlocks without the Corner card (SPEC-gameplay §3.9), 43 designed-timer findings because the N-01 publish form drops `source` (every bundled level decoded as designed), 3 dedup stand-ins (L83/L86/L101) held to the template rule, social.json balloonRise (ruling 38) unpinned; + lvtool endless: 127 Hard/Super Hard timer failures (curve.timers.fromTemplate not honoured; identical on the B0 run of 09-28)",
+   "fix": "Endless.swift: corners render-checked for their facing sprites + one cell with a turn; timers = the template's recorded timer under fromTemplate. Consistency.swift: Corner card pinned (L70), provenance read from design/levels.json (--design), 6 stand-ins pinned to their phone slot's timer (ruling 28), balloonRise = the Claw's slot. SelftestL2: corner mutations retargeted + 6 new (stand-in timer, recorded read as designed, Balloon slot, template timer, bundle-vs-design timer, corner card title)",
+   "after": "baseline 0/0/0/0, l2selftest 40/40 CAUGHT (was 33/33 with a dirty baseline)"
+  },
+  "release_autoplay": {
+   "build": "Release, slot B, 12:21 (release-2, with the render fix)",
+   "L58": "won, 72 taps, 0 bumps, 147 s left",
+   "L59": "won, 99 taps, 0 bumps, 73 s left",
+   "L99": "won, 99 taps, 0 bumps, 104 s left",
+   "also_before_fix": "release-1: the same three wins, 0 bumps",
+   "logs": "build/p/F3B/autoplay/r2/L*-autoplay.log"
+  },
+  "render_defects_found_and_fixed": {
+   "L59_L99": "obstacles under a closed door were DRAWN ON TOP of it from the start (L59's 3 pipes with their counters across the shut doors, L99's corner spring over d0's corner); SPEC-gameplay §3.5: drawn only from the burst on. Fix App/Board/ObstacleSet.swift: hidden at build, shown on that door's .doorOpened.",
+   "L58": "the key arrow's humps over the bottom door's frame (VERIFIED v552 L62, 'show above the door frame at the start') were missing at the start and popped in ~1.2 s before the burst. Fix App/Board/StageTransition.swift + IntroBuildIn.swift: door stubs attached at load as preAttached (drawn, covered by the door inside it, not live until the burst).",
+   "tests": "Tests/BoardObstacleTests.swift +2 (testObstaclesUnderADoorAreDrawnOnlyFromItsBurst, testADoorStubIsDrawnFromTheLoadButInertUntilTheBurst): pass; both FAIL on the pre-fix board files (negative control 12:20, build/p/F3B/neg-board.log)",
+   "evidence": [
+    "design/publish/verify/F3B/L59-pipes-under-doors-before-after.png",
+    "design/publish/verify/F3B/L99-corner-under-door-before-after.png",
+    "design/publish/verify/F3B/L58-door-stub-humps-before-after.png",
+    "design/publish/verify/F3B/L59-after-bursts-pipes-shown.png"
+   ]
+  }
+ },
+ "bundle_hygiene": {
+  "strip": "tools/strip_bundle_json.py (NEW) called by tools/sync_art.sh right after the art rsync: removes note/notes/baked/proof/replaces, '_' keys and capture-provenance keys from every JSON in <app>/Art + <app>/UI; art/out keeps its notes. Release-1 (pre-strip) bundle: 77 such keys in 17 Art JSON (char_loading_layout.json 'replaces' named the retired reference-character ids); now 0. Runtime readers unaffected (PuppetRig / LoadingLayout keys kept; stripped == original minus the keys, 18/18 files; Loading screen renders all figures; unit ShellTests / UIArtBundleTests rig loads pass).",
+  "gate_7b": "tools/bench/release_gates.sh gate 7b: FAILS on any non-runtime key in Art/ + UI/ JSON or any 'replaces' / provenance key in any bundled JSON; App/Resources developer comments (Tuning/*.json, Levels/curve.json '_about') listed as WATCH (F3-A is stripping the Tuning ones; curve.json '_about' is B0's ruled exception). Planted control inside the gate: caught. Negative controls: the old unstripped Release -> FAIL (77 keys, build/p/F3B/gates/old-release-unstripped.txt); a copy of the new Release with one planted 'replaces' -> FAIL (release-1-negative-planted-replaces.txt).",
+  "release_gates": "release-2 (final): gates 1/2/3/7/7b all PASS, RESULT PASS (build/p/F3B/gates/release-2.txt)"
+ },
+ "tests": {
+  "content_tests.sh": "run2 + run3 on the final lvtool: all 12 steps PASS twice (bundle, bundle-python, check, validate, bot, consistency, endless 1000 0 failures, endless-python, l2selftest 40/40, strings x3)",
+  "lvtool_selftest": "22/22 + 4/4, twice",
+  "unit": "ArrowOutTests (ShellStoreKitTests skipped as in FIX-2) 249/250 twice; the one failure is F3-A's in-flight TuningTests.testShippedResourceJSONCarriesNoDeveloperNotes (its own control expects an unsorted array; reported in blocked.md)",
+  "board": "BoardObstacleTests 20/20 (incl. the 2 new)"
+ }
+}

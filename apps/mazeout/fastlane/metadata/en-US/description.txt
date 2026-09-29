@@ -1,0 +1,32 @@
+Tap an arrow and it slides off the board along its path, as long as nothing is in the way. Clear every arrow before the timer runs out.
+
+Arrow Out is a quick, clean puzzle with a clock. Boards come in all kinds of shapes, packed with arrows, and each arrow can only go the way it points. Work out the order, keep your hearts and beat the clock.
+
+HOW TO PLAY
+• Tap an arrow to send it out in the direction it points.
+• If something blocks its path, it bumps back and you lose a heart.
+• Clear the whole board before time runs out to win coins.
+
+EASY TO START, HARD TO PUT DOWN
+• 150 levels to begin with, then new boards keep coming, so you never run out.
+• Hard and Super Hard levels pay out more coins.
+• New obstacles arrive one at a time, each with a short lesson: linked arrows, boxes, pipes, elevators, doors and keys, and corners.
+
+BOOSTERS FOR TIGHT SPOTS
+• Time Freeze stops the timer for 10 seconds.
+• Hint shows you an arrow that can move.
+
+SOMETHING NEW EVERY WEEK
+Weekly events come and go: keep a winning streak alive, climb a prize tower, launch a rocket, jump across the sky or ride a balloon to the top. Come back each week to see what's on.
+
+MADE TO FEEL GOOD
+• Smooth animations and crisp haptic feedback on every tap.
+• No ads and no account.
+• Play offline: no Wi-Fi needed to play.
+• Lives refill over time, so there is always another go.
+
+IN-APP PURCHASES
+Arrow Out is free to play. Optional in-app purchases offer coin packs and bundles with coins, boosters and hours of unlimited lives. Prices are shown in your local currency before you buy.
+
+Privacy Policy: https://leomarston.github.io/manycode-legal/privacy-arrow-out.html
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

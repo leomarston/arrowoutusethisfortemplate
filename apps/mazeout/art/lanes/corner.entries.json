@@ -1,0 +1,424 @@
+{
+ "version": 1,
+ "title": "corner lane (round 3 paused -> finished round 4, 2026-09-25): the CORNER obstacle (v552 L70+) and its unlock card icon; art/lanes/corner.md",
+ "entries": [
+  {
+   "id": "cornerWedge",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "the CORNER (v552, first on L70): a red plate on a blue coil spring, one cell; the ONE sprite the board code loads today (CornerLayer.swift, ObstacleSet.spriteIDs, BoardArt.names; PathCore Validator.spriteIDs) = the UpRight corner (plate facing down-right), which CornerNode rotates per turn",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerWedge",
+   "file": "art/ui/out/cornerWedge@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the orientation CornerNode draws at angle 0"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane (round 3/4, art/lanes/corner.md): 3D route (a rendered-look prop: glossy coils, a rounded plate; the v552 sprite is not flat), drawn at the design pitch 32 pt: a 2 x 2 pitch frame CENTRED on the corner cell centre (anchor = frame centre); the art overflows the cell (plate 1.25 x 0.36 p on the cell diagonal, spring 0.7 p behind it), so the code must size the layer to the sprite (64 pt x pitch/32), not to one cell (code request 1). Pixel-identical to cornerUpRightSpring + cornerUpRightPlate. Rotated as CornerNode does, it reproduces the original for upRight, downRight, downLeft; upLeft is a separate render in the original -> the per-turn layers are the 1:1 route (code request 2). Self-grade A at game size (sheets art/ui/sheets/corner/board_L0*.png, wedge_L0*.png)."
+  },
+  {
+   "id": "cornerDownRightSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn downRight (down->right, left->up): the blue coil spring + its domed foot (UNDER the plate) -- one of the two registered layers the hit animation moves (the canonical render)",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownRightSpring",
+   "file": "art/ui/out/cornerDownRightSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/457-L070-after-unlock.png",
+    "box_pt": [
+     175.63,
+     532.52,
+     216.89,
+     573.77
+    ],
+    "pitch_pt": 20.629,
+    "anchor_pt": [
+     196.262,
+     553.146
+    ],
+    "level": 70,
+    "note": "L70 cell (8, 14), facing (1, -1): plate faces up-right; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A."
+  },
+  {
+   "id": "cornerDownRightPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn downRight (down->right, left->up): the red plate (OVER the spring) -- one of the two registered layers the hit animation moves (the canonical render)",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownRightPlate",
+   "file": "art/ui/out/cornerDownRightPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/457-L070-after-unlock.png",
+    "box_pt": [
+     175.63,
+     532.52,
+     216.89,
+     573.77
+    ],
+    "pitch_pt": 20.629,
+    "anchor_pt": [
+     196.262,
+     553.146
+    ],
+    "level": 70,
+    "note": "L70 cell (8, 14), facing (1, -1): plate faces up-right; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A."
+  },
+  {
+   "id": "cornerDownLeftSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn downLeft (down->left, right->up): the blue coil spring + its domed foot (UNDER the plate) -- one of the two registered layers the hit animation moves (the canonical render rotated 90 deg ccw (the original rotates its lighting too))",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownLeftSpring",
+   "file": "art/ui/out/cornerDownLeftSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/470-L071-start.png",
+    "box_pt": [
+     147.34,
+     586.62,
+     186.66,
+     625.94
+    ],
+    "pitch_pt": 19.659,
+    "anchor_pt": [
+     167.003,
+     606.283
+    ],
+    "level": 71,
+    "note": "L71 cell (7, 17), facing (-1, -1): plate faces up-left; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A."
+  },
+  {
+   "id": "cornerDownLeftPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn downLeft (down->left, right->up): the red plate (OVER the spring) -- one of the two registered layers the hit animation moves (the canonical render rotated 90 deg ccw (the original rotates its lighting too))",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerDownLeftPlate",
+   "file": "art/ui/out/cornerDownLeftPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/470-L071-start.png",
+    "box_pt": [
+     147.34,
+     586.62,
+     186.66,
+     625.94
+    ],
+    "pitch_pt": 19.659,
+    "anchor_pt": [
+     167.003,
+     606.283
+    ],
+    "level": 71,
+    "note": "L71 cell (7, 17), facing (-1, -1): plate faces up-left; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A."
+  },
+  {
+   "id": "cornerUpRightSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn upRight (up->right, left->down): the blue coil spring + its domed foot (UNDER the plate) -- one of the two registered layers the hit animation moves (the canonical render rotated 90 deg cw (the original rotates its lighting too))",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpRightSpring",
+   "file": "art/ui/out/cornerUpRightSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A."
+  },
+  {
+   "id": "cornerUpRightPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn upRight (up->right, left->down): the red plate (OVER the spring) -- one of the two registered layers the hit animation moves (the canonical render rotated 90 deg cw (the original rotates its lighting too))",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpRightPlate",
+   "file": "art/ui/out/cornerUpRightPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/526-L080-start.png",
+    "box_pt": [
+     8.14,
+     234.37,
+     40.92,
+     267.13
+    ],
+    "pitch_pt": 16.385,
+    "anchor_pt": [
+     24.53,
+     250.75
+    ],
+    "level": 80,
+    "note": "L80 cell (0, 0), facing (1, 1): plate faces down-right; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A."
+  },
+  {
+   "id": "cornerUpLeftSpring",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn upLeft (up->left, right->down): the blue coil spring + its domed foot (UNDER the plate) -- one of the two registered layers the hit animation moves (its own render: the model turned 180 deg but lit from the screen top again, as the original draws this facing)",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpLeftSpring",
+   "file": "art/ui/out/cornerUpLeftSpring@3x.png",
+   "ref": {
+    "shot": "research/shots/533-L082-start.png",
+    "box_pt": [
+     350.28,
+     439.22,
+     384.46,
+     473.39
+    ],
+    "pitch_pt": 17.089,
+    "anchor_pt": [
+     367.37,
+     456.305
+    ],
+    "level": 82,
+    "note": "L82 cell (20, 15), facing (-1, 1): plate faces down-left; the spring layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the spring scales along the facing s about its foot, cell centre + (-0.98 p) s, k = 1 + x / 0.694. Self-grade A."
+  },
+  {
+   "id": "cornerUpLeftPlate",
+   "family": "3d",
+   "route": "C3",
+   "group": "board",
+   "purpose": "corner, turn upLeft (up->left, right->down): the red plate (OVER the spring) -- one of the two registered layers the hit animation moves (its own render: the model turned 180 deg but lit from the screen top again, as the original draws this facing)",
+   "screen": "level board (corner levels, L70+)",
+   "size_pt": [
+    64,
+    64
+   ],
+   "size_px": [
+    192,
+    192
+   ],
+   "source": "art/ui/recipes/corner.py:cornerUpLeftPlate",
+   "file": "art/ui/out/cornerUpLeftPlate@3x.png",
+   "ref": {
+    "shot": "research/shots/533-L082-start.png",
+    "box_pt": [
+     350.28,
+     439.22,
+     384.46,
+     473.39
+    ],
+    "pitch_pt": 17.089,
+    "anchor_pt": [
+     367.37,
+     456.305
+    ],
+    "level": 82,
+    "note": "L82 cell (20, 15), facing (-1, 1): plate faces down-left; the plate layer alone: the capture's other half peeks out on the sheet"
+   },
+   "status": "done",
+   "owner": "corner",
+   "pitch_pt": 32,
+   "anchor_pt": [
+    32.0,
+    32.0
+   ],
+   "confirmed": true,
+   "notes": "corner lane: 2 x 2 pitch frame centred on the cell (anchor = frame centre), drawn at 32 pt/cell; the engine scales by pitch/32 and does NOT rotate it (the lighting is baked per turn). Hit animation (corner_anim.py): the plate translates by x(t) p along the facing s (-0.105 .. +0.079 p). Self-grade A."
+  },
+  {
+   "id": "unlockIconCorner",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "the Corner unlock card icon: the corner (red plate on the blue coil spring, plate facing up-right) at 73.4 pt per pitch",
+   "screen": "Corner! Unlocked! (L70)",
+   "size_pt": [
+    100,
+    100
+   ],
+   "size_px": [
+    300,
+    300
+   ],
+   "source": "art/ui/recipes/corner.py:unlockIconCorner",
+   "file": "art/ui/out/unlockIconCorner@3x.png",
+   "ref": {
+    "shot": "research/shots/456-L070-start.png",
+    "box_pt": [
+     146.55,
+     363.25,
+     246.55,
+     463.25
+    ],
+    "note": "the card over the dimmed L70 board; the sparkles around it are the live UnlockTwinkles"
+   },
+   "status": "done",
+   "owner": "corner",
+   "notes": "corner lane: the same model as the board sprite (card plate 92.5 pt long vs 26.0 pt on L70 at pitch 20.63 -> 73.4 pt per pitch) with a softer spring (rough 0.40), a lighter/longer foot, the spring graded onto 456's measured tone ramp and the plate's ends/back painted deep red (456: G 27/15/5 at u -0.4/+0.4/+0.58). Frame 100 x 100 pt CENTRED on 456's ink centre (196.55, 413.25); ink 149.6..244.6 x 365.9..461.9 pt (456: 150.3..242 x 367..458 + AA). No live text. UnlockOverlay needs its ink rect (code request 3): CGRect(146.55, 363.25, 100, 100) = the whole canvas. Self-grade A-/A."
+  }
+ ]
+}

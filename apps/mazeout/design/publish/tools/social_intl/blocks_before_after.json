@@ -1,0 +1,426 @@
+{
+ "before": {
+  "TR": {
+   "N": 1673,
+   "dead": 48,
+   "median_movers": 3,
+   "top100_cohorts": 5,
+   "top5": [
+    4744,
+    3691,
+    3050,
+    3025,
+    2426
+   ],
+   "order_changed_30d": 45,
+   "rank_L62": 430
+  },
+  "FR": {
+   "N": 13634,
+   "dead": 48,
+   "median_movers": 2,
+   "top100_cohorts": 8,
+   "top5": [
+    10025,
+    9890,
+    4971,
+    4910,
+    1592
+   ],
+   "order_changed_30d": 49,
+   "rank_L62": 5792
+  },
+  "ES": {
+   "N": 6241,
+   "dead": 43,
+   "median_movers": 10,
+   "top100_cohorts": 4,
+   "top5": [
+    6022,
+    5630,
+    5229,
+    4829,
+    4665
+   ],
+   "order_changed_30d": 30,
+   "rank_L62": 1563
+  },
+  "IT": {
+   "N": 6477,
+   "dead": 37,
+   "median_movers": 3,
+   "top100_cohorts": 6,
+   "top5": [
+    6052,
+    5135,
+    4443,
+    4096,
+    3891
+   ],
+   "order_changed_30d": 36,
+   "rank_L62": 1725
+  },
+  "PL": {
+   "N": 5427,
+   "dead": 38,
+   "median_movers": 14,
+   "top100_cohorts": 4,
+   "top5": [
+    4291,
+    4246,
+    3705,
+    3654,
+    3402
+   ],
+   "order_changed_30d": 39,
+   "rank_L62": 1437
+  },
+  "KR": {
+   "N": 2672,
+   "dead": 42,
+   "median_movers": 1,
+   "top100_cohorts": 7,
+   "top5": [
+    8343,
+    5440,
+    3331,
+    2774,
+    2393
+   ],
+   "order_changed_30d": 32,
+   "rank_L62": 903
+  },
+  "JP": {
+   "N": 5988,
+   "dead": 19,
+   "median_movers": 10,
+   "top100_cohorts": 10,
+   "top5": [
+    12066,
+    5878,
+    4351,
+    3769,
+    3527
+   ],
+   "order_changed_30d": 42,
+   "rank_L62": 1956
+  },
+  "NL": {
+   "N": 5209,
+   "dead": 84,
+   "median_movers": 0,
+   "top100_cohorts": 3,
+   "top5": [
+    1834,
+    1821,
+    1808,
+    1795,
+    1783
+   ],
+   "order_changed_30d": 18,
+   "rank_L62": 2508
+  },
+  "HU": {
+   "N": 2111,
+   "dead": 112,
+   "median_movers": 0,
+   "top100_cohorts": 1,
+   "top5": [
+    1114,
+    1110,
+    1107,
+    1104,
+    1101
+   ],
+   "order_changed_30d": 0,
+   "rank_L62": 1105
+  },
+  "PE": {
+   "N": 965,
+   "dead": 112,
+   "median_movers": 0,
+   "top100_cohorts": 1,
+   "top5": [
+    300,
+    300,
+    299,
+    299,
+    299
+   ],
+   "order_changed_30d": 0,
+   "rank_L62": 602
+  },
+  "PT": {
+   "N": 1990,
+   "dead": 58,
+   "median_movers": 0,
+   "top100_cohorts": 8,
+   "top5": [
+    3674,
+    2246,
+    2194,
+    2142,
+    2090
+   ],
+   "order_changed_30d": 41,
+   "rank_L62": 691
+  },
+  "CZ": {
+   "N": 1470,
+   "dead": 75,
+   "median_movers": 0,
+   "top100_cohorts": 3,
+   "top5": [
+    5099,
+    2434,
+    1731,
+    1714,
+    1696
+   ],
+   "order_changed_30d": 30,
+   "rank_L62": 757
+  },
+  "DE": {
+   "N": 14821,
+   "dead": 12,
+   "median_movers": 11,
+   "top100_cohorts": 16,
+   "top5": [
+    15671,
+    11068,
+    10224,
+    8691,
+    7647
+   ],
+   "order_changed_30d": 37,
+   "rank_L62": 6026
+  },
+  "US": {
+   "N": 110645,
+   "dead": 2,
+   "median_movers": 19,
+   "top100_cohorts": 34,
+   "top5": [
+    14960,
+    11087,
+    10283,
+    9293,
+    9216
+   ],
+   "order_changed_30d": 39,
+   "rank_L62": 43832
+  }
+ },
+ "after": {
+  "TR": {
+   "N": 1062,
+   "dead": 15,
+   "median_movers": 6,
+   "top100_cohorts": 33,
+   "top5": [
+    2480,
+    2396,
+    2340,
+    2313,
+    2306
+   ],
+   "order_changed_30d": 49,
+   "rank_L62": 354
+  },
+  "FR": {
+   "N": 12518,
+   "dead": 10,
+   "median_movers": 10,
+   "top100_cohorts": 14,
+   "top5": [
+    7253,
+    5458,
+    5135,
+    4942,
+    4443
+   ],
+   "order_changed_30d": 27,
+   "rank_L62": 4811
+  },
+  "ES": {
+   "N": 7159,
+   "dead": 11,
+   "median_movers": 9,
+   "top100_cohorts": 23,
+   "top5": [
+    10025,
+    7390,
+    5229,
+    5058,
+    4829
+   ],
+   "order_changed_30d": 36,
+   "rank_L62": 2563
+  },
+  "IT": {
+   "N": 7148,
+   "dead": 12,
+   "median_movers": 6,
+   "top100_cohorts": 13,
+   "top5": [
+    4518,
+    2831,
+    2722,
+    2648,
+    2637
+   ],
+   "order_changed_30d": 46,
+   "rank_L62": 2783
+  },
+  "PL": {
+   "N": 5406,
+   "dead": 6,
+   "median_movers": 12,
+   "top100_cohorts": 28,
+   "top5": [
+    11068,
+    10224,
+    9890,
+    4320,
+    4291
+   ],
+   "order_changed_30d": 39,
+   "rank_L62": 1979
+  },
+  "KR": {
+   "N": 3568,
+   "dead": 5,
+   "median_movers": 6,
+   "top100_cohorts": 21,
+   "top5": [
+    5878,
+    3331,
+    3223,
+    2847,
+    2483
+   ],
+   "order_changed_30d": 45,
+   "rank_L62": 1119
+  },
+  "JP": {
+   "N": 5366,
+   "dead": 4,
+   "median_movers": 7,
+   "top100_cohorts": 25,
+   "top5": [
+    10150,
+    5440,
+    5194,
+    4420,
+    3822
+   ],
+   "order_changed_30d": 39,
+   "rank_L62": 1953
+  },
+  "NL": {
+   "N": 5358,
+   "dead": 6,
+   "median_movers": 9,
+   "top100_cohorts": 21,
+   "top5": [
+    7647,
+    4019,
+    3873,
+    3198,
+    3015
+   ],
+   "order_changed_30d": 48,
+   "rank_L62": 2056
+  },
+  "HU": {
+   "N": 1077,
+   "dead": 4,
+   "median_movers": 9,
+   "top100_cohorts": 34,
+   "top5": [
+    5186,
+    3692,
+    2870,
+    2186,
+    1990
+   ],
+   "order_changed_30d": 33,
+   "rank_L62": 388
+  },
+  "PE": {
+   "N": 1063,
+   "dead": 15,
+   "median_movers": 5,
+   "top100_cohorts": 28,
+   "top5": [
+    5252,
+    1745,
+    1493,
+    1479,
+    1470
+   ],
+   "order_changed_30d": 41,
+   "rank_L62": 379
+  },
+  "PT": {
+   "N": 2158,
+   "dead": 15,
+   "median_movers": 12,
+   "top100_cohorts": 19,
+   "top5": [
+    4496,
+    4028,
+    2166,
+    2122,
+    2109
+   ],
+   "order_changed_30d": 44,
+   "rank_L62": 636
+  },
+  "CZ": {
+   "N": 1424,
+   "dead": 10,
+   "median_movers": 7,
+   "top100_cohorts": 26,
+   "top5": [
+    6052,
+    3768,
+    2241,
+    2230,
+    2219
+   ],
+   "order_changed_30d": 46,
+   "rank_L62": 464
+  },
+  "DE": {
+   "N": 16020,
+   "dead": 8,
+   "median_movers": 8,
+   "top100_cohorts": 13,
+   "top5": [
+    7431,
+    4910,
+    4286,
+    3559,
+    3414
+   ],
+   "order_changed_30d": 44,
+   "rank_L62": 6127
+  },
+  "US": {
+   "N": 107149,
+   "dead": 4,
+   "median_movers": 17,
+   "top100_cohorts": 37,
+   "top5": [
+    11511,
+    11087,
+    10283,
+    9293,
+    9216
+   ],
+   "order_changed_30d": 41,
+   "rank_L62": 42959
+  }
+ }
+}

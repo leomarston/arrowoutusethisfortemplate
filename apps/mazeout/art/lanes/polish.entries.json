@@ -1,0 +1,509 @@
+{
+ "version": 1,
+ "title": "polish lane (round 3): the most visible B entries raised per art/REVIEW.md; see art/lanes/polish.md",
+ "entries": [
+  {
+   "id": "iconCoin",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "gold coin with a star (HUD + prices + rewards)",
+   "screen": "HUD, home top bar, prices",
+   "size_pt": [
+    39,
+    39
+   ],
+   "size_px": [
+    117,
+    117
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconCoin",
+   "file": "art/ui/out/iconCoin@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     15,
+     27,
+     45,
+     57
+    ],
+    "scale": 0.89
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: re-measured on 002's clean home coin; frame 39 pt (ink 34.4) so home's 38.5 pt rect draws it 1:1 (was 30 pt at 1.28x); thicker darker edge + 6 pt thickness band, recess wall in shadow, chubby star with an extruded orange side, no white glints. Embedded coins (prizeSign, statWeeklyWinsIcon) keep the round-2 drawing (icon_coin_r2)."
+  },
+  {
+   "id": "iconPlusGreen",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "green round + badge on the coin pill",
+   "screen": "home top bar, Out of Time",
+   "size_pt": [
+    24,
+    24
+   ],
+   "size_px": [
+    72,
+    72
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconPlusGreen",
+   "file": "art/ui/out/iconPlusGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/013-L32-popup.png",
+    "box_pt": [
+     38,
+     84,
+     58,
+     104
+    ],
+    "scale": 1.17,
+    "note": "badge 18.7 pt (ui-measure home.plusBadge)"
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: 24 pt frame (the shell's 23.5 pt rect: 1:1); vivid flat green disc, top-only light ring, dark lower rim, SHORT CHUNKY cream plus with a 4 px dark drop (002)."
+  },
+  {
+   "id": "iconStopwatchSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "hud",
+   "purpose": "small stopwatch in event timer chips ('3d 9h')",
+   "screen": "home Claw bar, events",
+   "size_pt": [
+    26,
+    28
+   ],
+   "size_px": [
+    78,
+    84
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconStopwatchSmall",
+   "file": "art/ui/out/iconStopwatchSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     162,
+     146,
+     180,
+     172
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: 204's chip watch is 22.7 x 26 pt of ink -> frame 26 x 28 (was 18: drawn ~0.7x); dome crown, warmer ring, long tick pills, fat wedge hand at 40 deg (the original's hand turns)."
+  },
+  {
+   "id": "heartLives",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "lives heart with the live count inside",
+   "screen": "home top bar",
+   "size_pt": [
+    42,
+    40
+   ],
+   "size_px": [
+    126,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartLives",
+   "file": "art/ui/out/heartLives@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     212.5,
+     53,
+     251.5,
+     86
+    ],
+    "scale": 1.1
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 42 x 40 = the shell's livesHeartArt rect (42.3 x 39.8, 1:1); HEART2 at 002's 39.7 x 33.7 (round 2 was 11 % too tall once scaled); deeper crimson, dark top band, softer outline. The live count's centre in the frame: (21.3, 19.4) pt.",
+   "text_live": true
+  },
+  {
+   "id": "heartInfiniteSmall",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "small \u221e-heart for bars and chips",
+   "screen": "home Claw bar, reward ladder",
+   "size_pt": [
+    46,
+    42
+   ],
+   "size_px": [
+    138,
+    126
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:heartInfiniteSmall",
+   "file": "art/ui/out/heartInfiniteSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     323,
+     108,
+     369,
+     150
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: same 46 x 42 frame; heart 42 x 36.4 (was 45 x 39) at the slot's top-left (323.6, 108.4); rounder cream infinity with a thin outline. Live duration text centre: frame (22.6, 32.9) pt."
+  },
+  {
+   "id": "iconHexArrow",
+   "family": "svg",
+   "route": "B2",
+   "group": "home",
+   "purpose": "purple hexagon with a white up-arrow (Claw points icon)",
+   "screen": "home Claw bar, Claw screen",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:iconHexArrow",
+   "file": "art/ui/out/iconHexArrow@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     30,
+     106,
+     78,
+     150
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 40 x 40 with the ink 37.3 x 35 at 1:1 (was 48 x 44, ~1.15x too big); thick 3D pale side at the lower left, sky arrow with a dark-PURPLE edge (not navy) and its own slab side. Shell: rect (29.0, 109.2, 40, 40)."
+  },
+  {
+   "id": "unlockIconBox",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "the Box unlock card icon: the board's Box slab (rounder, no rivets) + the counter ring nearly filling it; the digit is live text in the well",
+   "screen": "Box! Unlocked!",
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconBox",
+   "file": "art/ui/out/unlockIconBox@3x.png",
+   "ref": {
+    "shot": "research/shots/134-L050-box-unlock.png",
+    "box_pt": [
+     130,
+     337,
+     262,
+     471
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "text_live": true,
+   "notes": "polish r3: its own card illustration (not the board sprites): pillow slab 121.5 x 127, sphere in a crease, four stubby cylinder lugs in front of the rim (upper pair steeper), tube-like purple ring, navy well 41 pt. Live digit centre: frame (65.55, 65.25) pt.",
+   "size_pt": [
+    132,
+    134
+   ],
+   "size_px": [
+    396,
+    402
+   ]
+  },
+  {
+   "id": "unlockIconLinked",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "linked-arrows unlock illustration: two arrows bound by pink tape",
+   "screen": "Linked Arrows! Unlocked!",
+   "size_pt": [
+    150,
+    106
+   ],
+   "size_px": [
+    450,
+    318
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconLinked",
+   "file": "art/ui/out/unlockIconLinked@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 78.0,
+    "box_pt": [
+     118,
+     348,
+     274,
+     470
+    ],
+    "scale": 1.25
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: V1 t 78 s at 1:1 (141.7 x 97 pt art in a 150 x 106 frame; round 2 was 0.8x): 15.4 pt shafts, 45.5 x 47 rounded heads, the board tape at P 54. Shell: place the frame at (121.0, 360.7) or ink rect (125, 364.7, 141.7, 97)."
+  },
+  {
+   "id": "unlockIconElevator",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "elevator unlock illustration",
+   "screen": "Elevator! Unlocked!",
+   "size_pt": [
+    164,
+    112
+   ],
+   "size_px": [
+    492,
+    336
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconElevator",
+   "file": "art/ui/out/unlockIconElevator@3x.png",
+   "ref": {
+    "video": "research/video/owner/V2-levels-11-38.mp4",
+    "t": 1182.5,
+    "box_pt": [
+     110,
+     348,
+     282,
+     470
+    ],
+    "scale": 1.37
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: V2 t 1182.5 s at 1:1 (159.5 x 105 pt in a 164 x 112 frame): icy blue-grey panels, soft outline, faint wide stripes, flat #A1B1CB windows with a light bevel. Shell ink rect (117, 363.5, 159.5, 105).",
+   "confirmed": false
+  },
+  {
+   "id": "unlockIconDoor",
+   "family": "svg",
+   "route": "B2",
+   "group": "popups",
+   "purpose": "door + key unlock illustration (no popup seen on the phone at L33)",
+   "screen": "door intro",
+   "size_pt": [
+    128,
+    128
+   ],
+   "size_px": [
+    384,
+    384
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:unlockIconDoor",
+   "file": "art/ui/out/unlockIconDoor@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 185.0,
+    "box_pt": [
+     92.9,
+     262.3,
+     305.4,
+     481.2
+    ],
+    "scale": 1.45
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: V1 t 185 s: the card door is SQUARE 5 x 5 cells with the lock at the door's own pitch, 0.44 P below centre; drawn 120 x 120 in a 128 x 128 frame (the phone cards' size class). Shell ink rect (135.5, 351, 122, 122).",
+   "confirmed": false
+  },
+  {
+   "id": "logoArrowOut",
+   "family": "svg",
+   "route": "B2",
+   "group": "loading-win",
+   "purpose": "OUR 'ARROW OUT!' logo: yellow bubble word ARROW on a blue rounded plate + a purple 'OUT!' arrow plate (same style as the original's logo, our lettering)",
+   "screen": "win splash, loading",
+   "size_pt": [
+    306,
+    236
+   ],
+   "size_px": [
+    918,
+    708
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:logoArrowOut",
+   "file": "art/ui/out/logoArrowOut@3x.png",
+   "ref": {
+    "shot": "research/shots/049-L036-end.png",
+    "box_pt": [
+     44,
+     292,
+     350,
+     528
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: puffier letters (sx 0.80, inflation 34 / OUT! 26), a SOLID graded extrusion (no shifted copy), an SVG inner-bevel filter per letter (dark lower rim, light upper-left rim), shallower depth (58 / 44), bouncier tilts, OUT! cap 335 at full width."
+  },
+  {
+   "id": "sunburstRays",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-claw",
+   "purpose": "soft cream sunburst rays behind a prize",
+   "screen": "reward cards, Congratulations",
+   "size_pt": [
+    190,
+    86
+   ],
+   "size_px": [
+    570,
+    258
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:sunburstRays",
+   "file": "art/ui/out/sunburstRays@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     180,
+     458,
+     310,
+     540
+    ]
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: frame 190 x 86 = 023's cream reward field (rays reach its edges, clipped to its r 22 corners), centre at the prize (0.5 W, 0.34 H), 22 wedges, a soft centre glow. Shell: draw 1:1 on the field (147.5, 455, 190, 85 in 023)."
+  },
+  {
+   "id": "rankBadgeGold",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (gold) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeGold",
+   "file": "art/ui/out/rankBadgeGold@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     581,
+     56,
+     621
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgeSilver",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (silver) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeSilver",
+   "file": "art/ui/out/rankBadgeSilver@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     661,
+     56,
+     701
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgeBronze",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (bronze) with live rank number",
+   "screen": "Streak Race, leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgeBronze",
+   "file": "art/ui/out/rankBadgeBronze@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "polish r3: 40 pt frame (203's badge is 37.3 x 36.3 pt at 1:1; was 33 x 32): thin dark outline, 1.7 pt 3D side, rim band, light upper bevel, window ring 0.65 of the width (dark line + band + light line). Live rank at frame (20, 19.3) pt.",
+   "text_live": true
+  },
+  {
+   "id": "rankBadgePlain",
+   "family": "svg",
+   "route": "B2",
+   "group": "events-streak",
+   "purpose": "hexagon rank badge (plain blue) for ranks 4+",
+   "screen": "leaderboards",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/src/svg/gen_icons.py:rankBadgePlain",
+   "file": "art/ui/out/rankBadgePlain@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-6.png",
+    "box_pt": [
+     14,
+     740,
+     56,
+     780
+    ],
+    "scale": 1.19
+   },
+   "status": "done",
+   "owner": "ui-art",
+   "notes": "NOT SHIPPED; re-rendered at the new 40 pt badge frame so the generator and the manifest agree.",
+   "text_live": true,
+   "confirmed": false
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "kind": "art",
+ "rule": "SSIM < 0.30 AND overlap < 0.55 (tools/copygate.json kinds.art)",
+ "theirs": "build/p/PH0/000-status.png",
+ "ours_before": "build/p/F3art/pre_art_out/eventBadgeBalloon@3x.png",
+ "ours_after": "art/out/eventBadgeBalloon@3x.png",
+ "crops_pt": {
+  "a_hex_balloon_square": [
+   315.27,
+   191.83,
+   70.06,
+   70.06
+  ],
+  "b_hex_balloon_no_pedestal": [
+   315.27,
+   191.83,
+   70.06,
+   60.05
+  ],
+  "c_whole_badge_with_pedestal": [
+   310.26,
+   186.83,
+   80.07,
+   90.08
+  ]
+ },
+ "before": {
+  "a_hex_balloon_square": {
+   "ssim": 0.303,
+   "overlap": 0.091,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "passed": false
+  },
+  "b_hex_balloon_no_pedestal": {
+   "ssim": 0.314,
+   "overlap": 0.1,
+   "thumb_px": [
+    98,
+    84
+   ],
+   "passed": false
+  },
+  "c_whole_badge_with_pedestal": {
+   "ssim": 0.207,
+   "overlap": 0.095,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "passed": true
+  }
+ },
+ "after": {
+  "a_hex_balloon_square": {
+   "ssim": 0.289,
+   "overlap": 0.108,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "passed": true
+  },
+  "b_hex_balloon_no_pedestal": {
+   "ssim": 0.298,
+   "overlap": 0.12,
+   "thumb_px": [
+    98,
+    84
+   ],
+   "passed": true
+  },
+  "c_whole_badge_with_pedestal": {
+   "ssim": 0.204,
+   "overlap": 0.111,
+   "thumb_px": [
+    98,
+    98
+   ],
+   "passed": true
+  }
+ },
+ "verdict": "PASS"
+}

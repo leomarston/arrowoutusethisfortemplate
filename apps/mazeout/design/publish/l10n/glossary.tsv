@@ -1,0 +1,61 @@
+id	en	de	fr	es	it	pt-BR	ja	ko	zh-Hans	pl	sk	sl	tr	note
+# T2 game-jargon glossary (2026-09-28). Anchored rows are read from the shipped translations themselves
+# (design/publish/l10n/strings.<lang>.tsv; TR = the frozen en.tsv column), so the glossary cannot drift from the files.
+# One word per game term per language; a sentence inflects it (case/number) but never swaps it for a synonym.
+level	Level	Level	Niveau	Nivel	Livello	Nível	レベル	레벨	关卡	Poziom	Úroveň	Stopnja	Seviye	HUD 'Level %lld'; ZH counts levels as 关 (第N关)
+levels	Levels	Level	Niveaux	Niveles	Livelli	Níveis	レベル	레벨	关卡	Poziomy	Úrovne	Stopnje	Seviyeler	
+level.caps	LEVEL	LEVEL	NIVEAU	NIVEL	LIVELLO	NÍVEL	レベル	레벨	关卡	POZIOM	ÚROVEŇ	STOPNJA	SEVİYE	home caption
+coins	Coins	Münzen	Pièces	Monedas	Monete	Moedas	コイン	코인	金币	Monety	Mince	Kovanci	Altınlar	the soft currency; TR altın (never 'para'/'coin')
+lives	Lives	Leben	Vies	Vidas	Vite	Vidas	ライフ	생명	生命	Życia	Životy	Življenja	Canlar	home lives AND the in-level hearts (TR ruling: can); SL 'srček' was used once for the removed 'Live' label
+stage	Stage	Etappe	Étape	Etapa	Tappa	Etapa	ステージ	스테이지	阶段	Etap	Etapa	Etapa	Aşama	race stage (Rocket Rally, Cloud Hop); distinct from the balloon 'step'
+step	Step	Stufe	Palier	Paso	Gradino	Degrau	ステップ	단계	级	Krok	Krok	Korak	Adım	Up & Away altitude step (1-10); distinct from 'stage'
+boosters	Boosters	Booster	Boosters	Potenciadores	Potenziamenti	Reforços	ブースター	부스터	道具	Wzmacniacze	Bonusy	Pomočki	Güçlendiriciler	
+time_freeze	Time Freeze	Zeitstopp	Temps figé	Congelar	Congela	Congelar	時間停止	시간 정지	时间冻结	Zamrożenie	Zmrazenie	Zamrznitev	Dondurucu	booster (hourglass)
+hint	Hint	Tipp	Indice	Pista	Indizio	Dica	ヒント	힌트	提示	Podpowiedź	Nápoveda	Namig	İpucu	booster (bulb)
+shop	Shop	Shop	Boutique	Tienda	Negozio	Loja	ショップ	상점	商店	Sklep	Obchod	Trgovina	Mağaza	
+leaderboard	Leaderboard	Rangliste	Classement	Clasificación	Classifica	Ranking	ランキング	랭킹	排行榜	Ranking	Rebríček	Lestvica	Sıralama	
+score	Score	Punkte	Score	Puntos	Punti	Pontos	スコア	점수	分数	Wynik	Skóre	Točke	Puan	
+rewards	rewards	Belohnungen	récompenses	recompensas	ricompense	recompensas	報酬	보상	奖励	nagrody	odmeny	nagrade	ödüller	reward = what a claim gives
+prizes	prizes	Preise	prix	premios	premi	prêmios	賞品	상품	奖品	nagrody	ceny	nagrade	ödüller	prize = what a race/ladder awards
+players	Players	Spieler	Joueurs	Jugadores	Giocatori	Jogadores	プレイヤー	플레이어	玩家	Gracze	Hráči	Igralci	Oyuncular	
+box	Box	Kiste	Caisse	Caja	Cassa	Caixa	ボックス	상자	箱子	Skrzynka	Krabica	Škatla	Kutu	unlock L11; the CAPS run in the card uses the case the sentence needs (DE KISTE, PL SKRZYNKĘ ...)
+pipe	Pipe	Rohr	Tuyau	Tubo	Tubo	Cano	パイプ	파이프	管道	Rura	Rúra	Cev	Boru	unlock L21
+elevator	Elevator	Aufzug	Ascenseur	Ascensor	Montacarichi	Elevador	エレベーター	엘리베이터	电梯	Winda	Výťah	Dvigalo	Asansör	unlock L31; IT MONTACARICHI because l'ASCENSORE would hide the CAPS run
+door	Door	Tür	Porte	Puerta	Porta	Porta	ドア	문	门	Drzwi	Dvere	Vrata	Kapı	unlock L33
+corner	Corner	Ecke	Coin	Esquina	Curva	Canto	コーナー	코너	拐角	Narożnik	Roh	Kot	Köşe	unlock L70; IT CURVA (l'ANGOLO would hide the CAPS run)
+linked_arrows	Linked Arrows	Kettenpfeile	Flèches liées	Flechas unidas	Frecce unite	Setas ligadas	連結矢印	연결 화살표	连体箭头	Połączone strzałki	Spojené šípky	Povezane puščice	Bağlı Oklar	unlock L7
+ev.weekly	Weekly Cup	Wochenpokal	Coupe hebdo	Copa semanal	Coppa settimanale	Copa semanal	ウィークリーカップ	위클리 컵	每周杯赛	Puchar tygodnia	Týždenný pohár	Tedenski pokal	Haftalık Kupa	EVENT NAME (ruling 38 own names, T1)
+ev.streak	Hot Streak	Siegesserie	Série en feu	Súper racha	Serie di fuoco	Série invicta	連勝ラッシュ	연승 행진	火热连胜	Gorąca seria	Horúca séria	Vroči niz	Ateşli Seri	EVENT NAME; the strip letters the FIRST word yellow (one-word names light fully); B3 2026-09-28: de/es/pt-BR/ja renamed to fit the lettering (Siegesserie / Súper racha / Série invicta / 連勝ラッシュ)
+ev.ladder	Treasure Climb	Schatzleiter	Tour au trésor	Torre del tesoro	Scalata al tesoro	Torre do tesouro	お宝クライム	보물 오르기	寻宝攀登	Drabina skarbów	Rebrík pokladov	Lestev zakladov	Hazine Tırmanışı	EVENT NAME (20-step ladder)
+ev.rocket	Rocket Rally	Raketen-Rallye	Rallye fusée	Rally espacial	Rally dei razzi	Rali espacial	ロケットラリー	로켓 랠리	火箭拉力赛	Rakietowy rajd	Raketová rely	Raketni reli	Roket Rallisi	EVENT NAME
+ev.sky	Cloud Hop	Wolkenhüpfer	Saut de nuage	Salto de nubes	Saltanuvole	Pula-nuvem	雲わたり	구름 점프	云朵跳跳	Skok w chmury	Oblačný skok	Skok po oblakih	Bulut Atlayışı	EVENT NAME
+ev.balloon	Up & Away	Auf und davon	Envolée	Rumbo al cielo	Su nel cielo	Rumo ao céu	ふわっと空へ	하늘 높이	直上云霄	Hen w górę	Do oblakov	V višave	Havalan	EVENT NAME (balloon ladder)
+special_offer	Special Offer	Sonderangebot	Offre spéciale	Oferta especial	Offerta speciale	Oferta especial	特別オファー	특가 패키지	特别优惠	Oferta specjalna	Špeciálna ponuka	Posebna ponudba	Özel Teklif	
+bundles	Bundles	Pakete	Packs	Packs	Pacchetti	Pacotes	パック	패키지	礼包	Pakiety	Balíčky	Paketi	Paketler	
+starter	STARTER	STARTER	DÉBUTANT	INICIAL	INIZIALE	INICIAL	スターター	스타터	新手	STARTOWY	ÚVODNÝ	ZAČETNI	BAŞLANGIÇ	shop seal (ruling 38), one word = one run
+new	NEW	NEU	INÉDIT	NUEVO	NUOVO	NOVO	NEW	NEW	新	NOWE	NOVÉ	NOVO	YENİ	ribbon, max 7; B3: fr/pl shortened to fit the 34 pt capsule
+settings	Settings	Einstellungen	Réglages	Ajustes	Impostazioni	Ajustes	設定	설정	设置	Ustawienia	Nastavenia	Nastavitve	Ayarlar	iOS-consistent word (DE Einstellungen, FR Réglages, PT-BR Ajustes, ES Ajustes)
+notifications	Notifications	Mitteilungen	Notifications	Notificaciones	Notifiche	Notificações	通知	알림	通知	Powiadomienia	Upozornenia	Obvestila	Bildirimler	DE Mitteilungen = iOS wording
+support	Support	Support	Aide	Soporte	Assistenza	Suporte	サポート	고객 지원	客服	Pomoc	Podpora	Podpora	Destek	
+terms	Terms	AGB	Conditions	Términos	Termini	Termos	利用規約	이용약관	条款	Warunki	Podmienky	Pogoji	Koşullar	
+privacy	Privacy	Datenschutz	Vie privée	Privacidad	Privacy	Privacidade	プライバシー	개인정보	隐私	Prywatność	Súkromie	Zasebnost	Gizlilik	
+username	Username	Spielername	Pseudo	Usuario	Nome utente	Apelido	ユーザー名	닉네임	用户名	Pseudonim	Prezývka	Vzdevek	Kullanıcı Adı	
+on	ON	AN	OUI	SÍ	SÌ	SIM	オン	켬	开	WŁ.	ZAP.	VKL.	AÇIK	toggle
+off	OFF	AUS	NON	NO	NO	NÃO	オフ	끔	关	WYŁ.	VYP.	IZKL.	KAPALI	toggle
+arrow	arrow(s)	Pfeil / Pfeile	flèche(s)	flecha(s)	freccia / frecce	seta(s)	矢印	화살표	箭头	strzałka / strzałki	šípka / šípky	puščica / puščice	ok / oklar	PT-BR: seta (the drawn arrow), not flecha
+tap	tap (verb)	tippen (Tippe)	toucher (Touche)	tocar (Toca)	toccare (Tocca)	tocar (Toque)	タップ	탭하다	点击	stuknąć (Stuknij)	klepnúť (Klepni)	tapniti (Tapni)	dokunmak (Dokun)	Apple's own touch verbs per language (ZH games say 点击)
+life	life (one)	Leben	vie	vida	vita	vida	ライフ	생명	生命（一条）	życie	život	življenje	can	an in-level heart is a life too
+token	token	Token	jeton	ficha	gettone	ficha	トークン	토큰	代币	żeton	žetón	žeton	jeton	the ladder token (multiplier x5..x100: always plural where a language inflects)
+streak	streak	Serie	série	racha	serie	sequência	連勝	연승 (기록)	连胜（纪录）	seria	séria	niz zmag	seri	
+multiplier	multiplier	Multiplikator	multiplicateur	multiplicador	moltiplicatore	multiplicador	倍率	배율	倍数	mnożnik	násobiteľ	množitelj	çarpan	a failed level sends it back to x1 (rules.json streak.steps [1,5,10,25,100]); every language says x1, not 'zero'
+challenge	challenge	Challenge	défi	reto	sfida	desafio	チャレンジ	챌린지	挑战	wyzwanie	výzva	izziv	mücadele	
+race	race	Rennen	course	carrera	gara	corrida	レース	레이스	比赛	wyścig	preteky	dirka	yarış	
+contest	contest / tournament	Turnier	tournoi	torneo	torneo	torneio	大会	대회	竞赛	turniej	súťaž	tekmovanje	yarışma	
+event	event	Event	évènement	evento	evento	evento	イベント	이벤트	活动	wydarzenie	udalosť	dogodek	etkinlik	
+flags	flags	Flaggen	drapeaux	banderas	bandiere	bandeiras	旗	깃발	旗帜	flagi	vlajky	zastavice	bayrak	Hot Streak score unit
+key	key (door)	Schlüssel	clé	llave	chiave	chave	カギ	열쇠	钥匙	klucz	kľúč	ključ	anahtar	
+balloon	balloon	Ballon	ballon	globo	palloncino	balão	風船	풍선	气球	balon	balón	balon	balon	Up & Away
+beat	beat / pass a level	schaffen	réussir (passer in the 115 pt bubble)	superar (pasar in the 115 pt bubble)	superare	passar de nível	クリアする	깨다 / 클리어	通过 / 闯关	przejść / przechodzić	prejsť / prechádzať	premagati	geçmek	
+fail	fail (a level)	scheitern (Scheiterst)	échouer (échoues)	fallar (fallas)	fallire (fallisci)	falhar	失敗	실패	失败	przegrać (przegrasz)	prehrať (prehráš)	izgubiti (izgubiš)	kaybetmek (kaybedersen)	the red HIGHLIGHT RUN 'fail' = the inflected form in brackets; it must occur in all 3 host sentences
+you	second person / register	du	tu	tú (neutral: no vosotros, no Spain-only words)	tu	você	～しよう！／です・ます (legal: plain polite)	해요체 + -세요; 합니다체 on legal pages	你	ty, gender-neutral (no 2nd-person past tense)	ty, gender-neutral	ti, gender-neutral (no l-participle)	sen	casual-game register; results are nominal where the past tense would carry gender
+units	countdown units	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	%lldd %lldh / %lldh %lldm kept as in EN	release-plan §5.2 step 6 DECISION: every locale keeps the English unit letters (v552 parity)

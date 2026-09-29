@@ -1,0 +1,7 @@
+# The factory's app queue (a YAML list of ideas). This template ships it EMPTY on purpose.
+# Why it exists at all: scripts/asc_submit.py always opens this file (verify_trial_offers) to compare a subscription
+# app's promised free trial with App Store Connect. A game that sells consumables (like Arrow Out) has no entry here,
+# so that check prints "pricing bloku yok" and moves on. Delete this file and asc_submit.py stops with FileNotFoundError.
+# scripts/idea.py, asc_iap.py and new_app.sh (the subscription-app factory flow) read entries from it; see the
+# factory repo's ideas.yaml for the full format if you ever use that flow.
+[]

@@ -1,0 +1,276 @@
+en	pt-BR	note
+# B3 L10N-APP (2026-09-28): the shipped pt-BR table. tools/strings/build.py merges it with strings.tsv (+ requests/*.tsv) into
+# Localizable.xcstrings and FAILS on a missing, extra or malformed key (every catalogue key has exactly one row here).
+# Rows 1-231 = T2 L10N batch 1 (design/publish/l10n/strings.pt-BR.tsv, reviewed in build/p/T2/review-pt-BR.json), unchanged
+# unless a 'B3:' note says why; the keys added after T1's freeze follow at the end. Columns: EN key (exact), translation, note.
+# T2 L10N (2026-09-28) pt-BR: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-pt-BR.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	Nível %lld	fit 1.00
+Levels 1-4	Níveis 1-4	fit 1.00
+Level 1-4	Nível 1-4	
+Tap to move!	Toque em uma seta!	fit 0.89
+Loading	Carregando	fit 1.00
+Unlocked!	Desbloqueado!	fit 1.00
+Linked Arrows!	Setas ligadas!	fit 1.00
+LINKED ARROWS move together!	SETAS LIGADAS se movem juntas!	CAPS run: SETAS LIGADAS; fit 1.00
+Box!	Caixa!	fit 1.00
+Clear required amount of arrows to break the BOX!	Tire as setas necessárias para quebrar a CAIXA!	CAPS run: CAIXA; fit 0.96
+Pipe!	Cano!	fit 1.00
+Pass arrows through the PIPE to break it!	Passe setas pelo CANO para quebrá-lo!	CAPS run: CANO; fit 1.00
+Elevator!	Elevador!	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	Tire todas as setas do ELEVADOR para ativá-lo!	CAPS run: ELEVADOR; fit 0.96
+Door!	Porta!	fit 1.00
+Collect the KEY to open the DOOR!	Pegue a CHAVE para abrir a PORTA!	CAPS run: CHAVE PORTA; fit 1.00
+Corner!	Canto!	fit 1.00
+The CORNER turns arrows around!	O CANTO faz as setas virarem!	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); CAPS run: CANTO; fit 1.00
+Paused	Pausa	fit 1.00
+Sound	Som	fit 1.00
+Haptic	Vibração	fit 0.87
+ON	SIM	fit 1.00
+OFF	NÃO	fit 1.00
+Resume	Retomar	fit 0.77
+Quit	Sair	fit 1.00
+Quit Level?	Sair?	fit 1.00
+You will lose a life!	Você vai perder uma vida!	fit 0.96
+Out of Time!	Tempo esgotado!	fit 0.81
++30 sec	+30 s	fit 1.00
+Add Time	Mais tempo	fit 0.83
+Out of Lives!	Sem vidas!	fit 1.00
++3 Lives	+3 vidas	fit 1.00
+Add Lives	Mais vidas	fit 0.94
+Continue?	Continuar?	fit 0.88
+You will lose your streak!	Você vai perder sua sequência!	fit 0.84
+You will lose %lld tokens and your streak!	Você vai perder %lld fichas e sua sequência!	fit 1.00
+Play On	Jogar	fit 1.00
+Level Failed!	Nível não concluído!	fit 1.00
+Try Again	De novo	fit 1.00
+Perfect!	Perfeito!	fit 1.00
+Rewards:	Recompensas:	fit 1.00
+Continue	Continuar	fit 0.91
+Hard Level	Nível difícil	fit 1.00
+Super Hard	Superdifícil	fit 1.00
++%lld	+%lld	
+Play	Jogar	fit 1.00
+LEVEL	NÍVEL	fit 1.00
+Full	Cheias	fit 0.91
+Finished	Pronto	fit 0.87
+event.finished	Acabou	FIX-2 B (B1b-r3): the ended event (not the lives pill); fit pedestal 44 @ 13 pt, chip 47 @ 16.3 pt
+More Lives	Mais vidas	fit 0.94
+Time to next life:	Próxima vida em:	fit 1.00
+Refill	Encher	fit 1.00
+Not enough coins	Moedas insuficientes	
+Congratulations!	Parabéns!	fit 1.00
+Tap to Claim	Toque para coletar	fit 1.00
+Tap to Continue	Toque para continuar	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	Encerrado	
+Join	Entrar	fit 1.00
+Home	Início	fit 1.00
+Leaderboard	Ranking	fit 1.00
+Time Freeze	Congelar	fit 1.00
+Freeze the timer for 10 seconds!	Congele o tempo por 10 segundos!	fit 1.00
+Hint	Dica	fit 1.00
+Find an arrow that can move!	Encontre uma seta que possa sair!	fit 1.00
+Buy	Leve	B3: the booster popup's 'Buy x3' group (x3 shrinks with it in 118 pt, floor 0.70): the promo idiom 'take N' ('Leve 3') — the infinitive/long verb pushed x3 onto the coin
+x%lld	x%lld	
+Shop	Loja	fit 1.00
+Special Offers	Ofertas especiais	fit 1.00
+Special Offer	Oferta especial	fit 0.96
+STARTER	INICIAL	T1
+Bundles	Pacotes	fit 1.00
+Mini Bundle	Pacote mini	fit 1.00
+Epic Bundle	Pacote épico	fit 1.00
+Elite Bundle	Pacote elite	fit 1.00
+Mega Bundle	Pacote mega	fit 1.00
+Legendary Bundle	Pacote lendário	fit 0.93
+Popular	Popular	fit 1.00
+Best Value	Econômico	fit 0.90
+Coins	Moedas	fit 1.00
+Purchase pending	Compra pendente	
+Settings	Ajustes	fit 1.00
+Notifications	Notificações	fit 1.00
+Music	Música	fit 1.00
+Support	Suporte	fit 1.00
+Terms	Termos	fit 1.00
+Privacy	Privacidade	fit 0.75
+%@ Support	Suporte %@	
+Please describe your issue above. We will get back to you as soon as possible.	Descreva seu problema acima. Responderemos o mais rápido possível.	
+Version : %@	Versão: %@	
+Level : %lld	Nível: %lld	
+Write to us at	Escreva para	
+Copy	Copiar	
+Copied	Copiado	
+Profile	Perfil	fit 1.00
+Level	Nível	fit 1.00
+General Stats	Estatísticas	fit 1.00
+First Try Wins	Vitórias de primeira	fit 1.00
+Weekly Cup Wins	Vitórias na Copa semanal	T1; fit 0.96
+Hot Streak Wins	Vitórias na Série invicta	T1; fit 0.85; B3: event name 'Sequência invicta' needed 0.58 in the Hot Streak lettering (floor 0.70); 'série invicta' = the sports term for an unbeaten run -> a shorter native name (every row with the name changed together; glossary ev.streak)
+Rocket Rally Wins	Vitórias no Rali espacial	T1; fit 0.88; B3: 'Rali de foguetes' -> 'Rali de foguete' (generic singular, like 'corrida de cavalo'): the two-line Rocket badge's second line 'de foguetes' needed 0.67 (floor 0.70); B3: the two-line Rocket badge's second line ('de cohetes' / 'de foguetes') ran past the blue plate -> 'espacial' (the rockets race among the planets)
+Cloud Hop Wins	Vitórias no Pula-nuvem	T1; fit 1.00
+Treasure Climb Wins	Vitórias na Torre do tesouro	T1; fit 0.86
+-	-	
+Username	Apelido	fit 1.00
+Create your username:	Crie seu apelido:	fit 1.00
+Edit Profile	Editar	fit 1.00
+Save	Salvar	fit 1.00
+Name must be 3-16 characters	O apelido deve ter de 3 a 16 caracteres	
+This name is not allowed	Este apelido não é permitido	
+Your lives are full! Time to play!	Suas vidas estão cheias! Hora de jogar!	
+The Weekly Cup ends in 2 hours!	A Copa semanal termina em 2 horas!	T1
+%@ is a puzzle game.	%@ é um jogo de quebra-cabeça.	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	Moedas, vidas, reforços e outros itens do jogo não têm valor em dinheiro e não podem ser trocados nem reembolsados fora do jogo.	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	As compras são feitas pela Apple e seguem os termos da App Store. Nunca vemos seus dados de pagamento.	
+The game is provided as is. We may update the game and these terms.	O jogo é fornecido no estado em que se encontra. Podemos atualizar o jogo e estes termos.	
+Questions? Write to %@	Dúvidas? Escreva para %@	
+%@ has no accounts and shows no ads.	%@ não tem contas e não mostra anúncios.	META
+Your progress, settings and profile name are stored only on this device.	Seu progresso, seus ajustes e seu nome de perfil ficam salvos somente neste dispositivo.	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	O jogo funciona offline. As compras são processadas pela Apple. Nosso serviço de compras, RevenueCat, recebe um ID anônimo e seu histórico de compras.	T1
+We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	Anunciamos %@ no Facebook e no Instagram. Para medir esses anúncios, o jogo envia à Meta eventos do app (abertura do jogo, tutorial concluído, níveis vencidos, compras e seu preço) junto com um ID aleatório e informações básicas do dispositivo.	META
+If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	Se você permitir o rastreamento quando o iOS perguntar, a Meta também recebe o identificador de publicidade do seu dispositivo e pode vincular esses eventos à sua conta Meta. Você pode mudar isso a qualquer momento no app Ajustes do iPhone, em Privacidade e Segurança > Rastreamento.	META
+Notifications are scheduled on your device and can be turned off in Settings.	As notificações são agendadas no seu dispositivo e podem ser desativadas em Ajustes.	
+If you write to support, we use your message only to answer you.	Se você escrever para o suporte, usaremos sua mensagem apenas para responder a você.	
+Contact: %@	Contato: %@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	Toque em uma seta para ela sair seguindo seu caminho. Se algo estiver no caminho, ela volta e você perde uma vida. Tire todas as setas antes que o tempo acabe!	
+Weekly	Semanal	fit 1.00
+World	Mundo	fit 1.00
+Turkey	Turquia	fit 1.00
+Germany	Alemanha	fit 0.90
+USA	EUA	fit 1.00
+Score	Pontos	fit 1.00
+Score : %lld	Pontos: %lld	fit 1.00
+Bottom	Final	fit 1.00
+Top	Topo	fit 1.00
+Reach level 50 to join the Weekly Cup!	Chegue ao nível 50 para entrar na Copa semanal!	T1; fit 1.00
+Weekly Cup	Copa semanal	T1; fit 1.00
+Tap to join the Weekly Cup!	Toque para entrar na Copa semanal!	T1; fit 1.00
+Beat Levels!	Passe de nível!	fit 1.00
+Contest with others!	Enfrente os outros!	fit 1.00
+Win Rewards!	Ganhe recompensas!	fit 1.00
+The top 3 win prizes!	Os 3 primeiros ganham prêmios!	T1; fit 1.00
+There is a new contest every week!	Tem torneio novo toda semana!	fit 1.00
+You finished #%lld!	Você ficou em %lldº!	fit 1.00
+Hot Streak	Série invicta	T1; fit 0.79; B3: event name 'Sequência invicta' needed 0.58 in the Hot Streak lettering (floor 0.70); 'série invicta' = the sports term for an unbeaten run -> a shorter native name (every row with the name changed together; glossary ev.streak)
+Beat levels without fail to get more rewards!	Vença sem falhar e ganhe mais recompensas!	fit 0.97
+Beat levels without losing!	Passe de nível sem perder!	fit 1.00
+Increase your score multiplier!	Aumente seu multiplicador de pontos!	fit 1.00
+Earn more flags than others!	Ganhe mais bandeiras que os outros!	fit 1.00
+If you fail a level the multiplier will reset!	Se falhar em um nível, o multiplicador volta a x1!	fit 0.85
+Treasure Climb	Torre do tesouro	T1; fit 0.84
+Rocket Rally	Rali espacial	T1; fit 0.75; B3: 'Rali de foguetes' -> 'Rali de foguete' (generic singular, like 'corrida de cavalo'): the two-line Rocket badge's second line 'de foguetes' needed 0.67 (floor 0.70); B3: the two-line Rocket badge's second line ('de cohetes' / 'de foguetes') ran past the blue plate -> 'espacial' (the rockets race among the planets)
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	Passe %lld níveis antes dos outros para vencer e avançar de etapa por prêmios maiores!	fit 0.84
+Beat %lld levels before others to finish the race	Passe %lld níveis antes dos outros para terminar a corrida	fit 1.00
+You lost the race! Try again to win amazing rewards!	Você perdeu a corrida! Tente de novo e ganhe recompensas incríveis!	fit 0.96
+You won the race! Claim your amazing rewards!	Você venceu a corrida! Colete suas recompensas incríveis!	fit 1.00
+Stage %lld	Etapa %lld	fit 0.86
+Start	Começar	fit 0.78
+Beat levels!	Passe de nível!	fit 1.00
+Finish race before others!	Termine a corrida antes dos outros!	fit 1.00
+Win amazing rewards!	Ganhe recompensas incríveis!	fit 1.00
+Advance to next stages for greater prizes!	Avance de etapa para ganhar prêmios maiores!	fit 0.88
+Cloud Hop	Pula-nuvem	T1; fit 0.99
+Pass %lld Levels in a row on first try and advance to next stages!	Passe %lld níveis seguidos de primeira e avance de etapa!	fit 1.00
+Finding players on your level.	Procurando jogadores do seu nível.	fit 1.00
+Start with 100 players!	Comece com 100 jogadores!	fit 0.82
+Beat %lld levels!	Passe %lld níveis!	fit 0.81
+Win your share of %lld coins!	Ganhe sua parte de %lld moedas!	fit 1.00
+If you fail a level, you will fail the challenge!	Se falhar em um nível, você perde o desafio!	fit 1.00
+Stages	Etapas	fit 1.00
+Levels	Níveis	fit 1.00
+Players	Jogadores	fit 1.00
+PRIZE	PRÊMIO	fit 0.90
+You win!	Você venceu!	fit 1.00
+You are sharing the reward with %lld other winners!	Você divide a recompensa com outros %lld vencedores!	fit 1.00
+You failed the challenge!	Você falhou no desafio!	fit 1.00
+%lld Levels	%lld níveis	HIGHLIGHT RUN (never shown alone): lit inside 'Passe %lld níveis antes dos outros para vencer e avançar de etapa por prêmios maiores!' / 'Passe %lld níveis seguidos de primeira e avance de etapa!'
+%lld levels	%lld níveis	HIGHLIGHT RUN (never shown alone): lit inside 'Passe %lld níveis antes dos outros para terminar a corrida'
+%lld levels!	%lld níveis!	HIGHLIGHT RUN (never shown alone): lit inside 'Passe %lld níveis!'
+100 players	100 jogadores	HIGHLIGHT RUN (never shown alone): lit inside 'Comece com 100 jogadores!'
+%lld coins	%lld moedas	HIGHLIGHT RUN (never shown alone): lit inside 'Ganhe sua parte de %lld moedas!'
+greater prizes	prêmios maiores	HIGHLIGHT RUN (never shown alone): lit inside 'Avance de etapa para ganhar prêmios maiores!'
+prizes	prêmios	HIGHLIGHT RUN (never shown alone): lit inside 'Avance de etapa para ganhar prêmios maiores!'
+rewards	recompensas	HIGHLIGHT RUN (never shown alone): lit inside 'Ganhe recompensas incríveis!'
+Rewards!	recompensas!	HIGHLIGHT RUN (never shown alone): lit inside 'Ganhe recompensas!'
+fail	falhar	HIGHLIGHT RUN (never shown alone): lit inside 'Se falhar em um nível, o multiplicador volta a x1!' / 'Se falhar em um nível, você perde o desafio!' / 'Se falhar em um nível, um balão estoura!'
+Allow notifications in iOS Settings.	Permita as notificações nos Ajustes do iOS.	
+Arrows turn when they hit the CORNER!	As setas viram quando batem no CANTO!	CAPS run: CANTO
+Back	Voltar	
+Boosters	Reforços	
+Close	Fechar	
+How to play	Como jogar	
+Info	Info	
+Lives	Vidas	
+Pause	Pausar	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	Começar um nível gasta uma vida; se você vencer, ela volta. Uma nova vida chega a cada 30 minutos.	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	A ampulheta congela o tempo por 10 segundos. A lâmpada mostra uma seta que pode se mover.	
+Version %@ · Level %lld	Versão %@ · Nível %lld	
+You will lose %lld tokens	Você vai perder %lld fichas	LINE 1 of 'Você vai perder %lld fichas e sua sequência!' (the number is drawn red); fit 0.92
+Your progress	Seu progresso	
+Your progress and coins are saved only on this device. Deleting the game erases them.	Seu progresso e suas moedas ficam salvos somente neste dispositivo. Se você apagar o jogo, eles serão perdidos.	T1
+and your streak!	e sua sequência!	LINE 2 of 'Você vai perder %lld fichas e sua sequência!'; fit 1.00
+Up & Away	Rumo ao céu	T1
+NEW	NOVO	T1
+New Event!	Novo evento!	T1
+Double Event Week!	Semana de evento duplo!	T1
+Let's Go!	Vamos lá!	T1
+Ends in %@	Termina em %@	T1
+Last day!	Último dia!	T1
+Coming next: %@	A seguir: %@	T1
+Starts in %@	Começa em %@	T1
+This event has ended.	Este evento já terminou.	T1
+%@ has started! Beat levels to win amazing rewards!	%@ começou! Passe de nível e ganhe recompensas incríveis!	T1
+Double Event Week! %@ and %@ are both on!	Semana de evento duplo! %1$@ e %2$@ estão rolando ao mesmo tempo!	T1
+%@ ends in 3 hours!	%@ termina em 3 horas!	T1
+Beat levels in a row to rise higher!	Vença níveis seguidos para subir mais alto!	T1
+Beat levels to fill your balloons with hot air!	Passe de nível para encher seus balões de ar quente!	T1
+Hard levels give more hot air!	Níveis difíceis dão mais ar quente!	T1
+If you fail a level, a balloon pops!	Se falhar em um nível, um balão estoura!	T1
+Lose all 3 balloons and you fall to the start of the step!	Se perder os 3 balões, você volta ao início do degrau!	T1
+Reach the top for the big prize!	Chegue ao topo para o grande prêmio!	T1
+hot air	ar quente	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Passe de nível para encher seus balões de ar quente!'
+Hard levels	Níveis difíceis	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Níveis difíceis dão mais ar quente!'
+big prize	grande prêmio	T1; HIGHLIGHT RUN (never shown alone): lit inside 'Chegue ao topo para o grande prêmio!'
+Step %lld	Degrau %lld	T1
+Completed!	Concluído!	T1
+You fell to the start of step %lld!	Você caiu para o início do degrau %lld!	T1
+You will lose a balloon!	Você vai perder um balão!	T1
+You will lose a balloon and your streak!	Você vai perder um balão e sua sequência!	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	Vida	SUPERSEDED: dropped
+#~	Video not available	Vídeo indisponível	SUPERSEDED: dropped
+#~	90% OFF	90% OFF	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	Loja de teste: nada é cobrado	SUPERSEDED: dropped
+#~	Weekly Contest Wins	Vitórias no Torneio semanal	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	Vitórias na Corrida invicta	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	Vitórias na Corrida espacial	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	Vitórias no Salto ao céu	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	Vitórias no Desafio da garra	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	O Torneio semanal termina em 2 horas!	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@ não coleta dados pessoais. Não há contas, anúncios, análises nem rastreamento.	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	O jogo funciona offline. As compras são processadas pela Apple.	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	Chegue ao nível 50 para competir no Torneio semanal!	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	Torneio semanal	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	Toque para competir no Torneio semanal!	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	Desafie seus amigos!	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	Corrida invicta	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	Desafio da garra	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	Corrida espacial	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	Salto ao céu	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	Seu progresso fica salvo neste dispositivo.	SUPERSEDED: superseded by T1
+# --- B3 (2026-09-28): the keys added after T1's freeze (B1 EVENTS, Up & Away on the v582 rules; App/Resources/Strings/strings.tsv 'B3'
+# section). Native register per glossary.tsv; adversarial self-review in build/p/B3/review-l10n.json.
+Every stop has a reward!	Cada degrau tem uma recompensa!	B3 (B1 key): Up & Away (i) item 2, box 170, 2 lines; 'stop' = the glossary's Up & Away 'step' word
+If you fail a level, you fall back to the ground!	Se falhar em um nível, você cai de volta no chão!	B3 (B1 key): Up & Away red card; HIGHLIGHT RUN 'fail' (this language's form) must stay inside
+Already collected!	Já coletado!	B3 (B1 key): Up & Away chest bubble, box 136 at 15 pt
+Up & Away Best Streak	Rumo ao céu: melhor sequência	B3 (B1 key): Profile stat tile, box 165 at 13.9 pt (event name = glossary ev.balloon)
+%@ ends soon!	%@ termina em breve!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
+Name must be 2-16 characters	O apelido deve ter de 2 a 16 caracteres	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
+#~	%@ has no accounts, no ads and no tracking.	%@ não tem contas, anúncios nem rastreamento.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs

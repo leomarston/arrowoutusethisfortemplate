@@ -1,0 +1,258 @@
+{
+ "haptic": {
+  "size_pt": 25.194,
+  "track_pt": -0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8602,
+  "ink": 0.9904,
+  "width": 0.9916
+ },
+ "sound": {
+  "size_pt": 25.542,
+  "track_pt": 0.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8747,
+  "ink": 0.9934,
+  "width": 1.013
+ },
+ "full": {
+  "size_pt": 19.068,
+  "track_pt": -0.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8555,
+  "ink": 1.0512,
+  "width": 1.0421
+ },
+ "coins_home": {
+  "size_pt": 18.797,
+  "track_pt": 0.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8276,
+  "ink": 0.9214,
+  "width": 1.0
+ },
+ "coins_hud": {
+  "size_pt": 18.464,
+  "track_pt": 0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.828,
+  "ink": 0.9205,
+  "width": 1.0077
+ },
+ "paused": {
+  "size_pt": 49.21,
+  "track_pt": -1.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.7199,
+  "ink": 1.0556,
+  "width": 1.0
+ },
+ "on_sound": {
+  "size_pt": 21.068,
+  "track_pt": -0.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8853,
+  "ink": 0.9287,
+  "width": 1.0
+ },
+ "resume": {
+  "size_pt": 27.243,
+  "track_pt": -1.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8627,
+  "ink": 0.9636,
+  "width": 1.0138
+ },
+ "quit": {
+  "size_pt": 30.514,
+  "track_pt": -0.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8425,
+  "ink": 0.978,
+  "width": 1.0214
+ },
+ "level_tab": {
+  "size_pt": 17.892,
+  "track_pt": -0.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.7537,
+  "ink": 1.0151,
+  "width": 0.9951
+ },
+ "timer": {
+  "size_pt": 23.315,
+  "track_pt": 0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8729,
+  "ink": 0.9968,
+  "width": 1.0213
+ },
+ "play": {
+  "size_pt": 48.821,
+  "track_pt": -3.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8312,
+  "ink": 0.9536,
+  "width": 1.0108
+ },
+ "LEVEL": {
+  "size_pt": 14.13,
+  "track_pt": -1.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8441,
+  "ink": 1.0052,
+  "width": 1.0177
+ },
+ "num32": {
+  "size_pt": 30.652,
+  "track_pt": -1.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8189,
+  "ink": 0.9324,
+  "width": 1.0306
+ },
+ "home": {
+  "size_pt": 15.072,
+  "track_pt": -0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.854,
+  "ink": 0.9398,
+  "width": 1.0081
+ },
+ "loading": {
+  "size_pt": 26.789,
+  "track_pt": -0.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.889,
+  "ink": 1.0427,
+  "width": 1.0067
+ },
+ "s_kate": {
+  "size_pt": 27.19,
+  "track_pt": -2.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8469,
+  "ink": 0.989,
+  "width": 1.0
+ },
+ "s_max": {
+  "size_pt": 27.183,
+  "track_pt": -1.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8419,
+  "ink": 0.9581,
+  "width": 0.9933
+ },
+ "s_james": {
+  "size_pt": 27.644,
+  "track_pt": -1.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.7252,
+  "ink": 0.9298,
+  "width": 1.0
+ },
+ "s_x1": {
+  "size_pt": 33.214,
+  "track_pt": -4.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.9003,
+  "ink": 1.0011,
+  "width": 1.0
+ },
+ "s_x5": {
+  "size_pt": 33.592,
+  "track_pt": -3.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.862,
+  "ink": 1.0417,
+  "width": 1.0196
+ },
+ "s_x25": {
+  "size_pt": 33.594,
+  "track_pt": -2.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8565,
+  "ink": 1.0081,
+  "width": 1.0
+ },
+ "s_x100": {
+  "size_pt": 33.214,
+  "track_pt": -2.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8311,
+  "ink": 0.9678,
+  "width": 1.0
+ },
+ "s_2355": {
+  "size_pt": 18.454,
+  "track_pt": -1.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8259,
+  "ink": 1.0922,
+  "width": 1.016
+ },
+ "s_2356": {
+  "size_pt": 24.133,
+  "track_pt": -1.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.849,
+  "ink": 1.0284,
+  "width": 1.0
+ },
+ "s_2346": {
+  "size_pt": 23.399,
+  "track_pt": -0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8018,
+  "ink": 0.9484,
+  "width": 1.0056
+ },
+ "s_beat": {
+  "size_pt": 19.733,
+  "track_pt": -1.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.7759,
+  "ink": 1.0087,
+  "width": 0.9991
+ },
+ "s_x10": {
+  "size_pt": 34.987,
+  "track_pt": -2.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8488,
+  "ink": 0.9761,
+  "width": 1.0061
+ },
+ "s_16": {
+  "size_pt": 25.212,
+  "track_pt": -0.25,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.9151,
+  "ink": 0.9957,
+  "width": 1.012
+ },
+ "s_hard": {
+  "size_pt": 16.093,
+  "track_pt": -0.75,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.817,
+  "ink": 0.9401,
+  "width": 1.0129
+ },
+ "s_045": {
+  "size_pt": 25.923,
+  "track_pt": -0.5,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.8348,
+  "ink": 0.9552,
+  "width": 1.0
+ },
+ "s_1000": {
+  "size_pt": 29.929,
+  "track_pt": 0.0,
+  "ps": "PCDisplay-Black",
+  "line_iou": 0.9183,
+  "ink": 0.9381,
+  "width": 1.0097
+ }
+}

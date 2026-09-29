@@ -1,0 +1,638 @@
+{
+ "version": 1,
+ "title": "3d-hud lane entries (scratch manifest for art_batch/manifest_sheets/manifest_check --manifest; the art director merges these into art/MANIFEST.json)",
+ "entries": [
+  {
+   "id": "boosterFreeze",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "time-freeze booster: frozen hourglass / ice crystal",
+   "screen": "booster button, shop, rewards",
+   "size_pt": [
+    56,
+    56
+   ],
+   "size_px": [
+    168,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterFreeze",
+   "file": "art/ui/out/boosterFreeze@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     14,
+     760,
+     76,
+     822
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: frozen hourglass; the art fills ~37 x 40 pt of the 56 pt frame so it registers with the booster button when centred (003); the same PNG scaled ~1.7x serves the ~90 x 100 pt flight in the freeze animation"
+  },
+  {
+   "id": "boosterHint",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "hint booster: glossy light bulb",
+   "screen": "booster button, shop, Claw prize",
+   "size_pt": [
+    56,
+    56
+   ],
+   "size_px": [
+    168,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterHint",
+   "file": "art/ui/out/boosterHint@3x.png",
+   "ref": {
+    "shot": "research/shots/003-L32-start.png",
+    "box_pt": [
+     318,
+     760,
+     378,
+     822
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: glass opacity 0.94 (a faint filament shows through); fills ~37 x 45 pt of the 56 pt frame (003 registration)"
+  },
+  {
+   "id": "boosterPointer",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "yellow arrow-cursor booster (video build, 4-bar)",
+   "screen": "booster bar",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterPointer",
+   "file": "art/ui/out/boosterPointer@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 30.0,
+    "box_pt": [
+     62,
+     760,
+     112,
+     810
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud, unconfirmed (V1 4-bar only): yellow set-square. ref box corrected: the manifest's box_pt y 795..840 frames the LOWER half of the button; the icon sits at y ~760..810",
+   "confirmed": false
+  },
+  {
+   "id": "boosterDome",
+   "family": "3d",
+   "route": "B3",
+   "group": "boosters",
+   "purpose": "blue dome/bell booster (video build, 4-bar)",
+   "screen": "booster bar",
+   "size_pt": [
+    40,
+    40
+   ],
+   "size_px": [
+    120,
+    120
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:boosterDome",
+   "file": "art/ui/out/boosterDome@3x.png",
+   "ref": {
+    "video": "research/video/owner/V1-levels-01-20.mp4",
+    "t": 30.0,
+    "box_pt": [
+     282,
+     760,
+     332,
+     810
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud, unconfirmed (V1 4-bar only): ring-stack toy (yellow base, two blue rings, blue ball). ref box corrected as boosterPointer",
+   "confirmed": false
+  },
+  {
+   "id": "stopwatchBig",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "big blue stopwatch with glow (Out of Time!)",
+   "screen": "Out of Time popup",
+   "size_pt": [
+    225,
+    225
+   ],
+   "size_px": [
+    675,
+    675
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:stopwatchBig",
+   "file": "art/ui/out/stopwatchBig@3x.png",
+   "ref": {
+    "shot": "research/shots/013-L32-popup.png",
+    "box_pt": [
+     85,
+     268,
+     310,
+     493
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: includes our blue glow (post_fit) behind the watch; the watch fills 0.975 of the frame like the capture"
+  },
+  {
+   "id": "heartBroken",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "broken red glossy heart",
+   "screen": "Continue? (lose a life), Level Failed",
+   "size_pt": [
+    160,
+    132
+   ],
+   "size_px": [
+    480,
+    396
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:heartBroken",
+   "file": "art/ui/out/heartBroken@3x.png",
+   "ref": {
+    "shot": "research/shots/016-L32-after-decline-life.png",
+    "box_pt": [
+     117,
+     296,
+     277,
+     428
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: two halves + a dark crack wall, 3 px dark-red sticker rim"
+  },
+  {
+   "id": "coinStackReward",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "coin stack reward with sparkles",
+   "screen": "win popup 'Rewards:'",
+   "size_pt": [
+    110,
+    100
+   ],
+   "size_px": [
+    330,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:coinStackReward",
+   "file": "art/ui/out/coinStackReward@3x.png",
+   "ref": {
+    "shot": "research/shots/020-L32-win-1.png",
+    "box_pt": [
+     133,
+     360,
+     243,
+     460
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: 9 thick star coins + two twinkles (ours, 2D post); the '20' is live text"
+  },
+  {
+   "id": "heartInfinite",
+   "family": "3d",
+   "route": "B3",
+   "group": "popups",
+   "purpose": "red heart with an infinity sign (unlimited lives reward)",
+   "screen": "Claw reward, home lives",
+   "size_pt": [
+    92,
+    84
+   ],
+   "size_px": [
+    276,
+    252
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:heartInfinite",
+   "file": "art/ui/out/heartInfinite@3x.png",
+   "ref": {
+    "shot": "research/shots/033-after-L33.png",
+    "box_pt": [
+     152,
+     368,
+     244,
+     452
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: cream infinity sign raised in a 0.03 recess; the gold sparkles around it on 033 are FX (not baked)"
+  },
+  {
+   "id": "navShop",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "orange shopping basket nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    62,
+    62
+   ],
+   "size_px": [
+    186,
+    186
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navShop",
+   "file": "art/ui/out/navShop@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     38,
+     772,
+     100,
+     834
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud"
+  },
+  {
+   "id": "navHome",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "orange house/garage nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    80,
+    86
+   ],
+   "size_px": [
+    240,
+    258
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navHome",
+   "file": "art/ui/out/navHome@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     157,
+     730,
+     237,
+     816
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud; director round 2: frame 66x66 -> 80x86 (026's raised Home icon is 74 x 82 pt, 1.4x round 1), wider body, thicker arch/eaves/door frame/corner blocks. Placed with its frame at (157, 730) pt on the home screen."
+  },
+  {
+   "id": "navTrophy",
+   "family": "3d",
+   "route": "B3",
+   "group": "home",
+   "purpose": "gold trophy cup with a red arrow nav icon",
+   "screen": "bottom nav",
+   "size_pt": [
+    68,
+    62
+   ],
+   "size_px": [
+    204,
+    186
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:navTrophy",
+   "file": "art/ui/out/navTrophy@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     288,
+     772,
+     356,
+     834
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud"
+  },
+  {
+   "id": "padlockGold",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-claw",
+   "purpose": "gold padlock on a locked reward",
+   "screen": "Claw ladder",
+   "size_pt": [
+    44,
+    54
+   ],
+   "size_px": [
+    132,
+    162
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:padlockGold",
+   "file": "art/ui/out/padlockGold@3x.png",
+   "ref": {
+    "shot": "research/shots/023-claw-challenge-c.png",
+    "box_pt": [
+     308,
+     508,
+     352,
+     562
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: 3 px orange-brown sticker rim like the capture"
+  },
+  {
+   "id": "coinPileSmall",
+   "family": "3d",
+   "route": "B3",
+   "group": "events-claw",
+   "purpose": "small loose coin pile",
+   "screen": "Claw info overlay",
+   "size_pt": [
+    68,
+    56
+   ],
+   "size_px": [
+    204,
+    168
+   ],
+   "source": "art/ui/recipes/3d-hud_props.py:coinPileSmall",
+   "file": "art/ui/out/coinPileSmall@3x.png",
+   "ref": {
+    "shot": "research/shots/025-claw-info.png",
+    "box_pt": [
+     84,
+     522,
+     152,
+     578
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: ~70 grooved coin stacks + 3 front star coins; includes our warm glow (post_fit)"
+  },
+  {
+   "id": "arrowGlossyYellow",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, yellow (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyYellow",
+   "file": "art/out/arrowGlossyYellow@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)"
+  },
+  {
+   "id": "arrowGlossyRed",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, red (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyRed",
+   "file": "art/out/arrowGlossyRed@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)"
+  },
+  {
+   "id": "arrowGlossyBlue",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, blue (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyBlue",
+   "file": "art/out/arrowGlossyBlue@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model)"
+  },
+  {
+   "id": "arrowGlossyGreen",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, green (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyGreen",
+   "file": "art/out/arrowGlossyGreen@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)"
+  },
+  {
+   "id": "arrowGlossyPurple",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, purple (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyPurple",
+   "file": "art/out/arrowGlossyPurple@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)"
+  },
+  {
+   "id": "arrowGlossyOrange",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, orange (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyOrange",
+   "file": "art/out/arrowGlossyOrange@3x.png",
+   "ref": {
+    "shot": "research/shots/026-home-after-L32.png",
+    "box_pt": [
+     112,
+     410,
+     282,
+     520
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)"
+  },
+  {
+   "id": "arrowGlossyCyan",
+   "family": "3d",
+   "route": "C2",
+   "group": "loading-win",
+   "purpose": "glossy 3D arrow, cyan (pile, loading, icon)",
+   "screen": "home pile, loading, icon",
+   "size_pt": [
+    200,
+    100
+   ],
+   "size_px": [
+    600,
+    300
+   ],
+   "source": "art/ui/recipes/3d-hud_arrows.py:arrowGlossyCyan",
+   "file": "art/out/arrowGlossyCyan@3x.png",
+   "ref": {
+    "shot": "research/store/iphone-8.png",
+    "box_pt": [
+     300,
+     100,
+     440,
+     250
+    ]
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: the capsule-machine / loading BLOCK arrow (head 1, head length 0.58, shaft 0.54 x 0.54, thickness 0.30), pointing right, seen from above-front (bottom wall visible); painted hue-shifted walls/bevel; replaces the spike's long-shaft icon arrows (those live on as the appIcon model); shade set measured on 026's pile (value quantiles per hue family)"
+  },
+  {
+   "id": "appIcon",
+   "family": "3d",
+   "route": "C2",
+   "group": "app-icon",
+   "purpose": "app icon: glossy 3D arrows (yellow/red/blue) in OUR composition on a light ground",
+   "screen": "home screen",
+   "source": "art/ui/recipes/3d-hud_arrows.py:appIcon",
+   "file": "art/out/appIcon1024.png",
+   "ref": {
+    "shot": "research/store/icon-1024.png",
+    "box_pt": [
+     0,
+     0,
+     1024,
+     1024
+    ],
+    "px_per_pt": 1.0
+   },
+   "status": "done",
+   "owner": "3d-hud",
+   "notes": "3d-hud: OUR composition -- blue <- from the right edge (top), yellow ^ from the bottom edge (right), red -> from the left edge (bottom); store-icon style (long-shaft glossy arrows, painted bevel, white ground, soft shadows); opaque RGB 1024 px",
+   "exact_px": [
+    1024,
+    1024
+   ],
+   "full_bleed": true
+  }
+ ]
+}

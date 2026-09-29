@@ -1,0 +1,2673 @@
+{
+ "V1-L001": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 3,
+  "nB": 3,
+  "identical": 3,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L001.json",
+  "dims": [
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 43.12,
+   "pitch_y_px0": 29.04,
+   "score_x": 76.9,
+   "score_y": 5.4,
+   "harmonic_fix": [
+    43.12,
+    29.04
+   ],
+   "pitch_x_px": 42.085,
+   "resid_x_px": 0.063,
+   "pitch_y_px": 40.71,
+   "resid_y_px": 0.0,
+   "pitch_px": 41.397,
+   "phase_px": [
+    0.824,
+    30.489
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L002": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 6,
+  "nB": 6,
+  "identical": 6,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L002.json",
+  "dims": [
+   [
+    6,
+    6
+   ],
+   [
+    6,
+    6
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 41.6,
+   "pitch_y_px0": 42.95,
+   "score_x": 112.96,
+   "score_y": 53.26,
+   "harmonic_fix": [
+    41.6,
+    42.95
+   ],
+   "pitch_x_px": 42.221,
+   "resid_x_px": 0.406,
+   "pitch_y_px": 42.196,
+   "resid_y_px": 1.244,
+   "pitch_px": 42.208,
+   "phase_px": [
+    20.883,
+    4.576
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L003": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 8,
+  "nB": 8,
+  "identical": 8,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L003.json",
+  "dims": [
+   [
+    10,
+    9
+   ],
+   [
+    10,
+    9
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.12,
+   "pitch_y_px0": 41.95,
+   "score_x": 153.17,
+   "score_y": 151.96,
+   "pitch_x_px": 42.181,
+   "resid_x_px": 0.649,
+   "pitch_y_px": 42.272,
+   "resid_y_px": 0.166,
+   "pitch_px": 42.226,
+   "phase_px": [
+    21.363,
+    24.188
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L004": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 8,
+  "nB": 8,
+  "identical": 8,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L004.json",
+  "dims": [
+   [
+    9,
+    14
+   ],
+   [
+    9,
+    14
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.37,
+   "pitch_y_px0": 42.09,
+   "score_x": 245.3,
+   "score_y": 150.68,
+   "pitch_x_px": 42.305,
+   "resid_x_px": 0.373,
+   "pitch_y_px": 42.25,
+   "resid_y_px": 0.231,
+   "pitch_px": 42.278,
+   "phase_px": [
+    41.633,
+    3.429
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L005": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 17,
+  "nB": 17,
+  "identical": 17,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L005.json",
+  "dims": [
+   [
+    12,
+    14
+   ],
+   [
+    12,
+    14
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.37,
+   "pitch_y_px0": 42.09,
+   "score_x": 359.6,
+   "score_y": 107.57,
+   "pitch_x_px": 42.314,
+   "resid_x_px": 0.105,
+   "pitch_y_px": 42.17,
+   "resid_y_px": 0.596,
+   "pitch_px": 42.242,
+   "phase_px": [
+    20.459,
+    5.072
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L006": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 29,
+  "nB": 29,
+  "identical": 29,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L006.json",
+  "dims": [
+   [
+    27,
+    22
+   ],
+   [
+    27,
+    22
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 19.95,
+   "pitch_y_px0": 19.98,
+   "score_x": 108.25,
+   "score_y": 147.22,
+   "pitch_x_px": 20.424,
+   "resid_x_px": 0.212,
+   "pitch_y_px": 20.407,
+   "resid_y_px": 0.248,
+   "pitch_px": 20.415,
+   "phase_px": [
+    9.524,
+    15.54
+   ],
+   "stroke_px": 4.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L007": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 18,
+  "nB": 18,
+  "identical": 18,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L007.json",
+  "dims": [
+   [
+    10,
+    15
+   ],
+   [
+    10,
+    15
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.32,
+   "pitch_y_px0": 41.96,
+   "score_x": 301.65,
+   "score_y": 76.61,
+   "pitch_x_px": 42.273,
+   "resid_x_px": 0.216,
+   "pitch_y_px": 42.128,
+   "resid_y_px": 1.037,
+   "pitch_px": 42.2,
+   "phase_px": [
+    20.781,
+    27.052
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L008": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 19,
+  "nB": 19,
+  "identical": 19,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L008.json",
+  "dims": [
+   [
+    12,
+    17
+   ],
+   [
+    12,
+    17
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 41.51,
+   "pitch_y_px0": 41.95,
+   "score_x": 239.68,
+   "score_y": 231.88,
+   "pitch_x_px": 42.318,
+   "resid_x_px": 0.225,
+   "pitch_y_px": 42.246,
+   "resid_y_px": 0.231,
+   "pitch_px": 42.282,
+   "phase_px": [
+    20.323,
+    24.633
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L009": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 27,
+  "nB": 27,
+  "identical": 27,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L009.json",
+  "dims": [
+   [
+    14,
+    19
+   ],
+   [
+    14,
+    19
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.67,
+   "pitch_y_px0": 36.93,
+   "score_x": 382.56,
+   "score_y": 189.06,
+   "pitch_x_px": 36.97,
+   "resid_x_px": 0.247,
+   "pitch_y_px": 36.968,
+   "resid_y_px": 0.163,
+   "pitch_px": 36.969,
+   "phase_px": [
+    18.094,
+    29.841
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L010": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 47,
+  "nB": 47,
+  "identical": 47,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L010.json",
+  "dims": [
+   [
+    20,
+    22
+   ],
+   [
+    20,
+    22
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.94,
+   "pitch_y_px0": 26.97,
+   "score_x": 321.96,
+   "score_y": 174.1,
+   "pitch_x_px": 26.945,
+   "resid_x_px": 0.277,
+   "pitch_y_px": 26.874,
+   "resid_y_px": 0.138,
+   "pitch_px": 26.909,
+   "phase_px": [
+    12.462,
+    26.871
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L011": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 14,
+  "nB": 14,
+  "identical": 14,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 1,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L011.json",
+  "dims": [
+   [
+    10,
+    20
+   ],
+   [
+    10,
+    20
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.23,
+   "pitch_y_px0": 41.96,
+   "score_x": 190.65,
+   "score_y": 151.69,
+   "pitch_x_px": 42.227,
+   "resid_x_px": 0.244,
+   "pitch_y_px": 42.201,
+   "resid_y_px": 0.641,
+   "pitch_px": 42.214,
+   "phase_px": [
+    21.055,
+    4.34
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L012": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 24,
+  "nB": 24,
+  "identical": 24,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L012.json",
+  "dims": [
+   [
+    15,
+    21
+   ],
+   [
+    15,
+    21
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 34.69,
+   "pitch_y_px0": 34.96,
+   "score_x": 239.38,
+   "score_y": 169.6,
+   "pitch_x_px": 34.849,
+   "resid_x_px": 0.341,
+   "pitch_y_px": 34.783,
+   "resid_y_px": 0.33,
+   "pitch_px": 34.816,
+   "phase_px": [
+    16.466,
+    32.264
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L013": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 33,
+  "nB": 33,
+  "identical": 33,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L013.json",
+  "dims": [
+   [
+    14,
+    18
+   ],
+   [
+    14,
+    18
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.49,
+   "pitch_y_px0": 36.96,
+   "score_x": 346.49,
+   "score_y": 154.65,
+   "pitch_x_px": 36.958,
+   "resid_x_px": 0.299,
+   "pitch_y_px": 36.957,
+   "resid_y_px": 0.364,
+   "pitch_px": 36.958,
+   "phase_px": [
+    18.031,
+    11.79
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L014": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 15,
+  "nB": 15,
+  "identical": 15,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L014.json",
+  "dims": [
+   [
+    13,
+    16
+   ],
+   [
+    13,
+    16
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 39.08,
+   "pitch_y_px0": 19.49,
+   "score_x": 269.19,
+   "score_y": 160.56,
+   "harmonic_fix": [
+    39.08,
+    19.49
+   ],
+   "pitch_x_px": 39.47,
+   "resid_x_px": 0.328,
+   "pitch_y_px": 39.426,
+   "resid_y_px": 0.257,
+   "pitch_px": 39.448,
+   "phase_px": [
+    19.155,
+    7.904
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L015": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 48,
+  "nB": 48,
+  "identical": 48,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L015.json",
+  "dims": [
+   [
+    20,
+    25
+   ],
+   [
+    20,
+    25
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 27.33,
+   "pitch_y_px0": 27.03,
+   "score_x": 269.05,
+   "score_y": 236.45,
+   "pitch_x_px": 26.927,
+   "resid_x_px": 0.242,
+   "pitch_y_px": 26.888,
+   "resid_y_px": 0.127,
+   "pitch_px": 26.907,
+   "phase_px": [
+    12.717,
+    13.057
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L016": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 24,
+  "nB": 24,
+  "identical": 24,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L016.json",
+  "dims": [
+   [
+    13,
+    15
+   ],
+   [
+    13,
+    15
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 39.49,
+   "pitch_y_px0": 19.51,
+   "score_x": 403.82,
+   "score_y": 142.44,
+   "harmonic_fix": [
+    39.49,
+    19.51
+   ],
+   "pitch_x_px": 39.488,
+   "resid_x_px": 0.335,
+   "pitch_y_px": 39.432,
+   "resid_y_px": 0.268,
+   "pitch_px": 39.46,
+   "phase_px": [
+    18.949,
+    27.535
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L017": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 54,
+  "nB": 54,
+  "identical": 54,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L017.json",
+  "dims": [
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    24
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 28.08,
+   "pitch_y_px0": 28.03,
+   "score_x": 389.25,
+   "score_y": 155.12,
+   "pitch_x_px": 28.207,
+   "resid_x_px": 0.157,
+   "pitch_y_px": 28.15,
+   "resid_y_px": 0.329,
+   "pitch_px": 28.178,
+   "phase_px": [
+    13.371,
+    25.095
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L018": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 22,
+  "nB": 22,
+  "identical": 22,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L018.json",
+  "dims": [
+   [
+    14,
+    17
+   ],
+   [
+    14,
+    17
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.67,
+   "pitch_y_px0": 36.92,
+   "score_x": 297.14,
+   "score_y": 216.1,
+   "pitch_x_px": 36.98,
+   "resid_x_px": 0.341,
+   "pitch_y_px": 36.962,
+   "resid_y_px": 0.134,
+   "pitch_px": 36.971,
+   "phase_px": [
+    18.12,
+    29.958
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L019": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 62,
+  "nB": 62,
+  "identical": 62,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 3,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L019.json",
+  "dims": [
+   [
+    20,
+    31
+   ],
+   [
+    20,
+    31
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.68,
+   "pitch_y_px0": 26.95,
+   "score_x": 379.92,
+   "score_y": 239.28,
+   "pitch_x_px": 26.941,
+   "resid_x_px": 0.211,
+   "pitch_y_px": 26.877,
+   "resid_y_px": 0.22,
+   "pitch_px": 26.909,
+   "phase_px": [
+    12.563,
+    13.365
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V1-L020": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 20,
+  "nB": 20,
+  "identical": 20,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V1-L020.json",
+  "dims": [
+   [
+    14,
+    20
+   ],
+   [
+    14,
+    20
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.49,
+   "pitch_y_px0": 37.04,
+   "score_x": 366.23,
+   "score_y": 207.12,
+   "harmonic_fix": [
+    36.49,
+    37.04
+   ],
+   "pitch_x_px": 36.989,
+   "resid_x_px": 0.228,
+   "pitch_y_px": 36.968,
+   "resid_y_px": 0.19,
+   "pitch_px": 36.979,
+   "phase_px": [
+    17.929,
+    11.44
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L011": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 14,
+  "nB": 14,
+  "identical": 14,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 1,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L011.json",
+  "dims": [
+   [
+    10,
+    20
+   ],
+   [
+    10,
+    20
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 42.24,
+   "pitch_y_px0": 41.96,
+   "score_x": 185.38,
+   "score_y": 148.06,
+   "pitch_x_px": 42.229,
+   "resid_x_px": 0.26,
+   "pitch_y_px": 42.163,
+   "resid_y_px": 0.619,
+   "pitch_px": 42.196,
+   "phase_px": [
+    20.836,
+    5.236
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L012": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 24,
+  "nB": 24,
+  "identical": 24,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L012.json",
+  "dims": [
+   [
+    15,
+    21
+   ],
+   [
+    15,
+    21
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 34.84,
+   "pitch_y_px0": 34.96,
+   "score_x": 233.67,
+   "score_y": 166.06,
+   "pitch_x_px": 34.791,
+   "resid_x_px": 0.363,
+   "pitch_y_px": 34.787,
+   "resid_y_px": 0.282,
+   "pitch_px": 34.789,
+   "phase_px": [
+    16.922,
+    32.334
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L013": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 33,
+  "nB": 33,
+  "identical": 33,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L013.json",
+  "dims": [
+   [
+    14,
+    18
+   ],
+   [
+    14,
+    18
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.49,
+   "pitch_y_px0": 36.96,
+   "score_x": 348.45,
+   "score_y": 154.15,
+   "pitch_x_px": 36.938,
+   "resid_x_px": 0.343,
+   "pitch_y_px": 36.98,
+   "resid_y_px": 0.349,
+   "pitch_px": 36.959,
+   "phase_px": [
+    18.167,
+    11.59
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L014": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 15,
+  "nB": 15,
+  "identical": 15,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L014.json",
+  "dims": [
+   [
+    13,
+    16
+   ],
+   [
+    13,
+    16
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 39.08,
+   "pitch_y_px0": 39.05,
+   "score_x": 270.31,
+   "score_y": 160.59,
+   "pitch_x_px": 39.441,
+   "resid_x_px": 0.292,
+   "pitch_y_px": 39.416,
+   "resid_y_px": 0.243,
+   "pitch_px": 39.429,
+   "phase_px": [
+    19.343,
+    8.215
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L015": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 48,
+  "nB": 48,
+  "identical": 48,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L015.json",
+  "dims": [
+   [
+    20,
+    25
+   ],
+   [
+    20,
+    25
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 27.33,
+   "pitch_y_px0": 27.03,
+   "score_x": 279.01,
+   "score_y": 237.68,
+   "pitch_x_px": 26.904,
+   "resid_x_px": 0.238,
+   "pitch_y_px": 26.873,
+   "resid_y_px": 0.248,
+   "pitch_px": 26.888,
+   "phase_px": [
+    12.831,
+    13.596
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L016": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 24,
+  "nB": 24,
+  "identical": 24,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L016.json",
+  "dims": [
+   [
+    13,
+    15
+   ],
+   [
+    13,
+    15
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 39.49,
+   "pitch_y_px0": 19.49,
+   "score_x": 404.31,
+   "score_y": 151.29,
+   "harmonic_fix": [
+    39.49,
+    19.49
+   ],
+   "pitch_x_px": 39.462,
+   "resid_x_px": 0.298,
+   "pitch_y_px": 39.415,
+   "resid_y_px": 0.243,
+   "pitch_px": 39.438,
+   "phase_px": [
+    19.087,
+    28.046
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L017": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 54,
+  "nB": 54,
+  "identical": 54,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L017.json",
+  "dims": [
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    24
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 28.08,
+   "pitch_y_px0": 28.03,
+   "score_x": 392.46,
+   "score_y": 155.29,
+   "pitch_x_px": 28.178,
+   "resid_x_px": 0.251,
+   "pitch_y_px": 28.14,
+   "resid_y_px": 0.331,
+   "pitch_px": 28.159,
+   "phase_px": [
+    13.627,
+    25.403
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L018": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 22,
+  "nB": 22,
+  "identical": 22,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L018.json",
+  "dims": [
+   [
+    14,
+    17
+   ],
+   [
+    14,
+    17
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.67,
+   "pitch_y_px0": 36.92,
+   "score_x": 298.06,
+   "score_y": 215.89,
+   "pitch_x_px": 36.971,
+   "resid_x_px": 0.297,
+   "pitch_y_px": 36.927,
+   "resid_y_px": 0.153,
+   "pitch_px": 36.949,
+   "phase_px": [
+    18.229,
+    30.811
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L019": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 62,
+  "nB": 62,
+  "identical": 62,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 3,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L019.json",
+  "dims": [
+   [
+    20,
+    31
+   ],
+   [
+    20,
+    31
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.73,
+   "pitch_y_px0": 26.95,
+   "score_x": 361.72,
+   "score_y": 239.86,
+   "pitch_x_px": 26.906,
+   "resid_x_px": 0.261,
+   "pitch_y_px": 26.874,
+   "resid_y_px": 0.316,
+   "pitch_px": 26.89,
+   "phase_px": [
+    12.866,
+    13.605
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L020": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 20,
+  "nB": 20,
+  "identical": 20,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L020.json",
+  "dims": [
+   [
+    14,
+    20
+   ],
+   [
+    14,
+    20
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.49,
+   "pitch_y_px0": 37.04,
+   "score_x": 369.54,
+   "score_y": 208.3,
+   "harmonic_fix": [
+    36.49,
+    37.04
+   ],
+   "pitch_x_px": 36.964,
+   "resid_x_px": 0.224,
+   "pitch_y_px": 36.984,
+   "resid_y_px": 0.176,
+   "pitch_px": 36.974,
+   "phase_px": [
+    18.087,
+    11.336
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L021": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 20,
+  "nB": 20,
+  "identical": 20,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 1,
+   "B": 1,
+   "same_cells": 1,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L021.json",
+  "dims": [
+   [
+    12,
+    18
+   ],
+   [
+    12,
+    18
+   ]
+  ],
+  "anomalies": [
+   {
+    "kind": "head_ambiguous",
+    "cells": [
+     [
+      9,
+      9
+     ],
+     [
+      8,
+      7
+     ]
+    ],
+    "reach": [
+     12.0,
+     8.5
+    ],
+    "widths": [
+     16,
+     9
+    ]
+   }
+  ],
+  "fit": {
+   "pitch_x_px0": 28.34,
+   "pitch_y_px0": 41.96,
+   "score_x": 363.87,
+   "score_y": 126.23,
+   "harmonic_fix": [
+    28.34,
+    41.96
+   ],
+   "pitch_x_px": 41.73,
+   "resid_x_px": 3.002,
+   "pitch_y_px": 42.187,
+   "resid_y_px": 0.813,
+   "pitch_px": 41.959,
+   "phase_px": [
+    22.544,
+    5.075
+   ],
+   "stroke_px": 9.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L022": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 29,
+  "nB": 29,
+  "identical": 29,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 1,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L022.json",
+  "dims": [
+   [
+    14,
+    23
+   ],
+   [
+    14,
+    23
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 36.67,
+   "pitch_y_px0": 37.07,
+   "score_x": 314.36,
+   "score_y": 167.63,
+   "pitch_x_px": 37.148,
+   "resid_x_px": 1.456,
+   "pitch_y_px": 36.938,
+   "resid_y_px": 0.425,
+   "pitch_px": 37.043,
+   "phase_px": [
+    16.276,
+    30.818
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L023": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 41,
+  "nB": 41,
+  "identical": 41,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 1,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L023.json",
+  "dims": [
+   [
+    16,
+    22
+   ],
+   [
+    16,
+    22
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 32.92,
+   "pitch_y_px0": 32.97,
+   "score_x": 435.58,
+   "score_y": 123.51,
+   "pitch_x_px": 32.888,
+   "resid_x_px": 0.338,
+   "pitch_y_px": 32.809,
+   "resid_y_px": 0.982,
+   "pitch_px": 32.848,
+   "phase_px": [
+    15.752,
+    19.404
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L024": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 37,
+  "nB": 37,
+  "identical": 37,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L024.json",
+  "dims": [
+   [
+    17,
+    27
+   ],
+   [
+    17,
+    27
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 31.11,
+   "pitch_y_px0": 31.03,
+   "score_x": 288.77,
+   "score_y": 210.34,
+   "pitch_x_px": 31.138,
+   "resid_x_px": 0.258,
+   "pitch_y_px": 31.123,
+   "resid_y_px": 0.323,
+   "pitch_px": 31.13,
+   "phase_px": [
+    15.163,
+    5.004
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L025": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 61,
+  "nB": 61,
+  "identical": 61,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 5,
+   "B": 5,
+   "same_cells": 5,
+   "same_counter": 3,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L025.json",
+  "dims": [
+   [
+    19,
+    30
+   ],
+   [
+    19,
+    30
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 28.06,
+   "pitch_y_px0": 28.05,
+   "score_x": 527.22,
+   "score_y": 148.33,
+   "pitch_x_px": 28.181,
+   "resid_x_px": 0.269,
+   "pitch_y_px": 28.163,
+   "resid_y_px": 0.508,
+   "pitch_px": 28.172,
+   "phase_px": [
+    13.614,
+    25.012
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L026": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 26,
+  "nB": 26,
+  "identical": 26,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L026.json",
+  "dims": [
+   [
+    15,
+    19
+   ],
+   [
+    15,
+    19
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 34.56,
+   "pitch_y_px0": 35.04,
+   "score_x": 400.39,
+   "score_y": 154.09,
+   "pitch_x_px": 34.806,
+   "resid_x_px": 0.219,
+   "pitch_y_px": 34.787,
+   "resid_y_px": 0.271,
+   "pitch_px": 34.796,
+   "phase_px": [
+    16.972,
+    32.467
+   ],
+   "stroke_px": 8.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L027": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 40,
+  "nB": 40,
+  "identical": 40,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 3,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L027.json",
+  "dims": [
+   [
+    16,
+    26
+   ],
+   [
+    16,
+    26
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 32.66,
+   "pitch_y_px0": 32.97,
+   "score_x": 384.19,
+   "score_y": 200.47,
+   "pitch_x_px": 32.873,
+   "resid_x_px": 0.188,
+   "pitch_y_px": 32.856,
+   "resid_y_px": 0.306,
+   "pitch_px": 32.864,
+   "phase_px": [
+    16.047,
+    17.993
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L028": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 51,
+  "nB": 51,
+  "identical": 51,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 6,
+   "B": 6,
+   "same_cells": 6,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L028.json",
+  "dims": [
+   [
+    19,
+    24
+   ],
+   [
+    19,
+    24
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 28.05,
+   "pitch_y_px0": 27.97,
+   "score_x": 357.58,
+   "score_y": 182.25,
+   "pitch_x_px": 28.185,
+   "resid_x_px": 0.335,
+   "pitch_y_px": 28.156,
+   "resid_y_px": 0.317,
+   "pitch_px": 28.17,
+   "phase_px": [
+    13.573,
+    25.02
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L029": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 68,
+  "nB": 68,
+  "identical": 68,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 3,
+   "B": 3,
+   "same_cells": 3,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L029.json",
+  "dims": [
+   [
+    20,
+    32
+   ],
+   [
+    20,
+    32
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.86,
+   "pitch_y_px0": 26.95,
+   "score_x": 412.94,
+   "score_y": 224.51,
+   "pitch_x_px": 26.9,
+   "resid_x_px": 0.288,
+   "pitch_y_px": 26.863,
+   "resid_y_px": 0.478,
+   "pitch_px": 26.882,
+   "phase_px": [
+    12.869,
+    0.546
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L030": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 25,
+  "nB": 25,
+  "identical": 25,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/L030.json",
+  "dims": [
+   [
+    16,
+    16
+   ],
+   [
+    16,
+    16
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 32.88,
+   "pitch_y_px0": 33.04,
+   "score_x": 243.36,
+   "score_y": 163.47,
+   "pitch_x_px": 32.87,
+   "resid_x_px": 0.197,
+   "pitch_y_px": 32.873,
+   "resid_y_px": 0.331,
+   "pitch_px": 32.871,
+   "phase_px": [
+    16.05,
+    17.679
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L031": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 28,
+  "nB": 28,
+  "identical": 28,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 1,
+   "B": 1,
+   "match": [
+    {
+     "cells_B": 84,
+     "cells_A": 84,
+     "jaccard": 1.0
+    }
+   ]
+  },
+  "ref": "levels/L031.json",
+  "dims": [
+   [
+    16,
+    17
+   ],
+   [
+    16,
+    17
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 32.66,
+   "pitch_y_px0": 32.93,
+   "score_x": 272.9,
+   "score_y": 199.67,
+   "pitch_x_px": 32.876,
+   "resid_x_px": 0.2,
+   "pitch_y_px": 32.844,
+   "resid_y_px": 0.284,
+   "pitch_px": 32.86,
+   "phase_px": [
+    16.089,
+    1.748
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": [
+   {
+    "elevator": 0,
+    "hidden": 7,
+    "hidden_found": 7,
+    "hidden_missing": [],
+    "extra_in_frame": 0,
+    "extra": []
+   }
+  ]
+ },
+ "V2-L032": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 29,
+  "nB": 29,
+  "identical": 29,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 1,
+   "B": 1,
+   "match": [
+    {
+     "cells_B": 104,
+     "cells_A": 104,
+     "jaccard": 1.0
+    }
+   ]
+  },
+  "ref": "levels/video/V2-L032.json",
+  "dims": [
+   [
+    17,
+    21
+   ],
+   [
+    17,
+    21
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 31.33,
+   "pitch_y_px0": 31.03,
+   "score_x": 382.6,
+   "score_y": 174.56,
+   "pitch_x_px": 31.143,
+   "resid_x_px": 0.225,
+   "pitch_y_px": 31.107,
+   "resid_y_px": 0.262,
+   "pitch_px": 31.125,
+   "phase_px": [
+    15.142,
+    5.371
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": [
+   {
+    "elevator": 0,
+    "hidden": 11,
+    "hidden_found": 11,
+    "hidden_missing": [],
+    "extra_in_frame": 0,
+    "extra": []
+   }
+  ]
+ },
+ "V2-L033": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 36,
+  "nB": 36,
+  "identical": 36,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 4,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 2,
+   "B": 2,
+   "match": [
+    {
+     "cells_B": 78,
+     "cells_A": 72,
+     "jaccard": 0.923
+    },
+    {
+     "cells_B": 78,
+     "cells_A": 72,
+     "jaccard": 0.923
+    }
+   ]
+  },
+  "ref": "levels/video/V2-L033.json",
+  "dims": [
+   [
+    17,
+    23
+   ],
+   [
+    17,
+    23
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 31.08,
+   "pitch_y_px0": 31.03,
+   "score_x": 369.79,
+   "score_y": 141.94,
+   "pitch_x_px": 31.131,
+   "resid_x_px": 0.174,
+   "pitch_y_px": 31.119,
+   "resid_y_px": 0.317,
+   "pitch_px": 31.125,
+   "phase_px": [
+    15.233,
+    4.971
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": [
+   {
+    "elevator": 0,
+    "hidden": 8,
+    "hidden_found": 8,
+    "hidden_missing": [],
+    "extra_in_frame": 0,
+    "extra": []
+   },
+   {
+    "elevator": 1,
+    "hidden": 9,
+    "hidden_found": 9,
+    "hidden_missing": [],
+    "extra_in_frame": 0,
+    "extra": []
+   }
+  ]
+ },
+ "V2-L034": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 40,
+  "nB": 40,
+  "identical": 40,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 4,
+   "B": 4,
+   "same_cells": 4,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L034.json",
+  "dims": [
+   [
+    18,
+    23
+   ],
+   [
+    18,
+    23
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 29.49,
+   "pitch_y_px0": 29.97,
+   "score_x": 332.78,
+   "score_y": 158.14,
+   "pitch_x_px": 29.587,
+   "resid_x_px": 0.286,
+   "pitch_y_px": 29.559,
+   "resid_y_px": 0.54,
+   "pitch_px": 29.573,
+   "phase_px": [
+    14.339,
+    8.346
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L035": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 57,
+  "nB": 57,
+  "identical": 57,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 1,
+   "B": 1,
+   "same_cells": 1,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 2,
+   "B": 1,
+   "match": [
+    {
+     "cells_B": 320,
+     "cells_A": 176,
+     "jaccard": 0.55
+    }
+   ]
+  },
+  "ref": "levels/video/V2-L035.json",
+  "dims": [
+   [
+    20,
+    32
+   ],
+   [
+    20,
+    32
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.72,
+   "pitch_y_px0": 27.02,
+   "score_x": 335.44,
+   "score_y": 282.27,
+   "pitch_x_px": 26.892,
+   "resid_x_px": 0.235,
+   "pitch_y_px": 26.878,
+   "resid_y_px": 1.13,
+   "pitch_px": 26.885,
+   "phase_px": [
+    12.949,
+    0.18
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": [
+   {
+    "elevator": 0,
+    "hidden": 39,
+    "hidden_found": 39,
+    "hidden_missing": [],
+    "extra_in_frame": 0,
+    "extra": []
+   }
+  ]
+ },
+ "V2-L036": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 36,
+  "nB": 36,
+  "identical": 36,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 0,
+   "B": 0,
+   "same_cells": 0,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L036.json",
+  "dims": [
+   [
+    20,
+    23
+   ],
+   [
+    20,
+    23
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.94,
+   "pitch_y_px0": 27.03,
+   "score_x": 392.98,
+   "score_y": 157.85,
+   "pitch_x_px": 26.908,
+   "resid_x_px": 0.258,
+   "pitch_y_px": 26.868,
+   "resid_y_px": 0.271,
+   "pitch_px": 26.888,
+   "phase_px": [
+    12.803,
+    13.672
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L037": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 55,
+  "nB": 55,
+  "identical": 55,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 2,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L037.json",
+  "dims": [
+   [
+    20,
+    33
+   ],
+   [
+    20,
+    33
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 26.82,
+   "pitch_y_px0": 26.97,
+   "score_x": 519.17,
+   "score_y": 177.24,
+   "pitch_x_px": 26.906,
+   "resid_x_px": 0.285,
+   "pitch_y_px": 26.885,
+   "resid_y_px": 0.269,
+   "pitch_px": 26.896,
+   "phase_px": [
+    12.863,
+    13.256
+   ],
+   "stroke_px": 6.0
+  },
+  "hidden_layers": []
+ },
+ "V2-L038": {
+  "sym": 0,
+  "shift": [
+   0,
+   0
+  ],
+  "nA": 34,
+  "nB": 34,
+  "identical": 34,
+  "onlyA": [],
+  "onlyB": [],
+  "obstacles": {
+   "A": 2,
+   "B": 2,
+   "same_cells": 2,
+   "same_counter": 0,
+   "diffs": []
+  },
+  "elevators": {
+   "A": 0,
+   "B": 0,
+   "match": []
+  },
+  "ref": "levels/video/V2-L038.json",
+  "dims": [
+   [
+    16,
+    20
+   ],
+   [
+    16,
+    20
+   ]
+  ],
+  "anomalies": [],
+  "fit": {
+   "pitch_x_px0": 32.93,
+   "pitch_y_px0": 33.04,
+   "score_x": 336.79,
+   "score_y": 173.76,
+   "pitch_x_px": 32.895,
+   "resid_x_px": 0.354,
+   "pitch_y_px": 32.887,
+   "resid_y_px": 0.78,
+   "pitch_px": 32.891,
+   "phase_px": [
+    15.643,
+    17.681
+   ],
+   "stroke_px": 7.0
+  },
+  "hidden_layers": []
+ }
+}

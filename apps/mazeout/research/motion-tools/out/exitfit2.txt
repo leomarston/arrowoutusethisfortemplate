@@ -1,0 +1,27 @@
+== exp model over 11 exits / 203 samples: v0 7.67 c/s, vmax 73.86 c/s, T 0.353 s; RMS 0.082 cells (robust soft-L1 fit)
+   P02-A (L32 0.786x, 26-cell snake, up)                n= 33 t0=0.485 [0.482,0.499] d_max  37.8 c  rms 0.066 c  max 0.100 c
+   P02-B (L32 0.786x, 2nd tap, right)                   n= 14 t0=1.274 [1.265,1.281] d_max   9.8 c  rms 0.070 c  max 0.158 c
+   P01 (L32 0.786x, 4-cell, right)                      n= 11 t0=1.948 [1.947,1.964] d_max   4.0 c  rms 0.021 c  max 0.054 c
+   L33 key arrow (fit, up)                              n= 25 t0=0.517 [0.516,0.532] d_max  16.3 c  rms 0.024 c  max 0.068 c
+   L35 pipe arrow (fit 28.09, right->pipe->down)        n= 20 t0=0.244 [0.250,0.266] d_max  17.9 c  rms 0.158 c  max 0.296 c
+   L47 44-cell snake, head tap, right (fit 17.87)       n= 47 t0=0.167 [0.166,0.183] d_max  40.3 c  rms 0.073 c  max 0.206 c
+   L52 2-cell, left (fit 26.2), 1st of 3 taps           n=  4 t0=0.047 [0.050,0.067] d_max   1.0 c  rms 0.022 c  max 0.037 c
+   L52 5-cell, left, 2nd tap +0.58 s                    n=  7 t0=0.629 [0.632,0.649] d_max   2.1 c  rms 0.020 c  max 0.050 c
+   L52 42-cell, down, 3rd tap (violet)                  n= 18 t0=1.382 [1.381,1.398] d_max   8.7 c  rms 0.013 c  max 0.023 c
+   L50 6-cell, right (fit/max 28.07)                    n= 12 t0=0.410 [0.416,0.433] d_max   4.9 c  rms 0.053 c  max 0.136 c
+   L50 11-cell, right, last arrow                       n= 12 t0=0.450 [0.449,0.466] d_max   4.7 c  rms 0.169 c  max 0.577 c
+== pass-1-only fit (5 exits): v0 6.38 vmax 71.85 T 0.330; predicting the 6 NEW exits (their t0 refitted alone):
+   L47 44-cell snake, head tap, right (fit 17.87)       rms 0.104 c (t0 0.163)
+   L52 2-cell, left (fit 26.2), 1st of 3 taps           rms 0.027 c (t0 0.044)
+   L52 5-cell, left, 2nd tap +0.58 s                    rms 0.026 c (t0 0.625)
+   L52 42-cell, down, 3rd tap (violet)                  rms 0.019 c (t0 1.379)
+   L50 6-cell, right (fit/max 28.07)                    rms 0.053 c (t0 0.407)
+   L50 11-cell, right, last arrow                       rms 0.166 c (t0 0.449)
+== linear T = a + b*d over (distance cells, time since release s) pairs; 11 exits
+    0..45 cells: T = 0.080 + 0.0205*d   n=203  RMS 34.5 ms
+    2..45 cells: T = 0.114 + 0.0189*d   n=145  RMS 21.0 ms
+    5..45 cells: T = 0.146 + 0.0176*d   n=96  RMS 12.0 ms
+    1..12 cells: T = 0.066 + 0.0266*d   n=114  RMS 9.6 ms
+== T(d) from the exp model (time from release until the HEAD has travelled d cells)
+   0.5:0.043  1:0.072  2:0.115  3:0.150  4:0.181  5:0.209  6:0.235  8:0.283  10:0.326  12:0.367  15:0.424  20:0.513  25:0.596  30:0.676  40:0.827  50:0.973  60:1.115  80:1.393
+   velocity c/s: 0.00s:7.7  0.05s:16.4  0.10s:24.0  0.20s:36.3  0.30s:45.6  0.50s:57.8  0.70s:64.8  1.00s:70.0  1.50s:72.9

@@ -1,0 +1,173 @@
+--- a/Packages/PathCore/Tests/tools/c4_reference.py
++++ b/Packages/PathCore/Tests/tools/c4_reference.py
+@@ -33,6 +33,7 @@
+ import gen_levels  # noqa: E402
+ import pathrandom  # noqa: E402
+ import validate_levels as vl  # noqa: E402
++import level_order  # noqa: E402  (PUBLISH item 12: boards by research slot, not by position)
+ 
+ # the pinned content (Tests/Fixtures/content, design/tools/pin_fixtures.py); = design/levels.json when the pins are current
+ LEVELS = os.path.join(FIX, 'content', 'levels.json')
+@@ -96,74 +97,81 @@
+ 
+ 
+ def mutations(src):
++    """validator_selftest.py's 20 mutations. Targets name BOARDS by their research slot (design/tools/level_order.py), so after
++    the level re-order the same boards are mutated; `levels` lists the SLOTS they ship at (what the Swift test swaps)."""
++    board, slot = level_order.resolver(src)
++
+     def lv(doc, n):
+-        return doc['levels'][n - 1]
++        return board(doc, n)
++
++    def at(name, n):
++        return name if slot(n) == n else '%s [ships at L%d]' % (name, slot(n))
+     muts = []
+ 
+     def m1(d):
+         for o in lv(d, 13)['obstacles']:
+             if o['kind'] == 'box' and o['counter'] == 28:
+                 o['counter'] = 29
+-    muts.append(('L13 box counter 28 -> 29 (tight)', [13], m1))
++    muts.append((at('L13 box counter 28 -> 29 (tight)', 13), [slot(13)], m1))
+ 
+     def m2(d):
+         a = next(a for a in lv(d, 29)['arrows'] if a['id'] == 67)
+         a['cells'] = a['cells'][::-1]
+         a['dir'] = ac.dir_between(tuple(a['cells'][-2]), tuple(a['cells'][-1]))
+-    muts.append(('L29 arrow 67 reversed', [29], m2))
++    muts.append((at('L29 arrow 67 reversed', 29), [slot(29)], m2))
+ 
+     def m3(d):
+         lv(d, 7).pop('unlock')
+-    muts.append(('L7 unlock card removed', [7], m3))
++    muts.append((at('L7 unlock card removed', 7), [slot(7)], m3))
+ 
+     def m4(d):
+         for o in lv(d, 21)['obstacles']:
+             if o['kind'] == 'pipe':
+                 o['counter'] = 0
+-    muts.append(('L21 pipe counter 0', [21], m4))
++    muts.append((at('L21 pipe counter 0', 21), [slot(21)], m4))
+ 
+     def m5(d):
+         for o in lv(d, 33)['obstacles']:
+             if o['kind'] == 'door':
+                 o['reveals'] = o.get('reveals', [])[1:]
+                 break
+-    muts.append(('L33 door reveals one arrow short', [33], m5))
++    muts.append((at('L33 door reveals one arrow short', 33), [slot(33)], m5))
+ 
+     def m6(d):
+         l = lv(d, 47)
+         l['obstacles'] = [o for o in l['obstacles'] if not (o['kind'] == 'key' and o['id'] == 'k1')]
+-    muts.append(('L47 hidden key removed', [47], m6))
++    muts.append((at('L47 hidden key removed', 47), [slot(47)], m6))
+ 
+     def m7(d):
+         t = next(o for o in lv(d, 32)['obstacles'] if o['kind'] == 'tape')
+         t['cells'][0] = [t['cells'][0][0], t['cells'][0][1] + 1]
+-    muts.append(('L32 tape tie moved off the cell behind the head', [32], m7))
++    muts.append((at('L32 tape tie moved off the cell behind the head', 32), [slot(32)], m7))
+ 
+     def m8(d):
+-        twin = json.loads(json.dumps(src['levels'][20]))
++        twin = json.loads(json.dumps(lv(src, 21)))
+         for k in ('arrows', 'obstacles', 'cols', 'rows'):
+             lv(d, 35)[k] = twin[k]
+         lv(d, 35).pop('metrics', None)
+-    muts.append(('L35 back to the phone board = video L21 (repeat)', [35], m8))
++    muts.append((at('L35 back to the phone board = video L21 (repeat)', 35), [slot(35)], m8))
+ 
+     def m9(d):                                        # recast 2026-09-25: L64 is v552's plain Hard board now
+         for o in lv(d, 62)['obstacles']:
+             if o['kind'] == 'box':
+                 o['counter'] = len(lv(d, 62)['arrows'])
+-    muts.append(('L62 box counter = arrows (never breaks)', [62], m9))
++    muts.append((at('L62 box counter = arrows (never breaks)', 62), [slot(62)], m9))
+ 
+     def m10(d):
+         for o in lv(d, 31)['obstacles']:
+             if o['kind'] == 'elevator':
+                 o['arrows'] = o['arrows'][1:]
+-    muts.append(('L31 elevator platform list short', [31], m10))
++    muts.append((at('L31 elevator platform list short', 31), [slot(31)], m10))
+ 
+     # phone session 2 (validator_selftest.py m11-m15)
+     def m11(d):
+         for o in lv(d, 70)['obstacles']:
+             if o['kind'] == 'corner':
+                 o['turn'] = {'downRight': 'upLeft', 'upLeft': 'downRight', 'downLeft': 'upRight', 'upRight': 'downLeft'}[o['turn']]
+-    muts.append(('L70 corners turned the other way (the plate faces away)', [70], m11))
++    muts.append((at('L70 corners turned the other way (the plate faces away)', 70), [slot(70)], m11))
+ 
+     def m12(d):
+         p = next(o for o in lv(d, 69)['obstacles'] if o['kind'] == 'pipe' and o['cells'][0][1] >= 26)
+@@ -173,7 +181,7 @@
+             e['cell'][1] -= 3
+         if p.get('counter_at'):
+             p['counter_at'][1] -= 3
+-    muts.append(('L69 a pipe under a door moved half out of it', [69], m12))
++    muts.append((at('L69 a pipe under a door moved half out of it', 69), [slot(69)], m12))
+ 
+     def m13(d):
+         l = lv(d, 62)
+@@ -182,18 +190,18 @@
+         for o in l['obstacles']:
+             if o.get('reveals') and stub['id'] in o['reveals']:
+                 o['reveals'].remove(stub['id'])
+-    muts.append(('L62 the key arrow under the door made visible (covered by the door)', [62], m13))
++    muts.append((at('L62 the key arrow under the door made visible (covered by the door)', 62), [slot(62)], m13))
+ 
+     def m14(d):
+-        twin = json.loads(json.dumps(src['levels'][13]))
++        twin = json.loads(json.dumps(lv(src, 14)))
+         for k in ('arrows', 'obstacles', 'cols', 'rows'):
+             lv(d, 72)[k] = twin[k]
+         lv(d, 72).pop('metrics', None)
+-    muts.append(('L72 back to the phone board = L14 (v552 repeats it)', [72], m14))
++    muts.append((at('L72 back to the phone board = L14 (v552 repeats it)', 72), [slot(72)], m14))
+ 
+     def m15(d):
+         lv(d, 70).pop('unlock')
+-    muts.append(('L70 corner unlock card removed', [70], m15))
++    muts.append((at('L70 corner unlock card removed', 70), [slot(70)], m15))
+ 
+     # content recast 2 (validator_selftest.py m16-m20: phone session 3, SPEC.md §5 item 28 dedup incl. rotations/mirrors)
+     imp = {l['level']: l for l in json.load(open(os.path.join(TOOLS, 'work', 'imported.json')))}
+@@ -205,7 +213,7 @@
+ 
+     def m16(d):
+         phone_board(d, 86)
+-    muts.append(('L86 back to the phone board = L66 (v552 repeats it)', [86], m16))
++    muts.append((at('L86 back to the phone board = L66 (v552 repeats it)', 86), [slot(86)], m16))
+ 
+     def m17(d):
+         src_ = lv(d, 94)
+@@ -218,22 +226,22 @@
+         l['cols'] = W
+         l['rows'] = src_['rows']
+         l.pop('metrics', None)
+-    muts.append(('L134 = L94 mirrored left-right (a mirrored repeat)', [134], m17))
++    muts.append((at('L134 = L94 mirrored left-right (a mirrored repeat)', 134), [slot(134)], m17))
+ 
+     def m18(d):
+         phone_board(d, 101)
+-    muts.append(('L101 back to the phone board = V2-L032 (ships at L35)', [101], m18))
++    muts.append((at('L101 back to the phone board = V2-L032 (ships at L35)', 101), [slot(101)], m18))
+ 
+     def m19(d):
+         l = lv(d, 93)
+         l['obstacles'] = [o for o in l['obstacles'] if not (o['kind'] == 'key' and o['id'] == 'k1')]
+-    muts.append(('L93 the key hidden under the first door removed', [93], m19))
++    muts.append((at('L93 the key hidden under the first door removed', 93), [slot(93)], m19))
+ 
+     def m20(d):
+         for o in lv(d, 102)['obstacles']:
+             if o['kind'] == 'elevator':
+                 o['arrows'] = o['arrows'][1:]
+-    muts.append(('L102 elevator platform list short', [102], m20))
++    muts.append((at('L102 elevator platform list short', 102), [slot(102)], m20))
+     return muts
+ 
+ 

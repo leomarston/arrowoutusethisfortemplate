@@ -1,0 +1,1 @@
+{"note": "L86 start (shots/626) is PIXEL-IDENTICAL to L66's start (board band diff 0.0): same key-on-arrow split. Same override as L066 (session 3).", "add_arrows": [{"cells": [[2, 20], [3, 20], [4, 20], [5, 20], [6, 20], [7, 20], [8, 20], [9, 20]], "dir": "right", "key": true, "present_if_ink": [[2, 20], [9, 20]]}]}

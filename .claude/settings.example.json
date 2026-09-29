@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcode-select -p)",
+      "Bash(xcodebuild -version)",
+      "Bash(command -v brew)",
+      "Bash(brew --version)",
+      "Bash(command -v xcodegen)",
+      "Bash(xcodegen --version)",
+      "Bash(command -v fastlane)",
+      "Bash(fastlane --version)",
+      "Bash(command -v node)",
+      "Bash(command -v claude)",
+      "Bash(claude --version)",
+      "Bash(command -v python3)",
+      "Bash(python3 -c \"import yaml, jwt, cryptography, requests; print\\('yaml, jwt, cryptography, requests: OK'\\)\")",
+      "Read(//Users/yago/.claude/**)",
+      "Read(//Library/Fonts/**)",
+      "Bash(git -C /Users/yago/Downloads/app-factory rev-parse --is-inside-work-tree)",
+      "Read(//Users/yago/**)",
+      "Bash(cp -n .env.example .env)",
+      "Bash(mkdir -p ~/keys)",
+      "Bash(claude mcp *)",
+      "Bash(xcrun simctl *)",
+      "Bash(bash -c 'set -euo pipefail; set -a; source .env; set +a; echo SOURCE_OK')",
+      "Bash(python3 -c \"import yaml, jwt, requests; print\\('py deps ok'\\)\")",
+      "Bash(python3 scripts/idea.py next)",
+      "Bash(gh auth *)",
+      "Bash(python3 -c \"import jwt, cryptography; print\\('pyjwt+cryptography: OK'\\)\")",
+      "Bash(git add *)",
+      "Bash(git checkout *)",
+      "WebFetch(domain:apps.apple.com)",
+      "WebSearch",
+      "Bash(xcodegen generate *)",
+      "Bash(python3 scripts/routine_next.py)",
+      "Bash(/Users/yago/Downloads/app-factory/tools/phonedriver/phone:*)",
+      "Bash(/Users/yago/Downloads/app-factory/tools/phonedriver/start-runner:*)"
+    ]
+  }
+}

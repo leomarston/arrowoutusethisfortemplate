@@ -1,0 +1,448 @@
+{
+ "video": "V2",
+ "level": 21,
+ "json": "research/video-frames/work/extract/V2-L021.json",
+ "rule": "REPLAY CHECK of a level JSON against the video.",
+ "stats": {
+  "taps": 24,
+  "mapped": 20,
+  "exit_free": 20,
+  "exit_blocked": 0,
+  "bump_blocked": 0,
+  "bump_free": 0,
+  "stay_free": 0,
+  "stay_blocked": 0,
+  "miss": 4,
+  "late": 0,
+  "gone_free": 0,
+  "gone_blocked": 0,
+  "arrows": 20,
+  "hidden_layer_arrows": 0,
+  "left_at_end": [],
+  "consistent": 20,
+  "inconsistent": 0,
+  "unexplained_stays": 0
+ },
+ "log": [
+  {
+   "t": 530.745,
+   "x": 249,
+   "y": 285,
+   "cell": [
+    4.41,
+    -0.34
+   ],
+   "event": "tap",
+   "arrow": 7,
+   "group": [
+    7
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 532.137,
+   "x": 137,
+   "y": 287,
+   "cell": [
+    1.76,
+    -0.3
+   ],
+   "event": "tap",
+   "arrow": 0,
+   "group": [
+    0
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 532.807,
+   "x": 530,
+   "y": 744,
+   "cell": [
+    11.07,
+    10.53
+   ],
+   "event": "miss"
+  },
+  {
+   "t": 533.008,
+   "x": 529,
+   "y": 913,
+   "cell": [
+    11.04,
+    14.53
+   ],
+   "event": "miss"
+  },
+  {
+   "t": 533.075,
+   "x": 528,
+   "y": 998,
+   "cell": [
+    11.02,
+    16.54
+   ],
+   "event": "miss"
+  },
+  {
+   "t": 533.143,
+   "x": 528,
+   "y": 1101,
+   "cell": [
+    11.02,
+    18.98
+   ],
+   "event": "miss"
+  },
+  {
+   "t": 535.205,
+   "x": 438,
+   "y": 360,
+   "cell": [
+    8.89,
+    1.43
+   ],
+   "event": "tap",
+   "arrow": 1,
+   "group": [
+    1
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.17
+  },
+  {
+   "t": 536.311,
+   "x": 428,
+   "y": 413,
+   "cell": [
+    8.65,
+    2.69
+   ],
+   "event": "tap",
+   "arrow": 14,
+   "group": [
+    14
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 537.502,
+   "x": 443,
+   "y": 486,
+   "cell": [
+    9.01,
+    4.42
+   ],
+   "event": "tap",
+   "arrow": 11,
+   "group": [
+    11
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 538.743,
+   "x": 409,
+   "y": 609,
+   "cell": [
+    8.2,
+    7.33
+   ],
+   "event": "tap",
+   "arrow": 17,
+   "group": [
+    17
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 539.43,
+   "x": 370,
+   "y": 505,
+   "cell": [
+    7.28,
+    4.87
+   ],
+   "event": "tap",
+   "arrow": 10,
+   "group": [
+    10
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.2
+  },
+  {
+   "t": 539.967,
+   "x": 237,
+   "y": 425,
+   "cell": [
+    4.13,
+    2.97
+   ],
+   "event": "tap",
+   "arrow": 2,
+   "group": [
+    2
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 540.738,
+   "x": 362,
+   "y": 610,
+   "cell": [
+    7.09,
+    7.35
+   ],
+   "event": "tap",
+   "arrow": 15,
+   "group": [
+    15
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 541.375,
+   "x": 407,
+   "y": 739,
+   "cell": [
+    8.15,
+    10.41
+   ],
+   "event": "tap",
+   "arrow": 16,
+   "group": [
+    16
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 542.23,
+   "x": 451,
+   "y": 626,
+   "cell": [
+    9.2,
+    7.73
+   ],
+   "event": "tap",
+   "arrow": 19,
+   "group": [
+    19
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 542.767,
+   "x": 410,
+   "y": 849,
+   "cell": [
+    8.22,
+    13.01
+   ],
+   "event": "tap",
+   "arrow": 18,
+   "group": [
+    18
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 543.135,
+   "x": 366,
+   "y": 864,
+   "cell": [
+    7.18,
+    13.37
+   ],
+   "event": "tap",
+   "arrow": 6,
+   "group": [
+    6
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 544.041,
+   "x": 331,
+   "y": 828,
+   "cell": [
+    6.35,
+    12.52
+   ],
+   "event": "tap",
+   "arrow": 12,
+   "group": [
+    12
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 544.477,
+   "x": 290,
+   "y": 842,
+   "cell": [
+    5.38,
+    12.85
+   ],
+   "event": "tap",
+   "arrow": 8,
+   "group": [
+    8
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 544.929,
+   "x": 273,
+   "y": 806,
+   "cell": [
+    4.98,
+    12.0
+   ],
+   "event": "tap",
+   "arrow": 9,
+   "group": [
+    9
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 545.6,
+   "x": 230,
+   "y": 663,
+   "cell": [
+    3.96,
+    8.61
+   ],
+   "event": "tap",
+   "arrow": 3,
+   "group": [
+    3
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 546.371,
+   "x": 280,
+   "y": 670,
+   "cell": [
+    5.15,
+    8.77
+   ],
+   "event": "tap",
+   "arrow": 13,
+   "group": [
+    13
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 546.64,
+   "x": 183,
+   "y": 715,
+   "cell": [
+    2.85,
+    9.84
+   ],
+   "event": "tap",
+   "arrow": 5,
+   "group": [
+    5
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.0
+  },
+  {
+   "t": 547.109,
+   "x": 140,
+   "y": 683,
+   "cell": [
+    1.83,
+    9.08
+   ],
+   "event": "tap",
+   "arrow": 4,
+   "group": [
+    4
+   ],
+   "video": "exit",
+   "model": "free",
+   "blockers": [],
+   "ok": true,
+   "presence_after": 0.12
+  }
+ ]
+}

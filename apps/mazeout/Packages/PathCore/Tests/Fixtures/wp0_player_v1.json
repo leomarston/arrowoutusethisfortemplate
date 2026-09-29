@@ -1,0 +1,74 @@
+{
+  "activeAttempt" : {
+    "attemptIndex" : 2,
+    "levels" : [
+      32
+    ],
+    "session" : "L32",
+    "stage" : 0,
+    "startedAt" : "2026-09-25T09:31:00.000Z"
+  },
+  "attempts" : {
+    "1" : 1,
+    "32" : 2
+  },
+  "boosters" : {
+    "freeze" : 3,
+    "hint" : 2
+  },
+  "coins" : 1340,
+  "events" : {
+
+  },
+  "flags" : {
+    "notificationPromptShown" : true,
+    "ratingPromptShown" : false,
+    "seen" : [
+      "clawIntro"
+    ],
+    "weeklyIntroSeen" : false
+  },
+  "homeSeen" : true,
+  "installDate" : "2026-09-25T09:00:00.000Z",
+  "installSeed" : 42,
+  "level" : 32,
+  "lives" : {
+    "anchor" : "2026-09-25T09:20:00.000Z",
+    "count" : 4
+  },
+  "pendingCoinFly" : 20,
+  "processedTransactions" : [
+    "2000000000000001"
+  ],
+  "settings" : {
+    "haptic" : true,
+    "music" : false,
+    "notifications" : true,
+    "sound" : true
+  },
+  "social" : {
+    "avatar" : 3,
+    "country" : "TR",
+    "highWater" : 1790328600,
+    "ledger" : [
+
+    ],
+    "username" : "player_k3x9q2a"
+  },
+  "stats" : {
+    "firstTryWins" : 20,
+    "losses" : 3,
+    "playSeconds" : 3600.5,
+    "weeklyContestWins" : 0,
+    "wins" : 31
+  },
+  "tutorialsDone" : [
+    "tapToMove"
+  ],
+  "unlimitedLivesUntil" : "2026-09-25T10:00:00.000Z",
+  "unlocksSeen" : [
+    "linked",
+    "pipe"
+  ],
+  "version" : 1
+}

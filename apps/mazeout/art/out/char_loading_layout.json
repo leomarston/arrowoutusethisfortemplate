@@ -1,0 +1,71 @@
+{
+ "note": "loading screen (R4 LOADING, D1; ruling 46: the same composition as the 09-27 Loading): frame top-left x/y and frame_pt in pt on the 393 x 852 screen, z back -> front; each D1 figure takes the slot of the figure it replaces (placed by its eye midpoint, art/ui/recipes/scene_loading_d1.py LAYOUT)",
+ "characters": {
+  "char_digDockL": {
+   "file": "char_digDockL@3x.png",
+   "frame_pt": [
+    96.0,
+    76.0
+   ],
+   "x": -6.0,
+   "y": 434.0,
+   "z": -3,
+   "replaces": "char_workerCrowdLeft"
+  },
+  "char_digPop1": {
+   "file": "char_digPop1@3x.png",
+   "frame_pt": [
+    153.0,
+    144.0
+   ],
+   "x": 270.75,
+   "y": 399.56,
+   "z": -2,
+   "replaces": "char_workerRunners"
+  },
+  "char_bossLoading": {
+   "file": "char_bossLoading@3x.png",
+   "frame_pt": [
+    210.0,
+    250.0
+   ],
+   "x": 81.26,
+   "y": 334.28,
+   "z": -1,
+   "replaces": "char_scientistLoading"
+  },
+  "char_digPop2": {
+   "file": "char_digPop2@3x.png",
+   "frame_pt": [
+    170.0,
+    160.0
+   ],
+   "x": 208.7,
+   "y": 153.69,
+   "z": 0,
+   "replaces": "char_workerFlyer"
+  },
+  "char_digFlyer": {
+   "file": "char_digFlyer@3x.png",
+   "frame_pt": [
+    180.0,
+    220.0
+   ],
+   "x": 208.55,
+   "y": 545.69,
+   "z": 1,
+   "replaces": "char_workerFist"
+  },
+  "char_digCart": {
+   "file": "char_digCart@3x.png",
+   "frame_pt": [
+    270.0,
+    280.0
+   ],
+   "x": -9.91,
+   "y": 573.89,
+   "z": 2,
+   "replaces": "char_workerCarrier"
+  }
+ }
+}

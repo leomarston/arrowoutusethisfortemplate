@@ -1,0 +1,140 @@
+# glob	wp	role	note   -- machine-readable twin of design/SPEC-architecture.md §3.2 (the spec wins on any disagreement). "A>B" = owner changes at WP B.
+project.yml	WP0	LEAD	frozen after WP0 (orchestrator-only changes)
+tools/slot.sh	WP0	LEAD	
+tools/gen.sh	WP0	LEAD	
+tools/build.sh	WP0	LEAD	
+tools/run.sh	WP0	LEAD	
+tools/test.sh	WP0	LEAD	
+tools/core.sh	WP0	LEAD	
+tools/sync_art.sh	WP0	LEAD	
+tools/iso-build-copy.sh	WP0	LEAD	
+tools/wait-build.sh	WP0	LEAD	
+tools/play-watch.sh	WP0	LEAD	
+tools/capture-shot.sh	V2	VERIFY	
+tools/flat_check.py	V2	VERIFY	
+tools/bench.sh	V3	VERIFY	
+tools/bench/**	V3	VERIFY	MARKS table = SPEC §9.3
+tools/capture/**	V2	VERIFY	
+tools/compare/**	V2	VERIFY	
+tools/strings/**	L1	CONTENT	
+tools/levels/**	L1	CONTENT	
+tools/audio/**	A1	AUDIO	
+tools/uiart_gen.py	S1	SHELL	
+tools/rng_ref.py	-	read-only	reference for RandomTests
+tools/watchdog.sh	-	orchestrator	
+Packages/PathCore/Package.swift	WP0>C1	LEAD>CORE	
+Packages/PathCore/Sources/PathCore/Grid/Cell.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Grid/Dir.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Grid/*	C1	CORE	
+Packages/PathCore/Sources/PathCore/Model/IDs.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Model/LevelSpec.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Model/*	C1	CORE	
+Packages/PathCore/Sources/PathCore/Rules/Plans.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Rules/*	C2	CORE	
+Packages/PathCore/Sources/PathCore/Session/SessionEvent.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Session/SessionTypes.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Session/*	C2	CORE	
+Packages/PathCore/Sources/PathCore/Solver/Greedy.swift	C2	CORE	
+Packages/PathCore/Sources/PathCore/Solver/Hint.swift	C2	CORE	
+Packages/PathCore/Sources/PathCore/Solver/*	C4	CORE	Search, Difficulty
+Packages/PathCore/Sources/PathCore/Content/*	C4	CORE	
+Packages/PathCore/Sources/PathCore/Economy/PlayerState.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Economy/*	C3	CORE	
+Packages/PathCore/Sources/PathCore/Events/EventTypes.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Events/*	C3	CORE	
+Packages/PathCore/Sources/PathCore/Social/SocialAPI.swift	WP0	LEAD	◆
+Packages/PathCore/Sources/PathCore/Social/*	SOC1	SOCIAL	
+Packages/PathCore/Sources/PathCore/Persistence/*	C3	CORE	
+Packages/PathCore/Sources/PathCore/Random/PathRandom.swift	WP0>C1	LEAD>CORE	copied from MF MFRandom
+Packages/PathCore/Sources/PathCore/Motion/Ease.swift	WP0>C1	LEAD>CORE	copied from MF
+Packages/PathCore/Sources/PathCore/Motion/*	C1	CORE	
+Packages/PathCore/Sources/pclevels/main.swift	WP0>C4	LEAD>CORE	
+Packages/PathCore/Tests/PathCoreTests/APISurfaceTests.swift	WP0>C2	LEAD>CORE	never @testable
+Packages/PathCore/Tests/PathCoreTests/{Grid,Geometry,LevelJSON,Kinematics,Curves,Random}Tests.swift	C1	CORE	
+Packages/PathCore/Tests/PathCoreTests/{Rules,Session,Clock,Combo,GoldenRounds,Headless}Tests.swift	C2	CORE	
+Packages/PathCore/Tests/PathCoreTests/{Economy,Lives,Boosters,Events,Persistence}Tests.swift	C3	CORE	
+Packages/PathCore/Tests/PathCoreTests/{Solver,Validator,Generator,LevelLibrary}Tests.swift	C4	CORE	
+Packages/PathCore/Tests/PathCoreTests/Social*Tests.swift	SOC1	SOCIAL	
+Packages/PathCore/Tests/tools/golden_rounds.py	C2	CORE	
+Packages/PathCore/Tests/tools/lives_ref.py	C3	CORE	
+Packages/PathCore/Tests/Fixtures/c1_*	C1	CORE	
+Packages/PathCore/Tests/Fixtures/c2_*	C2	CORE	
+Packages/PathCore/Tests/Fixtures/c3_*	C3	CORE	
+Packages/PathCore/Tests/Fixtures/c4_*	C4	CORE	
+Packages/PathCore/Tests/Fixtures/soc_*	SOC1	SOCIAL	
+App/GameApp.swift	WP0	LEAD	frozen
+App/Brand.swift	WP0	LEAD	frozen
+App/Info.plist	WP0	LEAD	frozen
+App/AppModel.swift	WP0>G1	LEAD>GAME	
+App/Contracts/*	WP0	LEAD	◆ all four
+App/Support/LaunchArgs.swift	WP0	LEAD	◆
+App/Support/Tuning.swift	WP0	LEAD	◆
+App/Support/MotionClock.swift	WP0	LEAD	◆
+App/Support/Log.swift	WP0	LEAD	◆
+App/Support/PlayerStore.swift	WP0>G1	LEAD>GAME	
+App/Support/PerfMonitor.swift	WP0>B1	LEAD>BOARD	
+App/Support/LatencyProbe.swift	WP0>B1	LEAD>BOARD	
+App/Board/Track.swift	WP0>B1	LEAD>BOARD	seeded from design/spike-src
+App/Board/{BoardHost,BoardContainerView,BoardScrollView,BoardEngine,ReleaseTapRecognizer,HitTester,ArrowNode,LocalPath,ExitMover,BumpMover,Painters,DotsPainter,RippleLayer,ScreenFX,TapeLayer,IntroBuildIn,SpriteCache,DigitGlyphs,WarmUp,BoardProbe,BoardLab}.swift	B1	BOARD	
+App/Board/{PaintersCombo,StarTrail,DoorLayer,KeyFlight,PipeLayer,CounterLayer,ElevatorLayer,CornerLayer,Shards,ClearWave,StageTransition,BoardLab+Obstacles}.swift	B2	BOARD	
+App/FX/{FXOverlayView,Sparkles}.swift	S1	SHELL	
+App/FX/{Confetti,Fireworks,WinLogoSequence}.swift	S2	SHELL	
+App/FX/CoinFly.swift	S3	SHELL	
+App/Game/{GameController,GameScreen,HUDWriter,LevelFlow,FailFlowDirector,WinDirector,AutoPlayer}.swift	G1	GAME	
+App/Game/{TutorialDirector,FTUEDirector,UnlockDirector,BoosterDirector,EventsDirector,RatingDirector,NotificationPrompt}.swift	G2	GAME	
+App/Shell/{RootView,Router,Transitions,LoadingScreen,ShellLab}.swift	S1	SHELL	
+App/Shell/Components/*	S1	SHELL	UIArt.swift generated by tools/uiart_gen.py
+App/Shell/Home/{HomeView,HomeTopBar,PlayButton,LevelPlate,NavBar,PuppetStage,PuppetRig}.swift	S1	SHELL	
+App/Shell/Home/{HomeScene,ClawBar,EventBadges,PayoutSequence,ShellLab+Home}.swift	S3	SHELL	
+App/Shell/HUD/*	S2	SHELL	
+App/Shell/Popups/{PopupHost,PopupChrome,PausePopup,QuitLevelPopup,SettingsPopup}.swift	S1	SHELL	
+App/Shell/Popups/{OutOfTimePopup,ContinuePopup,LevelFailedPopup,WinPanel,StreakBanner,RaceBar,UnlockOverlay,ClaimRewardPopup,TutorialLayer,ShellLab+Popups}.swift	S2	SHELL	
+App/Shell/Popups/{UsernamePopup,EditProfilePopup,NoLivesPopup,BoosterBuyPopup,ShellLab+Meta}.swift	S3	SHELL	
+App/Shell/Shop/*	S3	SHELL	
+App/Shell/Profile/*	S3	SHELL	
+App/Shell/Social/*	SOC2	SOCIAL	
+App/Audio/{AudioEngine,SoundBank,MusicPlayer,AudioCues,Haptics}.swift	A2	AUDIO	
+App/Audio/SoundBoard.swift	A3	AUDIO	
+App/Resources/Assets.xcassets/**	WP0	LEAD	except AppIcon.appiconset/icon-1024.png = UI-ART
+App/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png	UI-ART	UI-ART	
+App/Resources/Fonts/*	WP0>S1	LEAD>SHELL	
+App/Resources/Tuning/board.json	WP0>B1	LEAD>BOARD	
+App/Resources/Tuning/game.json	WP0>G1	LEAD>GAME	
+App/Resources/Tuning/ui.json	WP0>S1	LEAD>SHELL	
+App/Resources/Tuning/audio.json	WP0>A2	LEAD>AUDIO	
+App/Resources/Tuning/rules.json	WP0>C2	LEAD>CORE	
+App/Resources/Tuning/social.json	WP0>SOC1	LEAD>SOCIAL	
+App/Resources/Levels/level_0001-0061.json	L1	CONTENT	
+App/Resources/Levels/level_0062+.json	L2	CONTENT	
+App/Resources/Levels/{sessions,tutorials,unlocks}.json	L1	CONTENT	
+App/Resources/Levels/curve.json	L2	CONTENT	C4 ships a default until L2
+App/Resources/Social/*	SOC1	SOCIAL	byte copies of design/social/data
+App/Resources/Strings/strings.tsv	L1	CONTENT	
+App/Resources/Strings/requests/board.tsv	B1	BOARD	append-only
+App/Resources/Strings/requests/shell.tsv	S1	SHELL	append-only
+App/Resources/Strings/requests/game.tsv	G1	GAME	append-only
+App/Resources/Strings/requests/social.tsv	SOC2	SOCIAL	append-only
+App/Resources/Strings/requests/audio.tsv	A3	AUDIO	append-only
+App/Resources/Localizable.xcstrings	L1	CONTENT	generated by tools/strings/build.py; never by hand
+App/Resources/Sounds/*	A1	AUDIO	
+App/Resources/Music/*	A1	AUDIO	
+App/Resources/StoreKit/ArrowOut.storekit	WP0>S3	LEAD>SHELL	
+art/ui/code/GlossyChrome.swift	UI-ART	UI-ART	compiled into the app
+art/**	UI-ART	UI-ART	and the art lanes; never build agents
+Tests/AppTests/*	V1	VERIFY	
+Tests/Board*Tests.swift	B1	BOARD	B2 adds BoardObstacleTests.swift
+Tests/Shell*Tests.swift	S1	SHELL	S2/S3 add their own files
+Tests/ShellStoreKitTests.swift	S3	SHELL	
+Tests/Game*Tests.swift	G1	GAME	
+Tests/Audio*Tests.swift	A3	AUDIO	
+Tests/Social*Tests.swift	SOC2	SOCIAL	
+UITests/UITestSupport.swift	WP0>V1	LEAD>VERIFY	
+UITests/{FlowTests,FailFlowTests,BoosterTests,MetaTests,CaptureTests}.swift	V1	VERIFY	CaptureTests with V2
+UITests/{BoardInputTests,BoardLabTests}.swift	B1	BOARD	
+UITests/Shell*UITests.swift	S1	SHELL	
+UITests/GameFlowTests.swift	G1	GAME	
+UITests/SocialUITests.swift	SOC2	SOCIAL	
+design/**	-	read-only	spec writers only
+research/**	-	read-only	
+build/blocked.md	-	append-only	anyone: "file:line error — owner"
+build/wp0/frozen-contracts.sha256	WP0	LEAD	

@@ -1,0 +1,791 @@
+{
+ "about": "tools/copygate.py thresholds (PLAN-P T10 / G4a). A pair passes (= not a copy) when ssim < ssim_max AND overlap < overlap_max (AND, for popup / page, the chrome ΔE00 median over the MOVED-family ui regions > chrome_de00_min: `chrome_moved`, SPEC ruling 51). null = informative only. kinds[*].chroma_min: pixels with CIELAB chroma below it are left out of both chroma histograms (tools/copygate.py measure(cmin=...)).",
+ "status": "R1 2026-09-28 (PLAN-P R1 CONCEPTS): recalibrated on the D1 concept renders + mocks; numbers, pairs and the reasoning per kind in art/review/concepts/copygate-calibration.json (+ .png sheets beside it)",
+ "sources": {
+  "screen": "UNCHANGED default SSIM < 0.30 and overlap < 0.55. §2.1 copies fail (SSIM 0.47-0.93), unrelated controls pass (0.12-0.18 / 0.13-0.51). R1 home mock (today's composition + D1 palette + new cast): overlap 0.84 -> ~0.19 but SSIM ~0.54 = still FAILS: SSIM follows the composition, so the home/Loading pass only with R3/R4's new backdrop + layout (as intended).",
+  "popup": "chroma_min 8 ADDED: ~51 % of the Paused frame is the neutral dim over the board, identical in both games, which alone kept the overlap near 0.5-0.65 whatever the chrome colours (D1 palette mock 0.654 without it). With it: today 0.759 (copy, fails) vs D1 mock ~0.36 (passes). Chrome ΔE00 > 25 kept (today 2.1 / mock 25.8: THIN margin because 2 of the 6 pause ui regions are the red X + cream card, unchanged by design; A5 should land >= 30). SSIM informative only (centred panel = genre constant; mock 0.915 vs today 0.928).",
+  "page": "same rule as popup (not re-measured on a page render in R1; the codemod moves the same families)",
+  "hud": "NEW kind for the HUD band (pairs pass crop 0,40,393,85 pt): positions are 1:1 by ruling 37(b) so SSIM stays ~0.91 (informative); overlap with chroma_min 8: today ~0.89 (copy) vs D1 mock ~0.10.",
+  "icon": "thresholds unchanged (SSIM < 0.25, overlap < 0.40) but LOW DISCRIMINATION: 12 unrelated factory icons score SSIM 0.05-0.43 / overlap 0.06-0.61 and 7 of 12 would FAIL; today's copied icon (0.319 / 0.254) sits inside that range and is caught only by SSIM. A PASS is necessary, not sufficient: the icon rules (art-direction §5: no white ground, no three-arrow row, no parallel off-edge arrows), G4b and the owner decide. IC-1 draft passes both (SSIM ~0.21, overlap ~0.07).",
+  "logo": "unchanged default; the copy is caught by overlap (today 0.665 vs store 8), the LG-1 sketch passes (~0.11 / ~0.19). SSIM is low even for the copy (a different word), so the logo gate rests on overlap + G4b; art §2.1's silhouette-IoU rule is not implemented.",
+  "character": "INFORMATIVE ONLY (was undefined): on isolated character crops (ours alpha on grey vs a border-colour matte of theirs on grey) the metric does not discriminate - our OWN unrelated characters score SSIM 0.42-0.48 / overlap 0.58-0.66, higher than the known 1:1 copies (0.32-0.34 / 0.44-0.55), and the new Digger (0.333) would fail an SSIM < 0.30 rule. Characters are judged IN CONTEXT (screen kind on the composed home / Loading / event pages), by the A-bar grades and by G4b's blind adversarial review.",
+  "board": "in-level board screens: the board itself (black arrows on white) is kept by ruling (art §2.2 #20, LOW), so full-frame SSIM/overlap is informative only; the HUD chrome is judged by the popup/page palette codemod"
+ },
+ "kinds": {
+  "screen": {
+   "ssim_max": null,
+   "overlap_max": 0.55,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  },
+  "popup": {
+   "ssim_max": null,
+   "overlap_max": 0.55,
+   "chrome_de00_min": 25,
+   "chroma_min": 8.0
+  },
+  "page": {
+   "ssim_max": null,
+   "overlap_max": 0.55,
+   "chrome_de00_min": 25,
+   "chroma_min": 8.0
+  },
+  "hud": {
+   "ssim_max": null,
+   "overlap_max": 0.55,
+   "chrome_de00_min": null,
+   "chroma_min": 8.0
+  },
+  "icon": {
+   "ssim_max": 0.25,
+   "overlap_max": 0.4,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  },
+  "logo": {
+   "ssim_max": 0.3,
+   "overlap_max": 0.55,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  },
+  "character": {
+   "ssim_max": null,
+   "overlap_max": null,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  },
+  "board": {
+   "ssim_max": null,
+   "overlap_max": null,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  },
+  "art": {
+   "ssim_max": 0.3,
+   "overlap_max": 0.55,
+   "chrome_de00_min": null,
+   "chroma_min": 0.0
+  }
+ },
+ "sweep_kinds": {
+  "home*": "screen",
+  "loading": "screen",
+  "hud*": "board",
+  "L5": "board",
+  "fx-*": "board",
+  "ftue*": "board",
+  "pause": "popup",
+  "quitLevel": "popup",
+  "outOfTime": "popup",
+  "continue*": "popup",
+  "outOfLives": "popup",
+  "levelFailed": "popup",
+  "win-*": "popup",
+  "unlock-*": "popup",
+  "claim-*": "popup",
+  "noLives": "popup",
+  "boosterBuy": "popup",
+  "editProfile": "popup",
+  "username": "popup",
+  "weeklyInfo": "popup",
+  "weeklyTutorial": "popup",
+  "rocketOffer": "page",
+  "skyOffer": "page",
+  "clawInfo": "popup",
+  "shop": "page",
+  "settings": "page",
+  "terms": "page",
+  "profile": "page",
+  "lb-*": "page",
+  "streakRace*": "page",
+  "rocketRace": "page",
+  "skyJump": "page",
+  "claw": "page"
+ },
+ "calibration": {
+  "date": "2026-09-28",
+  "by": "R1 CONCEPTS",
+  "stats_min_median_max_n": {
+   "screen": {
+    "copy": {
+     "ssim": [
+      0.473,
+      0.548,
+      0.928,
+      4
+     ],
+     "overlap": [
+      0.672,
+      0.838,
+      0.879,
+      4
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.537,
+      0.537,
+      0.537,
+      1
+     ],
+     "overlap": [
+      0.194,
+      0.194,
+      0.194,
+      1
+     ]
+    },
+    "control": {
+     "ssim": [
+      0.121,
+      0.145,
+      0.183,
+      3
+     ],
+     "overlap": [
+      0.132,
+      0.401,
+      0.513,
+      3
+     ]
+    }
+   },
+   "popup": {
+    "copy": {
+     "ssim": [
+      0.928,
+      0.928,
+      0.928,
+      1
+     ],
+     "overlap": [
+      0.759,
+      0.759,
+      0.759,
+      1
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.915,
+      0.915,
+      0.915,
+      1
+     ],
+     "overlap": [
+      0.363,
+      0.363,
+      0.363,
+      1
+     ]
+    },
+    "control": {
+     "ssim": null,
+     "overlap": null
+    }
+   },
+   "hud": {
+    "copy": {
+     "ssim": [
+      0.912,
+      0.912,
+      0.912,
+      1
+     ],
+     "overlap": [
+      0.887,
+      0.887,
+      0.887,
+      1
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.91,
+      0.91,
+      0.91,
+      1
+     ],
+     "overlap": [
+      0.1,
+      0.1,
+      0.1,
+      1
+     ]
+    },
+    "control": {
+     "ssim": null,
+     "overlap": null
+    }
+   },
+   "icon": {
+    "copy": {
+     "ssim": [
+      0.319,
+      0.319,
+      0.319,
+      1
+     ],
+     "overlap": [
+      0.254,
+      0.254,
+      0.254,
+      1
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.207,
+      0.207,
+      0.207,
+      1
+     ],
+     "overlap": [
+      0.061,
+      0.061,
+      0.061,
+      1
+     ]
+    },
+    "control": {
+     "ssim": [
+      0.053,
+      0.161,
+      0.433,
+      12
+     ],
+     "overlap": [
+      0.063,
+      0.128,
+      0.608,
+      12
+     ]
+    }
+   },
+   "logo": {
+    "copy": {
+     "ssim": [
+      0.172,
+      0.172,
+      0.172,
+      1
+     ],
+     "overlap": [
+      0.665,
+      0.665,
+      0.665,
+      1
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.108,
+      0.108,
+      0.108,
+      1
+     ],
+     "overlap": [
+      0.185,
+      0.185,
+      0.185,
+      1
+     ]
+    },
+    "control": {
+     "ssim": null,
+     "overlap": null
+    }
+   },
+   "character": {
+    "copy": {
+     "ssim": [
+      0.322,
+      0.33,
+      0.339,
+      2
+     ],
+     "overlap": [
+      0.436,
+      0.495,
+      0.554,
+      2
+     ]
+    },
+    "concept": {
+     "ssim": [
+      0.322,
+      0.328,
+      0.333,
+      2
+     ],
+     "overlap": [
+      0.23,
+      0.29,
+      0.35,
+      2
+     ]
+    },
+    "control": {
+     "ssim": [
+      0.414,
+      0.448,
+      0.481,
+      2
+     ],
+     "overlap": [
+      0.572,
+      0.618,
+      0.664,
+      2
+     ]
+    }
+   }
+  },
+  "pairs": [
+   {
+    "id": "paused-vs-007",
+    "kind": "screen",
+    "role": "copy",
+    "ssim": 0.928,
+    "overlap": 0.879,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "home-v11-vs-002",
+    "kind": "screen",
+    "role": "copy",
+    "ssim": 0.527,
+    "overlap": 0.838,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "loading-vs-store8",
+    "kind": "screen",
+    "role": "copy",
+    "ssim": 0.473,
+    "overlap": 0.672,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "control-002-vs-069",
+    "kind": "screen",
+    "role": "control",
+    "ssim": 0.183,
+    "overlap": 0.401,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "control-002-vs-003",
+    "kind": "screen",
+    "role": "control",
+    "ssim": 0.121,
+    "overlap": 0.132,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "control-ourhome-vs-ourloading",
+    "kind": "screen",
+    "role": "control",
+    "ssim": 0.145,
+    "overlap": 0.513,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "art-direction.md §2.1"
+   },
+   {
+    "id": "D1-pause-mock-vs-007",
+    "kind": "popup",
+    "role": "concept",
+    "ssim": 0.915,
+    "overlap": 0.363,
+    "chrome_de00": 25.8,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "per-family LCh remap of pause-en (palette mock)"
+   },
+   {
+    "id": "today-pause-vs-007",
+    "kind": "popup",
+    "role": "copy",
+    "ssim": 0.928,
+    "overlap": 0.759,
+    "chrome_de00": 2.1,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": ""
+   },
+   {
+    "id": "D1-hud-mock-vs-003",
+    "kind": "hud",
+    "role": "concept",
+    "ssim": 0.91,
+    "overlap": 0.1,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "HUD band crop 0,40,393,85 pt"
+   },
+   {
+    "id": "today-hud-vs-003",
+    "kind": "hud",
+    "role": "copy",
+    "ssim": 0.912,
+    "overlap": 0.887,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "HUD band crop 0,40,393,85 pt"
+   },
+   {
+    "id": "D1-home-mock(palette+cast)-vs-002",
+    "kind": "screen",
+    "role": "concept",
+    "ssim": 0.537,
+    "overlap": 0.194,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "today's composition, D1 palette + new cast (home-mock-D1.png): expected to FAIL on SSIM until R3"
+   },
+   {
+    "id": "today-home-L32-vs-002",
+    "kind": "screen",
+    "role": "copy",
+    "ssim": 0.57,
+    "overlap": 0.838,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": ""
+   },
+   {
+    "id": "control-icon-partylights",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.064,
+    "overlap": 0.095,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-whitenoise",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.053,
+    "overlap": 0.142,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-hearup",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.151,
+    "overlap": 0.063,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-hiddendevice",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.433,
+    "overlap": 0.554,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-twocam",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.219,
+    "overlap": 0.097,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-storagecleaner",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.266,
+    "overlap": 0.114,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-pomodoro",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.321,
+    "overlap": 0.109,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-strobelight",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.104,
+    "overlap": 0.608,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-ledbanner",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.142,
+    "overlap": 0.424,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-trackdetect",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.134,
+    "overlap": 0.524,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-mater",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.344,
+    "overlap": 0.074,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": true,
+    "agrees": false,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "control-icon-vincam",
+    "kind": "icon",
+    "role": "control",
+    "ssim": 0.171,
+    "overlap": 0.15,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "unrelated-icon control: documents the icon metric's false-fail rate (sources.icon)"
+   },
+   {
+    "id": "today-icon-vs-store",
+    "kind": "icon",
+    "role": "copy",
+    "ssim": 0.319,
+    "overlap": 0.254,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": ""
+   },
+   {
+    "id": "IC1-draft-vs-store",
+    "kind": "icon",
+    "role": "concept",
+    "ssim": 0.207,
+    "overlap": 0.061,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": ""
+   },
+   {
+    "id": "today-logo-vs-store8",
+    "kind": "logo",
+    "role": "copy",
+    "ssim": 0.172,
+    "overlap": 0.665,
+    "chrome_de00": null,
+    "gate_pass": false,
+    "expected_pass": false,
+    "agrees": true,
+    "counted": true,
+    "note": "both on grey (theirs: border-colour matte)"
+   },
+   {
+    "id": "LG1-sketch-vs-store8",
+    "kind": "logo",
+    "role": "concept",
+    "ssim": 0.108,
+    "overlap": 0.185,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": true,
+    "note": "both on grey (theirs: border-colour matte)"
+   },
+   {
+    "id": "today-boss-vs-002",
+    "kind": "character",
+    "role": "copy",
+    "ssim": 0.322,
+    "overlap": 0.554,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": false,
+    "agrees": false,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   },
+   {
+    "id": "bossV2-vs-002",
+    "kind": "character",
+    "role": "concept",
+    "ssim": 0.322,
+    "overlap": 0.35,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   },
+   {
+    "id": "today-worker-vs-002",
+    "kind": "character",
+    "role": "copy",
+    "ssim": 0.339,
+    "overlap": 0.436,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": false,
+    "agrees": false,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   },
+   {
+    "id": "digger-vs-002",
+    "kind": "character",
+    "role": "concept",
+    "ssim": 0.333,
+    "overlap": 0.23,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   },
+   {
+    "id": "control-sci-vs-worker",
+    "kind": "character",
+    "role": "control",
+    "ssim": 0.481,
+    "overlap": 0.664,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   },
+   {
+    "id": "control-digger-vs-boss",
+    "kind": "character",
+    "role": "control",
+    "ssim": 0.414,
+    "overlap": 0.572,
+    "chrome_de00": null,
+    "gate_pass": true,
+    "expected_pass": true,
+    "agrees": true,
+    "counted": false,
+    "note": "informative kind (no thresholds): see sources.character"
+   }
+  ]
+ },
+ "sweep_kinds_note": "sweep captures are full frames: hud*/L5/fx-*/ftue* stay 'board'; G4a pairs for the HUD use kind 'hud' with crop [0, 40, 393, 85]",
+ "rulings": "SPEC ruling 49 (2026-09-28) + ruling 51 (2026-09-29), applied by FIX-2 lane B: every UI screen keeps its layout 1:1 (ruling 46), so a WHOLE screen (kinds screen / popup / page) is judged on its chroma overlap (hard) and its whole-screen SSIM is INFORMATIVE; the replaced ART regions (kind 'art': crops of the icon, characters, scenes, event art) stay hard on SSIM < 0.30 AND overlap < 0.55; R1's chrome ΔE00 > 25 rule counts only the ui regions whose ORIGINAL colour is in a family the D1 direction moves (chrome-blue, go-green, berry, the title plank) — the kept families (the red close X, red Hard panels, cream cards, the coin pill, neutral rails) are the category's convention (tools/copygate.py chrome_moved, ported from build/p/A5/gate.py). The event screens (streakRace*, rocketRace, skyJump, claw, rocketOffer, skyOffer) are kind 'page' (build/p/A5/kinds-r49.json). Owner exceptions: the logo (ruling 48), the icon's white ground (ruling 50). win-super (berry ladder, ΔE00 ≈ 21 by R9's design) goes to G4(b)."
+}

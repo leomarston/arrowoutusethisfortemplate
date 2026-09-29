@@ -1,0 +1,4 @@
+top HUD (pause-button top y, pt)     eob    start   -58.8 t0 0.237 p3 0.340 p4 3.209  RMS 2.7 pt max 5.3
+top HUD (pause-button top y, pt)     spring start  -124.9 t0 0.159 p3 0.474 p4 14.645  RMS 3.0 pt max 5.8  -> SwiftUI .spring(response 0.429, dampingFraction 0.47)
+left booster (left edge x, pt)       eob    start   -55.5 t0 0.323 p3 0.230 p4 2.291  RMS 6.5 pt max 15.0
+left booster (left edge x, pt)       spring start   -45.1 t0 0.309 p3 0.429 p4 25.675  RMS 6.3 pt max 13.7  -> SwiftUI .spring(response 0.245, dampingFraction 0.43)

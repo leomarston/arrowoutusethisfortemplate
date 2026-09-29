@@ -1,0 +1,21 @@
+# Secrets: never commit these (see README "What is NOT in this repo")
+.env
+keys/
+*.p8
+*.p12
+*.cer
+*.key
+*.mobileprovision
+.claude/settings.local.json
+
+# Build outputs (Arrow Out's build/ folder alone was ~17 GB)
+build/
+DerivedData/
+apps/*/build/
+apps/*/DerivedData/
+apps/*/*.xcodeproj
+logs/
+
+# Python / macOS noise
+__pycache__/
+.DS_Store

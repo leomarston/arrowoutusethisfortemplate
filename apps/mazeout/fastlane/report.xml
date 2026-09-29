@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000277">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: sh tools/gen.sh" time="0.191354">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: app_store_connect_api_key" time="0.003259">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: gym" time="179.261043">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: shell command" time="0.010429">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: shell command" time="0.124312">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: deliver" time="115.826922">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

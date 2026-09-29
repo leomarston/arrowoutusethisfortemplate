@@ -1,0 +1,85 @@
+{
+  "active" : {
+    "budget_ms" : 16.666666667019438,
+    "frames" : 219,
+    "histogram_ms" : {
+      "<12" : 0,
+      ">=50" : 0,
+      "12-18" : 219,
+      "18-20" : 0,
+      "20-25" : 0,
+      "25-34" : 0,
+      "34-50" : 0
+    },
+    "max_ms" : 16.666666837409139,
+    "mean_ms" : 16.666666667304558,
+    "over20ms" : 0,
+    "over34ms" : 0,
+    "p50_ms" : 16.666666604578495,
+    "p95_ms" : 16.666666837409139,
+    "p99_ms" : 16.666666837409139,
+    "span_s" : 3.6500000001396984
+  },
+  "appInit_ms_since_process_start" : 222.42486476898193,
+  "arrows" : 304,
+  "buildMs" : 1.6413747798651457,
+  "cells" : 873,
+  "firstFrame_ms_since_process_start" : 457.50188827514648,
+  "footprintMB_afterBuild" : 22.55377197265625,
+  "footprintMB_afterWaves" : 23.9757080078125,
+  "footprintMB_beforeWaves" : 22.77252197265625,
+  "footprintMB_now" : 23.9757080078125,
+  "greedy_rounds" : 14,
+  "greedy_stuck" : 0,
+  "grid" : "40x40",
+  "idle" : {
+    "budget_ms" : 16.666666664663826,
+    "frames" : 61,
+    "histogram_ms" : {
+      "<12" : 0,
+      ">=50" : 0,
+      "12-18" : 61,
+      "18-20" : 0,
+      "20-25" : 0,
+      "25-34" : 0,
+      "34-50" : 0
+    },
+    "max_ms" : 16.666666837409139,
+    "mean_ms" : 16.666666665648826,
+    "over20ms" : 0,
+    "over34ms" : 0,
+    "p50_ms" : 16.666666604578495,
+    "p95_ms" : 16.666666837409139,
+    "p99_ms" : 16.666666837409139,
+    "span_s" : 1.0166666666045785
+  },
+  "layers_afterBuild" : 614,
+  "layers_now" : 594,
+  "level" : "synthetic heart seed 7 mean 3.0",
+  "maxFPS" : 60,
+  "peakLayers" : 730,
+  "peakMovers" : 7,
+  "pitch_pt" : 9.3571428571428577,
+  "ready_exit5" : {
+
+  },
+  "scenario" : "exit5",
+  "stars" : true,
+  "trail" : "dash",
+  "validate" : [
+
+  ],
+  "waveCounts" : [
+    5,
+    5,
+    5,
+    5
+  ],
+  "waveStartCost_ms" : [
+    7.8609166666865349,
+    6.7151666153222322,
+    6.7913748789578676,
+    7.4960417114198208
+  ],
+  "zoom" : 1
+}

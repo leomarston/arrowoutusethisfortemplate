@@ -1,0 +1,291 @@
+# country_facts_v2.tsv — the HAND-WRITTEN input of the v2 country table (DECISIONS, written by us; T6 SOC-PY 2026-09-28).
+# tools/v2/build_countries_v2.py reads this + the Wikidata population / GDP-per-capita cache and writes countries_v2.tsv,
+# regions_v2.tsv and buckets_v2.tsv. Every alpha-2 code of Locale.Region.isoRegions (data_v2/ios_regions.tsv) has one line
+# (US has two rows: east+central and west+mountain); numeric UN M.49 codes resolve to the highest-weight row they contain.
+#
+# code  kind   target  std_off_min  bucket  culture_mix  weight_rule  note
+#   kind   row = its own board; alias = plays on the target's board (territories, uninhabited places); numeric = a macro-region
+#   std_off_min = the standard (winter) UTC offset of the main population centre (IANA tzdata); the model never switches DST
+#   bucket = the timezone band whose ONE schedule offset (buckets below) every row is within +-60 min of
+#   culture_mix = name cultures drawn per member (M5), weights relative
+#   weight_rule = keep:<w> (one of the 49 reference rows: its weight stays) | refit:<w> (re-fitted, calib_v2.py) |
+#                 decision:<w> (set by us, reason in the note) | formula (population x per-capita weight of its income class,
+#                 see build_countries_v2.py) | formula:<class> (the same, class set by hand where Wikidata has no GDP) |
+#                 formula@<M.49 sub-region> (the per-capita weight of another sub-region; the note says why)
+#
+# bucket  schedule_offset_min
+#@bucket	AMER_W	-480
+#@bucket	AMER_E	-300
+#@bucket	AMER_S	-180
+#@bucket	EUR_W	0
+#@bucket	EUR_C	60
+#@bucket	EUR_E	180
+#@bucket	ASIA_S	330
+#@bucket	ASIA_SE	480
+#@bucket	ASIA_E	540
+#@bucket	OCEANIA	720
+# ---------------------------------------------------------------- the Americas
+US	row	-	-300	AMER_E	en:0.92,es:0.08	keep:21.0	US east + central (Hispanic Americans ~8 % of first names drawn Spanish)
+US	row	-	-480	AMER_W	en:0.9,es:0.1	keep:9.0	US west + mountain
+CA	row	-	-300	AMER_E	en:0.78,fr:0.22	keep:5.0	Quebec ~22 % French
+MX	row	-	-360	AMER_E	es	keep:2.5
+GT	row	-	-360	AMER_E	es	formula
+BZ	row	-	-360	AMER_E	en:0.6,es:0.4	formula
+SV	row	-	-360	AMER_E	es	formula
+HN	row	-	-360	AMER_E	es	formula
+NI	row	-	-360	AMER_E	es	formula
+CR	row	-	-360	AMER_E	es	formula
+PA	row	-	-300	AMER_E	es	formula
+CO	row	-	-300	AMER_E	es	keep:0.8
+EC	row	-	-300	AMER_E	es	formula
+PE	row	-	-300	AMER_E	es	keep:0.3
+CU	row	-	-300	AMER_E	es	decision:0.01	no App Store in Cuba: a small board
+JM	row	-	-300	AMER_E	en	formula
+HT	row	-	-300	AMER_E	fr	formula
+BS	row	-	-300	AMER_E	en	formula
+DO	row	-	-240	AMER_E	es	formula
+PR	row	-	-240	AMER_E	es:0.75,en:0.25	formula	US territory but its own storefront-sized market (3.2 M people), Spanish-speaking
+AG	row	-	-240	AMER_E	en	formula
+DM	row	-	-240	AMER_E	en	formula
+GD	row	-	-240	AMER_E	en	formula
+KN	row	-	-240	AMER_E	en	formula
+LC	row	-	-240	AMER_E	en	formula
+VC	row	-	-240	AMER_E	en	formula
+BB	row	-	-240	AMER_E	en	formula
+TT	row	-	-240	AMER_E	en	formula
+KY	alias	GB	-	-	-	-	British overseas territory
+TC	alias	GB	-	-	-	-	British overseas territory
+AI	alias	GB	-	-	-	-	British overseas territory
+VG	alias	GB	-	-	-	-	British overseas territory
+MS	alias	GB	-	-	-	-	British overseas territory
+BM	alias	GB	-	-	-	-	British overseas territory
+AW	alias	NL	-	-	-	-	Kingdom of the Netherlands
+CW	alias	NL	-	-	-	-	Kingdom of the Netherlands
+SX	alias	NL	-	-	-	-	Kingdom of the Netherlands
+BQ	alias	NL	-	-	-	-	Caribbean Netherlands
+BL	alias	FR	-	-	-	-	French overseas collectivity
+MF	alias	FR	-	-	-	-	French overseas collectivity
+GP	alias	FR	-	-	-	-	French overseas department
+MQ	alias	FR	-	-	-	-	French overseas department
+PM	alias	FR	-	-	-	-	French overseas collectivity
+VI	alias	US	-	-	-	-	US territory
+GL	alias	DK	-	-	-	-	Kingdom of Denmark
+VE	row	-	-240	AMER_S	es	formula:upper	no GDP on Wikidata; World Bank lists Venezuela unclassified since 2021; upper-middle proxy
+BO	row	-	-240	AMER_S	es	formula
+CL	row	-	-240	AMER_S	es	keep:0.6
+GY	row	-	-240	AMER_S	en	formula
+BR	row	-	-180	AMER_S	pt	keep:4.0
+AR	row	-	-180	AMER_S	es	keep:1.0
+UY	row	-	-180	AMER_S	es	formula
+PY	row	-	-180	AMER_S	es	formula	UTC-3 all year since Oct 2024
+SR	row	-	-180	AMER_S	nl	formula
+GF	alias	FR	-	-	-	-	French overseas department
+FK	alias	GB	-	-	-	-	British overseas territory
+GS	alias	GB	-	-	-	-	uninhabited British territory
+# ---------------------------------------------------------------- Europe
+GB	row	-	0	EUR_W	en	keep:7.0
+IE	row	-	0	EUR_W	en	keep:0.8
+PT	row	-	0	EUR_W	ptpt	keep:0.6	European Portuguese names now (v1 used the Brazilian list)
+IS	row	-	0	EUR_W	nordic	formula
+IM	alias	GB	-	-	-	-	Crown dependency
+JE	alias	GB	-	-	-	-	Crown dependency
+GG	alias	GB	-	-	-	-	Crown dependency
+CQ	alias	GB	-	-	-	-	Sark (Crown dependency)
+FO	alias	DK	-	-	-	-	Kingdom of Denmark
+ES	row	-	60	EUR_C	es	keep:2.0
+AD	row	-	60	EUR_C	es	formula
+GI	alias	GB	-	-	-	-	British overseas territory
+IC	alias	ES	-	-	-	-	Canary Islands (Spain)
+EA	alias	ES	-	-	-	-	Ceuta and Melilla (Spain)
+FR	row	-	60	EUR_C	fr	keep:3.5
+MC	row	-	60	EUR_C	fr	formula
+BE	row	-	60	EUR_C	nl:0.6,fr:0.4	keep:0.8	Flemish ~60 %, French-speaking ~40 %
+NL	row	-	60	EUR_C	nl	keep:1.5
+LU	row	-	60	EUR_C	fr:0.5,de:0.3,ptpt:0.2	formula
+DE	row	-	60	EUR_C	de	keep:4.5
+AT	row	-	60	EUR_C	de	keep:0.6
+CH	row	-	60	EUR_C	de:0.65,fr:0.25,it:0.1	keep:0.6
+LI	row	-	60	EUR_C	de	formula
+IT	row	-	60	EUR_C	it	keep:2.0
+SM	row	-	60	EUR_C	it	formula
+VA	alias	IT	-	-	-	-	Vatican City: under 1,000 residents
+MT	row	-	60	EUR_C	en:0.6,it:0.4	formula
+SE	row	-	60	EUR_C	nordic	keep:1.0
+NO	row	-	60	EUR_C	nordic	keep:0.6
+DK	row	-	60	EUR_C	nordic	keep:0.6
+SJ	alias	NO	-	-	-	-	Norwegian territory
+BV	alias	NO	-	-	-	-	uninhabited Norwegian territory
+PL	row	-	60	EUR_C	pl	keep:1.5
+CZ	row	-	60	EUR_C	cs	keep:0.4
+SK	row	-	60	EUR_C	sk	decision:0.25	launch locale sk (social-intl §7-4)
+HU	row	-	60	EUR_C	hu	keep:0.3
+SI	row	-	60	EUR_C	sl	decision:0.12	launch locale sl (social-intl §7-4)
+HR	row	-	60	EUR_C	hr	decision:0.2	social-intl §7-4
+BA	row	-	60	EUR_C	sr:0.5,hr:0.5	formula	no Bosnian list of its own: Serbian + Croatian lists (proxy)
+ME	row	-	60	EUR_C	sr	formula
+RS	row	-	60	EUR_C	sr	formula
+MK	row	-	60	EUR_C	sr:0.75,sq:0.25	formula	Macedonian names ~ the Serbian list (proxy); Albanian minority
+AL	row	-	60	EUR_C	sq	formula
+XK	row	-	60	EUR_C	sq:0.9,sr:0.1	formula
+FI	row	-	120	EUR_E	fi:0.95,nordic:0.05	keep:0.5
+AX	alias	FI	-	-	-	-	Aland Islands (Finland)
+EE	row	-	120	EUR_E	et:0.7,ru:0.3	formula@151	Baltic market sized like Central/Eastern Europe (M.49 files it under Northern Europe with the Nordics)
+LV	row	-	120	EUR_E	lv:0.65,ru:0.35	formula@151	Baltic market sized like Central/Eastern Europe (M.49 files it under Northern Europe with the Nordics)
+LT	row	-	120	EUR_E	lt:0.85,ru:0.15	formula@151	Baltic market sized like Central/Eastern Europe (M.49 files it under Northern Europe with the Nordics)
+RO	row	-	120	EUR_E	ro	keep:0.5
+MD	row	-	120	EUR_E	ro:0.8,ru:0.2	formula
+BG	row	-	120	EUR_E	bg	formula
+GR	row	-	120	EUR_E	el	keep:0.4
+CY	row	-	120	EUR_E	el:0.8,tr:0.2	formula
+UA	row	-	120	EUR_E	uk:0.8,ru:0.2	keep:0.4
+BY	row	-	180	EUR_E	ru	formula
+RU	row	-	180	EUR_E	ru	keep:0.5
+TR	row	-	180	EUR_E	tr	refit:0.39	re-fitted under v2 (M1-M11) to the phone's Turkey board at the same world age, together with the M11 archetype tilt (dabbler/casual x1.3, regular/returner/enthusiast x0.3; socialsim/v2.py ROW_TILT): rank 455 at L62, #2-#7 within 40 %, rank slope L62-L84 2.7-4.6 (tools/v2/fit_tr.py, build/p/T6/fit_tr3.json: 0.3861 -> 456, slope 3.09)
+# ---------------------------------------------------------------- the Middle East
+IL	row	-	120	EUR_E	he:0.8,ar:0.2	keep:0.5
+PS	row	-	120	EUR_E	ar	formula
+LB	row	-	120	EUR_E	ar	formula
+JO	row	-	180	EUR_E	ar	formula	UTC+3 all year since 2022
+SY	row	-	180	EUR_E	ar	decision:0.01	no App Store in Syria: a small board
+IQ	row	-	180	EUR_E	ar	formula
+KW	row	-	180	EUR_E	ar	formula
+SA	row	-	180	EUR_E	ar	keep:0.8
+QA	row	-	180	EUR_E	ar:0.5,in:0.3,tl:0.2	formula	~85 % expatriates
+BH	row	-	180	EUR_E	ar:0.6,in:0.4	formula
+YE	row	-	180	EUR_E	ar	formula:low	no GDP on Wikidata; low income (World Bank)
+AE	row	-	240	EUR_E	ar:0.45,in:0.35,tl:0.2	keep:0.6	moved from ASIA_S (+330, 90 min away) to the +180 band; ~88 % expatriates
+OM	row	-	240	EUR_E	ar:0.7,in:0.3	formula
+IR	row	-	210	EUR_E	fa	decision:0.02	no App Store in Iran (sanctions): a small board for devices set to IR
+GE	row	-	240	EUR_E	ka	formula
+AM	row	-	240	EUR_E	hy	formula
+AZ	row	-	240	EUR_E	az	formula
+# ---------------------------------------------------------------- Africa
+EG	row	-	120	EUR_E	ar	keep:0.4
+LY	row	-	120	EUR_E	ar	formula
+SD	row	-	120	EUR_E	ar	formula
+SS	row	-	120	EUR_E	af	formula:low	no GDP on Wikidata; low income (World Bank)
+ZA	row	-	120	EUR_E	en:0.6,af:0.4	keep:0.8
+ZW	row	-	120	EUR_E	af:0.5,en:0.5	formula
+ZM	row	-	120	EUR_E	af:0.5,en:0.5	formula
+MW	row	-	120	EUR_E	af	formula
+MZ	row	-	120	EUR_E	ptpt:0.6,af:0.4	formula
+BW	row	-	120	EUR_E	af:0.5,en:0.5	formula
+NA	row	-	120	EUR_E	af:0.5,en:0.3,de:0.2	formula
+LS	row	-	120	EUR_E	af	formula
+SZ	row	-	120	EUR_E	af	formula
+RW	row	-	120	EUR_E	af:0.5,fr:0.5	formula
+BI	row	-	120	EUR_E	fr:0.5,af:0.5	formula
+KE	row	-	180	EUR_E	af	formula
+UG	row	-	180	EUR_E	af	formula
+TZ	row	-	180	EUR_E	af	formula
+ET	row	-	180	EUR_E	af	formula	no Ethiopian list: the sub-Saharan list (proxy)
+ER	row	-	180	EUR_E	af	formula:low	no GDP on Wikidata; low income (World Bank)
+SO	row	-	180	EUR_E	ar:0.6,af:0.4	formula
+DJ	row	-	180	EUR_E	fr:0.5,ar:0.5	formula
+KM	row	-	180	EUR_E	fr:0.5,ar:0.5	formula
+MG	row	-	180	EUR_E	fr:0.6,af:0.4	formula
+MU	row	-	240	EUR_E	en:0.4,fr:0.3,in:0.3	formula
+SC	row	-	240	EUR_E	en:0.5,fr:0.5	formula
+RE	alias	FR	-	-	-	-	French overseas department
+YT	alias	FR	-	-	-	-	French overseas department
+TF	alias	FR	-	-	-	-	French Southern Territories (no residents)
+NG	row	-	60	EUR_C	af:0.8,en:0.2	formula
+CM	row	-	60	EUR_C	fr:0.6,af:0.4	formula
+DZ	row	-	60	EUR_C	ar	formula
+TN	row	-	60	EUR_C	ar	formula
+MA	row	-	60	EUR_C	ar	formula	UTC+1 all year (outside Ramadan) since 2018
+EH	alias	MA	-	-	-	-	Western Sahara (administered by Morocco; same clock)
+AO	row	-	60	EUR_C	ptpt:0.6,af:0.4	formula
+CD	row	-	60	EUR_C	fr:0.6,af:0.4	formula	Kinshasa's offset
+CG	row	-	60	EUR_C	fr:0.6,af:0.4	formula
+GA	row	-	60	EUR_C	fr	formula
+GQ	row	-	60	EUR_C	es:0.6,af:0.4	formula
+CF	row	-	60	EUR_C	fr:0.6,af:0.4	formula
+TD	row	-	60	EUR_C	ar:0.6,fr:0.4	formula
+NE	row	-	60	EUR_C	fr:0.5,af:0.5	formula
+BJ	row	-	60	EUR_C	fr:0.6,af:0.4	formula
+GH	row	-	0	EUR_W	af:0.8,en:0.2	formula
+CI	row	-	0	EUR_W	fr:0.6,af:0.4	formula
+SN	row	-	0	EUR_W	fr:0.6,af:0.4	formula
+ML	row	-	0	EUR_W	fr:0.5,af:0.5	formula
+BF	row	-	0	EUR_W	fr:0.6,af:0.4	formula
+GM	row	-	0	EUR_W	af:0.6,en:0.4	formula
+GN	row	-	0	EUR_W	fr:0.5,af:0.5	formula
+GW	row	-	0	EUR_W	ptpt:0.6,af:0.4	formula
+SL	row	-	0	EUR_W	af:0.6,en:0.4	formula
+LR	row	-	0	EUR_W	af:0.5,en:0.5	formula
+TG	row	-	0	EUR_W	fr:0.6,af:0.4	formula
+MR	row	-	0	EUR_W	ar	formula
+ST	row	-	0	EUR_W	ptpt	formula
+CV	row	-	-60	EUR_W	ptpt	formula
+SH	alias	GB	-	-	-	-	British overseas territory
+AC	alias	GB	-	-	-	-	Ascension (Saint Helena, Ascension and Tristan da Cunha)
+TA	alias	GB	-	-	-	-	Tristan da Cunha (idem)
+# ---------------------------------------------------------------- Asia
+IN	row	-	330	ASIA_S	in	keep:2.0
+LK	row	-	330	ASIA_S	in	formula	Sri Lankan names: the Indian list (proxy)
+NP	row	-	345	ASIA_S	in	formula
+BT	row	-	360	ASIA_S	in	formula
+BD	row	-	360	ASIA_S	ur	formula
+PK	row	-	300	ASIA_S	ur	formula
+MV	row	-	300	ASIA_S	ur	formula
+AF	row	-	270	ASIA_S	fa	formula
+UZ	row	-	300	ASIA_S	uz	formula
+TJ	row	-	300	ASIA_S	fa:0.5,ru:0.5	formula	Tajik names are Persian
+TM	row	-	300	ASIA_S	uz:0.5,ru:0.5	formula:upper	Turkmen names ~ the Uzbek list (proxy); no GDP on Wikidata; upper-middle income (World Bank)
+KZ	row	-	300	ASIA_S	kk:0.6,ru:0.4	formula	one offset (UTC+5) since March 2024
+KG	row	-	360	ASIA_S	kk:0.5,ru:0.5	formula	Kyrgyz names ~ the Kazakh list (proxy)
+MM	row	-	390	ASIA_S	th	formula	no Burmese list: the Thai list (proxy)
+TH	row	-	420	ASIA_SE	th	keep:0.8
+VN	row	-	420	ASIA_SE	vi	keep:0.3
+KH	row	-	420	ASIA_SE	th	formula	no Khmer list: the Thai list (proxy)
+LA	row	-	420	ASIA_SE	th	formula	Lao names ~ Thai (proxy)
+ID	row	-	420	ASIA_SE	id	keep:1.5
+MY	row	-	480	ASIA_SE	ms:0.6,zh:0.3,in:0.1	keep:0.8
+SG	row	-	480	ASIA_SE	zh:0.6,ms:0.15,in:0.1,en:0.15	keep:0.6
+BN	row	-	480	ASIA_SE	ms	formula
+PH	row	-	480	ASIA_SE	tl	keep:2.0
+TW	row	-	480	ASIA_SE	zh	keep:0.5
+HK	row	-	480	ASIA_SE	zh:0.6,en:0.4	keep:0.4	many Hong Kong players use an English given name
+MO	row	-	480	ASIA_SE	zh:0.8,en:0.2	formula
+CN	row	-	480	ASIA_SE	zh	decision:0.3	not on sale in mainland China (ruling 38); a small board for devices set to CN (social-intl §7-3)
+MN	row	-	480	ASIA_SE	ru	formula	no Mongolian list: the Russian list (Cyrillic script, proxy)
+TL	row	-	540	ASIA_E	ptpt	formula
+JP	row	-	540	ASIA_E	jp	keep:1.5
+KR	row	-	540	ASIA_E	kr	keep:1.0
+KP	row	-	540	ASIA_E	kr	decision:0.004	a floor-size board only
+PW	row	-	540	ASIA_E	en	formula
+# ---------------------------------------------------------------- Oceania
+AU	row	-	600	ASIA_E	en	keep:4.5
+PG	row	-	600	ASIA_E	en	formula
+FM	row	-	600	ASIA_E	en	formula
+GU	alias	US	-	-	-	-	US territory
+MP	alias	US	-	-	-	-	US territory
+NZ	row	-	720	OCEANIA	en	keep:0.8	moved from ASIA_E (+540, 3 h away) to its own band
+FJ	row	-	720	OCEANIA	en:0.6,in:0.4	formula
+NR	row	-	720	OCEANIA	en	formula
+MH	row	-	720	OCEANIA	en	formula
+KI	row	-	720	OCEANIA	en	formula
+TV	row	-	720	OCEANIA	en	formula
+SB	row	-	660	OCEANIA	en	formula
+VU	row	-	660	OCEANIA	en:0.5,fr:0.5	formula
+TO	row	-	780	OCEANIA	en	formula
+WS	row	-	780	OCEANIA	en	formula
+NC	alias	FR	-	-	-	-	French overseas collectivity
+PF	alias	FR	-	-	-	-	French overseas collectivity
+WF	alias	FR	-	-	-	-	French overseas collectivity
+CK	alias	NZ	-	-	-	-	Realm of New Zealand
+NU	alias	NZ	-	-	-	-	Realm of New Zealand
+TK	alias	NZ	-	-	-	-	Realm of New Zealand
+AS	alias	US	-	-	-	-	US territory
+UM	alias	US	-	-	-	-	US Minor Outlying Islands (no permanent residents)
+PN	alias	GB	-	-	-	-	Pitcairn (British overseas territory, ~50 residents)
+NF	alias	AU	-	-	-	-	Australian external territory
+CX	alias	AU	-	-	-	-	Australian external territory
+CC	alias	AU	-	-	-	-	Australian external territory
+HM	alias	AU	-	-	-	-	uninhabited Australian territory
+IO	alias	GB	-	-	-	-	British Indian Ocean Territory
+DG	alias	GB	-	-	-	-	Diego Garcia (British Indian Ocean Territory)
+CP	alias	FR	-	-	-	-	Clipperton (uninhabited French island)
+AQ	alias	US	-	-	-	-	Antarctica: no country; the fallback country (social.json fallbackCountry = US)
+QO	alias	AU	-	-	-	-	Outlying Oceania (a macro-region with no residents of its own): Oceania's largest board

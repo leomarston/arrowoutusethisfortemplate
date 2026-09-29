@@ -1,0 +1,47 @@
+== model exp: params [ 5.543 71.423  0.323]  RMS 0.079 cells over 103 samples
+   P02-A (L32 0.786x, 26-cell snake, up)            t0=0.479 (window 0.482..0.499)  rms 0.063 c  max 0.124 c
+   P02-B (L32 0.786x, 2nd tap, right)               t0=1.269 (window 1.265..1.281)  rms 0.069 c  max 0.166 c
+   P01 (L32 0.786x, 4-cell, right)                  t0=1.942 (window 1.947..1.964)  rms 0.026 c  max 0.066 c
+   L33 key arrow (fit, up)                          t0=0.512 (window 0.516..0.532)  rms 0.037 c  max 0.087 c
+   L35 pipe arrow (fit 28.09, right->pipe->down)    t0=0.239 (window 0.250..0.266)  rms 0.141 c  max 0.276 c
+== model cap: params [ 14.381 105.553  60.205]  RMS 0.175 cells over 103 samples
+   P02-A (L32 0.786x, 26-cell snake, up)            t0=0.495 (window 0.482..0.499)  rms 0.248 c  max 0.470 c
+   P02-B (L32 0.786x, 2nd tap, right)               t0=1.281 (window 1.265..1.281)  rms 0.112 c  max 0.197 c
+   P01 (L32 0.786x, 4-cell, right)                  t0=1.960 (window 1.947..1.964)  rms 0.040 c  max 0.086 c
+   L33 key arrow (fit, up)                          t0=0.525 (window 0.516..0.532)  rms 0.099 c  max 0.246 c
+   L35 pipe arrow (fit 28.09, right->pipe->down)    t0=0.254 (window 0.250..0.266)  rms 0.185 c  max 0.275 c
+== model quad: params [19.048 77.896]  RMS 0.391 cells over 103 samples
+   P02-A (L32 0.786x, 26-cell snake, up)            t0=0.497 (window 0.482..0.499)  rms 0.428 c  max 1.075 c
+   P02-B (L32 0.786x, 2nd tap, right)               t0=1.281 (window 1.265..1.281)  rms 0.372 c  max 0.564 c
+   P01 (L32 0.786x, 4-cell, right)                  t0=1.964 (window 1.947..1.964)  rms 0.205 c  max 0.276 c
+   L33 key arrow (fit, up)                          t0=0.528 (window 0.516..0.532)  rms 0.293 c  max 0.508 c
+   L35 pipe arrow (fit 28.09, right->pipe->down)    t0=0.253 (window 0.250..0.266)  rms 0.507 c  max 0.731 c
+== same exp model but in POINTS (screen-space hypothesis):
+   params [6.e+01 2.e+02 1.e-02] RMS 148.75 pt
+== T(d): time from release until the head has travelled d cells (exp model)
+   d=  1 cells  T=0.078 s
+   d=  2 cells  T=0.121 s
+   d=  3 cells  T=0.156 s
+   d=  5 cells  T=0.215 s
+   d=  8 cells  T=0.288 s
+   d= 10 cells  T=0.331 s
+   d= 15 cells  T=0.429 s
+   d= 20 cells  T=0.518 s
+   d= 25 cells  T=0.602 s
+   d= 30 cells  T=0.682 s
+   d= 40 cells  T=0.836 s
+   d= 50 cells  T=0.984 s
+   d= 60 cells  T=1.129 s
+   d= 80 cells  T=1.414 s
+== velocity profile (cells/s): 0.00s:5.5 0.05s:15.0 0.10s:23.1 0.20s:36.0 0.30s:45.4 0.40s:52.3 0.50s:57.4 0.70s:63.9 1.00s:68.4
+== screen-space hypothesis (same exp model, distances in POINTS): params v0,vmax,T = [0.0000e+00 7.7886e+02 8.0000e-02]  RMS 44.89 pt
+   P02-A (L32 0.786x, 26-cell snake, up)            rms  31.52 pt  max  45.40 pt
+   P02-B (L32 0.786x, 2nd tap, right)               rms  29.62 pt  max  46.43 pt
+   P01 (L32 0.786x, 4-cell, right)                  rms   8.41 pt  max  17.91 pt
+   L33 key arrow (fit, up)                          rms   5.29 pt  max  15.17 pt
+   L35 pipe arrow (fit 28.09, right->pipe->down)    rms  89.73 pt  max 187.05 pt
+== LINEAR T = a + b*d over measured pairs d in [0,40] cells: a=0.089 s b=0.0208 s/cell  n=103 RMS 0.033 s (the exp model's RMS on the same pairs, in time: see below)
+== LINEAR T = a + b*d over measured pairs d in [2,40] cells: a=0.119 s b=0.0192 s/cell  n=79 RMS 0.020 s (the exp model's RMS on the same pairs, in time: see below)
+== LINEAR T = a + b*d over measured pairs d in [5,40] cells: a=0.150 s b=0.0178 s/cell  n=54 RMS 0.011 s (the exp model's RMS on the same pairs, in time: see below)
+== exp model, time residual over all 103 measured pairs: RMS 0.0030 s  max 0.0120 s
+== measured range: d up to 37.8 cells, tau up to 0.802 s

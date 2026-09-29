@@ -1,0 +1,94 @@
+{
+ "character": "badge_rocketrally",
+ "frame_pt": [
+  80,
+  84
+ ],
+ "note": "rect_pt / pivots_pt: pt inside the frame, origin top-left; layers back -> front (z); every layer shares the full render's camera, so drawing each at rect_pt recomposes the full render; overlay layers and non-default group members are swapped in by the animation",
+ "full": "../badgeRocketRally@3x.png",
+ "placement_pt": null,
+ "layers": [
+  {
+   "name": "body",
+   "file": "body@3x.png",
+   "z": 0,
+   "rect_pt": [
+    13.0,
+    5.333,
+    54.0,
+    75.667
+   ],
+   "pivots_pt": {
+    "ringBottom": [
+     40.0,
+     74.03
+    ]
+   },
+   "note": "medallion + pedestal (live countdown / Join)"
+  },
+  {
+   "name": "exhaustA",
+   "file": "exhaustA@3x.png",
+   "rect_pt": [
+    20.333,
+    47.333,
+    38.667,
+    22.0
+   ],
+   "pivots_pt": {
+    "nozzle": [
+     40.0,
+     52.12
+    ]
+   },
+   "overlay": true,
+   "parent": "rocket",
+   "note": "painted exhaust (flicker frame): shown by the overlay track during the lift-off, moves with the rocket (same translateY track)",
+   "z": 1
+  },
+  {
+   "name": "exhaustB",
+   "file": "exhaustB@3x.png",
+   "rect_pt": [
+    20.0,
+    48.0,
+    39.333,
+    21.667
+   ],
+   "pivots_pt": {
+    "nozzle": [
+     40.0,
+     52.12
+    ]
+   },
+   "overlay": true,
+   "parent": "rocket",
+   "note": "painted exhaust (flicker frame): shown by the overlay track during the lift-off, moves with the rocket (same translateY track)",
+   "z": 2
+  },
+  {
+   "name": "rocket",
+   "file": "rocket@3x.png",
+   "z": 3,
+   "rect_pt": [
+    19.333,
+    9.0,
+    41.333,
+    50.333
+   ],
+   "pivots_pt": {
+    "nozzle": [
+     40.0,
+     52.12
+    ]
+   },
+   "note": "the rocket: the lift-off (translateY -8 pt) + the live rank on its porthole"
+  }
+ ],
+ "groups": {},
+ "proof": {
+  "mean_abs": 0.134,
+  "pct_gt40": 0.048
+ },
+ "baked": "default layers carry the full render's colour where they are top-most (cast shadows included)"
+}

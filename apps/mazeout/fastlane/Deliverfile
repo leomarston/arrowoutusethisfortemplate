@@ -1,0 +1,10 @@
+primary_category "GAMES"
+# A GAMES app MUST also declare two subcategories or the version will not submit (partypack).
+# The original is Games / Puzzle / Casual (release-plan section 7, VERIFIED).
+primary_first_sub_category "GAMES_PUZZLE"
+primary_second_sub_category "GAMES_CASUAL"
+# Copyright comes from fastlane/metadata/copyright.txt ("2026 Manycode Apps"). Hardcoding it
+# here as the account name overrides that file and ships the wrong copyright — it did once
+# ([[copyright-and-five-screenshots]]).
+# Yas siniflandirmasi: statik hepsi-NONE config; submit_for_review icin zorunlu.
+app_rating_config_path "./fastlane/metadata/app_rating_config.json"

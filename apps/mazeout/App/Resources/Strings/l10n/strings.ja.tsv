@@ -1,0 +1,276 @@
+en	ja	note
+# B3 L10N-APP (2026-09-28): the shipped ja table. tools/strings/build.py merges it with strings.tsv (+ requests/*.tsv) into
+# Localizable.xcstrings and FAILS on a missing, extra or malformed key (every catalogue key has exactly one row here).
+# Rows 1-231 = T2 L10N batch 1 (design/publish/l10n/strings.ja.tsv, reviewed in build/p/T2/review-ja.json), unchanged
+# unless a 'B3:' note says why; the keys added after T1's freeze follow at the end. Columns: EN key (exact), translation, note.
+# T2 L10N (2026-09-28) ja: every key of T1's frozen EN (design/publish/l10n/en.tsv, 231 keys, same order; EN = the
+# exact catalogue key), then the 21 superseded pre-T1 keys as '#~' comment rows (translated for coverage, never merged).
+# Glossary: design/publish/l10n/glossary.tsv. Adversarial review + machine checks: build/p/T2/review-ja.json.
+# Notes: T1 = a key T1 added/renamed; HIGHLIGHT RUN rows must stay substrings of their host sentence; LINE 1/2 rows
+# concatenate to the full sentence; CAPS run = the unlock term MultiRunText lights; 'fit' = ctmeasure scale with
+# PCDisplay-Black in the SPEC-ui frame (floor 0.70; renamed keys measured in their predecessor's frame).
+Level %lld	レベル%lld	fit 1.00
+Levels 1-4	レベル1-4	fit 1.00
+Level 1-4	レベル1-4	
+Tap to move!	タップして動かそう！	fit 0.92
+Loading	ロード中	fit 1.00
+Unlocked!	解放！	fit 1.00
+Linked Arrows!	連結矢印！	fit 1.00
+LINKED ARROWS move together!	**連結矢印**は一緒に動きます！	fit 1.00; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Box!	ボックス！	fit 1.00
+Clear required amount of arrows to break the BOX!	必要な数の矢印を消して**ボックス**を壊そう！	fit 1.00; one-line (no CJK break) 0.59; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Pipe!	パイプ！	fit 1.00
+Pass arrows through the PIPE to break it!	矢印を**パイプ**に通して壊そう！	fit 1.00; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Elevator!	エレベーター！	fit 1.00
+Clear all arrows on the ELEVATOR to activate it!	**エレベーター**の矢印を全部消して動かそう！	fit 1.00; one-line (no CJK break) 0.60; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Door!	ドア！	fit 1.00
+Collect the KEY to open the DOOR!	**カギ**を取って**ドア**を開けよう！	fit 1.00; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Corner!	コーナー！	fit 1.00
+The CORNER turns arrows around!	**コーナー**は矢印の向きを変えます！	UNUSED stand-in card (content-recast: unlocks.json uses "Arrows turn when they hit the CORNER!"); fit 1.00; B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Paused	ポーズ	fit 1.00
+Sound	サウンド	fit 0.96
+Haptic	振動	fit 1.00
+ON	オン	fit 1.00
+OFF	オフ	fit 1.00
+Resume	再開	fit 1.00
+Quit	やめる	fit 1.00
+Quit Level?	やめますか？	fit 0.81
+You will lose a life!	ライフが1つ減ります！	fit 1.00
+Out of Time!	時間切れ！	fit 1.00
++30 sec	+30秒	fit 1.00
+Add Time	時間追加	fit 1.00
+Out of Lives!	ライフ切れ！	fit 1.00
++3 Lives	+3ライフ	fit 1.00
+Add Lives	ライフ追加	fit 0.98
+Continue?	続けますか？	fit 0.86
+You will lose your streak!	連勝が途切れます！	fit 1.00
+You will lose %lld tokens and your streak!	トークン%lld個を失い、連勝も途切れます！	fit 1.00; one-line (no CJK break) 0.61
+Play On	続ける	fit 1.00
+Level Failed!	レベル失敗！	fit 1.00
+Try Again	リトライ	fit 1.00
+Perfect!	パーフェクト！	fit 1.00
+Rewards:	報酬：	fit 1.00
+Continue	続ける	fit 1.00
+Hard Level	ハード	fit 1.00
+Super Hard	超ハード	fit 1.00
++%lld	+%lld	
+Play	プレイ	fit 1.00
+LEVEL	レベル	fit 1.00
+Full	満タン	fit 0.96
+Finished	回復	fit 1.00
+event.finished	終了	FIX-2 B (B1b-r3): the ended event (not the lives pill); fit pedestal 44 @ 13 pt, chip 47 @ 16.3 pt
+More Lives	ライフ補充	fit 0.96
+Time to next life:	次のライフまで：	fit 1.00
+Refill	補充	fit 1.00
+Not enough coins	コインが足りません	
+Congratulations!	おめでとう！	fit 1.00
+Tap to Claim	タップで受け取る	fit 1.00
+Tap to Continue	タップで続ける	fit 1.00
+%lldd %lldh	%lldd %lldh	
+%lldh %lldm	%lldh %lldm	
+%lldh	%lldh	
+%lldm	%lldm	
+%lld:%02lld	%lld:%02lld	
+Ended	終了	
+Join	参加	fit 1.00
+Home	ホーム	fit 1.00
+Leaderboard	ランキング	fit 1.00
+Time Freeze	時間停止	fit 1.00
+Freeze the timer for 10 seconds!	時間を10秒間止めよう！	fit 1.00
+Hint	ヒント	fit 1.00
+Find an arrow that can move!	動かせる矢印を見つけよう！	fit 1.00
+Buy	購入	
+x%lld	x%lld	
+Shop	ショップ	fit 1.00
+Special Offers	特別オファー	fit 1.00
+Special Offer	特別オファー	fit 1.00
+STARTER	スターター	T1
+Bundles	パック	fit 1.00
+Mini Bundle	ミニパック	fit 1.00
+Epic Bundle	エピックパック	fit 1.00
+Elite Bundle	エリートパック	fit 1.00
+Mega Bundle	メガパック	fit 1.00
+Legendary Bundle	レジェンドパック	fit 0.93
+Popular	人気	fit 1.00
+Best Value	お得	fit 1.00
+Coins	コイン	fit 1.00
+Purchase pending	購入処理中	
+Settings	設定	fit 1.00
+Notifications	通知	fit 1.00
+Music	BGM	fit 1.00
+Support	サポート	fit 1.00
+Terms	利用規約	fit 1.00
+Privacy	プライバシー	fit 0.73
+%@ Support	%@ サポート	
+Please describe your issue above. We will get back to you as soon as possible.	上に問題の内容をご記入ください。できるだけ早くご返信します。	
+Version : %@	バージョン：%@	
+Level : %lld	レベル：%lld	
+Write to us at	お問い合わせ先	
+Copy	コピー	
+Copied	コピーしました	
+Profile	プロフィール	fit 1.00
+Level	レベル	fit 1.00
+General Stats	戦績	fit 1.00
+First Try Wins	一発クリア	fit 1.00
+Weekly Cup Wins	ウィークリーカップの勝利数	T1; fit 0.92
+Hot Streak Wins	連勝ラッシュの勝利数	T1; fit 1.00; B3: event name '連勝フィーバー' needed 0.65 in the Hot Streak lettering (floor 0.70) -> a shorter native name (every row with the name changed together; glossary ev.streak)
+Rocket Rally Wins	ロケットラリーの勝利数	T1; fit 1.00
+Cloud Hop Wins	雲わたりの勝利数	T1; fit 1.00
+Treasure Climb Wins	お宝クライムの勝利数	T1; fit 1.00
+-	-	
+Username	ユーザー名	fit 0.96
+Create your username:	ユーザー名を決めよう：	fit 1.00
+Edit Profile	編集	fit 1.00
+Save	保存	fit 1.00
+Name must be 3-16 characters	名前は3～16文字にしてください	
+This name is not allowed	この名前は使用できません	
+Your lives are full! Time to play!	ライフが満タンになりました！さあプレイしよう！	
+The Weekly Cup ends in 2 hours!	ウィークリーカップは残り2時間で終了！	T1
+%@ is a puzzle game.	%@はパズルゲームです。	
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	ゲーム内のコイン、ライフ、ブースター、その他のアイテムに金銭的価値はなく、ゲーム外での交換や払い戻しはできません。	
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	購入はAppleを通じて行われ、App Storeの規約に従います。お支払い情報を私たちが見ることはありません。	
+The game is provided as is. We may update the game and these terms.	本ゲームは現状のまま提供されます。ゲームおよび本規約は更新されることがあります。	
+Questions? Write to %@	ご質問は%@まで	
+%@ has no accounts and shows no ads.	%@にはアカウントがなく、広告も表示されません。	META
+Your progress, settings and profile name are stored only on this device.	進行状況、設定、プロフィール名はこのデバイスにのみ保存されます。	
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	ゲームはオフラインで動作します。購入はAppleが処理します。購入管理サービスのRevenueCatは、匿名IDと購入履歴を受け取ります。	T1
+We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	私たちはFacebookとInstagramで%@の広告を配信しています。広告の効果を測定するため、ゲームはアプリイベント（ゲームの起動、チュートリアルの完了、クリアしたレベル、購入とその価格）を、ランダムなIDと基本的なデバイス情報とともにMetaに送信します。	META
+If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	iOSで確認されたときにトラッキングを許可すると、Metaはデバイスの広告識別子も受け取り、これらのイベントをあなたのMetaアカウントと関連付けることがあります。この設定は、iPhoneの「設定」アプリの「プライバシーとセキュリティ」>「トラッキング」でいつでも変更できます。	META
+Notifications are scheduled on your device and can be turned off in Settings.	通知はデバイス上でスケジュールされ、「設定」でオフにできます。	
+If you write to support, we use your message only to answer you.	サポートへのお問い合わせ内容は、返信のためにのみ使用します。	
+Contact: %@	連絡先：%@	
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	矢印をタップすると、進む方向に沿って外へ出ていきます。途中に何かあると跳ね返り、ライフが1つ減ります。時間切れになる前にすべての矢印を出そう！	
+Weekly	今週	fit 1.00
+World	世界	fit 1.00
+Turkey	トルコ	fit 1.00
+Germany	ドイツ	fit 1.00
+USA	アメリカ	fit 1.00
+Score	スコア	fit 1.00
+Score : %lld	スコア：%lld	fit 1.00
+Bottom	下へ	fit 1.00
+Top	上へ	fit 1.00
+Reach level 50 to join the Weekly Cup!	レベル50でウィークリーカップに参加できます！	T1; fit 1.00; one-line (no CJK break) 0.60
+Weekly Cup	ウィークリーカップ	T1; fit 1.00
+Tap to join the Weekly Cup!	タップしてウィークリーカップに参加しよう！	T1; fit 0.87; one-line (no CJK break) 0.49
+Beat Levels!	レベルをクリア！	fit 1.00
+Contest with others!	みんなと競おう！	fit 1.00
+Win Rewards!	報酬をゲット！	fit 1.00
+The top 3 win prizes!	上位3人に賞品！	T1; fit 1.00
+There is a new contest every week!	毎週新しい大会が開かれます！	fit 1.00
+You finished #%lld!	%lld位でフィニッシュ！	fit 1.00
+Hot Streak	連勝ラッシュ	T1; fit 0.96; B3: event name '連勝フィーバー' needed 0.65 in the Hot Streak lettering (floor 0.70) -> a shorter native name (every row with the name changed together; glossary ev.streak)
+Beat levels without fail to get more rewards!	ミスせずクリアして報酬をもっと増やそう！	fit 1.00
+Beat levels without losing!	負けずにレベルをクリアしよう！	fit 1.00
+Increase your score multiplier!	スコア倍率を上げよう！	fit 1.00
+Earn more flags than others!	ほかの人より多くの旗を集めよう！	fit 1.00
+If you fail a level the multiplier will reset!	レベルに失敗すると倍率がx1に戻ります！	fit 1.00; one-line (no CJK break) 0.62
+Treasure Climb	お宝クライム	T1; fit 1.00
+Rocket Rally	ロケットラリー	T1; fit 0.86
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	ほかの人より先に%lldレベルをクリアして勝ち、次のステージでもっと豪華な賞品を狙おう！	fit 0.87; one-line (no CJK break) 0.49
+Beat %lld levels before others to finish the race	ほかの人より先に%lldレベルをクリアしてゴールしよう	fit 1.00
+You lost the race! Try again to win amazing rewards!	レースに負けました！もう一度挑戦して豪華報酬をゲットしよう！	fit 1.00; one-line (no CJK break) 0.61
+You won the race! Claim your amazing rewards!	レースに勝ちました！豪華報酬を受け取ろう！	fit 1.00
+Stage %lld	ステージ%lld	fit 0.72
+Start	スタート	fit 0.82
+Beat levels!	レベルをクリア！	fit 1.00
+Finish race before others!	ほかの人より先にゴールしよう！	fit 1.00
+Win amazing rewards!	豪華報酬をゲット！	fit 1.00
+Advance to next stages for greater prizes!	次のステージでもっと豪華な賞品を狙おう！	fit 1.00
+Cloud Hop	雲わたり	T1; fit 1.00
+Pass %lld Levels in a row on first try and advance to next stages!	%lldレベルを連続で一発クリアして次のステージへ進もう！	fit 1.00
+Finding players on your level.	同じレベルのプレイヤーを探しています。	fit 1.00
+Start with 100 players!	100人のプレイヤーでスタート！	fit 0.80
+Beat %lld levels!	%lldレベルをクリア！	fit 0.71
+Win your share of %lld coins!	%lldコインを山分けしよう！	fit 1.00
+If you fail a level, you will fail the challenge!	レベルに失敗するとチャレンジも失敗になります！	fit 1.00; one-line (no CJK break) 0.62
+Stages	ステージ	fit 1.00
+Levels	レベル	fit 1.00
+Players	プレイヤー	fit 1.00
+PRIZE	賞金	fit 1.00
+You win!	勝利！	fit 1.00
+You are sharing the reward with %lld other winners!	ほかの勝者%lld人と報酬を山分けします！	fit 1.00
+You failed the challenge!	チャレンジ失敗！	fit 1.00
+%lld Levels	%lldレベル	HIGHLIGHT RUN (never shown alone): lit inside 'ほかの人より先に%lldレベルをクリアして勝ち、次のステージでもっと豪華な賞品を狙おう！' / '%lldレベルを連続で一発クリアして次のステージへ進もう！'
+%lld levels	%lldレベル	HIGHLIGHT RUN (never shown alone): lit inside 'ほかの人より先に%lldレベルをクリアしてゴールしよう'
+%lld levels!	%lldレベル	HIGHLIGHT RUN (never shown alone): lit inside '%lldレベルをクリア！'
+100 players	100人のプレイヤー	HIGHLIGHT RUN (never shown alone): lit inside '100人のプレイヤーでスタート！'
+%lld coins	%lldコイン	HIGHLIGHT RUN (never shown alone): lit inside '%lldコインを山分けしよう！'
+greater prizes	豪華な賞品	HIGHLIGHT RUN (never shown alone): lit inside '次のステージでもっと豪華な賞品を狙おう！'
+prizes	賞品	HIGHLIGHT RUN (never shown alone): lit inside '次のステージでもっと豪華な賞品を狙おう！'
+rewards	報酬	HIGHLIGHT RUN (never shown alone): lit inside '豪華報酬をゲット！'
+Rewards!	ゲット！	HIGHLIGHT RUN (never shown alone): lit inside '報酬をゲット！'
+fail	失敗	HIGHLIGHT RUN (never shown alone): lit inside 'レベルに失敗すると倍率がx1に戻ります！' / 'レベルに失敗するとチャレンジも失敗になります！' / 'レベルに失敗すると風船が1つ割れます！'
+Allow notifications in iOS Settings.	iOSの「設定」で通知を許可してください。	
+Arrows turn when they hit the CORNER!	矢印は**コーナー**に当たると曲がります！	B3: the unlock term is a ** run (no letter case: MultiRunText lights the marked run blue, as EN/TR light the CAPS word)
+Back	戻る	
+Boosters	ブースター	
+Close	閉じる	
+How to play	遊び方	
+Info	情報	
+Lives	ライフ	
+Pause	一時停止	
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	レベルを始めるとライフを1つ使いますが、クリアすると戻ってきます。ライフは30分ごとに1つ回復します。	
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	砂時計はタイマーを10秒間止めます。電球は動かせる矢印を教えてくれます。	
+Version %@ · Level %lld	バージョン %@ · レベル %lld	
+You will lose %lld tokens	トークン%lld個を失い、	LINE 1 of 'トークン%lld個を失い、連勝も途切れます！' (the number is drawn red); fit 1.00
+Your progress	進行状況	
+Your progress and coins are saved only on this device. Deleting the game erases them.	進行状況とコインはこのデバイスにのみ保存されます。ゲームを削除すると消えてしまいます。	T1
+and your streak!	連勝も途切れます！	LINE 2 of 'トークン%lld個を失い、連勝も途切れます！'; fit 1.00
+Up & Away	ふわっと空へ	T1
+NEW	NEW	T1
+New Event!	新イベント！	T1
+Double Event Week!	ダブルイベント週間！	T1
+Let's Go!	レッツゴー！	T1
+Ends in %@	残り%@	T1
+Last day!	最終日！	T1
+Coming next: %@	次回：%@	T1
+Starts in %@	開始まで%@	T1
+This event has ended.	このイベントは終了しました。	T1
+%@ has started! Beat levels to win amazing rewards!	%@が始まりました！レベルをクリアして豪華報酬をゲットしよう！	T1
+Double Event Week! %@ and %@ are both on!	ダブルイベント週間！%1$@と%2$@を同時開催中！	T1
+%@ ends in 3 hours!	%@は残り3時間で終了！	T1
+Beat levels in a row to rise higher!	連続でクリアしてもっと高く昇ろう！	T1
+Beat levels to fill your balloons with hot air!	レベルをクリアして風船に熱気を送ろう！	T1
+Hard levels give more hot air!	難しいレベルほど熱気が多い！	T1
+If you fail a level, a balloon pops!	レベルに失敗すると風船が1つ割れます！	T1
+Lose all 3 balloons and you fall to the start of the step!	風船を3つとも失うと、そのステップの最初まで落ちます！	T1
+Reach the top for the big prize!	頂上を目指して大賞をゲット！	T1
+hot air	熱気	T1; HIGHLIGHT RUN (never shown alone): lit inside 'レベルをクリアして風船に熱気を送ろう！'
+Hard levels	難しいレベル	T1; HIGHLIGHT RUN (never shown alone): lit inside '難しいレベルほど熱気が多い！'
+big prize	大賞	T1; HIGHLIGHT RUN (never shown alone): lit inside '頂上を目指して大賞をゲット！'
+Step %lld	ステップ%lld	T1
+Completed!	クリア！	T1
+You fell to the start of step %lld!	ステップ%lldの最初に落ちました！	T1
+You will lose a balloon!	風船が1つ減ります！	T1
+You will lose a balloon and your streak!	風船が1つ減り、連勝も途切れます！	T1
+# --- SUPERSEDED by T1 (design/publish/l10n/T1-superseded.json): batch-1 translations of keys T1 dropped or renamed
+#~	Live	ライフ	SUPERSEDED: dropped
+#~	Video not available	動画を再生できません	SUPERSEDED: dropped
+#~	90% OFF	90% OFF	SUPERSEDED: replaced by 'STARTER'
+#~	Test store: nothing is charged	テストストア：課金されません	SUPERSEDED: dropped
+#~	Weekly Contest Wins	ウィークリー大会の勝利数	SUPERSEDED: replaced by 'Weekly Cup Wins'
+#~	Streak Race Wins	連勝レースの勝利数	SUPERSEDED: replaced by 'Hot Streak Wins'
+#~	Rocket Race Wins	ロケットレースの勝利数	SUPERSEDED: replaced by 'Rocket Rally Wins'
+#~	Sky Jump Wins	スカイジャンプの勝利数	SUPERSEDED: replaced by 'Cloud Hop Wins'
+#~	Claw Challenge Wins	クレーンチャレンジの勝利数	SUPERSEDED: replaced by 'Treasure Climb Wins'
+#~	The Weekly Contest ends in 2 hours!	ウィークリー大会は残り2時間で終了！	SUPERSEDED: replaced by 'The Weekly Cup ends in 2 hours!'
+#~	%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.	%@は個人データを一切収集しません。アカウント、広告、分析、トラッキングはありません。	SUPERSEDED: superseded by T1
+#~	The game works offline. Purchases are handled by Apple.	ゲームはオフラインで動作します。購入はAppleが処理します。	SUPERSEDED: replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'
+#~	Reach level 50 to compete in Weekly Contest!	レベル50でウィークリー大会に参加できます！	SUPERSEDED: replaced by 'Reach level 50 to join the Weekly Cup!'
+#~	Weekly Contest	ウィークリー大会	SUPERSEDED: replaced by 'Weekly Cup'
+#~	Tap to compete in Weekly Contest!	タップしてウィークリー大会に参加しよう！	SUPERSEDED: replaced by 'Tap to join the Weekly Cup!'
+#~	Compete against your friends!	友だちと競おう！	SUPERSEDED: replaced by 'The top 3 win prizes!'
+#~	Streak Race	連勝レース	SUPERSEDED: replaced by 'Hot Streak'
+#~	Claw Challenge	クレーンチャレンジ	SUPERSEDED: replaced by 'Treasure Climb'
+#~	Rocket Race	ロケットレース	SUPERSEDED: replaced by 'Rocket Rally'
+#~	Sky Jump	スカイジャンプ	SUPERSEDED: replaced by 'Cloud Hop'
+#~	Your progress is saved on this device.	進行状況はこのデバイスに保存されます。	SUPERSEDED: superseded by T1
+# --- B3 (2026-09-28): the keys added after T1's freeze (B1 EVENTS, Up & Away on the v582 rules; App/Resources/Strings/strings.tsv 'B3'
+# section). Native register per glossary.tsv; adversarial self-review in build/p/B3/review-l10n.json.
+Every stop has a reward!	どのステップにも報酬があります！	B3 (B1 key): Up & Away (i) item 2, box 170, 2 lines; 'stop' = the glossary's Up & Away 'step' word
+If you fail a level, you fall back to the ground!	レベルに失敗すると地上まで落ちます！	B3 (B1 key): Up & Away red card; HIGHLIGHT RUN 'fail' (this language's form) must stay inside
+Already collected!	受け取り済み！	B3 (B1 key): Up & Away chest bubble, box 136 at 15 pt
+Up & Away Best Streak	ふわっと空へ 最高連勝	B3 (B1 key): Profile stat tile, box 165 at 13.9 pt (event name = glossary ev.balloon)
+%@ ends soon!	%@はまもなく終了！	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
+Name must be 2-16 characters	名前は2～16文字にしてください	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
+#~	%@ has no accounts, no ads and no tracking.	%@にはアカウント、広告、トラッキングはありません。	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs

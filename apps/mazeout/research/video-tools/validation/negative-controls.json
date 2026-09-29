@@ -1,0 +1,79 @@
+{
+ "V1 L19: reverse 5 arrows [0, 8, 16, 24, 32]": {
+  "consistent": 61,
+  "inconsistent": 1,
+  "stay_free": 0,
+  "flagged_arrows": [
+   24
+  ]
+ },
+ "V1 L19: turn arrow 3 head 90 deg": {
+  "consistent": 61,
+  "inconsistent": 1,
+  "stay_free": 0,
+  "flagged_arrows": [
+   3
+  ]
+ },
+ "V2 L33: reverse 5 arrows [0, 8, 16, 24, 32]": {
+  "consistent": 51,
+  "inconsistent": 2,
+  "stay_free": 1,
+  "flagged_arrows": [
+   7,
+   24,
+   32
+  ]
+ },
+ "V2 L33: turn arrow 3 head 90 deg": {
+  "consistent": 52,
+  "inconsistent": 1,
+  "stay_free": 1,
+  "flagged_arrows": [
+   3,
+   7
+  ]
+ },
+ "ink IoU [raw, tol1, missed_px, extra_px]": {
+  "V1 L19": {
+   "base": [
+    0.8204,
+    0.9807,
+    841,
+    787
+   ],
+   "reverse5": [
+    0.8121,
+    0.972,
+    1191,
+    1185
+   ],
+   "delete2": [
+    0.8019,
+    0.9591,
+    2661,
+    777
+   ]
+  },
+  "V2 L33": {
+   "base": [
+    0.7989,
+    0.9697,
+    1339,
+    691
+   ],
+   "reverse5": [
+    0.7823,
+    0.9585,
+    780,
+    2231
+   ],
+   "delete2": [
+    0.7667,
+    0.9281,
+    4128,
+    651
+   ]
+  }
+ }
+}

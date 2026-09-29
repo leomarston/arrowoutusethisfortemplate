@@ -1,0 +1,156 @@
+{
+ "US": {
+  "N": 110105,
+  "dead_daytime_hours": 2,
+  "of": 112,
+  "median_movers": 19,
+  "top100_cohorts": 34
+ },
+ "GB": {
+  "N": 24988,
+  "dead_daytime_hours": 1,
+  "of": 112,
+  "median_movers": 20,
+  "top100_cohorts": 27
+ },
+ "DE": {
+  "N": 14759,
+  "dead_daytime_hours": 12,
+  "of": 112,
+  "median_movers": 11,
+  "top100_cohorts": 16
+ },
+ "FR": {
+  "N": 13572,
+  "dead_daytime_hours": 48,
+  "of": 112,
+  "median_movers": 2,
+  "top100_cohorts": 8
+ },
+ "ES": {
+  "N": 6233,
+  "dead_daytime_hours": 43,
+  "of": 112,
+  "median_movers": 10,
+  "top100_cohorts": 4
+ },
+ "IT": {
+  "N": 6433,
+  "dead_daytime_hours": 37,
+  "of": 112,
+  "median_movers": 3,
+  "top100_cohorts": 6
+ },
+ "BR": {
+  "N": 13968,
+  "dead_daytime_hours": 1,
+  "of": 112,
+  "median_movers": 14,
+  "top100_cohorts": 25
+ },
+ "TR": {
+  "N": 1662,
+  "dead_daytime_hours": 48,
+  "of": 112,
+  "median_movers": 3,
+  "top100_cohorts": 5
+ },
+ "JP": {
+  "N": 5959,
+  "dead_daytime_hours": 19,
+  "of": 112,
+  "median_movers": 10,
+  "top100_cohorts": 10
+ },
+ "KR": {
+  "N": 2672,
+  "dead_daytime_hours": 42,
+  "of": 112,
+  "median_movers": 1,
+  "top100_cohorts": 7
+ },
+ "CN": {
+  "N": 1024,
+  "dead_daytime_hours": 1,
+  "of": 112,
+  "median_movers": 7,
+  "top100_cohorts": 53
+ },
+ "PL": {
+  "N": 5427,
+  "dead_daytime_hours": 38,
+  "of": 112,
+  "median_movers": 14,
+  "top100_cohorts": 4
+ },
+ "SK": {
+  "N": 1024,
+  "dead_daytime_hours": 1,
+  "of": 112,
+  "median_movers": 7,
+  "top100_cohorts": 53
+ },
+ "SI": {
+  "N": 1024,
+  "dead_daytime_hours": 1,
+  "of": 112,
+  "median_movers": 7,
+  "top100_cohorts": 53
+ },
+ "IN": {
+  "N": 7093,
+  "dead_daytime_hours": 3,
+  "of": 112,
+  "median_movers": 12,
+  "top100_cohorts": 26
+ },
+ "SA": {
+  "N": 2878,
+  "dead_daytime_hours": 27,
+  "of": 112,
+  "median_movers": 3,
+  "top100_cohorts": 13
+ },
+ "PT": {
+  "N": 1990,
+  "dead_daytime_hours": 58,
+  "of": 112,
+  "median_movers": 0,
+  "top100_cohorts": 8
+ },
+ "NL": {
+  "N": 5209,
+  "dead_daytime_hours": 84,
+  "of": 112,
+  "median_movers": 0,
+  "top100_cohorts": 3
+ },
+ "VN": {
+  "N": 1957,
+  "dead_daytime_hours": 48,
+  "of": 112,
+  "median_movers": 1,
+  "top100_cohorts": 6
+ },
+ "PE": {
+  "N": 965,
+  "dead_daytime_hours": 112,
+  "of": 112,
+  "median_movers": 0,
+  "top100_cohorts": 1
+ },
+ "HU": {
+  "N": 2091,
+  "dead_daytime_hours": 112,
+  "of": 112,
+  "median_movers": 0,
+  "top100_cohorts": 1
+ },
+ "CZ": {
+  "N": 1470,
+  "dead_daytime_hours": 75,
+  "of": 112,
+  "median_movers": 0,
+  "top100_cohorts": 3
+ }
+}

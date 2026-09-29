@@ -1,0 +1,14 @@
+{
+ "case": "homeSignpost",
+ "frame_pt": [
+  190.0,
+  128.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "foot": [
+  [
+   95.0,
+   119.04
+  ]
+ ]
+}

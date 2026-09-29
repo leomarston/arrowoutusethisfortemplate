@@ -1,0 +1,233 @@
+{
+ "level": 1,
+ "source": "video",
+ "video": "V1",
+ "t": 0.72,
+ "frame": "research/video-frames/V1/L001-start.png",
+ "shot": "research/video-frames/V1/L001-start.png",
+ "zoom": "fit",
+ "pitch_pt": 28.071,
+ "stroke_pt": 5.31,
+ "origin_pt": [
+  168.18,
+  395.19
+ ],
+ "cols": 3,
+ "rows": 4,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [],
+ "taped_arrow_ids": [],
+ "timer_s": 180,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "pipes": [],
+ "door_cells": [],
+ "blocker_cells": [],
+ "elevators": [],
+ "fit_px": {
+  "pitch": 42.2857,
+  "x0": 84.195,
+  "y0": 130.16,
+  "c0": 4,
+  "r0": 11,
+  "stroke": 8.0,
+  "resid_px": 1.352,
+  "refined": "sub-pixel re-fit of pitch/origin to the start frame ink (batch A shade.py); cells unchanged",
+  "note": "L1 (3 vertical arrows) cannot pin its own vertical origin: the automatic fit trades the origin against the head shading (pitch 43.05 px, row 0 at 596.6 px; raw 0.8535 / tol1 0.9808). Set from the board layout rule measured on L2-L10: pitch = 393 pt / max(14, cols + 2) = 28.071 pt and the cell-centre bbox centred at (196.25, 437.3) pt (L2-L10 agree to +-0.15 pt). That puts col 0 at 253.3 px and row 0 at 595.3 px; direct measurement gives 253.0 (column centres 253.0/295.5/337.5) and 594.0 +- 1.5 (tail caps). Scores: rule raw 0.9330 / tol1 0.9838, measured raw 0.9185 / tol1 0.9853."
+ },
+ "verify": {
+  "ink_iou": 0.8551,
+  "ink_iou_tol1px": 0.9534,
+  "ink_px": 4415,
+  "render_px": 4699,
+  "missed_ink_px": 102,
+  "extra_px": 127,
+  "head": {
+   "tip": 0.46,
+   "half": 0.36,
+   "base": 0.16
+  },
+  "stroke_px": 9.0,
+  "index_fit": {
+   "ink_iou": 0.7348,
+   "ink_iou_tol1px": 0.8681
+  },
+  "shading_aware": {
+   "ink_iou": 0.933,
+   "ink_iou_tol1px": 0.9838,
+   "missed_ink_px": 59,
+   "extra_px": 15,
+   "stroke_v_px": 8,
+   "stroke_h_px": 8,
+   "heads": {
+    "down": [
+     0.5,
+     0.34,
+     0.16
+    ],
+    "up": [
+     0.42,
+     0.34,
+     0.28
+    ]
+   },
+   "note": "4x-supersampled render with separate vertical/horizontal stroke widths and per-direction heads (the video skin shades the bottom edge of every stroke, so horizontal strokes and up/left heads read thinner/shorter in the ink mask); same cells"
+  }
+ },
+ "reader": "video-tools/vextract.py (bot.py reader adapted to the video skin); reviewed by level extractor batch A (research/video-levels-A.md)",
+ "label": "Levels 1-4",
+ "session": {
+  "label": "Levels 1-4",
+  "stage": 1,
+  "stages": 4,
+  "win_panel_tab": "Level 1-4",
+  "session_reward_coins": 80,
+  "note": "four boards played back to back as ONE level session: no win panel between boards; each board has its own 3:00 (frozen until its first tap) and 3 hearts; after board 4: the win celebration + panel \"Level 1-4 / Perfect! / Rewards: 80\"; Continue -> Level 5"
+ },
+ "reward_coins": null,
+ "tutorial": {
+  "kind": "tap_hint",
+  "caption": "Tap to move!",
+  "hand_arrow_id": 1,
+  "hand_fingertip_pt": [
+   193.2,
+   424.9
+  ],
+  "hand_fingertip_cell": [
+   0.89,
+   1.06
+  ],
+  "hand_note": "up-left extreme of the pointing finger at full size (V1 1.20 s); the finger pad lies over the middle arrow (col 1) one cell below its head (row 0); every hand scale animation is anchored at the fingertip",
+  "shown": "stage 1 only, from 0.36 s after the board appears until the first tap of any arrow",
+  "dims_board": false,
+  "restricts_input": "unknown (all 3 arrows are free; the player tapped the hinted one)",
+  "press_ripple": "each hand press ends with a grey ripple at the fingertip (V1 1.88-2.04 s), the same look as a real tap ripple",
+  "ref": "research/tutorials.md sections 2-3 (animation beats, caption font/colour/position, hand art)"
+ },
+ "checks": {
+  "ink_iou_tol1": {
+   "V1": {
+    "vextract_index_fit": 0.8681,
+    "vextract_final_fit": 0.9534,
+    "shading_aware": 0.9838
+   }
+  },
+  "replay": {
+   "V1": {
+    "taps": 4,
+    "mapped": 4,
+    "exit_free": 3,
+    "gone_free": 0,
+    "consistent": 3,
+    "inconsistent": 0,
+    "miss": 0,
+    "late": 0,
+    "unexplained_stays": 0,
+    "stay_weak": 1,
+    "left_at_end": [],
+    "bumps": 0,
+    "note": "run with the index fit for pixel sampling (same cells): the tutorial hand covers the middle arrow 0.80-3.64 s and with the final fit its presence test read it as gone at 1.52 s; the 1.64 s touch is the hand shadow (stay_weak)"
+   }
+  },
+  "solver": {
+   "bot_rules": {
+    "solved": true,
+    "units": 3,
+    "waves": 1,
+    "left": []
+   },
+   "model": {
+    "solved": true,
+    "units": 3,
+    "waves": 1,
+    "left": []
+   },
+   "free_at_start": 3,
+   "linked_groups": []
+  }
+ },
+ "video_play": {
+  "t_first_frame": 0.52,
+  "t_built": 0.68,
+  "t_board": 0.72,
+  "t_first_board_tap": 3.48,
+  "t_first_tick": 4.08,
+  "first_tick_delay_s": 0.6,
+  "t_clear": 5.2,
+  "t_win": null,
+  "timer_start": "3:00",
+  "timer_at_clear": "2:59",
+  "hearts_end": 3,
+  "taps_detected": 4
+ }
+}

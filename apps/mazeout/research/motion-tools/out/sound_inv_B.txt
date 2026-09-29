@@ -1,0 +1,97 @@
+   18.238 len  0.023 peak   -7.7 dBFS cen 2253 Hz peaks [345, 388, 301, 431, 258] | 
+   28.456 len  0.023 peak   -7.7 dBFS cen 2261 Hz peaks [345, 388, 301, 431, 258] | 
+   30.547 len  0.032 peak   -7.6 dBFS cen 2219 Hz peaks [345, 388, 301, 431, 258] | F4
+   31.901 len  0.023 peak   -7.5 dBFS cen 2260 Hz peaks [345, 388, 301, 431, 258] | 
+   34.109 len  0.023 peak   -7.5 dBFS cen 2262 Hz peaks [345, 388, 301, 431, 258] | 
+   35.763 len  0.023 peak   -7.6 dBFS cen 2271 Hz peaks [345, 388, 301, 431, 258] | 
+   48.072 len  0.023 peak   -7.7 dBFS cen 2261 Hz peaks [345, 388, 301, 431, 258] | 
+   49.587 len  0.029 peak   -7.5 dBFS cen 2181 Hz peaks [345, 388, 301, 431, 258] | F4
+   52.339 len  0.023 peak   -7.5 dBFS cen 2234 Hz peaks [345, 388, 301, 431, 258] | 
+   54.525 len  0.024 peak   -7.5 dBFS cen 2285 Hz peaks [345, 388, 301, 431, 258] | 
+   55.475 len  0.023 peak   -7.4 dBFS cen 2266 Hz peaks [345, 388, 301, 431, 258] | 
+   56.350 len  0.041 peak   -7.5 dBFS cen 2192 Hz peaks [345, 388, 301, 431, 258] | F4
+   67.923 len  0.023 peak   -7.6 dBFS cen 2272 Hz peaks [345, 388, 301, 431, 258] | 
+   68.744 len  0.041 peak   -7.6 dBFS cen 2226 Hz peaks [345, 388, 301, 431, 258] | F4
+   70.089 len  0.022 peak   -7.6 dBFS cen 2260 Hz peaks [345, 388, 301, 431, 258] | 
+   71.144 len  0.023 peak   -7.6 dBFS cen 2261 Hz peaks [345, 388, 301, 431, 258] | 
+   72.168 len  0.023 peak   -7.6 dBFS cen 2270 Hz peaks [345, 388, 301, 431, 258] | 
+   73.000 len  0.036 peak   -7.6 dBFS cen 2215 Hz peaks [345, 388, 301, 431, 258] | F4
+   73.395 len  0.222 peak   -7.6 dBFS cen 2079 Hz peaks [345, 388, 301, 431, 258] | F4 - - - - - - F4
+   75.816 len  2.098 peak    0.0 dBFS cen 2098 Hz peaks [345, 388, 301, 431, 258] | F4 - - - - - G#3- G2- D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6
+   78.878 len  0.023 peak   -7.3 dBFS cen 2262 Hz peaks [345, 388, 301, 431, 258] | 
+   80.595 len  0.023 peak   -7.5 dBFS cen 2258 Hz peaks [345, 388, 301, 431, 258] | 
+   82.600 len  0.023 peak   -7.4 dBFS cen 2249 Hz peaks [345, 388, 301, 431, 258] | 
+   83.400 len  0.038 peak   -7.5 dBFS cen 2202 Hz peaks [345, 388, 301, 431, 258] | F4
+   86.707 len  0.023 peak   -7.6 dBFS cen 2244 Hz peaks [345, 388, 301, 431, 258] | 
+   88.221 len  0.023 peak   -7.5 dBFS cen 2273 Hz peaks [345, 388, 301, 431, 258] | 
+   89.128 len  0.023 peak   -7.7 dBFS cen 2248 Hz peaks [345, 388, 301, 431, 258] | 
+  102.069 len  4.671 peak    0.0 dBFS cen 2268 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  108.233 len  1.697 peak   -0.8 dBFS cen 7720 Hz peaks [3155, 9270, 9324, 9205, 9378] | D9 D9 D9- D9 D9 G7 G7 D9 G7 G7 D9 D9 D9 D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  132.767 len  4.661 peak    0.0 dBFS cen 2933 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3+ D#2+ D#2+ D#2+ D#2+ D#2+
+  138.624 len  1.565 peak   -0.2 dBFS cen 7308 Hz peaks [3155, 9270, 9324, 9378, 9205] | D9 D9 G7 D9 D9- G7 G7 D9 G7 G7 D9 G7 G7 D9 D9- D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  141.299 len  0.023 peak   -7.7 dBFS cen 2263 Hz peaks [345, 388, 301, 431, 258] | 
+  184.810 len  4.670 peak    0.0 dBFS cen 3104 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  192.181 len  1.720 peak   -0.6 dBFS cen 8205 Hz peaks [9270, 9367, 9205, 3144, 9141] | D9 D9 D9 D9 D9 D9- D9 D9- D9- G7 D9 G7 G7 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  211.061 len  4.680 peak    0.0 dBFS cen 2266 Hz peaks [65, 108, 1174, 151, 603] | A3- D#2+ D#2+ C3 A2- F#2- F2- F2- G#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  217.214 len  1.561 peak   -0.0 dBFS cen 7235 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 G7 G7 G7 D9 G7 G7 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  219.251 len  0.023 peak   -7.6 dBFS cen 2240 Hz peaks [345, 388, 301, 431, 258] | 
+  273.653 len  4.671 peak    0.0 dBFS cen 2387 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  279.904 len  1.580 peak   -0.0 dBFS cen 6233 Hz peaks [3155, 9216, 9281, 9324, 3198] | D9 D9 D9 G7 D9 D9 G7 D9 G7 G7 G7 D9 G7 G7 D9 D9- D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  282.835 len  0.043 peak   -7.6 dBFS cen 2200 Hz peaks [345, 388, 301, 431, 258] | F4
+  301.056 len  4.680 peak    0.0 dBFS cen 2170 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  308.576 len  1.677 peak   -1.3 dBFS cen 7322 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 D9- G7 G7 D9 D9- D9- D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  315.550 len  0.040 peak   -7.5 dBFS cen 2181 Hz peaks [345, 388, 301, 431, 258] | F4
+  380.906 len  4.671 peak    0.0 dBFS cen 2585 Hz peaks [65, 1163, 108, 603, 151] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  386.751 len  1.563 peak   -0.1 dBFS cen 7350 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 G7 G7 G7 G7 G7 D9 D9- D9- D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  388.734 len  0.023 peak   -7.7 dBFS cen 2263 Hz peaks [345, 388, 301, 431, 258] | 
+  409.344 len  4.565 peak    0.0 dBFS cen 2528 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  414.986 len  1.593 peak   -0.6 dBFS cen 7885 Hz peaks [3155, 9270, 9324, 9205, 9378] | D9 D9 G7 D9 D9- G7 G7 D9 G7 G7 D9 D9 D9- D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  489.631 len  4.670 peak    0.0 dBFS cen 2978 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B5 B5 B4 G5 C6 F#3+ D#2+ D#2+ D#2+ D#2+ D#2+
+  495.659 len  1.395 peak   -0.1 dBFS cen 7415 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 D9- G7 D9 G7 G7 D9 D9 D9- G7 D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  498.632 len  0.023 peak   -7.7 dBFS cen 2261 Hz peaks [345, 388, 301, 431, 258] | 
+  518.207 len  4.620 peak    0.0 dBFS cen 2929 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  523.946 len  3.259 peak    0.0 dBFS cen 7171 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 D9- D9- D9 D9- D9 G7 D9 D9- D9- D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  528.617 len  0.023 peak   -7.6 dBFS cen 2218 Hz peaks [345, 388, 301, 431, 258] | 
+  547.338 len  4.565 peak    0.0 dBFS cen 3160 Hz peaks [65, 1174, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  553.011 len  1.568 peak   -0.0 dBFS cen 7091 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 G7 G7 G7 G7 G7 D9- D9 D9- D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  588.298 len  4.670 peak    0.0 dBFS cen 3052 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- D#2+ G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B5 B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  594.421 len  1.557 peak   -0.2 dBFS cen 7018 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 D9- G7 D9 G7 G7 G7 D9 G7 G7 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  642.474 len  4.670 peak    0.0 dBFS cen 2962 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  648.970 len  1.746 peak   -0.0 dBFS cen 6272 Hz peaks [3155, 9216, 9281, 9324, 3198] | D9 D9 D9- G7 D9 D9 G7 D9 G7 G7 G7 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  651.432 len  0.032 peak   -7.5 dBFS cen 2216 Hz peaks [345, 388, 301, 431, 258] | F4
+  703.903 len  4.670 peak    0.0 dBFS cen 2931 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B5 B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  709.749 len  1.609 peak   -0.5 dBFS cen 6158 Hz peaks [3155, 9216, 9281, 9324, 3112] | D9 D9 D9 G7 D9 D9 G7 D9 G7 G7 D9 D9- D9- D9 D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  792.597 len  4.670 peak    0.0 dBFS cen 3121 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  798.730 len  1.361 peak   -0.3 dBFS cen 8044 Hz peaks [9270, 9367, 9205, 3144, 9119] | D9 D9 D9- D9 D9 D9- D9- D9 D9 D9 D9 D9- G7 D9 D9- D9- D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 E8 G7 G7 G7 C4+
+  831.317 len  4.593 peak    0.0 dBFS cen 3106 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- D#2+ F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3+ D#2+ D#2+ D#2+ D#2+ D#2+
+  837.024 len  1.704 peak   -0.6 dBFS cen 7209 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 D9- D9 D9- D9 D9 D9- G7 G7 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  894.272 len  4.670 peak    0.0 dBFS cen 2258 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  900.149 len  1.601 peak   -0.6 dBFS cen 6247 Hz peaks [3155, 9216, 9281, 9324, 3112] | D9 D9 D9 G7 D9 D9 G7 D9 G7 G7 D9 D9- D9- D9 D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+  971.434 len  4.620 peak    0.0 dBFS cen 2414 Hz peaks [65, 1163, 108, 603, 151] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+  977.183 len  1.665 peak   -0.0 dBFS cen 6959 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 G7 G7 G7 D9 G7 D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1143.445 len  4.609 peak    0.0 dBFS cen 2970 Hz peaks [65, 1174, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1149.183 len  1.649 peak   -1.6 dBFS cen 7822 Hz peaks [9270, 9367, 9205, 3144, 9119] | D9 D9 G7 D9 D9 D9- D9 D9 D9- G7 D9 D9- D9- D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1151.582 len  0.023 peak   -7.5 dBFS cen 2256 Hz peaks [345, 388, 301, 431, 258] | 
+ 1172.906 len  4.614 peak    0.0 dBFS cen 2531 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1178.623 len  1.701 peak   -1.4 dBFS cen 7073 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 D9- D9- D9 D9- D9 D9 D9 D9- D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1180.595 len  0.023 peak   -7.6 dBFS cen 2269 Hz peaks [345, 388, 301, 431, 258] | 
+ 1180.778 len  1.936 peak    0.0 dBFS cen 2992 Hz peaks [65, 334, 1034, 129, 388] | G#2- A2- D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ D#2+ C6 C6 D#2+ D#2+ C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6 C6
+ 1183.005 len  0.036 peak   -7.6 dBFS cen 2220 Hz peaks [345, 388, 301, 431, 258] | F4
+ 1207.818 len  4.620 peak    0.0 dBFS cen 3022 Hz peaks [65, 1174, 108, 151, 614] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- F#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B5 B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1213.525 len  1.450 peak   -0.3 dBFS cen 8053 Hz peaks [3155, 9270, 9324, 9205, 9378] | D9 D9 D9- D9 D9- G7 G7 D9 G7 G7 D9 D9 D9- D9- D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1251.317 len  4.532 peak    0.0 dBFS cen 2163 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1256.947 len  1.691 peak   -1.0 dBFS cen 7900 Hz peaks [9281, 9378, 9205, 3144, 9335] | D9 D9 D9- D9 D9 D9- D9 D9 D9- G7 D9 D9- G7 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1318.880 len  4.591 peak    0.0 dBFS cen 2349 Hz peaks [65, 1163, 108, 603, 151] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ D#2+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1324.576 len  1.442 peak   -0.4 dBFS cen 7025 Hz peaks [9281, 9345, 3155, 9216, 9410] | D9 D9 D9- D9 G7 G7 D9 D9- D9- G7 D9 G7 G7 D9 D9 D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1326.440 len  0.023 peak   -7.8 dBFS cen 2258 Hz peaks [345, 388, 301, 431, 258] | 
+ 1364.160 len  4.682 peak    0.0 dBFS cen 2547 Hz peaks [65, 108, 1163, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1370.026 len  1.576 peak   -1.6 dBFS cen 7813 Hz peaks [9281, 9367, 9205, 3144, 9130] | D9 D9 G7 D9 D9 D9- D9 D9- D9- D9 D9- D9- D9 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1374.152 len  0.036 peak   -7.6 dBFS cen 2224 Hz peaks [345, 388, 301, 431, 258] | F4
+ 1496.757 len  4.671 peak    0.0 dBFS cen 2996 Hz peaks [65, 1174, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G#2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1502.645 len  1.482 peak   -0.2 dBFS cen 7257 Hz peaks [3155, 9270, 9324, 9205, 9378] | D9 D9 G7 D9 D9- G7 G7 D9 G7 G7 G7 D9 G7 G7 D9 D9 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1539.434 len  4.640 peak    0.0 dBFS cen 2334 Hz peaks [65, 1163, 108, 151, 603] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 D#2+ D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1545.194 len  1.712 peak   -0.6 dBFS cen 7917 Hz peaks [9270, 9367, 9205, 3144, 9130] | D9 D9 G7 D9 D9 D9- D9 D9 D9- D9 D9- G7 G7 D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7
+ 1619.989 len  4.671 peak    0.0 dBFS cen 2699 Hz peaks [65, 1174, 108, 603, 151] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1625.866 len  1.383 peak   -1.3 dBFS cen 8525 Hz peaks [9281, 9367, 9205, 3144, 9119] | D9 D9 D9- D9 D9 D9- D9 D9- D9- G7 D9 D9- G7 D9 D9- D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 F4- G7 G7 G7 G7 G7
+ 1671.200 len  4.615 peak    0.0 dBFS cen 2273 Hz peaks [65, 1163, 108, 603, 151] | A3- D#2+ D#2+ C3 A2- G2- F2- F2- G2- A2+ D#2+ D#2+ D#2+ D5 D5 D#2+ D#2+ G#5+ E5 E5 A5 D#2+ D#2+ D#2+ F5 F5 F5 B5 B5+ B4+ B5 B4 G5 C6 F#3 D#2+ D#2+ D#2+ D#2+ D#2+
+ 1676.905 len  1.598 peak   -0.4 dBFS cen 7716 Hz peaks [3155, 9270, 9324, 9205, 9378] | D9 D9 D9- D9 D9 G7 G7 D9 G7 G7 D9 D9 D9 D9 D9- G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7 G7

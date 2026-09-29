@@ -1,0 +1,7 @@
+v552 bump kinematics (tail displacement along the path, pt; bumptrack_v552.txt). pitch 17.87 both.
+bump-1 (L47, gap 64.0 pt = 3.58 c): constant speed 389 pt/s = 21.8 cells/s from t0 0.275 (RMS 0.75 pt) -> contact at 0.439 (out duration 0.165 s); const-accel fit a=2196 pt/s2 t0=0.191 RMS 1.25 pt
+bump-2 (L48, gap 24.25 pt = 1.36 c): constant speed 226 pt/s = 12.6 cells/s from t0 0.266 (RMS 0.12 pt) -> contact at 0.374 (out duration 0.107 s); const-accel fit a=2267 pt/s2 t0=0.219 RMS 0.61 pt
+bump-1 return: easeOut power 1.5: start 0.448 duration 0.126 s RMS 1.45 pt
+bump-1 return: easeOut power 2: start 0.452 duration 0.144 s RMS 0.87 pt
+bump-1 return: easeOut power 3: start 0.455 duration 0.182 s RMS 0.66 pt
+bump-2 return (contact 0.400; only the tail end is clean): easeOut power 2: extra delay -0.017 duration 0.137 s

@@ -1,0 +1,20 @@
+{
+ "case": "char_boss_home",
+ "frame_pt": [
+  190.0,
+  164.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "eyeMid": [
+  [
+   96.61,
+   35.99
+  ]
+ ],
+ "neck": [
+  [
+   95.06,
+   70.73
+  ]
+ ]
+}

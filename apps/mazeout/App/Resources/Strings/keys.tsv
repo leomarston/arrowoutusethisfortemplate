@@ -1,0 +1,8 @@
+key	en	note
+# FIX-2 lane B (B1b-r3): IDENTIFIER keys. A row of strings.tsv whose key is NOT its English text: English says one word where
+# other languages need two (the lives pill's "Finished" = a life arrived; an ended event's "Finished" = the event is over;
+# ja/ko/zh-Hans/es/pt-BR used 'recovered' / 'ready' for both). The key is lowercase-dotted; the code spells
+# String(localized: "<key>", defaultValue: "<en>"); tools/strings/build.py ships <en> as the English value, and every
+# reader of the table (l10n_review.py, tr_review.py, the V1 / L10n tests) reads the English text from here. A strings.tsv key
+# that looks like an identifier and is not listed here fails build.py (it would show the key in English).
+event.finished	Finished	the ENDED event's word: the home badge pedestal (<= 44 pt at 13 pt), the ladder bar's chip (<= 47 pt at 16.3 pt), the event pages' chips (v582 PH-0a); the lives pill keeps the key 'Finished'

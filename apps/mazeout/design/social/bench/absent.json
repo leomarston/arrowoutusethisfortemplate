@@ -1,0 +1,1936 @@
+{
+ "summary": {
+  "profile": "absent",
+  "weeks": 52,
+  "install": "2026-10-05T18:00:00",
+  "final_level": 374,
+  "wins": 370,
+  "fails": 118,
+  "world_rank_final": 277169,
+  "country_rank_final": 20461,
+  "population_final": 1178990,
+  "weekly": {
+   "n": 23,
+   "win": 0.043,
+   "podium": 0.13,
+   "median_rank": 20
+  },
+  "streak_race": {
+   "n": 39,
+   "first": 0.103,
+   "top3": 0.282,
+   "median_rank": 5,
+   "coins_per_day": 379.5
+  },
+  "rocket": {
+   "n": 53,
+   "by_stage": {
+    "1": {
+     "n": 32,
+     "win": 0.5
+    },
+    "2": {
+     "n": 16,
+     "win": 0.312
+    },
+    "3": {
+     "n": 5,
+     "win": 0.2
+    }
+   }
+  },
+  "sky": {
+   "n": 51,
+   "wins": 7,
+   "mean_share": 718.3
+  },
+  "dynamics": {
+   "n": 14,
+   "sessions_overtaken_by_someone": 0.0,
+   "mean_neighbours_moved": 0.0,
+   "mean_rank_gain": 623.0
+  },
+  "idle": {
+   "n": 42,
+   "returns_with_someone_passing": 0.643,
+   "mean_passed": 1.6,
+   "mean_window_moved": 3.67
+  },
+  "top100_churn_per_4w": [
+   {
+    "days": 28,
+    "new_entries": 5,
+    "same_rank": 22,
+    "top1": "Snyty",
+    "top1_level": 44738,
+    "l100": 26343
+   },
+   {
+    "days": 28,
+    "new_entries": 2,
+    "same_rank": 28,
+    "top1": "Snyty",
+    "top1_level": 48243,
+    "l100": 28643
+   },
+   {
+    "days": 28,
+    "new_entries": 2,
+    "same_rank": 28,
+    "top1": "Snyty",
+    "top1_level": 51736,
+    "l100": 30931
+   },
+   {
+    "days": 28,
+    "new_entries": 3,
+    "same_rank": 20,
+    "top1": "Snyty",
+    "top1_level": 55236,
+    "l100": 33163
+   },
+   {
+    "days": 28,
+    "new_entries": 2,
+    "same_rank": 25,
+    "top1": "Snyty",
+    "top1_level": 58735,
+    "l100": 35388
+   },
+   {
+    "days": 28,
+    "new_entries": 6,
+    "same_rank": 31,
+    "top1": "Snyty",
+    "top1_level": 62234,
+    "l100": 37744
+   }
+  ],
+  "weekly_session": {
+   "n": 5,
+   "with_members_scoring": 0.4,
+   "mean_members_scoring": 0.4,
+   "someone_passed_user": 0.0
+  },
+  "checks": {
+   "backwards": 0,
+   "dup_rows": 0,
+   "rank_inconsistent": 0,
+   "views": 54
+  },
+  "timing_ms": {
+   "world_rank": [
+    103.8,
+    212.1
+   ],
+   "country_rank": [
+    8.0,
+    14.7
+   ],
+   "neighbours": [
+    8.5,
+    16.1
+   ],
+   "top100": [
+    20.2,
+    31.7
+   ]
+  },
+  "runtime_s": 48.2
+ },
+ "ranks": [
+  [
+   1791244799,
+   11,
+   286633,
+   20901
+  ],
+  [
+   1791849599,
+   57,
+   184631,
+   13991
+  ],
+  [
+   1792454399,
+   112,
+   154371,
+   11824
+  ],
+  [
+   1793059199,
+   173,
+   129142,
+   9758
+  ],
+  [
+   1793663999,
+   173,
+   134401,
+   10140
+  ],
+  [
+   1794268799,
+   173,
+   139747,
+   10613
+  ],
+  [
+   1794873599,
+   173,
+   145455,
+   11133
+  ],
+  [
+   1795478399,
+   173,
+   150930,
+   11640
+  ],
+  [
+   1796083199,
+   202,
+   143091,
+   10961
+  ],
+  [
+   1796687999,
+   202,
+   148277,
+   11455
+  ],
+  [
+   1797292799,
+   202,
+   153302,
+   11947
+  ],
+  [
+   1797897599,
+   202,
+   158384,
+   12353
+  ],
+  [
+   1798502399,
+   202,
+   163412,
+   12725
+  ],
+  [
+   1799107199,
+   202,
+   168915,
+   13129
+  ],
+  [
+   1799711999,
+   215,
+   167915,
+   12942
+  ],
+  [
+   1800316799,
+   215,
+   172818,
+   13274
+  ],
+  [
+   1800921599,
+   228,
+   172167,
+   13063
+  ],
+  [
+   1801526399,
+   228,
+   177694,
+   13457
+  ],
+  [
+   1802131199,
+   233,
+   180340,
+   13682
+  ],
+  [
+   1802735999,
+   233,
+   184949,
+   14077
+  ],
+  [
+   1803340799,
+   247,
+   183740,
+   14024
+  ],
+  [
+   1803945599,
+   247,
+   188699,
+   14386
+  ],
+  [
+   1804550399,
+   254,
+   190622,
+   14396
+  ],
+  [
+   1805155199,
+   254,
+   195118,
+   14700
+  ],
+  [
+   1805759999,
+   261,
+   197019,
+   14882
+  ],
+  [
+   1806364799,
+   261,
+   201770,
+   15209
+  ],
+  [
+   1806969599,
+   270,
+   203000,
+   15179
+  ],
+  [
+   1807574399,
+   270,
+   207357,
+   15580
+  ],
+  [
+   1808179199,
+   280,
+   207582,
+   15616
+  ],
+  [
+   1808783999,
+   280,
+   212399,
+   15992
+  ],
+  [
+   1809388799,
+   293,
+   211812,
+   15906
+  ],
+  [
+   1809993599,
+   293,
+   216272,
+   16305
+  ],
+  [
+   1810598399,
+   305,
+   216448,
+   16211
+  ],
+  [
+   1811203199,
+   305,
+   220951,
+   16499
+  ],
+  [
+   1811807999,
+   314,
+   221830,
+   16504
+  ],
+  [
+   1812412799,
+   314,
+   226072,
+   16789
+  ],
+  [
+   1813017599,
+   320,
+   228200,
+   16863
+  ],
+  [
+   1813622399,
+   320,
+   232574,
+   17096
+  ],
+  [
+   1814227199,
+   331,
+   232622,
+   17108
+  ],
+  [
+   1814831999,
+   331,
+   237037,
+   17450
+  ],
+  [
+   1815436799,
+   336,
+   239457,
+   17611
+  ],
+  [
+   1816041599,
+   336,
+   243515,
+   17965
+  ],
+  [
+   1816646399,
+   346,
+   244369,
+   18027
+  ],
+  [
+   1817251199,
+   346,
+   249148,
+   18384
+  ],
+  [
+   1817855999,
+   350,
+   252186,
+   18627
+  ],
+  [
+   1818460799,
+   350,
+   256459,
+   19019
+  ],
+  [
+   1819065599,
+   356,
+   259120,
+   19191
+  ],
+  [
+   1819670399,
+   356,
+   263595,
+   19520
+  ],
+  [
+   1820275199,
+   364,
+   264799,
+   19625
+  ],
+  [
+   1820879999,
+   364,
+   268880,
+   19965
+  ],
+  [
+   1821484799,
+   374,
+   269510,
+   19961
+  ],
+  [
+   1822089599,
+   374,
+   273579,
+   20262
+  ]
+ ],
+ "weekly": [
+  {
+   "week": 24,
+   "rank": 3,
+   "size": 50,
+   "user": 53,
+   "top": 87,
+   "third": 53
+  },
+  {
+   "week": 25,
+   "rank": 3,
+   "size": 50,
+   "user": 70,
+   "top": 76,
+   "third": 70
+  },
+  {
+   "week": 30,
+   "rank": 6,
+   "size": 50,
+   "user": 29,
+   "top": 42,
+   "third": 34
+  },
+  {
+   "week": 37,
+   "rank": 17,
+   "size": 50,
+   "user": 13,
+   "top": 45,
+   "third": 34
+  },
+  {
+   "week": 38,
+   "rank": 1,
+   "size": 50,
+   "user": 5,
+   "top": 5,
+   "third": 0
+  },
+  {
+   "week": 39,
+   "rank": 24,
+   "size": 50,
+   "user": 8,
+   "top": 102,
+   "third": 59
+  },
+  {
+   "week": 41,
+   "rank": 23,
+   "size": 50,
+   "user": 5,
+   "top": 46,
+   "third": 33
+  },
+  {
+   "week": 43,
+   "rank": 14,
+   "size": 50,
+   "user": 14,
+   "top": 46,
+   "third": 36
+  },
+  {
+   "week": 45,
+   "rank": 23,
+   "size": 50,
+   "user": 7,
+   "top": 45,
+   "third": 40
+  },
+  {
+   "week": 47,
+   "rank": 26,
+   "size": 50,
+   "user": 7,
+   "top": 44,
+   "third": 37
+  },
+  {
+   "week": 49,
+   "rank": 17,
+   "size": 50,
+   "user": 9,
+   "top": 51,
+   "third": 38
+  },
+  {
+   "week": 51,
+   "rank": 21,
+   "size": 50,
+   "user": 10,
+   "top": 48,
+   "third": 44
+  },
+  {
+   "week": 53,
+   "rank": 13,
+   "size": 50,
+   "user": 13,
+   "top": 52,
+   "third": 35
+  },
+  {
+   "week": 55,
+   "rank": 18,
+   "size": 50,
+   "user": 12,
+   "top": 52,
+   "third": 35
+  },
+  {
+   "week": 57,
+   "rank": 19,
+   "size": 50,
+   "user": 9,
+   "top": 54,
+   "third": 36
+  },
+  {
+   "week": 59,
+   "rank": 27,
+   "size": 50,
+   "user": 6,
+   "top": 49,
+   "third": 34
+  },
+  {
+   "week": 61,
+   "rank": 22,
+   "size": 50,
+   "user": 11,
+   "top": 68,
+   "third": 37
+  },
+  {
+   "week": 63,
+   "rank": 28,
+   "size": 50,
+   "user": 5,
+   "top": 41,
+   "third": 36
+  },
+  {
+   "week": 65,
+   "rank": 22,
+   "size": 50,
+   "user": 10,
+   "top": 68,
+   "third": 48
+  },
+  {
+   "week": 67,
+   "rank": 26,
+   "size": 50,
+   "user": 4,
+   "top": 57,
+   "third": 46
+  },
+  {
+   "week": 69,
+   "rank": 28,
+   "size": 50,
+   "user": 6,
+   "top": 50,
+   "third": 43
+  },
+  {
+   "week": 71,
+   "rank": 20,
+   "size": 50,
+   "user": 8,
+   "top": 56,
+   "third": 42
+  },
+  {
+   "week": 73,
+   "rank": 19,
+   "size": 50,
+   "user": 10,
+   "top": 40,
+   "third": 39
+  }
+ ],
+ "streak": [
+  {
+   "day": 166,
+   "rank": 6,
+   "size": 20,
+   "user": 206,
+   "top": 989,
+   "prize": 100
+  },
+  {
+   "day": 168,
+   "rank": 1,
+   "size": 20,
+   "user": 1024,
+   "top": 1024,
+   "prize": 2000
+  },
+  {
+   "day": 169,
+   "rank": 6,
+   "size": 20,
+   "user": 141,
+   "top": 1144,
+   "prize": 100
+  },
+  {
+   "day": 170,
+   "rank": 3,
+   "size": 20,
+   "user": 347,
+   "top": 487,
+   "prize": 500
+  },
+  {
+   "day": 171,
+   "rank": 4,
+   "size": 20,
+   "user": 142,
+   "top": 1842,
+   "prize": 100
+  },
+  {
+   "day": 172,
+   "rank": 5,
+   "size": 20,
+   "user": 141,
+   "top": 841,
+   "prize": 100
+  },
+  {
+   "day": 173,
+   "rank": 10,
+   "size": 20,
+   "user": 0,
+   "top": 2456,
+   "prize": 100
+  },
+  {
+   "day": 174,
+   "rank": 5,
+   "size": 20,
+   "user": 54,
+   "top": 1189,
+   "prize": 100
+  },
+  {
+   "day": 175,
+   "rank": 6,
+   "size": 20,
+   "user": 92,
+   "top": 625,
+   "prize": 100
+  },
+  {
+   "day": 176,
+   "rank": 3,
+   "size": 20,
+   "user": 516,
+   "top": 1341,
+   "prize": 500
+  },
+  {
+   "day": 177,
+   "rank": 6,
+   "size": 20,
+   "user": 124,
+   "top": 640,
+   "prize": 100
+  },
+  {
+   "day": 178,
+   "rank": 5,
+   "size": 20,
+   "user": 383,
+   "top": 959,
+   "prize": 100
+  },
+  {
+   "day": 179,
+   "rank": 1,
+   "size": 20,
+   "user": 601,
+   "top": 601,
+   "prize": 2000
+  },
+  {
+   "day": 180,
+   "rank": 3,
+   "size": 20,
+   "user": 647,
+   "top": 1196,
+   "prize": 500
+  },
+  {
+   "day": 181,
+   "rank": 1,
+   "size": 20,
+   "user": 900,
+   "top": 900,
+   "prize": 2000
+  },
+  {
+   "day": 211,
+   "rank": 4,
+   "size": 20,
+   "user": 341,
+   "top": 1483,
+   "prize": 100
+  },
+  {
+   "day": 212,
+   "rank": 4,
+   "size": 20,
+   "user": 217,
+   "top": 923,
+   "prize": 100
+  },
+  {
+   "day": 213,
+   "rank": 1,
+   "size": 20,
+   "user": 541,
+   "top": 541,
+   "prize": 2000
+  },
+  {
+   "day": 215,
+   "rank": 8,
+   "size": 20,
+   "user": 48,
+   "top": 1665,
+   "prize": 100
+  },
+  {
+   "day": 259,
+   "rank": 6,
+   "size": 20,
+   "user": 278,
+   "top": 648,
+   "prize": 100
+  },
+  {
+   "day": 272,
+   "rank": 6,
+   "size": 20,
+   "user": 141,
+   "top": 2605,
+   "prize": 100
+  },
+  {
+   "day": 273,
+   "rank": 3,
+   "size": 20,
+   "user": 725,
+   "top": 940,
+   "prize": 500
+  },
+  {
+   "day": 287,
+   "rank": 6,
+   "size": 20,
+   "user": 22,
+   "top": 342,
+   "prize": 100
+  },
+  {
+   "day": 301,
+   "rank": 5,
+   "size": 20,
+   "user": 200,
+   "top": 957,
+   "prize": 100
+  },
+  {
+   "day": 315,
+   "rank": 4,
+   "size": 20,
+   "user": 601,
+   "top": 783,
+   "prize": 100
+  },
+  {
+   "day": 329,
+   "rank": 5,
+   "size": 20,
+   "user": 341,
+   "top": 2249,
+   "prize": 100
+  },
+  {
+   "day": 343,
+   "rank": 2,
+   "size": 20,
+   "user": 244,
+   "top": 341,
+   "prize": 1000
+  },
+  {
+   "day": 357,
+   "rank": 5,
+   "size": 20,
+   "user": 344,
+   "top": 1142,
+   "prize": 100
+  },
+  {
+   "day": 371,
+   "rank": 5,
+   "size": 20,
+   "user": 322,
+   "top": 1423,
+   "prize": 100
+  },
+  {
+   "day": 385,
+   "rank": 8,
+   "size": 20,
+   "user": 141,
+   "top": 1966,
+   "prize": 100
+  },
+  {
+   "day": 399,
+   "rank": 6,
+   "size": 20,
+   "user": 182,
+   "top": 1742,
+   "prize": 100
+  },
+  {
+   "day": 413,
+   "rank": 8,
+   "size": 20,
+   "user": 23,
+   "top": 982,
+   "prize": 100
+  },
+  {
+   "day": 427,
+   "rank": 7,
+   "size": 20,
+   "user": 74,
+   "top": 1523,
+   "prize": 100
+  },
+  {
+   "day": 441,
+   "rank": 7,
+   "size": 20,
+   "user": 22,
+   "top": 2260,
+   "prize": 100
+  },
+  {
+   "day": 455,
+   "rank": 5,
+   "size": 20,
+   "user": 372,
+   "top": 578,
+   "prize": 100
+  },
+  {
+   "day": 469,
+   "rank": 7,
+   "size": 20,
+   "user": 17,
+   "top": 963,
+   "prize": 100
+  },
+  {
+   "day": 483,
+   "rank": 8,
+   "size": 20,
+   "user": 47,
+   "top": 1145,
+   "prize": 100
+  },
+  {
+   "day": 497,
+   "rank": 3,
+   "size": 20,
+   "user": 441,
+   "top": 841,
+   "prize": 500
+  },
+  {
+   "day": 511,
+   "rank": 3,
+   "size": 20,
+   "user": 282,
+   "top": 766,
+   "prize": 500
+  }
+ ],
+ "rocket": [
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 9.5
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 14.4
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "wins": 7,
+   "minutes": 14.9
+  },
+  {
+   "stage": 3,
+   "result": "lose",
+   "wins": 6,
+   "minutes": 224.4
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 15.2
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 0,
+   "minutes": 35.2
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 10.6
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 9.9
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 121.1
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 10.5
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "wins": 7,
+   "minutes": 14.8
+  },
+  {
+   "stage": 3,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 14.7
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 12.1
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 23.3
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 9.9
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 7,
+   "minutes": 12.1
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 15.1
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 10.6
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "wins": 7,
+   "minutes": 13.6
+  },
+  {
+   "stage": 3,
+   "result": "lose",
+   "wins": 7,
+   "minutes": 32.1
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 12.9
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 12.6
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 13.9
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 3,
+   "minutes": 29.3
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 15.5
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 8.8
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 27.9
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 11.6
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 33.2
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 14.8
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "wins": 7,
+   "minutes": 16.6
+  },
+  {
+   "stage": 3,
+   "result": "lose",
+   "wins": 6,
+   "minutes": 35.9
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 1,
+   "minutes": 29.4
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 6.7
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 19.4
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 20.4
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 11.4
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 86.1
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 9.6
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 6,
+   "minutes": 22.1
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 18.8
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 6,
+   "minutes": 51.7
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 11.3
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 6,
+   "minutes": 19.1
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 11.6
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 9.4
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 5,
+   "minutes": 73.3
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "wins": 3,
+   "minutes": 141.5
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 9.7
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "wins": 4,
+   "minutes": 35.1
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "wins": 5,
+   "minutes": 8.9
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "wins": 7,
+   "minutes": 12.4
+  },
+  {
+   "stage": 3,
+   "result": "win",
+   "wins": 9,
+   "minutes": 21.9
+  }
+ ],
+ "sky": [
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 3,
+   "alive": 50
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 85
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 58
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 83
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 79
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 77
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 76
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 11,
+   "share": 454
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "step": 1,
+   "alive": 83
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 3,
+   "alive": 50
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 6,
+   "share": 833
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "step": 1,
+   "alive": 83
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 5,
+   "share": 1000
+  },
+  {
+   "stage": 2,
+   "result": "win",
+   "winners": 9,
+   "share": 777
+  },
+  {
+   "stage": 3,
+   "result": "expired",
+   "step": 7
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 82
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 63
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 68
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 7,
+   "share": 714
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 75
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 8,
+   "share": 625
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "win",
+   "winners": 8,
+   "share": 625
+  },
+  {
+   "stage": 2,
+   "result": "lose",
+   "step": 2,
+   "alive": 64
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 86
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 4,
+   "alive": 43
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 69
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 1,
+   "alive": 79
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 4,
+   "alive": 42
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 63
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 3,
+   "alive": 56
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 4,
+   "alive": 42
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 2,
+   "alive": 64
+  },
+  {
+   "stage": 1,
+   "result": "lose",
+   "step": 0,
+   "alive": 100
+  }
+ ],
+ "dynamics": [
+  {
+   "minutes": 11.5,
+   "levels": 10,
+   "rank_gain": 5228,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 11.3,
+   "levels": 2,
+   "rank_gain": 464,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 12.0,
+   "levels": 6,
+   "rank_gain": 650,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 21.1,
+   "levels": 9,
+   "rank_gain": 457,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 13.2,
+   "levels": 0,
+   "rank_gain": -6,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 16.8,
+   "levels": 8,
+   "rank_gain": 412,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 13.8,
+   "levels": 7,
+   "rank_gain": 232,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 17.3,
+   "levels": 4,
+   "rank_gain": 137,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 12.6,
+   "levels": 5,
+   "rank_gain": 193,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 12.3,
+   "levels": 7,
+   "rank_gain": 209,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 12.3,
+   "levels": 7,
+   "rank_gain": 250,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 18.2,
+   "levels": 6,
+   "rank_gain": 179,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 8.6,
+   "levels": 3,
+   "rank_gain": 80,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  },
+  {
+   "minutes": 14.0,
+   "levels": 8,
+   "rank_gain": 237,
+   "overtaken_by": 0,
+   "neighbours_moved": 0
+  }
+ ],
+ "idle": [
+  {
+   "hours": 5.9,
+   "passed_user": 0,
+   "window_moved": 0
+  },
+  {
+   "hours": 45.2,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 14.8,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 25.3,
+   "passed_user": 0,
+   "window_moved": 0
+  },
+  {
+   "hours": 16.8,
+   "passed_user": 0,
+   "window_moved": 0
+  },
+  {
+   "hours": 4.1,
+   "passed_user": 0,
+   "window_moved": 0
+  },
+  {
+   "hours": 33.9,
+   "passed_user": 2,
+   "window_moved": 2
+  },
+  {
+   "hours": 13.1,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 25.0,
+   "passed_user": 0,
+   "window_moved": 2
+  },
+  {
+   "hours": 25.6,
+   "passed_user": 0,
+   "window_moved": 2
+  },
+  {
+   "hours": 26.5,
+   "passed_user": 2,
+   "window_moved": 4
+  },
+  {
+   "hours": 15.7,
+   "passed_user": 1,
+   "window_moved": 1
+  },
+  {
+   "hours": 23.1,
+   "passed_user": 2,
+   "window_moved": 4
+  },
+  {
+   "hours": 16.2,
+   "passed_user": 1,
+   "window_moved": 3
+  },
+  {
+   "hours": 12.8,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 34.6,
+   "passed_user": 4,
+   "window_moved": 7
+  },
+  {
+   "hours": 20.4,
+   "passed_user": 0,
+   "window_moved": 2
+  },
+  {
+   "hours": 16.4,
+   "passed_user": 1,
+   "window_moved": 1
+  },
+  {
+   "hours": 25.7,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 21.1,
+   "passed_user": 1,
+   "window_moved": 3
+  },
+  {
+   "hours": 713.9,
+   "passed_user": 7,
+   "window_moved": 14
+  },
+  {
+   "hours": 35.5,
+   "passed_user": 0,
+   "window_moved": 1
+  },
+  {
+   "hours": 43.5,
+   "passed_user": 2,
+   "window_moved": 2
+  },
+  {
+   "hours": 1041.5,
+   "passed_user": 8,
+   "window_moved": 11
+  },
+  {
+   "hours": 332.8,
+   "passed_user": 2,
+   "window_moved": 6
+  },
+  {
+   "hours": 335.3,
+   "passed_user": 0,
+   "window_moved": 4
+  },
+  {
+   "hours": 331.7,
+   "passed_user": 3,
+   "window_moved": 6
+  },
+  {
+   "hours": 335.9,
+   "passed_user": 2,
+   "window_moved": 6
+  },
+  {
+   "hours": 340.2,
+   "passed_user": 2,
+   "window_moved": 2
+  },
+  {
+   "hours": 334.0,
+   "passed_user": 1,
+   "window_moved": 4
+  },
+  {
+   "hours": 322.2,
+   "passed_user": 4,
+   "window_moved": 7
+  },
+  {
+   "hours": 328.7,
+   "passed_user": 1,
+   "window_moved": 3
+  },
+  {
+   "hours": 341.9,
+   "passed_user": 2,
+   "window_moved": 7
+  },
+  {
+   "hours": 331.5,
+   "passed_user": 0,
+   "window_moved": 2
+  },
+  {
+   "hours": 332.1,
+   "passed_user": 3,
+   "window_moved": 5
+  },
+  {
+   "hours": 349.4,
+   "passed_user": 3,
+   "window_moved": 5
+  },
+  {
+   "hours": 326.9,
+   "passed_user": 2,
+   "window_moved": 8
+  },
+  {
+   "hours": 332.9,
+   "passed_user": 5,
+   "window_moved": 8
+  },
+  {
+   "hours": 338.5,
+   "passed_user": 3,
+   "window_moved": 4
+  },
+  {
+   "hours": 333.6,
+   "passed_user": 1,
+   "window_moved": 3
+  },
+  {
+   "hours": 335.5,
+   "passed_user": 1,
+   "window_moved": 4
+  },
+  {
+   "hours": 334.3,
+   "passed_user": 1,
+   "window_moved": 6
+  }
+ ],
+ "weekly_dyn": [
+  {
+   "minutes": 21.1,
+   "members_scored": 1,
+   "arrived": 0,
+   "passed_user": 0,
+   "user_rank_before": 2,
+   "user_rank_after": 1
+  },
+  {
+   "minutes": 13.2,
+   "members_scored": 1,
+   "arrived": 0,
+   "passed_user": 0,
+   "user_rank_before": 2,
+   "user_rank_after": 2
+  },
+  {
+   "minutes": 16.8,
+   "members_scored": 0,
+   "arrived": 0,
+   "passed_user": 0,
+   "user_rank_before": 2,
+   "user_rank_after": 1
+  },
+  {
+   "minutes": 13.8,
+   "members_scored": 0,
+   "arrived": 0,
+   "passed_user": 0,
+   "user_rank_before": 3,
+   "user_rank_after": 3
+  },
+  {
+   "minutes": 17.3,
+   "members_scored": 0,
+   "arrived": 0,
+   "passed_user": 0,
+   "user_rank_before": 4,
+   "user_rank_after": 3
+  }
+ ]
+}

@@ -1,0 +1,1198 @@
+{
+ "final": {
+  "note": "LoadingScreen's composition (backdrop full-bleed, cast from scene_loading_d1.LAYOUT, logoArrowOut at frames.loading.logo, 'Loading..' at text.loading.label) vs the original's Loading, kind screen: SSIM < 0.30 and chroma overlap < 0.55 (tools/copygate.json)",
+  "gates": [
+   {
+    "state": "D1 Loading as the app draws it",
+    "ours": "art/review/loading/loading-d1-final.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.204,
+    "overlap": 0.168,
+    "pass_": true
+   },
+   {
+    "state": "D1 art only (no logo / label)",
+    "ours": "build/p/R4/loading-d1-final-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.169,
+    "overlap": 0.128,
+    "pass_": true
+   },
+   {
+    "state": "D1 backdrop alone",
+    "ours": "build/p/R4/loading-d1-final-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.204,
+    "overlap": 0.073,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor)",
+    "ours": "art/review/loading/loading-d1-final.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.134,
+    "overlap": 0.158,
+    "pass_": true
+   },
+   {
+    "state": "CONTROL today's Loading (green logo)",
+    "ours": "build/p/R4/loading-today-greenlogo.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.489,
+    "overlap": 0.662,
+    "pass_": false
+   }
+  ],
+  "sheet": "art/review/loading/sheet-final.png",
+  "composed": "art/review/loading/loading-d1-final.png"
+ },
+ "look_v2": {
+  "note": "LOOK-2 round 2 (v6; the v5 finish judge's 14 defects): the Loading composed as the app draws it vs the original's Loading (research/store/iphone-8.png); SPEC ruling 49: art regions kind screen (SSIM < 0.30 AND overlap < 0.55, hard); the whole composite: overlap hard, SSIM informative",
+  "gates": [
+   {
+    "state": "LOOK-2 round 2 (v6) Loading as the app draws it (whole composite: overlap hard, SSIM informative)",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.21,
+    "overlap": 0.212,
+    "pass_": true
+   },
+   {
+    "state": "art only (no logo / label) -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": null,
+    "ssim": 0.174,
+    "overlap": 0.188,
+    "pass_": true
+   },
+   {
+    "state": "backdrop alone -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": null,
+    "ssim": 0.228,
+    "overlap": 0.099,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.151,
+    "overlap": 0.195,
+    "pass_": true
+   },
+   {
+    "state": "cast band y 420..760 (the front crew) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     420,
+     393,
+     340
+    ],
+    "ssim": 0.139,
+    "overlap": 0.223,
+    "pass_": true
+   },
+   {
+    "state": "upper band y 0..230 (vault, flyer) -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     0,
+     393,
+     230
+    ],
+    "ssim": 0.14,
+    "overlap": 0.171,
+    "pass_": true
+   },
+   {
+    "state": "watch: upper-right composite pt 200,0,193,380 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.336,
+    "overlap": 0.104,
+    "pass_": false
+   },
+   {
+    "state": "watch: boss head pt 92,262,150,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     92,
+     262,
+     150,
+     150
+    ],
+    "ssim": 0.229,
+    "overlap": 0.046,
+    "pass_": true
+   },
+   {
+    "state": "watch: front-right runner pt 200,480,193,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     480,
+     193,
+     300
+    ],
+    "ssim": 0.263,
+    "overlap": 0.156,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop upper-right pt 200,0,193,380 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.375,
+    "overlap": 0.065,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop right doorway pt 168,200,225,305 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     168,
+     200,
+     225,
+     305
+    ],
+    "ssim": 0.224,
+    "overlap": 0.037,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop left beam pt 0,250,190,170 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     250,
+     190,
+     170
+    ],
+    "ssim": 0.291,
+    "overlap": 0.015,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop floor pt 0,560,393,292 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     560,
+     393,
+     292
+    ],
+    "ssim": 0.357,
+    "overlap": 0.018,
+    "pass_": false
+   },
+   {
+    "state": "watch: dock left pt 0,420,120,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     420,
+     120,
+     150
+    ],
+    "ssim": 0.331,
+    "overlap": 0.124,
+    "pass_": false
+   },
+   {
+    "state": "watch: bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.359,
+    "overlap": 0.08,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v6-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.47,
+    "overlap": 0.058,
+    "pass_": false
+   },
+   {
+    "state": "watch: arrows under the logo pt 80,200,140,130 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     80,
+     200,
+     140,
+     130
+    ],
+    "ssim": 0.237,
+    "overlap": 0.098,
+    "pass_": true
+   },
+   {
+    "state": "watch: boss head at its spot pt 110,320,160,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     110,
+     320,
+     160,
+     150
+    ],
+    "ssim": 0.137,
+    "overlap": 0.11,
+    "pass_": true
+   },
+   {
+    "state": "watch: boss + back-glow pt 60,300,280,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     60,
+     300,
+     280,
+     300
+    ],
+    "ssim": 0.151,
+    "overlap": 0.162,
+    "pass_": true
+   },
+   {
+    "state": "watch: hero slot pt 0,560,260,292 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     560,
+     260,
+     292
+    ],
+    "ssim": 0.235,
+    "overlap": 0.142,
+    "pass_": true
+   },
+   {
+    "state": "watch: dock left pt 0,420,110,110 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     420,
+     110,
+     110
+    ],
+    "ssim": 0.362,
+    "overlap": 0.111,
+    "pass_": false
+   },
+   {
+    "state": "watch: boss head old box pt 92,262,150,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     92,
+     262,
+     150,
+     150
+    ],
+    "ssim": 0.229,
+    "overlap": 0.046,
+    "pass_": true
+   }
+  ],
+  "composed": "art/review/loading/loading-look-v2.png",
+  "sheet": "art/review/loading/LOOK-v2.png"
+ },
+ "look_v2_prev": {
+  "note": "LOOK-L v2 (owner 09-28 13:56): the Loading composed as the app draws it vs the original's Loading (research/store/iphone-8.png); SPEC ruling 49: art regions kind screen (SSIM < 0.30 AND overlap < 0.55, hard); the whole composite: overlap hard, SSIM informative",
+  "gates": [
+   {
+    "state": "LOOK-L v2 Loading as the app draws it (whole composite: overlap hard, SSIM informative)",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.203,
+    "overlap": 0.194,
+    "pass_": true
+   },
+   {
+    "state": "art only (no logo / label) -- kind art",
+    "ours": "build/p/LOOK/L/review/look-v2-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.182,
+    "overlap": 0.153,
+    "pass_": true
+   },
+   {
+    "state": "backdrop alone -- kind art",
+    "ours": "build/p/LOOK/L/review/look-v2-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.244,
+    "overlap": 0.091,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.144,
+    "overlap": 0.206,
+    "pass_": true
+   },
+   {
+    "state": "cast band y 420..760 (the front crew) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     420,
+     393,
+     340
+    ],
+    "ssim": 0.108,
+    "overlap": 0.243,
+    "pass_": true
+   },
+   {
+    "state": "upper band y 0..230 (vault, flyer) -- kind art",
+    "ours": "build/p/LOOK/L/review/look-v2-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     0,
+     393,
+     230
+    ],
+    "ssim": 0.202,
+    "overlap": 0.055,
+    "pass_": true
+   }
+  ],
+  "composed": "art/review/loading/loading-look-v2.png",
+  "sheet": "art/review/loading/LOOK-v2.png",
+  "note_prev": "the LOOK-L v2 gates (judged 5.5/10), kept when fix round 1 re-made loading-look-v2.png"
+ },
+ "look_v2_fix1": {
+  "note": "LOOK-L FIX ROUND 1 (v3; owner 09-28 13:56 + the v2 judges): the Loading composed as the app draws it vs the original's Loading (research/store/iphone-8.png); SPEC ruling 49: art regions kind screen (SSIM < 0.30 AND overlap < 0.55, hard); the whole composite: overlap hard, SSIM informative",
+  "gates": [
+   {
+    "state": "LOOK-L fix-1 (v3) Loading as the app draws it (whole composite: overlap hard, SSIM informative)",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.179,
+    "overlap": 0.196,
+    "pass_": true
+   },
+   {
+    "state": "art only (no logo / label) -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.145,
+    "overlap": 0.164,
+    "pass_": true
+   },
+   {
+    "state": "backdrop alone -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.199,
+    "overlap": 0.094,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.141,
+    "overlap": 0.161,
+    "pass_": true
+   },
+   {
+    "state": "cast band y 420..760 (the front crew) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     420,
+     393,
+     340
+    ],
+    "ssim": 0.129,
+    "overlap": 0.161,
+    "pass_": true
+   },
+   {
+    "state": "upper band y 0..230 (vault, flyer) -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     0,
+     393,
+     230
+    ],
+    "ssim": 0.115,
+    "overlap": 0.134,
+    "pass_": true
+   },
+   {
+    "state": "watch: upper-right composite pt 200,0,193,380 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.289,
+    "overlap": 0.072,
+    "pass_": true
+   },
+   {
+    "state": "watch: boss head pt 92,262,150,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     92,
+     262,
+     150,
+     150
+    ],
+    "ssim": 0.262,
+    "overlap": 0.083,
+    "pass_": true
+   },
+   {
+    "state": "watch: front-right runner pt 200,480,193,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     480,
+     193,
+     300
+    ],
+    "ssim": 0.299,
+    "overlap": 0.127,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop upper-right pt 200,0,193,380 -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.328,
+    "overlap": 0.042,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop right doorway pt 168,200,225,305 -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     168,
+     200,
+     225,
+     305
+    ],
+    "ssim": 0.208,
+    "overlap": 0.061,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop left beam pt 0,250,190,170 -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     250,
+     190,
+     170
+    ],
+    "ssim": 0.281,
+    "overlap": 0.013,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop floor pt 0,560,393,292 -- kind art",
+    "ours": "build/p/LOOK/F1/review/look-v3-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     560,
+     393,
+     292
+    ],
+    "ssim": 0.344,
+    "overlap": 0.021,
+    "pass_": false
+   }
+  ],
+  "composed": "art/review/loading/loading-look-v2.png",
+  "sheet": "art/review/loading/LOOK-v2.png",
+  "note_prev": "the LOOK-L fix-round-1 (v3) gates (finish judge 6/10), kept when fix round 2 re-made loading-look-v2.png"
+ },
+ "look_v2_fix2": {
+  "note": "LOOK-L FIX ROUND 2 (v4; owner 09-28 13:56 + the v3 judges): the Loading composed as the app draws it vs the original's Loading (research/store/iphone-8.png); SPEC ruling 49: art regions kind screen (SSIM < 0.30 AND overlap < 0.55, hard); the whole composite: overlap hard, SSIM informative",
+  "gates": [
+   {
+    "state": "LOOK-L fix-2 (v4) Loading as the app draws it (whole composite: overlap hard, SSIM informative)",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.192,
+    "overlap": 0.202,
+    "pass_": true
+   },
+   {
+    "state": "art only (no logo / label) -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.156,
+    "overlap": 0.175,
+    "pass_": true
+   },
+   {
+    "state": "backdrop alone -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.211,
+    "overlap": 0.097,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.137,
+    "overlap": 0.161,
+    "pass_": true
+   },
+   {
+    "state": "cast band y 420..760 (the front crew) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     420,
+     393,
+     340
+    ],
+    "ssim": 0.138,
+    "overlap": 0.177,
+    "pass_": true
+   },
+   {
+    "state": "upper band y 0..230 (vault, flyer) -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     0,
+     393,
+     230
+    ],
+    "ssim": 0.139,
+    "overlap": 0.173,
+    "pass_": true
+   },
+   {
+    "state": "watch: upper-right composite pt 200,0,193,380 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.321,
+    "overlap": 0.098,
+    "pass_": false
+   },
+   {
+    "state": "watch: boss head pt 92,262,150,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     92,
+     262,
+     150,
+     150
+    ],
+    "ssim": 0.184,
+    "overlap": 0.048,
+    "pass_": true
+   },
+   {
+    "state": "watch: front-right runner pt 200,480,193,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     480,
+     193,
+     300
+    ],
+    "ssim": 0.278,
+    "overlap": 0.134,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop upper-right pt 200,0,193,380 -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.359,
+    "overlap": 0.064,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop right doorway pt 168,200,225,305 -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     168,
+     200,
+     225,
+     305
+    ],
+    "ssim": 0.211,
+    "overlap": 0.052,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop left beam pt 0,250,190,170 -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     250,
+     190,
+     170
+    ],
+    "ssim": 0.239,
+    "overlap": 0.028,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop floor pt 0,560,393,292 -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     560,
+     393,
+     292
+    ],
+    "ssim": 0.35,
+    "overlap": 0.01,
+    "pass_": false
+   },
+   {
+    "state": "watch: dock left pt 0,420,120,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     420,
+     120,
+     150
+    ],
+    "ssim": 0.228,
+    "overlap": 0.09,
+    "pass_": true
+   },
+   {
+    "state": "watch: bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.293,
+    "overlap": 0.078,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "build/p/LOOK/F2/review/look-v4-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.445,
+    "overlap": 0.029,
+    "pass_": false
+   },
+   {
+    "state": "watch: arrows under the logo pt 80,200,140,130 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": [
+     80,
+     200,
+     140,
+     130
+    ],
+    "ssim": 0.198,
+    "overlap": 0.103,
+    "pass_": true
+   }
+  ],
+  "composed": "art/review/loading/loading-look-v2.png",
+  "sheet": "art/review/loading/LOOK-v2.png",
+  "note_prev": "the LOOK-L fix-round-2 (v4) gates (finish judge 6/10, copy 8/10), kept when LOOK-2 re-made loading-look-v2.png"
+ },
+ "look_v2_fix3": {
+  "note": "LOOK-2 (v5; the v4 finish judge's defects, build/p/LOOK/round3.json finish_r3): the Loading composed as the app draws it vs the original's Loading (research/store/iphone-8.png); SPEC ruling 49: art regions kind screen (SSIM < 0.30 AND overlap < 0.55, hard); the whole composite: overlap hard, SSIM informative",
+  "gates": [
+   {
+    "state": "LOOK-2 (v5) Loading as the app draws it (whole composite: overlap hard, SSIM informative)",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "screen",
+    "crop": null,
+    "ssim": 0.194,
+    "overlap": 0.213,
+    "pass_": true
+   },
+   {
+    "state": "art only (no logo / label) -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": null,
+    "ssim": 0.157,
+    "overlap": 0.189,
+    "pass_": true
+   },
+   {
+    "state": "backdrop alone -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": null,
+    "ssim": 0.216,
+    "overlap": 0.095,
+    "pass_": true
+   },
+   {
+    "state": "scene band y 230..760 (the cast + floor) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     230,
+     393,
+     530
+    ],
+    "ssim": 0.129,
+    "overlap": 0.188,
+    "pass_": true
+   },
+   {
+    "state": "cast band y 420..760 (the front crew) -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     420,
+     393,
+     340
+    ],
+    "ssim": 0.119,
+    "overlap": 0.212,
+    "pass_": true
+   },
+   {
+    "state": "upper band y 0..230 (vault, flyer) -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-artonly.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     0,
+     393,
+     230
+    ],
+    "ssim": 0.14,
+    "overlap": 0.171,
+    "pass_": true
+   },
+   {
+    "state": "watch: upper-right composite pt 200,0,193,380 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.323,
+    "overlap": 0.103,
+    "pass_": false
+   },
+   {
+    "state": "watch: boss head pt 92,262,150,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     92,
+     262,
+     150,
+     150
+    ],
+    "ssim": 0.221,
+    "overlap": 0.043,
+    "pass_": true
+   },
+   {
+    "state": "watch: front-right runner pt 200,480,193,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     480,
+     193,
+     300
+    ],
+    "ssim": 0.269,
+    "overlap": 0.145,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop upper-right pt 200,0,193,380 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     200,
+     0,
+     193,
+     380
+    ],
+    "ssim": 0.364,
+    "overlap": 0.065,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop right doorway pt 168,200,225,305 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     168,
+     200,
+     225,
+     305
+    ],
+    "ssim": 0.216,
+    "overlap": 0.068,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop left beam pt 0,250,190,170 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     250,
+     190,
+     170
+    ],
+    "ssim": 0.273,
+    "overlap": 0.018,
+    "pass_": true
+   },
+   {
+    "state": "watch: backdrop floor pt 0,560,393,292 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     560,
+     393,
+     292
+    ],
+    "ssim": 0.353,
+    "overlap": 0.009,
+    "pass_": false
+   },
+   {
+    "state": "watch: dock left pt 0,420,120,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     420,
+     120,
+     150
+    ],
+    "ssim": 0.254,
+    "overlap": 0.086,
+    "pass_": true
+   },
+   {
+    "state": "watch: bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.355,
+    "overlap": 0.036,
+    "pass_": false
+   },
+   {
+    "state": "watch: backdrop bottom strip pt 0,760,393,92 -- kind art",
+    "ours": "build/p/LOOK2/review/look-v5-backdrop.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     760,
+     393,
+     92
+    ],
+    "ssim": 0.453,
+    "overlap": 0.024,
+    "pass_": false
+   },
+   {
+    "state": "watch: arrows under the logo pt 80,200,140,130 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     80,
+     200,
+     140,
+     130
+    ],
+    "ssim": 0.22,
+    "overlap": 0.097,
+    "pass_": true
+   },
+   {
+    "state": "watch: boss head at its spot pt 110,320,160,150 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     110,
+     320,
+     160,
+     150
+    ],
+    "ssim": 0.137,
+    "overlap": 0.098,
+    "pass_": true
+   },
+   {
+    "state": "watch: boss + back-glow pt 60,300,280,300 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     60,
+     300,
+     280,
+     300
+    ],
+    "ssim": 0.124,
+    "overlap": 0.149,
+    "pass_": true
+   },
+   {
+    "state": "watch: hero slot pt 0,560,260,292 -- kind art",
+    "ours": "art/review/loading/loading-look-v2.png",
+    "theirs": "research/store/iphone-8.png",
+    "kind": "art",
+    "crop": [
+     0,
+     560,
+     260,
+     292
+    ],
+    "ssim": 0.25,
+    "overlap": 0.134,
+    "pass_": true
+   }
+  ],
+  "composed": "art/review/loading/loading-look-v2.png",
+  "sheet": "art/review/loading/LOOK-v2.png",
+  "note_prev": "the LOOK-2 (v5) gates (finish judge 7/10 FAIL, copy 7.5/10 PASS), kept when LOOK-2 round 2 re-made loading-look-v2.png"
+ }
+}

@@ -1,0 +1,2 @@
+{"note": "L66 start (shots/427): the key sits on the long row-20 arrow and splits it into pieces. Real arrow (verified by eye on the start shot + ink probe at cell centres, session 2): tail (2,20) -> head (9,20) pointing RIGHT, key over (7-8,20).",
+ "add_arrows": [{"cells": [[2,20],[3,20],[4,20],[5,20],[6,20],[7,20],[8,20],[9,20]], "dir": "right", "key": true, "present_if_ink": [[2,20],[9,20]]}]}

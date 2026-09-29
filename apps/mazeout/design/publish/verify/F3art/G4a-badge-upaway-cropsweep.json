@@ -1,0 +1,23 @@
+{
+ "build/p/F3art/pre_art_out/eventBadgeBalloon@3x.png": {
+  "n": 150,
+  "ssim_max": 0.321,
+  "ssim_median": 0.228,
+  "overlap_max": 0.115,
+  "fail_n": 6
+ },
+ "build/p/F3art/stage/final/eventBadgeBalloon@3x.png": {
+  "n": 150,
+  "ssim_max": 0.326,
+  "ssim_median": 0.228,
+  "overlap_max": 0.133,
+  "fail_n": 9
+ },
+ "build/p/F3art/stage/hero6/eventBadgeBalloon@3x.png": {
+  "n": 150,
+  "ssim_max": 0.324,
+  "ssim_median": 0.226,
+  "overlap_max": 0.127,
+  "fail_n": 9
+ }
+}

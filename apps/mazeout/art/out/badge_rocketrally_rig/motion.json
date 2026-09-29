@@ -1,0 +1,151 @@
+{
+ "cycle": 12.0,
+ "tracks": [
+  {
+   "layer": "rocket",
+   "prop": "translateY",
+   "t": [
+    0.0,
+    1.9,
+    2.45,
+    3.45,
+    4.2,
+    12.0
+   ],
+   "v": [
+    0.0,
+    0.0,
+    -8.0,
+    -8.0,
+    0.0,
+    0.0
+   ],
+   "curve": [
+    "linear",
+    "sineOut",
+    "linear",
+    "sine",
+    "linear"
+   ]
+  },
+  {
+   "layer": "exhaustA",
+   "prop": "translateY",
+   "t": [
+    0.0,
+    1.9,
+    2.45,
+    3.45,
+    4.2,
+    12.0
+   ],
+   "v": [
+    0.0,
+    0.0,
+    -8.0,
+    -8.0,
+    0.0,
+    0.0
+   ],
+   "curve": [
+    "linear",
+    "sineOut",
+    "linear",
+    "sine",
+    "linear"
+   ]
+  },
+  {
+   "layer": "exhaustB",
+   "prop": "translateY",
+   "t": [
+    0.0,
+    1.9,
+    2.45,
+    3.45,
+    4.2,
+    12.0
+   ],
+   "v": [
+    0.0,
+    0.0,
+    -8.0,
+    -8.0,
+    0.0,
+    0.0
+   ],
+   "curve": [
+    "linear",
+    "sineOut",
+    "linear",
+    "sine",
+    "linear"
+   ]
+  },
+  {
+   "layer": "exhaust",
+   "prop": "overlay",
+   "t": [
+    0.0,
+    1.7,
+    1.8,
+    1.9,
+    2.0,
+    2.1,
+    2.2,
+    2.3,
+    2.4,
+    2.5,
+    2.6,
+    2.7,
+    2.8,
+    2.9,
+    3.0,
+    3.1,
+    3.2,
+    3.3,
+    3.4,
+    3.5,
+    3.6,
+    3.7,
+    3.8,
+    3.9,
+    4.0,
+    4.1,
+    4.2,
+    4.3
+   ],
+   "v": [
+    "",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    "exhaustA",
+    "exhaustB",
+    ""
+   ],
+   "curve": "discrete"
+  }
+ ]
+}

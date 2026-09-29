@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Arrow Out privacy manifest (A0, SPEC.md §5 item 42; design/publish/release-plan.md §2.5 S-5 and §7), restated by META
+  (OWNER 2026-09-29 19:33: the Meta SDK ships in 1.0 for the owner's app-install ads; memory meta-sdk-wiring).
+  TRACKING: true. NSPrivacyTrackingDomains names EXACTLY ep1.facebook.com, the domain FBSDKCoreKit's own bundled manifest
+  declares: tracking=true with an EMPTY list is ITMS-91064 (INVALID_BINARY, three builds lost on storagecleaner), and listing
+  graph.facebook.com / www.facebook.com would make iOS block the SDK's non-tracking traffic for everyone who declines ATT.
+  Collected (every type the app's own use implies; the App Store label, fastlane/metadata/app_privacy_details.json, matches):
+   - Purchase History: RevenueCat (observer mode: an anonymous ID + the purchase records; app functionality, analytics) AND
+     Meta (fb_mobile_purchase with the price and currency, to measure and optimise our ads) -> linked, used for tracking
+     (with ATT allowed Meta can link it to the person's Meta account);
+   - Product Interaction: the app events MetaAds sends (app opened, tutorial completed, levels won) -> linked, tracking;
+   - Device ID: the advertising identifier, only after ATT .authorized (FacebookAdvertiserIDCollectionEnabled starts false)
+     -> linked, tracking (as FBSDKCoreKit's manifest declares it);
+   - Crash Data and Other Data Types: FBSDKCoreKit's own manifest declares them (not linked, not tracking); the label lists
+     them too, so the two never contradict each other.
+  Purposes for the Meta-shared types: Developer's Advertising (Meta shows OUR ads), Third-Party Advertising (Meta, an ad
+  network, uses them for its ads system) and Analytics; Purchase History also App Functionality (RevenueCat).
+  Required-reason APIs: UserDefaults (CA92.1: the app's own data; the launch-argument domain and the SDKs), and
+  ProcessInfo.systemUptime / mach_absolute_time (35F9.1: elapsed time between events inside the app, e.g. the boot and
+  frame timings). FBSDKCoreKit / FBAEMKit / FBSDKCoreKit_Basics carry their own manifests inside their frameworks.
+-->
+<plist version="1.0">
+<dict>
+    <key>NSPrivacyTracking</key>
+    <true/>
+    <key>NSPrivacyTrackingDomains</key>
+    <array>
+        <string>ep1.facebook.com</string>
+    </array>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypePurchaseHistory</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeProductInteraction</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeDeviceID</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeCrashData</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeOtherDataTypes</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+            </array>
+        </dict>
+    </array>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string>
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>35F9.1</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,260 @@
+en	tr	context
+# T1 EN FREEZE (2026-09-28, PUBLISH; PLAN-P §4.1 T1): the complete English key list of the shipped catalogue. It is
+# strings.tsv + every requests/*.tsv row (merged as tools/strings/build.py merges them) with the T1 publish changes applied.
+# W1 merge: this file REPLACES App/Resources/Strings/strings.tsv and the requests/*.tsv files are emptied to their header
+# (their rows are all here). The key list is frozen in build/p/T1/keys.sha. Rows marked 'T1:' changed; TR marked
+# 'TR DRAFT' is a first draft for T2's review. design/publish/l10n/T1-changes.tsv lists every change with its code sites.
+# CONTENT (L1) base table. EN = the original's copy (keys = the English literal Swift generates: Int -> %lld, String -> %@);
+# TR = ours. Winners per design/CONSISTENCY.md §16 (SPEC.md §5.21-22): GP's EN/TR unless GP's TR fails the 0.70 fit floor
+# (then UI's measured variant); SOC's TR for event copy except UI's listed differences. Losers are listed with their ruling in
+# tools/strings/sources.json `superseded`. Other roles append rows to requests/<role>.tsv (a row here wins over a request).
+# --- board, HUD, tutorial (GP §16.1)
+Level %lld	Seviye %lld	GP §16.1 / UI hud.level: HUD tab, win and fail ribbons (%lld = level number)
+Levels 1-4	Seviye 1-4	GP §16.1: HUD tab of the first session (sessions.json hud_label key)
+Level 1-4	Seviye 1-4	GP §16.1: win/fail ribbon of the first session (sessions.json panel_label key)
+Tap to move!	Dokun ve oynat!	GP §16.1 (VERIFIED EN): tutorials.json tapToMove caption; CONSISTENCY S-1 (GP's TR fits at 1.00)
+Loading	Yükleniyor	GP §16.1 / UI loading.label (+ the cycling dots)
+# --- unlock cards (GP §16.2; unlocks.json title/card keys; the upper-case words are the blue caps run in both languages)
+Unlocked!	Açıldı!	GP §16.2: the line under every unlock title
+Linked Arrows!	Bağlı Oklar!	GP §16.2: unlock title, L7 (VERIFIED V1)
+LINKED ARROWS move together!	BAĞLI OKLAR birlikte hareket eder!	GP §16.2: unlock card, L7; caps run "LINKED ARROWS" / "BAĞLI OKLAR"
+Box!	Kutu!	GP §16.2: unlock title, L11 (ORCH 11: the ruled Box card)
+Clear required amount of arrows to break the BOX!	KUTUYU kırmak için gereken sayıda oku temizle!	GP §16.2: unlock card, L11 (VERIFIED text)
+Pipe!	Boru!	GP §16.2: unlock title, L21
+Pass arrows through the PIPE to break it!	BORUYU kırmak için okları içinden geçir!	GP §16.2: unlock card, L21; CONSISTENCY S-16 (GP's TR)
+Elevator!	Asansör!	GP §16.2: unlock title, L31
+Clear all arrows on the ELEVATOR to activate it!	ASANSÖRÜ çalıştırmak için üstündeki tüm okları temizle!	GP §16.2: unlock card, L31; CONSISTENCY S-17 (GP's TR, fits 0.80)
+Door!	Kapı!	GP §16.2 / ORCH 19: unlock title, L33 (our wording)
+Collect the KEY to open the DOOR!	KAPIYI açmak için ANAHTARI topla!	GP §16.2 / ORCH 19: unlock card, L33 (our wording); CONSISTENCY S-35
+Corner!	Köşe!	UI unlock.corner.title: corners are supported but no shipped level uses one (GP §3.9, CONSISTENCY O-28)
+The CORNER turns arrows around!	KÖŞE okların yönünü çevirir!	UI unlock.corner.card (not shipped content; kept for the endless generator's supported kinds)
+# --- pause, quit (GP §16.3)
+Paused	Duraklatıldı	GP §16.3 / UI pause.title (TR scale 0.80)
+Sound	Ses	GP §16.3: pause row + settings label
+Haptic	Titreşim	GP §16.3: pause row + settings label
+ON	AÇIK	GP §16.3: toggle
+OFF	KAPALI	GP §16.3: toggle (TR scale 0.72); CONSISTENCY S-18: the shop seal is the separate "STARTER" key (T1)
+Resume	Devam	GP §16.3: pause button
+Quit	Çık	GP §16.3: pause button + Quit Level? button
+Quit Level?	Çıkılsın mı?	GP §16.3 EN; CONSISTENCY S-2: UI's TR (GP's "Seviyeden Çık?" fails the floor at 0.65)
+You will lose a life!	Bir can kaybedeceksin!	GP §16.3: Quit Level? line + the Continue? (life) step
+# --- fail chain (GP §16.4)
+Out of Time!	Süre Doldu!	GP §16.4; CONSISTENCY S-7 (GP's TR)
++30 sec	+30 sn	GP §16.4: Out of Time! grant
+Add Time	Süre Ekle	GP §16.4: Out of Time! button
+Out of Lives!	Canların Bitti!	GP §16.4: hearts-out popup title
++3 Lives	+3 Can	GP §16.4: Out of Lives! grant
+Add Lives	Can Ekle	GP §16.4: Out of Lives! button
+Continue?	Devam?	GP §16.4; CONSISTENCY S-8 (GP's TR)
+You will lose your streak!	Serini kaybedeceksin!	GP §16.4: Continue? step B while the Claw is not running
+You will lose %lld token and your streak!	%lld jetonu ve serini kaybedeceksin!	GP §16.4: Continue? step B while the Claw runs (%lld = the current multiplier)
+Play On	Devam Et	GP §16.4: Continue? button (TR scale 0.74)
+Level Failed!	Seviye Başarısız!	GP §16.4: the fail panel caption
+Try Again	Tekrar Dene	GP §16.4: the fail panel button
+# --- win (GP §16.5)
+Perfect!	Mükemmel!	GP §16.5: win panel
+Rewards:	Ödüller:	GP §16.5: win panel
+Continue	Devam	GP §16.5: win panel button, username popup button
+Hard Level	Zor Seviye	GP §16.5 / UI home.hardRibbon, win.hardTag; CONSISTENCY W-10 (the skulls are art, not text)
+Super Hard	Süper Zor	GP §16.5 / UI home.superHardRibbon, win.superHardTag
++%lld	+%lld	GP §16.5: reward / payout amount (%lld = coins)
+# --- home, lives (GP §16.6)
+Play	Oyna	GP §16.6: home Play button
+LEVEL	SEVİYE	GP §16.6: home caption over the level plate
+Full	Dolu	GP §16.6: home lives pill
+Finished	Bitti	GP §16.6: lives pill for ~1 s when a life arrives; CONSISTENCY S-10 (GP's TR)
+More Lives	Ekstra Can	GP §16.6 EN; CONSISTENCY S-3: UI's TR (GP's "Daha Fazla Can" fails the floor at 0.63)
+Time to next live:	Sonraki cana kalan süre:	GP §16.6; CONSISTENCY S-9 (GP's TR, fits 0.93)
+Refill	Doldur	GP §16.6: More Lives button
+# T1 DROPPED 'Live': ruling 37(d) / owner item 9: the label of the removed rewarded-ad button ([clapper] [heart +1] 'Live', AdLiveButton, release-plan §4.1 A2); no other code site (VERIFIED grep: NoLivesPopup.swift:122/128 only)
+# T1 DROPPED 'Video not available': ruling 37(d) / owner item 9: the rewarded-ad button and its AdSlot toast are removed (release-plan §4.2); code site NoLivesPopup.swift:142 goes with A1
+Not enough coins	Yeterli altın yok	GP §16.6; CONSISTENCY S-21
+Congratulations!	Tebrikler!	GP §16.6 / UI claim.congrats: reward claims
+Tap to Claim	Almak için dokun	GP §16.6 / UI claim.tap
+Tap to Continue	Devam etmek için dokun	UI common.tapToContinue / SOC §10 weekly intro
+%lldd %lldh	%lldd %lldh	GP §16.6 countdown (days, hours); CONSISTENCY S-32: one format, TR keeps d/h (VERIFIED on a TR device)
+%lldh %lldm	%lldh %lldm	GP §16.6 countdown (hours, minutes); CONSISTENCY S-32
+%lldh	%lldh	GP §16.6 countdown (hours); CONSISTENCY S-32
+%lldm	%lldm	GP §16.6 countdown (minutes); CONSISTENCY S-32
+%lld:%02lld	%lld:%02lld	UI §3 countdown m:ss (numbers keep their format)
+Ended	Bitti	UI §3 additional copy: an event chip after its end
+Join	Katıl	UI home.join: event badge before joining
+Home	Ana Sayfa	UI nav.home
+Leaderboard	Sıralama	UI nav.leaderboard + lb.title
+# --- boosters (GP §16.7; CONSISTENCY K-6: GP's buy popup)
+Time Freeze	Dondurucu	GP §16.7 EN; CONSISTENCY S-5: UI's TR (GP's "Zaman Dondurucu" fails the 228 pt ribbon at 0.53)
+Freeze the timer for 10 seconds!	Süreyi 10 saniye dondur!	GP §16.7: booster popup line (CONSISTENCY K-6/S-24)
+Hint	İpucu	GP §16.7: booster popup title
+Find an arrow that can move!	Çıkabilen bir oku bul!	GP §16.7: booster popup line (CONSISTENCY K-6/S-24)
+Buy	Satın Al	GP §16.7: "Buy ×3 [coin] 900"
+x%lld	x%lld	GP §16.7: booster count / multiplier chip (%lld = count)
+# --- shop (GP §16.8)
+Shop	Mağaza	GP §16.8: shop title, nav label, booster popup Shop button
+Special Offers	Özel Teklifler	GP §16.8: shop section
+Special Offer	Özel Teklif	GP §16.8: product title
+STARTER	BAŞLANGIÇ	T1: was '90% OFF' (ruling 38: STARTER instead of '90% OFF' (release-plan §10.5 honesty)). shop seal on the Special Offer card (once per install; replaces '90% OFF'). ONE word = ONE run: the old seal split the key at the first space into 2 runs in a 46 pt box; STARTER needs 87 pt at 18.5 pt (scale 0.53 < 0.70 floor, ctmeasure) -> A1 re-lays the seal/ribbon (see T1 report). Also rules.json shop badge + ShopCatalog + EconomyTests pin (A1). TR DRAFT (T1) -> T2 review
+Bundles	Paketler	GP §16.8: shop section
+Mini Bundle	Mini Paket	GP §16.8
+Epic Bundle	Epik Paket	GP §16.8
+Elite Bundle	Elit Paket	GP §16.8
+Mega Bundle	Mega Paket	GP §16.8
+Legendary Bundle	Efsanevi Paket	GP §16.8
+Popular	Popüler	GP §16.8: product badge
+Best Value	En Avantajlı	GP §16.8: product badge (TR scale 0.78)
+Coins	Altınlar	GP §16.8: shop section, coin pill label
+# T1 DROPPED 'Test store: nothing is charged': release gate G8 + A1 acceptance ('strings' of the Release .app has 0 'Test store'): the chip is FakeStore-only (DEBUG/tests/captures); the compiled catalogue would otherwise carry the text into every .lproj. A1 draws the DEBUG chip with Text(verbatim:) (not a catalogue key)
+Purchase pending	Satın alma bekliyor	GP §16.8; CONSISTENCY S-22
+# --- settings, support, profile, notifications (GP §16.9)
+Settings	Ayarlar	GP §16.9: settings page title
+Notifications	Bildirimler	GP §16.9: settings label
+Music	Müzik	GP §16.9: settings label (the inert button, CONSISTENCY U-7)
+Support	Destek	GP §16.9: settings button + page title
+Terms	Koşullar	GP §16.9: settings button + page title; CONSISTENCY S-12/S-13
+Privacy	Gizlilik	GP §16.9: settings button + page title; CONSISTENCY S-13
+%@ Support	%@ Destek	GP §12.2/§16.9: support mail subject (%@ = Brand.name)
+Please describe your issue above. We will get back to you as soon as possible.	Lütfen sorununu yukarıya yaz. En kısa sürede sana dönüş yapacağız.	GP §12.2/§16.9: support mail body
+Version : %@	Sürüm : %@	GP §16.9: support mail body (%@ = app version)
+Level : %lld	Seviye : %lld	GP §16.9: support mail body (%lld = level)
+Write to us at	Bize şu adresten yazabilirsin:	GP §16.9: Support page when no mail route opened
+Copy	Kopyala	GP §16.9: copy the address
+Copied	Kopyalandı	GP §16.9: toast after Copy
+Profile	Profil	GP §16.9: profile page title
+Level	Seviye	UI profile.level, lb.level: column / caption
+General Stats	Genel İstatistikler	GP §16.9: profile section
+First Try Wins	İlk Denemede Kazanılan	GP §16.9: profile stat
+Weekly Cup Wins	Haftalık Kupa Birincilikleri	T1: was 'Weekly Contest Wins' (ruling 38 own names). profile stat (UI profile.weeklyWins). TR DRAFT (T1) -> T2 review
+Hot Streak Wins	Ateşli Seri Birincilikleri	T1: was 'Streak Race Wins' (ruling 38 own names). profile stat (UI profile.streakWins). TR DRAFT (T1) -> T2 review
+Rocket Rally Wins	Roket Rallisi Zaferleri	T1: was 'Rocket Race Wins' (ruling 38 own names). profile stat (UI profile.rocketWins). TR DRAFT (T1) -> T2 review
+Cloud Hop Wins	Bulut Atlayışı Zaferleri	T1: was 'Sky Jump Wins' (ruling 38 own names). profile stat (UI profile.skyWins). TR DRAFT (T1) -> T2 review
+Treasure Climb Wins	Hazine Tırmanışı Zaferleri	T1: was 'Claw Challenge Wins' (ruling 38 own names). profile stat (UI profile.clawWins). TR DRAFT (T1) -> T2 review
+-	-	GP §16.9: an empty stat value
+Username	Kullanıcı Adı	CONSISTENCY S-6 (ruled, SPEC.md §5.21): the username popup title (TR scale 0.76)
+Create your username:	Kullanıcı adını oluştur:	GP §16.9: username popup prompt
+Edit Profile	Düzenle	GP §16.9 EN; CONSISTENCY S-4: UI's TR (GP's "Profili Düzenle" fails the floor at 0.65)
+Save	Kaydet	GP §16.9: edit profile button
+Name must be 3-16 characters	İsim 3-16 karakter olmalı	GP §16.9 edited per CONSISTENCY V-26/S-23 (ruled: 3-16 characters)
+This name is not allowed	Bu isim kullanılamaz	GP §16.9: blocked username; CONSISTENCY S-23
+Your lives are full! Time to play!	Canların doldu! Oynama zamanı!	GP §12.5/§16.9: local notification "lives full"
+The Weekly Cup ends in 2 hours!	Haftalık Kupa 2 saat içinde bitiyor!	T1: was 'The Weekly Contest ends in 2 hours!' (ruling 38 own names). local notification weeklyEnding (NotificationPrompt; counts in the 1-per-24 h event cap). TR DRAFT (T1) -> T2 review
+# --- Terms and Privacy pages (GP §16.10, one row per paragraph; %@ = Brand.name, or the game.json support.email address)
+%@ is a puzzle game.	%@ bir bulmaca oyunudur.	GP §16.10 Terms ¶1 (%@ = Brand.name); OWNER 10:35 (SPEC.md §5.24): the pages say nothing about the other players
+Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.	Oyundaki altınların, canların, güçlendiricilerin ve diğer öğelerin parasal değeri yoktur; oyun dışında değiştirilemez veya iade edilemez.	GP §16.10 Terms ¶2
+Purchases are made through Apple and follow the App Store terms. We never see your payment details.	Satın almalar Apple üzerinden yapılır ve App Store koşullarına tabidir. Ödeme bilgilerini asla görmeyiz.	GP §16.10 Terms ¶3
+The game is provided as is. We may update the game and these terms.	Oyun olduğu gibi sunulur. Oyunu ve bu koşulları güncelleyebiliriz.	GP §16.10 Terms ¶5
+Questions? Write to %@	Sorun mu var? %@ adresine yaz.	GP §16.10 Terms ¶6 (%@ = game.json support.email)
+%@ has no accounts, no ads and no tracking.	%@ oyununda hesap, reklam ve takip yoktur.	T1: was '%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.' (release-plan §2.5 S-7). Privacy page ¶1 (%@ = Brand.name). 'collects no personal data' and 'no analytics' dropped: RevenueCat now receives purchase records (App Privacy label: Purchase History, not linked; release-plan §7). TR DRAFT (T1) -> T2 review
+Your progress, settings and profile name are stored only on this device.	İlerlemen, ayarların ve profil adın yalnızca bu cihazda saklanır.	GP §16.10 Privacy ¶2
+The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	Oyun çevrimdışı çalışır. Satın almalar Apple tarafından işlenir. Satın alma hizmetimiz RevenueCat, anonim bir kimlik ve satın alma kayıtlarını alır.	T1: was 'The game works offline. Purchases are handled by Apple.' (release-plan §2.5 S-7). Privacy page ¶3 (S-7 wording). 'works offline' stays true for play; never claim 'no network' (memory no-network-claim-is-false). TR DRAFT (T1) -> T2 review
+Notifications are scheduled on your device and can be turned off in Settings.	Bildirimler cihazında planlanır ve Ayarlar'dan kapatılabilir.	GP §16.10 Privacy ¶4
+If you write to support, we use your message only to answer you.	Desteğe yazarsan mesajını yalnızca sana yanıt vermek için kullanırız.	GP §16.10 Privacy ¶5
+Contact: %@	İletişim: %@	GP §16.10 Privacy ¶6 (%@ = game.json support.email)
+# --- L2 TR review: CONTENT's corrections of request rows (a strings.tsv row wins over requests/<role>.tsv; tools/strings/tr_review.py)
+Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!	Bir oka dokun, kendi yolu boyunca dışarı çıksın. Önünde bir şey varsa geri seker ve bir can kaybedersin. Süre dolmadan bütün okları temizle!	SHELL S1 Support page body (SPEC-ui §2.13.1); L2 review of the SHELL draft: the in-level hearts are "can" everywhere in TR (Canların Bitti!, +3 Can), never "kalp"; a rule reads as the aorist (seker, kaybedersin); "Süre dolmadan" as in "Süre Doldu!"
+# --- leaderboards and events (UI §3 = SOC §10; SOC's TR unless UI lists a measured difference)
+Weekly	Haftalık	UI lb.weekly / SOC §10: leaderboard tab
+World	Dünya	UI lb.world / SOC §10: leaderboard tab
+Turkey	Türkiye	UI lb.country (the frozen home country's short name, CONSISTENCY V-23; example rows)
+Germany	Almanya	UI lb.countryLong (example)
+USA	ABD	UI lb.countryShort (example)
+Score	Puan	UI lb.score / SOC §10
+Score : %lld	Puan : %lld	UI lb.podiumScore / SOC §10 (%lld = score; CONSISTENCY S-33)
+Bottom	Aşağı	UI lb.bottom: World jump pill
+Top	Yukarı	UI lb.top; CONSISTENCY S-26
+Reach level 50 to join the Weekly Cup!	Haftalık Kupa'ya katılmak için 50. seviyeye ulaş!	T1: was 'Reach level 50 to compete in Weekly Contest!' (ruling 38 own names). UI lb.locked: one key broken into 3 lines by WeeklyLockedText.lines (never on an ordinal). TR DRAFT (T1) -> T2 review
+Weekly Cup	Haftalık Kupa	T1: was 'Weekly Contest' (ruling 38 own names). EVENT NAME weeklyContest (UI weekly.title / lb title / result); lettering + (i) title. TR DRAFT (T1) -> T2 review
+Tap to join the Weekly Cup!	Haftalık Kupa'ya katılmak için dokun!	T1: was 'Tap to compete in Weekly Contest!' (ruling 38 own names). UI weekly.tut: the L50 forced tutorial card (2 lines, 26 pt, box 250). TR DRAFT (T1) -> T2 review
+Beat Levels!	Seviyeleri Geç!	UI weekly.beat / SOC §10 weekly intro
+Contest with others!	Diğerleriyle yarış!	UI weekly.contest / SOC §10
+Win Rewards!	Ödülleri Kazan!	UI weekly.win / SOC §10
+The top 3 win prizes!	İlk 3 oyuncu ödül kazanır!	T1: was 'Compete against your friends!' (ruling 38: drop 'Compete against your friends!' (no friends feature)). UI weekly.compete1: Weekly Cup (i) line beside the trophy (16 pt, box 280); true: ranks 1-3 of the 10-player group get 2000/1000/500 coins. TR DRAFT (T1) -> T2 review
+There is a new contest every week!	Her hafta yeni bir yarışma var!	UI weekly.compete2 / SOC §10
+You finished #%lld!	%lld. oldun!	UI weekly.result / SOC §10 (NEW; %lld = rank)
+Hot Streak	Ateşli Seri	T1: was 'Streak Race' (ruling 38 own names). EVENT NAME streakRace (UI streak.title, the win/fail strip lettering: first word yellow, rest white; badge a11y). TR DRAFT (T1) -> T2 review
+Beat levels without fail to get more rewards!	Daha fazla ödül için seviyeleri hatasız geç!	UI streak.sub, claw.sub / SOC §10
+Beat levels without losing!	Seviyeleri kaybetmeden geç!	UI streak.info1 / SOC §10 claw.info
+Increase your score multiplier!	Puan çarpanını artır!	UI streak.info2 / SOC §10 claw.info
+Earn more flags than others!	Diğerlerinden fazla bayrak topla!	UI streak.info3
+If you fail a level the multiplier will reset!	Bir seviyede kaybedersen çarpan sıfırlanır!	UI streak.info4
+Treasure Climb	Hazine Tırmanışı	T1: was 'Claw Challenge' (ruling 38 own names). EVENT NAME clawChallenge (UI claw.title, home ladder bar a11y label, (i) title); the 20-step reward ladder. TR DRAFT (T1) -> T2 review
+Rocket Rally	Roket Rallisi	T1: was 'Rocket Race' (ruling 38 own names). EVENT NAME rocketRace (UI rocket.title, offer lettering, race bar plate 17.8 pt, badge a11y). TR DRAFT (T1) -> T2 review
+Beat %lld Levels before others to win and advance to next stages for greater prizes!	%lld seviyeyi herkesten önce geç, kazan ve daha büyük ödüller için ilerle!	UI rocket.offer with %lld (CONSISTENCY V-15/S-30; stages need 5/7/9)
+Beat %lld levels before others to finish the race	Yarışı bitirmek için %lld seviyeyi herkesten önce geç	UI rocket.race / SOC §10 with %lld (CONSISTENCY V-15)
+You lost the race! Try again to win amazing rewards!	Yarışı kaybettin! Harika ödüller için tekrar dene!	UI rocket.lost / SOC §10
+You won the race! Claim your amazing rewards!	Yarışı kazandın! Harika ödüllerini al!	UI rocket.won (NEW); CONSISTENCY S-31
+Stage %lld	Aşama %lld	UI rocket.stage, stage.label / SOC §10 (%lld = stage)
+Start	Başla	UI rocket.start / SOC §10
+Beat levels!	Seviyeleri geç!	UI rocket.tut1 / SOC §10
+Finish race before others!	Yarışı herkesten önce bitir!	UI rocket.tut2 / SOC §10
+Win amazing rewards!	Harika ödüller kazan!	UI rocket.tut3 / SOC §10
+Advance to next stages for greater prizes!	Daha büyük ödüller için sonraki aşamalara ilerle!	UI rocket.tut4, sky.tut4 / SOC §10; CONSISTENCY S-29 (SOC's TR)
+Cloud Hop	Bulut Atlayışı	T1: was 'Sky Jump' (ruling 38 own names). EVENT NAME skyJump (UI sky.title, offer lettering, badge a11y). TR DRAFT (T1) -> T2 review
+Pass %lld Levels in a row on first try and advance to next stages!	%lld seviyeyi ilk denemede art arda geç, sonraki aşamalara ilerle!	UI sky.offer / SOC §10; CONSISTENCY S-28 (SOC's TR)
+Finding players on your level.	Seviyene uygun oyuncular aranıyor.	UI sky.finding / SOC §10
+Start with 100 players!	100 oyuncuyla başla!	UI sky.tut1 / SOC §10
+Beat %lld levels!	%lld seviye geç!	UI sky.tut2 / SOC §10 (%lld = levels)
+Win your share of %lld coins!	%lld altından payını kazan!	UI sky.tut3 / SOC §10 (%lld = pool)
+If you fail a level, you will fail the challenge!	Bir seviyede kaybedersen mücadeleyi kaybedersin!	UI sky.tutWarn / SOC §10
+Stages	Aşamalar	UI sky.stages / SOC §10 sky.map
+Levels	Seviyeler	UI sky.levels / SOC §10 sky.map
+Players	Oyuncular	UI sky.players / SOC §10 sky.map
+PRIZE	ÖDÜL	UI sky.prize / SOC §10 sky.map
+You win!	Kazandın!	UI sky.youWin / SOC §10
+You are sharing the reward with %lld other winners!	Ödülü %lld diğer kazananla paylaşıyorsun!	UI sky.share / SOC §10; CONSISTENCY S-27 (SOC's TR)
+You failed the challenge!	Mücadeleyi kaybettin!	UI sky.fail / SOC §10 (NEW)
+# --- event highlight runs (SOC2 requests/social.tsv, merged by INTEG 2026-09-25): the run an info overlay / rule line lights inside the sentence of the same row's copy (SPEC-ui §2.15.6, §2.16-§2.18); each TR value is that run of the TR sentence, never shown alone
+%lld Levels	%lld seviyeyi	SOC2 highlight inside "Beat %lld Levels before others to win…" (Rocket offer) and "Pass %lld Levels in a row…" (Sky Jump offer); TR sentences read "%lld seviyeyi …"
+%lld levels	%lld seviyeyi	SOC2 highlight inside "Beat %lld levels before others to finish the race" (Rocket Race band); TR "Yarışı bitirmek için %lld seviyeyi …"
+%lld levels!	%lld seviye	SOC2 highlight inside "Beat %lld levels!" (Sky Jump tutorial); TR "%lld seviye geç!"
+100 players	100 oyuncuyla	SOC2 highlight inside "Start with 100 players!" (Sky Jump tutorial); TR "100 oyuncuyla başla!"
+%lld coins	%lld altından	SOC2 highlight inside "Win your share of %lld coins!" (Sky Jump tutorial); TR "%lld altından payını kazan!"
+greater prizes	büyük ödüller	SOC2 highlight inside "Advance to next stages for greater prizes!" (Sky Jump tutorial); TR "Daha büyük ödüller için …"
+prizes	ödüller	SOC2 highlight inside "Advance to next stages for greater prizes!" (Rocket Race tutorial, VERIFIED 166 lights "prizes!")
+rewards	ödüller	SOC2 highlight inside "Win amazing rewards!" (Rocket Race tutorial, VERIFIED 166); TR "Harika ödüller kazan!"
+Rewards!	Kazan!	SOC2 highlight inside "Win Rewards!" (Weekly Contest and Claw (i), VERIFIED meta-017); TR "Ödülleri Kazan!" lights "Kazan!" (SPEC-ui §2.15.6)
+fail	kaybedersen	SOC2 highlight (red) inside "If you fail a level the multiplier will reset!" and "If you fail a level, you will fail the challenge!"; TR "Bir seviyede kaybedersen …"
+
+# --- request rows (requests/shell.tsv, content-recast.tsv) folded in by T1 so that this file alone is the whole table
+Allow notifications in iOS Settings.	Bildirimlere iOS Ayarlar'dan izin ver.	SHELL request: SHELL S1: toast when Notifications is turned ON while iOS denies them (SPEC-ui §2.13, §2.20)
+Arrows turn when they hit the CORNER!	Oklar KÖŞEYE çarpınca döner!	CONTENT-RECAST request: RECAST: unlock card, L70 (VERIFIED: "Corner! / Unlocked! / Arrows turn when they hit the CORNER!"); TR ours
+Back	Geri	SHELL request: SHELL S2: hud.back accessibility label (the ◀ button; opens Quit Level?)
+Boosters	Güçlendiriciler	SHELL request: SHELL S1: Support page heading (TR ours)
+Close	Kapat	SHELL request: SHELL S1: every red X (accessibility label)
+How to play	Nasıl oynanır	SHELL request: SHELL S1: Support page heading (SPEC-ui §2.13.1; TR ours)
+Info	Bilgi	SHELL request: SHELL S3: the (i) button accessibility label on the event pages (SPEC-ui §1.6.20)
+Lives	Canlar	SHELL request: SHELL S1: Support page heading + home.lives accessibility label
+Pause	Duraklat	SHELL request: SHELL S2: hud.pause accessibility label
+Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.	Bir seviyeye başlamak bir can harcar; kazanınca geri gelir. Her 30 dakikada bir yeni can gelir.	SHELL request: SHELL S1: Support page body (SPEC-ui §2.13.1; SPEC-gameplay §8.1: taken at start, refunded on a win, 1800 s)
+The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.	Kum saati süreyi 10 saniye dondurur. Ampul çıkabilecek bir oku gösterir.	SHELL request: SHELL S1: Support page body (SPEC-ui §2.13.1; SPEC-gameplay boosters.freezeSeconds 10)
+Version %@ · Level %lld	Sürüm %1$@ · Seviye %2$lld	SHELL request: SHELL S1: Support page footer (app version, next level)
+You will lose %lld token	%lld jetonu ve	SHELL request: SHELL S2: Continue? token, line 1 (SPEC-ui §2.6.3: the two lines of "You will lose %lld token and your streak!", %lld = the multiplier, drawn red; TR line order per SPEC-ui)
+Your progress	İlerlemen	SHELL request: SHELL S1: Support page heading (TR ours)
+Your progress and coins are saved only on this device. Deleting the game erases them.	İlerlemen ve altınların yalnızca bu cihazda saklanır. Oyunu silersen bunlar da silinir.	T1: was 'Your progress is saved on this device.' (PLAN-P OD10 default ('accept the loss in 1.0, one line on the support page'); revert to the old key if the owner picks iCloud backup; shell request row). Support page body under 'Your progress' (SPEC-ui §2.13.1). Consumables cannot be restored (release-plan §3.4). TR DRAFT (T1) -> T2 review
+and your streak!	serini kaybedeceksin!	SHELL request: SHELL S2: Continue? token, line 2 (SPEC-ui §2.6.3)
+# --- T1 publish additions (2026-09-28): the 6th event name, weekly rotation, event notifications, Balloon event (events.md §5-§7; ruling 38)
+Up & Away	Havalan	T1 NEW: EVENT NAME balloonRise (the new ladder event, events.md §5): home bar, page title, (i) title, first-open page; not 'Balloon Rise' (the original's and another publisher's event name). TR DRAFT (T1) -> T2 review
+NEW	YENİ	T1 NEW: events.md §6.1 event.new: ribbon on a featured badge / the ladder bar token until its page is opened this week (max 7 chars). TR DRAFT (T1) -> T2 review
+New Event!	Yeni Etkinlik!	T1 NEW: events.md §6.2 event.started: week-start page banner (max 18). TR DRAFT (T1) -> T2 review
+Double Event Week!	Çifte Etkinlik Haftası!	T1 NEW: events.md §6.2 event.double: banner when both featured race-slot events run (max 22); 'Event' not 'Race': Cloud Hop is not a race. TR DRAFT (T1) -> T2 review
+Let's Go!	Hadi Başla!	T1 NEW: events.md §6.2 event.letsGo: week-start page button (max 12). TR DRAFT (T1) -> T2 review
+Ends in %@	Bitiş: %@	T1 NEW: events.md §7.2 event.endsIn (%@ = a countdown such as '2d 5h'; max 18). TR DRAFT (T1) -> T2 review
+Last day!	Son gün!	T1 NEW: events.md §6.1 event.lastDay: red chip in an event's last 24 h (max 14). TR DRAFT (T1) -> T2 review
+Coming next: %@	Sıradaki: %@	T1 NEW: events.md §6.3 event.comingNext footer, part 1 (%@ = next week's event name for this player's level). Split from events.md's one-key 'Coming next: %1$@ · Starts in %2$@' (47 chars filled > its 40 max; two keys also avoid a 2-argument reorder): the layout places part 2 beside or under it. TR DRAFT (T1) -> T2 review
+Starts in %@	Başlangıç: %@	T1 NEW: events.md §6.3 event.comingNext footer, part 2 (%@ = countdown, last 24 h only: '23h 59m'). TR DRAFT (T1) -> T2 review
+This event has ended.	Bu etkinlik sona erdi.	T1 NEW: events.md §4.5 event.over: a stale Join (JoinError.notLive) (max 26). TR DRAFT (T1) -> T2 review
+%@ has started! Beat levels to win amazing rewards!	%@ başladı! Harika ödüller için seviyeleri geç!	T1 NEW: events.md §6.4 local notification eventStart (%@ = event name; 10:00-21:00 local, max 1 event notification per 24 h). TR DRAFT (T1) -> T2 review
+Double Event Week! %@ and %@ are both on!	Çifte Etkinlik Haftası! %1$@ ve %2$@ bu hafta birlikte!	T1 NEW: events.md §6.4 local notification eventStart on a double week (%1 = Rocket Rally, %2 = Cloud Hop, from the name keys). TR DRAFT (T1) -> T2 review
+%@ ends in 3 hours!	%@ 3 saat içinde bitiyor!	T1 NEW: events.md §6.4 local notification eventEnding (%@ = the ladder event's name; only with progress, 3 h before the Monday roll). TR DRAFT (T1) -> T2 review
+Beat levels in a row to rise higher!	Daha yükseğe çıkmak için seviyeleri art arda geç!	T1 NEW: events.md §7.2 balloon.sub: Up & Away page subtitle / first-open page (max 44). TR DRAFT (T1) -> T2 review
+Beat levels to fill your balloons with hot air!	Seviyeleri geç, balonlarını sıcak hava ile doldur!	T1 NEW: events.md §7.2 balloon.info.1: (i) card 1 (max 48); highlight run 'hot air'. TR DRAFT (T1) -> T2 review
+Hard levels give more hot air!	Zor seviyeler daha çok sıcak hava verir!	T1 NEW: events.md §7.2 balloon.info.2: (i) card 2 (Normal 1 / Hard 2 / Super Hard 3 puffs; max 40); highlight run 'Hard levels'. TR DRAFT (T1) -> T2 review
+If you fail a level, a balloon pops!	Bir seviyede kaybedersen bir balon patlar!	T1 NEW: events.md §7.2 balloon.info.3: (i) card 3 (max 40); reworded from 'Fail a level and a balloon pops!' so it reuses the existing red highlight run 'fail' / 'kaybedersen'. TR DRAFT (T1) -> T2 review
+Lose all 3 balloons and you fall to the start of the step!	3 balonun hepsini kaybedersen adımın başına düşersin!	T1 NEW: events.md §7.2 balloon.info.4: the red (i) card 4 (max 64). TR DRAFT (T1) -> T2 review
+Reach the top for the big prize!	Büyük ödül için zirveye ulaş!	T1 NEW: events.md §7.2 balloon.info.5: (i) card 5 (step 10 = 5000 coins + boosters; max 40); 'big' not 'grand' (brand-ban hygiene); highlight run 'big prize'. TR DRAFT (T1) -> T2 review
+hot air	sıcak hava	T1 NEW: HIGHLIGHT RUN inside 'Beat levels to fill your balloons with hot air!' (SPEC-ui §2.15.6 pattern, SocInfoLine key:); each translation must be a substring of its own card-1 sentence; unused if B1 lights no run. TR DRAFT (T1) -> T2 review
+Hard levels	Zor seviyeler	T1 NEW: HIGHLIGHT RUN inside 'Hard levels give more hot air!'; each translation must be a substring of its own card-2 sentence; unused if B1 lights no run. TR DRAFT (T1) -> T2 review
+big prize	Büyük ödül	T1 NEW: HIGHLIGHT RUN inside 'Reach the top for the big prize!'; each translation must be a substring (same case) of its own card-5 sentence; unused if B1 lights no run. TR DRAFT (T1) -> T2 review
+Step %lld	Adım %lld	T1 NEW: events.md §7.2 balloon.step: altitude node label (%lld = 1-10; max 10). TR DRAFT (T1) -> T2 review
+Completed!	Tamamlandı!	T1 NEW: events.md §7.2 balloon.complete: the bar after step 10 until the week ends (max 14). TR DRAFT (T1) -> T2 review
+You fell to the start of step %lld!	%lld. adımın başına düştün!	T1 NEW: events.md §7.2 balloon.fell: bar toast after the 3rd pop (%lld = the current step; max 44). TR DRAFT (T1) -> T2 review
+You will lose a balloon!	Bir balon kaybedeceksin!	T1 NEW: events.md §5 fail.balloon: Continue? step B in an Up & Away week when the current step has puffs and no streak (max 40). TR DRAFT (T1) -> T2 review
+You will lose a balloon and your streak!	Bir balonu ve serini kaybedeceksin!	T1 NEW: events.md §5 fail.balloonStreak: Continue? step B in an Up & Away week with an active streak (max 48); exclusive with the token line. TR DRAFT (T1) -> T2 review

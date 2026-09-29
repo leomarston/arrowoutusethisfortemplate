@@ -1,0 +1,2026 @@
+{
+ "decode": [
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 0,
+   "name": "player_34u71l8"
+  },
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 1,
+   "name": "player_f9h9wjk"
+  },
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 17,
+   "name": "player_7nj70ff"
+  },
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 999,
+   "name": "player_otujemk"
+  },
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 2500,
+   "name": "player_yewtnx6"
+  },
+  {
+   "style": "default",
+   "culture": "*",
+   "slot": 123456,
+   "name": "player_rfnyej2"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 0,
+   "name": "naz"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 1,
+   "name": "damla"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 17,
+   "name": "Serkan"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 999,
+   "name": "Cansu4"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 2500,
+   "name": "İsmail21"
+  },
+  {
+   "style": "given",
+   "culture": "tr",
+   "slot": 123456,
+   "name": "Dilara8480"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 0,
+   "name": "luca"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 1,
+   "name": "Hannah"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 17,
+   "name": "Felix"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 999,
+   "name": "julia6"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 2500,
+   "name": "Dieter96"
+  },
+  {
+   "style": "given",
+   "culture": "de",
+   "slot": 123456,
+   "name": "Heike4760"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 0,
+   "name": "Delphine"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 1,
+   "name": "Jade"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 17,
+   "name": "Juliette"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 999,
+   "name": "zoe81"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 2500,
+   "name": "Benoît82"
+  },
+  {
+   "style": "given",
+   "culture": "fr",
+   "slot": 123456,
+   "name": "ambre2265"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 0,
+   "name": "Vanesa"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 1,
+   "name": "Antonio"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 17,
+   "name": "Sergio"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 999,
+   "name": "Mariana45"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 2500,
+   "name": "esperanza38"
+  },
+  {
+   "style": "given",
+   "culture": "es",
+   "slot": 123456,
+   "name": "emiliano4073"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 0,
+   "name": "Leila"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 1,
+   "name": "vinicius"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 17,
+   "name": "Guilherme"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 999,
+   "name": "Bruna81"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 2500,
+   "name": "Bernardo14"
+  },
+  {
+   "style": "given",
+   "culture": "pt",
+   "slot": 123456,
+   "name": "Fábio1556"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 0,
+   "name": "salvatore"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 1,
+   "name": "chiara"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 17,
+   "name": "Federica"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 999,
+   "name": "Beatrice77"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 2500,
+   "name": "Tommaso71"
+  },
+  {
+   "style": "given",
+   "culture": "it",
+   "slot": 123456,
+   "name": "Tommaso8825"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 0,
+   "name": "Sander"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 1,
+   "name": "Roos"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 17,
+   "name": "Wouter"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 999,
+   "name": "Teun28"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 2500,
+   "name": "Jasmijn65"
+  },
+  {
+   "style": "given",
+   "culture": "nl",
+   "slot": 123456,
+   "name": "bram4183"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 0,
+   "name": "Olof"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 1,
+   "name": "Sigrid"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 17,
+   "name": "viktor"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 999,
+   "name": "Kari47"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 2500,
+   "name": "Antti21"
+  },
+  {
+   "style": "given",
+   "culture": "nordic",
+   "slot": 123456,
+   "name": "Ingeborg8866"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 0,
+   "name": "małgorzata"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 1,
+   "name": "Igor"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 17,
+   "name": "Mateusz"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 999,
+   "name": "Ewa84"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 2500,
+   "name": "Przemysław55"
+  },
+  {
+   "style": "given",
+   "culture": "pl",
+   "slot": 123456,
+   "name": "justyna4657"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 0,
+   "name": "Iryna"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 1,
+   "name": "giorgos"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 17,
+   "name": "Dóra"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 999,
+   "name": "Nataliya13"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 2500,
+   "name": "Péter65"
+  },
+  {
+   "style": "given",
+   "culture": "easteu",
+   "slot": 123456,
+   "name": "Alexandra3552"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 0,
+   "name": "meera"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 1,
+   "name": "sunil"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 17,
+   "name": "Kavya"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 999,
+   "name": "Shalini27"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 2500,
+   "name": "Aryan59"
+  },
+  {
+   "style": "given",
+   "culture": "in",
+   "slot": 123456,
+   "name": "Gaurav2270"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 0,
+   "name": "Liza"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 1,
+   "name": "Aisyah"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 17,
+   "name": "Jhon"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 999,
+   "name": "Xin76"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 2500,
+   "name": "Fah79"
+  },
+  {
+   "style": "given",
+   "culture": "sea",
+   "slot": 123456,
+   "name": "Nok7401"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 0,
+   "name": "kenta"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 1,
+   "name": "saki"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 17,
+   "name": "minato"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 999,
+   "name": "Kokona15"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 2500,
+   "name": "Takashi93"
+  },
+  {
+   "style": "given",
+   "culture": "jp",
+   "slot": 123456,
+   "name": "Naoko9129"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 0,
+   "name": "youngho"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 1,
+   "name": "sungmin"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 17,
+   "name": "Yeji"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 999,
+   "name": "jiwoo19"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 2500,
+   "name": "Jiwon48"
+  },
+  {
+   "style": "given",
+   "culture": "kr",
+   "slot": 123456,
+   "name": "Chaeyoung9153"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 0,
+   "name": "Faisal"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 1,
+   "name": "Majed"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 17,
+   "name": "Saad"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 999,
+   "name": "Reem92"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 2500,
+   "name": "Maryam47"
+  },
+  {
+   "style": "given",
+   "culture": "ar",
+   "slot": 123456,
+   "name": "Maryam9188"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 0,
+   "name": "Daron"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 1,
+   "name": "Bobbi"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 17,
+   "name": "willow"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 999,
+   "name": "monty"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 2500,
+   "name": "Geoffrey1"
+  },
+  {
+   "style": "given",
+   "culture": "en",
+   "slot": 123456,
+   "name": "alaina85"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 0,
+   "name": "Driftwood"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 1,
+   "name": "Nope"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 17,
+   "name": "catlady"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 999,
+   "name": "Mami1"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 2500,
+   "name": "arrowhead45"
+  },
+  {
+   "style": "word",
+   "culture": "*",
+   "slot": 123456,
+   "name": "nugget907"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 0,
+   "name": "StickyLady"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 1,
+   "name": "RubySloth"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 17,
+   "name": "CleverPrince"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 999,
+   "name": "MerryLeopard"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 2500,
+   "name": "WittyTracker"
+  },
+  {
+   "style": "compound",
+   "culture": "*",
+   "slot": 123456,
+   "name": "ShinyTurtle3"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 0,
+   "name": "Krylis"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 1,
+   "name": "Preeren"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 17,
+   "name": "Plosa"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 999,
+   "name": "Gaidus"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 2500,
+   "name": "Fleetun"
+  },
+  {
+   "style": "invented",
+   "culture": "*",
+   "slot": 123456,
+   "name": "Dropur1"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 0,
+   "name": "MARSHMALLOW"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 1,
+   "name": "LOBSTER"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 17,
+   "name": "ROGUE"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 999,
+   "name": "ACE4"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 2500,
+   "name": "TINKERER8"
+  },
+  {
+   "style": "caps",
+   "culture": "*",
+   "slot": 123456,
+   "name": "WOLF525"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 0,
+   "name": "mahmut_love"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 1,
+   "name": "ayse_sr"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 17,
+   "name": "aylin_x"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 999,
+   "name": "yasemin_official"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 2500,
+   "name": "tarik_official"
+  },
+  {
+   "style": "underscore",
+   "culture": "tr",
+   "slot": 123456,
+   "name": "tarik_g23"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 0,
+   "name": "torsten_dad"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 1,
+   "name": "petra_x"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 17,
+   "name": "jule_yt"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 999,
+   "name": "leonie_m"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 2500,
+   "name": "tim_mom"
+  },
+  {
+   "style": "underscore",
+   "culture": "de",
+   "slot": 123456,
+   "name": "carina_y37"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 0,
+   "name": "margaux_mom"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 1,
+   "name": "francoise_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 17,
+   "name": "christophe_o"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 999,
+   "name": "catherine_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 2500,
+   "name": "mathis_u"
+  },
+  {
+   "style": "underscore",
+   "culture": "fr",
+   "slot": 123456,
+   "name": "jade_i93"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 0,
+   "name": "agustina_e"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 1,
+   "name": "gustavo_plays"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 17,
+   "name": "raul_c"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 999,
+   "name": "gabriela_fun"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 2500,
+   "name": "gustavo_cool"
+  },
+  {
+   "style": "underscore",
+   "culture": "es",
+   "slot": 123456,
+   "name": "silvia_b58"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 0,
+   "name": "ricardo_o"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 1,
+   "name": "murilo_v"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 17,
+   "name": "conceicao_tv"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 999,
+   "name": "marcelo_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 2500,
+   "name": "otavio_v"
+  },
+  {
+   "style": "underscore",
+   "culture": "pt",
+   "slot": 123456,
+   "name": "rogerio_m50"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 0,
+   "name": "chiara_b"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 1,
+   "name": "gabriele_z"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 17,
+   "name": "rossella_sr"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 999,
+   "name": "massimo_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 2500,
+   "name": "edoardo_plays"
+  },
+  {
+   "style": "underscore",
+   "culture": "it",
+   "slot": 123456,
+   "name": "giovanni_games74"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 0,
+   "name": "rick_m"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 1,
+   "name": "daan_z"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 17,
+   "name": "noor_f"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 999,
+   "name": "thijs_x"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 2500,
+   "name": "merel_v9"
+  },
+  {
+   "style": "underscore",
+   "culture": "nl",
+   "slot": 123456,
+   "name": "joke_official64"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 0,
+   "name": "katrine_sr"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 1,
+   "name": "nils_s"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 17,
+   "name": "kasper_games"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 999,
+   "name": "mathias_xo"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 2500,
+   "name": "silje_h"
+  },
+  {
+   "style": "underscore",
+   "culture": "nordic",
+   "slot": 123456,
+   "name": "silje_a70"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 0,
+   "name": "beata_cool"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 1,
+   "name": "lukasz_p"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 17,
+   "name": "wiktoria_c"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 999,
+   "name": "wiktor_tv"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 2500,
+   "name": "zbigniew_s4"
+  },
+  {
+   "style": "underscore",
+   "culture": "pl",
+   "slot": 123456,
+   "name": "filip_mom98"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 0,
+   "name": "panagiotis_j"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 1,
+   "name": "balazs_j"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 17,
+   "name": "radek_q"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 999,
+   "name": "alexandra_online"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 2500,
+   "name": "nikolai_n"
+  },
+  {
+   "style": "underscore",
+   "culture": "easteu",
+   "slot": 123456,
+   "name": "polina_s95"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 0,
+   "name": "aarohi_k"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 1,
+   "name": "rahul_k"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 17,
+   "name": "siddharth_u"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 999,
+   "name": "nikhil_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 2500,
+   "name": "sanjay_love"
+  },
+  {
+   "style": "underscore",
+   "culture": "in",
+   "slot": 123456,
+   "name": "vivaan_games96"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 0,
+   "name": "aina_t"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 1,
+   "name": "arif_v"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 17,
+   "name": "hafiz_jr"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 999,
+   "name": "kristine_mom"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 2500,
+   "name": "long_r"
+  },
+  {
+   "style": "underscore",
+   "culture": "sea",
+   "slot": 123456,
+   "name": "arnel_v54"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 0,
+   "name": "tatsuya_k"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 1,
+   "name": "sora_yt"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 17,
+   "name": "yuna_g"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 999,
+   "name": "kouki_c"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 2500,
+   "name": "mei_gamer"
+  },
+  {
+   "style": "underscore",
+   "culture": "jp",
+   "slot": 123456,
+   "name": "takumi_j29"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 0,
+   "name": "seoyun_real"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 1,
+   "name": "hyejin_gamer"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 17,
+   "name": "hajun_here"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 999,
+   "name": "sanghoon_real"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 2500,
+   "name": "jaehyun_love1"
+  },
+  {
+   "style": "underscore",
+   "culture": "kr",
+   "slot": 123456,
+   "name": "hana_i63"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 0,
+   "name": "huda_n"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 1,
+   "name": "shahad_games"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 17,
+   "name": "mariam_i"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 999,
+   "name": "hani_y"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 2500,
+   "name": "youssef_games8"
+  },
+  {
+   "style": "underscore",
+   "culture": "ar",
+   "slot": 123456,
+   "name": "fahad_o73"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 0,
+   "name": "katarina_mom"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 1,
+   "name": "derek_cool"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 17,
+   "name": "lacey_b"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 999,
+   "name": "herman_a"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 2500,
+   "name": "lindy_love"
+  },
+  {
+   "style": "underscore",
+   "culture": "en",
+   "slot": 123456,
+   "name": "braeden_games8"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 0,
+   "name": "PSMSage"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 1,
+   "name": "HTJaguar"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 17,
+   "name": "MMVSloth"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 999,
+   "name": "THSButton"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 2500,
+   "name": "RHKEcho"
+  },
+  {
+   "style": "initials",
+   "culture": "*",
+   "slot": 123456,
+   "name": "PRFalcon"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 0,
+   "name": "Ahmetninja"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 1,
+   "name": "Selimlicious"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 17,
+   "name": "Ismailtron"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 999,
+   "name": "Yaseminninja"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 2500,
+   "name": "Emineinator"
+  },
+  {
+   "style": "mixed",
+   "culture": "tr",
+   "slot": 123456,
+   "name": "Nurmaster24"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 0,
+   "name": "Marenlicious"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 1,
+   "name": "Lisazilla"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 17,
+   "name": "Emmalicious"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 999,
+   "name": "Matthiastron"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 2500,
+   "name": "Johannaxd8"
+  },
+  {
+   "style": "mixed",
+   "culture": "de",
+   "slot": 123456,
+   "name": "Jenstron20"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 0,
+   "name": "Isabelleninja"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 1,
+   "name": "Arnaudgamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 17,
+   "name": "Valeriejr"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 999,
+   "name": "Brigittexd"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 2500,
+   "name": "Ericxd9"
+  },
+  {
+   "style": "mixed",
+   "culture": "fr",
+   "slot": 123456,
+   "name": "Christinexd65"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 0,
+   "name": "Joaquinking"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 1,
+   "name": "Joaquinboss"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 17,
+   "name": "Florenciatron"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 999,
+   "name": "Oscarxo"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 2500,
+   "name": "Alvarobot6"
+  },
+  {
+   "style": "mixed",
+   "culture": "es",
+   "slot": 123456,
+   "name": "Alejandraplays39"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 0,
+   "name": "Brunaxo"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 1,
+   "name": "Tatianeboss"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 17,
+   "name": "Anazor"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 999,
+   "name": "Larissainator"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 2500,
+   "name": "Sandrastar5"
+  },
+  {
+   "style": "mixed",
+   "culture": "pt",
+   "slot": 123456,
+   "name": "Helenastar19"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 0,
+   "name": "Vittorialicious"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 1,
+   "name": "Edoardojr"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 17,
+   "name": "Mattialicious"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 999,
+   "name": "Davidejr"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 2500,
+   "name": "Gaiapro3"
+  },
+  {
+   "style": "mixed",
+   "culture": "it",
+   "slot": 123456,
+   "name": "Francescaxd61"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 0,
+   "name": "Tesszor"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 1,
+   "name": "Keeszor"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 17,
+   "name": "Evagamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 999,
+   "name": "Mariekeking"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 2500,
+   "name": "Basxo5"
+  },
+  {
+   "style": "mixed",
+   "culture": "nl",
+   "slot": 123456,
+   "name": "Maudtron72"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 0,
+   "name": "Villebot"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 1,
+   "name": "Astridxd"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 17,
+   "name": "Eirikninja"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 999,
+   "name": "Tiinaplays"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 2500,
+   "name": "Juhabot7"
+  },
+  {
+   "style": "mixed",
+   "culture": "nordic",
+   "slot": 123456,
+   "name": "Frederikmax67"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 0,
+   "name": "Szymonthegreat"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 1,
+   "name": "Slawomirmax"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 17,
+   "name": "Zuzannagamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 999,
+   "name": "Rafalgamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 2500,
+   "name": "Malgorzataking3"
+  },
+  {
+   "style": "mixed",
+   "culture": "pl",
+   "slot": 123456,
+   "name": "Magdalenaxd995"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 0,
+   "name": "Marinaboss"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 1,
+   "name": "Dimitriszilla"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 17,
+   "name": "Mykolawolf"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 999,
+   "name": "Mykolagamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 2500,
+   "name": "Christosstar6"
+  },
+  {
+   "style": "mixed",
+   "culture": "easteu",
+   "slot": 123456,
+   "name": "Mihaelaninja89"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 0,
+   "name": "Yashpro"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 1,
+   "name": "Arnavbot"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 17,
+   "name": "Akashzor"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 999,
+   "name": "Sunilqueen"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 2500,
+   "name": "Amitinator8"
+  },
+  {
+   "style": "mixed",
+   "culture": "in",
+   "slot": 123456,
+   "name": "Kunallicious73"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 0,
+   "name": "Thaomaster"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 1,
+   "name": "Maricelinator"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 17,
+   "name": "Agusgamer"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 999,
+   "name": "Jhonfan"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 2500,
+   "name": "Xingamer2"
+  },
+  {
+   "style": "mixed",
+   "culture": "sea",
+   "slot": 123456,
+   "name": "Fahtron16"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 0,
+   "name": "Misakixd"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 1,
+   "name": "Sakizor"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 17,
+   "name": "Ryotastar"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 999,
+   "name": "Kokonatastic"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 2500,
+   "name": "Renninja3"
+  },
+  {
+   "style": "mixed",
+   "culture": "jp",
+   "slot": 123456,
+   "name": "Renzor62"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 0,
+   "name": "Jiwonxo"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 1,
+   "name": "Jinwootastic"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 17,
+   "name": "Jiwoowolf"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 999,
+   "name": "Soyeonfan8"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 2500,
+   "name": "Doyunqueen8"
+  },
+  {
+   "style": "mixed",
+   "culture": "kr",
+   "slot": 123456,
+   "name": "Hajungamer201"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 0,
+   "name": "Maryamjr"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 1,
+   "name": "Nourazor"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 17,
+   "name": "Shahadzilla"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 999,
+   "name": "Husseinninja"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 2500,
+   "name": "Karimqueen1"
+  },
+  {
+   "style": "mixed",
+   "culture": "ar",
+   "slot": 123456,
+   "name": "Ramiboss863"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 0,
+   "name": "Angeliquezilla"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 1,
+   "name": "Kaylynnboss"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 17,
+   "name": "Samaraplays"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 999,
+   "name": "Darianxo"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 2500,
+   "name": "Ellisking"
+  },
+  {
+   "style": "mixed",
+   "culture": "en",
+   "slot": 123456,
+   "name": "Jacquelineinator5"
+  }
+ ],
+ "blocked": [
+  {
+   "name": "Kate23",
+   "blocked": false
+  },
+  {
+   "name": "player_5h1tabc",
+   "blocked": true
+  },
+  {
+   "name": "Arthur3",
+   "blocked": true
+  },
+  {
+   "name": "SunnyOtter",
+   "blocked": false
+  },
+  {
+   "name": "kanye",
+   "blocked": true
+  },
+  {
+   "name": "Peacock",
+   "blocked": true
+  },
+  {
+   "name": "ass_x",
+   "blocked": true
+  },
+  {
+   "name": "Cassandra",
+   "blocked": false
+  },
+  {
+   "name": "DSMShark",
+   "blocked": false
+  },
+  {
+   "name": "Naz1",
+   "blocked": true
+  },
+  {
+   "name": "GOLDEN",
+   "blocked": false
+  }
+ ],
+ "number": [
+  {
+   "r": 1,
+   "key": "5",
+   "s": "4"
+  },
+  {
+   "r": 9,
+   "key": "5",
+   "s": "2"
+  },
+  {
+   "r": 10,
+   "key": "5",
+   "s": "14"
+  },
+  {
+   "r": 57,
+   "key": "99",
+   "s": "44"
+  },
+  {
+   "r": 500,
+   "key": "3",
+   "s": "202"
+  },
+  {
+   "r": 12345,
+   "key": "8",
+   "s": "56958"
+  }
+ ]
+}

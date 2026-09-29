@@ -1,0 +1,548 @@
+{
+ "haptic": {
+  "text": "Haptic",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 25.19,
+  "track_pt": -0.25,
+  "track_em": -0.0099,
+  "line_iou": 0.8602,
+  "baseline_pt": 427.5,
+  "ink_centre_x_pt": 153.6,
+  "ink_left_pt": 113.8,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 393
+ },
+ "sound": {
+  "text": "Sound",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 25.54,
+  "track_pt": 0.0,
+  "track_em": 0.0,
+  "line_iou": 0.8747,
+  "baseline_pt": 354.5,
+  "ink_centre_x_pt": 153.0,
+  "ink_left_pt": 114.4,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 393
+ },
+ "full": {
+  "text": "Full",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 19.07,
+  "track_pt": -0.75,
+  "track_em": -0.0393,
+  "line_iou": 0.8555,
+  "baseline_pt": 76.9,
+  "ink_centre_x_pt": 285.4,
+  "ink_left_pt": 269.6,
+  "colours": {
+   "bg": "#DEEEFF",
+   "fg": "#093896"
+  },
+  "canvas_pt": 393
+ },
+ "coins_home": {
+  "text": "2240",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 18.8,
+  "track_pt": 0.0,
+  "track_em": 0.0,
+  "line_iou": 0.8276,
+  "baseline_pt": 76.3,
+  "ink_centre_x_pt": 165.6,
+  "ink_left_pt": 143.8,
+  "colours": {
+   "bg": "#DEEEFF",
+   "fg": "#093896"
+  },
+  "canvas_pt": 393
+ },
+ "coins_hud": {
+  "text": "2240",
+  "src": "shots/003-L32-start.png",
+  "size_pt": 18.46,
+  "track_pt": 0.25,
+  "track_em": 0.0135,
+  "line_iou": 0.828,
+  "baseline_pt": 48.3,
+  "ink_centre_x_pt": 74.7,
+  "ink_left_pt": 53.0,
+  "colours": {
+   "bg": "#BDDCFF",
+   "fg": "#3861AC"
+  },
+  "canvas_pt": 393
+ },
+ "s_kate": {
+  "text": "Kate",
+  "src": "store/iphone-6.png",
+  "size_pt": 27.19,
+  "track_pt": -2.0,
+  "track_em": -0.0736,
+  "line_iou": 0.8469,
+  "baseline_pt": 609.7,
+  "ink_centre_x_pt": 155.5,
+  "ink_left_pt": 128.0,
+  "colours": {
+   "bg": "#FFDB00",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_max": {
+  "text": "Max",
+  "src": "store/iphone-6.png",
+  "size_pt": 27.18,
+  "track_pt": -1.75,
+  "track_em": -0.0644,
+  "line_iou": 0.8419,
+  "baseline_pt": 690.1,
+  "ink_centre_x_pt": 151.7,
+  "ink_left_pt": 126.7,
+  "colours": {
+   "bg": "#B2BDE6",
+   "fg": "#1A336F"
+  },
+  "canvas_pt": 440
+ },
+ "s_james": {
+  "text": "James",
+  "src": "store/iphone-6.png",
+  "size_pt": 27.64,
+  "track_pt": -1.0,
+  "track_em": -0.0362,
+  "line_iou": 0.7252,
+  "baseline_pt": 769.5,
+  "ink_centre_x_pt": 165.8,
+  "ink_left_pt": 126.7,
+  "colours": {
+   "bg": "#F69750",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_x1": {
+  "text": "x1",
+  "src": "store/iphone-6.png",
+  "size_pt": 33.21,
+  "track_pt": -4.0,
+  "track_em": -0.1204,
+  "line_iou": 0.9003,
+  "baseline_pt": 487.5,
+  "ink_centre_x_pt": 57.7,
+  "ink_left_pt": 40.7,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_x5": {
+  "text": "x5",
+  "src": "store/iphone-6.png",
+  "size_pt": 33.59,
+  "track_pt": -3.0,
+  "track_em": -0.0893,
+  "line_iou": 0.862,
+  "baseline_pt": 487.4,
+  "ink_centre_x_pt": 137.7,
+  "ink_left_pt": 120.7,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_x25": {
+  "text": "x25",
+  "src": "store/iphone-6.png",
+  "size_pt": 33.59,
+  "track_pt": -2.75,
+  "track_em": -0.0819,
+  "line_iou": 0.8565,
+  "baseline_pt": 487.5,
+  "ink_centre_x_pt": 304.7,
+  "ink_left_pt": 278.7,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_x100": {
+  "text": "x100",
+  "src": "store/iphone-6.png",
+  "size_pt": 33.21,
+  "track_pt": -2.0,
+  "track_em": -0.0602,
+  "line_iou": 0.8311,
+  "baseline_pt": 487.5,
+  "ink_centre_x_pt": 383.3,
+  "ink_left_pt": 348.0,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_2355": {
+  "text": "23:55",
+  "src": "store/iphone-6.png",
+  "size_pt": 18.45,
+  "track_pt": -1.5,
+  "track_em": -0.0813,
+  "line_iou": 0.8259,
+  "baseline_pt": 542.5,
+  "ink_centre_x_pt": 231.5,
+  "ink_left_pt": 210.7,
+  "colours": {
+   "bg": "#F8E7D2",
+   "fg": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_2356": {
+  "text": "2356",
+  "src": "store/iphone-7.png",
+  "size_pt": 24.13,
+  "track_pt": -1.25,
+  "track_em": -0.0518,
+  "line_iou": 0.849,
+  "baseline_pt": 101.8,
+  "ink_centre_x_pt": 191.0,
+  "ink_left_pt": 164.7,
+  "colours": {
+   "bg": "#DEEEFF",
+   "fg": "#0A3896"
+  },
+  "canvas_pt": 440
+ },
+ "s_2346": {
+  "text": "23:46",
+  "src": "store/iphone-7.png",
+  "size_pt": 23.4,
+  "track_pt": -0.25,
+  "track_em": -0.0107,
+  "line_iou": 0.8018,
+  "baseline_pt": 101.5,
+  "ink_centre_x_pt": 327.0,
+  "ink_left_pt": 297.0,
+  "colours": {
+   "bg": "#DEEEFF",
+   "fg": "#0A3896"
+  },
+  "canvas_pt": 440
+ },
+ "paused": {
+  "text": "Paused",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 49.21,
+  "track_pt": -1.0,
+  "track_em": -0.0203,
+  "line_iou": 0.7199,
+  "baseline_pt": 247.5,
+  "ink_centre_x_pt": 197.0,
+  "ink_left_pt": 114.4,
+  "colours": {
+   "bg": "#FFC700",
+   "face": "#FFFFFF",
+   "outline": "#7B1D01"
+  },
+  "canvas_pt": 393
+ },
+ "on_sound": {
+  "text": "ON",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 21.07,
+  "track_pt": -0.75,
+  "track_em": -0.0356,
+  "line_iou": 0.8853,
+  "baseline_pt": 353.2,
+  "ink_centre_x_pt": 236.2,
+  "ink_left_pt": 220.9,
+  "colours": {
+   "bg": "#00E500",
+   "face": "#FEFBEC",
+   "outline": "#066A01"
+  },
+  "canvas_pt": 393
+ },
+ "on_haptic": {
+  "text": "ON",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 20.92,
+  "track_pt": -0.75,
+  "track_em": -0.0358,
+  "line_iou": 0.8809,
+  "baseline_pt": 426.4,
+  "ink_centre_x_pt": 236.4,
+  "ink_left_pt": 221.2,
+  "colours": {
+   "bg": "#00E500",
+   "face": "#FFFBEC",
+   "outline": "#066A01"
+  },
+  "canvas_pt": 393
+ },
+ "resume": {
+  "text": "Resume",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 27.24,
+  "track_pt": -1.0,
+  "track_em": -0.0367,
+  "line_iou": 0.8627,
+  "baseline_pt": 539.3,
+  "ink_centre_x_pt": 123.6,
+  "ink_left_pt": 75.4,
+  "colours": {
+   "bg": "#00D100",
+   "face": "#FEFBEC",
+   "outline": "#066A01"
+  },
+  "canvas_pt": 393
+ },
+ "quit": {
+  "text": "Quit",
+  "src": "shots/007-L32-pause.png",
+  "size_pt": 30.51,
+  "track_pt": -0.5,
+  "track_em": -0.0164,
+  "line_iou": 0.8425,
+  "baseline_pt": 540.7,
+  "ink_centre_x_pt": 269.1,
+  "ink_left_pt": 237.9,
+  "colours": {
+   "bg": "#F51D22",
+   "face": "#FEFBEC",
+   "outline": "#650000"
+  },
+  "canvas_pt": 393
+ },
+ "level_tab": {
+  "text": "Level 32",
+  "src": "shots/003-L32-start.png",
+  "size_pt": 17.89,
+  "track_pt": -0.5,
+  "track_em": -0.0279,
+  "line_iou": 0.7537,
+  "baseline_pt": 70.9,
+  "ink_centre_x_pt": 196.8,
+  "ink_left_pt": 162.5,
+  "colours": {
+   "bg": "#008FFF",
+   "face": "#FFF9ED",
+   "outline": "#002985"
+  },
+  "canvas_pt": 393
+ },
+ "timer": {
+  "text": "3:00",
+  "src": "shots/003-L32-start.png",
+  "size_pt": 23.32,
+  "track_pt": 0.25,
+  "track_em": 0.0107,
+  "line_iou": 0.8729,
+  "baseline_pt": 104.0,
+  "ink_centre_x_pt": 152.3,
+  "ink_left_pt": 128.8,
+  "colours": {
+   "bg": "#A4C6F6",
+   "face": "#F8F8FA",
+   "outline": "#081E5E"
+  },
+  "canvas_pt": 393
+ },
+ "play": {
+  "text": "Play",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 48.82,
+  "track_pt": -3.25,
+  "track_em": -0.0666,
+  "line_iou": 0.8312,
+  "baseline_pt": 685.9,
+  "ink_centre_x_pt": 197.0,
+  "ink_left_pt": 150.8,
+  "colours": {
+   "bg": "#00D900",
+   "face": "#F1FFF2",
+   "outline": "#066A01"
+  },
+  "canvas_pt": 393
+ },
+ "LEVEL": {
+  "text": "LEVEL",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 14.13,
+  "track_pt": -1.5,
+  "track_em": -0.1062,
+  "line_iou": 0.8441,
+  "baseline_pt": 531.9,
+  "ink_centre_x_pt": 196.0,
+  "ink_left_pt": 177.2,
+  "colours": {
+   "bg": "#1B93FF",
+   "face": "#FFFFFF",
+   "outline": "#093198"
+  },
+  "canvas_pt": 393
+ },
+ "num32": {
+  "text": "32",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 30.65,
+  "track_pt": -1.5,
+  "track_em": -0.0489,
+  "line_iou": 0.8189,
+  "baseline_pt": 563.3,
+  "ink_centre_x_pt": 196.5,
+  "ink_left_pt": 180.2,
+  "colours": {
+   "bg": "#057262",
+   "face": "#FFFFFF",
+   "outline": "#066A01"
+  },
+  "canvas_pt": 393
+ },
+ "home": {
+  "text": "Home",
+  "src": "shots/002-home-L32.png",
+  "size_pt": 15.07,
+  "track_pt": -0.25,
+  "track_em": -0.0166,
+  "line_iou": 0.854,
+  "baseline_pt": 832.6,
+  "ink_centre_x_pt": 196.8,
+  "ink_left_pt": 176.1,
+  "colours": {
+   "bg": "#05B4FF",
+   "face": "#FFFFFF",
+   "outline": "#16388C"
+  },
+  "canvas_pt": 393
+ },
+ "loading": {
+  "text": "Loading",
+  "src": "kickoff/state.png",
+  "size_pt": 26.79,
+  "track_pt": -0.5,
+  "track_em": -0.0187,
+  "line_iou": 0.889,
+  "baseline_pt": 792.7,
+  "ink_centre_x_pt": 187.2,
+  "ink_left_pt": 137.1,
+  "colours": {
+   "bg": "#7E84A2",
+   "face": "#CCCCCC",
+   "outline": "#681E1A"
+  },
+  "canvas_pt": 393
+ },
+ "s_beat": {
+  "text": "Beat levels without fail to get more rewards!",
+  "src": "store/iphone-6.png",
+  "size_pt": 19.73,
+  "track_pt": -1.25,
+  "track_em": -0.0633,
+  "line_iou": 0.7759,
+  "baseline_pt": 429.8,
+  "ink_centre_x_pt": 220.3,
+  "ink_left_pt": 27.7,
+  "colours": {
+   "bg": "#137BFB",
+   "face": "#FFFBF4",
+   "outline": "#022880"
+  },
+  "canvas_pt": 440
+ },
+ "s_x10": {
+  "text": "x10",
+  "src": "store/iphone-6.png",
+  "size_pt": 34.99,
+  "track_pt": -2.75,
+  "track_em": -0.0786,
+  "line_iou": 0.8488,
+  "baseline_pt": 487.4,
+  "ink_centre_x_pt": 220.8,
+  "ink_left_pt": 193.7,
+  "colours": {
+   "bg": "#02D004",
+   "face": "#FFFCF5",
+   "outline": "#005100"
+  },
+  "canvas_pt": 440
+ },
+ "s_16": {
+  "text": "16",
+  "src": "store/iphone-6.png",
+  "size_pt": 25.21,
+  "track_pt": -0.25,
+  "track_em": -0.0099,
+  "line_iou": 0.9151,
+  "baseline_pt": 609.3,
+  "ink_centre_x_pt": 399.5,
+  "ink_left_pt": 385.7,
+  "colours": {
+   "bg": "#C35C00",
+   "face": "#FCE7D7",
+   "outline": "#622100"
+  },
+  "canvas_pt": 440
+ },
+ "s_hard": {
+  "text": "Hard Level",
+  "src": "store/iphone-2.png",
+  "size_pt": 16.09,
+  "track_pt": -0.75,
+  "track_em": -0.0466,
+  "line_iou": 0.817,
+  "baseline_pt": 75.5,
+  "ink_centre_x_pt": 220.2,
+  "ink_left_pt": 181.3,
+  "colours": {
+   "bg": "#F03C3C",
+   "face": "#FFF3F3",
+   "outline": "#69000C"
+  },
+  "canvas_pt": 440
+ },
+ "s_045": {
+  "text": "0:45",
+  "src": "store/iphone-2.png",
+  "size_pt": 25.92,
+  "track_pt": -0.5,
+  "track_em": -0.0193,
+  "line_iou": 0.8348,
+  "baseline_pt": 111.4,
+  "ink_centre_x_pt": 173.0,
+  "ink_left_pt": 147.3,
+  "colours": {
+   "bg": "#83A8EB",
+   "face": "#E9FFFD",
+   "outline": "#072884"
+  },
+  "canvas_pt": 440
+ },
+ "s_1000": {
+  "text": "1000",
+  "src": "store/iphone-7.png",
+  "size_pt": 29.93,
+  "track_pt": 0.0,
+  "track_em": 0.0,
+  "line_iou": 0.9183,
+  "baseline_pt": 629.7,
+  "ink_centre_x_pt": 219.7,
+  "ink_left_pt": 185.3,
+  "colours": {
+   "bg": "#069501",
+   "face": "#F1FFF1",
+   "outline": "#076A00"
+  },
+  "canvas_pt": 440
+ }
+}

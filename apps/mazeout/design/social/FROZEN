@@ -1,0 +1,24 @@
+# design/social/FROZEN — the SHIPPED world model, frozen for v1.0 (PUBLISH B2; PLAN-P §4.4, gate G9; social-intl P0-3).
+# Model "shipped" = SocialWorldModel.shipped = design/social/tools/socialsim/v2.py (the calibrated world + M1-M11),
+# world epoch Monday 2026-09-07 07:00 UTC, world seed 0x41524F57204F5554. Every level, name and country a simulated
+# player shows is a pure function of the files below. After release the world evolves APPEND-ONLY (new mechanisms only
+# for join periods p >= the change's period); editing a frozen file rewrites every board players have already seen.
+# Checked by SocialIntlTests.testTheShippedWorldIsFrozen and Packages/PathCore/Tests/tools/soc_freeze.py --check.
+# frozen 2026-09-28 15:27 +0300
+# sha256<TAB>path (relative to apps/mazeout)
+c315541440fe416dbb9001328f5defb6c1f7cdf1be11f91e5cf0eb8ac888e6b8	design/social/data_v2/buckets_v2.tsv
+55710a134973930ead5643c3553c52d053eb399ff63e0750804faa91e2b9897f	design/social/data_v2/countries_v2.tsv
+d853dd2a6b164fbcfc318f81197522d918b78cf4cba600770fde2c7c5a182ed9	design/social/data_v2/regions_v2.tsv
+03c3df70cb7cc2e2b963f2158ea5fb1409659f967b789cc9348c18e2006389e1	design/social/data_v2/social_names_v2.json
+11ae4c2dea65c6ee36ab3189196056bcc8a45152b3476a7a8340ea7c677462bd	design/social/tools/socialsim/core.py
+ce8a928988e0abd6380266866cbc8da7d83dd3e3ab048ce2d454525ad073b86b	design/social/tools/socialsim/data.py
+6a9ab24bce65879ef19c6c5cb7cacaba09a6ccca3315d5f90eb449d7e17fb80b	design/social/tools/socialsim/population.py
+67c3d30cac676bb9256c2b62395a7144ed2f96c8cdda5e2b8b5ed1c5fe318e37	design/social/tools/socialsim/names.py
+53d26f2e2749f7fe6f395c7a2f037369ed29f9f77c92b949b7a2ddab1194f8f6	design/social/tools/socialsim/events.py
+f59626b6eff39a61a2e83ac0b8acb6374f7125da4cd5dc84d5057a196bbf5c0a	design/social/tools/socialsim/shipped.py
+7ed93cc9b1b1d59c8c72d8fb0c592e93c200a683c91b31caea85e5bc04f54245	design/social/tools/socialsim/v2.py
+cf966115e7ce2f48e05eba30d14c912e2859e1733502e6112a07fc6a65d6ced4	Packages/PathCore/Sources/PathCore/Social/SocialIntlTables.swift
+ce95b1cce324b662948cf651c10ccec8746fe7f55394d7951a0a96afeaf1ba04	App/Resources/Social/social_names.json
+25997fdb452a3183045014da31e7d75c7a754cafd054a4e04187cfd1f8b2a57e	Packages/PathCore/Tests/Fixtures/soc_v2_world.json
+4312dd39c6837d2a1417db1d768f8c872bd98529ed76abb074bd54c4aab76eba	Packages/PathCore/Tests/Fixtures/soc_v2_events.json
+7e497d4274eaa3ff405839525eb6a8855c840df712eb709ce6d2594139754735	Packages/PathCore/Tests/Fixtures/soc_v2_intl.json

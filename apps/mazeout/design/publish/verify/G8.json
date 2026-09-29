@@ -1,0 +1,237 @@
+{
+ "gate": "G8 RELEASE BINARY (design/publish/PLAN-P.md §8)",
+ "wp": "V1-app (Wave 3, slot A)",
+ "written": "2026-09-29T14:46:05+03:00",
+ "criterion": "no FakeStore/\"Test store\" in Release; PrivacyInfo.xcprivacy present; 13 .lproj; version 1.0.0 (1); portrait; no ad strings; otool -L shows no ad framework; the real icon (not the 4.5 KB placeholder; 1024 with no alpha); iPad compat audit holds; CLAUDE.md gates that fit a coin game (empty states, rating after L34, Contact Support, Restore if applicable)",
+ "products": {
+  "simulator_release": "build/dd-A/Build/Products/Release-iphonesimulator/ArrowOut.app",
+  "device_sdk_release_unsigned": "build/dd-A/Build/Products/Release-iphoneos/ArrowOut.app (generic/platform=iOS, CODE_SIGNING_ALLOWED=NO; not an archive)",
+  "debug_control": "build/dd-A/Build/Products/Debug-iphonesimulator/ArrowOut.app"
+ },
+ "tree": [
+  "d923af5fe3a69455"
+ ],
+ "binary_checks_by_round": {
+  "1": {
+   "file": "build/p/V1/app/r1/g8.json",
+   "pass": true,
+   "sim": {
+    "fakestore": true,
+    "privacy": true,
+    "lproj": true,
+    "version": true,
+    "portrait": true,
+    "ads": true,
+    "otool": true,
+    "icon_compiled": true,
+    "harness": true,
+    "claude_md": true
+   },
+   "dev": {
+    "fakestore": true,
+    "privacy": true,
+    "lproj": true,
+    "version": true,
+    "portrait": true,
+    "ads": true,
+    "otool": true,
+    "icon_compiled": true,
+    "harness": true,
+    "claude_md": true
+   },
+   "source_icon": true,
+   "debug_control": {
+    "FakeStore_symbols": 124,
+    "chip_text": 1,
+    "GlitchRun_symbols": 362,
+    "pass": true
+   }
+  },
+  "2": {
+   "file": "build/p/V1/app/r2/g8.json",
+   "pass": true,
+   "sim": {
+    "fakestore": true,
+    "privacy": true,
+    "lproj": true,
+    "version": true,
+    "portrait": true,
+    "ads": true,
+    "otool": true,
+    "icon_compiled": true,
+    "harness": true,
+    "claude_md": true
+   },
+   "dev": {
+    "fakestore": true,
+    "privacy": true,
+    "lproj": true,
+    "version": true,
+    "portrait": true,
+    "ads": true,
+    "otool": true,
+    "icon_compiled": true,
+    "harness": true,
+    "claude_md": true
+   },
+   "source_icon": true,
+   "debug_control": {
+    "FakeStore_symbols": 124,
+    "chip_text": 1,
+    "GlitchRun_symbols": 362,
+    "pass": true
+   }
+  }
+ },
+ "items": [
+  {
+   "item": "no FakeStore / \"Test store\" in Release",
+   "verdict": "PASS",
+   "evidence": "g8.py (r1+r2, sim+dev): FakeStore symbols 0, FakeStore bytes 0 in every file, the chip text \"Test store: nothing is charged\" 0; every other \"test store\" occurrence is RevenueCat 5.89.0's own Test Store code (text byte-identical in the pinned RevenueCat.o: dev 26 texts + 276 identifiers) or our Swift identifiers isTestStore / ShopLayout(testStore:) (symbol / metadata names, false in Release, never shown); positive control: the Debug app carries 124 FakeStore symbols + the chip text. Unit StoreReleaseTests.testReleasePlanShopHasNoFakeStoreNoChipAndNoPriceUntilStoreKitAnswers passed x2. Runtime: the Release Shop shows no chip (rt/shop-release-nostorekit.png; log \"store storekit, test note false\")."
+  },
+  {
+   "item": "PrivacyInfo.xcprivacy present",
+   "verdict": "PASS",
+   "evidence": "at the bundle root of both Release apps, valid; NSPrivacyTracking false, no tracking domains, Purchase History (not linked, not tracking); declared UserDefaults CA92.1 + SystemBootTime 35F9.1 = the required-reason APIs our code imports (mach_absolute_time, systemUptime, NSUserDefaults); FileTimestamp selectors in the binary (attributesOfItemAtPath:error:, creationDate) are RevenueCat.o's only (file size read + its receipt model field); RevenueCat_RevenueCat.bundle/PrivacyInfo.xcprivacy present (UserDefaults). ContractAmend4Tests.testThePrivacyManifestShipsWithTheRuledDeclarations passed x2."
+  },
+  {
+   "item": "13 .lproj",
+   "verdict": "PASS",
+   "evidence": "de en es fr it ja ko pl pt-BR sk sl tr zh-Hans = the ruled 13, each Localizable.strings valid (238 strings each, release_gates gate 2); no Base.lproj, no extras"
+  },
+  {
+   "item": "version 1.0.0 (1)",
+   "verdict": "PASS",
+   "evidence": "Info.plist CFBundleShortVersionString 1.0.0, CFBundleVersion 1, com.manycode.arrowout, display name Arrow Out, MinimumOSVersion 18.0 (both rounds, simulator + device-SDK Release bundles)"
+  },
+  {
+   "item": "portrait",
+   "verdict": "PASS",
+   "evidence": "UISupportedInterfaceOrientations = [UIInterfaceOrientationPortrait], no ~ipad list, UIDeviceFamily [1], UIRequiresFullScreen true"
+  },
+  {
+   "item": "no ad strings",
+   "verdict": "PASS",
+   "evidence": "13 catalogues: 0 ad vocabulary except the Privacy page's true statement \"%@ has no accounts, no ads and no tracking.\" (x13 translations, listed in g8.json); Info.plist: no GADApplicationIdentifier / SKAdNetworkItems / NSUserTrackingUsageDescription; no ad-like file names; ad-SDK identifiers in the binary: only RevenueCat's own (\"AdSupport framework not imported. Attribution data incomplete.\", its AppLovin attribution-network enum literal), byte-identical in RevenueCat.o"
+  },
+  {
+   "item": "otool -L shows no ad framework",
+   "verdict": "PASS (1 WATCH)",
+   "evidence": "no AdSupport / AppTrackingTransparency / third-party ad SDK / iAd, no embedded Frameworks/ (both builds). WATCH: the device-SDK build weak-links /System/Library/Frameworks/AdServices.framework (Apple Search Ads attribution-token API: no ads, no IDFA); the only import is _OBJC_CLASS_$_AAAttribution, also in RevenueCat.o; our code never enables RevenueCat attribution (0 source hits). The simulator build does not link it. See failure V1A-G8-4 (needs a ruling)."
+  },
+  {
+   "item": "the real icon (not the 4.5 KB placeholder; 1024 with no alpha)",
+   "verdict": "PASS",
+   "evidence": "App/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png 1024x1024 RGB (no alpha channel) 262,694 B, md5 0164fe6d3cc21fce6b53a2910f444037 = art/out/appIcon1024.png (icon B \"Loop\" on white, looked at); compiled Assets.car AppIcon 1024 light rendition Opaque=true (dark variant non-opaque by design, tinted opaque); AppIcon60x60@2x.png alpha min 255 (device PNG reverted from CgBI)"
+  },
+  {
+   "item": "harness out of the store build (ruling 52a, extra)",
+   "verdict": "PASS",
+   "evidence": "GlitchRun / FrameWatch / DebugTabLoop / PlaceholderBoard / BootPlaceholderView / LoadingPlaceholderView symbols 0 in both Release builds; Debug control 362 GlitchRun symbols; release_gates gate 1 PC-DEBUG-PLACEHOLDER 0 (Debug control 1)"
+  },
+  {
+   "item": "CLAUDE.md: rating prompt after L34, not in onboarding",
+   "verdict": "PASS",
+   "evidence": "bundled Tuning/game.json rating.afterLevel 34 (TuningTests x2); RatingDirector asks once per install on the home after the L34 win; the fresh-install FTUE test through the L7 unlock card asserts no second system prompt (x2 after uninstall); RUNTIME on the Release build: a player at L34, autoplay wins L34 (102 taps, 0 bumps) -> home at L35 -> \"[PC][rating] requestReview after the L34 win (once per install), level 35\" and the iOS \"Enjoying Arrow Out?\" sheet over home (build/p/V1/app/rt/rating-after-L34.png, rt/rating.log)"
+  },
+  {
+   "item": "CLAUDE.md: Contact Support = anycodeapps@gmail.com",
+   "verdict": "PASS",
+   "evidence": "bundled Tuning/game.json support.email = anycodeapps@gmail.com (both Release bundles); Settings > Support: mail composer, else mailto:, else a page showing the address + Copy (never claims a message was sent); MetaTests.testTermsPrivacySupportAreHonestInEnglish / InTurkish passed x2 (assert the address on the pages)"
+  },
+  {
+   "item": "CLAUDE.md: Restore Purchases if applicable",
+   "verdict": "N/A",
+   "evidence": "all 12 products are CONSUMABLE (ArrowOut.storekit + design/publish/iap.json): no non-consumable or subscription, so Guideline 3.1.1's restore requirement does not apply; the app ships no Restore button (and claims none)"
+  },
+  {
+   "item": "CLAUDE.md: empty states designed (no blank screen)",
+   "verdict": "PASS",
+   "evidence": "the Shop before StoreKit answers keeps every card with a disabled \"...\" price well, asks again on every open (StoreReleaseTests x2; never a hard-coded price); ladder pages with no running event draw no countdown (EventsRotationUITests.testALadderPageWithNoRunningEventDrawsNoCountdown x2) and ended events read Finished until opened; leaderboards are always populated by the local world (SocialUITests x2); Profile shows level + stats (MetaTests.testProfileShowsLevelAndStats x2). Runtime: on the Release simulator build StoreKit answered 12/12 from the App Store sandbox (the ASC IAPs exist), so the Shop showed real prices ($0.99 Special Offer, $4.99 Mini Bundle) - the \"...\" state was not reachable at runtime here, only in the unit test."
+  },
+  {
+   "item": "Build clean, warnings reasonable (CLAUDE.md 1)",
+   "verdict": "PASS",
+   "evidence": "6 clean builds (Debug build-for-testing, Release sim, Release device x2 rounds): 0 warning lines, 0 errors (-quiet prints warnings)"
+  },
+  {
+   "item": "dark mode (CLAUDE.md 2)",
+   "verdict": "N/A",
+   "evidence": "the app pins .preferredColorScheme(.light) at the root (App/GameApp.swift:23; fixed game palette)"
+  }
+ ],
+ "runtime_looks": [
+  {
+   "look": "Release Shop tab, no .storekit configuration",
+   "result": "StoreKit 2 answered 12/12 products from the App Store sandbox; real prices; no test chip; 0 FakeStore",
+   "files": [
+    "build/p/V1/app/rt/shop-release-nostorekit.png",
+    "build/p/V1/app/rt/shop.log"
+   ],
+   "looked_at": true
+  },
+  {
+   "look": "Release: L34 win -> home at L35 -> rating sheet",
+   "result": "requestReview logged at level 35; iOS review sheet over home",
+   "files": [
+    "build/p/V1/app/rt/rating-after-L34.png",
+    "build/p/V1/app/rt/rating.log"
+   ],
+   "looked_at": true
+  }
+ ],
+ "provenance_supplementary": {
+  "scripted_gates": "release_gates.sh gates 1/2/2b/3/7/7b PASS on all 4 Release bundles (r1/r2 x sim/dev): 0 research paths, 0 v552/v582, 0 capture keys, 0 lab fixtures, 0 phone/video/bot_ log text outside RevenueCat.o, 0 original names by gate 3's rules, 178 bundled JSON with 0 non-runtime keys (curve.json /_about KEPT by ruling)",
+  "supplementary_scan": "build/p/V1/app/provscan.py (every printable run of every bundle file, case-insensitive: maze, grand games, arrow jam, v55x/v58x, research, recorded/recording, video, phone, bot, original, clone, copied, 1:1, owner...; RevenueCat.o-identical runs dropped) -> r1/r2 provscan-{sim,dev}.txt; binary-safe scan of the device binary before/after `strip` (archive = STRIP_STYLE all) -> r2/binary-brand-scan.txt",
+  "findings": [
+   "the store binary carries the lowercase literal \"maze\" (1x, standalone, in the data section; kept after strip) = PathCore SocialModel.swift:303 extraBlockedStems: [\"maze\"]; gate 3 greps only case-sensitive \"Maze\" -> blind to it (V1A-G8-1)",
+   "the non-archive Release binaries carry 1,543 \"/Users/yago/Downloads/app-factory/apps/mazeout/...\" debug-map paths in the Mach-O symbol table; `strings -a` (gate 3) does not read the symbol table and gate 7 does not look for \"mazeout\"; a simulated archive strip (`strip`, STRIP_STYLE=all) removes all of them (0) -> the store archive is clean only if it IS stripped; the dSYM keeps them (V1A-G8-2)",
+   "the store binary carries PathCore LevelSource's raw values / case names \"recorded\" \"video\" \"designed\" \"generated\" (__cstring + __swift5_reflstr, kept after strip) (V1A-G8-3)",
+   "benign, no action: OFL.txt \"Original Version\" (font licence), social_names.json nickname parts \"...bot\" / \"cyclone\", ui.json \"Nordmazed.\" (German N. Macedonia), en \"Copied\" (the copy-address toast), log texts \"RevenueCat recorded\" / \"not recorded here\" (purchase recording), avatar id \"Scientist\", PNG byte noise"
+  ]
+ },
+ "not_in_this_wp": [
+  {
+   "item": "iPad compat audit holds",
+   "status": "NOT RUN by V1-app",
+   "why": "PLAN-P §4.5 S1 owns it on a created \"Maze iPad\" simulator (slot B); this WP may use only Maze A"
+  }
+ ],
+ "failures": [
+  {
+   "id": "V1A-G8-1",
+   "severity": "P1",
+   "slot": "B",
+   "what": "The Release/store binary contains the plaintext literal \"maze\" (the original's title stem): PathCore SocialModel extraBlockedStems [\"maze\"]; G4(c) says blocklist stems are stored hashed; release_gates.sh gate 3 is case-sensitive (\"Maze\") and passes it",
+   "evidence": "build/p/V1/app/r2/binary-brand-scan.txt: standalone_maze_literal 1 in the device Release binary unstripped AND after strip; `strings -a ArrowOut | grep -cx maze` = 1 (device) / 2 (sim, fat); source Packages/PathCore/Sources/PathCore/Social/SocialModel.swift:303, used by Population.swift:797-799",
+   "fix_hint": "store the stem hashed like B2's name bank (e.g. compare a hash of each 4-gram of the lower-cased candidate against a stored digest) keeping the generator bit-identical (Tests/Fixtures/soc_v2_* pins); add a case-insensitive binary-safe \"maze\" check to gate 3 (planted control) so the gate sees it"
+  },
+  {
+   "id": "V1A-G8-2",
+   "severity": "P2",
+   "slot": "none",
+   "what": "Non-archive Release binaries carry 1,543 absolute build paths containing \"/apps/mazeout/\" in the symbol table (debug map); gates 3/7 cannot see them; only the archive strip removes them, and the dSYM keeps them",
+   "evidence": "build/p/V1/app/r2/binary-brand-scan.txt: mazeout 1543 unstripped -> 0 after `strip` (STRIP_STYLE=all, STRIP_INSTALLED_PRODUCT=YES apply at archive); r1/provscan-dev.txt lists the paths; `nm -ap` lists the debug-map entries carrying those paths",
+   "fix_hint": "S2/S3: after exportArchive, scan the IPA's binary binary-safe (python/grep -a, not strings) for (?i)maze and research/ = 0 before upload; decide uploadSymbols in the export options (the dSYM holds the same paths); optionally teach gate 3 to strip a copy (or read bytes) before its brand grep"
+  },
+  {
+   "id": "V1A-G8-3",
+   "severity": "P2",
+   "slot": "B",
+   "what": "The store binary still names level provenance: PathCore LevelSource raw values \"recorded\" / \"video\" / \"designed\" / \"generated\" (and their reflection names) though N-01 dropped \"source\" from the shipped levels",
+   "evidence": "device Release binary after strip: \"normal\\0hard\\0superHard\\0recorded\\0video\\0designed\" in __cstring and \"...recorded\\0video\\0designed\\0generated\\0stringValue\" in __swift5_reflstr (r2/binary-brand-scan.txt LevelSource_recorded_video_cases 2); source Packages/PathCore/Sources/PathCore/Model/IDs.swift:129-133",
+   "fix_hint": "compile the recorded/video cases for PC_RESEARCH only, or give the shipped enum neutral raw values (e.g. authored/generated) with the research tools mapping; extend gate 7's scan to standalone recorded/video words in __cstring/__swift5_reflstr with a planted control"
+  },
+  {
+   "id": "V1A-G8-4",
+   "severity": "P2",
+   "slot": "none",
+   "what": "otool -L of the device Release binary lists AdServices.framework (weak) - pulled in by RevenueCat 5.89.0 (AAAttribution); G8 says \"otool -L shows no ad framework\"",
+   "evidence": "r1/r2 g8.json dev.otool.WATCH_attribution_frameworks: libs [AdServices], imports [_OBJC_CLASS_$_AAAttribution] also in RevenueCat.o, our code uses it: false; `otool -L ... | grep AdServices` -> \"(compatibility version 1.0.0, current version 1.0.0, weak)\"; the simulator build does not link it",
+   "fix_hint": "orchestrator ruling: accept as Apple's Search Ads attribution API weak-linked by the pinned SDK (no ads, no IDFA, never enabled: Purchases attribution collection is off), or drop it only by changing the RevenueCat dependency"
+  }
+ ],
+ "pass": false,
+ "summary": "G8's binary checklist PASSES on all four Release bundles (r1 + r2, simulator + unsigned device SDK) with positive controls: no FakeStore / test chip, privacy manifest present and covering our required-reason APIs, exactly the 13 .lproj, 1.0.0 (1), portrait only, no ad vocabulary / ad SDK / ad plist keys, no ad-serving framework, the real opaque 1024 icon; CLAUDE.md gates: rating after L34 seen at runtime on the Release build, support address, consumables-only (Restore N/A), designed pending/empty states. NOT closed here: the iPad compat audit (S1). Findings outside the scripted gates: the store binary still carries the plaintext stem \"maze\" (P1, gate 3 is case-sensitive), the LevelSource \"recorded\"/\"video\" names (P2), 1,543 \"/apps/mazeout/\" symbol-table paths that only the archive strip removes (P2), and a weak AdServices link from RevenueCat (P2, needs a ruling).",
+ "status": "NOT GREEN: the binary checklist passes on all 4 Release bundles, but V1A-G8-1 (P1, plaintext \"maze\" stem in the store binary) is open and the iPad compat audit is S1's (not run here); V1A-G8-2/3/4 are P2 (4 = needs a ruling)"
+}

@@ -1,0 +1,163 @@
+# Tests/Fixtures/research — the frozen research corpus the C1 tests (GeometryTests, LevelJSONTests via C1Fixtures) were written
+# for. Layout mirrors apps/mazeout/research/. Verify: cd Packages/PathCore/Tests/Fixtures/research && shasum -a 256 -c MANIFEST.txt
+#
+# levels/*.json (71 files) = git show 4a06449:apps/mazeout/research/levels/<file> — L032-L061 (the 30 recorded phone levels,
+#   source "recorded") + their 10 -openK reveal states, and L001-L031 (video-sourced research/levels files, source "video").
+#   Phone session 2's L062+ files are NOT part of this set (the tests pin 30 recorded levels / 40 phone files).
+# levels/video/*.json (28 files) = git show 4a06449:apps/mazeout/research/levels/video/V?-Lnnn.json.
+# video-frames/work/extract/*.json (48 files) = V1-L001…L020 + V2-L011…L038, regenerated 2026-09-25 by the video pipeline's own
+#   extractor (research/video-tools/vextract.py extract_level = 'vextract.py level V N', the extract half of vbatch.py) from
+#   research/video-index.json + the kept start frames research/video-frames/V1|V2/Lnnn-start.png (elevator hidden layers read
+#   from the owner's videos via vgrab). V1-L019, V2-L021, V2-L032, V2-L033 are byte-identical to research/video-tools/
+#   validation/; all 48 match validation/batch-summary.json (arrows, hidden, grid, pitch, IoU, anomalies, obstacle kinds).
+# C1's own evidence run (build/c1/evidence, 06:46) predates levels/L021-L031 and levels/video/V2-L031…L038 (the video lane's
+#   additions, committed together with C1's tests in 45bb0f2); every entry common to both runs reproduces C1's reports line for
+#   line (import-report-video: all 48 extracts; import-report-research-levels; fit-rule-30-levels; reveal-merge).
+#
+c142f710615cafd1d1be44fcddeb7f0a285993685f76a1c65573de399c32b931  levels/L001.json
+90e64b1c36c19cb509d1e76c4f1176348435019a7ce72083ac43108f8296a435  levels/L002.json
+37e749dcd28b7c96f8456572d566c414cd3ea91a119868fbc3a39eb0a5af95c6  levels/L003.json
+8fb7039a9777bdbabf1a88aaa40756cb7bea65ea2d5f5cc079b4de0b94455978  levels/L004.json
+961de2cfc38372621371b0c2862baa8f6feade1820e3b733a176053c8d9d251e  levels/L005.json
+cf9bd2f01b63e145e0421fbb545202db921e0605f7a67c6131c4427adbbffa91  levels/L006.json
+9102a20faef9c0fbe6138c3cd23dec5e60a5617eae77dddaeaaa0f353410bf8c  levels/L007.json
+d36a823453d20287841a0bc8786b746862c42e856035852256de772da251fa9d  levels/L008.json
+52d8f68fbb6a93595d9e253e8fed4bf8a9e5ee697cdafb9f510c4ea5185cfcd2  levels/L009.json
+6db0dcccd546bd0ce0f60e8f8ecf37f065cd9b1eeed7a3f96a71e3683d542310  levels/L010.json
+991c6b91c0edb8405aa987fa2a3c53bb336ea90434e90e9d60bde5aef8cfe265  levels/L011.json
+efe18f221ff7ce281490faa88049d3fd4f872f3ac07287052ffc9aedb0dc7856  levels/L012.json
+2a884e3e894434e1f7384dd0d7a540b06705528eefdda17e4a7c74ddde940d4b  levels/L013.json
+7828e32899654cac82b1ca8c7c38a42a423a6b2b164539a8872e010d59df12e5  levels/L014.json
+91bba6c52ebdcd4ef233d8f2f9a7dbec56f888d9505e48cbd24eb0dfc677edf1  levels/L015.json
+a31974d4b6185fe15e3fd864987d980a31ba69e8044dc886c96753def989f74e  levels/L016.json
+7b71c7f2076912cced58a3958b004747b285631f52848b5eaeb73f32b9932542  levels/L017.json
+9800127e1e14616e3c7af8928f3bcd9740d10c635c245b9bdea9ff6c2b00da33  levels/L018.json
+3b4df722948a4f118328130120712c6d1e0b77ee75e8d472ef42e59171dfa63a  levels/L019.json
+338687e1f7d7a5a93b73e97a7d574724684b14dad1fcca57dc5dac0bb700884f  levels/L020.json
+c0d0b3d0b9ff07465e896a37519fbc1d3217a1e84909efcab8bea23e7300d76e  levels/L021.json
+ab6dcabd10a7c81112ba089d1792d83c5796fd3dd0d1ec79dbf4406f4df37ea8  levels/L022.json
+13039c3e3f01d55ca6136825f4e7ec33d9f2a4aa57665043f20d15168fbda13a  levels/L023.json
+73cd9277a68488ed378747d7756002db51de34b17d5b44420805d44eb5ac3969  levels/L024.json
+aa4b19a1ee820fd01476f4f09c33ea42200e2dda4ba8e3e8f4cf843844b1c881  levels/L025.json
+04fffd467874b04e8ba6a3841e44786ebbff6c31b9c43115a3c9fd6982471753  levels/L026.json
+13b344b50aa5d530097669215e887280b7b8a4d5d63527d1ffc191e60ef2cc38  levels/L027.json
+9c9d29a7740e349e776b5a62b77ee1c97592febc7adff78895dbe282a8779e40  levels/L028.json
+2ab6089030ee9dd33cce48d194c855adce4f4820e8f4bb141b1123b42c8c2851  levels/L029.json
+6dd2eb3538f3ff6196f58f4482905071a493130bf1f5d2b23548708d885339d4  levels/L030.json
+f2816cc9e3f0eb4c444f77876bdfd7d1322a274b4d1cdd3015f4cf69b8c1f4ea  levels/L031.json
+da27310b5f9746e5b66c484edec4b2f4d6cf39d7b1f94a3c4a4a3b092a5fa3aa  levels/L032.json
+0b822dd63ead33735587adb3e1bf1659ceea7b159be1f214cfa3fbeaac04334f  levels/L033.json
+e9154e22e06ca6f045815f83bca7f531ce4b3e9c772df01e4eead5db11f60329  levels/L034.json
+cd437de9632d21fcafb4adca6122eaa31366d72ddb79c54cba60d6ca0261a20d  levels/L035.json
+1280f69f9efe93048f123a01bb7eb1f2100ce9d06175143e4c49f145c4b27f09  levels/L036.json
+10972449935327a01a4c98aafd04da57347228066e5de26dcf3385e5d82b8b44  levels/L037.json
+b9729761eaa0dd93465bb74f663e81536c64cbcda3b2a4b15769a17f23874102  levels/L038.json
+04497c853036989291faa417de8a97b04b5a2827c11ca147c36aefa0e78d709f  levels/L039.json
+0670e86a5558dc9239bc0772730d768d9153f1491cdfca59b9541262e7b501b1  levels/L040.json
+4e5b96c7f4e6908aec4fef5308da71583fc5f81c0793ab7d54d7a24a5d429239  levels/L041.json
+eb11386bc238e3f215a0040158926e9354d2de86f777753cb5ee483a7d9e7115  levels/L042.json
+35e84137ecbb7596ea58b3997d65092b17b5799e4fcd4ac2efc3f05919feba06  levels/L043.json
+21916768f8fca09f14f2b0202b9b47134b9d866b7a97addd410a7f39e6f27226  levels/L044.json
+7164a4de1d23ffe40d6d478029cb29b14cda1ce965bd817f3784b7afbdacc6a9  levels/L045.json
+4ea50e0f5accf6b1c5985a1b32cb776edbdf8f283899e9396a60cb40a89e68c6  levels/L046.json
+5c6685a1d1666bd02a6b43c8562eafc5a20499665fda3dbd85e9bc5f56b73f7d  levels/L047-open1.json
+cdf1f0815277663f8eb5e9167a6d8de7e616b66cd484c00bfaabbfba2491c13c  levels/L047-open2.json
+8acd6e527053025ef1c6b2d0ccab62b24f839eeb76fa508c448cdceb0ba09e33  levels/L047.json
+f207b0a7a27c92458ad6d87cc9edcc9e1d615578daef05754b3a5736921f5aa0  levels/L048.json
+665eacea5c77dab1dcb86207042169fe5e14bcd407fa83e25cba92a097bcaa32  levels/L049-open1.json
+672afc63bf0d0eb135dcebab2d0bac98d884ed14139b633a9688ecb899598ac6  levels/L049.json
+7ac5db5bfa88c86284dc30959ee5ea95bb5db847e06b9fd28a00d88d27ad5235  levels/L050.json
+bc08d1540f7c6ef212a028edf3f35e531067656fff5f9b5d81ad17dc1e89fbcb  levels/L051.json
+74427533d8c58d60a2ff0a72205e141a237ef2d81331ae1ba47d919728b5e17d  levels/L052.json
+7645df7d06dd25428f418aeaa94c297a2505d7a7b6d90ef14fd29b6f0362070a  levels/L053-open1.json
+749e58911da91cf2c3ba4949885e2447c059ec47fbb2541d9917ef51fba70db5  levels/L053-open2.json
+65727eff4a7a023a12a4b36c9771e9c9b2680cf28f616b94555d286bd9585434  levels/L053.json
+11bbfd2623b7bc692d5b5f20e511ef24ef226b7bb9f2da0e7c3aad162cdaa3ea  levels/L054-open1.json
+14b7db7fd1d14bb61b9b7a34c35fe1557d1a287943d910b78c3f597556e320e0  levels/L054.json
+51125f49a82b2c428986c9728d24a9ccc0f2761db179601868bd67c9846dd7d9  levels/L055.json
+139809d279624860abbcb6c9986d074a72037e953931016cc2e997614670d83f  levels/L056-open1.json
+29f5e07f048024b3eddabaea49dedd1b2a90a9a1c4de05a8bd8e5979a84ff44f  levels/L056-open2.json
+f29ec1f8a9e71bdb7f1c59a76ef126fae7b67ef5a08a94007fe1366308d70cd8  levels/L056.json
+9e8cb9b3317bcebfc5b88083ed09546b81379167d1392be87b7858fd119ee4f9  levels/L057-open1.json
+6c100619ff28bc29f77d4adcb27c00396d6357f9d1d3d37510597568a58778f7  levels/L057.json
+b899cefe8cdca191dd12ce64d18390d7c82a513b80bbe4e06566686e729aaf46  levels/L058-open1.json
+1549912d74b8d832405d9121dc7212d44ad3230b2c50eb9dd023cb96fec9637f  levels/L058.json
+d0f2d31c01e0b0729158fe126a39cdc7eacd01c1eba97ddd896ec20189f6c544  levels/L059.json
+b4b531e520c8e617aebfecebc8718eff49a69bab687d058bf1689c280fb0276f  levels/L060.json
+4b1a8f9ea2c9ba5e4a23afa294b86b404c4d32db6dba56f9af8959a33bf12a70  levels/L061.json
+79627dc9d54cf41852f17b3acb75f9cc706f459fd9f21f5282a340fcf0a19294  levels/video/V1-L011.json
+110625d3141535ed63059b61a6552ff128d2179ae7082946b559f3274fbb55cb  levels/video/V1-L012.json
+b1be34da760bc24140ed5cb4b74e44e27664207994d4471ed9edcf1c83c04a4f  levels/video/V1-L013.json
+7f2b0ca61e8bdfebdd0078d84874c5867444eec9158b48c64773ec5acb53c6d4  levels/video/V1-L014.json
+1cc5850c327f85ff72f81c95df9de80be79cbb96fe98e38bf551b4f66ab1a3f5  levels/video/V1-L015.json
+635a839b7e521655cda11cc183226f11ce261001bed2abd18303e097c28fb532  levels/video/V1-L016.json
+1e17aab9e5afee7d24e9ea32a81929f44f30fa145e11b5be6eb3108bb4116949  levels/video/V1-L017.json
+7c8aa6aee9d47f90e3502d3a2c7debc0bb9837ae51952fc6cd0a1a35c78ba7e7  levels/video/V1-L018.json
+0618d847fcd891460d309cfa0eb6bf2d63b468cb702f77306218ee4047b30d03  levels/video/V1-L019.json
+bcc28f616066097661160a388ee6407ab2fe9b24b09dabaf8cddb17b64141767  levels/video/V1-L020.json
+0c8f29041ccf088754c94440ba17606eb63a809793a0cfff4089b2a6531c14fa  levels/video/V2-L011.json
+b50057dc19e82d76a0631ca1a085d5eee5fe3068b6061d1e508965ce6032d1cb  levels/video/V2-L012.json
+cab2688cbc3480f73170e67ea492ba0cee3f8c0aa9c5898ace719bf3d0580f17  levels/video/V2-L013.json
+7d30f828be4404e9b19984288e6215a17e8397e9befc8b251209212c536eed87  levels/video/V2-L014.json
+c96f4285adc6044c5837054abc0a1a020a9515e7cc1a5fa14967bb5bd0971faa  levels/video/V2-L015.json
+f6d57ba68856c18aeec0d6b8a1dcefaddf9f05457dd32e2a4b96e7073b96f663  levels/video/V2-L016.json
+c87c991a4a27146a6aa6f947259224fde32d85a1dcd7e24da0969adb69bf1231  levels/video/V2-L017.json
+d34bbd48660dae710e6ed61a24968016b4b9b21b2c62ae845e8264ebc475bd0d  levels/video/V2-L018.json
+88c744d7c3f88705faaf5d15dee38bf04cc9ab38d6e00da235d8c6c56669aa03  levels/video/V2-L019.json
+84f85f867ded93564f9a8c3585e0a0e0a079b5b09f2788f6b8af1759d7c2fc4c  levels/video/V2-L020.json
+7c74cce0a27a725a834f5d8ffc35d08e7bcb77635a692cefb8587c1a5a32934b  levels/video/V2-L031.json
+e7993816dcc02b4d81f929db2941354bba37cc78ce41344aff49dc1d7f55fde3  levels/video/V2-L032.json
+fb5d759e80001fac4e96a9eb7991075fb6fb297a68640f278df927dc87abfdc8  levels/video/V2-L033.json
+2b7990101335de08eb455351018b22861183332661c711252711c400c4ea0f5a  levels/video/V2-L034.json
+b48d163dc61e15857b626b469126145c663b79aab6c8637cda34b2cdf679418d  levels/video/V2-L035.json
+d5be33d8d70e5422e36ba83296200cccbbf9e54529eeb0a6e531d696d8ce886d  levels/video/V2-L036.json
+a60c8b044cae5322e58d9fa389cec59d745a97857184d522db874834c5b63d9a  levels/video/V2-L037.json
+c080e819c8a6a7931ba0cb37bef090251c4c5bd643e25d6203edd4027b0fe461  levels/video/V2-L038.json
+cfa2711a274f7b3190e6974a65d0e1c29ecbaaedc339683a40aca3248c9d00a8  video-frames/work/extract/V1-L001.json
+e3515ba97f307d798881667e99644c7606444a44548686e99b80ae16ea316114  video-frames/work/extract/V1-L002.json
+92857316b825268ddd775221a929b9bcab262877be27e8dd35ccb646fc6b127b  video-frames/work/extract/V1-L003.json
+4aa2f0d47a0ae84a895c96d105737acec9abf64d12f168cdfc9a3837f4cf92e8  video-frames/work/extract/V1-L004.json
+de85e6dbcd190335dad0e3c1e1b7dd47898ff5c642a9627f0a5011b4f84ec33c  video-frames/work/extract/V1-L005.json
+418a22ae68dfa955f48b6d032b6df5804b5ebbcfb954fcb4cd9e17fb6c4be557  video-frames/work/extract/V1-L006.json
+966dff5071fd5ba1928575d74e298c85d6d455e40274430bd43f533b6b2260e5  video-frames/work/extract/V1-L007.json
+553362e0d712eccf639fb5a7763047cf308b64505e16915b43ea23ad4a096a86  video-frames/work/extract/V1-L008.json
+dc0fce654dfd6e9c3243e1533e84b7a9d7d4044ef6ecb73acaca28e114370835  video-frames/work/extract/V1-L009.json
+fc22170aa1d89b4157699ec22ad4c27ceaec4557349f4f13ffba177a8ede1090  video-frames/work/extract/V1-L010.json
+70a1206f876c1525fa18b9ec31ccc4d798e8f088e2efc6f43261e0e83d854998  video-frames/work/extract/V1-L011.json
+e2c778ecfc8c4440698ccd23504c532895261142260407a925c49ed0630280b6  video-frames/work/extract/V1-L012.json
+76597b37fbd7a8d150174e902b90006d1656b87b4fe1d7487ed200d8d7313b59  video-frames/work/extract/V1-L013.json
+dd9da6b258a1f11ec5b28d3180b4c69acd4a3de200b1f8ffe2b6e9f73fa5689e  video-frames/work/extract/V1-L014.json
+0601646b4371227999f0573d2d3b03adf7ac0e95670e3cf3b3d14686b57783fb  video-frames/work/extract/V1-L015.json
+729ccd71c6c83b7408ecb6606d379c22fe2165ed8736aef29859ad35bbc7359d  video-frames/work/extract/V1-L016.json
+7b3eeb437aef7418755890cf9e1e5de92ed9115c78d0f214d6d9fd130a399202  video-frames/work/extract/V1-L017.json
+4e87bb7a89d4086f8c57cbce8975ec6d6f700b30636f33db2ef8938fedc10065  video-frames/work/extract/V1-L018.json
+589936b45acd95a69d010e4507a7092657b677ad2271a66ffd681d7d96286aa5  video-frames/work/extract/V1-L019.json
+9e7fdb93ac7066c0d0d4e0911adeaecee46244c30c7e5bc24506d3e65b84842d  video-frames/work/extract/V1-L020.json
+66d02579e5ed8179302ff234635a60450283da14dd5b48928a7cd4068d3ff75f  video-frames/work/extract/V2-L011.json
+84acc8e92176b09d8cbe5f993d99b6f72966c5c2c08094d6e1e6342c308bebc1  video-frames/work/extract/V2-L012.json
+ff374c0462f751f20463e0ac26c425a5003a0150bb49ec6cc77cd87df6f91ce1  video-frames/work/extract/V2-L013.json
+edfd94a70a400f999bda99b8e210cc51bbb3e08b03f3715c8d7408819914c251  video-frames/work/extract/V2-L014.json
+513afccad5d7f0c388ee7ac9f897756298573a348e50448bd4106068eaa1e5dd  video-frames/work/extract/V2-L015.json
+354b10905be80faba56a9b9e341fbd96e35f32c8cbbe8a5a6251c0be24260da4  video-frames/work/extract/V2-L016.json
+744c6419d6a375c01dbfd8458d7829914a074194077704626e1d8f76c410e07d  video-frames/work/extract/V2-L017.json
+6a362aab767d1794e0c0bbd62cde93afacf1a0fa054845ffd0c0b5c72a5a9b20  video-frames/work/extract/V2-L018.json
+00a41d96c9e96234231c43d2e7264f88063ff45662ab08c38581ad5b56014a8d  video-frames/work/extract/V2-L019.json
+cfabf4e08bb6b119bec3ec934de214a299ec77370fa9a06d2474d7db69f1040c  video-frames/work/extract/V2-L020.json
+3d3fca16285f5f369e50b8b6b781673735625c849a4346044928fe8a4e7316af  video-frames/work/extract/V2-L021.json
+5f8dc42d8a65e531356d429b815c4159cafdf5bbca91bc6d57b40bc9dc01db0b  video-frames/work/extract/V2-L022.json
+d6a79942d74abf211a3fa15d66e6933da0c7aad10ee89144614ed224522157c5  video-frames/work/extract/V2-L023.json
+f2e7d25da3016917191226f3dcf8516a316aa31debc5d54fd6549a5121b70166  video-frames/work/extract/V2-L024.json
+58b79906ab4133820817f37da376b7c53c468aa4a083f64fb0d818ec347639f3  video-frames/work/extract/V2-L025.json
+fe9575639129708cfebf66c4b96b65b195627c5740cf194b702e56d21821642b  video-frames/work/extract/V2-L026.json
+038f81f826d0bd31e3ef8626652f1569cf05db7c5ce20c7c8f330231a4c0fb17  video-frames/work/extract/V2-L027.json
+ba6dd92f59897d39cef03da49038ebcd172c61a513050bd9fed1db8555a5c98c  video-frames/work/extract/V2-L028.json
+be56e6e120addeace619dcf9f71d4803ca1d849ae0103d476a3f507cbd9fe968  video-frames/work/extract/V2-L029.json
+0c3c0ef9f5eda16e4d2f06485766213a3b1e1a43384d65a9aaa9ea6a4a577220  video-frames/work/extract/V2-L030.json
+56176b380b4b003f16d1529f2bfd9ed443becc716100f9f47ede6b378c63033b  video-frames/work/extract/V2-L031.json
+75f795131e7b334e100e75ebd573d74bdcbe32545a82fb01730193a945379b75  video-frames/work/extract/V2-L032.json
+5a96a96ee7313883e9c3b8ddf63c51e9564d40f293e13d453a12fbda4cf568f8  video-frames/work/extract/V2-L033.json
+d116e30f31f9c589cdb6afb148f36106c49095f45a0697820e968d0c4639971c  video-frames/work/extract/V2-L034.json
+1e5f34242412a9d8b163a3666d7f04ab6f0b10a364adbea6af3acef58f0bb0d5  video-frames/work/extract/V2-L035.json
+8f451817abae93f450b4e6d01b88cabcc9afb20f6a3ae6a5fbc9880a82edd746  video-frames/work/extract/V2-L036.json
+d32f9bb8ac0370e0bfad1b2a85a3b40c39994ae4c707ccac967bb3e27fd1fcff  video-frames/work/extract/V2-L037.json
+574626d756f6c6eca32bfa72394a3fa26cbf3a618911ea53936ed398381e9a27  video-frames/work/extract/V2-L038.json

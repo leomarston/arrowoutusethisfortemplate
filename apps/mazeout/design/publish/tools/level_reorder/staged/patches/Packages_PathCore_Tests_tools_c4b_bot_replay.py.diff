@@ -1,0 +1,53 @@
+--- a/Packages/PathCore/Tests/tools/c4b_bot_replay.py
++++ b/Packages/PathCore/Tests/tools/c4b_bot_replay.py
+@@ -13,6 +13,10 @@
+ 
+   python3 Packages/PathCore/Tests/tools/c4b_bot_replay.py            # writes Tests/Fixtures/c4b_bot_replay.json
+   python3 Packages/PathCore/Tests/tools/c4b_bot_replay.py --check    # exit 1 when the pinned levels' taps changed
++
++LEVELS are the LOG's level numbers (v552's). Since the level re-order (PUBLISH item 12) a number no longer names a board: each
++board is found by its provenance (design/tools/level_order.py: the v552 number in its capture), replayed under the log's
++number, and its row records `slot` = the level it ships at (BotReplayTests replays the taps on C4Fixtures.level(slot)).
+ """
+ import hashlib
+ import json
+@@ -24,6 +28,7 @@
+ APP = os.path.dirname(os.path.dirname(PKG))
+ sys.path.insert(0, os.path.join(APP, 'design', 'tools'))
+ import replay_log  # noqa: E402
++import level_order  # noqa: E402
+ 
+ LEVELS = [69, 73, 76, 79, 80, 82]
+ LOG = os.path.join(APP, 'research', 'bot', 'log.jsonl')
+@@ -35,15 +40,18 @@
+     raw = open(LOG, 'rb').read()
+     recs = [json.loads(x) for x in raw.decode('utf-8').splitlines() if x.strip()]
+     doc = json.load(open(CONTENT))
+-    lv = {l['level']: l for l in doc['levels']}
++    board, slot = level_order.resolver(doc)
+     out = []
+     for L in LEVELS:
++        b = board(doc, L)
++        assert b['source'] == 'recorded' and level_order.rslot(b) == L, 'L%d: not the phone board v552 L%d' % (L, L)
++        lv = {L: dict(b, level=L)}                   # the board under the log's number (replay_log reads the log by it)
+         assert L not in replay_log.WINNING_RUN, 'L%d: the log holds two attempts' % L
+         taps = [r for r in recs if r.get('level') == L and r.get('result') == 'tapped']
+         known = {frozenset(map(tuple, a['cells'])): a['id'] for a in lv[L]['arrows']}
+         dx, dy = replay_log.best_shift([[tuple(c) for c in r['cells']] for r in taps], set(known))
+         ok, n, problems, left, hand = replay_log.replay(lv[L])
+-        out.append(dict(level=L, corners=sum(1 for o in lv[L]['obstacles'] if o['kind'] == 'corner'),
++        out.append(dict(level=L, slot=slot(L), corners=sum(1 for o in lv[L]['obstacles'] if o['kind'] == 'corner'),
+                         taps=[dict(round=r.get('round'), t=r['t'], cells=r['cells']) for r in taps],
+                         python=dict(shift=[dx, dy], exits=ok, logged=n, hand=hand, left=left,
+                                     unmatched=sum(1 for p in problems if 'matches no arrow' in p),
+@@ -71,8 +79,8 @@
+     open(OUT, 'w').write(text)
+     for l in doc['levels']:
+         p = l['python']
+-        print('L%d: %d taps, corners %d, shift %s, exits %d, unmatched %d, bumps %d, hand %s, left %d' % (
+-            l['level'], len(l['taps']), l['corners'], p['shift'], p['exits'], p['unmatched'], p['bumps'], p['hand'], p['left']))
++        print('L%d%s: %d taps, corners %d, shift %s, exits %d, unmatched %d, bumps %d, hand %s, left %d' % (
++            l['level'], '' if l['slot'] == l['level'] else ' (ships at L%d)' % l['slot'], len(l['taps']), l['corners'], p['shift'], p['exits'], p['unmatched'], p['bumps'], p['hand'], p['left']))
+     return 0
+ 
+ 

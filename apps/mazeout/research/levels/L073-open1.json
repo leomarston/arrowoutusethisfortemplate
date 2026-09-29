@@ -1,0 +1,135 @@
+{
+ "level": 73,
+ "source": "recorded",
+ "shot": "research/bot/tmp/L073-132233-r07.png",
+ "zoom": "open",
+ "pitch_pt": 17.917,
+ "stroke_pt": 4.0,
+ "origin_pt": [
+  25.95,
+  214.35
+ ],
+ "cols": 20,
+ "rows": 26,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     14,
+     25
+    ],
+    [
+     15,
+     25
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     19,
+     9
+    ],
+    [
+     19,
+     8
+    ],
+    [
+     19,
+     7
+    ],
+    [
+     19,
+     6
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     19,
+     4
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     18,
+     5
+    ],
+    [
+     18,
+     6
+    ],
+    [
+     18,
+     7
+    ],
+    [
+     18,
+     8
+    ],
+    [
+     18,
+     9
+    ],
+    [
+     18,
+     10
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     18,
+     17
+    ],
+    [
+     18,
+     18
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [
+  {
+   "kind": "corner",
+   "cells": [
+    [
+     0,
+     0
+    ]
+   ],
+   "bbox_px": [
+    39,
+    604,
+    82,
+    647
+   ],
+   "mean_rgb": [
+    98,
+    114,
+    156
+   ]
+  }
+ ],
+ "taped_arrow_ids": [],
+ "timer_s": 150,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "note": "state after 1 door(s) opened (arrows revealed); cells in the START json frame",
+ "session": "phone session 2 (v552)",
+ "counters_note": "boxes 46 (top-right) / 58 (bottom-right)",
+ "result": "WON 1:39 left"
+}

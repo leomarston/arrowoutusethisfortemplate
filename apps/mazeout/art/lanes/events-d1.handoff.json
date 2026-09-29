@@ -1,0 +1,398 @@
+{
+ "about": "R8 EVENT-ART (PLAN-P \u00a74.2; owner items 14 + 15; ruling 46) -> A4 ART-INTEG (then A5 for the palette). Today's event compositions and object types in D1 materials + the NEW Up & Away page art. Every file is NEW (nothing existing was changed); the ids they replace become NOT-SHIPPED at A4's step (grep App/ Tests/ UITests/ Packages/ first: the sites are listed per id). Lane manifest: art/lanes/events-d1.entries.json (director merges). Recipes: art/ui/recipes/scene_events_d1.py (scene_make.py RECIPES += scene_events_d1); proofs + gate: art/review/tools/r8_events.py; sheets art/review/events/.",
+ "ids": {
+  "clawHeaderArt": {
+   "new": "treasureHeader",
+   "file": "art/out/treasureHeader@3x.png",
+   "size_pt": [
+    393,
+    240
+   ],
+   "sites": [
+    "App/Shell/Social/ClawScreen.swift:42",
+    "App/Shell/Social/SocialModel.swift:172",
+    "Tests/SocialScreensTests.swift:235"
+   ]
+  },
+  "workerRacers": {
+   "new": "streakHeader",
+   "file": "art/out/streakHeader@3x.png",
+   "size_pt": [
+    393,
+    290
+   ],
+   "sites": [
+    "App/Shell/Social/SocialModel.swift:169",
+    "App/Shell/Social/StreakRaceViews.swift:32",
+    "Tests/SocialScreensTests.swift:233"
+   ]
+  },
+  "rocketRaceBackdrop": {
+   "new": "rallyBackdrop",
+   "file": "art/out/rallyBackdrop@3x.png",
+   "size_pt": [
+    393,
+    852
+   ],
+   "sites": [
+    "App/Shell/Social/RocketRaceViews.swift:264",
+    "App/Shell/Social/SocialModel.swift:170",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "rocketOfferScene": {
+   "new": "rallyOfferScene",
+   "file": "art/out/rallyOfferScene@3x.png",
+   "size_pt": [
+    330,
+    504
+   ],
+   "sites": [
+    "App/Shell/Social/RocketRaceViews.swift:39",
+    "App/Shell/Social/SocialModel.swift:170"
+   ]
+  },
+  "rocketMine": {
+   "new": "rallyRocketMine",
+   "file": "art/ui/out/rallyRocketMine@3x.png",
+   "size_pt": [
+    68,
+    98
+   ],
+   "sites": [
+    "App/Shell/Profile/ProfileView.swift:122",
+    "App/Shell/Profile/ProfileView.swift:45",
+    "App/Shell/Social/RocketRaceViews.swift:203",
+    "App/Shell/Social/RocketRaceViews.swift:393",
+    "App/Shell/Social/RocketRaceViews.swift:85",
+    "App/Shell/Social/SocialModel.swift:170",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "rocketOther": {
+   "new": "rallyRocketOther",
+   "file": "art/ui/out/rallyRocketOther@3x.png",
+   "size_pt": [
+    68,
+    98
+   ],
+   "sites": [
+    "App/Shell/Social/RocketRaceViews.swift:393",
+    "App/Shell/Social/SocialModel.swift:170",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "skyJumpBackdrop": {
+   "new": "hopBackdrop",
+   "file": "art/out/hopBackdrop@3x.png",
+   "size_pt": [
+    393,
+    852
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:353",
+    "App/Shell/Social/SocialModel.swift:171",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "skyJumpIsland": {
+   "new": "hopIsland",
+   "file": "art/out/hopIsland@3x.png",
+   "size_pt": [
+    260,
+    256
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:178",
+    "App/Shell/Social/SkyJumpViews.swift:284",
+    "App/Shell/Social/SkyJumpViews.swift:365",
+    "App/Shell/Social/SkyJumpViews.swift:642",
+    "App/Shell/Social/SocialModel.swift:171",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "skyJumpIslandFar": {
+   "new": "hopIslandFar",
+   "file": "art/out/hopIslandFar@3x.png",
+   "size_pt": [
+    166,
+    158
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:358",
+    "App/Shell/Social/SocialModel.swift:171"
+   ]
+  },
+  "skyJumpIslandFar2": {
+   "new": "hopIslandFar2",
+   "file": "art/out/hopIslandFar2@3x.png",
+   "size_pt": [
+    144,
+    132
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:359",
+    "App/Shell/Social/SocialModel.swift:171"
+   ]
+  },
+  "skyJumpPad": {
+   "new": "hopPad",
+   "file": "art/out/hopPad@3x.png",
+   "size_pt": [
+    112,
+    104
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:363",
+    "App/Shell/Social/SkyJumpViews.swift:431",
+    "App/Shell/Social/SocialModel.swift:172",
+    "Tests/SocialScreensTests.swift:234"
+   ]
+  },
+  "skyJumpPopupScene": {
+   "new": "hopOfferScene",
+   "file": "art/out/hopOfferScene@3x.png",
+   "size_pt": [
+    330,
+    190
+   ],
+   "sites": [
+    "App/Shell/Social/SkyJumpViews.swift:44",
+    "App/Shell/Social/SocialModel.swift:172"
+   ]
+  },
+  "iconSkyDrum": {
+   "new": "hopDrum",
+   "file": "art/ui/out/hopDrum@3x.png",
+   "size_pt": [
+    57,
+    52
+   ],
+   "sites": [
+    "App/Shell/Profile/ProfileView.swift:124",
+    "App/Shell/Profile/ProfileView.swift:45"
+   ]
+  },
+  "leaderboardPodium": {
+   "new": "cupPodium",
+   "file": "art/out/cupPodium@3x.png",
+   "size_pt": [
+    389,
+    206
+   ],
+   "sites": [
+    "App/Shell/Social/LeaderboardViews.swift:150",
+    "App/Shell/Social/SocialModel.swift:169",
+    "App/Shell/Social/WeeklyViews.swift:147",
+    "Tests/SocialScreensTests.swift:233"
+   ]
+  },
+  "iconHexArrow": {
+   "new": "treasureToken",
+   "file": "art/ui/out/treasureToken@3x.png",
+   "size_pt": [
+    40,
+    40
+   ],
+   "sites": [
+    "App/Shell/HUD/S2Chrome.swift:35",
+    "App/Shell/Home/ClawBar.swift:211",
+    "App/Shell/Home/PayoutSequence.swift:374",
+    "App/Shell/Popups/ContinuePopup.swift:78",
+    "App/Shell/Profile/ProfileView.swift:126",
+    "App/Shell/Profile/ProfileView.swift:46",
+    "App/Shell/Social/ClawScreen.swift:169",
+    "App/Shell/Social/EventAnnounce.swift:58",
+    "App/Shell/Social/SocialModel.swift:173"
+   ]
+  }
+ },
+ "trophyCup": "keep the id, but point its one site (WeeklyViews.swift:108, the Weekly Cup (i)) at R3's navCup art (a gold cup with a teal star on a timber plinth): today's trophyCup keeps the original's red-arrow emblem. No new file.",
+ "treasureToken_ink": {
+  "note": "S2Chrome.swift:35 ink table: iconHexArrow's alpha-bbox fractions -> the token's (re-measured from the file, same method); ContinuePopup InkImage uses them",
+  "value": [
+   0.0333,
+   0.1083,
+   0.9667,
+   0.9417
+  ]
+ },
+ "upaway": {
+  "ungate": "EventRotationPolicy.swift UpAwayArt: ids = [eventBadgeBalloon, balloonHero, balloonTowerTop, balloonTowerShaft, balloonTowerFoot, balloonLedge] (drop `backdrop`: the page ships as pieces, see below). With those in the generated UIArt table `UpAwayArt.ready` is true and Release runs Up & Away (B1's art gate).",
+  "badge": {
+   "id": "eventBadgeBalloon",
+   "frame_pt": [
+    46,
+    46
+   ],
+   "placed": "BalloonBar: home.clawHexArt inset -3 (as today)",
+   "rig": "art/out/badge_upaway_rig (body + balloon; motion.json = the balloon's +-1 pt bob on a 4.0 s sine loop, v582 PH-0b R7)"
+  },
+  "hero": {
+   "id": "balloonHero",
+   "frame_pt": [
+    150,
+    220
+   ],
+   "draw": "BalloonTower: UpAwayArtImage(id: balloonHero).frame(width: 150, height: 220).position(x: 285, y: balloonY - 110) (today 150 x 190 / -95: the basket bottom stays on the count's height); the win strip / (i) keep their own frames (the art is .fit)"
+  },
+  "page_pieces": {
+   "note": "the page stays B1's geometry (sky 330 + ground gap 94 + 340 per platform + street 250). Draw back -> front INSIDE BalloonTower (it scrolls): sky gradient, clouds, shaft tiles, top, foot, ledges, B1's track + milestones + counter, chests, 'Step N' text, the hero, the bubble.",
+   "sky": {
+    "replaces": "BalloonSky's 4 stops (#0E1450 / #3B2A8C / #8C4FB8 / #F08BB0)",
+    "stops": [
+     [
+      0.0,
+      "#0B2A33"
+     ],
+     [
+      0.4,
+      "#1D5963"
+     ],
+     [
+      0.66,
+      "#5FA3A0"
+     ],
+     [
+      0.84,
+      "#F2C9A0"
+     ],
+     [
+      1.0,
+      "#F8B98A"
+     ]
+    ]
+   },
+   "top": {
+    "id": "balloonTowerTop",
+    "frame_pt": [
+     393,
+     470.0
+    ],
+    "at": [
+     0,
+     0
+    ]
+   },
+   "shaft": {
+    "id": "balloonTowerShaft",
+    "frame_pt": [
+     112.0,
+     340.0
+    ],
+    "at": "x 0, y = 470 + 340 k for k = 0, 1, ... while y < height - 700 (10 platforms: 8 tiles); drawn BEFORE top + foot (they overlap the first / last tile; the masonry is one periodic paint, so every join is seamless)"
+   },
+   "foot": {
+    "id": "balloonTowerFoot",
+    "frame_pt": [
+     393,
+     700.0
+    ],
+    "at": "x 0, y = height - 700 (ground line at local 450 = groundY)",
+    "note": "carries the launch pad under the balloon (x 285, top = groundY) and the walkway: DELETE B1's two code capsules (the pad) at groundY"
+   },
+   "ledge": {
+    "id": "balloonLedge",
+    "frame_pt": [
+     240.0,
+     150.0
+    ],
+    "at": "(60, y(platform: i) - 94) = BalloonLedge's own frame origin",
+    "replaces": "BalloonLedge's code-drawn purple bar + blue sign + posts (keep its chest button box (146, 22, 78 x 70) and the live 'Step N' GameText: centre x 76, baseline 131, on the teal board at local (34..118, 112..140)); the frame grows 120 -> 150 tall"
+   },
+   "clouds": {
+    "ids": [
+     "balloonCloudA",
+     "balloonCloudB"
+    ],
+    "frames_pt": [
+     [
+      150,
+      70
+     ],
+     [
+      100,
+      56
+     ]
+    ],
+    "suggested_at": {
+     "balloonCloudA": [
+      [
+       250,
+       520
+      ],
+      [
+       240,
+       1250
+      ],
+      [
+       262,
+       1930
+      ],
+      [
+       236,
+       2620
+      ]
+     ],
+     "balloonCloudB": [
+      [
+       290,
+       880
+      ],
+      [
+       284,
+       1600
+      ],
+      [
+       296,
+       2280
+      ]
+     ]
+    },
+    "note": "optional (v582 has a few clouds on the right); positions in page pt for 10 platforms"
+   },
+   "track": "B1's rail (x 34 +- 11) runs in the tower's recessed groove (x 19..49, brass edge trims) from y(last) - 40 down to groundY; the '0' milestone sits on the groove at the ground line",
+   "memory_decoded_mb": {
+    "top": 6.6,
+    "shaft": 1.4,
+    "foot": 9.9,
+    "ledge": 1.3,
+    "single_backdrop_would_be": 52.8
+   },
+   "prewarm": "decode all pieces behind the page's prewarm (SocialModel's page art list, today's 'UpAwayArt.ids' entry) so the first open pays no decode; purge on leaving (ArtStore.purge) like the other event pages",
+   "idle": "v582: the balloon drifts slightly while idle (not in B1's code): optional A4 track, +-1.5 pt x on a ~5 s sine"
+  }
+ },
+ "rotation_chrome": "NEW ribbon + x2 gem stay CODE-DRAWN (B1: NewRibbon / DoubleGem, events.md \u00a77.1 'no bitmaps'); they are our own additions (the original has no rotation), so there is no copy distance to buy. D1 tokens for A5: NEW keeps the danger-red family (#FF6A4A -> #E8231A, outline #7A0A00); the x2 gem moves to the D1 CTA family (#FFE08A -> #FFB422 face, outline #8A3F00) with a brass rim #E3B04B.",
+ "home_badges": "the three event home badges as layers (body / moving part / smoke) are R3's (art/lanes/home.handoff.json 'badges'); R8 adds the Up & Away bar token's rig (above). The Treasure Climb bar keeps its code chrome (A5 palette) with treasureToken on its left end.",
+ "unchanged_generic": [
+  "stageChestGreen/Blue/Pink (chests; B1's ledges use them)",
+  "planetStage1-3",
+  "coinBowl + coin packs",
+  "rankBadge*",
+  "statWeeklyWinsIcon",
+  "rankWings1"
+ ],
+ "not_shipped_after_A4": [
+  "clawHeaderArt",
+  "workerRacers",
+  "rocketRaceBackdrop",
+  "rocketOfferScene",
+  "rocketMine",
+  "rocketOther",
+  "skyJumpBackdrop",
+  "skyJumpIsland",
+  "skyJumpIslandFar",
+  "skyJumpIslandFar2",
+  "skyJumpPad",
+  "skyJumpPopupScene",
+  "iconSkyDrum",
+  "leaderboardPodium",
+  "iconHexArrow",
+  "workerClawPair"
+ ],
+ "evidence": {
+  "pages": "build/p/R8/pages/*-final.png (in place, R9 UI) + art/review/events/*.png sheets",
+  "copygate": "build/p/R8/copygate-final.json + art/review/events/proofs.json"
+ }
+}

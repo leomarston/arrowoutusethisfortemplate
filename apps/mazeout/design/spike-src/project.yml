@@ -1,0 +1,54 @@
+name: PathSpike
+options:
+  bundleIdPrefix: com.manycode
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGNING_ALLOWED: "NO"
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  PathSpike:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    info:
+      path: Support/Info.plist
+      properties:
+        CFBundleDisplayName: PathSpike
+        CFBundleShortVersionString: "0.1"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        CADisableMinimumFrameDurationOnPhone: true
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.manycode.mazeout.spike
+        SWIFT_STRICT_CONCURRENCY: minimal
+        ENABLE_PREVIEWS: NO
+  PathSpikeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: PathSpike
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.manycode.mazeout.spike.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: PathSpike
+schemes:
+  PathSpike:
+    build:
+      targets:
+        PathSpike: all
+        PathSpikeUITests: [test]
+    test:
+      config: Release
+      targets:
+        - PathSpikeUITests

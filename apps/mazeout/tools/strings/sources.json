@@ -1,0 +1,318 @@
+{
+ "about": "tools/strings/coverage.py sources (L1: pointed at the real sections of the FINAL specs, 2026-09-25). Every EN string and every TR string a spec quotes must be in strings.tsv (+ requests/*.tsv) byte for byte, or be listed in `superseded` with the ruling that replaced it (design/CONSISTENCY.md §16 string rulings, SPEC.md §5.21-22: GP's EN/TR win unless GP's TR fails the 0.70 fit floor; UI's measured variants; SOC's TR for event copy except UI's listed differences). `lang` = the column the source quotes. Kinds: json / json-map (pointer to a dict or list; `field` inside dict values), md-table (cell `col` of every table row in the section start..end), md-quoted (every \"...\" in cell `col`), md-blockquote (every '> ' paragraph under a label line matching `label`). Optional per entry: split (a separator or a list), substitute (literal -> placeholder), strip_suffixes, skip_header, min_cols.",
+ "spec_sources": [
+  {
+   "id": "SPEC-gameplay §16 EN",
+   "kind": "md-table",
+   "path": "design/SPEC-gameplay.md",
+   "start": "## 16 Strings",
+   "end": "\n## 17",
+   "col": 0,
+   "min_cols": 2,
+   "skip_header": "EN",
+   "lang": "en"
+  },
+  {
+   "id": "SPEC-gameplay §16 TR",
+   "kind": "md-table",
+   "path": "design/SPEC-gameplay.md",
+   "start": "## 16 Strings",
+   "end": "\n## 17",
+   "col": 1,
+   "min_cols": 2,
+   "skip_header": "EN",
+   "lang": "tr"
+  },
+  {
+   "id": "SPEC-gameplay §16.10 Terms/Privacy EN",
+   "kind": "md-blockquote",
+   "path": "design/SPEC-gameplay.md",
+   "start": "### 16.10",
+   "end": "\n---",
+   "label": ", EN:\\*\\*$",
+   "substitute": {
+    "Arrow Out": "%@",
+    "anycodeapps@gmail.com": "%@"
+   },
+   "lang": "en"
+  },
+  {
+   "id": "SPEC-gameplay §16.10 Terms/Privacy TR",
+   "kind": "md-blockquote",
+   "path": "design/SPEC-gameplay.md",
+   "start": "### 16.10",
+   "end": "\n---",
+   "label": ", TR:\\*\\*$",
+   "substitute": {
+    "Arrow Out": "%@",
+    "anycodeapps@gmail.com": "%@"
+   },
+   "lang": "tr"
+  },
+  {
+   "id": "SPEC-ui §3 EN",
+   "kind": "md-table",
+   "path": "design/SPEC-ui.md",
+   "start": "## 3 Copy",
+   "end": "\n## 4",
+   "col": 1,
+   "min_cols": 3,
+   "lang": "en"
+  },
+  {
+   "id": "SPEC-ui §3 TR",
+   "kind": "md-table",
+   "path": "design/SPEC-ui.md",
+   "start": "## 3 Copy",
+   "end": "\n## 4",
+   "col": 2,
+   "min_cols": 3,
+   "lang": "tr"
+  },
+  {
+   "id": "ui-tokens-2.json strings EN",
+   "kind": "json",
+   "path": "design/ui-tokens-2.json",
+   "pointer": "strings",
+   "field": "en",
+   "lang": "en"
+  },
+  {
+   "id": "ui-tokens-2.json strings TR",
+   "kind": "json",
+   "path": "design/ui-tokens-2.json",
+   "pointer": "strings",
+   "field": "tr",
+   "lang": "tr"
+  },
+  {
+   "id": "SPEC-social §10 EN",
+   "kind": "md-table",
+   "path": "design/SPEC-social.md",
+   "start": "Strings (EN from the original; TR proposed",
+   "end": "\n---",
+   "col": 1,
+   "min_cols": 3,
+   "skip_header": "Key",
+   "split": [
+    " / ",
+    " · "
+   ],
+   "lang": "en"
+  },
+  {
+   "id": "SPEC-social §10 TR",
+   "kind": "md-table",
+   "path": "design/SPEC-social.md",
+   "start": "Strings (EN from the original; TR proposed",
+   "end": "\n---",
+   "col": 2,
+   "min_cols": 3,
+   "skip_header": "Key",
+   "split": [
+    " / ",
+    " · "
+   ],
+   "lang": "tr"
+  },
+  {
+   "id": "levels.json unlock titles",
+   "kind": "json-map",
+   "path": "design/levels.json",
+   "pointer": "unlocks",
+   "field": "title",
+   "lang": "en"
+  },
+  {
+   "id": "levels.json unlock cards",
+   "kind": "json-map",
+   "path": "design/levels.json",
+   "pointer": "unlocks",
+   "field": "card",
+   "lang": "en"
+  },
+  {
+   "id": "levels.json tutorial captions",
+   "kind": "json-map",
+   "path": "design/levels.json",
+   "pointer": "tutorials",
+   "field": "caption",
+   "lang": "en"
+  },
+  {
+   "id": "levels.json session labels (hud)",
+   "kind": "json-map",
+   "path": "design/levels.json",
+   "pointer": "sessions",
+   "field": "hud_label",
+   "lang": "en"
+  },
+  {
+   "id": "levels.json session labels (panel)",
+   "kind": "json-map",
+   "path": "design/levels.json",
+   "pointer": "sessions",
+   "field": "panel_label",
+   "lang": "en"
+  }
+ ],
+ "data_files": [
+  {
+   "path": "App/Resources/Levels/tutorials.json",
+   "keys": [
+    "caption"
+   ]
+  },
+  {
+   "path": "App/Resources/Levels/unlocks.json",
+   "keys": [
+    "title",
+    "card"
+   ]
+  },
+  {
+   "path": "App/Resources/Levels/sessions.json",
+   "keys": [
+    "hud_label",
+    "panel_label"
+   ]
+  }
+ ],
+ "callees": [
+  "Text",
+  "Button",
+  "Label",
+  "Toggle",
+  "LocalizedStringKey",
+  "LocalizedStringResource",
+  "OutlinedLabel",
+  "PanelButton",
+  "GlyphText",
+  "Toast",
+  "TutorialBubble",
+  "GameText",
+  "show",
+  "copy"
+ ],
+ "labelled": {
+  "_about": "L2: copy passed through an argument label (GameButton(label:), PageChrome(title:), the Settings page sections, TextSource .copy) in the UI folders; comments, *Lab* files, Log lines, accessibility ids and identifier-shaped literals are skipped (coverage.py code_coverage).",
+  "dirs": [
+   "App/Shell",
+   "App/FX",
+   "App/Game"
+  ],
+  "labels": [
+   "label",
+   "title",
+   "heading",
+   "body",
+   "caption",
+   "message",
+   "prompt",
+   "placeholder"
+  ],
+  "skip_files": [
+   "Lab",
+   "^Debug"
+  ]
+ },
+ "superseded": {
+  "Seviyeden Çık?": "CONSISTENCY S-2: GP's TR fails the 0.70 floor (0.65); UI's \"Çıkılsın mı?\" ships",
+  "Daha Fazla Can": "CONSISTENCY S-3: GP's TR fails the floor (0.63); UI's \"Ekstra Can\" ships",
+  "Profili Düzenle": "CONSISTENCY S-4: GP/SOC TR fails the floor (0.65); UI's \"Düzenle\" ships",
+  "Zaman Dondurucu": "CONSISTENCY S-5: GP's TR fails the floor in the 228 pt ribbon (0.53); UI's \"Dondurucu\" ships",
+  "Enter Username": "CONSISTENCY S-6 (ruled, SPEC.md §5.21): the title is \"Username\" (the V2 wording cannot fit the ribbon)",
+  "Süre Bitti!": "CONSISTENCY S-7: GP's \"Süre Doldu!\" ships",
+  "Devam mı?": "CONSISTENCY S-8: GP's \"Devam?\" ships",
+  "Sonraki cana kalan:": "CONSISTENCY S-9: GP's \"Sonraki cana kalan süre:\" ships",
+  "Doldu": "CONSISTENCY S-10: GP's \"Bitti\" ships for \"Finished\"",
+  "Test mağazası: ücret alınmaz": "CONSISTENCY S-11: GP's \"Test mağazası: hiçbir ücret alınmaz\" ships",
+  "Şartlar": "CONSISTENCY S-12: GP's \"Koşullar\" ships for the Terms button",
+  "Terms of Use": "CONSISTENCY S-13 + U-6 (ruled): the page title is GP's \"Terms\"",
+  "Kullanım Şartları": "CONSISTENCY S-13: the page title is GP's \"Koşullar\"",
+  "Privacy Policy": "CONSISTENCY S-13 + U-6 (ruled): the page title is GP's \"Privacy\"",
+  "Gizlilik Politikası": "CONSISTENCY S-13: the page title is GP's \"Gizlilik\"",
+  "Roket Yarışı Birincilikleri": "CONSISTENCY S-14: GP's \"Roket Yarışı Zaferleri\" ships",
+  "Gökyüzü Zıplayışı": "CONSISTENCY S-15: UI's \"Gökyüzü Atlayışı\" everywhere (SOC's title fails the floor, 0.68)",
+  "Gökyüzü Zıplayışı Zaferleri": "CONSISTENCY S-15: \"Gökyüzü Atlayışı Zaferleri\" ships (one name across title, stat and copy)",
+  "Kırmak için okları BORUDAN geçir!": "CONSISTENCY S-16: GP's \"BORUYU kırmak için okları içinden geçir!\" ships",
+  "Çalıştırmak için ASANSÖRDEKİ tüm okları temizle!": "CONSISTENCY S-17: GP's \"ASANSÖRÜ çalıştırmak için üstündeki tüm okları temizle!\" ships",
+  "90%": "CONSISTENCY S-18: the shop seal is GP's one string \"90% OFF\" (drawn in two runs); \"OFF\" alone is the toggle's key",
+  "%90": "CONSISTENCY S-18: the shop seal is GP's one string \"%90 İNDİRİM\"",
+  "İNDİRİM": "CONSISTENCY S-18: the shop seal is GP's one string \"%90 İNDİRİM\" (\"OFF\" alone = the toggle's \"KAPALI\")",
+  "+1 Live": "CONSISTENCY S-19: UI layout — \"+1\" is drawn inside the heart art; the string is \"Live\" / \"Can\"",
+  "+1 Can": "CONSISTENCY S-19: the string is \"Can\" (the \"+1\" is art)",
+  "Video not available right now.": "CONSISTENCY S-20: GP's \"Video not available\" ships (SPEC.md §5.18 wording)",
+  "Stops the timer for 10 seconds!": "CONSISTENCY K-6/S-24: the booster popup is GP's (\"Freeze the timer for 10 seconds!\" + Buy ×3)",
+  "Süreyi 10 saniye durdurur!": "CONSISTENCY K-6/S-24: GP's \"Süreyi 10 saniye dondur!\" ships",
+  "Shows you an arrow that can move!": "CONSISTENCY K-6/S-24: GP's \"Find an arrow that can move!\" ships",
+  "Çıkabilecek bir oku gösterir!": "CONSISTENCY K-6/S-24: GP's \"Çıkabilen bir oku bul!\" ships",
+  "Get more in the Shop!": "CONSISTENCY K-6/S-24: GP's Buy ×3 popup replaces UI's \"Get more in the Shop!\" variant",
+  "Mağazadan daha fazlasını al!": "CONSISTENCY K-6/S-24: GP's Buy ×3 popup (no \"Get more in the Shop!\" line)",
+  "Name must be 3-15 characters": "CONSISTENCY V-26/S-23 (ruled): usernames are 3-16 characters: \"Name must be 3-16 characters\"",
+  "İsim 3-15 karakter olmalı": "CONSISTENCY V-26/S-23 (ruled): \"İsim 3-16 karakter olmalı\"",
+  "Purchase complete!": "CONSISTENCY X-21: a purchase shows UI's claim overlay (\"Congratulations!\"); GP's line goes unused",
+  "Satın alma tamamlandı!": "CONSISTENCY X-21: unused (the claim overlay)",
+  "Başa": "CONSISTENCY S-26: UI's \"Yukarı\" (pairs with \"Aşağı\" for Bottom)",
+  "Ödülü {} kazananla daha paylaşıyorsun!": "CONSISTENCY S-27: SOC's \"Ödülü %lld diğer kazananla paylaşıyorsun!\" ships",
+  "{} seviyeyi art arda ilk denemede geç ve sonraki aşamalara ilerle!": "CONSISTENCY S-28: SOC's \"%lld seviyeyi ilk denemede art arda geç, sonraki aşamalara ilerle!\" ships",
+  "Daha büyük ödüller için sonraki aşamalara geç!": "CONSISTENCY S-29: SOC's \"Daha büyük ödüller için sonraki aşamalara ilerle!\" ships",
+  "Kazanmak için {} seviyeyi herkesten önce geç ve daha büyük ödüller için ilerle!": "CONSISTENCY S-30: UI's listed rewording (with %lld) ships",
+  "You won the race!": "CONSISTENCY S-31: UI's \"You won the race! Claim your amazing rewards!\" ships",
+  "Yarışı kazandın!": "CONSISTENCY S-31: UI's \"Yarışı kazandın! Harika ödüllerini al!\" ships",
+  "{}g {}sa": "CONSISTENCY S-32: one countdown format everywhere: TR keeps d/h/m (GP's \"1sa 20dk\" fails the lives pill, 0.66)",
+  "{}sa {}dk": "CONSISTENCY S-32: TR keeps \"%lldh %lldm\"",
+  "{}sa": "CONSISTENCY S-32: TR keeps \"%lldh\"",
+  "{}dk": "CONSISTENCY S-32: TR keeps \"%lldm\"",
+  "Compete against your friends!\nThere is a new contest every week!": "SPEC-ui §3 splits this intro text into two strings (weekly.compete1 / weekly.compete2); both have rows",
+  "Arkadaşlarınla yarış!\nHer hafta yeni bir yarışma var!": "SPEC-ui §3 splits it into two strings (both have rows)",
+  "Dokun ve çıkar!": "CONSISTENCY S-1: GP's \"Dokun ve oynat!\" ships (MA's variant fails the floor, 0.62)",
+  "Video şu an kullanılamıyor.": "CONSISTENCY S-20: GP's \"Video şu anda kullanılamıyor\" ships",
+  "Video not available": "T1 2026-09-28 (ruling 37(d) / owner item 9: the rewarded-ad button and its AdSlot toast are removed (release-plan §4.2); code site NoLivesPopup.swift:142 goes with A1): dropped",
+  "90% OFF": "T1 2026-09-28 (ruling 38: STARTER instead of '90% OFF' (release-plan §10.5 honesty)): replaced by 'STARTER'",
+  "Test store: nothing is charged": "T1 2026-09-28 (release gate G8 + A1 acceptance ('strings' of the Release .app has 0 'Test store'): the chip is FakeStore-only (DEBUG/tests/captures); the compiled catalogue would otherwise carry the text into every .lproj. A1 draws the DEBUG chip with Text(verbatim:) (not a catalogue key)): dropped",
+  "Weekly Contest Wins": "T1 2026-09-28 (ruling 38 own names): replaced by 'Weekly Cup Wins'",
+  "Streak Race Wins": "T1 2026-09-28 (ruling 38 own names): replaced by 'Hot Streak Wins'",
+  "Rocket Race Wins": "T1 2026-09-28 (ruling 38 own names): replaced by 'Rocket Rally Wins'",
+  "Sky Jump Wins": "T1 2026-09-28 (ruling 38 own names): replaced by 'Cloud Hop Wins'",
+  "Claw Challenge Wins": "T1 2026-09-28 (ruling 38 own names): replaced by 'Treasure Climb Wins'",
+  "The Weekly Contest ends in 2 hours!": "T1 2026-09-28 (ruling 38 own names): replaced by 'The Weekly Cup ends in 2 hours!'",
+  "Video şu anda kullanılamıyor": "T1 2026-09-28 (ruling 37(d) / owner item 9: the rewarded-ad button and its AdSlot toast are removed (release-plan §4.2); code site NoLivesPopup.swift:142 goes with A1): dropped [the TR of 'Video not available']",
+  "%90 İNDİRİM": "T1 2026-09-28 (ruling 38: STARTER instead of '90% OFF' (release-plan §10.5 honesty)): replaced by 'STARTER' [the TR of '90% OFF']",
+  "Test mağazası: hiçbir ücret alınmaz": "T1 2026-09-28 (release gate G8 + A1 acceptance ('strings' of the Release .app has 0 'Test store'): the chip is FakeStore-only (DEBUG/tests/captures); the compiled catalogue would otherwise carry the text into every .lproj. A1 draws the DEBUG chip with Text(verbatim:) (not a catalogue key)): dropped [the TR of 'Test store: nothing is charged']",
+  "Haftalık Yarışma Birincilikleri": "T1 2026-09-28 (ruling 38 own names): replaced by 'Weekly Cup Wins' [the TR of 'Weekly Contest Wins']",
+  "Seri Yarışı Birincilikleri": "T1 2026-09-28 (ruling 38 own names): replaced by 'Hot Streak Wins' [the TR of 'Streak Race Wins']",
+  "Roket Yarışı Zaferleri": "T1 2026-09-28 (ruling 38 own names): replaced by 'Rocket Rally Wins' [the TR of 'Rocket Race Wins']",
+  "Pençe Mücadelesi Zaferleri": "T1 2026-09-28 (ruling 38 own names): replaced by 'Treasure Climb Wins' [the TR of 'Claw Challenge Wins']",
+  "Haftalık Yarışma 2 saat içinde bitiyor!": "T1 2026-09-28 (ruling 38 own names): replaced by 'The Weekly Cup ends in 2 hours!' [the TR of 'The Weekly Contest ends in 2 hours!']",
+  "{} collects no personal data. There are no accounts, no ads, no analytics and no tracking.": "T1 2026-09-28 (release-plan §2.5 S-7): replaced by '%@ has no accounts, no ads and no tracking.'",
+  "The game works offline. Purchases are handled by Apple.": "T1 2026-09-28 (release-plan §2.5 S-7): replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.'",
+  "{} hiçbir kişisel veri toplamaz. Hesap, reklam, analiz ve takip yoktur.": "T1 2026-09-28 (release-plan §2.5 S-7): replaced by '%@ has no accounts, no ads and no tracking.' [the TR of '%@ collects no personal data. There are no accounts, no ads, no analytics and no tracking.']",
+  "Oyun çevrimdışı çalışır. Satın almalar Apple tarafından yürütülür.": "T1 2026-09-28 (release-plan §2.5 S-7): replaced by 'The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.' [the TR of 'The game works offline. Purchases are handled by Apple.']",
+  "Live": "T1 2026-09-28 (ruling 37(d) / owner item 9: the label of the removed rewarded-ad button ([clapper] [heart +1] 'Live', AdLiveButton, release-plan §4.1 A2); no other code site (VERIFIED grep: NoLivesPopup.swift:122/128 only)): dropped",
+  "Reach level 50 to compete in Weekly Contest!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Reach level 50 to join the Weekly Cup!'",
+  "Weekly Contest": "T1 2026-09-28 (ruling 38 own names): replaced by 'Weekly Cup'",
+  "Tap to compete in Weekly Contest!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Tap to join the Weekly Cup!'",
+  "Compete against your friends!": "T1 2026-09-28 (ruling 38: drop 'Compete against your friends!' (no friends feature)): replaced by 'The top 3 win prizes!'",
+  "Streak Race": "T1 2026-09-28 (ruling 38 own names): replaced by 'Hot Streak'",
+  "Claw Challenge": "T1 2026-09-28 (ruling 38 own names): replaced by 'Treasure Climb'",
+  "Rocket Race": "T1 2026-09-28 (ruling 38 own names): replaced by 'Rocket Rally'",
+  "Sky Jump": "T1 2026-09-28 (ruling 38 own names): replaced by 'Cloud Hop'",
+  "Can": "T1 2026-09-28 (ruling 37(d) / owner item 9: the label of the removed rewarded-ad button ([clapper] [heart +1] 'Live', AdLiveButton, release-plan §4.1 A2); no other code site (VERIFIED grep: NoLivesPopup.swift:122/128 only)): dropped [the TR of 'Live']",
+  "Gökyüzü Atlayışı Zaferleri": "T1 2026-09-28 (ruling 38 own names): replaced by 'Cloud Hop Wins' [the TR of 'Sky Jump Wins']",
+  "Haftalık Yarışmaya katılmak için 50. seviyeye ulaş!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Reach level 50 to join the Weekly Cup!' [the TR of 'Reach level 50 to compete in Weekly Contest!']",
+  "Haftalık Yarışma": "T1 2026-09-28 (ruling 38 own names): replaced by 'Weekly Cup' [the TR of 'Weekly Contest']",
+  "Haftalık Yarışmaya katılmak için dokun!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Tap to join the Weekly Cup!' [the TR of 'Tap to compete in Weekly Contest!']",
+  "Arkadaşlarınla yarış!": "T1 2026-09-28 (ruling 38: drop 'Compete against your friends!' (no friends feature)): replaced by 'The top 3 win prizes!' [the TR of 'Compete against your friends!']",
+  "Seri Yarışı": "T1 2026-09-28 (ruling 38 own names): replaced by 'Hot Streak' [the TR of 'Streak Race']",
+  "Pençe Mücadelesi": "T1 2026-09-28 (ruling 38 own names): replaced by 'Treasure Climb' [the TR of 'Claw Challenge']",
+  "Roket Yarışı": "T1 2026-09-28 (ruling 38 own names): replaced by 'Rocket Rally' [the TR of 'Rocket Race']",
+  "Gökyüzü Atlayışı": "T1 2026-09-28 (ruling 38 own names): replaced by 'Cloud Hop' [the TR of 'Sky Jump']",
+  "Reach level 50\nto compete in\nWeekly Contest!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Reach level 50 to join the Weekly Cup!'",
+  "Haftalık Yarışmaya\nkatılmak için\n50. seviyeye ulaş!": "T1 2026-09-28 (ruling 38 own names): replaced by 'Reach level 50 to join the Weekly Cup!' [the TR of 'Reach level 50 to compete in Weekly Contest!']",
+  "Satın Al": "B3 L10N-APP 2026-09-28: fails the 0.70 floor in the booster popup's 'Buy x3' group (0.63 with x3 in 118 pt; it ran over the coin); 'Al' ships",
+  "Time to next live:": "SPEC.md ruling 52(e) (2026-09-29, FIX-2 lane B): EN grammar fixed -> 'Time to next life:'",
+  "You will lose {} token": "SPEC.md ruling 52(e) (2026-09-29, FIX-2 lane B): EN grammar fixed -> 'You will lose %lld tokens' (the multiplier behind %lld is always >= 2)",
+  "You will lose {} token and your streak!": "SPEC.md ruling 52(e) (2026-09-29, FIX-2 lane B): EN grammar fixed -> 'You will lose %lld tokens and your streak!' (the multiplier behind %lld is always >= 2)"
+ }
+}

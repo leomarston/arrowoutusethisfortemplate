@@ -1,0 +1,6691 @@
+{
+  "loading": {
+    "minSeconds": 1.5,
+    "capSeconds": 4.0,
+    "dotsPeriod": 0.4
+  },
+  "transition": {
+    "loadingToBoard": 0.13,
+    "loadingToHome": 0.16,
+    "tabSlide": {
+      "duration": 0.488,
+      "power": 2.51,
+      "lead": 0,
+      "table": [1.0, 0.913, 0.8352, 0.7602, 0.6888, 0.6217, 0.5592, 0.5006, 0.4459, 0.3953, 0.3485, 0.3051, 0.265, 0.2288, 0.1956,
+                0.1653, 0.1379, 0.1138, 0.0918, 0.0729, 0.056, 0.0415, 0.0296, 0.0194, 0.0109, 0.0048, 0.0]
+    }
+  },
+  "dim": {
+    "popup": 0.9,
+    "unlock": 0.9,
+    "outOfTime": 0.94,
+    "skyMatch": 0.96,
+    "info": 0.95,
+    "weeklyTutorial": 0.92,
+    "overPage": 0.63
+  },
+  "popup": {
+    "dimFadeIn": 0,
+    "punch": {
+      "ids": ["pause", "levelFailed", "noLives", "boosterBuy", "skyJump.offer", "rocketRace.offer"],
+      "keys": [1.022, 0.98, 0.969, 0.967, 0.969, 0.976, 0.986, 0.995, 1.0],
+      "byId": {
+        "levelFailed": [1.049, 0.989, 0.984, 0.967, 0.965, 0.967, 0.978, 0.986, 0.995, 1.0]
+      },
+      "anchor": {
+        "pause": [196.6, 428.4],
+        "levelFailed": [196.7, 430.4]
+      },
+      "anchorDefault": [196.5, 426.0]
+    },
+    "band": {
+      "ids": ["quitLevel", "continue"],
+      "drop": {
+        "quitLevel": [-576, -497, -415, -333, -254, -179, -112, -56, -14, 14, 26, 28, 23, 14, 4, -4, -6, 0],
+        "continue": [-623, -535, -451, -361, -275, -194, -122, -61, -14, 16, 30, 32, 26, 16, 5, -4, -6, 0]
+      },
+      "swapWithin": 0.15,
+      "exit": {
+        "rise": [-73, -137, -199, -258, -312, -362, -408, -451, -489, -523, -553, -580, -602, -620, -635, -660],
+        "riseDim": 0.3,
+        "fall": [-27, -39, -11, 29, 79, 137, 201, 269, 339, 410, 479, 545, 606, 680],
+        "nextAfter": 0.1
+      }
+    }
+  },
+  "toggle": {
+    "slide": 0.249,
+    "flipAt": 0.265
+  },
+  "unlock": {
+    "icon": 0.26,
+    "iconSettle": 0.54,
+    "title": 0.5,
+    "unlocked": 0.62,
+    "card": 0.78,
+    "sparkles": 1.14,
+    "dismissFade": 0.233,
+    "dismissMode": "contentCut",
+    "acceptFrom": 0.94
+  },
+  "win": {
+    "panelAt": 4.034,
+    "skipFrom": 1.7,
+    "haptics": [[0.815, "logoLetter", 0.55], [0.848, "logoLetter", 0.58], [0.881, "logoLetter", 0.62], [0.914, "logoLetter", 0.66],
+                [0.947, "logoLetter", 0.7], [1.139, "logoSwell"], [1.688, "win"], [1.828, "logoBounce"], [2.365, "firework"],
+                [2.565, "firework"], [2.765, "firework"], [2.965, "firework"], [3.195, "firework"], [3.595, "firework"]],
+    "impactAt": 1.688,
+    "dimAt": 1.355,
+    "dimDur": 0.349,
+    "dim": 0.894,
+    "confettiAt": 1.655,
+    "rockets": [1.655, 1.905, 2.075, 2.275, 2.525, 2.875],
+    "bursts": [2.365, 2.565, 2.765, 2.965, 3.195, 3.595],
+    "burstFlash": 0.08,
+    "clearAt": 4.018,
+    "stripAt": 4.044,
+    "stripDur": 0.13,
+    "chipAt": 4.434,
+    "chipDur": 0.31,
+    "ringAt": 4.744,
+    "prebuildFrom": 0.1,
+    "burstPerFrame": 10,
+    "logo": {
+      "groupPivot": [196.0, 425.5],
+      "group": {
+        "s": {
+          "kf": [1.6, 1.0, 1.671, 0.9954, 1.721, 0.8576, 1.755, 0.9307, 1.771, 0.9835, 1.804, 1.0334, 1.838, 1.0388, 1.921, 1.0093, 1.954, 0.9998, 2.337, 1.0],
+          "ease": ["linear", "quadIn", "quadIn", "linear", "sineOut", "cubicOut", "sineIn", "quadOut", "cubicOut"]
+        }
+      },
+      "canvas": {
+        "rectPt": [45.1011, 293.2133, 308.0345, 237.5691]
+      },
+      "parts": {
+        "logoSignPurple": {
+          "parent": "group",
+          "z": 0,
+          "visibleFrom": 0.703,
+          "anchor": [0.46619, 0.48015],
+          "anchorPt": [194.5551, 469.0615],
+          "tracks": {
+            "dx": {
+              "kf": [0.703, -84.77, 0.723, -84.77, 0.739, -108.64, 0.806, -160.3, 0.889, -71.88, 0.922, -19.32, 0.956, 15.06, 0.989, 33.26, 1.006, 38.77, 1.039, 42.74, 1.106, 23.84, 1.19, -0.16, 2.35, 0.0],
+              "ease": ["linear", "linear", "sineOut", "sineIn", "cubicInOut", "linear", "linear", "linear", "cubicOut", "sineIn", "sineOut", "linear"]
+            },
+            "dy": {
+              "kf": [0.703, 275.33, 0.723, 275.33, 0.739, 264.86, 0.756, 247.92, 0.773, 223.23, 0.789, 194.0, 0.839, 91.48, 0.856, 61.48, 0.873, 37.8, 0.889, 20.29, 0.906, 9.31, 0.939, 2.09, 1.039, 6.62, 1.155, -0.22, 2.35, 0.0],
+              "ease": ["linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "cubicOut", "cubicInOut", "linear", "quadOut"]
+            },
+            "sx": {
+              "kf": [0.703, 0.6287, 0.739, 0.6618, 0.856, 0.8739, 0.922, 0.9707, 0.989, 0.9996, 2.35, 1.0],
+              "ease": ["cubicIn", "linear", "linear", "cubicOut", "cubicOut"]
+            },
+            "sy": {
+              "kf": [0.703, 0.6813, 0.739, 0.7058, 0.806, 0.8249, 0.839, 0.8821, 0.889, 0.956, 1.006, 1.0026, 1.122, 0.9744, 1.139, 0.9927, 1.755, 1.0023, 2.35, 1.0],
+              "ease": ["cubicIn", "linear", "sineIn", "linear", "cubicOut", "cubicIn", "linear", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [0.703, -146.46, 0.723, -146.67, 0.789, -98.52, 0.839, -59.02, 0.873, -35.36, 0.889, -24.86, 0.922, -6.86, 0.956, 4.63, 1.039, 13.12, 1.19, -0.45, 1.738, 0.22, 1.804, 4.0, 1.938, -2.84, 2.35, 0.0],
+              "ease": ["linear", "linear", "linear", "linear", "linear", "cubicInOut", "linear", "quadOut", "sineInOut", "cubicIn", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "bend": {
+              "kf": [0.703, -7.96, 0.856, -10.13, 0.989, 1.5, 1.056, 0.04, 1.2, 0.0],
+              "ease": ["cubicInOut", "linear", "cubicOut", "linear"]
+            },
+            "a": {
+              "kf": [0.703, 0.0, 0.739, 0.377, 0.823, 1.0, 0.9, 1.0],
+              "ease": ["cubicInOut", "linear", "linear"]
+            }
+          }
+        },
+        "logoPegs": {
+          "parent": "group",
+          "z": 0.5,
+          "visibleFrom": 1.19,
+          "anchor": [0.49814, 0.49646],
+          "anchorPt": [193.2043, 417.281],
+          "tracks": {
+            "dy": {
+              "kf": [1.19, -15.0, 1.59, 0.0],
+              "ease": ["sineInOut"]
+            },
+            "a": {
+              "kf": [0.0, 1.0],
+              "ease": []
+            }
+          }
+        },
+        "logoSignBlue": {
+          "parent": "group",
+          "z": 1,
+          "visibleFrom": 0.457,
+          "anchor": [0.497785, 0.437044],
+          "anchorPt": [199.1221, 356.0639],
+          "tracks": {
+            "dx": {
+              "kf": [0.457, -179.32, 0.556, -285.45, 0.606, -233.97, 0.623, -206.78, 0.656, -118.38, 0.673, -71.28, 0.689, -26.9, 0.706, 14.01, 0.723, 47.58, 0.739, 84.58, 0.773, 83.01, 0.789, 76.81, 0.806, 68.84, 0.856, 40.37, 0.906, 18.91, 0.956, 6.19, 1.056, -0.03, 1.2, 0.0],
+              "ease": ["cubicOut", "linear", "linear", "cubicInOut", "linear", "linear", "linear", "linear", "linear", "cubicOut", "linear", "linear", "linear", "linear", "linear", "quadOut", "linear"]
+            },
+            "dy": {
+              "kf": [0.457, 534.77, 0.473, 472.54, 0.49, 426.5, 0.506, 357.67, 0.556, 232.91, 0.606, 108.09, 0.64, 54.83, 0.656, 28.71, 0.706, 0.02, 0.739, 16.37, 0.806, 10.75, 0.989, -0.34, 1.2, 0.0],
+              "ease": ["linear", "linear", "linear", "linear", "quadIn", "sineIn", "linear", "cubicOut", "sineIn", "cubicIn", "cubicOut", "quadOut"]
+            },
+            "rot": {
+              "kf": [0.457, -180.0, 0.506, -130.46, 0.556, -109.86, 0.623, -48.98, 0.656, -29.49, 0.689, -6.52, 0.706, 3.55, 0.739, 19.34, 0.773, 20.79, 0.823, 14.56, 0.889, 6.14, 1.056, 0.24, 1.2, 0.0],
+              "ease": ["linear", "sineInOut", "cubicInOut", "cubicInOut", "linear", "linear", "linear", "cubicOut", "linear", "linear", "cubicOut", "linear"]
+            },
+            "a": {
+              "kf": [0.457, 0.248, 0.573, 1.0, 0.6, 1.0],
+              "ease": ["sineInOut", "linear"]
+            }
+          }
+        },
+        "logoLetterA": {
+          "parent": "logoSignBlue",
+          "z": 2,
+          "visibleFrom": 0.69,
+          "anchor": [0.4094, 0.5219],
+          "anchorPt": [91.8214, 366.4354],
+          "tracks": {
+            "dx": {
+              "kf": [0.69, -40.51, 0.74, -66.64, 0.79, -15.15, 0.84, 21.25, 0.857, 30.21, 0.915, 44.07, 0.965, 38.23, 1.007, 23.39, 1.057, 4.79, 1.123, -9.03, 1.207, -3.35, 1.382, -0.43, 1.698, -0.2, 1.748, -1.45, 1.79, -0.47, 1.873, -3.02, 2.032, 0.66, 2.348, 0.0],
+              "ease": ["sineIn", "linear", "linear", "linear", "quadOut", "cubicIn", "linear", "linear", "sineOut", "cubicIn", "cubicOut", "cubicIn", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [0.69, 24.62, 0.707, 14.74, 0.732, 4.97, 0.823, -4.22, 0.94, -11.64, 1.065, -1.7, 1.123, 1.23, 2.123, -0.24, 2.348, -0.0],
+              "ease": ["linear", "linear", "cubicOut", "quadOut", "linear", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "s": {
+              "kf": [0.69, 0.973, 0.757, 0.6914, 0.79, 0.8293, 0.84, 0.9189, 0.873, 0.9435, 0.965, 0.9187, 1.107, 0.9684, 1.19, 0.9707, 1.24, 1.0049, 1.698, 0.9973, 1.732, 0.9622, 1.79, 1.0091, 1.865, 1.0066, 1.982, 0.989, 2.307, 1.002, 2.348, 1.0],
+              "ease": ["sineInOut", "linear", "quadOut", "quadOut", "cubicOut", "cubicInOut", "cubicIn", "cubicOut", "cubicIn", "quadOut", "sineOut", "cubicOut", "cubicInOut", "cubicOut", "linear"]
+            },
+            "rot": {
+              "kf": [0.69, -60.69, 0.757, -39.07, 0.807, -21.34, 0.84, 1.23, 0.857, 10.22, 0.932, 23.83, 1.007, 13.69, 1.048, 6.63, 1.165, -1.52, 1.773, 0.23, 2.348, 0.0],
+              "ease": ["cubicIn", "cubicIn", "linear", "linear", "cubicOut", "sineIn", "linear", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "a": {
+              "kf": [0.69, 0.0, 0.732, 0.726, 0.798, 1.0, 2.348, 1.0],
+              "ease": ["linear", "cubicOut", "cubicOut"]
+            }
+          },
+          "layers": {
+            "ext": "logoLetterAExt",
+            "face": "logoLetterAFace",
+            "flat": "logoLetterAFlat"
+          },
+          "ownOpacityOneFrom": 0.798,
+          "flatUntil": 0.807
+        },
+        "logoLetterR1": {
+          "parent": "logoSignBlue",
+          "z": 3,
+          "visibleFrom": 0.69,
+          "anchor": [0.4881, 0.483],
+          "anchorPt": [146.1497, 352.695],
+          "tracks": {
+            "dx": {
+              "kf": [0.69, -53.53, 0.715, -65.19, 0.74, -81.05, 0.748, -76.61, 0.757, -70.05, 0.765, -61.71, 0.782, -40.36, 0.79, -28.65, 0.807, -8.44, 0.832, 14.69, 0.84, 21.04, 0.873, 34.89, 0.907, 37.71, 1.007, 14.25, 1.048, 2.14, 1.14, -7.33, 1.232, -0.69, 1.798, -0.32, 1.898, -1.03, 2.348, -0.0],
+              "ease": ["linear", "linear", "linear", "linear", "linear", "cubicInOut", "linear", "linear", "linear", "linear", "sineOut", "cubicOut", "sineIn", "linear", "cubicOut", "quadInOut", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [0.69, 9.11, 0.74, 16.67, 0.798, -0.22, 0.807, -1.72, 0.857, -0.58, 0.907, -3.57, 0.923, -1.78, 0.932, -2.71, 1.123, 1.34, 1.207, 0.27, 1.915, -0.3, 2.348, -0.0],
+              "ease": ["linear", "linear", "linear", "cubicOut", "quadOut", "linear", "linear", "quadIn", "cubicIn", "cubicIn", "cubicOut"]
+            },
+            "s": {
+              "kf": [0.69, 0.7857, 0.707, 0.8505, 0.748, 0.9671, 0.765, 1.0126, 0.815, 0.894, 0.832, 0.9258, 0.857, 0.9794, 0.907, 0.9567, 0.923, 0.9818, 1.023, 0.9492, 1.132, 1.0247, 1.19, 1.0193, 1.207, 0.9928, 1.223, 1.0016, 1.707, 0.999, 1.748, 0.9868, 1.882, 1.0269, 1.982, 0.9937, 2.348, 1.0],
+              "ease": ["linear", "linear", "cubicOut", "sineInOut", "cubicIn", "sineOut", "sineOut", "linear", "cubicOut", "quadOut", "quadIn", "linear", "sineOut", "cubicIn", "cubicOut", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [0.69, -61.69, 0.723, -57.63, 0.74, -51.24, 0.765, -22.47, 0.79, -22.38, 0.84, 3.2, 0.848, 5.19, 0.865, 13.19, 0.882, 19.14, 0.898, 19.81, 0.94, 13.36, 1.007, 5.08, 1.073, -0.5, 1.132, 2.27, 1.19, 2.4, 1.207, -2.23, 1.423, -0.2, 1.79, 0.28, 1.873, 2.21, 2.023, 0.06, 2.348, 0.0],
+              "ease": ["linear", "sineIn", "quadOut", "sineOut", "linear", "linear", "linear", "quadOut", "cubicOut", "sineInOut", "sineInOut", "quadOut", "cubicOut", "cubicOut", "linear", "cubicOut", "quadIn", "cubicOut", "cubicOut", "sineOut"]
+            },
+            "a": {
+              "kf": [0.69, 0.0, 0.715, 0.527, 0.807, 1.0, 2.348, 1.0],
+              "ease": ["linear", "cubicOut", "linear"]
+            }
+          },
+          "layers": {
+            "ext": "logoLetterR1Ext",
+            "face": "logoLetterR1Face",
+            "flat": "logoLetterR1Flat"
+          },
+          "ownOpacityOneFrom": 0.807,
+          "flatUntil": 0.807
+        },
+        "logoLetterR2": {
+          "parent": "logoSignBlue",
+          "z": 4,
+          "visibleFrom": 0.69,
+          "anchor": [0.4885, 0.4821],
+          "anchorPt": [189.9483, 350.4208],
+          "tracks": {
+            "dx": {
+              "kf": [0.69, -74.39, 0.732, -87.44, 0.74, -89.16, 0.748, -82.71, 0.765, -67.05, 0.782, -39.76, 0.798, -19.55, 0.807, -7.32, 0.815, 2.3, 0.832, 15.89, 0.84, 21.85, 0.89, 32.38, 0.982, 15.37, 1.023, 3.44, 1.123, -5.83, 1.232, -0.32, 2.348, -0.0],
+              "ease": ["linear", "linear", "linear", "cubicInOut", "cubicInOut", "linear", "linear", "linear", "linear", "linear", "sineOut", "sineIn", "linear", "cubicOut", "quadInOut", "linear"]
+            },
+            "dy": {
+              "kf": [0.69, -1.23, 0.732, 16.32, 0.74, 18.89, 0.807, 0.71, 0.857, 3.93, 0.907, 2.02, 0.932, 3.5, 1.09, -0.3, 1.19, 0.99, 1.232, 0.11, 2.348, 0.0],
+              "ease": ["linear", "linear", "linear", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "cubicIn"]
+            },
+            "s": {
+              "kf": [0.69, 0.7609, 0.757, 1.1315, 0.773, 1.0837, 0.798, 0.9482, 0.815, 0.9064, 0.84, 0.977, 0.857, 0.9965, 0.907, 0.9758, 0.923, 1.011, 1.023, 0.9686, 1.073, 1.0081, 1.098, 1.0367, 1.19, 1.0341, 1.215, 0.9969, 1.773, 1.0021, 1.873, 1.0407, 1.99, 0.9949, 2.348, 1.0],
+              "ease": ["linear", "linear", "linear", "quadOut", "sineIn", "quadOut", "cubicOut", "linear", "cubicOut", "sineOut", "sineOut", "cubicIn", "cubicOut", "cubicOut", "quadOut", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [0.69, -74.12, 0.707, -64.27, 0.723, -57.85, 0.74, -51.84, 0.748, -32.69, 0.782, -15.21, 0.798, -12.25, 0.815, -5.51, 0.848, 4.63, 0.857, 6.86, 0.873, 14.47, 0.898, 15.44, 0.932, 8.46, 0.957, 5.8, 1.007, -0.23, 1.065, -2.29, 1.107, 2.65, 1.19, 3.16, 1.198, -0.09, 1.207, -2.18, 1.398, -0.26, 1.79, 0.33, 1.865, 2.78, 1.973, 0.08, 2.348, -0.0],
+              "ease": ["linear", "linear", "sineIn", "linear", "cubicOut", "cubicIn", "linear", "sineOut", "linear", "linear", "cubicOut", "sineInOut", "sineOut", "sineOut", "cubicOut", "quadInOut", "cubicOut", "linear", "linear", "cubicOut", "sineIn", "cubicOut", "quadOut", "quadOut"]
+            },
+            "a": {
+              "kf": [0.69, 0.0, 0.715, 0.499, 0.798, 1.0, 2.348, 1.0],
+              "ease": ["linear", "cubicOut", "cubicOut"]
+            }
+          },
+          "layers": {
+            "ext": "logoLetterR2Ext",
+            "face": "logoLetterR2Face",
+            "flat": "logoLetterR2Flat"
+          },
+          "ownOpacityOneFrom": 0.798,
+          "flatUntil": 0.807
+        },
+        "logoLetterO": {
+          "parent": "logoSignBlue",
+          "z": 5,
+          "visibleFrom": 0.69,
+          "anchor": [0.5007, 0.502],
+          "anchorPt": [245.4651, 353.1101],
+          "tracks": {
+            "dx": {
+              "kf": [0.69, -117.83, 0.732, -95.77, 0.748, -70.72, 0.757, -53.48, 0.765, -49.15, 0.773, -28.06, 0.79, -9.43, 0.807, 5.68, 0.823, 17.71, 0.84, 22.16, 0.857, 14.98, 0.898, 21.24, 0.94, 15.7, 0.965, 9.22, 0.99, 4.85, 1.023, -1.74, 1.057, -4.13, 1.082, -3.28, 1.573, 0.19, 1.748, -0.31, 1.882, 1.09, 2.132, -0.34, 2.348, 0.0],
+              "ease": ["linear", "quadIn", "linear", "linear", "linear", "cubicOut", "cubicIn", "cubicOut", "cubicInOut", "linear", "sineOut", "linear", "sineInOut", "linear", "quadOut", "quadOut", "cubicIn", "cubicOut", "sineIn", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [0.69, -10.37, 0.715, -2.63, 0.807, 5.2, 0.84, 8.92, 0.873, 6.59, 0.907, 7.46, 1.015, 0.19, 1.223, -0.21, 2.348, 0.0],
+              "ease": ["linear", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "linear", "cubicOut", "cubicOut"]
+            },
+            "s": {
+              "kf": [0.69, 0.9561, 0.757, 1.0287, 0.807, 0.9154, 0.823, 1.0011, 0.882, 0.9872, 0.948, 0.9941, 1.057, 1.0064, 1.073, 0.997, 1.207, 0.9975, 1.707, 1.0044, 1.74, 1.0164, 1.773, 1.0045, 1.873, 1.0369, 2.023, 0.9929, 2.348, 1.0],
+              "ease": ["linear", "cubicOut", "linear", "quadInOut", "cubicOut", "cubicIn", "linear", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "quadOut", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [0.69, -105.9, 0.698, -89.47, 0.707, -76.0, 0.715, -65.53, 0.723, -58.04, 0.732, -53.73, 0.748, -40.53, 0.757, -31.54, 0.765, -23.97, 0.807, -6.77, 0.832, 3.62, 0.84, 4.51, 0.865, 3.08, 0.907, 5.72, 0.94, 3.99, 1.032, -1.71, 1.065, -0.34, 1.082, -1.28, 1.098, -0.52, 1.707, 0.09, 1.74, 2.24, 1.773, -0.02, 1.89, 0.6, 2.348, -0.0],
+              "ease": ["linear", "linear", "linear", "linear", "linear", "quadIn", "linear", "linear", "quadOut", "sineOut", "linear", "cubicOut", "sineOut", "cubicOut", "cubicOut", "quadOut", "linear", "cubicIn", "sineOut", "cubicOut", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "a": {
+              "kf": [0.69, 0.0, 0.757, 1.0, 2.348, 1.0],
+              "ease": ["linear", "cubicOut"]
+            }
+          },
+          "layers": {
+            "ext": "logoLetterOExt",
+            "face": "logoLetterOFace",
+            "flat": "logoLetterOFlat"
+          },
+          "ownOpacityOneFrom": 0.757,
+          "flatUntil": 0.807
+        },
+        "logoLetterW": {
+          "parent": "logoSignBlue",
+          "z": 6,
+          "visibleFrom": 0.69,
+          "anchor": [0.4668, 0.4815],
+          "anchorPt": [299.7919, 357.5285],
+          "tracks": {
+            "dx": {
+              "kf": [0.69, -110.4, 0.732, -66.01, 0.74, -55.68, 0.748, -36.57, 0.79, 5.76, 0.798, 8.25, 0.815, 10.42, 1.007, -0.69, 1.015, -0.54, 1.765, 0.33, 1.873, 3.17, 1.998, -0.5, 2.348, 0.0],
+              "ease": ["linear", "linear", "linear", "quadOut", "linear", "cubicOut", "linear", "linear", "quadOut", "quadOut", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [0.69, -24.98, 0.723, -8.08, 0.79, 8.5, 0.898, 4.29, 1.207, -0.02, 2.348, 0.0],
+              "ease": ["linear", "quadOut", "sineOut", "cubicOut", "cubicOut"]
+            },
+            "s": {
+              "kf": [0.69, 0.7458, 0.698, 0.819, 0.707, 0.878, 0.773, 1.015, 0.79, 0.9753, 0.823, 1.0674, 0.865, 1.0721, 1.048, 1.0041, 1.773, 1.0048, 1.873, 1.0337, 1.998, 0.9955, 2.348, 1.0],
+              "ease": ["linear", "linear", "cubicOut", "cubicInOut", "quadIn", "cubicOut", "sineOut", "cubicIn", "cubicOut", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [0.69, -48.56, 0.773, 0.58, 0.807, 8.32, 0.873, 3.64, 1.007, -0.14, 1.132, 0.15, 2.348, 0.0],
+              "ease": ["linear", "cubicInOut", "cubicOut", "linear", "cubicIn", "cubicIn"]
+            },
+            "a": {
+              "kf": [0.69, 0.0, 0.757, 1.0, 2.348, 1.0],
+              "ease": ["linear", "cubicOut"]
+            }
+          },
+          "layers": {
+            "ext": "logoLetterWExt",
+            "face": "logoLetterWFace",
+            "flat": "logoLetterWFlat"
+          },
+          "ownOpacityOneFrom": 0.757,
+          "flatUntil": 0.807
+        },
+        "logoOutO": {
+          "parent": "group",
+          "z": 7,
+          "visibleFrom": 1.022,
+          "anchor": [0.49364, 0.39136],
+          "anchorPt": [138.1869, 470.3723],
+          "tracks": {
+            "dx": {
+              "kf": [1.022, 64.85, 1.047, 58.6, 1.051, 56.48, 1.055, 54.06, 1.059, 51.36, 1.063, 48.38, 1.067, 45.14, 1.071, 41.65, 1.075, 37.92, 1.08, 32.95, 1.085, 27.67, 1.09, 22.11, 1.095, 16.3, 1.101, 9.06, 1.108, 0.33, 1.119, -13.78, 1.122, -17.66, 1.139, -26.56, 1.155, -45.83, 1.172, -60.45, 1.189, -71.88, 1.272, -94.61, 1.472, -97.82, 1.589, -67.36, 1.638, -40.14, 1.671, -13.59, 1.688, 6.67, 1.889, -1.91, 2.35, 0.0],
+              "ease": ["quadIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "quadOut", "cubicIn", "quadIn", "linear", "linear", "linear", "quadOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [1.022, -1.34, 1.089, 14.76, 1.122, 31.22, 1.139, 22.32, 1.189, 30.36, 1.239, 33.45, 1.338, 20.29, 1.522, 22.16, 1.588, 14.29, 1.804, -2.72, 1.955, 2.86, 2.101, -0.12, 2.35, 0.0],
+              "ease": ["linear", "linear", "linear", "sineInOut", "cubicOut", "linear", "cubicIn", "sineIn", "cubicOut", "cubicOut", "linear", "linear"]
+            },
+            "s": {
+              "kf": [1.022, 0.6748, 1.039, 0.6773, 1.089, 1.2176, 1.139, 2.2441, 1.172, 2.3756, 1.189, 2.4454, 1.205, 2.5444, 1.222, 2.6146, 1.239, 2.6976, 1.305, 2.8771, 1.422, 3.0107, 1.505, 2.8942, 1.538, 2.7367, 1.571, 2.4798, 1.605, 2.1364, 1.638, 1.7443, 1.671, 1.2418, 1.688, 0.8956, 1.838, 1.0498, 2.1, 0.9983, 2.35, 1.0],
+              "ease": ["linear", "cubicOut", "cubicIn", "sineIn", "linear", "linear", "linear", "linear", "linear", "sineOut", "quadIn", "linear", "cubicInOut", "linear", "linear", "linear", "linear", "sineInOut", "cubicOut", "linear"]
+            },
+            "rot": {
+              "kf": [1.022, 20.45, 1.139, -3.79, 1.155, -0.56, 1.239, -2.88, 1.322, 1.64, 1.438, 4.16, 1.455, 3.4, 1.488, 4.3, 1.522, 0.81, 1.571, 1.63, 1.605, -0.74, 1.638, 1.91, 1.721, -0.5, 1.821, 2.81, 1.938, -2.98, 2.1, 0.03, 2.35, 0.0],
+              "ease": ["linear", "linear", "sineOut", "sineInOut", "cubicOut", "linear", "quadOut", "quadIn", "cubicInOut", "sineOut", "linear", "cubicOut", "cubicOut", "cubicOut", "sineOut", "linear"]
+            }
+          },
+          "container": "outGroup",
+          "layers": {
+            "ext": "logoOutOExt",
+            "face": "logoOutOFace"
+          }
+        },
+        "logoOutU": {
+          "parent": "group",
+          "z": 8,
+          "visibleFrom": 1.022,
+          "anchor": [0.49581, 0.39658],
+          "anchorPt": [187.3268, 468.0191],
+          "tracks": {
+            "dx": {
+              "kf": [1.022, 40.97, 1.072, 40.89, 1.122, -0.23, 1.139, 10.15, 1.172, -4.49, 1.239, -10.17, 1.289, -2.25, 1.355, 7.24, 1.472, 1.72, 1.572, -2.08, 2.35, 0.0],
+              "ease": ["linear", "sineOut", "linear", "linear", "quadOut", "linear", "sineOut", "cubicIn", "quadOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [1.022, 12.11, 1.122, 35.96, 1.155, 25.43, 1.209, 26.22, 1.252, 24.7, 1.267, 23.57, 1.282, 22.14, 1.289, 21.36, 1.338, 23.55, 1.505, 18.63, 1.555, 13.1, 1.721, -0.7, 2.35, 0.0],
+              "ease": ["sineIn", "cubicInOut", "cubicOut", "sineIn", "linear", "linear", "linear", "cubicIn", "cubicIn", "sineOut", "sineOut", "sineOut"]
+            },
+            "s": {
+              "kf": [1.022, 0.6973, 1.039, 0.6965, 1.089, 1.2726, 1.139, 2.1183, 1.155, 2.3588, 1.172, 2.4289, 1.189, 2.4726, 1.222, 2.5949, 1.255, 2.6953, 1.289, 2.8358, 1.305, 2.8704, 1.338, 2.7857, 1.405, 2.6958, 1.438, 2.6154, 1.488, 2.4505, 1.522, 2.3573, 1.538, 2.2936, 1.605, 1.9318, 1.655, 1.4557, 1.671, 1.2062, 1.688, 0.8759, 1.854, 1.0499, 2.1, 0.9995, 2.35, 1.0],
+              "ease": ["linear", "cubicOut", "cubicIn", "linear", "linear", "linear", "quadInOut", "quadOut", "sineOut", "linear", "quadIn", "sineInOut", "linear", "linear", "sineOut", "linear", "linear", "linear", "linear", "linear", "sineOut", "sineOut", "linear"]
+            },
+            "rot": {
+              "kf": [1.022, 20.45, 1.139, -3.79, 1.155, -0.56, 1.239, -2.88, 1.322, 1.64, 1.438, 4.16, 1.455, 3.4, 1.488, 4.3, 1.522, 0.81, 1.571, 1.63, 1.605, -0.74, 1.638, 1.91, 1.721, -0.5, 1.821, 2.81, 1.938, -2.98, 2.1, 0.03, 2.35, 0.0],
+              "ease": ["linear", "linear", "sineOut", "sineInOut", "cubicOut", "linear", "quadOut", "quadIn", "cubicInOut", "sineOut", "linear", "cubicOut", "cubicOut", "cubicOut", "sineOut", "linear"]
+            }
+          },
+          "container": "outGroup",
+          "layers": {
+            "ext": "logoOutUExt",
+            "face": "logoOutUFace"
+          }
+        },
+        "logoOutT": {
+          "parent": "group",
+          "z": 9,
+          "visibleFrom": 1.022,
+          "anchor": [0.51212, 0.3135],
+          "anchorPt": [228.6102, 460.0657],
+          "tracks": {
+            "dx": {
+              "kf": [1.022, 15.81, 1.041, 19.53, 1.043, 20.82, 1.045, 22.39, 1.046, 23.29, 1.048, 25.26, 1.05, 27.0, 1.071, 32.63, 1.072, 32.62, 1.075, 29.06, 1.078, 25.73, 1.081, 22.61, 1.084, 19.72, 1.087, 17.05, 1.09, 14.6, 1.093, 12.37, 1.096, 10.35, 1.099, 8.55, 1.102, 6.96, 1.105, 5.58, 1.108, 4.42, 1.111, 3.46, 1.114, 2.7, 1.117, 2.15, 1.122, 1.68, 1.126, 5.74, 1.13, 9.5, 1.134, 12.95, 1.138, 16.09, 1.144, 20.67, 1.148, 23.46, 1.152, 25.98, 1.156, 28.25, 1.16, 30.26, 1.164, 32.02, 1.168, 33.51, 1.188, 36.84, 1.19, 37.02, 1.205, 39.86, 1.222, 45.28, 1.305, 79.65, 1.404, 95.11, 1.428, 94.87, 1.436, 94.45, 1.444, 93.76, 1.451, 92.85, 1.457, 91.81, 1.463, 90.48, 1.469, 88.85, 1.472, 87.91, 1.522, 76.41, 1.55, 66.52, 1.564, 61.76, 1.582, 55.43, 1.596, 50.83, 1.605, 47.67, 1.64, 29.81, 1.649, 25.18, 1.655, 22.33, 1.662, 17.23, 1.671, 10.35, 1.688, -5.21, 1.712, -3.27, 1.734, -1.79, 1.762, -0.28, 1.789, 0.9, 1.856, 1.81, 2.341, 0.0, 2.35, 0.0],
+              "ease": ["cubicIn", "linear", "linear", "linear", "linear", "linear", "cubicOut", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "sineOut", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "quadOut", "cubicIn", "linear", "linear", "linear", "quadOut", "cubicIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "sineIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "quadOut", "cubicOut", "linear"]
+            },
+            "dy": {
+              "kf": [1.022, 19.96, 1.041, 20.86, 1.048, 21.46, 1.055, 22.37, 1.062, 23.55, 1.07, 25.2, 1.079, 27.37, 1.089, 30.12, 1.102, 34.04, 1.122, 40.29, 1.123, 38.92, 1.125, 36.41, 1.127, 34.2, 1.129, 32.27, 1.131, 30.6, 1.133, 29.16, 1.135, 27.95, 1.137, 26.94, 1.139, 26.1, 1.155, 24.33, 1.173, 21.6, 1.188, 19.74, 1.239, 16.32, 1.282, 19.1, 1.315, 23.26, 1.356, 25.82, 1.416, 24.22, 1.436, 23.09, 1.459, 21.5, 1.481, 19.71, 1.505, 17.46, 1.528, 15.01, 1.565, 10.66, 1.586, 8.0, 1.598, 6.56, 1.621, 3.59, 1.634, 2.47, 1.647, 1.58, 1.658, 1.24, 1.687, 0.61, 1.738, 0.23, 1.801, 2.31, 1.808, 2.01, 1.972, -1.9, 2.35, 0.0],
+              "ease": ["sineIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "cubicOut", "linear", "linear", "sineOut", "quadIn", "linear", "quadOut", "sineIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "sineOut", "sineOut", "quadOut", "cubicOut", "cubicIn", "cubicOut", "cubicOut"]
+            },
+            "s": {
+              "kf": [1.022, 0.6372, 1.039, 0.6395, 1.089, 1.1499, 1.139, 2.1176, 1.155, 2.1558, 1.172, 2.2039, 1.189, 2.2984, 1.205, 2.4083, 1.239, 2.5146, 1.289, 2.6474, 1.338, 2.7319, 1.405, 2.8201, 1.422, 2.7952, 1.438, 2.7987, 1.472, 2.7684, 1.538, 2.6328, 1.571, 2.4323, 1.605, 2.1103, 1.638, 1.7254, 1.671, 1.211, 1.688, 0.8923, 1.788, 0.9687, 1.838, 1.024, 1.854, 1.0093, 1.904, 1.0232, 2.35, 1.0],
+              "ease": ["linear", "cubicOut", "cubicIn", "linear", "linear", "linear", "linear", "quadOut", "linear", "sineOut", "sineInOut", "linear", "linear", "cubicOut", "sineInOut", "cubicInOut", "cubicInOut", "linear", "cubicInOut", "linear", "cubicInOut", "sineOut", "linear", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [1.022, 25.98, 1.155, 4.87, 1.172, 6.44, 1.189, 2.84, 1.222, 0.44, 1.405, 6.68, 1.455, 7.27, 1.671, 1.94, 1.771, 4.37, 1.788, 8.82, 1.987, -1.28, 2.35, 0.0],
+              "ease": ["sineOut", "linear", "linear", "cubicOut", "quadOut", "cubicOut", "cubicOut", "cubicIn", "linear", "cubicOut", "cubicOut"]
+            }
+          },
+          "container": "outGroup",
+          "layers": {
+            "ext": "logoOutTExt",
+            "face": "logoOutTFace"
+          }
+        },
+        "logoOutBang": {
+          "parent": "group",
+          "z": 10,
+          "visibleFrom": 1.022,
+          "anchor": [0.4887, 0.37027],
+          "anchorPt": [261.4365, 462.6222],
+          "tracks": {
+            "dx": {
+              "kf": [1.022, -6.26, 1.072, 22.06, 1.122, -3.45, 1.139, 32.11, 1.222, 70.21, 1.255, 90.97, 1.339, 124.46, 1.439, 136.13, 1.538, 115.33, 1.605, 88.14, 1.638, 60.12, 1.671, 19.19, 1.688, -7.02, 1.955, 1.24, 2.35, 0.0],
+              "ease": ["cubicInOut", "cubicOut", "linear", "linear", "cubicInOut", "linear", "cubicOut", "sineIn", "linear", "linear", "linear", "linear", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [1.022, 19.0, 1.072, 24.38, 1.122, 43.72, 1.239, 28.84, 1.355, 52.53, 1.424, 54.91, 1.449, 53.48, 1.458, 52.39, 1.467, 51.01, 1.477, 49.17, 1.487, 47.04, 1.498, 44.4, 1.511, 40.97, 1.529, 35.84, 1.538, 33.2, 1.671, 4.51, 1.688, -0.64, 1.804, 5.45, 1.921, -3.46, 2.103, -0.04, 2.35, 0.0],
+              "ease": ["cubicOut", "cubicOut", "cubicOut", "linear", "cubicOut", "sineIn", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "linear", "cubicOut", "cubicOut", "sineOut", "linear"]
+            },
+            "s": {
+              "kf": [1.022, 0.6792, 1.039, 0.6809, 1.089, 1.2286, 1.139, 2.2155, 1.205, 2.5919, 1.239, 2.7131, 1.272, 2.8065, 1.355, 2.9248, 1.405, 3.0163, 1.438, 2.999, 1.472, 2.9825, 1.538, 2.854, 1.571, 2.6849, 1.605, 2.3933, 1.621, 2.202, 1.638, 1.9663, 1.655, 1.6991, 1.671, 1.3828, 1.688, 0.9804, 1.921, 1.0292, 2.35, 1.0],
+              "ease": ["linear", "cubicOut", "cubicIn", "linear", "linear", "cubicOut", "linear", "linear", "cubicOut", "cubicOut", "sineInOut", "sineOut", "sineIn", "linear", "linear", "linear", "linear", "linear", "cubicOut", "cubicOut"]
+            },
+            "rot": {
+              "kf": [1.022, 17.67, 1.405, -10.25, 1.538, -12.01, 1.638, 2.03, 1.688, -12.07, 1.788, 0.67, 1.921, -7.68, 2.1, 0.03, 2.35, 0.0],
+              "ease": ["cubicOut", "sineOut", "cubicInOut", "quadOut", "cubicOut", "cubicOut", "cubicOut", "linear"]
+            }
+          },
+          "container": "outGroup",
+          "layers": {
+            "ext": "logoOutBangExt",
+            "face": "logoOutBangFace"
+          }
+        },
+        "logoOut": {
+          "parent": "group",
+          "z": 7,
+          "visibleFrom": 1.022,
+          "anchor": [0.576502, 0.375623],
+          "anchorPt": [204.212, 465.477],
+          "tracks": {
+            "dx": {
+              "kf": [1.022, 28.64, 1.047, 32.8, 1.064, 35.7, 1.08, 24.32, 1.089, 15.92, 1.097, 8.8, 1.105, 2.99, 1.114, -1.53, 1.122, -4.8, 1.139, 8.41, 1.205, 3.64, 1.23, 5.92, 1.247, 11.0, 1.289, 20.58, 1.33, 30.51, 1.43, 35.87, 1.48, 30.95, 1.58, 20.18, 1.672, 3.36, 1.689, -1.27, 2.105, 0.22, 2.347, 0.0],
+              "ease": ["cubicIn", "cubicOut", "cubicIn", "linear", "linear", "linear", "linear", "linear", "linear", "quadOut", "linear", "linear", "linear", "linear", "cubicOut", "sineIn", "linear", "sineIn", "linear", "cubicOut", "cubicOut"]
+            },
+            "dy": {
+              "kf": [1.022, 12.44, 1.072, 20.08, 1.105, 33.05, 1.122, 38.0, 1.155, 27.36, 1.272, 26.54, 1.405, 31.31, 1.63, 6.54, 1.705, 0.2, 1.814, 0.8, 1.989, -0.57, 2.347, -0.0],
+              "ease": ["linear", "linear", "cubicInOut", "quadOut", "cubicOut", "sineOut", "sineIn", "quadOut", "cubicOut", "cubicOut", "quadOut"]
+            },
+            "s": {
+              "kf": [1.022, 0.6973, 1.039, 0.6965, 1.047, 0.9309, 1.089, 1.2715, 1.139, 2.1006, 1.147, 2.2394, 1.164, 2.3959, 1.18, 2.4488, 1.197, 2.488, 1.214, 2.5798, 1.247, 2.6895, 1.264, 2.7507, 1.289, 2.8363, 1.305, 2.8697, 1.339, 2.7846, 1.405, 2.6958, 1.447, 2.5892, 1.497, 2.4156, 1.522, 2.3563, 1.539, 2.2904, 1.605, 1.9294, 1.655, 1.4517, 1.672, 1.1873, 1.68, 1.0249, 1.689, 0.8806, 1.772, 1.0015, 1.864, 1.0459, 2.28, 0.9973, 2.347, 1.0],
+              "ease": ["linear", "linear", "cubicOut", "cubicIn", "linear", "quadOut", "sineOut", "cubicInOut", "cubicInOut", "sineInOut", "cubicIn", "sineOut", "linear", "quadIn", "sineInOut", "linear", "linear", "sineOut", "cubicInOut", "linear", "linear", "linear", "linear", "linear", "linear", "cubicOut", "cubicOut", "linear"]
+            },
+            "rot": {
+              "kf": [1.022, 20.45, 1.139, -3.75, 1.164, -0.81, 1.255, -2.8, 1.33, 1.95, 1.455, 4.15, 1.464, 3.87, 1.497, 4.12, 1.53, 0.61, 1.572, 1.62, 1.605, -0.73, 1.639, 1.87, 1.722, -0.46, 1.822, 2.72, 1.947, -2.87, 2.255, 0.24, 2.347, 0.0],
+              "ease": ["linear", "cubicOut", "cubicOut", "sineOut", "cubicOut", "linear", "cubicOut", "quadInOut", "sineOut", "sineOut", "linear", "cubicOut", "cubicOut", "cubicOut", "cubicOut", "linear"]
+            },
+            "a": {
+              "kf": [1.022, 0.0, 1.072, 0.544, 1.122, 0.748, 1.172, 1.0, 2.347, 1.0],
+              "ease": ["linear", "quadOut", "quadOut", "linear"]
+            }
+          }
+        }
+      },
+      "layers": {
+        "logoSignPurple": {
+          "part": "logoSignPurple",
+          "container": "group",
+          "slot": "sign",
+          "z": 0,
+          "logoRect": [0.130719, 0.468927, 0.760349, 0.564972],
+          "boundsPt": [234.2137, 134.2199],
+          "anchor": [0.46619, 0.48015],
+          "positionPt": [194.5551, 469.0615],
+          "restFramePt": [85.367, 404.6158, 234.2137, 134.2199],
+          "filePx": [1047, 600],
+          "contents": ["logoSignPurple", "logoSignPurpleBend25", "logoSignPurpleBend50", "logoSignPurpleBend75", "logoSignPurpleBend100"]
+        },
+        "logoPegs": {
+          "part": "logoPegs",
+          "container": "group",
+          "slot": "pegs",
+          "z": 0.5,
+          "logoRect": [0.298475, 0.471751, 0.366013, 0.101695],
+          "boundsPt": [112.7446, 24.1596],
+          "anchor": [0.49814, 0.49646],
+          "positionPt": [193.2043, 417.281],
+          "restFramePt": [137.0417, 405.2867, 112.7446, 24.1596],
+          "filePx": [504, 108]
+        },
+        "logoSignBlue": {
+          "part": "logoSignBlue",
+          "container": "group",
+          "slot": "sign",
+          "z": 1,
+          "logoRect": [0.013072, 0.002825, 0.978214, 0.59887],
+          "boundsPt": [301.3236, 142.273],
+          "anchor": [0.497785, 0.437044],
+          "positionPt": [199.1221, 356.0639],
+          "restFramePt": [49.1277, 293.8844, 301.3236, 142.273],
+          "filePx": [1347, 636]
+        },
+        "logoLetterAExt": {
+          "part": "logoLetterA",
+          "container": "logoSignBlue",
+          "slot": "ext",
+          "z": 2.0,
+          "logoRect": [0.074074, 0.115819, 0.189542, 0.368644],
+          "boundsPt": [58.3855, 87.5784],
+          "anchor": [0.4094, 0.5219],
+          "positionPt": [42.6937, 72.551],
+          "restFramePt": [67.9184, 320.7283, 58.3855, 87.5784],
+          "filePx": [348, 522]
+        },
+        "logoLetterR1Ext": {
+          "part": "logoLetterR1",
+          "container": "logoSignBlue",
+          "slot": "ext",
+          "z": 2.1,
+          "logoRect": [0.245098, 0.080508, 0.169935, 0.351695],
+          "boundsPt": [52.3458, 83.5519],
+          "anchor": [0.4881, 0.483],
+          "positionPt": [97.022, 58.8106],
+          "restFramePt": [120.5997, 312.3395, 52.3458, 83.5519],
+          "filePx": [312, 498]
+        },
+        "logoLetterR2Ext": {
+          "part": "logoLetterR2",
+          "container": "logoSignBlue",
+          "slot": "ext",
+          "z": 2.2,
+          "logoRect": [0.385621, 0.069209, 0.173203, 0.355932],
+          "boundsPt": [53.3525, 84.5584],
+          "anchor": [0.4885, 0.4821],
+          "positionPt": [140.8206, 56.5364],
+          "restFramePt": [163.8856, 309.6552, 53.3525, 84.5584],
+          "filePx": [318, 504]
+        },
+        "logoLetterOExt": {
+          "part": "logoLetterO",
+          "container": "logoSignBlue",
+          "slot": "ext",
+          "z": 2.3,
+          "logoRect": [0.555556, 0.073446, 0.189542, 0.355932],
+          "boundsPt": [58.3855, 84.5584],
+          "anchor": [0.5007, 0.502],
+          "positionPt": [196.3374, 59.2257],
+          "restFramePt": [216.2315, 310.6618, 58.3855, 84.5584],
+          "filePx": [348, 504]
+        },
+        "logoLetterWExt": {
+          "part": "logoLetterW",
+          "container": "logoSignBlue",
+          "slot": "ext",
+          "z": 2.4,
+          "logoRect": [0.727669, 0.09322, 0.212418, 0.368644],
+          "boundsPt": [65.4321, 87.5784],
+          "anchor": [0.4668, 0.4815],
+          "positionPt": [250.6642, 63.6441],
+          "restFramePt": [269.2482, 315.3594, 65.4321, 87.5784],
+          "filePx": [390, 522]
+        },
+        "logoLetterAFace": {
+          "part": "logoLetterA",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.0,
+          "logoRect": [0.074074, 0.115819, 0.189542, 0.368644],
+          "boundsPt": [58.3855, 87.5784],
+          "anchor": [0.4094, 0.5219],
+          "positionPt": [42.6937, 72.551],
+          "restFramePt": [67.9184, 320.7283, 58.3855, 87.5784],
+          "filePx": [348, 522]
+        },
+        "logoLetterAFlat": {
+          "part": "logoLetterA",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.0,
+          "logoRect": [0.074074, 0.115819, 0.189542, 0.368644],
+          "boundsPt": [58.3855, 87.5784],
+          "anchor": [0.4094, 0.5219],
+          "positionPt": [42.6937, 72.551],
+          "restFramePt": [67.9184, 320.7283, 58.3855, 87.5784],
+          "filePx": [348, 522]
+        },
+        "logoLetterR1Face": {
+          "part": "logoLetterR1",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.1,
+          "logoRect": [0.245098, 0.080508, 0.169935, 0.351695],
+          "boundsPt": [52.3458, 83.5519],
+          "anchor": [0.4881, 0.483],
+          "positionPt": [97.022, 58.8106],
+          "restFramePt": [120.5997, 312.3395, 52.3458, 83.5519],
+          "filePx": [312, 498]
+        },
+        "logoLetterR1Flat": {
+          "part": "logoLetterR1",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.1,
+          "logoRect": [0.245098, 0.080508, 0.169935, 0.351695],
+          "boundsPt": [52.3458, 83.5519],
+          "anchor": [0.4881, 0.483],
+          "positionPt": [97.022, 58.8106],
+          "restFramePt": [120.5997, 312.3395, 52.3458, 83.5519],
+          "filePx": [312, 498]
+        },
+        "logoLetterR2Face": {
+          "part": "logoLetterR2",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.2,
+          "logoRect": [0.385621, 0.069209, 0.173203, 0.355932],
+          "boundsPt": [53.3525, 84.5584],
+          "anchor": [0.4885, 0.4821],
+          "positionPt": [140.8206, 56.5364],
+          "restFramePt": [163.8856, 309.6552, 53.3525, 84.5584],
+          "filePx": [318, 504]
+        },
+        "logoLetterR2Flat": {
+          "part": "logoLetterR2",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.2,
+          "logoRect": [0.385621, 0.069209, 0.173203, 0.355932],
+          "boundsPt": [53.3525, 84.5584],
+          "anchor": [0.4885, 0.4821],
+          "positionPt": [140.8206, 56.5364],
+          "restFramePt": [163.8856, 309.6552, 53.3525, 84.5584],
+          "filePx": [318, 504]
+        },
+        "logoLetterOFace": {
+          "part": "logoLetterO",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.3,
+          "logoRect": [0.555556, 0.073446, 0.189542, 0.355932],
+          "boundsPt": [58.3855, 84.5584],
+          "anchor": [0.5007, 0.502],
+          "positionPt": [196.3374, 59.2257],
+          "restFramePt": [216.2315, 310.6618, 58.3855, 84.5584],
+          "filePx": [348, 504]
+        },
+        "logoLetterOFlat": {
+          "part": "logoLetterO",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.3,
+          "logoRect": [0.555556, 0.073446, 0.189542, 0.355932],
+          "boundsPt": [58.3855, 84.5584],
+          "anchor": [0.5007, 0.502],
+          "positionPt": [196.3374, 59.2257],
+          "restFramePt": [216.2315, 310.6618, 58.3855, 84.5584],
+          "filePx": [348, 504]
+        },
+        "logoLetterWFace": {
+          "part": "logoLetterW",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.4,
+          "logoRect": [0.727669, 0.09322, 0.212418, 0.368644],
+          "boundsPt": [65.4321, 87.5784],
+          "anchor": [0.4668, 0.4815],
+          "positionPt": [250.6642, 63.6441],
+          "restFramePt": [269.2482, 315.3594, 65.4321, 87.5784],
+          "filePx": [390, 522]
+        },
+        "logoLetterWFlat": {
+          "part": "logoLetterW",
+          "container": "logoSignBlue",
+          "slot": "face",
+          "z": 3.4,
+          "logoRect": [0.727669, 0.09322, 0.212418, 0.368644],
+          "boundsPt": [65.4321, 87.5784],
+          "anchor": [0.4668, 0.4815],
+          "positionPt": [250.6642, 63.6441],
+          "restFramePt": [269.2482, 315.3594, 65.4321, 87.5784],
+          "filePx": [390, 522]
+        },
+        "logoOutOExt": {
+          "part": "logoOutO",
+          "container": "outGroup",
+          "slot": "ext",
+          "z": 7,
+          "logoRect": [0.21024, 0.641243, 0.186275, 0.266949],
+          "boundsPt": [57.3791, 63.4188],
+          "anchor": [0.49364, 0.39136],
+          "positionPt": [138.1869, 470.3723],
+          "restFramePt": [109.8622, 445.5528, 57.3791, 63.4188],
+          "filePx": [684, 756]
+        },
+        "logoOutUExt": {
+          "part": "logoOutU",
+          "container": "outGroup",
+          "slot": "ext",
+          "z": 8,
+          "logoRect": [0.379085, 0.629944, 0.166667, 0.266949],
+          "boundsPt": [51.3392, 63.4188],
+          "anchor": [0.49581, 0.39658],
+          "positionPt": [187.3268, 468.0191],
+          "restFramePt": [161.8723, 442.8685, 51.3392, 63.4188],
+          "filePx": [612, 756]
+        },
+        "logoOutTExt": {
+          "part": "logoOutT",
+          "container": "outGroup",
+          "slot": "ext",
+          "z": 9,
+          "logoRect": [0.508715, 0.618644, 0.169935, 0.266949],
+          "boundsPt": [52.3458, 63.4188],
+          "anchor": [0.51212, 0.3135],
+          "positionPt": [228.6102, 460.0657],
+          "restFramePt": [201.8028, 440.1839, 52.3458, 63.4188],
+          "filePx": [624, 756]
+        },
+        "logoOutBangExt": {
+          "part": "logoOutBang",
+          "container": "outGroup",
+          "slot": "ext",
+          "z": 10,
+          "logoRect": [0.665577, 0.615819, 0.075163, 0.262712],
+          "boundsPt": [23.1528, 62.4122],
+          "anchor": [0.4887, 0.37027],
+          "positionPt": [261.4365, 462.6222],
+          "restFramePt": [250.1217, 439.5128, 23.1528, 62.4122],
+          "filePx": [276, 744]
+        },
+        "logoOutOFace": {
+          "part": "logoOutO",
+          "container": "outGroup",
+          "slot": "face",
+          "z": 11,
+          "logoRect": [0.21024, 0.641243, 0.186275, 0.266949],
+          "boundsPt": [57.3791, 63.4188],
+          "anchor": [0.49364, 0.39136],
+          "positionPt": [138.1869, 470.3723],
+          "restFramePt": [109.8622, 445.5528, 57.3791, 63.4188],
+          "filePx": [684, 756]
+        },
+        "logoOutUFace": {
+          "part": "logoOutU",
+          "container": "outGroup",
+          "slot": "face",
+          "z": 12,
+          "logoRect": [0.379085, 0.629944, 0.166667, 0.266949],
+          "boundsPt": [51.3392, 63.4188],
+          "anchor": [0.49581, 0.39658],
+          "positionPt": [187.3268, 468.0191],
+          "restFramePt": [161.8723, 442.8685, 51.3392, 63.4188],
+          "filePx": [612, 756]
+        },
+        "logoOutTFace": {
+          "part": "logoOutT",
+          "container": "outGroup",
+          "slot": "face",
+          "z": 13,
+          "logoRect": [0.508715, 0.618644, 0.169935, 0.266949],
+          "boundsPt": [52.3458, 63.4188],
+          "anchor": [0.51212, 0.3135],
+          "positionPt": [228.6102, 460.0657],
+          "restFramePt": [201.8028, 440.1839, 52.3458, 63.4188],
+          "filePx": [624, 756]
+        },
+        "logoOutBangFace": {
+          "part": "logoOutBang",
+          "container": "outGroup",
+          "slot": "face",
+          "z": 14,
+          "logoRect": [0.665577, 0.615819, 0.075163, 0.262712],
+          "boundsPt": [23.1528, 62.4122],
+          "anchor": [0.4887, 0.37027],
+          "positionPt": [261.4365, 462.6222],
+          "restFramePt": [250.1217, 439.5128, 23.1528, 62.4122],
+          "filePx": [276, 744]
+        },
+        "logoOut": {
+          "part": "logoOut",
+          "container": "group",
+          "slot": "fallback",
+          "z": 7,
+          "logoRect": [0.211329, 0.615819, 0.529412, 0.29096],
+          "boundsPt": [163.0771, 69.1231],
+          "anchor": [0.576502, 0.375623],
+          "positionPt": [204.212, 465.477],
+          "restFramePt": [110.1977, 439.5128, 163.0771, 69.1231],
+          "filePx": [1458, 618]
+        }
+      },
+      "echo": {
+        "delay": 0.03333333333333333,
+        "alphaFactor": 0.5,
+        "until": 1.155,
+        "fadeFrom": 1.105,
+        "container": "outEcho",
+        "opacityOf": "containers.outEcho.tracks.a"
+      },
+      "containers": {
+        "outGroup": {
+          "parent": "group",
+          "z": 7,
+          "visibleFrom": 1.022,
+          "allowsGroupOpacity": true,
+          "childOpacity": 1.0,
+          "children": ["logoOutOExt", "logoOutUExt", "logoOutTExt", "logoOutBangExt", "logoOutOFace", "logoOutUFace", "logoOutTFace", "logoOutBangFace"],
+          "tracks": {
+            "a": {
+              "kf": [1.022, 0.0, 1.122, 0.754, 1.155, 1.0, 1.2, 1.0],
+              "ease": ["sineOut", "linear", "linear"]
+            }
+          }
+        },
+        "outEcho": {
+          "parent": "group",
+          "z": 6.9,
+          "allowsGroupOpacity": true,
+          "childOpacity": 1.0,
+          "children": ["logoOutOExt", "logoOutUExt", "logoOutTExt", "logoOutBangExt", "logoOutOFace", "logoOutUFace", "logoOutTFace", "logoOutBangFace"],
+          "delay": 0.03333333333333333,
+          "until": 1.155,
+          "fadeFrom": 1.105,
+          "tracks": {
+            "a": {
+              "kf": [1.055, 0.0, 1.086, 0.176, 1.103, 0.258, 1.105, 0.265, 1.155, 0.0],
+              "ease": ["linear", "linear", "linear", "linear"]
+            }
+          }
+        },
+        "arrowSwap": {
+          "letters": ["logoLetterA", "logoLetterR1", "logoLetterR2", "logoLetterO", "logoLetterW"],
+          "flatUntil": 0.807
+        }
+      }
+    }
+  },
+  "toast": {
+    "hold": 2.0,
+    "in": 0.08,
+    "out": 0.27,
+    "homeY": 390,
+    "panelY": 110,
+    "plate": "#003135",
+    "plateAlpha": 0.92,
+    "radius": 16,
+    "border": "#40BCAC",
+    "borderWidth": 1.5,
+    "text": 18,
+    "maxWidth": 330,
+    "padX": 16,
+    "padY": 10
+  },
+  "button": {
+    "pressScale": 0.95,
+    "haptic": "button"
+  },
+  "fx": {
+    "sparkles": {
+      "count": 7,
+      "radius": 22,
+      "duration": 0.7,
+      "size": 9,
+      "colors": [
+        "#FFFFFF",
+        "#FFF6B0",
+        "#FFE14A"
+      ]
+    },
+    "confetti": {
+      "burst": 420,
+      "rainPerS": 45,
+      "colors": [
+        "#1F77F3",
+        "#EB4FB0",
+        "#6A11EF",
+        "#D30A20",
+        "#FFB807",
+        "#F8F2DA",
+        "#65DD2B"
+      ],
+      "sizeMin": 5,
+      "sizeMax": 11,
+      "flipMin": 2,
+      "flipMax": 5,
+      "riseMin": 80,
+      "riseMax": 780,
+      "risePower": 1.0,
+      "riseTau": 0.135
+    },
+    "firework": {
+      "sparks": 48,
+      "speedMin": 260,
+      "speedMax": 420,
+      "life": 0.8,
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#8D5FFF",
+        "#4079FF",
+        "#FF2FC6",
+        "#FFCE01"
+      ]
+    },
+    "unlockTwinkles": {
+      "every": 0.18,
+      "max": 6,
+      "life": 0.7,
+      "ellipse": [
+        150,
+        110
+      ],
+      "sizeMin": 12.0,
+      "sizeMax": 20.0
+    }
+  },
+  "settings": {
+    "links": true,
+    "musicInert": true
+  },
+  "layout": {
+    "playRect": [
+      122.0,
+      755.0
+    ],
+    "popupUpscale": false,
+    "playFaceSideInset": 7.67
+  },
+  "frames": {
+    "loading": {
+      "logo": [
+        20.0,
+        66.7,
+        206.8,
+        160.1
+      ],
+      "label": [
+        130.1,
+        765.6,
+        115.1,
+        40.0
+      ]
+    },
+    "home": {
+      "avatarButton": [
+        18.7,
+        36.7,
+        63.4,
+        61.4
+      ],
+      "gearButton": [
+        334.3,
+        49.0,
+        40.0,
+        39.7
+      ],
+      "coinIcon": [
+        95.7,
+        53.0,
+        34.0,
+        34.0
+      ],
+      "coinPill": [
+        126.8,
+        56.0,
+        73.7,
+        27.4
+      ],
+      "plusBadge": [
+        118.8,
+        73.7,
+        18.7,
+        18.7
+      ],
+      "livesHeart": [
+        212.5,
+        53.0,
+        39.0,
+        33.0
+      ],
+      "livesPill": [
+        242.2,
+        56.0,
+        76.7,
+        27.4
+      ],
+      "livesCount": [
+        226.9,
+        61.7,
+        20.0,
+        21.4
+      ],
+      "livesTimer": [
+        261.9,
+        63.4,
+        46.7,
+        13.7
+      ],
+      "levelCaption": [
+        168.5,
+        518.8,
+        55.0,
+        16.7
+      ],
+      "levelPlate": [
+        147.5,
+        536.8,
+        98.4,
+        32.4
+      ],
+      "playFrame": [
+        82.7,
+        622.2,
+        228.2,
+        103.8
+      ],
+      "playButton": [
+        91.1,
+        628.2,
+        211.2,
+        86.7
+      ],
+      "playFrameHard": [
+        82.7,
+        623.2,
+        228.2,
+        102.8
+      ],
+      "playButtonHard": [
+        91.7,
+        620.5,
+        210.5,
+        94.7
+      ],
+      "playFrameSuperHard": [
+        82.7,
+        620.5,
+        228.2,
+        105.4
+      ],
+      "playButtonSuperHard": [
+        90.7,
+        620.5,
+        212.5,
+        95.7
+      ],
+      "hardRibbon": [
+        136.8,
+        620.5,
+        120.1,
+        30.0
+      ],
+      "superHardRibbon": [
+        136.8,
+        620.5,
+        120.1,
+        30.0
+      ],
+      "navBar": [
+        0.0,
+        771.7,
+        393.0,
+        81.1
+      ],
+      "navHomeTab": [
+        126.8,
+        753.6,
+        140.1,
+        99.1
+      ],
+      "navHomeIcon": [
+        157.0,
+        730.75,
+        80.92,
+        86.99
+      ],
+      "navShop": [
+        37.65,
+        777.95,
+        61.19,
+        61.19
+      ],
+      "navTrophy": [
+        289.92,
+        778.18,
+        71.4,
+        65.1
+      ],
+      "scene": {
+        "platform": [
+          0,
+          576,
+          393,
+          182
+        ],
+        "console": [
+          109,
+          176,
+          191,
+          192
+        ],
+        "capsuleMachine": [
+          95,
+          365,
+          206,
+          215
+        ],
+        "arrowPile": [
+          101.5,
+          385.96,
+          190,
+          128
+        ]
+      },
+      "navShopTab": [
+        0.0,
+        744.0,
+        141.5,
+        108.8
+      ],
+      "navLeaderboardTab": [
+        253.5,
+        734.0,
+        139.5,
+        118.8
+      ],
+      "navHomeRest": [169.25, 777.31, 56.0, 60.2],
+      "navShopSel": [24.36, 731.69, 88.41, 88.41],
+      "navTrophySel": [273.18, 732.03, 103.16, 94.05],
+      "coinIconArt": [
+        93.45,
+        51.15,
+        38.5,
+        38.5
+      ],
+      "plusBadgeArt": [
+        116.6,
+        71.1,
+        23.5,
+        23.5
+      ],
+      "livesHeartArt": [
+        210.5,
+        50.9,
+        42.3,
+        39.8
+      ],
+      "clawBar": [
+        19.3,
+        107.8,
+        354.6,
+        43.7
+      ],
+      "clawHexArt": [
+        29.0,
+        107.8,
+        40,
+        40
+      ],
+      "clawMultBadgeArt": [
+        46.0,
+        136.0,
+        50.0,
+        52.0
+      ],
+      "clawReward": [
+        323.6,
+        108.4,
+        46.0,
+        48.4
+      ],
+      "clawTimerChipBox": [
+        155.0,
+        145.4,
+        80.0,
+        25.7
+      ],
+      "newsBadge": [
+        332.6,
+        778.7,
+        15.7,
+        15.0
+      ]
+    },
+    "pause": {
+      "ribbon": [
+        60.1,
+        190.5,
+        274.2,
+        90.4
+      ],
+      "panel": [
+        11.3,
+        228.9,
+        370.6,
+        399.0
+      ],
+      "close": [
+        338.6,
+        234.2,
+        45.4,
+        45.0
+      ],
+      "bumperTL": [
+        13.7,
+        234.9,
+        50.4,
+        83.7
+      ],
+      "card": [
+        51.4,
+        299.6,
+        287.9,
+        165.8
+      ],
+      "rivet": [
+        17.0,
+        302.6,
+        13.0,
+        13.0
+      ],
+      "toggleSound": [
+        206.5,
+        328.6,
+        116.1,
+        37.4
+      ],
+      "toggleHaptic": [
+        206.5,
+        401.7,
+        116.1,
+        37.4
+      ],
+      "toggleKnob": [
+        262.2,
+        328.6,
+        60.4,
+        37.4
+      ],
+      "iconSound": [
+        73.4,
+        331.6,
+        31.4,
+        28.7
+      ],
+      "iconHaptic": [
+        72.4,
+        403.3,
+        33.0,
+        31.7
+      ],
+      "resume": [
+        60.4,
+        486.1,
+        125.1,
+        89.1
+      ],
+      "quit": [
+        206.5,
+        486.1,
+        125.1,
+        89.1
+      ]
+    },
+    "failed": {
+      "ribbon": [
+        60.1,
+        171.1,
+        274.2,
+        90.4
+      ],
+      "panel": [
+        10.0,
+        198.2,
+        373.3,
+        464.4
+      ],
+      "close": [
+        338.3,
+        206.8,
+        46.0,
+        45.7
+      ],
+      "card": [
+        54.7,
+        280.9,
+        283.9,
+        210.2
+      ],
+      "brokenHeart": [
+        121.25,
+        302.45,
+        154.1,
+        122.0
+      ],
+      "caption": [
+        120.1,
+        440.4,
+        153.5,
+        30.0
+      ],
+      "tryAgain": [
+        90.4,
+        517.1,
+        212.5,
+        88.4
+      ],
+      "closeDisc": [
+        338.8,
+        207.2,
+        45.0,
+        45.0
+      ],
+      "tryAgainFrame": [
+        79.1,
+        508.6,
+        235.1,
+        105.8
+      ]
+    },
+    "quit": {
+      "band": [
+        0.0,
+        234.2,
+        393.0,
+        405.0
+      ],
+      "ribbon": [
+        60.1,
+        193.5,
+        274.2,
+        90.4
+      ],
+      "closeDisc": [
+        339.8,
+        218.7,
+        45.0,
+        45.0
+      ],
+      "heart": [
+        133.8,
+        359.3,
+        122.8,
+        97.4
+      ],
+      "quit": [
+        91.1,
+        499.4,
+        211.2,
+        86.4
+      ],
+      "quitFrame": [
+        79.7,
+        490.7,
+        233.9,
+        106.4
+      ],
+      "heartArt": [
+        131.7,
+        354.0,
+        127.0,
+        104.8
+      ]
+    },
+    "settings": {
+      "header": [
+        0.0,
+        0.0,
+        393.0,
+        115.0
+      ],
+      "closeDisc": [
+        325.2,
+        49.0,
+        45.0,
+        45.0
+      ],
+      "title": [
+        66.5,
+        44.0,
+        260.0,
+        50.0
+      ],
+      "notifCard": [
+        19.0,
+        134.1,
+        355.3,
+        95.7
+      ],
+      "bell": [
+        44.0,
+        164.5,
+        30.7,
+        38.4
+      ],
+      "notifToggle": [
+        234.9,
+        161.1,
+        122.8,
+        41.7
+      ],
+      "audioCard": [
+        19.0,
+        248.5,
+        355.3,
+        152.5
+      ],
+      "sound": [
+        58.0,
+        312.3,
+        66.1,
+        65.7
+      ],
+      "music": [
+        162.1,
+        311.9,
+        65.7,
+        65.7
+      ],
+      "haptic": [
+        266.9,
+        311.6,
+        66.1,
+        65.7
+      ],
+      "support": [
+        102.8,
+        438.4,
+        188.8,
+        77.4
+      ],
+      "supportFrame": [
+        93.7,
+        433.0,
+        206.2,
+        94.4
+      ],
+      "terms": [
+        53.0,
+        552.1,
+        121.8,
+        49.0
+      ],
+      "privacy": [
+        218.5,
+        552.1,
+        121.8,
+        49.0
+      ]
+    },
+    "page": {
+      "card": [
+        19.0,
+        126.0,
+        355.0,
+        658.0
+      ],
+      "button": [
+        102.8,
+        0,
+        188.8,
+        77.4
+      ]
+    },
+    "hud": {
+      "backButton": [
+        19.0,
+        68.4,
+        40.0,
+        40.0
+      ],
+      "pauseButton": [
+        334.3,
+        68.1,
+        40.4,
+        40.0
+      ],
+      "panel": [
+        78.4,
+        60.4,
+        236.5,
+        59.4
+      ],
+      "levelTab": [
+        149.5,
+        54.0,
+        94.4,
+        23.0
+      ],
+      "coinPill": [
+        42.7,
+        30.4,
+        64.4,
+        22.0
+      ],
+      "coinIcon": [
+        19.7,
+        30.4,
+        23.7,
+        24.4
+      ],
+      "timerPill": [
+        112.4,
+        81.7,
+        73.4,
+        26.4
+      ],
+      "stopwatch": [
+        92.7,
+        77.7,
+        29.0,
+        33.0
+      ],
+      "heart1": [
+        201.5,
+        82.1,
+        28.7,
+        24.4
+      ],
+      "heart2": [
+        237.5,
+        82.1,
+        28.7,
+        24.4
+      ],
+      "heart3": [
+        273.6,
+        82.1,
+        28.4,
+        24.4
+      ]
+    },
+    "booster": {
+      "trayLeft": [
+        0.0,
+        753.3,
+        82.7,
+        81.1
+      ],
+      "trayRight": [
+        310.6,
+        753.3,
+        82.4,
+        81.1
+      ],
+      "buttonLeft": [
+        14.3,
+        764.0,
+        57.4,
+        56.4
+      ],
+      "buttonRight": [
+        321.6,
+        764.0,
+        57.4,
+        56.4
+      ],
+      "iconLeft": [
+        25.7,
+        773.3,
+        34.4,
+        38.0
+      ],
+      "iconRight": [
+        337.3,
+        773.0,
+        26.0,
+        39.0
+      ],
+      "badgeLeft": [
+        53.0,
+        801.7,
+        24.7,
+        24.4
+      ],
+      "badgeRight": [
+        360.2,
+        801.7,
+        24.7,
+        24.4
+      ]
+    },
+    "outOfLives": {
+      "glow": [
+        16.0,
+        218.0,
+        360.0,
+        360.0
+      ],
+      "heart": [
+        103.8,
+        320.6,
+        184.8,
+        155.1
+      ],
+      "addLives": [
+        80.7,
+        633.5,
+        231.9,
+        86.7
+      ],
+      "addFrame": [
+        71.4,
+        627.5,
+        250.9,
+        105.4
+      ],
+      "coinGroup": [
+        12.7,
+        62.4,
+        108.4,
+        44.4
+      ],
+      "closeDisc": [
+        327.1,
+        54.4,
+        45.0,
+        45.0
+      ],
+      "button": {
+        "coin": [
+          216.2,
+          666.3,
+          25.8,
+          25.8
+        ]
+      }
+    },
+    "outOfTime": {
+      "glow": [
+        26.0,
+        214.0,
+        340.0,
+        340.0
+      ],
+      "stopwatch": [
+        91.7,
+        273.6,
+        208.2,
+        220.9
+      ],
+      "addTimeFace": [
+        79.7,
+        632.9,
+        233.9,
+        88.1
+      ],
+      "addTime": [
+        71.7,
+        627.5,
+        249.9,
+        104.1
+      ],
+      "coinGroup": [
+        12.7,
+        62.4,
+        108.4,
+        44.4
+      ],
+      "closeDisc": [
+        327.5,
+        53.0,
+        45.0,
+        45.0
+      ],
+      "button": {
+        "coin": [
+          216.2,
+          666.3,
+          25.8,
+          25.8
+        ]
+      }
+    },
+    "continue": {
+      "band": [
+        0.0,
+        233.2,
+        393.0,
+        404.8
+      ]
+    },
+    "continueLife": {
+      "brokenHeart": [
+        132.65,
+        359.25,
+        128.6,
+        101.8
+      ],
+      "playOnFrame": [
+        68.4,
+        489.7,
+        256.5,
+        105.5
+      ],
+      "playOn": {
+        "coin": [
+          213.0,
+          529.2,
+          26.5,
+          26.5
+        ]
+      },
+      "playOnCoin": [
+        213.0,
+        529.2,
+        26.5,
+        26.5
+      ]
+    },
+    "continueToken": {
+      "token": [
+        50.0,
+        322.0,
+        55.0,
+        53.0
+      ],
+      "chips": [
+        30.0,
+        390.3,
+        343.6,
+        53.4
+      ]
+    },
+    "continueStreak": {
+      "chips": [
+        8.0,
+        372.0,
+        376.7,
+        66.4
+      ],
+      "playOn": [
+        79.7,
+        498.4,
+        233.9,
+        88.1
+      ],
+      "ribbon": [
+        60.1,
+        193.5,
+        274.2,
+        90.4
+      ],
+      "closeDisc": [
+        340.0,
+        214.9,
+        45.0,
+        45.0
+      ],
+      "coinGroup": [
+        12.7,
+        96.1,
+        105.1,
+        41.4
+      ],
+      "playOnFrame": [
+        68.4,
+        489.7,
+        256.5,
+        105.5
+      ],
+      "playOnCoin": [
+        213.0,
+        529.2,
+        26.5,
+        26.5
+      ]
+    },
+    "win": {
+      "panel": [
+        10.0,
+        176.8,
+        373.3,
+        465.1
+      ],
+      "continue": [
+        90.4,
+        497.4,
+        212.5,
+        88.1
+      ],
+      "glow": [
+        40.0,
+        250.0,
+        313.0,
+        250.0
+      ],
+      "coinsInk": [
+        136.4,
+        363.3,
+        132.6,
+        105.2
+      ],
+      "ribbon": [
+        60.1,
+        149.8,
+        274.2,
+        90.4
+      ],
+      "closeDisc": [
+        338.8,
+        185.2,
+        45.0,
+        45.0
+      ],
+      "continueFrame": [
+        79.1,
+        488.7,
+        235.1,
+        105.5
+      ]
+    },
+    "winHard": {
+      "panel": [
+        9.7,
+        177.2,
+        374.0,
+        464.7
+      ],
+      "tagRibbon": [
+        76.7,
+        100.1,
+        240.2,
+        56.7
+      ]
+    },
+    "streakRace": {
+      "band": [
+        0.0,
+        700.6,
+        393.0,
+        152.1
+      ],
+      "timerChip": [
+        313.6,
+        707.3,
+        76.7,
+        28.0
+      ],
+      "logo": [
+        78.4,
+        687.9,
+        233.5,
+        53.4
+      ],
+      "chips": [
+        8.0,
+        762.0,
+        371.6,
+        64.4
+      ]
+    },
+    "raceBar": {
+      "band": [
+        0.0,
+        687.2,
+        393.0,
+        165.5
+      ],
+      "plate": [
+        135.1,
+        689.9,
+        123.1,
+        25.4
+      ],
+      "timer": [
+        313.6,
+        685.9,
+        73.4,
+        29.4
+      ]
+    },
+    "unlock": {
+      "card": [
+        42.7,
+        517.1,
+        307.9,
+        100.1
+      ]
+    },
+    "claim": {
+      "heart": [
+        159.8,
+        374.4,
+        74.1,
+        64.7
+      ]
+    },
+    "claimCoins": {
+      "coins": [
+        158.5,
+        382.7,
+        76.7,
+        60.1
+      ]
+    },
+    "claimBulb": {
+      "icon": [
+        174.8,
+        377.0,
+        43.7,
+        63.4
+      ]
+    },
+    "celebrate": {
+      "logo": [
+        46.0,
+        294.9,
+        307.9,
+        232.2
+      ]
+    }
+  },
+  "anchors": {
+    "loading": {
+      "logo": "top",
+      "label": "bottom"
+    },
+    "home": {
+      "avatarButton": "top",
+      "gearButton": "top",
+      "coinIcon": "top",
+      "coinPill": "top",
+      "plusBadge": "top",
+      "livesHeart": "top",
+      "livesPill": "top",
+      "livesCount": "top",
+      "livesTimer": "top",
+      "levelCaption": "bottom",
+      "levelPlate": "bottom",
+      "playFrame": "bottom",
+      "playButton": "bottom",
+      "playFrameHard": "bottom",
+      "playButtonHard": "bottom",
+      "playFrameSuperHard": "bottom",
+      "playButtonSuperHard": "bottom",
+      "hardRibbon": "bottom",
+      "superHardRibbon": "bottom",
+      "navBar": "bottom",
+      "navHomeTab": "bottom",
+      "navHomeIcon": "bottom",
+      "navShop": "bottom",
+      "navTrophy": "bottom",
+      "navShopTab": "bottom",
+      "navLeaderboardTab": "bottom",
+      "navHomeRest": "bottom",
+      "navShopSel": "bottom",
+      "navTrophySel": "bottom",
+      "coinIconArt": "top",
+      "plusBadgeArt": "top",
+      "livesHeartArt": "top"
+    },
+    "pause": {
+      "ribbon": "centre",
+      "panel": "centre",
+      "close": "centre",
+      "bumperTL": "centre",
+      "card": "centre",
+      "rivet": "centre",
+      "toggleSound": "centre",
+      "toggleHaptic": "centre",
+      "toggleKnob": "centre",
+      "iconSound": "centre",
+      "iconHaptic": "centre",
+      "resume": "centre",
+      "quit": "centre"
+    },
+    "failed": {
+      "ribbon": "centre",
+      "panel": "centre",
+      "close": "centre",
+      "card": "centre",
+      "brokenHeart": "centre",
+      "caption": "centre",
+      "tryAgain": "centre"
+    },
+    "quit": {
+      "band": "centre",
+      "ribbon": "centre",
+      "closeDisc": "centre",
+      "heart": "centre",
+      "quit": "centre",
+      "quitFrame": "centre",
+      "heartArt": "centre"
+    },
+    "settings": {
+      "header": "top",
+      "closeDisc": "top",
+      "title": "top",
+      "notifCard": "top",
+      "bell": "top",
+      "notifToggle": "top",
+      "audioCard": "top",
+      "sound": "top",
+      "music": "top",
+      "haptic": "top",
+      "support": "top",
+      "supportFrame": "top",
+      "terms": "top",
+      "privacy": "top"
+    },
+    "hud": {
+      "backButton": "top",
+      "pauseButton": "top",
+      "panel": "top",
+      "levelTab": "top",
+      "coinPill": "top",
+      "coinIcon": "top",
+      "timerPill": "top",
+      "stopwatch": "top",
+      "heart1": "top",
+      "heart2": "top",
+      "heart3": "top"
+    },
+    "booster": {
+      "trayLeft": "bottom",
+      "trayRight": "bottom",
+      "buttonLeft": "bottom",
+      "buttonRight": "bottom",
+      "iconLeft": "bottom",
+      "iconRight": "bottom",
+      "badgeLeft": "bottom",
+      "badgeRight": "bottom"
+    }
+  },
+  "shapes": {
+    "home": {
+      "avatarButton": {
+        "n": 3.6
+      },
+      "coinIcon": {
+        "r": 17.01
+      },
+      "coinPill": {
+        "n": 5.0
+      },
+      "plusBadge": {
+        "r": 9.34
+      },
+      "livesPill": {
+        "n": 5.0
+      },
+      "levelPlate": {
+        "r": 14.85
+      },
+      "playFrame": {
+        "n": 4.4
+      },
+      "playButton": {
+        "n": 4.7
+      },
+      "playFrameHard": {
+        "n": 4.4
+      },
+      "playButtonHard": {
+        "n": 5.1
+      },
+      "playFrameSuperHard": {
+        "n": 4.5
+      },
+      "playButtonSuperHard": {
+        "n": 4.6
+      }
+    },
+    "pause": {
+      "ribbon": {
+        "r": 26.77
+      },
+      "panel": {
+        "n": 6.31
+      },
+      "close": {
+        "r": 22.52
+      },
+      "card": {
+        "r": 24.44
+      },
+      "rivet": {
+        "r": 6.34
+      },
+      "toggleSound": {
+        "r": 8.51
+      },
+      "toggleHaptic": {
+        "r": 8.76
+      },
+      "toggleKnob": {
+        "r": 9.26
+      },
+      "resume": {
+        "n": 3.9
+      },
+      "quit": {
+        "n": 3.9
+      }
+    },
+    "failed": {
+      "ribbon": {
+        "r": 26.19
+      },
+      "panel": {
+        "n": 6.04
+      },
+      "close": {
+        "r": 22.85
+      },
+      "card": {
+        "r": 24.19
+      },
+      "tryAgain": {
+        "n": 4.6
+      }
+    },
+    "quit": {
+      "quit": {
+        "n": 4.5
+      }
+    },
+    "settings": {
+      "notifCard": {
+        "r": 23.7
+      },
+      "audioCard": {
+        "r": 23.6
+      },
+      "notifToggle": {
+        "r": 12.6
+      },
+      "sound": {
+        "n": 3.6
+      },
+      "support": {
+        "n": 4.6
+      },
+      "terms": {
+        "n": 4.5
+      }
+    },
+    "hud": {
+      "panel": {
+        "r": 18.27
+      },
+      "levelTab": {
+        "r": 4.92
+      },
+      "coinPill": {
+        "r": 6.76
+      },
+      "timerPill": {
+        "r": 9.34
+      }
+    },
+    "booster": {
+      "tray": {
+        "r": 24.0
+      },
+      "button": {
+        "n": 3.3
+      }
+    },
+    "win": {
+      "panel": {
+        "n": 5.92
+      },
+      "continue": {
+        "n": 5.0
+      }
+    },
+    "outOfTime": {
+      "button": {
+        "n": 5.1
+      }
+    },
+    "outOfLives": {
+      "button": {
+        "n": 4.8
+      }
+    },
+    "continueStreak": {
+      "playOn": {
+        "n": 5.0
+      }
+    },
+    "continueLife": {
+      "playOn": {
+        "n": 5.3
+      }
+    }
+  },
+  "text": {
+    "loading": {
+      "label": {
+        "size": 26.8,
+        "tracking": -0.5,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#7E2A1C",
+        "outlineWidth": 0.88,
+        "drop": 0.39,
+        "baseline": 792.7,
+        "centreX": 187.2
+      }
+    },
+    "home": {
+      "coins": {
+        "size": 18.8,
+        "tracking": 0.0,
+        "fill": [
+          "#00474D"
+        ],
+        "baseline": 76.5,
+        "centreX": 165.5
+      },
+      "lives": {
+        "size": 19.1,
+        "tracking": -0.75,
+        "fill": [
+          "#00474D"
+        ],
+        "baseline": 76.9,
+        "centreX": 285.4
+      },
+      "livesTimer": {
+        "size": 18.9,
+        "tracking": -0.35,
+        "fill": [
+          "#00474D"
+        ],
+        "baseline": 77.1,
+        "centreX": 285.1
+      },
+      "livesCount": {
+        "size": 21.8,
+        "tracking": 0.0,
+        "fill": [
+          "#FFFFFF",
+          "#FFFFFF",
+          "#FFFFFF"
+        ],
+        "outline": "#870400",
+        "outlineWidth": 0.95,
+        "drop": 1.04,
+        "baseline": 77.0,
+        "centreX": 232.2
+      },
+      "levelCaption": {
+        "size": 14.1,
+        "tracking": -1.5,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#00434A",
+        "outlineWidth": 0.82,
+        "drop": 0.76,
+        "baseline": 531.8,
+        "centreX": 196.0
+      },
+      "levelNumber": {
+        "size": 30.6,
+        "tracking": -1.5,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#924500",
+        "outlineWidth": 2.14,
+        "drop": 0.5,
+        "baseline": 563.1,
+        "centreX": 196.5
+      },
+      "levelNumberHard": {
+        "size": 30.6,
+        "tracking": -1.5,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#610B00",
+        "outlineWidth": 2.14,
+        "drop": 0.5,
+        "baseline": 563.1,
+        "centreX": 196.5
+      },
+      "levelNumberSuperHard": {
+        "size": 30.6,
+        "tracking": -1.5,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#5C0B32",
+        "outlineWidth": 2.14,
+        "drop": 0.5,
+        "baseline": 563.1,
+        "centreX": 196.5
+      },
+      "play": {
+        "size": 48.8,
+        "tracking": -3.25,
+        "fill": [
+          "#FFFBF2"
+        ],
+        "outline": "#924500",
+        "outlineWidth": 2.2,
+        "drop": 2.2,
+        "baseline": 686.3,
+        "centreX": 197.0
+      },
+      "playHard": {
+        "size": 48.8,
+        "tracking": -3.25,
+        "fill": [
+          "#FFFBF2",
+          "#FFFBF2",
+          "#FFFBF2"
+        ],
+        "outline": "#610B00",
+        "outlineWidth": 2.65,
+        "drop": 1.73,
+        "baseline": 686.3,
+        "centreX": 197.0
+      },
+      "playSuperHard": {
+        "size": 48.8,
+        "tracking": -3.25,
+        "fill": [
+          "#FFFBF2",
+          "#FFFBF2",
+          "#FFFBF2"
+        ],
+        "outline": "#5C0B32",
+        "outlineWidth": 2.9,
+        "drop": 1.48,
+        "baseline": 686.3,
+        "centreX": 197.0
+      },
+      "hardRibbon": {
+        "size": 17.0,
+        "tracking": 0.2,
+        "fill": [
+          "#FFFAEF",
+          "#FFFAEF",
+          "#FFFAEF"
+        ],
+        "outline": "#610B00",
+        "outlineWidth": 1.58,
+        "drop": 0.35,
+        "baseline": 639.5,
+        "centreX": 201.0
+      },
+      "superHardRibbon": {
+        "size": 15.8,
+        "tracking": -0.43,
+        "fill": [
+          "#FFFAEF",
+          "#FFFAEF",
+          "#FFFAEF"
+        ],
+        "outline": "#5C0B32",
+        "outlineWidth": 0.93,
+        "drop": 0.88,
+        "baseline": 639.4,
+        "centreX": 196.7
+      },
+      "navLabel": {
+        "size": 15.1,
+        "tracking": -0.25,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#02464D",
+        "outlineWidth": 0.98,
+        "drop": 0.58,
+        "baseline": 832.7,
+        "centreX": 196.8
+      },
+      "navLabelShop": {
+        "size": 15.2,
+        "tracking": 0.0,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#02464D",
+        "outlineWidth": 0.98,
+        "drop": 0.58
+      },
+      "navLabelLeaderboard": {
+        "size": 15.4,
+        "tracking": -0.13,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#02464D",
+        "outlineWidth": 0.98,
+        "drop": 0.58
+      },
+      "clawBar": {
+        "value": {
+          "size": 21.2,
+          "tracking": 0.6,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#003034",
+          "outlineWidth": 1.0,
+          "drop": 1.0,
+          "baseline": 136.7,
+          "centreX": 196.3
+        }
+      },
+      "clawMultBadge": {
+        "mult": {
+          "tracking": -0.2,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#7D0C02",
+          "outlineWidth": 1.3,
+          "drop": 0.8
+        }
+      },
+      "clawTimerChip": {
+        "timer": {
+          "size": 15.8,
+          "tracking": -0.3,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#073A3E",
+          "outlineWidth": 1.0,
+          "drop": 0.9
+        }
+      },
+      "eventBadge": {
+        "join": {
+          "size": 10.8,
+          "tracking": -0.3,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#49142B",
+          "outlineWidth": 0.9,
+          "drop": 0.9
+        },
+        "streakTimer": {
+          "size": 13.0,
+          "tracking": -0.35,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#02464D",
+          "outlineWidth": 1.0,
+          "drop": 0.9
+        },
+        "timer": {
+          "size": 13.0,
+          "tracking": -0.35,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#49142B",
+          "outlineWidth": 1.0,
+          "drop": 0.9
+        }
+      }
+    },
+    "popup": {
+      "title": {
+        "size": 49.2,
+        "tracking": -1.0,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#6A3510",
+        "outlineWidth": 1.87,
+        "drop": 3.15,
+        "baseline": 247.5,
+        "centreX": 197.0,
+        "band": "#F9D89C",
+        "bandDY": 1.5,
+        "maxWidth": 228
+      }
+    },
+    "pause": {
+      "rowLabel": {
+        "size": 25.5,
+        "tracking": 0.0,
+        "fill": [
+          "#5A2801"
+        ],
+        "baseline": 354.3,
+        "centreX": 153.0,
+        "left": 114.4
+      },
+      "toggleOn": {
+        "size": 21.0,
+        "tracking": -0.75,
+        "fill": [
+          "#FFFBF3",
+          "#FFF7E6",
+          "#FDF3DF"
+        ],
+        "outline": "#924500",
+        "outlineWidth": 1.0,
+        "drop": 1.01,
+        "baseline": 353.2,
+        "centreX": 236.2
+      },
+      "toggleOff": {
+        "size": 21.0,
+        "tracking": -0.75,
+        "fill": [
+          "#FEF6E2"
+        ],
+        "outline": "#00474D",
+        "outlineWidth": 1.0,
+        "drop": 1.0,
+        "baseline": 353.2,
+        "centreX": 236.2
+      },
+      "resume": {
+        "size": 30.5,
+        "tracking": -1.0,
+        "fill": [
+          "#FFFBF3",
+          "#FFF8EA",
+          "#FDF4E0"
+        ],
+        "outline": "#924500",
+        "outlineWidth": 1.42,
+        "drop": 1.06,
+        "baseline": 539.5,
+        "centreX": 123.6,
+        "maxWidth": 100
+      },
+      "quit": {
+        "size": 30.5,
+        "tracking": -0.5,
+        "fill": [
+          "#FFFBF3",
+          "#FFF8E8",
+          "#FDF4DF"
+        ],
+        "outline": "#610B00",
+        "outlineWidth": 1.47,
+        "drop": 1.4,
+        "baseline": 540.8,
+        "centreX": 269.1,
+        "maxWidth": 100
+      }
+    },
+    "quit": {
+      "quit": {
+        "size": 43.2,
+        "tracking": -0.5,
+        "fill": [
+          "#FFFBF3",
+          "#FFF8E8",
+          "#FDF3DF"
+        ],
+        "outline": "#610B00",
+        "outlineWidth": 2.3,
+        "drop": 2.25,
+        "baseline": 553.7,
+        "centreX": 198.0,
+        "maxWidth": 170
+      },
+      "message": {
+        "size": 25.4,
+        "tracking": -1.3,
+        "fill": [
+          "#5A2801"
+        ],
+        "baseline": 344.0,
+        "centreX": 196.2,
+        "maxWidth": 340
+      },
+      "title": {
+        "baseline": 253.4,
+        "centreX": 196.8
+      }
+    },
+    "settings": {
+      "link": {
+        "size": 22.3,
+        "tracking": 0.0,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#00474D",
+        "outlineWidth": 1.1,
+        "drop": 1.2,
+        "maxWidth": 97
+      },
+      "label": {
+        "size": 22.9,
+        "tracking": 0.1,
+        "fill": [
+          "#FFFFFF"
+        ],
+        "outline": "#00474D",
+        "outlineWidth": 1.15,
+        "drop": 1.15,
+        "notifLeft": 83.4,
+        "notifBaseline": 189.6,
+        "rowBaseline": 290.4,
+        "rowCentres": [
+          90.6,
+          195.7,
+          300.4
+        ],
+        "notifBox": 150,
+        "rowBox": 90
+      },
+      "support": {
+        "size": 30.6,
+        "tracking": -0.6,
+        "fill": [
+          "#FFFBF3",
+          "#FFF8E8",
+          "#FDF4DF"
+        ],
+        "outline": "#924500",
+        "outlineWidth": 1.42,
+        "drop": 1.2,
+        "maxWidth": 150
+      }
+    },
+    "toast": {
+      "size": 18,
+      "tracking": 0,
+      "fill": [
+        "#FFFFFF"
+      ],
+      "outline": "#00373B",
+      "outlineWidth": 1.0,
+      "drop": 1.0,
+      "maxWidth": 330,
+      "lineHeight": 1.2
+    },
+    "page": {
+      "title": {
+        "size": 37.0,
+        "tracking": -1.0,
+        "fill": [
+          "#EBF6F2"
+        ],
+        "outline": "#00373B",
+        "outlineWidth": 1.0,
+        "drop": 4.8,
+        "maxWidth": 260,
+        "baseline": 85.5,
+        "centreX": 196.5
+      },
+      "body": {
+        "size": 17.0,
+        "heading": 21.0,
+        "colour": "#5A2801",
+        "lineHeight": 1.3,
+        "inset": 20
+      }
+    },
+    "minScale": 0.7,
+    "hud": {
+      "coinPill": {
+        "digits": {
+          "size": 18.5,
+          "tracking": 0.25,
+          "fill": [
+            "#266D68"
+          ],
+          "maxWidth": 52.0
+        }
+      },
+      "timerPill": {
+        "timer": {
+          "size": 23.3,
+          "tracking": 0.25,
+          "fill": [
+            "#F7F7F9",
+            "#EDEDF2",
+            "#E2E3EA"
+          ],
+          "outline": "#04292C",
+          "outlineWidth": 0.67,
+          "drop": 1.13
+        }
+      },
+      "levelTab": {
+        "label": {
+          "size": 17.9,
+          "tracking": -0.5,
+          "fill": [
+            "#FFF9EF",
+            "#FFF4E0",
+            "#FDEDCF"
+          ],
+          "outline": "#00393D",
+          "outlineWidth": 0.65,
+          "drop": 0.73,
+          "baseline": 70.7,
+          "centreX": 196.8,
+          "maxWidth": 84
+        }
+      },
+      "levelTabHard": {
+        "label": {
+          "size": 17.9,
+          "tracking": -0.5,
+          "fill": [
+            "#FFF9EF",
+            "#FFF4E0",
+            "#FDEDCF"
+          ],
+          "outline": "#560C00",
+          "outlineWidth": 0.65,
+          "drop": 0.73,
+          "baseline": 70.7,
+          "centreX": 196.8,
+          "maxWidth": 84
+        }
+      },
+      "levelTabSuperHard": {
+        "label": {
+          "size": 17.9,
+          "tracking": -0.5,
+          "fill": [
+            "#FFF9EF",
+            "#FFF4E0",
+            "#FDEDCF"
+          ],
+          "outline": "#4F0F2B",
+          "outlineWidth": 0.65,
+          "drop": 0.73,
+          "baseline": 70.7,
+          "centreX": 196.8,
+          "maxWidth": 84
+        }
+      }
+    },
+    "booster": {
+      "badge": {
+        "count": {
+          "size": 16.9,
+          "tracking": 0.0,
+          "fill": [
+            "#FFFBF3",
+            "#FFF6E6",
+            "#FEF2DC"
+          ],
+          "outline": "#650D05",
+          "outlineWidth": 0.71,
+          "drop": 0.56
+        }
+      }
+    },
+    "continue": {
+      "title": {
+        "baseline": 254.7
+      }
+    },
+    "continueToken": {
+      "texts": {
+        "l1": {
+          "size": 21.0,
+          "tracking": -0.29,
+          "fill": [
+            "#5A2801"
+          ],
+          "centreX": 223.7,
+          "maxWidth": 245
+        },
+        "l2": {
+          "size": 21.1,
+          "tracking": -0.34,
+          "fill": [
+            "#5A2801"
+          ],
+          "baseline": 369.1,
+          "centreX": 222.5,
+          "maxWidth": 235.0
+        }
+      },
+      "chips": {
+        "x1": {
+          "size": 22.3,
+          "tracking": -1.67,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#00383C",
+          "outlineWidth": 1.5,
+          "drop": 0.74
+        },
+        "x100": {
+          "size": 22.6,
+          "tracking": -0.08,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#7D0C02",
+          "outlineWidth": 1.6,
+          "drop": 0.71
+        }
+      }
+    },
+    "continueLife": {
+      "message": {
+        "msg": {
+          "size": 26.1,
+          "tracking": -1.59,
+          "fill": [
+            "#5A2801"
+          ],
+          "baseline": 346.0,
+          "centreX": 196.2,
+          "maxWidth": 340.0
+        }
+      },
+      "playOn": {
+        "label": {
+          "size": 31.0,
+          "tracking": 0.4,
+          "fill": [
+            "#FFFBF1",
+            "#FFF7E5",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 2.16,
+          "drop": 0.73,
+          "baseline": 550.3,
+          "centreX": 147.5
+        },
+        "price": {
+          "size": 31.6,
+          "tracking": 0.71,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 2.07,
+          "drop": 0.92,
+          "baseline": 551.1,
+          "centreX": 273.6
+        }
+      }
+    },
+    "continueStreak": {
+      "message": {
+        "msg": {
+          "size": 22.9,
+          "tracking": -0.54,
+          "fill": [
+            "#5A2801"
+          ],
+          "baseline": 347.7,
+          "centreX": 196.2,
+          "maxWidth": 340.0
+        }
+      },
+      "playOn": {
+        "label": {
+          "size": 31.0,
+          "tracking": 0.4,
+          "fill": [
+            "#FFFBF1",
+            "#FFF7E5",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 2.16,
+          "drop": 0.73,
+          "baseline": 550.3,
+          "centreX": 147.5
+        },
+        "price": {
+          "size": 31.6,
+          "tracking": 0.71,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 2.07,
+          "drop": 0.92,
+          "baseline": 551.1,
+          "centreX": 273.6
+        }
+      },
+      "coinGroup": {
+        "digits": {
+          "size": 21.4,
+          "tracking": 0.44,
+          "fill": [
+            "#00474D"
+          ]
+        }
+      }
+    },
+    "failed": {
+      "tryAgain": {
+        "label": {
+          "size": 37.7,
+          "tracking": -1.94,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.6,
+          "drop": 1.83,
+          "baseline": 570.1,
+          "centreX": 196.5,
+          "maxWidth": 176.0
+        }
+      },
+      "ribbon": {
+        "title": {
+          "baseline": 229.9
+        }
+      },
+      "caption": {
+        "caption": {
+          "size": 25.0,
+          "tracking": -0.71,
+          "fill": [
+            "#5A2801"
+          ],
+          "baseline": 463.3,
+          "centreX": 196.8,
+          "maxWidth": 260.0
+        }
+      }
+    },
+    "win": {
+      "continue": {
+        "label": {
+          "size": 38.9,
+          "tracking": 0.05,
+          "fill": [
+            "#FFFBF3",
+            "#FFF8EA",
+            "#FDF4DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.74,
+          "drop": 1.8,
+          "maxWidth": 176.0
+        }
+      },
+      "ribbon": {
+        "title": {
+          "baseline": 208.6
+        }
+      },
+      "perfect": {
+        "title": {
+          "size": 45.2,
+          "tracking": -1.62,
+          "fill": [
+            "#FFFAF0",
+            "#FFF5E1",
+            "#FDEDCF"
+          ],
+          "outlineWidth": 2.43,
+          "drop": 4.21,
+          "baseline": 290.4,
+          "centreX": 196.8,
+          "maxWidth": 300.0
+        }
+      },
+      "rewardsLabel": {
+        "label": {
+          "size": 25.9,
+          "tracking": -1.52,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outlineWidth": 1.35,
+          "drop": 1.25,
+          "baseline": 332.8,
+          "centreX": 199.5,
+          "maxWidth": 240.0
+        }
+      },
+      "amountDigits": {
+        "amt": {
+          "size": 56.5,
+          "tracking": -3.73,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outlineWidth": 2.6,
+          "drop": 1.8,
+          "baseline": 471.1,
+          "centreX": 256.4
+        }
+      }
+    },
+    "winHard": {
+      "tagRibbon": {
+        "tag": {
+          "size": 23.4,
+          "tracking": -0.96,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#650D05",
+          "outlineWidth": 1.56,
+          "drop": 1.04,
+          "baseline": 137.5
+        }
+      }
+    },
+    "winSuperHard": {
+      "tagRibbon": {
+        "tag": {
+          "size": 23.2,
+          "tracking": -0.65,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#56092E",
+          "outlineWidth": 1.87,
+          "drop": 0.71,
+          "baseline": 138.7
+        }
+      }
+    },
+    "streakRace": {
+      "chips": {
+        "plain": {
+          "size": 27.2,
+          "tracking": -1.7,
+          "fill": [
+            "#5A2801"
+          ]
+        },
+        "lit": {
+          "size": 30.8,
+          "tracking": -2.9,
+          "fill": [
+            "#FFFAEF"
+          ],
+          "outline": "#703400",
+          "outlineWidth": 1.7,
+          "drop": 1.6
+        }
+      },
+      "logoStreak": {
+        "size": 41.0,
+        "tracking": -2.6,
+        "fill": [
+          "#FFF46A",
+          "#FFD21A",
+          "#F6A800"
+        ],
+        "outline": "#00434A",
+        "outlineWidth": 3.0,
+        "drop": 2.8,
+        "face": "blackItalic"
+      },
+      "logoRace": {
+        "size": 41.0,
+        "tracking": -2.6,
+        "fill": [
+          "#FFFFFF",
+          "#F0F8F6",
+          "#D2E9E4"
+        ],
+        "outline": "#00434A",
+        "outlineWidth": 3.0,
+        "drop": 2.8,
+        "face": "blackItalic"
+      },
+      "timerChip": {
+        "timer": {
+          "size": 15.0,
+          "tracking": -0.6,
+          "fill": [
+            "#5A2801"
+          ]
+        }
+      }
+    },
+    "raceBar": {
+      "plate": {
+        "t": {
+          "size": 17.8,
+          "tracking": -0.31,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#7D0C02",
+          "outlineWidth": 1.3,
+          "drop": 1.0
+        }
+      },
+      "rankBubble": {
+        "r": {
+          "size": 16.8,
+          "tracking": 0.0,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#7D0C02",
+          "outlineWidth": 1.3,
+          "drop": 0.87
+        }
+      }
+    },
+    "unlock": {
+      "card": {
+        "line1": {
+          "size": 22.3,
+          "tracking": -0.66,
+          "fill": [
+            "#002E32"
+          ],
+          "maxWidth": 272.0,
+          "baseline": 561.1
+        },
+        "line2": {
+          "baseline": 588.0
+        }
+      },
+      "title": {
+        "title": {
+          "size": 54.4,
+          "tracking": -3.65,
+          "fill": [
+            "#FFFBF4",
+            "#FFF5E2",
+            "#FDF0D6"
+          ],
+          "outline": "#003E44",
+          "outlineWidth": 0.35,
+          "drop": 1.3,
+          "dropColor": "#00635E",
+          "baseline": 220.9,
+          "centreX": 196.5,
+          "maxWidth": 345.0,
+          "rings": [
+            [
+              "#00706C",
+              3.6
+            ],
+            [
+              "#008881",
+              3.3
+            ],
+            [
+              "#00A596",
+              2.4
+            ],
+            [
+              "#005B59",
+              2.0
+            ]
+          ]
+        }
+      },
+      "subtitle": {
+        "sub": {
+          "size": 24.5,
+          "tracking": 0.26,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#00373B",
+          "outlineWidth": 1.67,
+          "drop": 1.16,
+          "baseline": 299.0,
+          "centreX": 196.7,
+          "maxWidth": 300.0
+        }
+      }
+    },
+    "claim": {
+      "title": {
+        "title": {
+          "size": 45.2,
+          "tracking": -0.83,
+          "fill": [
+            "#FFDC13",
+            "#FFC402",
+            "#FFB700"
+          ],
+          "outline": "#B24900",
+          "outlineWidth": 0.94,
+          "drop": 1.81,
+          "baseline": 187.4,
+          "centreX": 196.8,
+          "maxWidth": 360.0
+        }
+      },
+      "tap": {
+        "tap": {
+          "size": 31.5,
+          "tracking": -0.48,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#56092E",
+          "outlineWidth": 1.23,
+          "drop": 1.17,
+          "baseline": 701.9,
+          "centreX": 195.8,
+          "maxWidth": 300.0
+        }
+      },
+      "amount": {
+        "amt": {
+          "size": 27.6,
+          "tracking": -1.03,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#AE190B",
+          "outlineWidth": 1.61,
+          "drop": 1.16,
+          "baseline": 459.7
+        }
+      }
+    },
+    "claimCoins": {
+      "amount": {
+        "amt": {
+          "size": 27.2,
+          "tracking": -1.0,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#002226",
+          "outlineWidth": 2.61,
+          "drop": 0.25,
+          "baseline": 460.4
+        }
+      }
+    },
+    "claimBulb": {
+      "amount": {
+        "x": {
+          "size": 15.2,
+          "tracking": 0.3,
+          "fill": [
+            "#FFFFFF"
+          ],
+          "outline": "#002226",
+          "outlineWidth": 1.3,
+          "drop": 0.6,
+          "baseline": 448.3
+        }
+      }
+    },
+    "tutorial": {
+      "caption": {
+        "size": 40.0,
+        "tracking": 0.0,
+        "fill": [
+          "#072527"
+        ],
+        "maxWidth": 353.0
+      }
+    },
+    "outOfTime": {
+      "title": {
+        "size": 51.6,
+        "tracking": -1.04,
+        "fill": [
+          "#FFFFFF",
+          "#FFFAFA",
+          "#F7E8DC"
+        ],
+        "outline": "#540900",
+        "outlineWidth": 1.5,
+        "drop": 5.2,
+        "baseline": 215.2,
+        "centreX": 196.7,
+        "maxWidth": 345,
+        "rings": [
+          [
+            "#D34434",
+            5.8
+          ]
+        ],
+        "dropColor": "#5A1812",
+        "ringDY": 1.4,
+        "innerDY": 2.4
+      },
+      "grant": {
+        "size": 61.0,
+        "tracking": -0.75,
+        "fill": [
+          "#F9F1E6"
+        ],
+        "outline": "#006E6C",
+        "outlineWidth": 2.1,
+        "drop": 2.62,
+        "baseline": 554.7,
+        "centreX": 197.5,
+        "maxWidth": 345
+      },
+      "button": {
+        "label": {
+          "size": 23.1,
+          "tracking": 0.22,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E7",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.17,
+          "drop": 1.05,
+          "baseline": 684.3,
+          "centreX": 156.0
+        },
+        "price": {
+          "size": 26.2,
+          "tracking": 0.52,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.62,
+          "drop": 0.86,
+          "baseline": 685.9,
+          "centreX": 267.6
+        }
+      },
+      "coinGroup": {
+        "digits": {
+          "size": 21.4,
+          "tracking": 0.44,
+          "fill": [
+            "#00474D"
+          ]
+        }
+      }
+    },
+    "outOfLives": {
+      "title": {
+        "size": 52.1,
+        "tracking": -1.21,
+        "fill": [
+          "#FFFFFF",
+          "#FFFAFA",
+          "#F7E8DC"
+        ],
+        "outline": "#540900",
+        "outlineWidth": 1.5,
+        "drop": 5.2,
+        "baseline": 215.5,
+        "centreX": 196.5,
+        "maxWidth": 345,
+        "rings": [
+          [
+            "#D34434",
+            5.8
+          ]
+        ],
+        "dropColor": "#5A1812",
+        "ringDY": 1.4,
+        "innerDY": 2.4
+      },
+      "grant": {
+        "size": 60.4,
+        "tracking": -1.1,
+        "fill": [
+          "#F9F1E6"
+        ],
+        "outline": "#540900",
+        "outlineWidth": 2.1,
+        "drop": 2.62,
+        "baseline": 554.7,
+        "centreX": 196.5,
+        "maxWidth": 345
+      },
+      "button": {
+        "label": {
+          "size": 23.1,
+          "tracking": 0.09,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E7",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.17,
+          "drop": 1.05,
+          "baseline": 684.6,
+          "centreX": 156.0
+        },
+        "price": {
+          "size": 26.2,
+          "tracking": 0.52,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.62,
+          "drop": 0.86,
+          "baseline": 685.9,
+          "centreX": 267.6
+        }
+      },
+      "coinGroup": {
+        "digits": {
+          "size": 21.4,
+          "tracking": 0.44,
+          "fill": [
+            "#00474D"
+          ]
+        }
+      }
+    },
+    "moreLives": {
+      "coinGroup": {
+        "digits": {
+          "size": 21.0,
+          "tracking": 0.31,
+          "fill": [
+            "#00474D"
+          ]
+        }
+      },
+      "refill": {
+        "label": {
+          "size": 35.5,
+          "tracking": -0.92,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E7",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.52,
+          "drop": 1.84,
+          "baseline": 505.7,
+          "centreX": 140.3
+        },
+        "price": {
+          "size": 35.7,
+          "tracking": 1.1,
+          "fill": [
+            "#FFFBF3",
+            "#FFF7E6",
+            "#FDF3DF"
+          ],
+          "outline": "#924500",
+          "outlineWidth": 1.61,
+          "drop": 1.8,
+          "baseline": 505.7,
+          "centreX": 264.9
+        }
+      }
+    },
+    "boosterBuy": {
+      "coinGroup": {
+        "digits": {
+          "size": 21.0,
+          "tracking": 0.31,
+          "fill": [
+            "#00474D"
+          ]
+        }
+      }
+    }
+  },
+  "colors": {
+    "loading": {
+      "base": "#B7A587"
+    },
+    "home": {
+      "base": "#23565A",
+      "avatarFrame": "#06A697",
+      "avatarPlaceholder": "#8FA39C",
+      "avatarSilhouette": "#6B807A",
+      "topPill": "#E0F0EB",
+      "topPillEdge": "#8BC0BB",
+      "plateOutline": "#954709",
+      "plateFace": [
+        "#FFAA1C",
+        "#FC9D10",
+        "#E4830A",
+        "#A1500A"
+      ],
+      "plateOutlineHard": "#660B02",
+      "plateFaceHard": [
+        "#DF3E2C",
+        "#C42C1D",
+        "#B92517",
+        "#660B02"
+      ],
+      "plateOutlineSuperHard": "#4B1029",
+      "plateFaceSuperHard": [
+        "#AB1C69",
+        "#97165C",
+        "#901456",
+        "#4B1029"
+      ],
+      "playFrame": [
+        "#006963",
+        "#38B2A2",
+        "#38AD9D",
+        "#00857E"
+      ],
+      "ribbonHard": "#C83927",
+      "ribbonHardOutline": "#610B00",
+      "ribbonSuperHard": "#AE1769",
+      "ribbonSuperHardOutline": "#5C0B32",
+      "plateHard": "#B92517",
+      "plateSuperHard": "#901456",
+      "avatarRing": [
+        "#41B7A7",
+        "#38B2A2",
+        "#009C8F"
+      ]
+    },
+    "nav": {
+      "bar": [
+        [
+          0.0,
+          "#465D5A"
+        ],
+        [
+          0.3,
+          "#005755"
+        ],
+        [
+          2.0,
+          "#00706C"
+        ],
+        [
+          3.4,
+          "#007570"
+        ],
+        [
+          3.7,
+          "#3AAC9C"
+        ],
+        [
+          4.0,
+          "#4EC4B3"
+        ],
+        [
+          6.0,
+          "#1AAD9D"
+        ],
+        [
+          30.3,
+          "#009087"
+        ],
+        [
+          53.3,
+          "#00807A"
+        ],
+        [
+          81.1,
+          "#006B67"
+        ]
+      ],
+      "tabEdge": "#00807B",
+      "tabRim": [
+        "#BCE3D3",
+        "#4DC3B3",
+        "#47C0B0"
+      ],
+      "tabGroove": "#00605B",
+      "tabLine": "#C3E6D8",
+      "tabField": [
+        "#92DCC1",
+        "#7ED7BE",
+        "#65D1BC"
+      ]
+    },
+    "panel": {
+      "outline": "#004046",
+      "bar": [
+        "#007C76",
+        "#007873"
+      ],
+      "bumper": [
+        "#56C9B8",
+        "#40BCAC",
+        "#28A494"
+      ],
+      "groove": "#003C41",
+      "grooveLight": "#00726F",
+      "field": "#00847E",
+      "fieldRim": "#009F91",
+      "rivet": "#51B2A4",
+      "rivetEdge": "#00706B"
+    },
+    "card": {
+      "outline": "#004147",
+      "bevel": [
+        "#A8743F",
+        "#CEA274",
+        "#DFBF99"
+      ],
+      "line": "#F9F1E3",
+      "fill": "#F4E8D4"
+    },
+    "ribbon": {
+      "outlineTop": "#7E4E27",
+      "outlineBottom": "#4A2812",
+      "shade": "#9E5F24",
+      "highlight": "#FAD9A0",
+      "face": [
+        "#F0B86A",
+        "#D9913E"
+      ]
+    },
+    "close": {
+      "ring": "#007873",
+      "rim": "#87130B",
+      "face": [
+        "#EF735F",
+        "#EE4A35",
+        "#CA3324"
+      ],
+      "glyph": "#F9ECE2",
+      "glyphOutline": "#87130B"
+    },
+    "toggle": {
+      "well": "#EBE2D3",
+      "wellEdge": "#D4C2AA",
+      "onTrack": [
+        "#F6CA4D",
+        "#FFB933",
+        "#F89409"
+      ],
+      "onEdge": "#A4520A",
+      "offTrack": "#00484E",
+      "offEdge": "#660B02",
+      "knob": [
+        "#47BEB0",
+        "#20AA9B",
+        "#008F84"
+      ],
+      "knobEdge": "#195F59",
+      "offKnob": "#14A899"
+    },
+    "button": {
+      "blueFace": [
+        "#2AB2A4",
+        "#00968A",
+        "#00736E"
+      ],
+      "blueOutline": "#003F44"
+    },
+    "dim": "#000000",
+    "page": {
+      "headerStops": [
+        [
+          0.0,
+          "#007874"
+        ],
+        [
+          0.556,
+          "#008A82"
+        ],
+        [
+          0.95,
+          "#00958B"
+        ]
+      ],
+      "hiLine": "#00A192",
+      "lip": [
+        "#005856",
+        "#003A3F"
+      ],
+      "shadow": "#002B2F",
+      "bgProfile": "#003B40",
+      "bgNavy": [
+        "#003135",
+        "#002A2D"
+      ],
+      "pattern": "#00282B"
+    },
+    "settings": {
+      "cardOutline": "#032527",
+      "cardLine": "#005957",
+      "cardTop": [
+        "#00A192",
+        "#008A82"
+      ],
+      "cardLow": [
+        "#00817B",
+        "#00867F"
+      ],
+      "cardLip": "#061B1C",
+      "squareFace": "#FEA415",
+      "slash": "#EE4630",
+      "slashEdge": "#C32414",
+      "pill": "#00837C",
+      "pillLip": "#0E5956",
+      "pillWell": "#002C30"
+    },
+    "band": {
+      "outline": "#00464E",
+      "railLine": "#007371",
+      "railHi": "#00988E",
+      "bumper": "#40BCAC",
+      "bumperHi": "#5BCBBB",
+      "railMid": [
+        "#007470",
+        "#00867F"
+      ],
+      "lip": [
+        "#004046",
+        "#005E5B"
+      ],
+      "field": "#00847E",
+      "line": "#005453",
+      "lineDark": "#002225",
+      "creamEdge": [
+        "#D7B187",
+        "#E0C09A"
+      ],
+      "cream": "#F4E8D4",
+      "lowLip": [
+        "#00726F",
+        "#00434B"
+      ],
+      "rivet": "#39A496",
+      "bumperLen": 64.0,
+      "rivetX": [
+        55.0,
+        338.0
+      ]
+    },
+    "well": {
+      "top": [
+        "#006963",
+        "#38B2A2"
+      ],
+      "bottom": [
+        "#38AD9D",
+        "#00857E"
+      ],
+      "outline": "#552500"
+    },
+    "hud": {
+      "panelShadow": "#7A8C88",
+      "panel": "#C0E0D8",
+      "coinPillEdge": "#67ADA5",
+      "coinPillTop": "#3C8A81",
+      "coinPill": "#C0E0D8",
+      "levelTabOutline": "#00393D",
+      "levelTabHardOutline": "#85120B",
+      "levelTabSuperHardOutline": "#5B0E32"
+    },
+    "booster": {
+      "trayShadow": "#7A8C88",
+      "trayOutline": "#499087",
+      "trayRim": "#76C7C3",
+      "wellEdge": "#D9ECE7",
+      "well": "#4A9A90",
+      "outline": "#542500",
+      "rim": [
+        "#C9731C",
+        "#BA6719",
+        "#944A10"
+      ],
+      "badgeOutline": "#750F07",
+      "badge": [
+        "#EF7461",
+        "#ED5945",
+        "#CA3524"
+      ]
+    },
+    "outOfLives": {
+      "glowCore": "#F04830",
+      "glowMid": "#761B0F"
+    },
+    "outOfTime": {
+      "glowCore": "#00716E",
+      "glowMid": "#0A4B4E"
+    },
+    "heartBig": {
+      "hi": "#FF7A66",
+      "face": "#F8392B"
+    },
+    "continueToken": {
+      "red": "#D12D1C",
+      "track": "#002B2E"
+    },
+    "streakRace": {
+      "divider": "#CEA981",
+      "track": "#F4E9D5",
+      "ringLine": "#D55A06",
+      "litLine": "#C75D00",
+      "litShade": "#884200",
+      "trackLine": "#00A294",
+      "trackRim": [
+        "#006762",
+        "#004D50",
+        "#00464E",
+        "#00615C"
+      ],
+      "groove": [
+        "#002F33",
+        "#003C41",
+        "#004C50",
+        "#00615C"
+      ]
+    },
+    "continueStreak": {
+      "trackRim": "#C2905D"
+    },
+    "event": {
+      "timerChip": "#F5E8D4"
+    },
+    "raceBar": {
+      "outline": "#00464E",
+      "rail": "#40BCAC",
+      "field": [
+        "#007874",
+        "#007874",
+        "#006E6B"
+      ],
+      "chequer": "#203131"
+    },
+    "unlock": {
+      "cardBorder": "#007572",
+      "card": "#F4E8D4",
+      "caps": "#00736E"
+    },
+    "offer": {
+      "pillLine": "#233B3D",
+      "pillBase": [
+        "#62A9A0",
+        "#22746E"
+      ],
+      "pillFace": "#E0F0EB"
+    },
+    "clawBar": {
+      "fill": "#F7CF68",
+      "fillEdge": "#AA5711",
+      "fillHi": "#FFDA8A",
+      "fillLow": "#FFBB3C",
+      "outline": "#0E4C4E",
+      "rimLow": "#008A81",
+      "rimMid": "#3AB2A2",
+      "rimTop": "#007772",
+      "track": [
+        "#073A3E",
+        "#002C30"
+      ]
+    },
+    "clawChip": {
+      "face": "#00A494"
+    },
+    "shop": {
+      "groundBottom": "#351B1F"
+    }
+  },
+  "gradients": {
+    "home": {
+      "playButton": [
+        [
+          0.0,
+          "#98B5B4"
+        ],
+        [
+          0.059,
+          "#006963"
+        ],
+        [
+          0.111,
+          "#38B2A2"
+        ],
+        [
+          0.118,
+          "#552500"
+        ],
+        [
+          0.135,
+          "#FEA91D"
+        ],
+        [
+          0.173,
+          "#FFB42C"
+        ],
+        [
+          0.176,
+          "#EFD384"
+        ],
+        [
+          0.215,
+          "#FDBD34"
+        ],
+        [
+          0.837,
+          "#F59209"
+        ],
+        [
+          0.952,
+          "#2A332F"
+        ],
+        [
+          0.958,
+          "#38AD9D"
+        ],
+        [
+          1.0,
+          "#00857E"
+        ]
+      ],
+      "playButtonHard": [
+        [
+          0.0,
+          "#98B5B4"
+        ],
+        [
+          0.042,
+          "#86A19E"
+        ],
+        [
+          0.059,
+          "#006963"
+        ],
+        [
+          0.114,
+          "#3BB0A0"
+        ],
+        [
+          0.121,
+          "#2F1921"
+        ],
+        [
+          0.128,
+          "#4F0C00"
+        ],
+        [
+          0.145,
+          "#DF5946"
+        ],
+        [
+          0.187,
+          "#EA7A6A"
+        ],
+        [
+          0.844,
+          "#D13120"
+        ],
+        [
+          0.955,
+          "#480C01"
+        ],
+        [
+          0.958,
+          "#438A7D"
+        ],
+        [
+          1.0,
+          "#00857E"
+        ]
+      ],
+      "playButtonSuperHard": [
+        [
+          0.0,
+          "#98B5B4"
+        ],
+        [
+          0.042,
+          "#86A19E"
+        ],
+        [
+          0.055,
+          "#426762"
+        ],
+        [
+          0.059,
+          "#006963"
+        ],
+        [
+          0.114,
+          "#3BB0A0"
+        ],
+        [
+          0.121,
+          "#3F0F24"
+        ],
+        [
+          0.145,
+          "#DD4385"
+        ],
+        [
+          0.841,
+          "#A51165"
+        ],
+        [
+          0.952,
+          "#3F0D22"
+        ],
+        [
+          0.955,
+          "#043A3E"
+        ],
+        [
+          0.958,
+          "#3AA191"
+        ],
+        [
+          1.0,
+          "#00857E"
+        ]
+      ],
+      "levelPlate": [
+        [
+          0.0,
+          "#00645E"
+        ],
+        [
+          0.028,
+          "#334947"
+        ],
+        [
+          0.046,
+          "#954709"
+        ],
+        [
+          0.275,
+          "#FC9D10"
+        ],
+        [
+          0.826,
+          "#E4830A"
+        ],
+        [
+          0.881,
+          "#A1500A"
+        ],
+        [
+          0.89,
+          "#824200"
+        ],
+        [
+          0.899,
+          "#374D4A"
+        ],
+        [
+          0.927,
+          "#007772"
+        ],
+        [
+          0.954,
+          "#009A8D"
+        ],
+        [
+          0.972,
+          "#5EC6BC"
+        ],
+        [
+          1.0,
+          "#00A294"
+        ]
+      ]
+    },
+    "pause": {
+      "ribbon": [
+        [
+          0.0,
+          "#1C1C1C"
+        ],
+        [
+          0.076,
+          "#120D09"
+        ],
+        [
+          0.083,
+          "#7E4E27"
+        ],
+        [
+          0.1,
+          "#945F2D"
+        ],
+        [
+          0.114,
+          "#F2CC8F"
+        ],
+        [
+          0.135,
+          "#FAD9A0"
+        ],
+        [
+          0.149,
+          "#F0B86A"
+        ],
+        [
+          0.875,
+          "#D9913E"
+        ],
+        [
+          0.886,
+          "#9E5F24"
+        ],
+        [
+          0.955,
+          "#4A2812"
+        ],
+        [
+          0.962,
+          "#1A3D40"
+        ],
+        [
+          1.0,
+          "#007D78"
+        ]
+      ],
+      "resume": [
+        [
+          0.0,
+          "#00847E"
+        ],
+        [
+          0.059,
+          "#00494F"
+        ],
+        [
+          0.067,
+          "#532500"
+        ],
+        [
+          0.089,
+          "#FFAD20"
+        ],
+        [
+          0.145,
+          "#FDB02C"
+        ],
+        [
+          0.152,
+          "#F1D587"
+        ],
+        [
+          0.208,
+          "#FFBA30"
+        ],
+        [
+          0.796,
+          "#E98B17"
+        ],
+        [
+          0.937,
+          "#532500"
+        ],
+        [
+          0.941,
+          "#0D454B"
+        ],
+        [
+          0.97,
+          "#00978C"
+        ],
+        [
+          1.0,
+          "#00847E"
+        ]
+      ],
+      "quit": [
+        [
+          0.0,
+          "#008D85"
+        ],
+        [
+          0.045,
+          "#004349"
+        ],
+        [
+          0.048,
+          "#430D07"
+        ],
+        [
+          0.059,
+          "#760E04"
+        ],
+        [
+          0.067,
+          "#DC5846"
+        ],
+        [
+          0.119,
+          "#ED5D49"
+        ],
+        [
+          0.123,
+          "#EE7766"
+        ],
+        [
+          0.833,
+          "#D23221"
+        ],
+        [
+          0.955,
+          "#4A0C00"
+        ],
+        [
+          0.963,
+          "#004D4F"
+        ],
+        [
+          0.989,
+          "#00998D"
+        ],
+        [
+          1.0,
+          "#008F86"
+        ]
+      ]
+    },
+    "hud": {
+      "panelRimV": [
+        [
+          0.0,
+          "#68BCB6"
+        ],
+        [
+          0.03,
+          "#9DD3CC"
+        ],
+        [
+          0.5,
+          "#80CAC6"
+        ],
+        [
+          0.9,
+          "#5CB4AC"
+        ],
+        [
+          0.95,
+          "#408F86"
+        ],
+        [
+          1.0,
+          "#398981"
+        ]
+      ],
+      "panelBody": [
+        [
+          0.0,
+          "#EFF7F5"
+        ],
+        [
+          0.03,
+          "#E8F3F0"
+        ],
+        [
+          0.07,
+          "#C9E4DD"
+        ],
+        [
+          0.1,
+          "#C0E0D8"
+        ],
+        [
+          1.0,
+          "#C0E0D8"
+        ]
+      ],
+      "timerPillWell": [
+        [
+          0.0,
+          "#57ADA5"
+        ],
+        [
+          0.05,
+          "#48978D"
+        ],
+        [
+          0.2,
+          "#50A197"
+        ],
+        [
+          0.9,
+          "#50A197"
+        ],
+        [
+          0.95,
+          "#4A988E"
+        ],
+        [
+          0.965,
+          "#59A49B"
+        ],
+        [
+          0.985,
+          "#BADAD3"
+        ],
+        [
+          1.0,
+          "#DAECE7"
+        ]
+      ],
+      "levelTabFace": [
+        [
+          0,
+          "#00393D"
+        ],
+        [
+          0.03,
+          "#264F4D"
+        ],
+        [
+          0.059,
+          "#6EBFB0"
+        ],
+        [
+          0.074,
+          "#6CCCBD"
+        ],
+        [
+          0.088,
+          "#5EC8B9"
+        ],
+        [
+          0.118,
+          "#05A99A"
+        ],
+        [
+          0.132,
+          "#00A293"
+        ],
+        [
+          0.868,
+          "#009B8E"
+        ],
+        [
+          0.926,
+          "#006D6A"
+        ],
+        [
+          0.956,
+          "#006A67"
+        ],
+        [
+          0.971,
+          "#00484F"
+        ],
+        [
+          1.0,
+          "#004046"
+        ]
+      ],
+      "levelTabHardFace": [
+        [
+          0,
+          "#990101"
+        ],
+        [
+          0.06,
+          "#A82A1C"
+        ],
+        [
+          0.083,
+          "#E59B90"
+        ],
+        [
+          0.097,
+          "#EEA69B"
+        ],
+        [
+          0.153,
+          "#ED6653"
+        ],
+        [
+          0.847,
+          "#EE3E29"
+        ],
+        [
+          0.903,
+          "#960101"
+        ],
+        [
+          0.944,
+          "#730A00"
+        ],
+        [
+          1.0,
+          "#7D140D"
+        ]
+      ],
+      "levelTabSuperHardFace": [
+        [
+          0,
+          "#890F51"
+        ],
+        [
+          0.06,
+          "#AC2A6B"
+        ],
+        [
+          0.083,
+          "#F76D9F"
+        ],
+        [
+          0.097,
+          "#FF77A8"
+        ],
+        [
+          0.153,
+          "#E42180"
+        ],
+        [
+          0.847,
+          "#B81B6E"
+        ],
+        [
+          0.903,
+          "#771345"
+        ],
+        [
+          0.944,
+          "#5B0E32"
+        ],
+        [
+          1.0,
+          "#791347"
+        ]
+      ]
+    },
+    "booster": {
+      "trayFace": [
+        [
+          0.0,
+          "#AFD9D1"
+        ],
+        [
+          0.012,
+          "#EFF7F5"
+        ],
+        [
+          0.025,
+          "#D9EBE7"
+        ],
+        [
+          0.045,
+          "#C0E0D8"
+        ],
+        [
+          0.935,
+          "#C0E0D8"
+        ],
+        [
+          0.945,
+          "#63B9B3"
+        ],
+        [
+          0.97,
+          "#59AEA6"
+        ],
+        [
+          1.0,
+          "#398981"
+        ]
+      ],
+      "face": [
+        [
+          0.0,
+          "#FCBE39"
+        ],
+        [
+          0.035,
+          "#EED389"
+        ],
+        [
+          0.075,
+          "#FCBF39"
+        ],
+        [
+          0.6,
+          "#FFAA1B"
+        ],
+        [
+          1.0,
+          "#FB9A0E"
+        ]
+      ]
+    },
+    "streakRace": {
+      "ringFill": [
+        [
+          0.0,
+          "#F8D865"
+        ],
+        [
+          0.05,
+          "#FFDC25"
+        ],
+        [
+          0.1,
+          "#FFD600"
+        ],
+        [
+          0.5,
+          "#FFC500"
+        ],
+        [
+          0.86,
+          "#FFB400"
+        ],
+        [
+          0.9,
+          "#EE7D02"
+        ],
+        [
+          1.0,
+          "#CF5504"
+        ]
+      ],
+      "litFace": [
+        [
+          0.0,
+          "#FFBA30"
+        ],
+        [
+          0.12,
+          "#FFDA82"
+        ],
+        [
+          0.16,
+          "#FFE09D"
+        ],
+        [
+          0.3,
+          "#FCD563"
+        ],
+        [
+          0.5,
+          "#FFB42E"
+        ],
+        [
+          0.6,
+          "#F89409"
+        ],
+        [
+          0.85,
+          "#E18009"
+        ],
+        [
+          1.0,
+          "#CF7109"
+        ]
+      ],
+      "trackBevel": [
+        [
+          0.0,
+          "#CEA274"
+        ],
+        [
+          0.5,
+          "#D7B288"
+        ],
+        [
+          0.84,
+          "#E3C9A9"
+        ],
+        [
+          0.93,
+          "#C19262"
+        ],
+        [
+          1.0,
+          "#945C50"
+        ]
+      ],
+      "rail": [
+        [
+          0.0,
+          "#00484E"
+        ],
+        [
+          0.12,
+          "#00827C"
+        ],
+        [
+          0.6,
+          "#00746F"
+        ],
+        [
+          1.0,
+          "#02665F"
+        ]
+      ],
+      "field": [
+        [
+          0.0,
+          "#00A394"
+        ],
+        [
+          0.2,
+          "#009087"
+        ],
+        [
+          0.51,
+          "#008680"
+        ],
+        [
+          0.83,
+          "#007E79"
+        ],
+        [
+          1.0,
+          "#007976"
+        ]
+      ]
+    },
+    "band": {
+      "bumperV": [
+        [
+          0.0,
+          "#008882"
+        ],
+        [
+          0.1,
+          "#95D7C5"
+        ],
+        [
+          0.22,
+          "#40BCAC"
+        ],
+        [
+          0.88,
+          "#40BCAC"
+        ],
+        [
+          1.0,
+          "#53A493"
+        ]
+      ]
+    }
+  },
+  "puppet": {
+    "char_boss_home_rig": {
+      "cycle": 3.16,
+      "tracks": [
+        {
+          "layer": "torso",
+          "prop": "scaleY",
+          "t": [
+            0,
+            1.58,
+            3.16
+          ],
+          "v": [
+            1.0,
+            1.012,
+            1.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            95.3,
+            164.0
+          ]
+        },
+        {
+          "layer": "head",
+          "prop": "translateY",
+          "t": [
+            0,
+            1.58,
+            3.16
+          ],
+          "v": [
+            0,
+            -0.8,
+            0
+          ],
+          "curve": "sine"
+        },
+        {
+          "layer": "head",
+          "prop": "rotation",
+          "t": [
+            0,
+            0.79,
+            2.37,
+            3.16
+          ],
+          "v": [
+            0,
+            1.6,
+            -0.6,
+            0
+          ],
+          "curve": "sine"
+        },
+        {
+          "layer": "armL",
+          "prop": "rotation",
+          "t": [
+            0,
+            1.58,
+            3.16
+          ],
+          "v": [
+            0,
+            -1.2,
+            0
+          ],
+          "curve": "sine"
+        },
+        {
+          "layer": "armR",
+          "prop": "rotation",
+          "t": [
+            0,
+            1.58,
+            3.16
+          ],
+          "v": [
+            0,
+            1.2,
+            0
+          ],
+          "curve": "sine"
+        },
+        {
+          "layer": "armR_point",
+          "prop": "rotation",
+          "t": [
+            0,
+            1.58,
+            3.16
+          ],
+          "v": [
+            0,
+            1.2,
+            0
+          ],
+          "curve": "sine"
+        },
+        {
+          "layer": "lids",
+          "prop": "overlay",
+          "t": [
+            0,
+            2.1,
+            2.15,
+            2.25,
+            2.3
+          ],
+          "v": [
+            "",
+            "lidsHalf",
+            "lidsClosed",
+            "lidsHalf",
+            ""
+          ],
+          "curve": "discrete"
+        }
+      ]
+    },
+    "char_dig_homeR_rig": {
+      "cycle": 10.2,
+      "tracks": [
+        {
+          "layer": "whole",
+          "prop": "rotation",
+          "t": [
+            0,
+            0.6375,
+            1.9125,
+            3.1875,
+            4.4625,
+            5.7375,
+            7.0125,
+            8.2875,
+            9.5625,
+            10.2
+          ],
+          "v": [
+            0.0,
+            1.0,
+            -1.0,
+            1.0,
+            -1.0,
+            1.0,
+            -1.0,
+            1.0,
+            -1.0,
+            0.0
+          ],
+          "curve": [
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn"
+          ]
+        },
+        {
+          "layer": "whole",
+          "prop": "rotation",
+          "t": [
+            0,
+            4.0,
+            4.4,
+            6.4,
+            6.7,
+            7.0,
+            7.3,
+            7.6,
+            8.0,
+            10.2
+          ],
+          "v": [
+            0,
+            0,
+            -3.0,
+            -3.0,
+            2.0,
+            -1.0,
+            2.0,
+            -1.0,
+            0,
+            0
+          ],
+          "curve": "easeInOut"
+        },
+        {
+          "layer": "armR",
+          "prop": "rotation",
+          "t": [
+            0,
+            0.1,
+            0.3,
+            0.5,
+            0.7,
+            0.9,
+            1.1,
+            1.3,
+            1.5,
+            1.7,
+            1.9,
+            2.1,
+            2.3,
+            2.5,
+            2.7,
+            2.9,
+            3.1,
+            3.3,
+            3.5,
+            3.7,
+            3.9,
+            4.0,
+            8.0,
+            8.1,
+            8.3,
+            8.5,
+            8.7,
+            8.9,
+            9.1,
+            9.3,
+            9.5,
+            9.7,
+            9.9,
+            10.1,
+            10.2
+          ],
+          "v": [
+            0.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            0.0,
+            0.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            -6.0,
+            6.0,
+            0.0
+          ],
+          "curve": [
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn"
+          ]
+        },
+        {
+          "layer": "armL",
+          "prop": "rotation",
+          "t": [
+            0,
+            4.0,
+            4.4,
+            7.6,
+            8.0,
+            10.2
+          ],
+          "v": [
+            -2.0,
+            -2.0,
+            3.0,
+            3.0,
+            -2.0,
+            -2.0
+          ],
+          "curve": "easeInOut"
+        },
+        {
+          "layer": "eyes",
+          "prop": "member",
+          "t": [
+            0,
+            4.2,
+            5.4,
+            5.55,
+            7.8
+          ],
+          "v": [
+            "eyes_half",
+            "eyes_open",
+            "eyes_closed",
+            "eyes_open",
+            "eyes_half"
+          ],
+          "curve": "discrete"
+        },
+        {
+          "layer": "body",
+          "prop": "member",
+          "t": [
+            0,
+            4.4,
+            4.8
+          ],
+          "v": [
+            "body_smile",
+            "body_open",
+            "body_smile"
+          ],
+          "curve": "discrete"
+        }
+      ]
+    },
+    "char_dig_homeL_rig": {
+      "cycle": 17.3,
+      "tracks": [
+        {
+          "layer": "whole",
+          "prop": "rotation",
+          "t": [
+            0,
+            0.6179,
+            1.8536,
+            3.0893,
+            4.325,
+            5.5607,
+            6.7964,
+            8.0321,
+            9.2679,
+            10.5036,
+            11.7393,
+            12.975,
+            14.2107,
+            15.4464,
+            16.6821,
+            17.3
+          ],
+          "v": [
+            0.0,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            1.5,
+            -1.5,
+            0.0
+          ],
+          "curve": [
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn"
+          ]
+        },
+        {
+          "layer": "whole",
+          "prop": "rotation",
+          "t": [
+            0,
+            2.2,
+            2.5,
+            3.4,
+            3.7,
+            11.0,
+            11.3,
+            12.2,
+            12.5,
+            17.3
+          ],
+          "v": [
+            0,
+            0,
+            -2.5,
+            -2.5,
+            0,
+            0,
+            -2.5,
+            -2.5,
+            0,
+            0
+          ],
+          "curve": "easeInOut"
+        },
+        {
+          "layer": "body",
+          "prop": "member",
+          "t": [
+            0.0,
+            0.14,
+            0.28,
+            0.42,
+            0.56,
+            0.7,
+            0.84,
+            0.98,
+            1.12,
+            1.26,
+            1.4,
+            1.54,
+            1.6,
+            4.0,
+            4.14,
+            4.28,
+            4.42,
+            4.56,
+            4.7,
+            4.84,
+            4.98,
+            5.12,
+            5.26,
+            5.4,
+            5.54,
+            5.68,
+            5.82,
+            5.96,
+            6.0,
+            9.0,
+            9.14,
+            9.28,
+            9.42,
+            9.56,
+            9.7,
+            9.84,
+            9.98,
+            10.12,
+            10.26,
+            10.4,
+            10.5,
+            15.5,
+            15.64,
+            15.78,
+            15.92,
+            16.06,
+            16.2,
+            16.34,
+            16.48,
+            16.5
+          ],
+          "v": [
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_open",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_open",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open",
+            "body_smile",
+            "body_open"
+          ],
+          "curve": "discrete"
+        },
+        {
+          "layer": "armR",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.6,
+            1.8,
+            3.8,
+            4.0,
+            6.0,
+            6.2,
+            8.8,
+            9.0,
+            10.5,
+            10.7,
+            15.3,
+            15.5,
+            16.5,
+            16.7,
+            17.1,
+            17.3
+          ],
+          "v": [
+            -4.0,
+            -4.0,
+            0.0,
+            0.0,
+            -4.0,
+            -4.0,
+            0.0,
+            0.0,
+            -4.0,
+            -4.0,
+            0.0,
+            0.0,
+            -4.0,
+            -4.0,
+            0.0,
+            0.0,
+            -4.0
+          ],
+          "curve": "easeInOut"
+        },
+        {
+          "layer": "eyes",
+          "prop": "member",
+          "t": [
+            0,
+            2.2,
+            3.7,
+            3.95,
+            8.0,
+            8.04,
+            8.11,
+            8.15,
+            11.0,
+            12.5,
+            14.2,
+            14.24,
+            14.31,
+            14.35
+          ],
+          "v": [
+            "eyes_open",
+            "eyes_half",
+            "eyes_closed",
+            "eyes_open",
+            "eyes_half",
+            "eyes_closed",
+            "eyes_half",
+            "eyes_open",
+            "eyes_half",
+            "eyes_open",
+            "eyes_half",
+            "eyes_closed",
+            "eyes_half",
+            "eyes_open"
+          ],
+          "curve": "discrete"
+        },
+        {
+          "layer": "armL",
+          "prop": "member",
+          "t": [
+            0,
+            6.0,
+            7.45,
+            12.5,
+            13.95
+          ],
+          "v": [
+            "armL",
+            "armL_wave",
+            "armL",
+            "armL_wave",
+            "armL"
+          ],
+          "curve": "discrete"
+        },
+        {
+          "layer": "armL_wave",
+          "prop": "rotation",
+          "t": [
+            0,
+            6.0,
+            6.18,
+            6.4,
+            6.62,
+            6.84,
+            7.06,
+            7.28,
+            7.45,
+            12.5,
+            12.68,
+            12.9,
+            13.12,
+            13.34,
+            13.56,
+            13.78,
+            13.95,
+            17.3
+          ],
+          "v": [
+            -22,
+            -22,
+            6,
+            -10,
+            6,
+            -10,
+            6,
+            -6,
+            -22,
+            -22,
+            6,
+            -10,
+            6,
+            -10,
+            6,
+            -6,
+            -22,
+            -22
+          ],
+          "curve": [
+            "linear",
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sine",
+            "sineIn",
+            "linear"
+          ]
+        }
+      ]
+    },
+    "home_signpost_rig": {
+      "cycle": 36.0,
+      "tracks": [
+        {
+          "layer": "board1",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.385,
+            2.769,
+            4.154,
+            5.538,
+            6.923,
+            8.308,
+            9.692,
+            11.077,
+            12.462,
+            13.846,
+            15.231,
+            16.615,
+            18.0,
+            19.385,
+            20.769,
+            22.154,
+            23.538,
+            24.923,
+            26.308,
+            27.692,
+            29.077,
+            30.462,
+            31.846,
+            33.231,
+            34.615,
+            36.0
+          ],
+          "v": [
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            100.88,
+            46.32
+          ]
+        },
+        {
+          "layer": "board2",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.5,
+            3.0,
+            4.5,
+            6.0,
+            7.5,
+            9.0,
+            10.5,
+            12.0,
+            13.5,
+            15.0,
+            16.5,
+            18.0,
+            19.5,
+            21.0,
+            22.5,
+            24.0,
+            25.5,
+            27.0,
+            28.5,
+            30.0,
+            31.5,
+            33.0,
+            34.5,
+            36.0
+          ],
+          "v": [
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            89.16,
+            61.01
+          ]
+        },
+        {
+          "layer": "board3",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.636,
+            3.273,
+            4.909,
+            6.545,
+            8.182,
+            9.818,
+            11.455,
+            13.091,
+            14.727,
+            16.364,
+            18.0,
+            19.636,
+            21.273,
+            22.909,
+            24.545,
+            26.182,
+            27.818,
+            29.455,
+            31.091,
+            32.727,
+            34.364,
+            36.0
+          ],
+          "v": [
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            100.81,
+            75.51
+          ]
+        },
+        {
+          "layer": "board4",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.8,
+            3.6,
+            5.4,
+            7.2,
+            9.0,
+            10.8,
+            12.6,
+            14.4,
+            16.2,
+            18.0,
+            19.8,
+            21.6,
+            23.4,
+            25.2,
+            27.0,
+            28.8,
+            30.6,
+            32.4,
+            34.2,
+            36.0
+          ],
+          "v": [
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            89.23,
+            89.46
+          ]
+        },
+        {
+          "layer": "board5",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.5,
+            3.0,
+            4.5,
+            6.0,
+            7.5,
+            9.0,
+            10.5,
+            12.0,
+            13.5,
+            15.0,
+            16.5,
+            18.0,
+            19.5,
+            21.0,
+            22.5,
+            24.0,
+            25.5,
+            27.0,
+            28.5,
+            30.0,
+            31.5,
+            33.0,
+            34.5,
+            36.0
+          ],
+          "v": [
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0,
+            -2.0,
+            2.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            100.74,
+            103.24
+          ]
+        },
+        {
+          "layer": "lantern",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.8,
+            3.6,
+            5.4,
+            7.2,
+            9.0,
+            10.8,
+            12.6,
+            14.4,
+            16.2,
+            18.0,
+            19.8,
+            21.6,
+            23.4,
+            25.2,
+            27.0,
+            28.8,
+            30.6,
+            32.4,
+            34.2,
+            36.0
+          ],
+          "v": [
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0,
+            3.0,
+            -3.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            80.24,
+            19.31
+          ]
+        }
+      ],
+      "refill": {
+        "duration": 1.2,
+        "hiddenAtStart": [
+          "board1",
+          "board2",
+          "board3",
+          "board4",
+          "board5"
+        ],
+        "steps": [
+          {
+            "layer": "board1",
+            "prop": "scaleX",
+            "pivot": [
+              100.88,
+              46.32
+            ],
+            "begin": 0.1,
+            "duration": 0.15,
+            "values": [
+              0.0,
+              1.06,
+              1.0
+            ],
+            "keyTimes": [
+              0.0,
+              0.7,
+              1.0
+            ],
+            "curve": "easeOut",
+            "haptic": {
+              "at": 0.205,
+              "kind": "light",
+              "intensity": 0.45
+            }
+          },
+          {
+            "layer": "board2",
+            "prop": "scaleX",
+            "pivot": [
+              89.16,
+              61.01
+            ],
+            "begin": 0.28,
+            "duration": 0.15,
+            "values": [
+              0.0,
+              1.06,
+              1.0
+            ],
+            "keyTimes": [
+              0.0,
+              0.7,
+              1.0
+            ],
+            "curve": "easeOut",
+            "haptic": {
+              "at": 0.385,
+              "kind": "light",
+              "intensity": 0.45
+            }
+          },
+          {
+            "layer": "board3",
+            "prop": "scaleX",
+            "pivot": [
+              100.81,
+              75.51
+            ],
+            "begin": 0.46,
+            "duration": 0.15,
+            "values": [
+              0.0,
+              1.06,
+              1.0
+            ],
+            "keyTimes": [
+              0.0,
+              0.7,
+              1.0
+            ],
+            "curve": "easeOut",
+            "haptic": {
+              "at": 0.565,
+              "kind": "light",
+              "intensity": 0.45
+            }
+          },
+          {
+            "layer": "board4",
+            "prop": "scaleX",
+            "pivot": [
+              89.23,
+              89.46
+            ],
+            "begin": 0.64,
+            "duration": 0.15,
+            "values": [
+              0.0,
+              1.06,
+              1.0
+            ],
+            "keyTimes": [
+              0.0,
+              0.7,
+              1.0
+            ],
+            "curve": "easeOut",
+            "haptic": {
+              "at": 0.745,
+              "kind": "light",
+              "intensity": 0.45
+            }
+          },
+          {
+            "layer": "board5",
+            "prop": "scaleX",
+            "pivot": [
+              100.74,
+              103.24
+            ],
+            "begin": 0.82,
+            "duration": 0.15,
+            "values": [
+              0.0,
+              1.06,
+              1.0
+            ],
+            "keyTimes": [
+              0.0,
+              0.7,
+              1.0
+            ],
+            "curve": "easeOut",
+            "haptic": {
+              "at": 0.925,
+              "kind": "light",
+              "intensity": 0.45
+            }
+          }
+        ],
+        "knock": {
+          "layer": "base",
+          "prop": "translateY",
+          "begin": 1.02,
+          "duration": 0.12,
+          "values": [
+            0.0,
+            1.2,
+            0.0
+          ],
+          "keyTimes": [
+            0.0,
+            0.35,
+            1.0
+          ],
+          "curve": "easeInOut"
+        }
+      }
+    },
+    "badge_hotstreak_rig": {
+      "cycle": 16.0,
+      "tracks": [
+        {
+          "layer": "pennantL",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.0,
+            1.562,
+            2.188,
+            2.812,
+            3.438,
+            4.062,
+            4.688,
+            5.312,
+            5.938,
+            6.562,
+            7.188,
+            7.812,
+            8.438,
+            9.062,
+            9.688,
+            10.312,
+            10.938,
+            11.0,
+            16.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            0.0,
+            0.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            30.0,
+            14.56
+          ]
+        },
+        {
+          "layer": "pennantR",
+          "prop": "rotation",
+          "t": [
+            0.0,
+            1.0,
+            1.412,
+            2.037,
+            2.662,
+            3.287,
+            3.912,
+            4.537,
+            5.162,
+            5.787,
+            6.412,
+            7.037,
+            7.662,
+            8.287,
+            8.912,
+            9.537,
+            10.163,
+            10.788,
+            11.0,
+            16.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            -4.0,
+            4.0,
+            0.0,
+            0.0
+          ],
+          "curve": "sine",
+          "pivot": [
+            50.48,
+            14.46
+          ]
+        }
+      ]
+    },
+    "badge_rocketrally_rig": {
+      "cycle": 12.0,
+      "tracks": [
+        {
+          "layer": "rocket",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            1.9,
+            2.45,
+            3.45,
+            4.2,
+            12.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            -8.0,
+            -8.0,
+            0.0,
+            0.0
+          ],
+          "curve": [
+            "linear",
+            "sineOut",
+            "linear",
+            "sine",
+            "linear"
+          ]
+        },
+        {
+          "layer": "exhaustA",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            1.9,
+            2.45,
+            3.45,
+            4.2,
+            12.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            -8.0,
+            -8.0,
+            0.0,
+            0.0
+          ],
+          "curve": [
+            "linear",
+            "sineOut",
+            "linear",
+            "sine",
+            "linear"
+          ]
+        },
+        {
+          "layer": "exhaustB",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            1.9,
+            2.45,
+            3.45,
+            4.2,
+            12.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            -8.0,
+            -8.0,
+            0.0,
+            0.0
+          ],
+          "curve": [
+            "linear",
+            "sineOut",
+            "linear",
+            "sine",
+            "linear"
+          ]
+        },
+        {
+          "layer": "exhaust",
+          "prop": "overlay",
+          "t": [
+            0.0,
+            1.7,
+            1.8,
+            1.9,
+            2.0,
+            2.1,
+            2.2,
+            2.3,
+            2.4,
+            2.5,
+            2.6,
+            2.7,
+            2.8,
+            2.9,
+            3.0,
+            3.1,
+            3.2,
+            3.3,
+            3.4,
+            3.5,
+            3.6,
+            3.7,
+            3.8,
+            3.9,
+            4.0,
+            4.1,
+            4.2,
+            4.3
+          ],
+          "v": [
+            "",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            "exhaustA",
+            "exhaustB",
+            ""
+          ],
+          "curve": "discrete"
+        }
+      ],
+      "phase": 0.3667
+    },
+    "badge_cloudhop_rig": {
+      "cycle": 12.0,
+      "tracks": [
+        {
+          "layer": "drum",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            1.2,
+            1.45,
+            1.7,
+            2.1,
+            2.35,
+            2.6,
+            3.0,
+            3.25,
+            3.5,
+            4.6,
+            4.85,
+            5.1,
+            5.8,
+            6.05,
+            6.3,
+            7.0,
+            7.25,
+            7.5,
+            7.9,
+            8.15,
+            8.4,
+            8.8,
+            9.05,
+            9.3,
+            12.0
+          ],
+          "v": [
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0,
+            -5.0,
+            0.0,
+            0.0
+          ],
+          "curve": [
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear",
+            "sineOut",
+            "sineIn",
+            "linear"
+          ]
+        },
+        {
+          "layer": "clouds",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            0.6,
+            2.6,
+            4.6,
+            6.6,
+            8.6,
+            10.6,
+            12.0
+          ],
+          "v": [
+            0.47,
+            0.8,
+            -0.8,
+            0.8,
+            -0.8,
+            0.8,
+            -0.8,
+            0.47
+          ],
+          "curve": "sine"
+        }
+      ]
+    },
+    "badge_upaway_rig": {
+      "cycle": 4.0,
+      "tracks": [
+        {
+          "layer": "balloon",
+          "prop": "translateY",
+          "t": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "v": [
+            0.0,
+            -1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "curve": "sine"
+        }
+      ]
+    }
+  },
+  "hudIntro": {
+    "startAfterCut": 1.015,
+    "dropPt": 118.4,
+    "dropDur": 0.334,
+    "dropBack": 3.42,
+    "boosterDelay": 0.077,
+    "boosterPt": 88.8,
+    "boosterDur": 0.209,
+    "boosterBack": 2.57,
+    "bigTimerAt": 1.339,
+    "bigTimerKf": [
+      0,
+      3.5,
+      0.067,
+      1.42,
+      0.083,
+      1.31,
+      0.1,
+      1.17,
+      0.133,
+      0.95,
+      0.167,
+      0.88,
+      0.2,
+      0.96,
+      0.25,
+      1.0
+    ],
+    "heartsAt": [
+      1.406,
+      1.505,
+      1.622
+    ],
+    "heartKf": [
+      0,
+      1.58,
+      0.05,
+      1.36,
+      0.1,
+      0.93,
+      0.133,
+      0.89,
+      0.167,
+      0.96,
+      0.2,
+      1.04,
+      0.25,
+      1.02,
+      0.3,
+      1.0
+    ]
+  },
+  "hud": {
+    "addTimePop": [
+      1.3,
+      0.25
+    ],
+    "heartBreak": {
+      "v0": -115,
+      "g": 960,
+      "vx": 37.5,
+      "rot1": 25,
+      "rot2": 40,
+      "fadeFrom": 0.3,
+      "fadeTo": 0.4
+    },
+    "heartInkScale": 1.07
+  },
+  "freeze": {
+    "spawn": [
+      192,
+      612
+    ],
+    "spawnDur": 0.12,
+    "riseFrom": 0.1,
+    "riseDur": 0.83,
+    "riseTo": 405,
+    "rockDeg": 4,
+    "flyFrom": 0.98,
+    "flyDur": 0.4,
+    "flyControl": [
+      175,
+      200
+    ],
+    "target": [
+      107,
+      94
+    ],
+    "flyEndScale": 0.35,
+    "iceFrom": 1.38,
+    "iceDur": 0.25,
+    "frostFrom": 1.6,
+    "frostDur": 0.2,
+    "frostColor": "#6BD4F8",
+    "frostDepthSidesPt": 30,
+    "frostDepthTopBottomPt": 88,
+    "tray": [
+      93,
+      118,
+      92,
+      25
+    ],
+    "trayIn": 0.2,
+    "trayOut": 0.15,
+    "endFade": 0.3
+  },
+  "tutorial": {
+    "showAfter": 0.36,
+    "captionKf": [
+      0,
+      0.7,
+      0.04,
+      0.98,
+      0.08,
+      1.1,
+      0.12,
+      1.05,
+      0.16,
+      1.0
+    ],
+    "handIn": [
+      0.24,
+      0.28
+    ],
+    "handLoop": [
+      1.26,
+      0.48,
+      0.36
+    ],
+    "handPressScale": 0.53,
+    "handFirstHold": 0.28,
+    "captionOut": 0.16,
+    "handOut": 0.12,
+    "handScale": 0.808
+  },
+  "overlayStagger": [
+    0.18,
+    0.35,
+    0.58,
+    0.72,
+    0.88,
+    1.1
+  ],
+  "homeReturn": {
+    "claw": {
+      "dimIn": [
+        0.03,
+        0.13
+      ],
+      "dim": 0.5,
+      "tokenAt": 0.03,
+      "tokenDur": 0.1,
+      "flashAt": 0.23,
+      "badgeAt": 0.23,
+      "badgeSlide": [
+        0.53,
+        0.15
+      ],
+      "burstAt": 0.68,
+      "mergeHaptic": 0.5,
+      "labelAt": 0.88,
+      "dimOut": [
+        1.33,
+        0.2
+      ],
+      "flyAt": 1.43,
+      "flyDur": 0.3,
+      "iconFlashAt": 1.73,
+      "countAt": 1.74,
+      "tickStep": 0.057,
+      "maxTicks": 7,
+      "end": 2.11,
+      "x1Shift": -0.73
+    },
+    "streak": {
+      "trayIn": [
+        0.0,
+        0.22
+      ],
+      "flagAt": 0.02,
+      "flagFly": [
+        0.57,
+        0.17
+      ],
+      "chipAt": 0.72,
+      "chipDur": 0.1,
+      "pops": [
+        0.77,
+        0.92,
+        1.14
+      ],
+      "badgeFlashAt": 1.2,
+      "trayOut": [
+        1.99,
+        0.18
+      ],
+      "coinsAt": 1.25
+    },
+    "coins": {
+      "labelAt": 0.0,
+      "labelDur": 0.25,
+      "cueLead": 1.12,
+      "liftAt": 0.55,
+      "stagger": 0.085,
+      "flight": 0.22,
+      "count": 5,
+      "origin": [
+        196,
+        490
+      ],
+      "control": [
+        196,
+        180
+      ],
+      "target": [
+        112.7,
+        70
+      ],
+      "endScale": 0.85,
+      "labelFadeAt": 1.12
+    },
+    "aloneStart": 0.35,
+    "afterClawOnly": 0.4
+  },
+  "ribbon": {
+    "maxSize": 49,
+    "box": 228,
+    "baselineFromTop": 57.0
+  },
+  "lb": {
+    "countryShort": {
+      "AE": {"en": "UAE", "tr": "BAE", "de": "VAE", "fr": "EAU", "es": "EAU", "it": "EAU", "pt-BR": "EAU", "ja": "UAE", "zh-Hans": "阿联酋", "pl": "ZEA", "sk": "SAE", "sl": "ZAE"},
+      "AF": {"ja": "アフガン"},
+      "AG": {"en": "Antigua", "tr": "Antigua", "de": "Antigua", "fr": "Antigua", "es": "Antigua", "it": "Antigua", "pt-BR": "Antígua", "ja": "アンティグア", "zh-Hans": "安提瓜", "pl": "Antigua", "sk": "Antigua", "sl": "Antigva"},
+      "AU": {"ja": "豪州"},
+      "AZ": {"de": "Aserbaid."},
+      "BA": {"en": "Bosnia", "tr": "Bosna", "de": "Bosnien", "fr": "Bosnie", "es": "Bosnia", "it": "Bosnia", "pt-BR": "Bósnia", "ja": "ボスニア", "ko": "보스니아", "zh-Hans": "波黑", "pl": "Bośnia", "sk": "Bosna", "sl": "BiH"},
+      "BD": {"ja": "バングラ"},
+      "BF": {"en": "Burkina", "tr": "Burkina", "de": "Burkina", "fr": "Burkina", "es": "Burkina", "it": "Burkina", "pt-BR": "Burquina", "ja": "ブルキナ", "pl": "Burkina", "sk": "Burkina", "sl": "Burkina"},
+      "BN": {"de": "Brunei"},
+      "CD": {"en": "DR Congo", "tr": "KDC", "de": "DR Kongo", "fr": "RD Congo", "es": "RD Congo", "it": "RD Congo", "pt-BR": "RD Congo", "ja": "DRコンゴ", "pl": "DR Konga", "sk": "KDR", "sl": "DR Kongo"},
+      "CF": {"en": "CAR", "tr": "OAC", "de": "ZAR", "fr": "RCA", "es": "RCA", "it": "RCA", "pt-BR": "RCA", "ja": "中央アフリカ", "ko": "중앙아프리카", "pl": "RŚA", "sk": "SAR", "sl": "SAR"},
+      "CG": {"en": "Congo", "tr": "Kongo", "de": "Kongo", "fr": "Congo", "it": "Congo", "pt-BR": "Congo", "ja": "コンゴ", "sk": "Kongo", "sl": "Kongo"},
+      "CI": {"sl": "Slonok. ob."},
+      "CN": {"en": "China", "tr": "Çin", "de": "China", "fr": "Chine", "es": "China", "it": "Cina", "pt-BR": "China", "pl": "Chiny", "sk": "Čína"},
+      "CV": {"sl": "Zelenort. ot."},
+      "DO": {"en": "Dom. Rep.", "tr": "Dominik C.", "de": "Dom. Rep.", "fr": "Rép. dom.", "es": "Rep. Dom.", "it": "Rep. Dom.", "pt-BR": "Rep. Dom.", "ja": "ドミニカ", "ko": "도미니카", "zh-Hans": "多米尼加", "sk": "Dom. rep.", "sl": "Dom. rep."},
+      "FM": {"ja": "ミクロネシア"},
+      "GB": {"en": "UK", "tr": "İngiltere", "de": "UK", "fr": "R.-U.", "pl": "W. Brytania", "sk": "Británia", "sl": "Britanija"},
+      "GQ": {"en": "Eq. Guinea", "tr": "Ekv. Ginesi", "de": "Äq.-Guinea", "fr": "Guinée éq.", "es": "Guinea Ec.", "it": "Guinea Eq.", "pt-BR": "Guiné Eq.", "pl": "Gw. Równ.", "sk": "R. Guinea", "sl": "Ekv. Gvineja"},
+      "GR": {"de": "Griechenl."},
+      "GW": {"en": "G.-Bissau", "de": "G.-Bissau", "fr": "G.-Bissau", "es": "G.-Bisáu", "it": "G.-Bissau", "pt-BR": "G.-Bissau", "pl": "Gw. Bissau", "sk": "G.-Bissau", "sl": "Gv. Bissau"},
+      "KN": {"en": "St Kitts", "tr": "St. Kitts", "de": "St. Kitts", "fr": "St-Kitts", "es": "S. Cristóbal", "it": "St. Kitts", "pt-BR": "S. Cristóvão", "ja": "セントキッツ", "ko": "세인트키츠", "zh-Hans": "圣基茨", "pl": "St. Kitts", "sk": "Sv. Krištof", "sl": "St. Kitts"},
+      "KP": {"fr": "Corée du N.", "es": "Corea del N.", "it": "Corea del N.", "pt-BR": "Coreia do N.", "pl": "Korea Płn.", "sk": "KĽDR", "sl": "S. Koreja"},
+      "KR": {"fr": "Corée", "es": "Corea", "it": "Corea", "pt-BR": "Coreia", "pl": "Korea Płd."},
+      "LI": {"en": "Liechtenst.", "tr": "Lihtenştayn", "de": "Liechtenst.", "fr": "Liechtenst.", "es": "Liechtenst.", "it": "Liechtenst.", "pt-BR": "Liechtenst.", "pl": "Liechtenst.", "sk": "Lichtenšt."},
+      "LU": {"it": "Lussemb.", "sk": "Luxemb."},
+      "MD": {"de": "Moldau"},
+      "MH": {"en": "Marshall Is.", "tr": "Marshall Ad.", "de": "Marshallins.", "es": "I. Marshall", "it": "Is. Marshall", "pt-BR": "I. Marshall", "ja": "マーシャル", "pl": "W. Marshall", "sk": "Marshall. o.", "sl": "Marshall. o."},
+      "MK": {"en": "N. Maced.", "tr": "K. Maked.", "de": "Nordmazed.", "fr": "Macéd. du N.", "es": "Maced. N.", "it": "Maced. Nord", "pt-BR": "Maced. N.", "pl": "Maced. Płn.", "sk": "S. Maced.", "sl": "S. Maked."},
+      "MM": {"en": "Myanmar", "tr": "Myanmar", "fr": "Myanmar", "es": "Myanmar", "it": "Myanmar", "pt-BR": "Mianmar", "ja": "ミャンマー", "pl": "Mjanma", "sl": "Mjanmar"},
+      "NL": {"pt-BR": "Holanda"},
+      "NZ": {"en": "NZ", "fr": "N.-Zélande", "es": "N. Zelanda", "it": "N. Zelanda", "pt-BR": "N. Zelândia", "ja": "NZ", "pl": "N. Zelandia", "sl": "N. Zelandija"},
+      "PG": {"en": "PNG", "tr": "Papua", "de": "PNG", "fr": "Papouasie", "es": "Papúa NG", "it": "Papua N.G.", "pt-BR": "Papua", "ja": "パプア", "zh-Hans": "巴新", "pl": "Papua", "sk": "Papua", "sl": "Papua"},
+      "PS": {"en": "Palestine", "tr": "Filistin", "de": "Palästina", "fr": "Palestine", "es": "Palestina", "it": "Palestina", "pt-BR": "Palestina", "ja": "パレスチナ", "ko": "팔레스타인", "pl": "Palestyna", "sk": "Palestína", "sl": "Palestina"},
+      "SA": {"tr": "S. Arabistan", "de": "S.-Arabien", "fr": "Arabie S.", "it": "Arabia S.", "pt-BR": "Arábia S.", "ja": "サウジ", "pl": "Arabia Saud.", "sk": "Saud. Arábia", "sl": "Sav. Arabija"},
+      "SB": {"en": "Solomon Is.", "tr": "Solomon Ad.", "fr": "Salomon", "es": "I. Salomón", "it": "Is. Salomone", "pt-BR": "I. Salomão", "sk": "Šalamún. o.", "sl": "Salomon. o."},
+      "SS": {"tr": "G. Sudan", "fr": "Soudan S.", "es": "Sudán del S.", "pt-BR": "Sudão do S.", "pl": "Sudan Płd."},
+      "ST": {"en": "São Tomé", "tr": "Sao Tome", "de": "São Tomé", "fr": "São Tomé", "es": "Santo Tomé", "it": "São Tomé", "pt-BR": "São Tomé", "ja": "サントメ", "ko": "상투메", "zh-Hans": "圣多美", "pl": "São Tomé", "sk": "Sv. Tomáš", "sl": "Sao Tome"},
+      "TJ": {"de": "Tadschik."},
+      "TL": {"fr": "Timor or.", "es": "Timor Or.", "pl": "Timor Wsch.", "sk": "V. Timor"},
+      "TM": {"en": "Turkmen.", "tr": "Türkmen.", "de": "Turkmenien", "fr": "Turkménie", "es": "Turkmen.", "it": "Turkmen.", "pt-BR": "Turcomênia", "ja": "トルクメン", "pl": "Turkmenia", "sl": "Turkmenija"},
+      "TT": {"en": "Trinidad", "tr": "Trinidad", "de": "Trinidad", "fr": "Trinité", "es": "Trinidad", "it": "Trinidad", "pt-BR": "Trinidad", "ja": "トリニダード", "ko": "트리니다드", "zh-Hans": "特立尼达", "pl": "Trynidad", "sk": "Trinidad", "sl": "Trinidad"},
+      "US": {"en": "USA", "tr": "ABD", "de": "USA", "es": "EE. UU.", "pt-BR": "EUA", "ja": "アメリカ", "pl": "USA", "sk": "USA", "sl": "ZDA"},
+      "UZ": {"ja": "ウズベク"},
+      "VC": {"en": "St Vincent", "tr": "St. Vincent", "de": "St. Vincent", "fr": "St-Vincent", "es": "San Vicente", "it": "St. Vincent", "pt-BR": "São Vicente", "ko": "세인트빈센트", "zh-Hans": "圣文森特", "pl": "St. Vincent", "sk": "Sv. Vincent", "sl": "St. Vincent"},
+      "ZA": {"tr": "G. Afrika", "fr": "Afr. du Sud", "pt-BR": "Á. do Sul", "pl": "RPA", "sl": "JAR"}
+    }
+  },
+  "shop": {
+    "fakePrices": {
+      "currency": "USD",
+      "offer": 0.99,
+      "mini": 4.99,
+      "epic": 9.99,
+      "elite": 19.99,
+      "mega": 49.99,
+      "legendary": 99.99,
+      "coins": [
+        1.99,
+        7.99,
+        14.99,
+        29.99,
+        54.99,
+        99.99
+      ]
+    }
+  },
+  "continueToken": {
+    "chipCentres": [
+      65.0,
+      133.9,
+      199.0,
+      261.5,
+      329.6
+    ],
+    "chipBodies": [
+      67.6,
+      133.2,
+      197.5,
+      262.3,
+      327.2
+    ]
+  },
+  "streakRace": {
+    "chipCentres": [],
+    "bandTop": 16.3
+  },
+  "raceBar": {
+    "tileX": [
+      8.7,
+      80.0,
+      154.7,
+      228.7,
+      302.3
+    ]
+  },
+  "home": {
+    "clawBar": {
+      "fillFromX": 66.7,
+      "fillToX": 330.0
+    },
+    "eventBadge": {
+      "textBaseline": 71.0,
+      "finishedMaxWidth": 44.0
+    },
+    "clawTimerChip": {
+      "finishedMaxWidth": 47.0
+    },
+    "eventColumnNoClawLift": 73.4,
+    "pileRefill": 1.2
+  }
+}

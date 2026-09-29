@@ -1,0 +1,172 @@
+# UI raster cases (art/ui/out/<case>@3x.png) -- GENERATED from art/MANIFEST.json by
+# `art/tools/manifest_check.py --write-cases`; edit the manifest, not this file. check.py reads it.
+boardTrailStar         #     12x12 pt  svg graded 5-point rounded star particle (white, tinted at runtime) beh
+tapeV4                 #    39x118 pt  svg graded pink tape (linked arrows), 4 lanes, band VERTICAL on screen
+tapeH4                 #    118x39 pt  svg graded pink tape (linked arrows), 4 lanes, band HORIZONTAL on scree
+tapeH2                 #     54x39 pt  svg graded pink tape (linked arrows), 2 lanes, band HORIZONTAL on scree
+tapeV3                 #     39x86 pt  svg graded pink tape (linked arrows), 3 lanes, band VERTICAL on screen
+tapeH3                 #     86x39 pt  svg graded pink tape (linked arrows), 3 lanes, band HORIZONTAL on scree
+tapeV2                 #     39x54 pt  svg graded pink tape (linked arrows), 2 lanes, band VERTICAL on screen
+doorW4H4               #   134x134 pt  svg graded locked door 4 x 4 cells: orange riveted frame, purple inner 
+doorW4H8               #   134x262 pt  svg graded locked door 4 x 8 cells: orange riveted frame, purple inner 
+doorW4H12              #   134x390 pt  svg graded locked door 4 x 12 cells: orange riveted frame, purple inner
+doorW4H16              #   134x518 pt  svg graded locked door 4 x 16 cells: orange riveted frame, purple inner
+doorW4H20              #   134x646 pt  svg graded locked door 4 x 20 cells: orange riveted frame, purple inner
+doorW5H17              #   166x550 pt  svg graded locked door 5 x 17 cells: orange riveted frame, purple inner
+doorW13H4              #   422x134 pt  svg graded locked door 13 x 4 cells: orange riveted frame, purple inner
+doorW11H10             #   358x326 pt  svg graded locked door 11 x 10 cells: orange riveted frame, purple inne
+doorW22H10             #   710x326 pt  svg graded locked door 22 x 10 cells: orange riveted frame, purple inne
+lockHex                #     73x68 pt  svg graded purple hexagon lock with keyhole in a blue socket (on every 
+keyOnArrow             #     43x78 pt  svg graded gold key on a purple ribbon loop threaded on a key arrow (po
+doorShards             #     48x48 pt  svg graded door shatter fragments (orange frame, blue slat, purple bits
+pipeMouth              #     47x30 pt  svg graded gold rim at a pipe mouth (1.22 x 0.61 pitch), 4 orientations
+pipeCounter            #     68x53 pt  svg graded orange counter box on a pipe (live white number = uses left)
+pipeShards             #     48x48 pt  svg graded pipe shatter shards (cyan glass bits)
+curtainCrate           #   104x104 pt  svg done   CURTAIN counter gate, V1 (Aug) skin: purple rounded block (~
+cornerWedge            #     64x64 pt  3d  done   the CORNER (v552, first on L70): a red plate on a blue coil 
+iconCoin               #     39x39 pt  svg graded gold coin with a star (HUD + prices + rewards)
+iconPlusGreen          #     24x24 pt  svg graded green round + badge on the coin pill
+iconStopwatch          #     33x33 pt  svg graded gold stopwatch icon (timer pill, event timers)
+iconStopwatchSmall     #     26x28 pt  svg graded small stopwatch in event timer chips ('3d 9h')
+heartHUD               #     31x27 pt  svg graded red glossy life heart (3 in the timer panel)
+heartHUDLost           #     31x27 pt  svg graded lost / pale heart state (after a bump; greyed during the lev
+heartHUDHalves         #     31x27 pt  svg graded the HUD heart split in two halves for the break animation
+boosterFreeze          #     56x56 pt  3d  graded time-freeze booster: frozen hourglass / ice crystal
+boosterHint            #     56x56 pt  3d  graded hint booster: glossy light bulb
+boosterPointer         #     40x40 pt  3d  done   yellow arrow-cursor booster (video build, 4-bar)
+boosterDome            #     40x40 pt  3d  done   blue dome/bell booster (video build, 4-bar)
+glyphSound             #     30x30 pt  svg graded speaker glyph
+glyphHaptic            #     34x33 pt  svg graded phone-vibrating glyph
+glyphMusic             #     38x36 pt  svg graded music-note glyph, WHITE on the green Settings button (the re
+stopwatchBig           #   225x225 pt  3d  graded big blue stopwatch with glow (Out of Time!)
+heartBroken            #   160x132 pt  3d  graded broken red glossy heart
+coinStackReward        #   110x100 pt  3d  graded coin stack reward with sparkles
+sparkleTwinkle         #     16x16 pt  svg graded 4-point white twinkle sparkle
+heartInfinite          #     92x84 pt  3d  graded red heart with an infinity sign (unlimited lives reward)
+heartInfiniteSmall     #     46x42 pt  svg graded small ∞-heart for bars and chips
+unlockIconPipe         #   156x124 pt  svg graded pipe unlock illustration: U pipe with a counter cap '3' and 
+unlockIconLinked       #   150x106 pt  svg graded linked-arrows unlock illustration: two arrows bound by pink 
+unlockIconCurtain      #   120x110 pt  svg done   curtain unlock illustration = the locked DOOR icon (orange f
+unlockIconElevator     #   164x112 pt  svg graded elevator unlock illustration
+unlockIconDoor         #   128x128 pt  svg graded door + key unlock illustration (no popup seen on the phone a
+tutorialHand           #   102x136 pt  svg graded yellow emoji-style pointing hand with its big soft grey shad
+pointerArrowYellow     #     46x50 pt  svg graded yellow curved pointer arrow (info overlays)
+infoPathIcon           #   118x118 pt  svg graded maze icon tile: blue squircle with white arrows
+glyphGear              #     26x26 pt  svg graded white gear glyph on the blue square button
+heartLives             #     42x40 pt  svg graded lives heart with the live count inside
+iconHexArrow           #     40x40 pt  svg graded purple hexagon with a white up-arrow (Claw points icon)
+eventBadgeStreak       #     80x84 pt  3d  graded Streak Race badge: checkered flags on a round pedestal + tim
+eventBadgeSkyJump      #     80x84 pt  3d  graded Sky Jump badge: pedestal with a gift box / counter + timer
+eventBadgeRocket       #     80x84 pt  3d  graded Rocket Race badge: rocket with a count + timer
+navShop                #     62x62 pt  3d  graded orange shopping basket nav icon
+navHome                #     80x86 pt  3d  graded orange house/garage nav icon
+navTrophy              #     68x62 pt  3d  graded gold trophy cup with a red arrow nav icon
+avatarDefault          #     64x64 pt  svg graded default avatar: grey-blue silhouette on a grey tile (the pla
+iconCheckeredFlag      #     30x32 pt  svg graded small checkered flag
+rankBadgeGold          #     40x40 pt  svg graded hexagon rank badge (gold) with live rank number
+rankBadgeSilver        #     40x40 pt  svg graded hexagon rank badge (silver) with live rank number
+rankBadgeBronze        #     40x40 pt  svg graded hexagon rank badge (bronze) with live rank number
+rankBadgePlain         #     40x40 pt  svg done   hexagon rank badge (plain blue) for ranks 4+
+coinBowl               #     74x62 pt  3d  graded coin pile in a red bowl (prize plate, live amount on the rim
+scoreChip              #     40x44 pt  svg graded the green capsule (flag roll) at the left of a Streak Race s
+sunburstRays           #    190x86 pt  svg graded soft cream sunburst rays behind a prize
+padlockGold            #     44x54 pt  3d  graded gold padlock on a locked reward
+coinPileSmall          #     68x56 pt  3d  graded small loose coin pile
+prizeSign              #     92x64 pt  svg done   green arrow sign 'PRIZE' with a coin (live amount)
+stageChestGreen        #     56x42 pt  3d  graded treasure chest, green lid (stage marker)
+stageChestBlue         #     56x42 pt  3d  graded treasure chest, blue lid (stage marker)
+stageChestPink         #     56x42 pt  3d  graded treasure chest, pink lid (stage marker)
+rocketMine             #     68x98 pt  3d  graded red rocket (the player)
+rocketOther            #     68x98 pt  3d  graded blue rocket (simulated opponents)
+trophyCup              #     62x58 pt  3d  graded gold trophy cup (Weekly Contest popup, profile stats)
+iconPencil             #     32x32 pt  svg graded edit pencil in the name field
+coinPackTiny           #    102x66 pt  3d  graded coin pack art #1 (pile grows with the pack)
+coinPackSmall          #    102x66 pt  3d  graded coin pack art #2 (pile grows with the pack)
+coinPackMedium         #    102x66 pt  3d  graded coin pack art #3 (pile grows with the pack)
+coinPackBig            #    102x66 pt  3d  graded coin pack art #4 (pile grows with the pack)
+coinPackSuper          #    102x66 pt  3d  graded coin pack art #5 (pile grows with the pack)
+coinPackGiant          #    102x66 pt  3d  graded coin pack art #6 (pile grows with the pack)
+glyphBell              #     30x36 pt  svg graded notification bell (Settings, Notifications row): white-to-ic
+logoArrowOut           #   306x236 pt  svg graded OUR 'ARROW OUT!' logo: yellow bubble word ARROW on a blue ro
+statFirstTryIcon       #     56x54 pt  svg graded red/white target with an arrow (General Stats: First Try Win
+statWeeklyWinsIcon     #     48x51 pt  svg graded gold medal on a ribbon with '1' (General Stats: Weekly Conte
+boxSlab                #   104x104 pt  svg graded the phone's BOX obstacle slab (violet, four rivets, bottom l
+boxRing                #     76x76 pt  svg graded the Box's counter ring: silver sphere with four stubby lugs,
+unlockIconBox          #   132x134 pt  svg graded the Box unlock card icon: the board's Box slab (rounder, no 
+glyphSoundWhite        #     42x38 pt  svg graded speaker glyph, WHITE on the green Settings button (Sound)
+glyphHapticWhite       #     42x38 pt  svg graded vibrating-phone glyph, WHITE on the green Settings button (H
+iconStopwatchFrozen    #     34x50 pt  svg graded the HUD stopwatch iced over while the freeze booster runs (s
+frostCracks            #   120x120 pt  svg done   white ice cracks + snowflakes + sparkle dots for one screen 
+heartBig               #   194x164 pt  svg graded whole glossy red heart for Out of Lives! (the red radial glo
+heartGlossySmall       #     46x40 pt  svg graded the lives-heart style at button size, next to the video icon
+heartLivesBig          #    100x90 pt  svg graded the lives heart at popup size in the More Lives card (count 
+iconVideoAd            #     40x41 pt  svg graded video clapper on rewarded-ad buttons (dark-green toon, cream
+iconCheck              #     60x54 pt  svg graded big glossy lime check (Claw done cards, Sky Jump won stage)
+iconCheckBadge         #     40x34 pt  svg graded flat green check badge on the selected avatar tile (Edit Pro
+iconSkull              #     30x32 pt  svg graded cream skull each side of the red 'Hard Level' tag ribbon on 
+iconSkullBones         #     38x38 pt  svg graded skull and crossbones each side of the purple 'Super Hard' ta
+rankWings1             #     52x38 pt  svg graded gold winged rank badge of the race leader (the '1' is live t
+shopSeal               #     66x66 pt  svg graded red scalloped seal with a gold rim on the Special Offer card
+pageBgPattern          #    145x79 pt  svg graded faint chunky-arrow pattern tile of the navy page ground (Set
+pointerArrowDown       #    78x104 pt  svg graded straight yellow down arrow of the Weekly Contest tutorial (p
+glyphOffSlash          #     56x52 pt  svg graded glossy red OFF rod across a Settings square toggle (Sound / 
+bundleSpecial          #   176x102 pt  3d  graded Special Offer card art: the 1 000 coin pile with glints (the
+bundleBag              #   176x102 pt  3d  graded Mini Bundle art: a crimson coin sack tied with a rope on a l
+bundleBarrel           #   176x102 pt  3d  graded Epic Bundle art: a crimson stave barrel with a lavender hoop
+bundleChest            #   176x102 pt  3d  graded Elite Bundle ('Popular') art: an open crimson chest with lav
+bundleSafe             #   176x102 pt  3d  graded Mega Bundle art: a lavender safe with its wheel door swung o
+bundleCart             #   176x102 pt  3d  graded Legendary Bundle ('Best Value') art: a crimson plank cart wi
+iconSkyDrum            #     57x52 pt  3d  graded the Sky Jump pad drum on its own (Profile 'Sky Jump Wins' st
+planetStage1           #     60x60 pt  3d  graded Rocket Race stage 1 planet (lilac / teal marbled bands)
+planetStage2           #     60x60 pt  3d  graded Rocket Race stage 2 planet (pink-red banded)
+planetStage3           #    104x60 pt  3d  graded Rocket Race stage 3 planet (blue with a tilted cyan ring)
+fxFrostVignette        #   393x852 pt  3d  graded full-screen frost frame of the hourglass (freeze) booster: s
+cornerDownRightSpring  #     64x64 pt  3d  done   corner, turn downRight (down->right, left->up): the blue coi
+cornerDownRightPlate   #     64x64 pt  3d  done   corner, turn downRight (down->right, left->up): the red plat
+cornerDownLeftSpring   #     64x64 pt  3d  done   corner, turn downLeft (down->left, right->up): the blue coil
+cornerDownLeftPlate    #     64x64 pt  3d  done   corner, turn downLeft (down->left, right->up): the red plate
+cornerUpRightSpring    #     64x64 pt  3d  done   corner, turn upRight (up->right, left->down): the blue coil 
+cornerUpRightPlate     #     64x64 pt  3d  done   corner, turn upRight (up->right, left->down): the red plate 
+cornerUpLeftSpring     #     64x64 pt  3d  done   corner, turn upLeft (up->left, right->down): the blue coil s
+cornerUpLeftPlate      #     64x64 pt  3d  done   corner, turn upLeft (up->left, right->down): the red plate (
+unlockIconCorner       #   100x100 pt  3d  done   the Corner unlock card icon: the corner (red plate on the bl
+logoSignBlue           # 283.2441x133.7366 pt  svg done   win logo part: the arched blue top sign (white rim, grey und
+logoLetterA            # 54.8825x82.3237 pt  svg done   win logo part: the letter A of ARROW (yellow bubble face + o
+logoLetterR1           # 49.205x78.5387 pt  svg done   win logo part: the first R of ARROW (yellow bubble face + or
+logoLetterR2           # 50.1512x79.485 pt  svg done   win logo part: the second R of ARROW (yellow bubble face + o
+logoLetterO            # 54.8825x79.485 pt  svg done   win logo part: the letter O of ARROW (yellow bubble face + o
+logoLetterW            # 61.5062x82.3237 pt  svg done   win logo part: the letter W of ARROW (yellow bubble face + o
+logoSignPurple         # 220.1608x118.5966 pt  svg done   win logo part: the purple ARROW-shaped sign (white rim, grey
+logoOut                # 153.2924x64.9758 pt  svg done   win logo part: the white 'OUT!' word in ONE layer (cream fac
+logoPegs               # 112.7446x24.1596 pt  svg done   win logo part: the two grey pegs that hang the blue sign ove
+logoOutO               # 57.379x63.4189 pt  svg done   win logo part: the O of 'OUT!' (cream bubble face + lilac ex
+logoOutU               # 51.3391x63.4189 pt  svg done   win logo part: the U of 'OUT!' (cream bubble face + lilac ex
+logoOutT               # 52.3457x63.4189 pt  svg done   win logo part: the T of 'OUT!' (cream bubble face + lilac ex
+logoOutBang            # 23.1529x62.4122 pt  svg done   win logo part: the ! of 'OUT!' (cream bubble face + lilac ex
+logoSignPurpleBend25   # 234.2136x134.2198 pt  svg done   win logo part: logoSignPurple bent -2.5 deg (a stronger arch
+logoSignPurpleBend50   # 234.2136x134.2198 pt  svg done   win logo part: logoSignPurple bent -5.0 deg (a stronger arch
+logoSignPurpleBend75   # 234.2136x134.2198 pt  svg done   win logo part: logoSignPurple bent -7.5 deg (a stronger arch
+logoSignPurpleBend100  # 234.2136x134.2198 pt  svg done   win logo part: logoSignPurple bent -10.0 deg (a stronger arc
+logoLetterAExt         # 54.8825x82.3237 pt  svg done   win logo part: the letter A of ARROW -- its orange 3-D EXTRU
+logoLetterR1Ext        # 49.205x78.5387 pt  svg done   win logo part: the first R of ARROW -- its orange 3-D EXTRUS
+logoLetterR2Ext        # 50.1512x79.485 pt  svg done   win logo part: the second R of ARROW -- its orange 3-D EXTRU
+logoLetterOExt         # 54.8825x79.485 pt  svg done   win logo part: the letter O of ARROW -- its orange 3-D EXTRU
+logoLetterWExt         # 61.5062x82.3237 pt  svg done   win logo part: the letter W of ARROW -- its orange 3-D EXTRU
+logoLetterAFace        # 54.8825x82.3237 pt  svg done   win logo part: the letter A of ARROW -- its yellow bubble FA
+logoLetterR1Face       # 49.205x78.5387 pt  svg done   win logo part: the first R of ARROW -- its yellow bubble FAC
+logoLetterR2Face       # 50.1512x79.485 pt  svg done   win logo part: the second R of ARROW -- its yellow bubble FA
+logoLetterOFace        # 54.8825x79.485 pt  svg done   win logo part: the letter O of ARROW -- its yellow bubble FA
+logoLetterWFace        # 61.5062x82.3237 pt  svg done   win logo part: the letter W of ARROW -- its yellow bubble FA
+logoOutOExt            # 57.379x63.4189 pt  svg done   win logo part: the O of 'OUT!' -- its lilac 3-D EXTRUSION al
+logoOutUExt            # 51.3391x63.4189 pt  svg done   win logo part: the U of 'OUT!' -- its lilac 3-D EXTRUSION al
+logoOutTExt            # 52.3457x63.4189 pt  svg done   win logo part: the T of 'OUT!' -- its lilac 3-D EXTRUSION al
+logoOutBangExt         # 23.1529x62.4122 pt  svg done   win logo part: the ! of 'OUT!' -- its lilac 3-D EXTRUSION al
+logoOutOFace           # 57.379x63.4189 pt  svg done   win logo part: the O of 'OUT!' -- its cream bubble FACE alon
+logoOutUFace           # 51.3391x63.4189 pt  svg done   win logo part: the U of 'OUT!' -- its cream bubble FACE alon
+logoOutTFace           # 52.3457x63.4189 pt  svg done   win logo part: the T of 'OUT!' -- its cream bubble FACE alon
+logoOutBangFace        # 23.1529x62.4122 pt  svg done   win logo part: the ! of 'OUT!' -- its cream bubble FACE alon
+logoLetterAFlat        # 54.8825x82.3237 pt  svg done   win logo part: the letter A of ARROW as ONE flat sprite (its
+logoLetterR1Flat       # 49.205x78.5387 pt  svg done   win logo part: the first R of ARROW as ONE flat sprite (its 
+logoLetterR2Flat       # 50.1512x79.485 pt  svg done   win logo part: the second R of ARROW as ONE flat sprite (its
+logoLetterOFlat        # 54.8825x79.485 pt  svg done   win logo part: the letter O of ARROW as ONE flat sprite (its
+logoLetterWFlat        # 61.5062x82.3237 pt  svg done   win logo part: the letter W of ARROW as ONE flat sprite (its

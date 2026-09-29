@@ -1,0 +1,133 @@
+== click (UI button): n=60  corr(first vs next 5) [0.991, 0.996, 0.989, 0.962, 0.996]
+   peak -7.6 dBFS (median of aligned copies), RMS-peak at 10 ms, length above -20 dB 20 ms, above -40 dB 20 ms
+   envelope dB every 25 ms: -42 -180 -180 -180
+   t=     0 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c    430.7 Hz A4-37c
+   t=    12 ms    258.4 Hz C4-21c    301.5 Hz D4+45c    215.3 Hz A3-37c    344.5 Hz F4-23c
+== coin collect A (home): n=13  corr(first vs next 5) [0.28, 0.517, 0.524, -0.07, 0.619]
+   peak -3.2 dBFS (median of aligned copies), RMS-peak at 1370 ms, length above -20 dB 1535 ms, above -40 dB 2320 ms
+   envelope dB every 25 ms: -67 -58 -49 -45 -39 -37 -37 -30 -26 -26 -27 -26 -25 -26 -27 -28 -25 -27 -29 -28 -28 -30 -25 -29 -31 -28 -32 -32 -36 -29 -37 -37 -30 -31 -31 -35 -32 -30 -30 -28 -32 -34 -11 -14 -19 -11 -14 -19 -24 -11 -15 -18 -17 -17 -19 -17 -16 -17 -23 -23 -27 -30 -30 -34 -36 -35 -37 -37 -36 -38 -41 -38 -38 -37 -36 -35 -34 -35 -36 -37
+   t=     0 ms   6847.6 Hz A8-48c   6158.5 Hz G8-32c   6524.6 Hz G#8-32c   5081.8 Hz D#8+36c
+   t=   116 ms   6524.6 Hz G#8-32c   6847.6 Hz A8-48c   6180.0 Hz G8-26c   9366.9 Hz D9-6c
+   t=   232 ms   9862.2 Hz D#9-16c   9948.3 Hz D#9-1c   6847.6 Hz A8-48c   9582.3 Hz D9+34c
+   t=   348 ms   6524.6 Hz G#8-32c   6847.6 Hz A8-48c   9883.7 Hz D#9-13c   9560.7 Hz D9+30c
+   t=   464 ms   6524.6 Hz G#8-32c   6869.1 Hz A8-43c   6567.6 Hz G#8-20c   4909.6 Hz D#8-24c
+   t=   580 ms   6524.6 Hz G#8-32c   6847.6 Hz A8-48c   6804.5 Hz G#8+41c   6201.6 Hz G8-20c
+   t=   697 ms   6869.1 Hz A8-43c   6546.1 Hz G#8-26c   6912.2 Hz A8-32c
+   t=   813 ms   6869.1 Hz A8-43c   6524.6 Hz G#8-32c   6481.5 Hz G#8-43c
+   t=   929 ms   6524.6 Hz G#8-32c   6847.6 Hz A8-48c   6890.6 Hz A8-37c
+   t=  1045 ms   9280.8 Hz D9-22c   9323.9 Hz D9-14c   3143.8 Hz G7+4c   9366.9 Hz D9-6c
+   t=  1161 ms   9280.8 Hz D9-22c   9216.2 Hz D9-34c   3143.8 Hz G7+4c   9173.1 Hz D9-42c
+   t=  1277 ms   9280.8 Hz D9-22c   9366.9 Hz D9-6c   3165.4 Hz G7+16c   9216.2 Hz D9-34c
+   t=  1393 ms   9216.2 Hz D9-34c   3143.8 Hz G7+4c   9280.8 Hz D9-22c   9323.9 Hz D9-14c
+   t=  1509 ms   3165.4 Hz G7+16c   9280.8 Hz D9-22c   9216.2 Hz D9-34c   6524.6 Hz G#8-32c
+   t=  1625 ms   3143.8 Hz G7+4c   6524.6 Hz G#8-32c   6869.1 Hz A8-43c   5189.5 Hz E8-28c
+   t=  1741 ms   3165.4 Hz G7+16c   6847.6 Hz A8-48c   5232.6 Hz E8-14c   5189.5 Hz E8-28c
+   t=  1858 ms   3143.8 Hz G7+4c
+   t=  1974 ms   3143.8 Hz G7+4c
+   t=  2090 ms   3143.8 Hz G7+4c
+   t=  2206 ms   3143.8 Hz G7+4c
+   t=  2322 ms   3143.8 Hz G7+4c
+   t=  2438 ms   3165.4 Hz G7+16c   6847.6 Hz A8-48c   6524.6 Hz G#8-32c
+   t=  2554 ms   3143.8 Hz G7+4c   6524.6 Hz G#8-32c   6158.5 Hz G8-32c
+   t=  2670 ms   3165.4 Hz G7+16c   6524.6 Hz G#8-32c   6847.6 Hz A8-48c   7041.4 Hz A8+0c
+   t=  2786 ms   6524.6 Hz G#8-32c   3143.8 Hz G7+4c   6847.6 Hz A8-48c   9453.1 Hz D9+10c
+   t=  2902 ms   3143.8 Hz G7+4c   6524.6 Hz G#8-32c   6826.0 Hz G#8+47c   6158.5 Hz G8-32c
+== coin collect B (home): n=27  corr(first vs next 5) [0.705, 0.46, 0.478, 0.222, 0.209]
+   peak -1.9 dBFS (median of aligned copies), RMS-peak at 15 ms, length above -20 dB 450 ms, above -40 dB 975 ms
+   envelope dB every 25 ms: -10 -16 -19 -14 -16 -19 -20 -15 -20 -22 -17 -17 -22 -18 -18 -25 -23 -30 -30 -31 -32 -32 -33 -33 -35 -36 -37 -38 -39 -40 -41 -43 -44 -45 -45 -46 -46 -47 -50 -48 -49 -52 -51 -53 -53 -55 -54 -56 -58 -59 -60 -59 -60 -61 -62 -62 -63 -63 -65 -66 -67 -67 -68 -73 -74 -75 -78 -79 -82 -81 -86 -86 -85 -80 -78 -79
+   t=     0 ms   9345.4 Hz D9-10c   9280.8 Hz D9-22c   3143.8 Hz G7+4c   9216.2 Hz D9-34c
+   t=    70 ms   9280.8 Hz D9-22c   3165.4 Hz G7+16c   9323.9 Hz D9-14c   9388.5 Hz D9-2c
+   t=   139 ms   9280.8 Hz D9-22c   3143.8 Hz G7+4c   9366.9 Hz D9-6c   9194.7 Hz D9-38c
+   t=   209 ms   9280.8 Hz D9-22c   3143.8 Hz G7+4c   2907.0 Hz F#7-31c   9194.7 Hz D9-38c
+   t=   279 ms   9280.8 Hz D9-22c   3143.8 Hz G7+4c   9216.2 Hz D9-34c   9323.9 Hz D9-14c
+   t=   348 ms   9280.8 Hz D9-22c   9216.2 Hz D9-34c   3143.8 Hz G7+4c   9345.4 Hz D9-10c
+   t=   418 ms   9280.8 Hz D9-22c   3143.8 Hz G7+4c   9194.7 Hz D9-38c
+   t=   488 ms   3143.8 Hz G7+4c   9280.8 Hz D9-22c   9474.6 Hz D9+14c   3186.9 Hz G7+28c
+   t=   557 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c
+   t=   627 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c   5232.6 Hz E8-14c
+   t=   697 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c   5254.1 Hz E8-7c
+   t=   766 ms   3165.4 Hz G7+16c   9453.1 Hz D9+10c   5254.1 Hz E8-7c  22028.5 Hz F10-25c
+   t=   836 ms   3165.4 Hz G7+16c   9453.1 Hz D9+10c
+   t=   906 ms   3165.4 Hz G7+16c   9453.1 Hz D9+10c  15762.3 Hz B9-5c   5232.6 Hz E8-14c
+   t=   975 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c  15762.3 Hz B9-5c   3186.9 Hz G7+28c
+   t=  1045 ms   3165.4 Hz G7+16c   9453.1 Hz D9+10c  15762.3 Hz B9-5c   3122.3 Hz G7-8c
+   t=  1115 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c  15762.3 Hz B9-5c    366.1 Hz F#4-18c
+   t=  1184 ms   3165.4 Hz G7+16c   9453.1 Hz D9+10c   3122.3 Hz G7-8c  15762.3 Hz B9-5c
+   t=  1254 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c
+   t=  1324 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c
+   t=  1393 ms   3143.8 Hz G7+4c   9474.6 Hz D9+14c
+   t=  1463 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c
+   t=  1533 ms   3143.8 Hz G7+4c   9453.1 Hz D9+10c   3186.9 Hz G7+28c
+   t=  1602 ms   9453.1 Hz D9+10c  15762.3 Hz B9-5c   3186.9 Hz G7+28c   3122.3 Hz G7-8c
+   t=  1672 ms   3165.4 Hz G7+16c   9474.6 Hz D9+14c  22028.5 Hz F10-25c    107.7 Hz A2-37c
+   t=  1741 ms   9453.1 Hz D9+10c    172.3 Hz F3-23c   3165.4 Hz G7+16c   6180.0 Hz G8-26c
+   t=  1811 ms   9453.1 Hz D9+10c
+== win jingle B: n=28  corr(first vs next 5) [0.857, 0.997, 0.857, 0.942, 0.461]
+   peak 0.0 dBFS (median of aligned copies), RMS-peak at 1575 ms, length above -20 dB 3510 ms, above -40 dB 3980 ms
+   envelope dB every 25 ms: -28 -16 -9 -10 -4 -8 -8 -8 -8 -7 -17 -16 -8 -9 -9 -13 -11 -10 -9 -11 -14 -11 -12 -13 -17 -7 -10 -9 -10 -14 -16 -17 -9 -9 -7 -11 -15 -13 -14 -14 -17 -22 -25 -23 -26 -26 -26 -10 -5 -9 -9 -11 -13 -10 -7 -14 -14 -21 -20 -20 -27 -15 -12 -1 -7 -7 -7 -7 -7 -8 -8 -7 -8 -9 -8 -8 -9 -10 -13 -12
+   t=     0 ms     86.1 Hz F2-23c    215.3 Hz A3-37c    129.2 Hz C3-21c    452.2 Hz A4+47c
+   t=   197 ms     86.1 Hz F2-23c    193.8 Hz G3-20c
+   t=   395 ms     64.6 Hz C2-21c    387.6 Hz G4-20c    107.7 Hz A2-37c    818.3 Hz G#5-26c
+   t=   592 ms    710.6 Hz F5+30c     64.6 Hz C2-21c    667.5 Hz E5+22c    990.5 Hz B5+5c
+   t=   789 ms    775.2 Hz G5-20c     64.6 Hz C2-21c   1055.1 Hz C6+14c   1550.4 Hz G6-20c
+   t=   987 ms    796.7 Hz G5+28c    516.8 Hz C5-21c     64.6 Hz C2-21c   1055.1 Hz C6+14c
+   t=  1184 ms     86.1 Hz F2-23c    193.8 Hz G3-20c    129.2 Hz C3-21c   1313.5 Hz E6-7c
+   t=  1382 ms     64.6 Hz C2-21c   1313.5 Hz E6-7c    107.7 Hz A2-37c   1571.9 Hz G6+4c
+   t=  1579 ms     64.6 Hz C2-21c    796.7 Hz G5+28c   1055.1 Hz C6+14c
+   t=  1776 ms     64.6 Hz C2-21c   1055.1 Hz C6+14c    775.2 Hz G5-20c    258.4 Hz C4-21c
+   t=  1974 ms     64.6 Hz C2-21c   1055.1 Hz C6+14c   2110.3 Hz C7+14c    129.2 Hz C3-21c
+   t=  2171 ms     64.6 Hz C2-21c   7601.2 Hz A#8+33c    129.2 Hz C3-21c   1055.1 Hz C6+14c
+   t=  2368 ms    279.9 Hz C#4+17c    129.2 Hz C3-21c    236.9 Hz A#3+28c    366.1 Hz F#4-18c
+   t=  2566 ms    258.4 Hz C4-21c    215.3 Hz A3-37c    366.1 Hz F#4-18c    409.1 Hz G#4-26c
+   t=  2763 ms    323.0 Hz E4-35c    258.4 Hz C4-21c    452.2 Hz A4+47c    366.1 Hz F#4-18c
+   t=  2961 ms    538.3 Hz C5+49c    366.1 Hz F#4-18c    323.0 Hz E4-35c   1055.1 Hz C6+14c
+   t=  3158 ms    107.7 Hz A2-37c    150.7 Hz D3+45c    215.3 Hz A3-37c    258.4 Hz C4-21c
+   t=  3355 ms     86.1 Hz F2-23c    129.2 Hz C3-21c    172.3 Hz F3-23c    258.4 Hz C4-21c
+   t=  3553 ms    473.7 Hz A#4+28c    258.4 Hz C4-21c    409.1 Hz G#4-26c    323.0 Hz E4-35c
+   t=  3750 ms    387.6 Hz G4-20c    344.5 Hz F4-23c    452.2 Hz A4+47c    495.3 Hz B4+5c
+   t=  3947 ms    323.0 Hz E4-35c    366.1 Hz F#4-18c    473.7 Hz A#4+28c    279.9 Hz C#4+17c
+   t=  4145 ms    667.5 Hz E5+22c    581.4 Hz D5-18c    387.6 Hz G4-20c    516.8 Hz C5-21c
+   t=  4342 ms    344.5 Hz F4-23c    559.9 Hz C#5+17c    258.4 Hz C4-21c    452.2 Hz A4+47c
+   t=  4540 ms    323.0 Hz E4-35c    258.4 Hz C4-21c    409.1 Hz G#4-26c    366.1 Hz F#4-18c
+   t=  4737 ms    107.7 Hz A2-37c    559.9 Hz C#5+17c   1119.7 Hz C#6+17c    839.8 Hz G#5+19c
+== unlock chime B: n=2  corr(first vs next 5) [-0.247]
+   peak -2.4 dBFS (median of aligned copies), RMS-peak at 60 ms, length above -20 dB 2250 ms, above -40 dB 2255 ms
+   envelope dB every 25 ms: -38 -15 -12 -11 -13 -17 -14 -14 -17 -14 -17 -17 -24 -18 -16 -15 -16 -16 -17 -18 -18 -15 -15 -15 -15 -17 -16 -17 -17 -16 -16 -15 -16 -16 -16 -16 -16 -16 -16 -17 -18 -18 -19 -19 -21 -21 -23 -22 -23 -24 -23 -22 -22 -23 -24 -24 -24 -24 -23 -28 -29 -28 -39 -39 -41 -43 -44 -45 -46 -46 -47 -47 -48 -51 -52 -55 -56 -55 -55 -56
+   t=     0 ms     86.1 Hz F2-23c    129.2 Hz C3-21c    215.3 Hz A3-37c
+   t=    93 ms     64.6 Hz C2-21c   1055.1 Hz C6+14c    323.0 Hz E4-35c
+   t=   186 ms     64.6 Hz C2-21c    129.2 Hz C3-21c    344.5 Hz F4-23c    387.6 Hz G4-20c
+   t=   279 ms    387.6 Hz G4-20c     64.6 Hz C2-21c    129.2 Hz C3-21c   1033.6 Hz C6-21c
+   t=   372 ms   1055.1 Hz C6+14c   1571.9 Hz G6+4c    344.5 Hz F4-23c    452.2 Hz A4+47c
+   t=   464 ms   1055.1 Hz C6+14c   1012.1 Hz B5+42c    516.8 Hz C5-21c   1550.4 Hz G6-20c
+   t=   557 ms   1055.1 Hz C6+14c    990.5 Hz B5+5c
+   t=   650 ms   1055.1 Hz C6+14c     64.6 Hz C2-21c    387.6 Hz G4-20c   1571.9 Hz G6+4c
+   t=   743 ms   1055.1 Hz C6+14c
+   t=   836 ms   1055.1 Hz C6+14c
+   t=   929 ms   1055.1 Hz C6+14c
+   t=  1022 ms   1055.1 Hz C6+14c   1313.5 Hz E6-7c
+   t=  1115 ms   1055.1 Hz C6+14c   1313.5 Hz E6-7c   1593.5 Hz G6+28c   2627.1 Hz E7-7c
+   t=  1207 ms   1055.1 Hz C6+14c   2627.1 Hz E7-7c   1593.5 Hz G6+28c   1981.1 Hz B6+5c
+   t=  1300 ms   1055.1 Hz C6+14c   1981.1 Hz B6+5c   1313.5 Hz E6-7c
+   t=  1393 ms   1055.1 Hz C6+14c   1313.5 Hz E6-7c   1959.5 Hz B6-14c
+   t=  1486 ms   1313.5 Hz E6-7c   1981.1 Hz B6+5c   2648.6 Hz E7+8c   1055.1 Hz C6+14c
+   t=  1579 ms   1055.1 Hz C6+14c   1313.5 Hz E6-7c   1981.1 Hz B6+5c     64.6 Hz C2-21c
+   t=  1672 ms   1055.1 Hz C6+14c    667.5 Hz E5+22c   1313.5 Hz E6-7c   1981.1 Hz B6+5c
+   t=  1765 ms   1055.1 Hz C6+14c   1981.1 Hz B6+5c   1571.9 Hz G6+4c     64.6 Hz C2-21c
+   t=  1858 ms   1313.5 Hz E6-7c    516.8 Hz C5-21c    667.5 Hz E5+22c   1033.6 Hz C6-21c
+   t=  1950 ms   1055.1 Hz C6+14c   1335.1 Hz E6+22c   1571.9 Hz G6+4c    430.7 Hz A4-37c
+   t=  2043 ms   1055.1 Hz C6+14c   1571.9 Hz G6+4c   2627.1 Hz E7-7c   1981.1 Hz B6+5c
+   t=  2229 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c    430.7 Hz A4-37c
+== pre-level whoosh B: n=1  corr(first vs next 5) []
+   peak -7.6 dBFS (median of aligned copies), RMS-peak at 10 ms, length above -20 dB 200 ms, above -40 dB 200 ms
+   envelope dB every 25 ms: -42 -64 -180 -180 -180 -180 -180 -56 -57 -87 -180 -180 -180 -180
+   t=     0 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c    430.7 Hz A4-37c
+   t=    12 ms    236.9 Hz A#3+28c    301.5 Hz D4+45c    344.5 Hz F4-23c    193.8 Hz G3-20c
+   t=    23 ms    258.4 Hz C4-21c    301.5 Hz D4+45c    473.7 Hz A#4+28c    215.3 Hz A3-37c
+   t=   128 ms     64.6 Hz C2-21c    107.7 Hz A2-37c    150.7 Hz D3+45c    193.8 Hz G3-20c
+   t=   139 ms     64.6 Hz C2-21c   4349.7 Hz C#8-34c   4306.6 Hz C8+49c    107.7 Hz A2-37c
+   t=   151 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c   5189.5 Hz E8-28c
+   t=   163 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c    430.7 Hz A4-37c
+   t=   174 ms    344.5 Hz F4-23c    387.6 Hz G4-20c    301.5 Hz D4+45c    430.7 Hz A4-37c
+   t=   186 ms    344.5 Hz F4-23c    301.5 Hz D4+45c    387.6 Hz G4-20c    258.4 Hz C4-21c
+   t=   197 ms    258.4 Hz C4-21c    301.5 Hz D4+45c    215.3 Hz A3-37c    344.5 Hz F4-23c
+   t=   209 ms    279.9 Hz C#4+17c    236.9 Hz A#3+28c    323.0 Hz E4-35c    193.8 Hz G3-20c

@@ -1,0 +1,16 @@
+# v1 SUBSTRING stems that v2 matches as whole TOKENS only (removed from the substring list, added to the token list).
+# Reason: inside real first names of the v2 cultures they blocked common names (build_name_data_v2.py collateral):
+#   orgy  -> Georgy, György, Георгий (ru / hu / bg top names)     anus  -> Janusz, Hanuš, Jaanus, Adrianus, Anushka
+#   arse  -> Arsen, Arsenije, Marsela                             anal  -> Analía
+#   göt   -> Gottfried, Margot, Ágota                             isis  -> names containing it
+#   amina -> Benjaminas, Aminata, Samina                          semen -> (a Ukrainian name as a whole token stays blocked)
+# The stem itself as a whole name or a token (Orgy, BigArse, amina_x) stays blocked; invented handles are still filtered
+# with the FULL v1 substring list at build time.
+orgy
+anus
+arse
+anal
+göt
+isis
+amina
+semen

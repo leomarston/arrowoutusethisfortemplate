@@ -1,0 +1,27 @@
+{
+  "appInit_ms_since_process_start" : 511.07311248779297,
+  "arrows" : 53,
+  "buildMs" : 1.4949999749660492,
+  "cells" : 399,
+  "firstFrame_ms_since_process_start" : 1064.6790266036987,
+  "footprintMB_afterBuild" : 21.7255859375,
+  "footprintMB_now" : 22.0224609375,
+  "greedy_rounds" : 12,
+  "greedy_stuck" : 0,
+  "grid" : "20x20",
+  "layers_afterBuild" : 116,
+  "layers_now" : 116,
+  "level" : "recorded",
+  "maxFPS" : 60,
+  "pitch_pt" : 17.863636363636363,
+  "ready_idle" : {
+
+  },
+  "scenario" : "idle",
+  "stars" : true,
+  "trail" : "solid",
+  "validate" : [
+
+  ],
+  "zoom" : 1
+}

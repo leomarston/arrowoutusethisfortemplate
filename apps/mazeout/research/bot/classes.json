@@ -1,0 +1,34 @@
+{
+ "ink": {
+  "rule": "max(R,G,B) < 100, not within 2 px of a filled coloured blob",
+  "meaning": "arrow stroke / head"
+ },
+ "tape_pink": {
+  "rule": "blob with >50% pixels R>200,G<120,100<B<190",
+  "game_rule": "one tap on any bundled arrow sends the whole bundle if every ray is clear (L32 x4, L38, L44)"
+ },
+ "door": {
+  "rule": "blob area > 2.5 pitch^2, >25% blue (B>200,R<160,G>120) and >2% purple",
+  "game_rule": "blocks rays; opened (shatters) by a key; hides arrows"
+ },
+ "key": {
+  "rule": "blob area < 3 pitch^2 with >15% gold and >3% purple (ring)",
+  "game_rule": "when its arrow leaves, the key flies to the next locked door (L33: leftmost/lowest first) and opens it"
+ },
+ "pipe": {
+  "rule": "blob >25% blue with <=2% purple (tube + rims + counter; rims/counter pieces re-merged by label_blobs)",
+  "game_rule": "a ray entering a mouth against its outward direction continues out of the other mouth; counter -1 per passage; at 0 the pipe shatters"
+ },
+ "unknown": {
+  "rule": "anything else >150 px",
+  "action": "bot stops before the first tap / pauses mid-level"
+ },
+ "box": {
+  "rule": "blob area > 2.5 pitch^2, >30% purple (R>110,B>170,G<110), <10% blue; blobs inside its bbox (silver counter ring, digits, bolts) = box_part",
+  "game_rule": "L50 unlock 'Box! Unlocked!' / 'Clear required amount of arrows to break the BOX!': counter = arrows still to clear; bot treats its cells as blocking (like a door) until it breaks"
+ },
+ "red_arrow": {
+  "rule": "R>150, R-G>80, |G-B|<50, G<140 (+ its anti-aliased rim) = ink",
+  "game_rule": "a BUMPED arrow turns red (238,10,19) and stays red; still a normal arrow"
+ }
+}

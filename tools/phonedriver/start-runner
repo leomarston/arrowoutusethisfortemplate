@@ -1,0 +1,17 @@
+#!/bin/zsh
+# Builds (if needed) and starts the PhoneDriver runner on the USB-connected iPhone.
+# Runs in the foreground until `phone stop`; start it in the background.
+cd "${0:A:h}" || exit 1
+REPO="${0:A:h:h:h}"
+set -a; source "$REPO/.env"; set +a
+KP="$ASC_KEY_PATH"; [[ "$KP" = /* ]] || KP="$REPO/$ASC_KEY_PATH"   # xcodebuild wants an absolute key path
+DEST="id=${PHONE_UDID:-00008120-000964E426440032}"
+AUTH=(-allowProvisioningUpdates -allowProvisioningDeviceRegistration -authenticationKeyPath "$KP"
+      -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID")
+[ -d PhoneDriver.xcodeproj ] || /Users/yago/.local/bin/xcodegen generate -q
+if [ ! -d build/DD/Build/Products ]; then
+  xcodebuild build-for-testing -project PhoneDriver.xcodeproj -scheme PhoneDriver -destination "$DEST" \
+    -derivedDataPath build/DD "${AUTH[@]}" -quiet || exit 1
+fi
+exec xcodebuild test-without-building -project PhoneDriver.xcodeproj -scheme PhoneDriver -destination "$DEST" \
+  -derivedDataPath build/DD -only-testing:PhoneDriverUITests/DriverTests/testServe "${AUTH[@]}"

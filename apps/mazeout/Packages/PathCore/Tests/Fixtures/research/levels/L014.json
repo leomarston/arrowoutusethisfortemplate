@@ -1,0 +1,981 @@
+{
+ "level": 14,
+ "source": "video",
+ "video": "V2",
+ "t": 194.945,
+ "frame": "research/video-frames/V2/L014-start.png",
+ "shot": "research/video-frames/V2/L014-start.png",
+ "zoom": "fit",
+ "pitch_pt": 26.186,
+ "stroke_pt": 5.31,
+ "origin_pt": [
+  39.03,
+  241.11
+ ],
+ "cols": 13,
+ "rows": 16,
+ "mask": null,
+ "arrows": [
+  {
+   "id": 0,
+   "cells": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     7,
+     2
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     11,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     11,
+     5
+    ],
+    [
+     12,
+     5
+    ],
+    [
+     12,
+     6
+    ],
+    [
+     11,
+     6
+    ],
+    [
+     11,
+     7
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     12,
+     9
+    ],
+    [
+     11,
+     9
+    ],
+    [
+     11,
+     10
+    ],
+    [
+     12,
+     10
+    ],
+    [
+     12,
+     11
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     11,
+     12
+    ],
+    [
+     11,
+     13
+    ],
+    [
+     10,
+     13
+    ],
+    [
+     10,
+     14
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 1,
+   "cells": [
+    [
+     3,
+     5
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 2,
+   "cells": [
+    [
+     4,
+     7
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     2,
+     6
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 3,
+   "cells": [
+    [
+     1,
+     10
+    ],
+    [
+     0,
+     10
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 4,
+   "cells": [
+    [
+     1,
+     13
+    ],
+    [
+     1,
+     12
+    ],
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     11
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 5,
+   "cells": [
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 6,
+   "cells": [
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     10
+    ],
+    [
+     4,
+     10
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     3,
+     11
+    ],
+    [
+     3,
+     12
+    ],
+    [
+     3,
+     13
+    ],
+    [
+     2,
+     13
+    ],
+    [
+     2,
+     12
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     1,
+     11
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 7,
+   "cells": [
+    [
+     2,
+     14
+    ],
+    [
+     3,
+     14
+    ],
+    [
+     3,
+     15
+    ],
+    [
+     4,
+     15
+    ],
+    [
+     4,
+     14
+    ],
+    [
+     4,
+     13
+    ],
+    [
+     4,
+     12
+    ],
+    [
+     5,
+     12
+    ],
+    [
+     5,
+     13
+    ],
+    [
+     5,
+     14
+    ],
+    [
+     5,
+     15
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 8,
+   "cells": [
+    [
+     9,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 9,
+   "cells": [
+    [
+     11,
+     8
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     10,
+     9
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     9,
+     11
+    ],
+    [
+     10,
+     11
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     8,
+     12
+    ],
+    [
+     8,
+     11
+    ],
+    [
+     7,
+     11
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     6,
+     12
+    ],
+    [
+     6,
+     11
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     5,
+     10
+    ],
+    [
+     6,
+     10
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     6,
+     8
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     6,
+     4
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "dir": "up"
+  },
+  {
+   "id": 10,
+   "cells": [
+    [
+     7,
+     14
+    ],
+    [
+     8,
+     14
+    ],
+    [
+     8,
+     15
+    ],
+    [
+     7,
+     15
+    ],
+    [
+     6,
+     15
+    ],
+    [
+     6,
+     14
+    ],
+    [
+     6,
+     13
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     9,
+     13
+    ],
+    [
+     9,
+     14
+    ],
+    [
+     9,
+     15
+    ]
+   ],
+   "dir": "down"
+  },
+  {
+   "id": 11,
+   "cells": [
+    [
+     9,
+     2
+    ],
+    [
+     9,
+     3
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     9,
+     4
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     7,
+     4
+    ]
+   ],
+   "dir": "left"
+  },
+  {
+   "id": 12,
+   "cells": [
+    [
+     7,
+     8
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     8,
+     7
+    ],
+    [
+     8,
+     6
+    ],
+    [
+     7,
+     6
+    ],
+    [
+     7,
+     5
+    ],
+    [
+     8,
+     5
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     9,
+     6
+    ],
+    [
+     9,
+     7
+    ],
+    [
+     10,
+     7
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 13,
+   "cells": [
+    [
+     9,
+     9
+    ],
+    [
+     9,
+     8
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     7,
+     10
+    ],
+    [
+     8,
+     10
+    ]
+   ],
+   "dir": "right"
+  },
+  {
+   "id": 14,
+   "cells": [
+    [
+     10,
+     5
+    ],
+    [
+     10,
+     6
+    ]
+   ],
+   "dir": "down"
+  }
+ ],
+ "obstacles": [],
+ "taped_arrow_ids": [],
+ "timer_s": 180,
+ "hearts": 3,
+ "tag": null,
+ "anomalies": [],
+ "occlusion_inferred": [],
+ "pipes": [],
+ "door_cells": [],
+ "blocker_cells": [],
+ "elevators": [],
+ "fit_px": {
+  "pitch": 39.4455,
+  "x0": 19.342,
+  "y0": 8.19,
+  "c0": 1,
+  "r0": 9,
+  "stroke": 8.0,
+  "resid_px": 0.456,
+  "robust": {
+   "used": 123,
+   "dropped": 34,
+   "orig_pitch": 39.4176,
+   "orig_resid_px": 1.463
+  }
+ },
+ "verify": {
+  "ink_iou": 0.8553,
+  "ink_iou_tol1px": 0.9815,
+  "ink_px": 51979,
+  "render_px": 50702,
+  "missed_ink_px": 343,
+  "extra_px": 683,
+  "head": {
+   "tip": 0.46,
+   "half": 0.3,
+   "base": 0.22
+  },
+  "stroke_px": 7.0
+ },
+ "reader": "video-tools/vextract.py (bot.py reader adapted to the video skin)",
+ "batchB": {
+  "reader": "vextract read_board + robust grid refit (levels/video/bcheck.py)",
+  "same_arrows_as_index_extract": "15/15",
+  "index_extract_iou_tol1": 0.9683,
+  "notes": [],
+  "final_from": "V2 (identical to V1 cell by cell; V2 = 60 fps, no edit cut, box naming = the phone's)"
+ },
+ "video_alt": {
+  "video": "V1",
+  "t": 262.44,
+  "frame": "research/video-frames/V1/L014-start.png",
+  "identical": true,
+  "obstacle_skin": "curtain (purple slab)"
+ },
+ "checks": {
+  "v1_v2": {
+   "identical_arrows": "15/15",
+   "obstacles_identical": true,
+   "tapes_identical": true,
+   "note": null
+  },
+  "ink_iou_tol1": {
+   "V2": {
+    "vextract": 0.9815,
+    "registered": 0.9854,
+    "model_best": 0.9859,
+    "heads_flagged": 0
+   },
+   "V1": {
+    "vextract": 0.9781,
+    "registered": 0.9841,
+    "model_best": 0.9845,
+    "heads_flagged": 0
+   }
+  },
+  "replay": {
+   "V2": {
+    "taps": 15,
+    "consistent": 15,
+    "inconsistent": 0,
+    "unexplained_stays": 0,
+    "miss": 0,
+    "late": 0,
+    "left_at_end": [],
+    "blockers_broken": 0,
+    "board_moves": 0
+   },
+   "V1": {
+    "taps": 15,
+    "consistent": 15,
+    "inconsistent": 0,
+    "unexplained_stays": 0,
+    "miss": 0,
+    "late": 0,
+    "left_at_end": [],
+    "blockers_broken": 0,
+    "board_moves": 0
+   }
+  },
+  "solver": {
+   "bot_plan": {
+    "solved": true,
+    "taps": 15,
+    "stuck_with": []
+   },
+   "model": {
+    "solved": true,
+    "taps": 15,
+    "stuck_with": []
+   },
+   "free_at_start": 5,
+   "waves": 5,
+   "boxes": [],
+   "solvable_if_boxes_never_break": null
+  },
+  "play": {
+   "V2": {
+    "t_board": 194.945,
+    "t_first_tap": 195.045,
+    "t_clear": 211.074,
+    "timer_start": "3:00",
+    "timer_left_at_clear": "2:44",
+    "hearts": [
+     3,
+     3
+    ],
+    "taps": 15,
+    "reward": 20,
+    "popup_before": false
+   },
+   "V1": {
+    "t_board": 262.44,
+    "t_first_tap": 262.56,
+    "t_clear": 272.24,
+    "timer_start": "3:00",
+    "timer_left_at_clear": "2:51",
+    "hearts": [
+     3,
+     3
+    ],
+    "taps": 15,
+    "reward": 20,
+    "popup_before": false
+   }
+  },
+  "phone_same_board": {
+   "level": "L052",
+   "note": "research/shots/145-L052-start.png: same 15 arrows (cells + dirs); timer 180"
+  }
+ }
+}

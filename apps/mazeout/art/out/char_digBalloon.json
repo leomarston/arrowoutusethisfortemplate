@@ -1,0 +1,32 @@
+{
+ "case": "char_digBalloon",
+ "frame_pt": [
+  150.0,
+  176.0
+ ],
+ "note": "points in pt within the image (origin top-left)",
+ "ropeTL": [
+  [
+   35.33,
+   78.98
+  ]
+ ],
+ "ropeTR": [
+  [
+   104.13,
+   77.51
+  ]
+ ],
+ "ropeFL": [
+  [
+   42.73,
+   87.6
+  ]
+ ],
+ "ropeFR": [
+  [
+   119.74,
+   85.74
+  ]
+ ]
+}

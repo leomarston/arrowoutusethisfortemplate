@@ -1,0 +1,55 @@
+{
+ "_about": "PUBLISH B0 (SPEC.md ruling 39 OD8): the \"_\" developer notes stripped from the SHIPPED App/Resources/Tuning/*.json by design/tools/strip_provenance.py strip-json, kept here (not shipped) by JSON path so nothing is lost. The runtime never read them (every reader skips \"_\" keys).",
+ "files": {
+  "App/Resources/Tuning/audio.json": {
+   "/_about": "AUDIO's tuning (A2). cues/gain/haptics/music/hapticPriority = SPEC-motion-audio §13.3 verbatim (full replacement; CONSISTENCY §15 A-9/A-11/A-12, §20). In-level events have no cue (v552 is silent in play, MA1). 'arrowTap' is the owner's tap-sound slot: empty = silent like v552 (MA3, SPEC.md §5 item 4); set it to \"tapTick\" to turn the tap sound on. Music is none (MA2): music.enabled false makes playMusic/stopMusic no-ops. Haptic styles: light, medium, heavy, rigid, soft, success, warning, error, none (none disables a row). engine = SPEC-architecture §7.1. Contract amend 4 (SPEC.md §5 item 42 = ruling 39 OD4 + design/publish/motion-catalog.md §5.1/§5.2): button rigid 0.60, win = the OUT! slam heavy 1.0, the rows logoLetter (per-beat intensity from ui.json win.haptics via play(_:intensity:)), logoBounce, firework, rewardPop, logoSwell, keyTurn, play; the priority is §5.2 with logoSwell/keyTurn among the event beats and play above button. The compiled defaults (Tuning.swift, AudioCues.specHaptics) carry the same rows."
+  },
+  "App/Resources/Tuning/board.json": {
+   "/_about": "BOARD's tuning (SPEC-architecture §4.2, §5, §10; B1 owns it). Values a content spec still owns are DATA here (_pending, §14). research/motion.md pass 2 (the phone, v552; SPEC.md §4's stand-in for SPEC-motion-audio) supplies the exit law, the bump profile, the vignette, the ripple and the intro; the arrow-look knobs (fillet, tail extension) are its §2.2.",
+   "/_corrections": "WP0b (2026-09-25), design/CONSISTENCY.md §20 for the finished owner B1: input.hitRadiusPt 16 -> 22 (G-5, SPEC-gameplay §2.2; rules.json hit.radiusPt carries the same value); rainbow.periodCells 5.6 -> 4.2 (E-12); color.violet dropped for violet.palette/violet.periodCells (E-10); pan.limit centreInGrid added, pan.slackPt kept for B1's current reader and ignored once limit is read (G-11); the SPEC-motion-audio §13.1 blocks merged in (every other present key kept). Keys that B1's code does not read yet (violet, stars, dots, stage, clearWave, key, pipe, counter, elevator, corner, shards, hint, pan.limit/deceleration, zoom.bounces, intro.drawStartFraction/ackAt/ftueAckAt, vignette.stops*, color.hint, rainbow.driftDegPerS) are data for B1/B2 (SPEC-motion-audio §15.3).",
+   "/_pending": [],
+   "/_sources": {
+    "arrow.cornerFillet": "motion §2.2 VERIFIED: centre-line fillet R 0.121-0.144 pitch (0.125)",
+    "arrow.head": "B1 measured on shot 003 (L32, 53 heads, visible profile): base edge / visible tip x pitch from the head cell centre; horizontal -0.22 / +0.375, up -0.33 / +0.27, down -0.13 / +0.47 (vertical heads sit ~0.10 pitch lower on screen); width 0.61, corners r 0.047. Agrees with motion §2.2 pass 2 (base -0.22, tip +0.39, width 0.61). PathCore Metrics (STYLE §A: sharp apex 0.36 rounded -> visible 0.30) left 1.8 % ink short.",
+    "arrow.tailExtend": "motion §2.2 VERIFIED: the stroke ends 0.14 pitch past the tail centre = half-width + 0.03",
+    "bump": "motion §4 pass 2 (2 v552 clips): T_out = 0.075 + 0.025 x contact cells, no hold, back easeOutQuad 0.14 s; red +0.017..+0.12; blocker flash; badge",
+    "dots.mode": "SPEC-motion-audio §3.2.4: ONE static dot layer at stage load under every arrow cell (CONSISTENCY E-15)",
+    "exit": "motion §3.3 pass 2: s(t) = vmax t - (vmax - v0) tau (1 - e^(-t/tau)), 11 exits RMS 0.082 cells; colourRamp 0.09 s (§3.2)",
+    "exit.tapMotionLead": "FEEL F3 (build/feel/ripple-evidence.txt): a tap's exit motion starts 1/60 s before the release's run-loop turn, so its first presented frame already moves (same frame as the ripple + haptic)",
+    "input.hitRadiusPt": "SPEC-gameplay §2.2: 22 pt on screen (DECISION from VERIFIED 10/15 pt phone taps and 12-22 pt video taps); CONSISTENCY G-5 (WP0b). Was 16 (B1: >= 15 pt L47c + touch quantisation).",
+    "input.tieTolerancePt": "DECISION: the L52a midpoint tie band = min(tieTolerancePt / zoom, tieTolerancePitch x pitch): a release that close to the boundary between two different arrows' cells counts as their midpoint (the right-hand, then the lower arrow wins) so touch quantisation (XCUITest rounds to whole points) cannot flip it; 3 % of a cell never reaches an in-cell tap (0 of 873 + 399 jittered points change owner), while a flat 1 pt stole 41 of 873 on a 9.4 pt board",
+    "intro": "motion §6.1 pass 2 (S1-L48-play-intro 60 Hz): zoom 1.49 -> 1 easeOutCubic 1.35 s; draw 0.32 s + 21.6 ms/cell",
+    "key.diveGPitch": "B2 reconciliation (report): SPEC-motion-audio §3.5.2 row 4 measured a 0.224 s dive over 160 pt at pitch 17.86 (8.96 cells) and the burst at tap + 1.14 s, but its formula constant 428 p/s2 (= 7650 pt/s2 / 17.86) gives sqrt(2 x 8.96 / 428) = 0.205 s for that same dive (burst 1.12 s). The measured beat wins: g = 2 x 8.96 / 0.224^2 = 357 p/s2 reproduces the 0.224 s dive and the 1.14 s burst (L33's first key, D 9.42 cells: burst 1.14 s).",
+    "layout": "spike: HUD bottom 122 pt, booster top 755 pt on 393 x 852",
+    "load.prepBudgetMs": "FEEL item 4: main-thread ms per idle display-link frame for preparing exits ahead after a load",
+    "motion-audio §13.1": "stars, stage, clearWave, key, pipe, counter, elevator, corner, shards, hint, intro.ackAt/ftueAckAt/drawStartFraction, vignette.stops*: SPEC-motion-audio §13.1 verbatim",
+    "pan.limit": "SPEC-motion-audio §3.9: centre-in-grid (VERIFIED meta-116..123); pan.slackPt is ignored when limit is set (CONSISTENCY G-11)",
+    "rainbow.periodCells": "SPEC-motion-audio §3.2.2: 4.2 cells ([P3] 3.66 / 4.74 on lossless phone shots); CONSISTENCY E-12 (was the spike's 5.6)",
+    "ripple": "motion §3.1 + out/ripple_*.txt (3 clips)",
+    "ripple.coreFirstRadiusPt": "FEEL F2 (build/feel/ripple-evidence.txt): the original's release frame is a flat 180 disc with a crisp edge at r 9.5 pt, then coreRadiusPt 8; ripple.edgeSoftPt removed (FIX-A2: no reader uses it)",
+    "vignette": "motion §4: alpha 0.42 e^(-d/27 pt), hold 0.035 s, 0 at 0.33 s",
+    "violet": "SPEC-motion-audio §3.2.2: a 6-stop field, period 3.75 cells; replaces color.violet #9A50F5 (CONSISTENCY E-10)",
+    "zoom.minPitch": "motion §6.7 VERIFIED pass 2: 14.04 pt absolute (a board opening at 14.0 cannot zoom out); zoom.min (0.786 x fit) is the fallback when minPitch <= 0"
+   }
+  },
+  "App/Resources/Tuning/social.json": {
+   "/_doc": "SOC1 + SOC1b (SPEC-social §7, §12-§14; PathCore/Social/SocialConfig.swift). Event tunables of the offline world; the population constants are code (SocialModel.swift), only the model name is data. Shared with C3: 'unlocks' (EventID raw values) and 'events' (C3's layout, compiled defaults while absent). SocialNamesTests keeps this file equal to the compiled defaults. SOC1b = the recalibration to phone session 2 (research/social-dynamics.md; build/soc1b/calibration.md). SOC1c = drawn nicknames (duplicates allowed) + Sky Jump stage 3 = 10 levels (build/soc1c/calibration.md).",
+   "/events/_doc": "C3's layout (Events/EventSchedule.swift EventRules; EconomyRules.load reads this block) and SOC's (SocialConfig reads the same keys): ONE source for both. SOC1c: Sky Jump stage 3 = 10 levels, PRIZE 10000 (phone sessions 2 and 3: 'Pass 10 Levels in a row on first try', 100 100 91 83 75 66 57 48 40 32 -> 7 winners, 10000/7 = 1428). C3's other event values keep their compiled defaults.",
+   "/matchmaking/streak/_doc": "phone v552 + session 2: a 50-row ranking that starts with every rival at 0 when the player joins (arriveAtJoin), listed alphabetically at equal scores (tieByName); members = players who win a level within matchWindowMinutes [before, after] the join (sameHours bands) + 8 idle ones; r = the member's levels per PLAYED day / the player's wins per active day (floored at minTarget). failQ = [lo, span]: a member's fail chance before each win = lo + span x u01 (the phone's leaders ran long unbroken x100 streaks).",
+   "/matchmaking/weekly/_doc": "phone v552: a 10-player group, complete when the player joins (members arrived within 15 min before) and online (sameHours = playing within matchWindowMinutes [before, after] the join; SOC1b: the idle band too — the phone's two idle rivals scored in the first 85 min, then nothing all day). bands = [count, r_lo, r_hi, sameHours] with r = the member's expected weekly levels / the player's reference.",
+   "/rocketBots/_doc": "SOC1: hold = minutes a finishing rival waits at N-1 after the join, delta = x the player's seconds per win after the player's N-1. SOC1b (phone: one rival finishes 5 levels 6-19 min after the join): roles of the four lanes (sprint = beats N levels within sprintMinutes x N/5 at its own pace; hot >= 2 levels in 20 min; steady 1-3) and hold minutes per role.",
+   "/skyBots/_doc": "SOC1b (phone session 2 §F) + SOC1c (session 3 §I-E): Sky Jump players left after each first-try win, per stage [drop lo, drop hi, first step, winners lo, winners hi]: a per-run drop d in [lo, hi] (each step d +- 1) from the player's step `first`; the winners share the pool (stage 2: 100 100 88 75 62 49 36 -> 15 winners, 7000/15 = 466; stage 3, 10 levels: 100 100 91 83 75 66 57 48 40 32 -> 7 winners, 10000/7 = 1428).",
+   "/worldModel (was)": "v552"
+  },
+  "App/Resources/Tuning/ui.json": {
+   "/_about": "SHELL's tuning (SPEC-architecture §6; S1 owns it). Geometry, colours and text styles are COPIED from design/ui-tokens.json, ui-tokens-2.json and SPEC-ui.md §5 (the app never reads design/); motion values from SPEC-motion-audio §13.2. Keys read by S2/S3/SOC2 code are here too (one ui.json per owner: SHELL).",
+   "/_pending": [
+    "settings.musicInert (SPEC-ui 2.13 says ours toggles; SPEC-motion-audio MA2 says inert: MA2 applied, flagged)",
+    "text.page.body (SPEC-ui 2.13.1 numbers; no v552 capture)",
+    "toast (SPEC-ui 2.20 DECISION)"
+   ],
+   "/_s3": "SHELL S3 keys (Claw bar, event badges, the payout's homeReturn.* above, More Lives / booster popups, Shop ground, Profile ground): SPEC-ui §2.2.3-§2.2.8, §2.9, §2.12, §2.14; measured on 070/202/035/meta-002/meta-095 (tok2 text2.*).",
+   "/puppet/_about": "SPEC-motion-audio §8.2 (periods VERIFIED meta §8; poses DECISION). Per rig: cycle s + tracks {layer (a rig layer | group | whole | head | lids), prop rotation(deg, additive)|scaleY|translateY(pt)|member|overlay, t (s in the cycle), v, curve sine|sineIn|sineOut|easeInOut|linear|discrete or one per segment, pivot? [x,y] frame pt}. Generated by S1's ui_update.py from the §8.2 tables."
+  }
+ }
+}

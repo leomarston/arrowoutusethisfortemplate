@@ -1,0 +1,33 @@
+{
+ "sym": 0,
+ "shift": [
+  0,
+  0
+ ],
+ "nA": 3,
+ "nB": 3,
+ "identical": 3,
+ "onlyA": [],
+ "onlyB": [],
+ "obstacles": {
+  "A": 0,
+  "B": 0,
+  "same_cells": 0,
+  "same_counter": 0,
+  "diffs": []
+ },
+ "files": [
+  "levels/video/verify/indep/V1-L001.json",
+  "levels/L001.json"
+ ],
+ "dims": [
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   4
+  ]
+ ]
+}

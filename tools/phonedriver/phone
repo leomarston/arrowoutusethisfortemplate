@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Drive the USB-connected iPhone through the PhoneDriver runner (UITests/DriverTests.swift).
+
+Usage (coordinates in points, portrait; iPhone 15 = 393 x 852):
+  phone status
+  phone shot [out.png]                 screenshot (default: /tmp/phone-shot.png)
+  phone tap X Y
+  phone doubletap X Y
+  phone press X Y [SECONDS]
+  phone swipe X1 Y1 X2 Y2 [SECONDS]
+  phone taps "X1,Y1;X2,Y2;..." [GAP=0.2]   several taps in ONE call (prints per-tap start ms)
+  phone pinch SCALE [VELOCITY]         pinch the front app at its centre (SCALE > 1 zooms in)
+  phone drag X1 Y1 X2 Y2 [PRESS=0.5] [VELOCITY=400] [HOLD=0.3]   press, drag at VELOCITY pt/s, hold, lift
+  phone launch BUNDLE | activate BUNDLE | terminate BUNDLE
+  phone source BUNDLE                  accessibility tree
+  phone home
+  phone stop                           end the runner
+  phone apps                           installed apps (devicectl)
+  phone grab OUT.png                   full-res frame via USB screen capture (no runner needed)
+  phone rec OUT.mov SECONDS            screen video + audio via USB screen capture (60 fps)
+  phone frames IN.mov OUTDIR FPS [START END]   extract exact frames for timing analysis
+
+Talks only to the phone at its CoreDevice USB-tunnel address on port 8100.
+"""
+import json
+import os
+import subprocess
+import sys
+import urllib.parse
+import urllib.request
+
+DEVICE = os.environ.get("PHONE_DEVICE", "878DB538-F187-596F-B24B-EAF8853617DE")
+PORT = 8100
+CACHE = "/tmp/phonedriver-tunnel-ip"
+
+
+def tunnel_ip(refresh=False):
+    if not refresh and os.path.exists(CACHE):
+        return open(CACHE).read().strip()
+    out = subprocess.run(["xcrun", "devicectl", "device", "info", "details", "--device", DEVICE],
+                         capture_output=True, text=True).stdout
+    for line in out.splitlines():
+        if "tunnelIPAddress" in line:
+            ip = line.split(":", 1)[1].strip()
+            open(CACHE, "w").write(ip)
+            return ip
+    sys.exit("phone: no USB tunnel to the device (is it plugged in, unlocked and trusted?)")
+
+
+def call(path, params=None, timeout=60):
+    query = ("?" + urllib.parse.urlencode(params)) if params else ""
+    for attempt in (0, 1):
+        url = f"http://[{tunnel_ip(refresh=attempt == 1)}]:{PORT}{path}{query}"
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as r:
+                return r.read(), r.headers.get("Content-Type", "")
+        except OSError as e:
+            if isinstance(e, TimeoutError) or "timed out" in str(e):
+                # the request reached the runner: retrying would repeat the gesture
+                sys.exit(f"phone: runner timed out on {path} ({e})")
+            if attempt == 1:
+                sys.exit(f"phone: runner not reachable ({e}). Start it: tools/phonedriver/start-runner")
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__)
+        return
+    cmd, args = argv[0], argv[1:]
+    if cmd == "apps":
+        subprocess.run(["xcrun", "devicectl", "device", "info", "apps", "--device", DEVICE, "--include-all-apps"])
+        return
+    capture = os.path.join(os.path.dirname(os.path.abspath(__file__)), "capture", "build")
+    if cmd in ("grab", "rec"):
+        out = os.path.abspath(args[0])
+        extra = ["shot", out] if cmd == "grab" else ["record", out, args[1] if len(args) > 1 else "10"]
+        if os.path.exists(out + ".log"):
+            os.remove(out + ".log")
+        subprocess.run(["open", "-W", os.path.join(capture, "PhoneCapture.app"), "--args", *extra])
+        log = open(out + ".log").read() if os.path.exists(out + ".log") else "no log"
+        print(log.strip().splitlines()[-1] if log.strip() else log)
+        return
+    if cmd == "frames":
+        subprocess.run([os.path.join(capture, "frames"), *args])
+        return
+    if cmd == "shot":
+        out = args[0] if args else "/tmp/phone-shot.png"
+        body, _ = call("/screenshot")
+        open(out, "wb").write(body)
+        print(out)
+        return
+    if cmd in ("tap", "doubletap"):
+        params = {"x": args[0], "y": args[1]}
+    elif cmd == "press":
+        params = {"x": args[0], "y": args[1], "d": args[2] if len(args) > 2 else 0.8}
+    elif cmd == "swipe":
+        params = {"x1": args[0], "y1": args[1], "x2": args[2], "y2": args[3], "d": args[4] if len(args) > 4 else 0.25}
+    elif cmd == "taps":
+        params = {"pts": args[0], "gap": args[1] if len(args) > 1 else 0.2}
+    elif cmd == "pinch":
+        params = {"scale": args[0]}
+        if len(args) > 1:
+            params["v"] = args[1]
+    elif cmd == "drag":
+        params = {"x1": args[0], "y1": args[1], "x2": args[2], "y2": args[3],
+                  "d": args[4] if len(args) > 4 else 0.5, "v": args[5] if len(args) > 5 else 400,
+                  "hold": args[6] if len(args) > 6 else 0.3}
+    elif cmd in ("launch", "activate", "terminate", "source"):
+        params = {"bundle": args[0]}
+    elif cmd in ("status", "home", "stop"):
+        params = None
+    else:
+        sys.exit(f"phone: unknown command {cmd!r} (see phone --help)")
+    body, ctype = call("/" + cmd, params, timeout=600 if cmd == "taps" else 60)
+    text = body.decode("utf-8", "replace")
+    print(json.dumps(json.loads(text)) if "json" in ctype else text)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

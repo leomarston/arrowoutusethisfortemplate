@@ -1,0 +1,513 @@
+{
+ "gate": "G1 TESTS x2 - app half (design/publish/PLAN-P.md §8)",
+ "wp": "V1-app (Wave 3, slot A Maze A, build/dd-A)",
+ "written": "2026-09-29T14:46:05+03:00",
+ "criterion": "app unit target + the FULL UI test plan (every ArrowOutUITests suite) green twice in a row on the same tree; Release build green; skips = only documented environment skips",
+ "tree": {
+  "fingerprints_seen": [
+   "d923af5fe3a69455"
+  ],
+  "same_tree_both_rounds": true,
+  "method": "build/p/V1/app/common.sh fingerprint(): sha256 over App Tests UITests art/ui/code art/ui/out art/out PathCore Sources+Tests+Package.swift project.yml project.pbxproj art/MANIFEST.json tools/{sync_art.sh,strip_bundle_json.py,uiart_gen.py,art_build_only.txt,bench/release_gates.sh}; per-file lists r*/fp-start.txt = r*/fp-end.txt"
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "dir": "build/p/V1/app/r1",
+   "clean_debug_build_for_testing": {
+    "exit": 0,
+    "rest": "57 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r1/bft.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "unit_ArrowOutTests": {
+    "total": {
+     "Passed": 255
+    },
+    "per_class": {
+     "AudioEngineTests": {
+      "Passed": 10
+     },
+     "BoardEngineTests": {
+      "Passed": 8
+     },
+     "BoardGeometryTests": {
+      "Passed": 12
+     },
+     "BoardObstacleTests": {
+      "Passed": 20
+     },
+     "BootCapTests": {
+      "Passed": 4
+     },
+     "BrandTests": {
+      "Passed": 5
+     },
+     "ContractAmend4Tests": {
+      "Passed": 5
+     },
+     "EventsB1Tests": {
+      "Passed": 7
+     },
+     "FeelPTests": {
+      "Passed": 12
+     },
+     "FeelTuningKeysTests": {
+      "Passed": 1
+     },
+     "FixTwoATests": {
+      "Passed": 11
+     },
+     "FontCoverageTests": {
+      "Passed": 2
+     },
+     "GameControllerTests": {
+      "Passed": 12
+     },
+     "GameG2Tests": {
+      "Passed": 15
+     },
+     "L10nTests": {
+      "Passed": 10
+     },
+     "LevelsBundleTests": {
+      "Passed": 6
+     },
+     "ScaffoldTests": {
+      "Passed": 5
+     },
+     "ShellS2Tests": {
+      "Passed": 14
+     },
+     "ShellS3Tests": {
+      "Passed": 12
+     },
+     "ShellStoreKitTests": {
+      "Passed": 5
+     },
+     "ShellTests": {
+      "Passed": 25
+     },
+     "SocEndedRunTests": {
+      "Passed": 4
+     },
+     "SocialScreensTests": {
+      "Passed": 18
+     },
+     "StoreReleaseTests": {
+      "Passed": 6
+     },
+     "StringsCoverageTests": {
+      "Passed": 6
+     },
+     "TuningTests": {
+      "Passed": 7
+     },
+     "UIArtBundleTests": {
+      "Passed": 8
+     },
+     "WinLogoTests": {
+      "Passed": 5
+     }
+    },
+    "failed": [],
+    "skipped": []
+   },
+   "ui_ArrowOutUITests_full": {
+    "total": {
+     "Passed": 89,
+     "Skipped": 3
+    },
+    "per_class": {
+     "AccessibilityIDTests": {
+      "Passed": 7
+     },
+     "BoardInputTests": {
+      "Passed": 7
+     },
+     "BoardLabTests": {
+      "Passed": 1
+     },
+     "BoosterTests": {
+      "Passed": 3
+     },
+     "EventsRotationUITests": {
+      "Passed": 10
+     },
+     "FailFlowTests": {
+      "Passed": 7
+     },
+     "FlowTests": {
+      "Passed": 2,
+      "Skipped": 1
+     },
+     "GameFlowTests": {
+      "Passed": 7
+     },
+     "GameG2UITests": {
+      "Passed": 7,
+      "Skipped": 2
+     },
+     "MetaTests": {
+      "Passed": 6
+     },
+     "ShellS2UITests": {
+      "Passed": 7
+     },
+     "ShellS3UITests": {
+      "Passed": 6
+     },
+     "ShellUITests": {
+      "Passed": 8
+     },
+     "SocialUITests": {
+      "Passed": 8
+     },
+     "WeeklyGateUITests": {
+      "Passed": 2
+     },
+     "WinLogoUITests": {
+      "Passed": 1
+     }
+    },
+    "failed": [],
+    "skipped": [
+     {
+      "test": "FlowTests/testFreshInstallFTUEThroughTheL7UnlockCard()",
+      "reason": "Test skipped - opt-in: run right after `simctl uninstall` with TEST_RUNNER_V1_FRESH=1 (build/v1/run-fresh.sh)"
+     },
+     {
+      "test": "GameG2UITests/testFreshInstallFTUEWithoutLaunchArguments()",
+      "reason": "Test skipped - opt-in: run after `simctl uninstall` with TEST_RUNNER_G2_FRESH=1"
+     },
+     {
+      "test": "GameG2UITests/testRecordFTUETapTable()",
+      "reason": "Test skipped - opt-in recorder"
+     }
+    ]
+   },
+   "fresh_install_opt_in_tests_after_simctl_uninstall": {
+    "FlowTests.testFreshInstallFTUEThroughTheL7UnlockCard": {
+     "total": {
+      "Passed": 1
+     },
+     "per_class": {
+      "FlowTests": {
+       "Passed": 1
+      }
+     },
+     "failed": [],
+     "skipped": []
+    },
+    "GameG2UITests.testFreshInstallFTUEWithoutLaunchArguments": {
+     "total": {
+      "Passed": 1
+     },
+     "per_class": {
+      "GameG2UITests": {
+       "Passed": 1
+      }
+     },
+     "failed": [],
+     "skipped": []
+    }
+   },
+   "clean_release_build_simulator": {
+    "exit": 0,
+    "rest": "247 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r1/rel.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "clean_release_build_device_sdk_unsigned": {
+    "exit": 0,
+    "rest": "182 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r1/dev.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "release_gates": {
+    "sim": {
+     "result": "PASS",
+     "file": "build/p/V1/app/r1/gates-sim.txt"
+    },
+    "dev": {
+     "result": "PASS",
+     "file": "build/p/V1/app/r1/gates-dev.txt"
+    }
+   }
+  },
+  {
+   "round": 2,
+   "dir": "build/p/V1/app/r2",
+   "clean_debug_build_for_testing": {
+    "exit": 0,
+    "rest": "62 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r2/bft.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "unit_ArrowOutTests": {
+    "total": {
+     "Passed": 255
+    },
+    "per_class": {
+     "AudioEngineTests": {
+      "Passed": 10
+     },
+     "BoardEngineTests": {
+      "Passed": 8
+     },
+     "BoardGeometryTests": {
+      "Passed": 12
+     },
+     "BoardObstacleTests": {
+      "Passed": 20
+     },
+     "BootCapTests": {
+      "Passed": 4
+     },
+     "BrandTests": {
+      "Passed": 5
+     },
+     "ContractAmend4Tests": {
+      "Passed": 5
+     },
+     "EventsB1Tests": {
+      "Passed": 7
+     },
+     "FeelPTests": {
+      "Passed": 12
+     },
+     "FeelTuningKeysTests": {
+      "Passed": 1
+     },
+     "FixTwoATests": {
+      "Passed": 11
+     },
+     "FontCoverageTests": {
+      "Passed": 2
+     },
+     "GameControllerTests": {
+      "Passed": 12
+     },
+     "GameG2Tests": {
+      "Passed": 15
+     },
+     "L10nTests": {
+      "Passed": 10
+     },
+     "LevelsBundleTests": {
+      "Passed": 6
+     },
+     "ScaffoldTests": {
+      "Passed": 5
+     },
+     "ShellS2Tests": {
+      "Passed": 14
+     },
+     "ShellS3Tests": {
+      "Passed": 12
+     },
+     "ShellStoreKitTests": {
+      "Passed": 5
+     },
+     "ShellTests": {
+      "Passed": 25
+     },
+     "SocEndedRunTests": {
+      "Passed": 4
+     },
+     "SocialScreensTests": {
+      "Passed": 18
+     },
+     "StoreReleaseTests": {
+      "Passed": 6
+     },
+     "StringsCoverageTests": {
+      "Passed": 6
+     },
+     "TuningTests": {
+      "Passed": 7
+     },
+     "UIArtBundleTests": {
+      "Passed": 8
+     },
+     "WinLogoTests": {
+      "Passed": 5
+     }
+    },
+    "failed": [],
+    "skipped": []
+   },
+   "ui_ArrowOutUITests_full": {
+    "total": {
+     "Passed": 89,
+     "Skipped": 3
+    },
+    "per_class": {
+     "AccessibilityIDTests": {
+      "Passed": 7
+     },
+     "BoardInputTests": {
+      "Passed": 7
+     },
+     "BoardLabTests": {
+      "Passed": 1
+     },
+     "BoosterTests": {
+      "Passed": 3
+     },
+     "EventsRotationUITests": {
+      "Passed": 10
+     },
+     "FailFlowTests": {
+      "Passed": 7
+     },
+     "FlowTests": {
+      "Passed": 2,
+      "Skipped": 1
+     },
+     "GameFlowTests": {
+      "Passed": 7
+     },
+     "GameG2UITests": {
+      "Passed": 7,
+      "Skipped": 2
+     },
+     "MetaTests": {
+      "Passed": 6
+     },
+     "ShellS2UITests": {
+      "Passed": 7
+     },
+     "ShellS3UITests": {
+      "Passed": 6
+     },
+     "ShellUITests": {
+      "Passed": 8
+     },
+     "SocialUITests": {
+      "Passed": 8
+     },
+     "WeeklyGateUITests": {
+      "Passed": 2
+     },
+     "WinLogoUITests": {
+      "Passed": 1
+     }
+    },
+    "failed": [],
+    "skipped": [
+     {
+      "test": "FlowTests/testFreshInstallFTUEThroughTheL7UnlockCard()",
+      "reason": "Test skipped - opt-in: run right after `simctl uninstall` with TEST_RUNNER_V1_FRESH=1 (build/v1/run-fresh.sh)"
+     },
+     {
+      "test": "GameG2UITests/testFreshInstallFTUEWithoutLaunchArguments()",
+      "reason": "Test skipped - opt-in: run after `simctl uninstall` with TEST_RUNNER_G2_FRESH=1"
+     },
+     {
+      "test": "GameG2UITests/testRecordFTUETapTable()",
+      "reason": "Test skipped - opt-in recorder"
+     }
+    ]
+   },
+   "fresh_install_opt_in_tests_after_simctl_uninstall": {
+    "FlowTests.testFreshInstallFTUEThroughTheL7UnlockCard": {
+     "total": {
+      "Passed": 1
+     },
+     "per_class": {
+      "FlowTests": {
+       "Passed": 1
+      }
+     },
+     "failed": [],
+     "skipped": []
+    },
+    "GameG2UITests.testFreshInstallFTUEWithoutLaunchArguments": {
+     "total": {
+      "Passed": 1
+     },
+     "per_class": {
+      "GameG2UITests": {
+       "Passed": 1
+      }
+     },
+     "failed": [],
+     "skipped": []
+    }
+   },
+   "clean_release_build_simulator": {
+    "exit": 0,
+    "rest": "241 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r2/rel.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "clean_release_build_device_sdk_unsigned": {
+    "exit": 0,
+    "rest": "176 s; warnings: 0 lines, errors: 0",
+    "file": "build/p/V1/app/r2/dev.log",
+    "warning_lines": 0,
+    "our_warnings": [],
+    "error_lines": 0
+   },
+   "release_gates": {
+    "sim": {
+     "result": "PASS",
+     "file": "build/p/V1/app/r2/gates-sim.txt"
+    },
+    "dev": {
+     "result": "PASS",
+     "file": "build/p/V1/app/r2/gates-dev.txt"
+    }
+   }
+  }
+ ],
+ "skips": [
+  {
+   "test": "ArrowOutUITests/FlowTests/testFreshInstallFTUEThroughTheL7UnlockCard",
+   "reason": "opt-in XCTSkipUnless(V1_FRESH): needs a just-uninstalled app (the one-shot notification permission + empty PlayerState)",
+   "classification": "documented environment skip in the suite run; RUN separately right after simctl uninstall with TEST_RUNNER_V1_FRESH=1: PASSED round 1 (1m51s) and round 2 (1m50s)",
+   "evidence": [
+    "build/p/V1/app/r1/fresh-v1.xcresult",
+    "build/p/V1/app/r2/fresh-v1.xcresult"
+   ]
+  },
+  {
+   "test": "ArrowOutUITests/GameG2UITests/testFreshInstallFTUEWithoutLaunchArguments",
+   "reason": "opt-in XCTSkipUnless(G2_FRESH): needs a just-uninstalled app",
+   "classification": "documented environment skip in the suite run; RUN separately right after simctl uninstall with TEST_RUNNER_G2_FRESH=1: PASSED both rounds",
+   "evidence": [
+    "build/p/V1/app/r1/fresh-g2.xcresult",
+    "build/p/V1/app/r2/fresh-g2.xcresult"
+   ]
+  },
+  {
+   "test": "ArrowOutUITests/GameG2UITests/testRecordFTUETapTable",
+   "reason": "opt-in recorder (XCTSkipUnless G2_RECORD): writes the FTUETaps fixture, asserts nothing",
+   "classification": "documented tool skip (not a test of behaviour); its consumer testFreshInstallFTUEWithoutLaunchArguments passed both rounds"
+  }
+ ],
+ "failures": [
+  {
+   "id": "V1A-T1",
+   "severity": "P2",
+   "slot": "A",
+   "what": "SocialUITests.testWeeklyTutorialLocksInputToTheTrophyTab turns \"the tutorial card never appeared\" into XCTSkip(\"...not routed yet (SHELL hook requested)\") instead of a failure; the hook exists now",
+   "evidence": "UITests/SocialUITests.swift:112-115; it PASSED (did not skip) in both rounds (r1/r2 ui-summary.txt), so the skip branch is dormant, but a regression of the Weekly tutorial popup route would read as a skip, not a red test",
+   "fix_hint": "replace the guard/throw XCTSkip with XCTAssertTrue(card.waitForExistence(timeout: 20), app.debugDescription) (a stronger assertion, allowed by the never-weaken rule)"
+  }
+ ],
+ "pass": true,
+ "summary": "Twice green on ONE tree (fingerprint d923af5fe3a69455, unchanged inside and between the rounds; per-file lists r1/r2 fp-start = fp-end): round 1 13:10-13:54 and round 2 13:59-14:43, each = clean Debug build-for-testing (0 warnings) -> ArrowOutTests 255/255 -> the FULL ArrowOutUITests (16 suites) 89 passed / 0 failed / 3 skipped -> the 2 opt-in fresh-install FTUE tests each after simctl uninstall: 1/1 + 1/1 -> clean Release build (simulator, 0 warnings) + release_gates.sh PASS -> clean unsigned device-SDK Release build (0 warnings) + release_gates.sh PASS. The 3 skips are the documented opt-in tests: the two fresh-install tests (they need an uninstalled app, and PASSED in their own runs after uninstall, both rounds) and the FTUE tap-table recorder (a fixture-writing tool, not an assertion). The core half (core.sh, mutation scripts, frozen contracts) is V1-core's G1-core.json.",
+ "status": "GREEN (app half): twice in a row on tree d923af5fe3a69455; one P2 test-hygiene finding (V1A-T1)"
+}
