@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// SPEC-architecture §4.17 "PersistenceTests" (C3; §4.12): round trip; atomic write + backup; corrupt → backup (kept once
 /// aside, never rotated into the backup); the frozen v1 fixture decodes forever; additive fields decode from old JSON;

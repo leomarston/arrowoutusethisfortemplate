@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// B1 EVENTS-P — events.md §8.4 A6, re-stated for the v582 rules (build/p/PH0/balloon.md; SPEC.md ruling 42c): Up & Away
 /// (EventID "balloonRise") replayed through the REAL C3 hooks (Events.refresh / onWin / onLoss) against the golden traces of

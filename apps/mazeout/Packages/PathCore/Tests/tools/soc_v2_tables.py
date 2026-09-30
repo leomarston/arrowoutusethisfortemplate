@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""soc_v2_tables.py — writes Sources/PathCore/Social/SocialIntlTables.swift, the v2 world's static tables, from the T6 data
+"""soc_v2_tables.py — writes Sources/GameCore/Social/SocialIntlTables.swift, the v2 world's static tables, from the T6 data
 (design/social/data_v2: buckets_v2.tsv, countries_v2.tsv, regions_v2.tsv; built by design/social/tools/v2/build_countries_v2.py).
 
 PUBLISH B2 (PLAN-P §4.4, owner item 13): the Swift port reads the SAME rows the Python reference reads (data.use_countries_v2),
@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PKG = os.path.abspath(os.path.join(HERE, '..', '..'))
 APP = os.path.abspath(os.path.join(PKG, '..', '..'))
 DATA = os.path.join(APP, 'design', 'social', 'data_v2')
-OUT = os.path.join(PKG, 'Sources', 'PathCore', 'Social', 'SocialIntlTables.swift')
+OUT = os.path.join(PKG, 'Sources', 'GameCore', 'Social', 'SocialIntlTables.swift')
 
 
 def rows(name, ncols):

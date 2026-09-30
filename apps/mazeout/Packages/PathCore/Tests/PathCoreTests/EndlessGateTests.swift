@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// C4c (SPEC.md §5.27, the ENDLESS QUALITY GATE): LevelProvider serves a generated level only inside Difficulty's bands
 /// (units, waves, free-at-start, the template's timer, grid, time share) with every Box counter inside the ring art's max

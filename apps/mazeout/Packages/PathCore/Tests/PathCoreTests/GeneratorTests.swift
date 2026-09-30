@@ -1,7 +1,8 @@
 import XCTest
 import Foundation
 import CryptoKit
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// C4 test helpers (GeneratorTests, ValidatorTests, SolverTests, LevelLibraryTests). Paths from #filePath (no SwiftPM
 /// resources, §2.4); evidence goes to $PC_EVIDENCE_DIR when set (build/c4/ in C4 runs).

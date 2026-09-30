@@ -14,7 +14,7 @@ OUTDIR = os.path.join(APP, 'build', 'c3')
 MUT = os.path.join(OUTDIR, 'mut')
 COPY = os.path.join(MUT, 'Packages', 'PathCore')
 SUITES = 'EconomyTests|LivesTests|BoostersTests|EventsTests|PersistenceTests'
-R = 'Sources/PathCore/'
+R = 'Sources/GameCore/'
 
 MUTATIONS = [
     # §4.17 C3: 5

@@ -12,7 +12,7 @@ import sys
 PKG = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('--') else
                       os.path.join(os.path.dirname(__file__), '..', '..'))
 ONLY = int(sys.argv[sys.argv.index('--only') + 1]) if '--only' in sys.argv else None
-SRC = os.path.join(PKG, 'Sources', 'PathCore')
+SRC = os.path.join(PKG, 'Sources', 'ArrowEscape')
 
 MUTATIONS = [
     ('generator: the tiler tries the turns before going straight when it should go straight',

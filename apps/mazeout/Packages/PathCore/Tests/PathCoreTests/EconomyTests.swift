@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// SPEC-architecture §4.17 "EconomyTests" (C3): start 1000; rewards 20/60/100/80 banked at the win; the FTUE payout
 /// 1000 → 1120 banked and flown; continues 900; the attempt bookkeeping; purchases once; every value from the tuning data

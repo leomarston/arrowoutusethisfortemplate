@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// B1 EVENTS-P — events.md §8.4 A1-A4 (+ the rotation half of A5): the weekly rotation of the featured events
 /// (`EventRotation`) against T7's reference `design/publish/tools/rotation_ref.py` and its 1,044-week fixture, read in place.

@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // PUBLISH B2 (PLAN-P §4.4 "new calibration guards"; social-intl §6.3 item 6; SPEC.md ruling 43). The shipped v2 world must
 // feel online in EVERY country, not only the big English-first ones — the per-country realism guards of

@@ -11,7 +11,7 @@ OUTDIR = os.path.join(APP, 'build', 'c2')
 MUT = os.path.join(OUTDIR, 'mut')
 COPY = os.path.join(MUT, 'Packages', 'PathCore')
 SUITES = 'RulesTests|SessionTests|ClockTests|ComboTests|GoldenRoundsTests|HeadlessTests|APISurfaceTests'
-R = 'Sources/PathCore/'
+R = 'Sources/ArrowEscape/'
 
 MUTATIONS = [
     ('m1-ray-stops-one-cell-early', R + 'Rules/RayWalk.swift',

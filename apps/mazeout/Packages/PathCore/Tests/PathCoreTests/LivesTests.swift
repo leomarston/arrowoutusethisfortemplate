@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// C3's shared test helpers (fixtures, phone times, a stub world).
 enum C3 {

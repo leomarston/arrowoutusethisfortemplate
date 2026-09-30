@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// SPEC-architecture §4.17 "EventsTests" (C3; §4.10, SPEC-gameplay §11, SPEC-social §4): the multiplier ladder and its
 /// reset; Claw points = the multiplier and untouched by a loss (replayed against every bar reading of the phone session

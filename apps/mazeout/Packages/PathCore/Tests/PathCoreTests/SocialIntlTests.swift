@@ -1,6 +1,7 @@
 import XCTest
 import CryptoKit
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // PUBLISH B2 (PLAN-P §4.4, owner item 13 "the international system works … for all countries"; design/publish/social-intl.md
 // §6). The v2 world (SocialWorldModel.shipped = socialsim/v2.py) against the Python reference, bit for bit:
@@ -492,7 +493,7 @@ final class SocialIntlTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(rows.count, 16)
         let paths = Set(rows.map { $0[1] })
         for must in ["design/social/data_v2/countries_v2.tsv", "design/social/data_v2/social_names_v2.json",
-                     "Packages/PathCore/Sources/PathCore/Social/SocialIntlTables.swift", "App/Resources/Social/social_names.json",
+                     "Packages/PathCore/Sources/GameCore/Social/SocialIntlTables.swift", "App/Resources/Social/social_names.json",
                      "Packages/PathCore/Tests/Fixtures/soc_v2_world.json", "Packages/PathCore/Tests/Fixtures/soc_v2_intl.json",
                      "design/social/tools/socialsim/v2.py", "design/social/tools/socialsim/population.py"] {
             XCTAssertTrue(paths.contains(must), "\(must) is frozen")

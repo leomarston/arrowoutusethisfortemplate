@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (§12.2 acceptance: "bit-exact agreement with the Python reference on the whole fixture set: … leaderboard pages at
 // >= 20 times across 3 years, race fields, Sky Jump fields"). Tests/Fixtures/soc_<model>_{world,events}.json are written

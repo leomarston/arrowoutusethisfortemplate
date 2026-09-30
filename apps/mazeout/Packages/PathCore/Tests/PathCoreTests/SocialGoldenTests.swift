@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (SPEC-architecture §4.17 `Social*Tests`, §12.2 SOC1; SPEC-social §8.1). Bit-exact agreement of the Swift port with
 // the Python reference (design/social/tools/socialsim) on the social designer's golden vectors (design/social/fixtures,

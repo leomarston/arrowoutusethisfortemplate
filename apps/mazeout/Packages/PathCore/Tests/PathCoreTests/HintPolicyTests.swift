@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// CORE-2, SPEC.md ruling 31: the bulb's `unblocksMost` unit (SPEC-gameplay §6.3) through its own entry —
 /// `Solver.hintUnit(_:policy:)`, `Solver.hintScores(_:)`, `LevelSession.hint(policy:)` and

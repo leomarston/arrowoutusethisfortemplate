@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// C2 test helpers shared by RulesTests, SessionTests, ClockTests, ComboTests, GoldenRoundsTests and HeadlessTests.
 /// Paths from #filePath (no SwiftPM resources, §2.4). Reports go to $PC_EVIDENCE_DIR when set (build/c2/ in C2 runs).

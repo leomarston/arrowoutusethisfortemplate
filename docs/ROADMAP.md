@@ -64,6 +64,13 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
 - [ ] **1. Restructure without behaviour change** — `Engine/`, `Puzzles/ArrowEscape/`, `Games/arrowout/`; split
       PathCore into GameCore + ArrowEscape; cut the seams (RulesTuning meta/arrow split, decode helper, streak steps,
       world seed, booster ids from config)
+  - [ ] PathCore split (awaiting CI): `Packages/PathCore` now has targets `GameCore` (Random, Persistence, Economy,
+        Events, Social, Tuning/MetaRules, Motion/Ease+Tunable, Session/SessionTypes+LevelClock, Model/IDs) and
+        `ArrowEscape` (Grid, Model incl. ArrowIDs, Rules, Solver, Content, Session incl. SessionAck, board Motion),
+        ArrowEscape → GameCore only (core.sh checks the imports); `PathCore` is an umbrella (`@_exported`), so the app
+        and lvtool are unchanged. Seams cut: `MetaRules` (failChain/rewards/boosters, same rules.json keys; RulesTuning
+        keeps typealiases) read by `EconomyRules.boosterRules`; decode helper + dotted overrides in `TuningJSON`.
+        Still open: streak steps, world seed, booster ids from config (not needed for the dependency direction).
 - [ ] **2. Puzzle contract** (draft for review: `docs/architecture/PUZZLE-MODULE.md`) — `PuzzleModule`, generic meta events, GameController/directors/HUD/fail flow generic,
       `PuzzleBoard` replaces the arrow-typed board contract, generic bot/probe, ArrowEscape implements it
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,

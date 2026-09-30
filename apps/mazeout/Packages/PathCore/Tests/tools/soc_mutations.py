@@ -17,7 +17,7 @@ APP = os.path.abspath(os.path.join(PKG, '..', '..'))
 OUTDIR = os.path.join(APP, 'build', 'soc1c')
 MUT = os.path.join(OUTDIR, 'mut')
 COPY = os.path.join(MUT, 'Packages', 'PathCore')
-S = 'Sources/PathCore/Social/'
+S = 'Sources/GameCore/Social/'
 FILTER = 'SocialGoldenTests|SocialModelGoldenTests|SocialPropertyTests'
 # PUBLISH B2: the suites that pin the v2 world (goldens, intl fixture + tests_v2 properties, the shipped name bank)
 V2F = 'SocialModelGoldenTests/testV2|SocialIntlTests|SocialNamesTests|SocialPropertyTests'

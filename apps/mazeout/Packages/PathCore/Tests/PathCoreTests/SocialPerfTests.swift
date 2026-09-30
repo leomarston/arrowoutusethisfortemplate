@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (§12.2 acceptance "a 50-row page <= 1 ms on macOS -O"; SPEC-architecture §4.11 invariant 7; SPEC-social §3.2 query
 // budgets at a 3-year world). Budgets are asserted only in optimised builds (`swift test -c release`); Debug prints.
