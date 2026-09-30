@@ -175,6 +175,12 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   0.23 s vs 0.138±0.05 on a shared VM). Confirm both on the Mac: `apps/mazeout/tools/test.sh A -only-testing:ArrowOutTests`.
 - Swift changes are verified on GitHub Actions (no Xcode in cloud sessions); UI tests and phone checks need the Mac.
 - Phase 0 item "recover build/ specs" needs files that exist only on the owner's Mac.
+- **GitHub Actions stopped starting jobs (2026-09-30 14:07 UTC, run 16 on `d465610`):** all three jobs, including the
+  Linux one, ended in ~3 s with no runner assigned and no log (the pattern of an exhausted Actions minutes / spending
+  limit; macOS minutes count 10x on a private repo, and ~16 runs with two macOS jobs ran that day). A re-run from the
+  cloud session is refused (403). Owner: check GitHub Settings -> Billing -> Actions usage/spending limit, then re-run
+  run 16. Until then `d465610` (SortPuzzle + art slots/scenes + cobalt skin) is verified on Linux only; its Swift has
+  never been compiled.
 
 ## Status log
 - 2026-09-30: analysis of the repo (report + plan delivered in chat); CI added; original captures removed; script bugs
@@ -206,7 +212,7 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
 - 2026-09-30: debug harness out of Release (phase 0): 3 shipping types split out of lab files (S3Hooks/S3Popups,
   HUDSample, WarmBoards), 12 harness files + their call sites (7 files) gated `#if DEBUG || PC_MEASURE`; `tools/harness_gate.py`
   (Linux CI, selftest 13 planted failures) finds 29 problems on the old tree, 0 now. Written without a Swift toolchain:
-  the Debug build is CI's; the Release/Measure compile is proven only by a Mac build (CI has no Release job).
+  the Debug build is CI's; CI now also compiles Release (run 14 green); Measure still needs a Mac build.
 - 2026-09-30: config + generators, second part (phase 4): game.yml is the single source of the core's per-game constants
   (`GameConfig.generated.swift`, written by `tools/game.py generate`; same literals as before, byte for byte) and of every
   brand-ban list the gates use (`brand_ban_forms` + lists derived from `brand_bans`; loc.py `BANNED_ALL` value-identical).
@@ -228,3 +234,6 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   portraits fixed (they named 8 retired files). Linux: art.py / variant.py / build.py checks + self-tests, uiart_gen --check,
   every CI Linux step green locally. Swift (419 renamed call sites, HomeView scene loop, LoadingScreen, RaceBar, WinLogo
   decode, SkinArtTests + test updates) not compiled in that session: CI's app job is the first build.
+- 2026-09-30: CI results: phase 2 contract green (run 13, after a brand-in-comment fix), debug-harness gating green incl.
+  the new Release compile (run 14), phase 4 GameConfig green (run 15: core goldens unchanged, app Debug + Release).
+  Run 16 (`d465610`) never started (see Blocked).
