@@ -31,7 +31,7 @@ struct SocClawPage: View {
         let now = SocTime.now(app)
         let k = m.s
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x003135).frame(width: m.size.width, height: m.size.height)
+            Color(hex: Skin.socialClawScreenSocClawPage).frame(width: m.size.width, height: m.size.height)
             SocClawLadder(ladder: rules.claw.ladder, doneSteps: (claw?.step ?? 1) - 1, complete: claw?.complete ?? false,
                           firstOpen: !app.store.state.flags.seen.contains("social.clawLadder"))
                 .frame(width: 393, height: (m.size.height - 433.7 * k) / k)
@@ -40,7 +40,7 @@ struct SocClawPage: View {
                 .offset(y: 433.7 * k)
             ZStack(alignment: .topLeading) {
                 ArtImage(art: .treasureHeader, contentMode: .fill).placed(CGRect(0, 0, 393, 243.5)).clipped()
-                LinearGradient(colors: [Color(hex: 0x008680), Color(hex: 0x00807B)], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color(hex: Skin.socialClawScreenSocClawPageColors0), Color(hex: Skin.socialClawScreenSocClawPageColors1)], startPoint: .top, endPoint: .bottom)
                     .placed(CGRect(0, 233.5, 393, 200.2))
                 SocRails(gold: true).placed(CGRect(0, 233.5, 393, 14))
                 SocEventLogo(title: "Treasure Climb", frame: CGRect(43.4, 208.5, 306.9, 58.4), size: 40)
@@ -52,7 +52,7 @@ struct SocClawPage: View {
                     EventTimerChip(text: Countdown.text(SocTime.left(end, now: now)), frame: CGRect(162.8, 262.9, 67.7, 23),
                                    textID: "claw.timer", t: t, live: (ends: end, now: now))
                 }
-                let sub = GameTextStyle.s2(17.2, -0.27, [0xF8F0E9, 0xF6EADB, 0xF6E4CA], outline: 0x073A3E, 1.1, drop: 0.7)
+                let sub = GameTextStyle.s2(17.2, -0.27, [Skin.socialClawScreenSocClawPageSub0, Skin.socialClawScreenSocClawPageSub1, Skin.socialClawScreenSocClawPageSub2], outline: Skin.socialClawScreenSocClawPageSubOutline, 1.1, drop: 0.7)
                 GameText("Beat levels without fail to get more rewards!", style: sub, maxWidth: 367).at(196.8, sub.capCentre(baseline: 306.5))
                 SocChevronChips(steps: StreakStripSource.steps(app), lit: app.store.state.events.streakStep)
                     .placed(CGRect(18.3, 315.3, 347, 55))
@@ -108,14 +108,14 @@ struct SocChevronChips: View {
             let n = max(1, steps.count)
             let w = geo.size.width / CGFloat(n), h = geo.size.height
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 8).fill(Color(hex: 0x002B2E))
+                RoundedRectangle(cornerRadius: 8).fill(Color(hex: Skin.socialClawScreenSocChevronChipsFill))
                 ForEach(0..<n, id: \.self) { i in
                     let on = i == min(lit, n - 1)
                     SocChevron(on: on, first: i == 0)
                         .frame(width: w + 8, height: h - 6)
                         .position(x: w * (CGFloat(i) + 0.5), y: h / 2)
-                    let st: GameTextStyle = on ? .s2(25.7, -1.6, [0xFFFFFF], outline: 0x7D0C02, 1.8, drop: 0.9)
-                                               : .s2(22.4, -0.8, [0xFFFFFF], outline: 0x00383C, 1.5, drop: 0.8)
+                    let st: GameTextStyle = on ? .s2(25.7, -1.6, [Skin.socialClawScreenSocChevronChipsSt0], outline: Skin.socialClawScreenSocChevronChipsStOutline, 1.8, drop: 0.9)
+                                               : .s2(22.4, -0.8, [Skin.socialClawScreenSocChevronChips0], outline: Skin.socialClawScreenSocChevronChipsOutline, 1.5, drop: 0.8)
                     GameText(verbatim: "x\(steps[i])", style: st, maxWidth: w - 8).position(x: w * (CGFloat(i) + 0.5) + 3, y: h / 2)
                 }
             }
@@ -133,8 +133,8 @@ private struct SocChevron: View {
         Rasterized("chev|\(on)|\(first)") { size in
             let shape = SocChevronShape(first: first)
             ZStack {
-                shape.fill(Color(hex: on ? 0xFF7A00 : 0x0E4B4E))
-                shape.fill(LinearGradient(colors: on ? [Color(hex: 0xFED902), Color(hex: 0xFFB700)] : [Color(hex: 0x29AD9E), Color(hex: 0x009C8F)],
+                shape.fill(Color(hex: on ? Skin.socialClawScreenSocChevronFillOn : Skin.socialClawScreenSocChevronFillNotOn))
+                shape.fill(LinearGradient(colors: on ? [Color(hex: Skin.socialClawScreenSocChevronColorsOn0), Color(hex: Skin.socialClawScreenSocChevronColorsOn1)] : [Color(hex: Skin.socialClawScreenSocChevronColorsNotOn0), Color(hex: Skin.socialClawScreenSocChevronColorsNotOn1)],
                                           startPoint: .top, endPoint: .bottom))
                     .padding(2)
             }
@@ -165,12 +165,12 @@ private struct SocClawProgress: View {
     let target: Int
     let reward: Grant?
     var body: some View {
-        let st = GameTextStyle.s2(21.2, 0.63, [0xFFFFFF], outline: 0x003034, 1.0, drop: 0.6)
+        let st = GameTextStyle.s2(21.2, 0.63, [Skin.socialClawScreenSocClawProgressSt0], outline: Skin.socialClawScreenSocClawProgressStOutline, 1.0, drop: 0.6)
         let f = CGFloat(min(1, Double(points) / Double(max(1, target))))
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 10).fill(Color(hex: 0x1FA899)).frame(width: 347, height: 41.7)
-            RoundedRectangle(cornerRadius: 8).fill(Color(hex: 0x003D42)).frame(width: 295, height: 29).offset(x: 26, y: 6.3)
-            RoundedRectangle(cornerRadius: 6.8).fill(Color(hex: 0xF7CF68)).frame(width: max(0, 291 * f), height: 25).offset(x: 28, y: 8.3)
+            RoundedRectangle(cornerRadius: 10).fill(Color(hex: Skin.socialClawScreenSocClawProgressFill)).frame(width: 347, height: 41.7)
+            RoundedRectangle(cornerRadius: 8).fill(Color(hex: Skin.socialClawScreenSocClawProgressFillV2)).frame(width: 295, height: 29).offset(x: 26, y: 6.3)
+            RoundedRectangle(cornerRadius: 6.8).fill(Color(hex: Skin.socialClawScreenSocClawProgressFillV3)).frame(width: max(0, 291 * f), height: 25).offset(x: 28, y: 8.3)
             GameText(verbatim: "\(points)/\(target)", style: st, maxWidth: 200).position(x: 173.5, y: 20.8)
             ArtImage(art: .treasureToken).placed(CGRect(4.3, 3.4, 37.7, 35.4))
             if let reward { SocRewardIcon(grant: reward, small: true).placed(CGRect(303.5, -0.3, 40.4, 35.7)) }
@@ -192,15 +192,15 @@ struct SocRewardIcon: View {
             ZStack {
                 if grant.unlimitedLives > 0 {
                     ArtImage(art: small ? .heartInfiniteSmall : .heartInfinite).frame(width: w, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 11 : 16, -0.3, [0xFFFFFF], outline: 0xAE190B, small ? 1.0 : 1.4, drop: 0.5)
+                    let st = GameTextStyle.s2(small ? 11 : 16, -0.3, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutline, small ? 1.0 : 1.4, drop: 0.5)
                     GameText(verbatim: SocGrantText.duration(grant.unlimitedLives), style: st, maxWidth: w * 0.8).offset(y: h * 0.28)
                 } else if grant.coins > 0 {
                     ArtImage(art: .coinBowl).frame(width: w, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 10.5 : 13.5, -0.2, [0xFFFFFF], outline: 0x7D0C02, small ? 1.0 : 1.3, drop: 0.5)
+                    let st = GameTextStyle.s2(small ? 10.5 : 13.5, -0.2, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV2, small ? 1.0 : 1.3, drop: 0.5)
                     GameText(verbatim: "\(grant.coins)", style: st, maxWidth: w * 0.7).offset(y: h * 0.24)
                 } else if let b = grant.boosters.first(where: { $0.value > 0 }) {
                     ArtImage(art: b.key == "freeze" ? .boosterFreeze : .boosterHint).frame(width: w * 0.8, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 11 : 15.2, 0, [0xFFFFFF], outline: 0x002226, 1.2, drop: 0.5)
+                    let st = GameTextStyle.s2(small ? 11 : 15.2, 0, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV3, 1.2, drop: 0.5)
                     GameText(verbatim: "x\(b.value)", style: st).offset(x: w * 0.28, y: h * 0.3)
                 }
             }
@@ -225,8 +225,8 @@ private struct SocClawLadder: View {
             ScrollView(.vertical, showsIndicators: false) {
                 ZStack(alignment: .topLeading) {
                     // the rail (x 63.4-83.4, #00A6FC with #0035AE edges)
-                    Color(hex: 0x004B4F).frame(width: 20, height: pitch * CGFloat(n) + 40).offset(x: 63.4)
-                    Color(hex: 0x31B0A0).frame(width: 16, height: pitch * CGFloat(n) + 40).offset(x: 65.4)
+                    Color(hex: Skin.socialClawScreenSocClawLadder).frame(width: 20, height: pitch * CGFloat(n) + 40).offset(x: 63.4)
+                    Color(hex: Skin.socialClawScreenSocClawLadderV2).frame(width: 16, height: pitch * CGFloat(n) + 40).offset(x: 65.4)
                     ForEach(0..<n, id: \.self) { i in
                         let step = n - i                           // top → bottom: 20 … 1
                         let y = CGFloat(i) * pitch + 20
@@ -266,25 +266,25 @@ private struct SocClawRow: View {
     var body: some View {
         let node = CGRect(46, 30, 54.7, 55.4)
         let card = CGRect(149.1, 18.3, 185.8, 78.7)
-        let num = GameTextStyle.s2(26.1, 0, [0xFFFFFF], outline: state == .done ? 0x7D0C02 : 0x1A3132, state == .done ? 1.8 : 2.3, drop: 0.4)
+        let num = GameTextStyle.s2(26.1, 0, [Skin.socialClawScreenSocClawRowNum0], outline: state == .done ? Skin.socialClawScreenSocClawRowNumOutlineDone : Skin.socialClawScreenSocClawRowNumOutlineNotDone, state == .done ? 1.8 : 2.3, drop: 0.4)
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x095F5A).frame(width: card.minX - node.maxX + 4, height: 2).offset(x: node.maxX - 2, y: node.midY - 1)
+            Color(hex: Skin.socialClawScreenSocClawRow).frame(width: card.minX - node.maxX + 4, height: 2).offset(x: node.maxX - 2, y: node.midY - 1)
             if state == .next {
                 ArtImage(art: .sunburstRays).frame(width: 90, height: 90).position(x: node.midX, y: node.midY).opacity(0.8)
             }
             ZStack {
-                Circle().fill(Color(hex: 0x10A898))
-                Circle().fill(LinearGradient(colors: state == .done ? [Color(hex: 0xFFC400), Color(hex: 0xFF9A00)]
-                                                                   : [Color(hex: 0x9ACFCC), Color(hex: 0x7DC2C0)],
+                Circle().fill(Color(hex: Skin.socialClawScreenSocClawRowFill))
+                Circle().fill(LinearGradient(colors: state == .done ? [Color(hex: Skin.socialClawScreenSocClawRowColorsDone0), Color(hex: Skin.socialClawScreenSocClawRowColorsDone1)]
+                                                                   : [Color(hex: Skin.socialClawScreenSocClawRowColorsNotDone0), Color(hex: Skin.socialClawScreenSocClawRowColorsNotDone1)],
                                              startPoint: .top, endPoint: .bottom))
                     .padding(4)
                 GameText(verbatim: "\(step)", style: num)
             }
             .placed(node)
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 20).fill(Color(hex: 0x004B4F))
-                RoundedRectangle(cornerRadius: 18).fill(Color(hex: 0x22A596)).padding(1.2)
-                RoundedRectangle(cornerRadius: 16).fill(Color(hex: 0xF4E8D4)).padding(4)
+                RoundedRectangle(cornerRadius: 20).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV2))
+                RoundedRectangle(cornerRadius: 18).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV3)).padding(1.2)
+                RoundedRectangle(cornerRadius: 16).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV4)).padding(4)
                 ArtImage(art: .sunburstRays).frame(width: 177.8, height: 70.7).clipShape(RoundedRectangle(cornerRadius: 16)).offset(x: 4, y: 4)
                 if state == .done {
                     ArtImage(art: .iconCheck).frame(width: 53.7, height: 46.4).position(x: card.width / 2, y: card.height / 2)

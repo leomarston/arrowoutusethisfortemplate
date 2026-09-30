@@ -23,12 +23,12 @@ struct LevelFailedPopup: View {
             PopupPanelFrame(n: t.superellipseN("failed.panel", 6.04), t: t).placed(t.frame("failed.panel", CGRect(10.0, 198.2, 373.3, 464.4)))
             PopupCard(radius: t.radius("failed.card", 24.19), t: t).placed(t.frame("failed.card", CGRect(54.7, 280.9, 283.9, 210.2)))
             InkImage(art: .heartBroken, ink: t.frame("failed.brokenHeart", CGRect(121.25, 302.45, 154.1, 122.0)))
-            TokenText(id: "failed.caption.caption", source: .copy("Level Failed!"), style: .s2(25.0, -0.71, [0x5A2801]),
+            TokenText(id: "failed.caption.caption", source: .copy("Level Failed!"), style: .s2(25.0, -0.71, [Skin.popupsLevelFailedPopupLevelFailedPopupStyle0]),
                       baseline: 463.3, centreX: 196.8, maxWidth: 260)
             WellFramedButton(id: "popup.levelFailed.primary", title: "Try Again", colors: .green, frame: face,
                          well: t.frame("failed.tryAgainFrame", face.insetBy(dx: -11.3, dy: -8.7).offsetBy(dx: 0, dy: 0.2)),
                          n: t.superellipseN("failed.tryAgain", 4.6),
-                         style: t.text("failed.tryAgain.label", .s2(37.7, -1.94, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.6, drop: 1.83)),
+                         style: t.text("failed.tryAgain.label", .s2(37.7, -1.94, [Skin.popupsLevelFailedPopupFailedTryAgainLabel0, Skin.popupsLevelFailedPopupFailedTryAgainLabel1, Skin.popupsLevelFailedPopupFailedTryAgainLabel2], outline: Skin.popupsLevelFailedPopupFailedTryAgainLabelOutline, 1.6, drop: 1.83)),
                          baseline: CGFloat(t.number("text.failed.tryAgain.label.baseline", 570.1)),
                          centreX: CGFloat(t.number("text.failed.tryAgain.label.centreX", 196.5)),
                          maxWidth: t.textMaxWidth("failed.tryAgain.label", 176), t: t) { answer(PopupResult.primary) }

@@ -245,7 +245,7 @@ private struct SocScrollBench: View {
         let model = SocialModel.install(app)
         let host = model.listHost(kind)
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x0A2176)
+            Color(hex: Skin.socialSocialLabSocScrollBench)
             SocListRepresentable(host: host, k: m.s).frame(width: m.size.width, height: m.size.height - 120).offset(y: 120)
             Text(verbatim: "SocialLab scroll \(kind.rawValue): \(SocLabState.shared.result)")
                 .font(.system(size: 12, weight: .bold, design: .monospaced)).foregroundStyle(.white).padding(.top, 64).padding(.leading, 12)

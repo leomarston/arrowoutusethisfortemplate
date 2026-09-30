@@ -95,10 +95,10 @@ final class SocRowView: UIView {
         guard changed else { return }
         let top: CGFloat = 0
         // the player's green row: white numbers with a dark green outline, the caption dark green
-        let green: (face: UInt32, outline: UInt32?)? = r.isMe ? (0xFFFFFF, 0x7C3A00) : nil
-        rankLabel.tint = r.isMe && r.badge == nil ? (0xFFFFFF, nil) : nil        // white rank, its navy / brown outline (meta-026)
+        let green: (face: UInt32, outline: UInt32?)? = r.isMe ? (Skin.socialSocListSocRowViewConfigureGreen, Skin.socialSocListSocRowViewConfigureGreenV2) : nil
+        rankLabel.tint = r.isMe && r.badge == nil ? (Skin.socialSocListSocRowViewConfigureTint, nil) : nil        // white rank, its navy / brown outline (meta-026)
         valueLabel.tint = green
-        captionLabel.tint = r.isMe ? (0x7C3A00, nil) : nil
+        captionLabel.tint = r.isMe ? (Skin.socialSocListSocRowViewConfigureTintV2, nil) : nil
         prizeLabel.tint = nil
         // face
         if r.isMe {

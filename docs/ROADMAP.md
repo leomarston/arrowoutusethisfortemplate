@@ -75,6 +75,14 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
       `PuzzleBoard` replaces the arrow-typed board contract, generic bot/probe, ArrowEscape implements it
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,
       sounds, names; prove it with a second skin and zero Swift changes
+  - [x] Colour tokens (code): every colour literal of App/Shell, App/FX and GlossyChrome (1,703 sites) is a `Skin.<token>`
+        constant generated from `apps/mazeout/skin/colors.json` (996 palette colours, 1,664 tokens); `tools/skin/`
+        build.py (--check, --check-literals, --selftest), codemod.py (--verify: values identical to the pre-codemod
+        sources), recolor.py (L*-preserving family recolour, --ui-json, --preview); `SkinColorsTests`; CI Linux job;
+        `docs/SKIN.md`. Pixel check on a device/simulator against the baseline: not done yet (the values are proven equal
+        in source, not by screenshots)
+  - [ ] ui.json colour values into the skin (today `recolor.py --ui-json` moves them alongside)
+  - [ ] Art slots, scenes/logo data, fonts, sounds, names (docs/SKIN.md §2); a second skin
 - [ ] **4. Config + generators** — `game.yml`, `tools/game.py new|generate|doctor`, every script/lane/gate per game
 - [ ] **5. Prove a second puzzle** — a module with a different input and fail rule, shipped to TestFlight with its own skin
 - [ ] **6. Docs & prompts** — TEMPLATE.md, PUZZLE-MODULE.md, SKIN.md; the game manual split into "write a puzzle
@@ -95,3 +103,7 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   macOS 26.6 also holds groupings (003, 202, 419, EU, EZ, UN) -> the test now requires every COUNTRY to have a board
   and every grouping to land on a real or local one. After the Meta removal + purchase fix: app build + gating unit
   tests GREEN on CI (run 5). Run 6: ALL jobs green (Linux checks, core 403 tests, app build + gating unit tests).
+- 2026-09-30: skin colours (phase 3, first part): 1,703 colour literals in the UI code -> `Skin` constants from
+  `skin/colors.json`; `codemod.py --verify` shows 0 of 61 files differ from the literals they replaced; CI Linux job
+  runs `tools/skin/build.py --check / --check-literals / --selftest` and `recolor.py --selftest`. App build + the new
+  `SkinColorsTests` still to be confirmed on CI (no Swift toolchain in the session that wrote it).

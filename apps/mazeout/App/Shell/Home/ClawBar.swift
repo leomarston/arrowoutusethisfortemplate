@@ -96,25 +96,25 @@ struct ClawBarFrame: View {                                    // B1: shared wit
     var body: some View {
         Rasterized("clawBarFrame4", overflow: 4) { size in
             let r = size.height / 2
-            let rim = LinearGradient(stops: [.init(color: t.color("clawBar.rimTop", 0x007772), location: 0),
-                                             .init(color: t.color("clawBar.rimMid", 0x3AB2A2), location: 0.14),
-                                             .init(color: Color(hex: 0x019B8D), location: 0.6),
-                                             .init(color: t.color("clawBar.rimLow", 0x008A81), location: 1)],
+            let rim = LinearGradient(stops: [.init(color: t.color("clawBar.rimTop", Skin.homeClawBarClawBarRimTop), location: 0),
+                                             .init(color: t.color("clawBar.rimMid", Skin.homeClawBarClawBarRimMid), location: 0.14),
+                                             .init(color: Color(hex: Skin.homeClawBarClawBarFrameRimStops2), location: 0.6),
+                                             .init(color: t.color("clawBar.rimLow", Skin.homeClawBarClawBarRimLow), location: 1)],
                                      startPoint: .top, endPoint: .bottom)
             ZStack(alignment: .topLeading) {
                 // the socket around the hex (x 21 → 76, from 2.8 pt above the bar)
-                RoundedRectangle(cornerRadius: 19).fill(t.color("clawBar.outline", 0x0E4C4E))
+                RoundedRectangle(cornerRadius: 19).fill(t.color("clawBar.outline", Skin.homeClawBarClawBarOutline))
                     .frame(width: 56, height: size.height + 3.4).offset(x: 1.7, y: -2.8)
                 RoundedRectangle(cornerRadius: 18).fill(rim)
                     .frame(width: 54, height: size.height + 1.4).offset(x: 2.7, y: -1.8)
-                RoundedRectangle(cornerRadius: r).fill(Color(hex: 0x002E31))                 // the dark lower lip (to 152.8)
+                RoundedRectangle(cornerRadius: r).fill(Color(hex: Skin.homeClawBarClawBarFrameFill))                 // the dark lower lip (to 152.8)
                     .frame(width: size.width, height: size.height).offset(y: 1.4)
-                RoundedRectangle(cornerRadius: r).fill(t.color("clawBar.outline", 0x0E4C4E))
+                RoundedRectangle(cornerRadius: r).fill(t.color("clawBar.outline", Skin.homeClawBarClawBarOutline))
                     .frame(width: size.width, height: size.height)
                 RoundedRectangle(cornerRadius: r - 1).fill(rim).padding(1)
                     .frame(width: size.width, height: size.height)
                 RoundedRectangle(cornerRadius: 12.3)
-                    .fill(LinearGradient(colors: t.colors("clawBar.track", [0x073A3E, 0x002C30]), startPoint: .top, endPoint: .bottom))
+                    .fill(LinearGradient(colors: t.colors("clawBar.track", [Skin.homeClawBarClawBarTrack0, Skin.homeClawBarClawBarTrack1]), startPoint: .top, endPoint: .bottom))
                     .frame(width: size.width - 38 - 6.3, height: 24.7)
                     .offset(x: 38, y: 9.3)
             }
@@ -129,11 +129,11 @@ struct ClawBarFill: View {                                     // B1: shared wit
     var body: some View {
         Rasterized("clawBarFill") { _ in
             ZStack {
-                RoundedRectangle(cornerRadius: 6.8).fill(t.color("clawBar.fillEdge", 0xAA5711))
+                RoundedRectangle(cornerRadius: 6.8).fill(t.color("clawBar.fillEdge", Skin.homeClawBarClawBarFillEdge))
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(LinearGradient(stops: [.init(color: t.color("clawBar.fillHi", 0xFFDA8A), location: 0),
-                                                 .init(color: t.color("clawBar.fill", 0xF7CF68), location: 0.45),
-                                                 .init(color: t.color("clawBar.fillLow", 0xFFBB3C), location: 1)],
+                    .fill(LinearGradient(stops: [.init(color: t.color("clawBar.fillHi", Skin.homeClawBarClawBarFillHi), location: 0),
+                                                 .init(color: t.color("clawBar.fill", Skin.homeClawBarClawBarFill), location: 0.45),
+                                                 .init(color: t.color("clawBar.fillLow", Skin.homeClawBarClawBarFillLow), location: 1)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1.2)
             }
@@ -146,7 +146,7 @@ struct ClawValueText: View {                                   // B1: shared wit
     let t: Tokens
     let origin: CGPoint
     var body: some View {
-        let st = t.text("home.clawBar.value", .s2(21.7, 0.6, [0xFFFFFF], outline: 0x003034, 1.0, drop: 1.0))
+        let st = t.text("home.clawBar.value", .s2(21.7, 0.6, [Skin.homeClawBarHomeClawBarValue0], outline: Skin.homeClawBarHomeClawBarValueOutline, 1.0, drop: 1.0))
         let p = t.textPoint("home.clawBar.value", baseline: 136.7, centreX: 196.3)
         GameText(verbatim: text, style: st, maxWidth: 200)
             .at(p.x - origin.x, st.capCentre(baseline: p.baseline) - origin.y)
@@ -170,14 +170,14 @@ struct ClawRewardIcon: View {                                  // B1: shared wit
             } else if let g = reward {
                 if g.coins > 0 {
                     ArtImage(art: .coinBowl).placed(CGRect(x: box.minX - 4.5, y: box.minY - 1.5, width: 55, height: 43))
-                    amount(ShopFormat.amount(g.coins), outline: 0x7D0C02, x: box.midX, baseline: box.minY + 35.3, size: 12.2)
+                    amount(ShopFormat.amount(g.coins), outline: Skin.homeClawBarClawRewardIconOutline, x: box.midX, baseline: box.minY + 35.3, size: 12.2)
                 } else if g.unlimitedLives > 0 {
                     ArtImage(art: .heartInfiniteSmall).placed(CGRect(x: box.minX - 1, y: box.minY - 0.5, width: 48, height: 44))
-                    amount(ShopFormat.duration(g.unlimitedLives), outline: 0xAE190B, x: box.midX + 1, baseline: box.minY + 37.8, size: 15.6)
+                    amount(ShopFormat.duration(g.unlimitedLives), outline: Skin.homeClawBarClawRewardIconOutlineV2, x: box.midX + 1, baseline: box.minY + 37.8, size: 15.6)
                 } else if let (id, n) = g.boosters.first(where: { $0.value > 0 }) {
                     ArtImage(art: id == "freeze" ? .boosterFreeze : .boosterHint)
                         .placed(CGRect(x: box.midX - 16, y: box.minY + 1, width: 32, height: 36))
-                    amount("x\(n)", outline: 0x002226, x: box.midX + 1, baseline: box.minY + 41, size: 13.5)
+                    amount("x\(n)", outline: Skin.homeClawBarClawRewardIconOutlineV3, x: box.midX + 1, baseline: box.minY + 41, size: 13.5)
                 }
             }
         }
@@ -195,7 +195,7 @@ struct ClawRewardIcon: View {                                  // B1: shared wit
     }
 
     private func amount(_ s: String, outline: UInt32, x: CGFloat, baseline: CGFloat, size: CGFloat) -> some View {
-        let st = GameTextStyle.s2(size, 0, [0xFFFFFF], outline: outline, max(1, size * 0.09), drop: size * 0.06)
+        let st = GameTextStyle.s2(size, 0, [Skin.homeClawBarClawRewardIconAmountSt0], outline: outline, max(1, size * 0.09), drop: size * 0.06)
         return GameText(verbatim: s, style: st, maxWidth: 46).at(x, st.capCentre(baseline: baseline))
     }
 }
@@ -223,14 +223,14 @@ struct MultiplierFlame: View {
     let t: Tokens
 
     var body: some View {
-        let palette: [UInt32] = multiplier >= 100 ? [0xFFE44A, 0xFFC200, 0xFF9A00, 0xC85A00]
-            : multiplier > 1 ? [0xFFC23A, 0xFF9D00, 0xFF7400, 0xB84500] : [0xFF9A4A, 0xFF6A1E, 0xDF4C2E, 0x9F260F]
+        let palette: [UInt32] = multiplier >= 100 ? [Skin.homeClawBarMultiplierFlamePalette0, Skin.homeClawBarMultiplierFlamePalette1, Skin.homeClawBarMultiplierFlamePalette2, Skin.homeClawBarMultiplierFlamePalette3]
+            : multiplier > 1 ? [Skin.homeClawBarMultiplierFlame0, Skin.homeClawBarMultiplierFlame1, Skin.homeClawBarMultiplierFlame2, Skin.homeClawBarMultiplierFlame3] : [Skin.homeClawBarMultiplierFlame0V2, Skin.homeClawBarMultiplierFlame1V2, Skin.homeClawBarMultiplierFlame2V2, Skin.homeClawBarMultiplierFlame3V2]
         let key = palette.map { String(format: "%06X", $0) }.joined()
         ZStack(alignment: .topLeading) {
             Rasterized("flame|\(key)", overflow: 2) { size in
                 FlameArt(palette: palette, gold: multiplier >= 100).frame(width: size.width, height: size.height)
             }
-            let st = t.text("home.clawMultBadge.mult", .s2(multiplier >= 100 ? 11.9 : 15.0, -0.2, [0xFFFFFF], outline: 0x7D0C02,
+            let st = t.text("home.clawMultBadge.mult", .s2(multiplier >= 100 ? 11.9 : 15.0, -0.2, [Skin.homeClawBarHomeClawMultBadgeMult0], outline: Skin.homeClawBarHomeClawMultBadgeMultOutline,
                                                             1.3, drop: 0.8))
             GameText(verbatim: "x\(multiplier)", style: st, maxWidth: 34)
                 .at(24.8, st.capCentre(baseline: 34.4))
@@ -255,9 +255,9 @@ private struct FlameArt: View {
             }
             ZStack {
                 // the chain from the hex: two grey links
-                Ellipse().stroke(Color(hex: 0x42857E), lineWidth: 2.2).frame(width: 7, height: 11).rotationEffect(.degrees(-35))
+                Ellipse().stroke(Color(hex: Skin.homeClawBarFlameArtStroke), lineWidth: 2.2).frame(width: 7, height: 11).rotationEffect(.degrees(-35))
                     .position(x: w * 0.40, y: h * 0.10)
-                Ellipse().stroke(Color(hex: 0x71B1AA), lineWidth: 2.0).frame(width: 7, height: 10).rotationEffect(.degrees(25))
+                Ellipse().stroke(Color(hex: Skin.homeClawBarFlameArtStrokeV2), lineWidth: 2.0).frame(width: 7, height: 10).rotationEffect(.degrees(25))
                     .position(x: w * 0.50, y: h * 0.22)
                 drop.fill(Color(hex: palette[3])).offset(y: 1.2)
                 drop.fill(RadialGradient(colors: [Color(hex: palette[0]), Color(hex: palette[1]), Color(hex: palette[2])],
@@ -265,7 +265,7 @@ private struct FlameArt: View {
                 drop.stroke(Color(hex: palette[3]).opacity(0.8), lineWidth: 1)
                 if gold {
                     ForEach(0..<3, id: \.self) { i in
-                        TwinkleStar().fill(Color(hex: 0xFFF3D5))
+                        TwinkleStar().fill(Color(hex: Skin.homeClawBarFlameArtFill))
                             .frame(width: [8.0, 6.0, 7.0][i], height: [8.0, 6.0, 7.0][i])
                             .position(x: w * [0.9, 0.12, 0.84][i], y: h * [0.30, 0.55, 0.92][i])
                     }
@@ -410,7 +410,7 @@ struct CountdownChip: View {
     var live: (ends: SocialTime, now: SocialTime)?
     /// The chip's text style (B1b: shared with the Finished prewarm, so both hit the same GameText raster).
     static func textStyle(_ t: Tokens) -> GameTextStyle {
-        t.text("home.clawTimerChip.timer", .s2(16.3, -0.3, [0xFFFFFF], outline: 0x073A3E, 1.0, drop: 0.9))
+        t.text("home.clawTimerChip.timer", .s2(16.3, -0.3, [Skin.homeClawBarHomeClawTimerChipTimer0], outline: Skin.homeClawBarHomeClawTimerChipTimerOutline, 1.0, drop: 0.9))
     }
     /// B1b: the width "Finished" is fitted to (v582's ≈ 47 pt, PH-0a).
     static func finishedMaxWidth(_ t: Tokens) -> CGFloat { CGFloat(t.number("home.clawTimerChip.finishedMaxWidth", 47)) }
@@ -426,11 +426,11 @@ struct CountdownChip: View {
     private func chip(_ seconds: Double) -> some View {
         let text = finished ? EventWord.finished : Countdown.text(seconds)
         let st = Self.textStyle(t)
-        let face: [Color] = [Color(hex: 0x2DB3A4), t.color("clawChip.face", 0x00A494), Color(hex: 0x00897F)]
+        let face: [Color] = [Color(hex: Skin.homeClawBarCountdownChipChipFace0), t.color("clawChip.face", Skin.homeClawBarClawChipFace), Color(hex: Skin.homeClawBarCountdownChipChipFace2)]
         return ZStack(alignment: .topLeading) {
             Rasterized("clawChip|false") { _ in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 5.5).fill(Color(hex: 0x0E4B4E))
+                    RoundedRectangle(cornerRadius: 5.5).fill(Color(hex: Skin.homeClawBarCountdownChipChipFill))
                     RoundedRectangle(cornerRadius: 4.8)
                         .fill(LinearGradient(colors: face, startPoint: .top, endPoint: .bottom))
                         .padding(0.9)

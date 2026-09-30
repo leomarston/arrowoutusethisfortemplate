@@ -90,10 +90,10 @@ private struct UpAwayToken: View {
 struct NewRibbon: View {
     enum Phase: CaseIterable { case rest, left, right, back }
     var body: some View {
-        let st = GameTextStyle.s2(11, -0.2, [0xFFFFFF], outline: 0x7A0A00, 1.0, drop: 0.6)
+        let st = GameTextStyle.s2(11, -0.2, [Skin.homeBalloonBarNewRibbonSt0], outline: Skin.homeBalloonBarNewRibbonStOutline, 1.0, drop: 0.6)
         ZStack {
-            Capsule().fill(Color(hex: 0x7A0A00)).offset(y: 1.2)
-            Capsule().fill(LinearGradient(colors: [Color(hex: 0xF37357), Color(hex: 0xD93E2A)], startPoint: .top, endPoint: .bottom))
+            Capsule().fill(Color(hex: Skin.homeBalloonBarNewRibbonFill)).offset(y: 1.2)
+            Capsule().fill(LinearGradient(colors: [Color(hex: Skin.homeBalloonBarNewRibbonColors0), Color(hex: Skin.homeBalloonBarNewRibbonColors1)], startPoint: .top, endPoint: .bottom))
             GameText("NEW", style: st, maxWidth: 34)
         }
         .frame(width: 40, height: 18)
@@ -115,11 +115,11 @@ struct NewRibbon: View {
 /// outline #8A3F00, a thin brass rim #E3B04B (art/lanes/events-d1.handoff.json rotation_chrome).
 struct DoubleGem: View {
     var body: some View {
-        let st = GameTextStyle.s2(13, -0.4, [0xFFFFFF], outline: 0x8A3F00, 1.1, drop: 0.7)
+        let st = GameTextStyle.s2(13, -0.4, [Skin.homeBalloonBarDoubleGemSt0], outline: Skin.homeBalloonBarDoubleGemStOutline, 1.1, drop: 0.7)
         ZStack {
-            DiamondShape().fill(Color(hex: 0x8A3F00)).offset(y: 1.2)
-            DiamondShape().fill(LinearGradient(colors: [Color(hex: 0xFFE08A), Color(hex: 0xFFB422)], startPoint: .top, endPoint: .bottom))
-            DiamondShape().stroke(Color(hex: 0xE3B04B), lineWidth: 0.8).padding(0.4)
+            DiamondShape().fill(Color(hex: Skin.homeBalloonBarDoubleGemFill)).offset(y: 1.2)
+            DiamondShape().fill(LinearGradient(colors: [Color(hex: Skin.homeBalloonBarDoubleGemColors0), Color(hex: Skin.homeBalloonBarDoubleGemColors1)], startPoint: .top, endPoint: .bottom))
+            DiamondShape().stroke(Color(hex: Skin.homeBalloonBarDoubleGemStroke), lineWidth: 0.8).padding(0.4)
             GameText(verbatim: "×2", style: st, maxWidth: 24)
         }
         .frame(width: 30, height: 26)

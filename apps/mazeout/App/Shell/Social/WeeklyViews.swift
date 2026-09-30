@@ -36,7 +36,7 @@ struct SocWeeklyTutorial: View {
                 .accessibilityHidden(true)
             GameButton(id: "weekly.tutorial.tab", label: "Leaderboard", action: { answer(PopupResult.primary) }) {
                 ZStack {
-                    Rectangle().fill(LinearGradient(colors: [Color(hex: 0x00A395), Color(hex: 0x009288)], startPoint: .top, endPoint: .bottom))
+                    Rectangle().fill(LinearGradient(colors: [Color(hex: Skin.socialWeeklyViewsSocWeeklyTutorialColors0), Color(hex: Skin.socialWeeklyViewsSocWeeklyTutorialColors1)], startPoint: .top, endPoint: .bottom))
                     ArtImage(art: .navCup).frame(width: 72, height: 66)
                 }
             }
@@ -45,10 +45,10 @@ struct SocWeeklyTutorial: View {
             ReferenceCanvas {
                 ZStack(alignment: .topLeading) {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 14.5).fill(Color(hex: 0x00827B))
-                        RoundedRectangle(cornerRadius: 12.5).fill(Color(hex: 0xF4E8D4)).padding(2.5)
+                        RoundedRectangle(cornerRadius: 14.5).fill(Color(hex: Skin.socialWeeklyViewsSocWeeklyTutorialFill))
+                        RoundedRectangle(cornerRadius: 12.5).fill(Color(hex: Skin.socialWeeklyViewsSocWeeklyTutorialFillV2)).padding(2.5)
                         SocTwoLines(text: "Tap to join the Weekly Cup!", centreX: 141, baselines: [33.3, 64.0], box: 235, size: 26,
-                                    faceHex: 0x05292B, hotHex: 0x05292B, outline: nil, greedy: true)
+                                    faceHex: Skin.socialWeeklyViewsSocWeeklyTutorialFaceHex, hotHex: Skin.socialWeeklyViewsSocWeeklyTutorialHotHex, outline: nil, greedy: true)
                     }
                     .frame(width: 281.9, height: 82.1)
                     .placed(CGRect(55.7, 514.8, 281.9, 82.1))
@@ -136,7 +136,7 @@ struct SocWeeklyInfo: View {
                         .placed(CGRect(200 + CGFloat(bob) * 0.6, 208 + CGFloat(bob) * 0.6, 40, 45))
                 }
                 SocPopIn(u: u, start: 0.72, duration: 0.25, overshoot: 1.08, at: CGPoint(x: 148.1 + 220.9 / 2, y: 293 + 160 / 2)) { SocMiniPodium().placed(CGRect(148.1, 293, 220.9, 160)) }
-                SocPopIn(u: u, start: 0.72, at: CGPoint(x: 258.5, y: 464.9 - 6)) { SocTwoLines(text: "Contest with others!", centreX: 258.5, baselines: [464.9], box: 250, hotHex: 0xF6E9D8) }
+                SocPopIn(u: u, start: 0.72, at: CGPoint(x: 258.5, y: 464.9 - 6)) { SocTwoLines(text: "Contest with others!", centreX: 258.5, baselines: [464.9], box: 250, hotHex: Skin.socialWeeklyViewsSocWeeklyInfoHotHex) }
                 SocPopIn(u: u, start: 0.88, at: CGPoint(x: 229.2 + 36.7 / 2, y: 498.8 + 37.7 / 2)) {
                     ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1)
                         .placed(CGRect(226 - CGFloat(bob) * 0.6, 505 + CGFloat(bob) * 0.6, 40, 45))
@@ -180,9 +180,9 @@ struct SocWeeklyInfo: View {
 private struct SocMiniPodium: View {
     var body: some View {
         let k: CGFloat = 0.57
-        let name = GameTextStyle.s2(14, -0.2, [0xF6E9D8], outline: 0x7D0C02, 1.2, drop: 0.5)
-        let lilacName = GameTextStyle.s2(14, -0.2, [0xEBF6F2], outline: 0x153032, 1.2, drop: 0.5)
-        let amt = GameTextStyle.s2(9.5, -0.2, [0xF6E9D8], outline: 0x7D0C02, 0.9, drop: 0.3)
+        let name = GameTextStyle.s2(14, -0.2, [Skin.socialWeeklyViewsSocMiniPodiumName0], outline: Skin.socialWeeklyViewsSocMiniPodiumNameOutline, 1.2, drop: 0.5)
+        let lilacName = GameTextStyle.s2(14, -0.2, [Skin.socialWeeklyViewsSocMiniPodiumLilacName0], outline: Skin.socialWeeklyViewsSocMiniPodiumLilacNameOutline, 1.2, drop: 0.5)
+        let amt = GameTextStyle.s2(9.5, -0.2, [Skin.socialWeeklyViewsSocMiniPodiumAmt0], outline: Skin.socialWeeklyViewsSocMiniPodiumAmtOutline, 0.9, drop: 0.3)
         // VERIFIED meta-017: the portraits stand on the blocks, names / bowls on the fronts (frame 148.1 · 305 · 220.9 · 160)
         let slots: [(String, Int, Int, CGRect, CGFloat, Bool)] = [
             ("Max", 1000, 2, CGRect(19, 20, 50, 50), 101, true),
@@ -214,9 +214,9 @@ struct SocWeeklyResult: View {
         TimelineView(.animation(minimumInterval: nil, paused: shownAt.map { app.clock.gameTime() - $0 > 1.2 } ?? true)) { ctx in
             let u = shownAt.map { app.clock.gameTime(ctx.date) - $0 } ?? 0
             let gold = rank >= 1 && rank <= 3
-            let title: GameTextStyle = gold ? .s2(45.2, -0.8, [0xFFDD13, 0xFFC302, 0xFFB700], outline: 0xB24900, 0.9, drop: 1.8)
-                                            : .s2(42, -1.0, [0xEBF6F2], outline: 0x00373B, 1.0, drop: 4.8)
-            let line = GameTextStyle.s2(26, -0.5, [0xFFFFFF], outline: 0x00373B, 1.4, drop: 1.2)
+            let title: GameTextStyle = gold ? .s2(45.2, -0.8, [Skin.socialWeeklyViewsSocWeeklyResultTitle0, Skin.socialWeeklyViewsSocWeeklyResultTitle1, Skin.socialWeeklyViewsSocWeeklyResultTitle2], outline: Skin.socialWeeklyViewsSocWeeklyResultTitleOutline, 0.9, drop: 1.8)
+                                            : .s2(42, -1.0, [Skin.socialWeeklyViewsSocWeeklyResult0], outline: Skin.socialWeeklyViewsSocWeeklyResultOutline, 1.0, drop: 4.8)
+            let line = GameTextStyle.s2(26, -0.5, [Skin.socialWeeklyViewsSocWeeklyResultLine0], outline: Skin.socialWeeklyViewsSocWeeklyResultLineOutline, 1.4, drop: 1.2)
             let k = min(1, u / 0.8)
             ZStack(alignment: .topLeading) {
                 Color.clear
@@ -225,9 +225,9 @@ struct SocWeeklyResult: View {
                     ZStack {
                         if gold {
                             ArtImage(art: rank == 1 ? .rankBadgeGold : rank == 2 ? .rankBadgeSilver : .rankBadgeBronze)
-                            GameText(verbatim: "\(rank)", style: .s2(32, 0, [0xFFFFFF], outline: rank == 1 ? 0x985316 : rank == 2 ? 0x325653 : 0x8C2D18, 2.2, drop: 1.0))
+                            GameText(verbatim: "\(rank)", style: .s2(32, 0, [Skin.socialWeeklyViewsSocWeeklyResultStyle0], outline: rank == 1 ? Skin.socialWeeklyViewsSocWeeklyResultOutlineRank1 : rank == 2 ? Skin.socialWeeklyViewsSocWeeklyResultOutlineRank2 : Skin.socialWeeklyViewsSocWeeklyResultOutlineNotRank2, 2.2, drop: 1.0))
                         } else {
-                            GameText(verbatim: "\(rank)", style: .s2(44, 0, [0xFFFAEF], outline: 0x002226, 2.6, drop: 1.0))
+                            GameText(verbatim: "\(rank)", style: .s2(44, 0, [Skin.socialWeeklyViewsSocWeeklyResultStyle0V2], outline: Skin.socialWeeklyViewsSocWeeklyResultOutlineV2, 2.6, drop: 1.0))
                         }
                     }
                     .frame(width: 64, height: 64)
@@ -236,11 +236,11 @@ struct SocWeeklyResult: View {
                 GameText("You finished #\(rank)!", style: line, maxWidth: 300).at(196.5, line.capCentre(baseline: 479))
                 if prize > 0 {
                     ArtImage(art: .coinPileSmall).placed(CGRect(158.5, 512, 76.7, 60.1))
-                    let am = GameTextStyle.s2(27.6, -0.31, [0xFFFFFF], outline: 0x002226, 2.7, drop: 0.2)
+                    let am = GameTextStyle.s2(27.6, -0.31, [Skin.socialWeeklyViewsSocWeeklyResultAm0], outline: Skin.socialWeeklyViewsSocWeeklyResultAmOutline, 2.7, drop: 0.2)
                     GameText(verbatim: "\(Int(Double(prize) * (1 - (1 - k) * (1 - k))))", style: am, maxWidth: 120)
                         .at(196.8, am.capCentre(baseline: 590))
                 }
-                let tap = GameTextStyle.s2(31.5, -0.48, [0xFFFFFF], outline: 0x56092E, 1.2, drop: 1.2)
+                let tap = GameTextStyle.s2(31.5, -0.48, [Skin.socialWeeklyViewsSocWeeklyResultTap0], outline: Skin.socialWeeklyViewsSocWeeklyResultTapOutline, 1.2, drop: 1.2)
                 GameText("Tap to Continue", style: tap, maxWidth: 330).at(196.5, tap.capCentre(baseline: 701.9))
             }
             .frame(width: 393, height: 852)

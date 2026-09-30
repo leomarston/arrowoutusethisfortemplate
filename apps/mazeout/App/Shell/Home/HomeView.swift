@@ -128,7 +128,7 @@ private struct HomeMainPage: View {
     var body: some View {
         let t = app.tuning.ui.tokens
         LayerStack {                                                                // FIX-A1: was a top-leading ZStack
-            t.color("home.base", 0x23565A)
+            t.color("home.base", Skin.homeHomeViewHomeBase)
             if parts >= HomeBuild.scene { scene(t) }
             if parts >= HomeBuild.controls {
                 HomeLevelControls()

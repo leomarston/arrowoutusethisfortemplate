@@ -17,14 +17,14 @@ struct LoadingScreen: View {
         let t = app.tuning.ui.tokens
         // SPEC-ui C3: the captured #CCCCCC / #681E1A were the colours under the iOS alert's 0.80 dim: the face is white,
         // the outline #82251F
-        let style = t.text("loading.label", GameTextStyle(size: 26.8, tracking: -0.5, fill: [Color(hex: 0xFFFFFF)],
-                                                          outline: Color(hex: 0x7E2A1C), outlineWidth: 0.88, drop: 0.39))
+        let style = t.text("loading.label", GameTextStyle(size: 26.8, tracking: -0.5, fill: [Color(hex: Skin.shellLoadingScreenLoadingLabelFill0)],
+                                                          outline: Color(hex: Skin.shellLoadingScreenLoadingLabelOutline), outlineWidth: 0.88, drop: 0.39))
         let word = GameText("Loading", style: style, maxWidth: 220)
         let label = t.textPoint("loading.label", baseline: 792.7, centreX: 187.2)
         let origin = m.point(CGPoint(x: label.x, y: label.baseline), t.anchor("loading.label", .bottom))
         let left = origin.x - word.layout.advance * m.s / 2
         ZStack(alignment: .topLeading) {
-            t.color("loading.base", 0xB7A587)
+            t.color("loading.base", Skin.shellLoadingScreenLoadingBase)
             if LoadingArt.shared.ready {
                 SceneLayer(size: m.size) {
                     ArtImage(art: .loadingBackdrop, contentMode: .fill).frame(width: 393, height: 852)

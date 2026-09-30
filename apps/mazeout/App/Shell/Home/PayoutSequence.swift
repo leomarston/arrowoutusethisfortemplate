@@ -546,7 +546,7 @@ struct HomeReturnDimView: UIViewRepresentable {
             let a = Double(i) / Double(count) * 2 * .pi
             let star = CAShapeLayer()
             star.path = Sparkles.starPath(size: size)
-            star.fillColor = (i % 2 == 0 ? UIColor.white : UIColor(red: 1, green: 0.910, blue: 0.698, alpha: 1)).cgColor
+            star.fillColor = (i % 2 == 0 ? UIColor.white : UIColor(rgb: Skin.homePayoutSequenceHomeReturnLayersBurstFillColorNot20, alpha: 1)).cgColor
             star.position = p
             star.opacity = 0
             let move = CABasicAnimation(keyPath: "position")
@@ -593,13 +593,13 @@ struct HomeReturnDimView: UIViewRepresentable {
         let size = CGSize(width: 145.8, height: 42)
         guard let img = RasterCache.image("streakTray", size: size, scale: scale, content: {
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 9.5).fill(Color(hex: 0x00292C))
-                RoundedRectangle(cornerRadius: 8.5).fill(Color(hex: 0x006E69)).padding(1.2)
+                RoundedRectangle(cornerRadius: 9.5).fill(Color(hex: Skin.homePayoutSequenceHomeReturnLayersTrayImageFill))
+                RoundedRectangle(cornerRadius: 8.5).fill(Color(hex: Skin.homePayoutSequenceHomeReturnLayersTrayImageFillV2)).padding(1.2)
                 ForEach(Array(steps.enumerated()), id: \.offset) { i, v in
-                    let st = GameTextStyle.s2(16.5, -0.6, [0xFFFFFF], outline: 0x00383C, 1.2, drop: 0.7)
+                    let st = GameTextStyle.s2(16.5, -0.6, [Skin.homePayoutSequenceHomeReturnLayersTrayImageSt0], outline: Skin.homePayoutSequenceHomeReturnLayersTrayImageStOutline, 1.2, drop: 0.7)
                     ZStack {
-                        ChevronChipShape().fill(LinearGradient(colors: [Color(hex: 0x29AD9E), Color(hex: 0x009C8F)], startPoint: .top, endPoint: .bottom))
-                        ChevronChipShape().stroke(Color(hex: 0x002B2E), lineWidth: 1)
+                        ChevronChipShape().fill(LinearGradient(colors: [Color(hex: Skin.homePayoutSequenceHomeReturnLayersTrayImageColors0), Color(hex: Skin.homePayoutSequenceHomeReturnLayersTrayImageColors1)], startPoint: .top, endPoint: .bottom))
+                        ChevronChipShape().stroke(Color(hex: Skin.homePayoutSequenceHomeReturnLayersTrayImageStroke), lineWidth: 1)
                         GameText(verbatim: "x\(v)", style: st, maxWidth: 32)
                     }
                     .frame(width: 36, height: 32)
@@ -616,8 +616,8 @@ struct HomeReturnDimView: UIViewRepresentable {
         let size = CGSize(width: 38, height: 34)
         guard let img = RasterCache.image("streakLitChip", size: size, scale: scale, content: {
             ZStack {
-                ChevronChipShape().fill(LinearGradient(colors: [Color(hex: 0xFED902), Color(hex: 0xFFB700)], startPoint: .top, endPoint: .bottom))
-                ChevronChipShape().stroke(Color(hex: 0xFF7A00), lineWidth: 2)
+                ChevronChipShape().fill(LinearGradient(colors: [Color(hex: Skin.homePayoutSequenceHomeReturnLayersLitChipImageColors0), Color(hex: Skin.homePayoutSequenceHomeReturnLayersLitChipImageColors1)], startPoint: .top, endPoint: .bottom))
+                ChevronChipShape().stroke(Color(hex: Skin.homePayoutSequenceHomeReturnLayersLitChipImageStroke), lineWidth: 2)
             }
             .frame(width: size.width, height: size.height)
         }) else { return nil }

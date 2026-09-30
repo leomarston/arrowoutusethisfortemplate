@@ -27,14 +27,14 @@ struct SocStreakPage: View {
         let snap = model.streak
         let now = SocTime.now(app)
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x003135).frame(width: m.size.width, height: m.size.height)
+            Color(hex: Skin.socialStreakRaceViewsSocStreakPage).frame(width: m.size.width, height: m.size.height)
             ZStack(alignment: .topLeading) {
                 ArtImage(art: .streakHeader, contentMode: .fill).placed(CGRect(-18.2, 0, 429.4, 316.9)).clipped()
-                LinearGradient(colors: [Color(hex: 0x007F7A), Color(hex: 0x007773)], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color(hex: Skin.socialStreakRaceViewsSocStreakPageColors0), Color(hex: Skin.socialStreakRaceViewsSocStreakPageColors1)], startPoint: .top, endPoint: .bottom)
                     .placed(CGRect(0, 313.6, 393, 172))
                 SocRails().placed(CGRect(0, 313.6, 393, 22))
                 StreakRaceLettering(frame: CGRect(40.0, 298.9, 313.6, 54.7), t: t)
-                let sub = GameTextStyle.s2(17.2, -0.5, [0xF9F1E6, 0xFDF1DA], outline: 0x00373B, 0.9, drop: 1.5)
+                let sub = GameTextStyle.s2(17.2, -0.5, [Skin.socialStreakRaceViewsSocStreakPageSub0, Skin.socialStreakRaceViewsSocStreakPageSub1], outline: Skin.socialStreakRaceViewsSocStreakPageSubOutline, 0.9, drop: 1.5)
                 GameText("Beat levels without fail to get more rewards!", style: sub, maxWidth: 355).at(196.3, sub.capCentre(baseline: 373.8))
                 StreakChipRow(steps: StreakStripSource.steps(app), lit: Double(app.store.state.events.streakStep), ring: 1,
                               frame: CGRect(11.7, 383.7, 372.6, 64.7), t: t)
@@ -161,8 +161,8 @@ struct SocInfoTitle: View {
     private struct Layer { let hex: UInt32; let width: CGFloat; let dy: CGFloat; let drop: CGFloat }
 
     private func faceStyle(_ size: CGFloat) -> GameTextStyle {
-        var face = GameTextStyle.s2(size, -1.0, look == .weekly ? [0xFFFCF6, 0xFEF3E0] : [0xEBF6F2])
-        if look == .event { face.band = Color(hex: 0x63CAC3); face.bandDY = 1.8 }
+        var face = GameTextStyle.s2(size, -1.0, look == .weekly ? [Skin.socialStreakRaceViewsSocInfoTitleFaceStyleFaceWeekly0, Skin.socialStreakRaceViewsSocInfoTitleFaceStyleFaceWeekly1] : [Skin.socialStreakRaceViewsSocInfoTitleFaceStyleFaceNotWeekly0])
+        if look == .event { face.band = Color(hex: Skin.socialStreakRaceViewsSocInfoTitleFaceStyle); face.bandDY = 1.8 }
         return face
     }
 
@@ -170,10 +170,10 @@ struct SocInfoTitle: View {
         let size: CGFloat = look == .weekly ? 35.4 : 36.5
         let face = faceStyle(size)
         let layers: [Layer] = look == .weekly
-            ? [Layer(hex: 0x006764, width: 4.1, dy: 1.5, drop: 1.7), Layer(hex: 0x39AB9B, width: 4.1, dy: -1.2, drop: 0),
-               Layer(hex: 0x009289, width: 4.1, dy: 0.5, drop: 1.6), Layer(hex: 0x00373B, width: 1.1, dy: 0, drop: 3.5)]
-            : [Layer(hex: 0x003337, width: 5.0, dy: 1.3, drop: 4.8), Layer(hex: 0x4EC3B3, width: 4.4, dy: 1.1, drop: 1.9),
-               Layer(hex: 0x003337, width: 1.3, dy: 0, drop: 3.5)]
+            ? [Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle0, width: 4.1, dy: 1.5, drop: 1.7), Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle1, width: 4.1, dy: -1.2, drop: 0),
+               Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle2, width: 4.1, dy: 0.5, drop: 1.6), Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle3, width: 1.1, dy: 0, drop: 3.5)]
+            : [Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle0V2, width: 5.0, dy: 1.3, drop: 4.8), Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle1V2, width: 4.4, dy: 1.1, drop: 1.9),
+               Layer(hex: Skin.socialStreakRaceViewsSocInfoTitle2V2, width: 1.3, dy: 0, drop: 3.5)]
         let box: CGFloat = 300
         ZStack {
             ForEach(Array(layers.enumerated()), id: \.offset) { _, l in
@@ -196,9 +196,9 @@ struct SocTwoLines: View {
     let baselines: [CGFloat]
     let box: CGFloat
     var size: CGFloat = 16
-    var faceHex: UInt32 = 0xF6E9D8
-    var hotHex: UInt32 = 0xFFD302
-    var outline: UInt32? = 0x1A3132
+    var faceHex: UInt32 = Skin.socialStreakRaceViewsSocTwoLinesFaceHex
+    var hotHex: UInt32 = Skin.socialStreakRaceViewsSocTwoLinesHotHex
+    var outline: UInt32? = Skin.socialStreakRaceViewsSocTwoLinesOutline
     var hot: LocalizedStringResource? = nil
     /// Fill the first line up to `box` (the phone's breaks for most lines), instead of balancing the two lines.
     var greedy = false
@@ -323,8 +323,8 @@ struct SocHotLine: View {
 /// Three mini race rows (gold / silver / bronze) with a yellow up arrow at the left (the (i) overlay's "flags" item).
 private struct SocMiniRows: View {
     var body: some View {
-        let looks: [(UInt32, UInt32, Int, UIArt, Int)] = [(0xF8C44C, 0xC76D10, 16, .rankBadgeGold, 5), (0xA3D0CD, 0x518A84, 15, .rankBadgeSilver, 6),
-                                                         (0xF89D59, 0xB45A26, 12, .rankBadgeBronze, 4)]
+        let looks: [(UInt32, UInt32, Int, UIArt, Int)] = [(Skin.socialStreakRaceViewsSocMiniRowsLooks0, Skin.socialStreakRaceViewsSocMiniRowsLooks0V2, 16, .rankBadgeGold, 5), (Skin.socialStreakRaceViewsSocMiniRowsLooks1, Skin.socialStreakRaceViewsSocMiniRowsLooks1V2, 15, .rankBadgeSilver, 6),
+                                                         (Skin.socialStreakRaceViewsSocMiniRowsLooks2, Skin.socialStreakRaceViewsSocMiniRowsLooks2V2, 12, .rankBadgeBronze, 4)]
         ZStack(alignment: .topLeading) {
             ForEach(0..<3, id: \.self) { i in
                 let (face, lip, score, badge, avatar) = looks[i]
@@ -333,13 +333,13 @@ private struct SocMiniRows: View {
                     RoundedRectangle(cornerRadius: 7).fill(Color(hex: face))
                     ZStack {
                         ArtImage(art: badge)
-                        GameText(verbatim: "\(i + 1)", style: .s2(13, 0, [0xFFFFFF], outline: [0x985316, 0x325653, 0x8C2D18][i], 1.1, drop: 0.4))
+                        GameText(verbatim: "\(i + 1)", style: .s2(13, 0, [Skin.socialStreakRaceViewsSocMiniRowsStyle0], outline: [Skin.socialStreakRaceViewsSocMiniRowsOutline0, Skin.socialStreakRaceViewsSocMiniRowsOutline1, Skin.socialStreakRaceViewsSocMiniRowsOutline2][i], 1.1, drop: 0.4))
                     }
                     .frame(width: 26, height: 26).offset(x: 6)
                     SocAvatar(index: avatar).frame(width: 32, height: 32).offset(x: 36)
                     RoundedRectangle(cornerRadius: 6).fill(Color(hex: lip)).frame(width: 36, height: 20).offset(x: 118)
                     ArtImage(art: .scoreChip).frame(width: 22, height: 25).offset(x: 104)
-                    GameText(verbatim: "\(score)", style: .s2(15, 0, [0xFFFFFF], outline: 0x5A2801, 1.2, drop: 0.5)).offset(x: 129)
+                    GameText(verbatim: "\(score)", style: .s2(15, 0, [Skin.socialStreakRaceViewsSocMiniRowsStyle0], outline: Skin.socialStreakRaceViewsSocMiniRowsOutline, 1.2, drop: 0.5)).offset(x: 129)
                 }
                 .frame(width: 162, height: 36)
                 .offset(x: 20 + (i == 0 ? 0 : 6), y: CGFloat(i) * 43)
@@ -354,17 +354,17 @@ private struct SocMiniRows: View {
 private struct SocMiniChips: View {
     let steps: [Int]
     var body: some View {
-        let plain = GameTextStyle.s2(27.4, -1.5, [0x5A2801])
-        let lit = GameTextStyle.s2(31, -2.4, [0xFFFAEF], outline: 0x703400, 1.9, drop: 1.6)
+        let plain = GameTextStyle.s2(27.4, -1.5, [Skin.socialStreakRaceViewsSocMiniChipsPlain0])
+        let lit = GameTextStyle.s2(31, -2.4, [Skin.socialStreakRaceViewsSocMiniChipsLit0], outline: Skin.socialStreakRaceViewsSocMiniChipsLitOutline, 1.9, drop: 1.6)
         ZStack {
-            RoundedRectangle(cornerRadius: 10).fill(Color(hex: 0xF4E8D4)).frame(height: 56)
-                .shadow(color: Color(hex: 0xFFF2D2, 0.8), radius: 10)
+            RoundedRectangle(cornerRadius: 10).fill(Color(hex: Skin.socialStreakRaceViewsSocMiniChipsFill)).frame(height: 56)
+                .shadow(color: Color(hex: Skin.socialStreakRaceViewsSocMiniChipsShadow, 0.8), radius: 10)
             HStack(spacing: 0) {
                 GameText(verbatim: "x\(steps[0])", style: plain).frame(width: 58)
                 ZStack {
-                    RoundedRectangle(cornerRadius: 12).fill(Color(hex: 0xFFC400)).frame(width: 84, height: 66)
+                    RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.socialStreakRaceViewsSocMiniChipsFillV2)).frame(width: 84, height: 66)
                     RoundedRectangle(cornerRadius: 9.8)
-                        .fill(LinearGradient(colors: [Color(hex: 0xFFDA7B), Color(hex: 0xE07F09)], startPoint: .top, endPoint: .bottom))
+                        .fill(LinearGradient(colors: [Color(hex: Skin.socialStreakRaceViewsSocMiniChipsColors0), Color(hex: Skin.socialStreakRaceViewsSocMiniChipsColors1)], startPoint: .top, endPoint: .bottom))
                         .frame(width: 70, height: 52)
                     GameText(verbatim: "x\(steps[1])", style: lit)
                 }
@@ -381,11 +381,11 @@ struct SocWarningCard: View {
     let frame: CGRect
     var body: some View {
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: 0xC59C71)).offset(y: 1.5)
-            RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: 0xFAF3EA))
+            RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: Skin.socialStreakRaceViewsSocWarningCardFill)).offset(y: 1.5)
+            RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: Skin.socialStreakRaceViewsSocWarningCardFillV2))
             ArtImage(art: .heartBroken).placed(CGRect(8, frame.height / 2 - 25, 54, 50))
             SocTwoLines(text: text, centreX: (frame.width + 60) / 2, baselines: [frame.height / 2 - 3, frame.height / 2 + 16],
-                        box: frame.width - 72, size: 16.4, faceHex: 0x865A3C, hotHex: 0xD12D1C, outline: nil, hot: "fail", greedy: true,
+                        box: frame.width - 72, size: 16.4, faceHex: Skin.socialStreakRaceViewsSocWarningCardFaceHex, hotHex: Skin.socialStreakRaceViewsSocWarningCardHotHex, outline: nil, hot: "fail", greedy: true,
                         breakAt: 165)
         }
         .frame(width: frame.width, height: frame.height, alignment: .topLeading)

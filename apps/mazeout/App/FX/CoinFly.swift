@@ -126,7 +126,7 @@ struct CoinFlySpec {
 
     /// "+N" as a raster of GameText (white face, outline #6B3A1E 2 pt, a small drop), rendered once per text.
     static func labelImage(_ text: String, size: CGFloat) -> LabelImage? {
-        let st = GameTextStyle.s2(size, -0.8, [0xFFFFFF], outline: 0x6B3A1E, 2.0 * size / 36, drop: 1.6 * size / 36)
+        let st = GameTextStyle.s2(size, -0.8, [Skin.fxCoinFlyCoinFlyLabelImageSt0], outline: Skin.fxCoinFlyCoinFlyLabelImageStOutline, 2.0 * size / 36, drop: 1.6 * size / 36)
         let w = size * 0.62 * CGFloat(text.count) + 16, h = size * 1.35
         let scale = UIScreen.main.scale
         guard let img = RasterCache.image("payoutLabel|\(text)|\(size)", size: CGSize(width: w, height: h), scale: scale, content: {

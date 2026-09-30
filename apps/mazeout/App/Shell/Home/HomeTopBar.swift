@@ -89,7 +89,7 @@ private struct PlainTopValue: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let style = t.text(styleID, GameTextStyle(size: size, tracking: tracking, fill: [Color(hex: 0x00474D)])).sized(size * m.s)
+        let style = t.text(styleID, GameTextStyle(size: size, tracking: tracking, fill: [Color(hex: Skin.homeHomeTopBarPlainTopValueStyleFill0)])).sized(size * m.s)
         let p = m.point(centre, .top)
         GameText(verbatim: text, style: style, maxWidth: maxWidth * m.s)
             .at(p.x - origin.x, style.capCentre(baseline: p.y) - origin.y)
@@ -102,8 +102,8 @@ struct TopPill: View {
     var n: CGFloat = 5
     var body: some View {
         ZStack {
-            Superellipse(n: n).fill(t.color("home.topPillEdge", 0x8BC0BB))
-            Superellipse(n: n).fill(LinearGradient(colors: [Color(hex: 0xF4F9FF), t.color("home.topPill", 0xE0F0EB), t.color("home.topPill", 0xE0F0EB)],
+            Superellipse(n: n).fill(t.color("home.topPillEdge", Skin.homeHomeTopBarHomeTopPillEdge))
+            Superellipse(n: n).fill(LinearGradient(colors: [Color(hex: Skin.homeHomeTopBarTopPillColors0), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill)],
                                                    startPoint: .top, endPoint: .bottom)).padding(1)
         }
         .accessibilityHidden(true)
@@ -118,26 +118,26 @@ private struct AvatarTile: View {
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height
-            let ring = t.colors("home.avatarRing", [0x41B7A7, 0x38B2A2, 0x009C8F])
+            let ring = t.colors("home.avatarRing", [Skin.homeHomeTopBarHomeAvatarRing0, Skin.homeHomeTopBarHomeAvatarRing1, Skin.homeHomeTopBarHomeAvatarRing2])
             let tile = CGRect(x: 8.6, y: 8.3, width: w - 17.2, height: h - 16.0)
             ZStack(alignment: .topLeading) {
-                Superellipse(n: 3.6).fill(Color(hex: 0x164E4E))
+                Superellipse(n: 3.6).fill(Color(hex: Skin.homeHomeTopBarAvatarTileFill))
                 Superellipse(n: 3.6)
-                    .fill(LinearGradient(stops: [.init(color: Color(hex: 0xA5DCC8), location: 0), .init(color: ring[0], location: 0.06),
+                    .fill(LinearGradient(stops: [.init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops0), location: 0), .init(color: ring[0], location: 0.06),
                                                  .init(color: ring[1], location: 0.3), .init(color: ring[min(2, ring.count - 1)], location: 0.93),
-                                                 .init(color: Color(hex: 0x007571), location: 0.965), .init(color: Color(hex: 0x005957), location: 1)],
+                                                 .init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops4), location: 0.965), .init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops5), location: 1)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1.3)
-                Superellipse(n: 3.8).fill(Color(hex: 0x005A57))
+                Superellipse(n: 3.8).fill(Color(hex: Skin.homeHomeTopBarAvatarTileFillV2))
                     .frame(width: tile.width + 2.6, height: tile.height + 2.6).offset(x: tile.minX - 1.3, y: tile.minY - 1.3)
                 ZStack {
-                    t.color("home.avatarPlaceholder", 0x8FA39C)
+                    t.color("home.avatarPlaceholder", Skin.homeHomeTopBarHomeAvatarPlaceholder)
                     // the default silhouette: a head + wide shoulders reaching the tile's bottom
-                    Circle().fill(t.color("home.avatarSilhouette", 0x6B807A))
+                    Circle().fill(t.color("home.avatarSilhouette", Skin.homeHomeTopBarHomeAvatarSilhouette))
                         .frame(width: tile.width * 0.46, height: tile.width * 0.46).offset(y: -tile.height * 0.1)
-                    Ellipse().fill(t.color("home.avatarSilhouette", 0x6B807A))
+                    Ellipse().fill(t.color("home.avatarSilhouette", Skin.homeHomeTopBarHomeAvatarSilhouette))
                         .frame(width: tile.width * 0.98, height: tile.height * 0.62).offset(y: tile.height * 0.44)
-                    LinearGradient(colors: [.clear, Color(hex: 0x475C58, 0.7)], startPoint: UnitPoint(x: 0.5, y: 0.9), endPoint: .bottom)
+                    LinearGradient(colors: [.clear, Color(hex: Skin.homeHomeTopBarAvatarTileColors1, 0.7)], startPoint: UnitPoint(x: 0.5, y: 0.9), endPoint: .bottom)
                 }
                 .frame(width: tile.width, height: tile.height)
                 .clipShape(Superellipse(n: 3.8))
@@ -187,8 +187,8 @@ private struct LivesGroup: View {
         let pill = LivesText.state(s, now: now, refill: refill)
         let text: String? = { if case .time(let t) = pill { return t }; return nil }()
         let full = text == nil
-        let style = full ? t.text("home.lives", GameTextStyle(size: 19.1, tracking: -0.75, fill: [Color(hex: 0x00474D)]))
-                         : t.text("home.livesTimer", GameTextStyle(size: 18.9, tracking: -0.35, fill: [Color(hex: 0x00474D)]))
+        let style = full ? t.text("home.lives", GameTextStyle(size: 19.1, tracking: -0.75, fill: [Color(hex: Skin.homeHomeTopBarHomeLivesFill0)]))
+                         : t.text("home.livesTimer", GameTextStyle(size: 18.9, tracking: -0.35, fill: [Color(hex: Skin.homeHomeTopBarHomeLivesTimerFill0)]))
         let st = style.sized(style.size * m.s)
         let p = m.point(CGPoint(x: full ? 285.4 : 285.1, y: 76.9), .top)
         Group {
@@ -201,13 +201,13 @@ private struct LivesGroup: View {
 
     @ViewBuilder private func countText(_ s: PlayerState, box: CGRect) -> some View {
         let unlimited = s.unlimitedLivesUntil.map { $0 > HomeLive.shared.livesClock(app) } ?? false
-        let base = t.text("home.livesCount", GameTextStyle(size: 21.8, fill: [.white], outline: Color(hex: 0x870400), outlineWidth: 0.95,
+        let base = t.text("home.livesCount", GameTextStyle(size: 21.8, fill: [.white], outline: Color(hex: Skin.homeHomeTopBarHomeLivesCountOutline), outlineWidth: 0.95,
                                                            drop: 1.04))
         let style = base.sized(base.size * m.s)
         let at = t.textPoint("home.livesCount", baseline: 77.0, centreX: 232.2)
         let p = m.point(CGPoint(x: at.x, y: at.baseline), .top)
         if unlimited {
-            InfinityGlyph(outline: Color(hex: 0x870400)).frame(width: 22 * m.s, height: 12 * m.s)
+            InfinityGlyph(outline: Color(hex: Skin.homeHomeTopBarLivesGroupCountTextOutline)).frame(width: 22 * m.s, height: 12 * m.s)
                 .at(p.x - box.minX, style.capCentre(baseline: p.y) - box.minY)
         } else {
             GameText(verbatim: "\(s.lives.count)", style: style)
@@ -270,7 +270,7 @@ enum LivesText {
 struct InfinityGlyph: View {
     var outline: Color
     /// The phone's ∞ face is cream, not white (VERIFIED 035 median).
-    var face: Color = Color(hex: 0xF2E6D5)
+    var face: Color = Color(hex: Skin.homeHomeTopBarInfinityGlyphFace)
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height

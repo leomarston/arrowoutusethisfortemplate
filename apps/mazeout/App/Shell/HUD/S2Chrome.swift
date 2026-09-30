@@ -201,32 +201,32 @@ struct TierPalette: Equatable {
     var glyph: UInt32, glyphLine: UInt32
     /// The pause bars' tinted foot (VERIFIED 003 #7CB7DB, 036 #9A5454, 061 #AB54EF at y 96) and the bar outline (#072884,
     /// #650000, #4C0088 at y 97.5).
-    var barFoot: [UInt32] = [0xB6D5CC, 0x81BBB0]
+    var barFoot: [UInt32] = [Skin.hudS2ChromeTierPaletteBarFoot0, Skin.hudS2ChromeTierPaletteBarFoot1]
     var barLine: UInt32? = nil
 
     static func == (a: TierPalette, b: TierPalette) -> Bool { a.shadow == b.shadow && a.face == b.face && a.glyph == b.glyph }
 
     /// GlossyChrome BlueSquareButton's numbers (VERIFIED 003).
-    static let blue = TierPalette(shadow: 0x212B2B,
-                                  outer: [(0x00625D, 0), (0x006864, 0.1), (0x006C68, 0.86), (0x007B76, 0.9), (0x006864, 0.94),
-                                          (0x005F5B, 0.97), (0x005050, 1)],
-                                  side: 0x004148, face: [0x00A293, 0x009C8F],
-                                  rim: [(0x62CDBF, 0), (0x50C3B5, 0.07), (0x009E90, 0.14), (0x00998C, 0.6), (0x009C8F, 1)],
-                                  glyph: 0xF3FDF9, glyphLine: 0x003B3F)
+    static let blue = TierPalette(shadow: Skin.hudS2ChromeTierPaletteBlueShadow,
+                                  outer: [(Skin.hudS2ChromeTierPaletteBlueOuter0, 0), (Skin.hudS2ChromeTierPaletteBlueOuter1, 0.1), (Skin.hudS2ChromeTierPaletteBlueOuter2, 0.86), (Skin.hudS2ChromeTierPaletteBlueOuter3, 0.9), (Skin.hudS2ChromeTierPaletteBlueOuter4, 0.94),
+                                          (Skin.hudS2ChromeTierPaletteBlueOuter5, 0.97), (Skin.hudS2ChromeTierPaletteBlueOuter6, 1)],
+                                  side: Skin.hudS2ChromeTierPaletteBlueSide, face: [Skin.hudS2ChromeTierPaletteBlueFace0, Skin.hudS2ChromeTierPaletteBlueFace1],
+                                  rim: [(Skin.hudS2ChromeTierPaletteBlueRim0, 0), (Skin.hudS2ChromeTierPaletteBlueRim1, 0.07), (Skin.hudS2ChromeTierPaletteBlueRim2, 0.14), (Skin.hudS2ChromeTierPaletteBlueRim3, 0.6), (Skin.hudS2ChromeTierPaletteBlueRim4, 1)],
+                                  glyph: Skin.hudS2ChromeTierPaletteBlueGlyph, glyphLine: Skin.hudS2ChromeTierPaletteBlueGlyphLine)
     /// Hard (VERIFIED 036 grad.hud.pauseButtonHard: face #EC0911, rim #FC777A → #FD5357, lip #A3010F → #780109).
-    static let red = TierPalette(shadow: 0x370E05,
-                                 outer: [(0x88160D, 0), (0x9F1D12, 0.1), (0xA92014, 0.86), (0xB72B1D, 0.9), (0x9D170D, 0.94),
-                                         (0x85130B, 0.97), (0x740E05, 1)],
-                                 side: 0x660C03, face: [0xEC6552, 0xE64D39, 0xDD3624],
-                                 rim: [(0xED8272, 0), (0xED7866, 0.07), (0xE2523F, 0.14), (0xDE3F2D, 0.6), (0xDD3624, 1)],
-                                 glyph: 0xFFF5F5, glyphLine: 0x86251D, barFoot: [0xC39891, 0x925950], barLine: 0x610B00)
+    static let red = TierPalette(shadow: Skin.hudS2ChromeTierPaletteRedShadow,
+                                 outer: [(Skin.hudS2ChromeTierPaletteRedOuter0, 0), (Skin.hudS2ChromeTierPaletteRedOuter1, 0.1), (Skin.hudS2ChromeTierPaletteRedOuter2, 0.86), (Skin.hudS2ChromeTierPaletteRedOuter3, 0.9), (Skin.hudS2ChromeTierPaletteRedOuter4, 0.94),
+                                         (Skin.hudS2ChromeTierPaletteRedOuter5, 0.97), (Skin.hudS2ChromeTierPaletteRedOuter6, 1)],
+                                 side: Skin.hudS2ChromeTierPaletteRedSide, face: [Skin.hudS2ChromeTierPaletteRedFace0, Skin.hudS2ChromeTierPaletteRedFace1, Skin.hudS2ChromeTierPaletteRedFace2],
+                                 rim: [(Skin.hudS2ChromeTierPaletteRedRim0, 0), (Skin.hudS2ChromeTierPaletteRedRim1, 0.07), (Skin.hudS2ChromeTierPaletteRedRim2, 0.14), (Skin.hudS2ChromeTierPaletteRedRim3, 0.6), (Skin.hudS2ChromeTierPaletteRedRim4, 1)],
+                                 glyph: Skin.hudS2ChromeTierPaletteRedGlyph, glyphLine: Skin.hudS2ChromeTierPaletteRedGlyphLine, barFoot: [Skin.hudS2ChromeTierPaletteRedBarFoot0, Skin.hudS2ChromeTierPaletteRedBarFoot1], barLine: Skin.hudS2ChromeTierPaletteRedBarLine)
     /// Super Hard (VERIFIED 061 grad.hud.pauseButtonSuperHard: face #9100E4, rim #B751FC, lip #6909B1 → #480683).
-    static let purple = TierPalette(shadow: 0x2B131C,
-                                    outer: [(0x751545, 0), (0x8A1653, 0.1), (0x96125A, 0.86), (0xA51666, 0.9), (0x891351, 0.94),
-                                            (0x741243, 0.97), (0x601036, 1)],
-                                    side: 0x4F0E2B, face: [0xCE0077, 0xC70074, 0xBA006E],
-                                    rim: [(0xEE3A89, 0), (0xE62D84, 0.07), (0xCD0D77, 0.14), (0xC20172, 0.6), (0xBA006E, 1)],
-                                    glyph: 0xFFF6F9, glyphLine: 0x65173C, barFoot: [0xF18FB3, 0xDE4286], barLine: 0x640D38)
+    static let purple = TierPalette(shadow: Skin.hudS2ChromeTierPalettePurpleShadow,
+                                    outer: [(Skin.hudS2ChromeTierPalettePurpleOuter0, 0), (Skin.hudS2ChromeTierPalettePurpleOuter1, 0.1), (Skin.hudS2ChromeTierPalettePurpleOuter2, 0.86), (Skin.hudS2ChromeTierPalettePurpleOuter3, 0.9), (Skin.hudS2ChromeTierPalettePurpleOuter4, 0.94),
+                                            (Skin.hudS2ChromeTierPalettePurpleOuter5, 0.97), (Skin.hudS2ChromeTierPalettePurpleOuter6, 1)],
+                                    side: Skin.hudS2ChromeTierPalettePurpleSide, face: [Skin.hudS2ChromeTierPalettePurpleFace0, Skin.hudS2ChromeTierPalettePurpleFace1, Skin.hudS2ChromeTierPalettePurpleFace2],
+                                    rim: [(Skin.hudS2ChromeTierPalettePurpleRim0, 0), (Skin.hudS2ChromeTierPalettePurpleRim1, 0.07), (Skin.hudS2ChromeTierPalettePurpleRim2, 0.14), (Skin.hudS2ChromeTierPalettePurpleRim3, 0.6), (Skin.hudS2ChromeTierPalettePurpleRim4, 1)],
+                                    glyph: Skin.hudS2ChromeTierPalettePurpleGlyph, glyphLine: Skin.hudS2ChromeTierPalettePurpleGlyphLine, barFoot: [Skin.hudS2ChromeTierPalettePurpleBarFoot0, Skin.hudS2ChromeTierPalettePurpleBarFoot1], barLine: Skin.hudS2ChromeTierPalettePurpleBarLine)
 
     static func of(_ tag: LevelTag) -> TierPalette {
         switch tag {
@@ -334,7 +334,7 @@ struct OfferCoinGroup: View {
         // VERIFIED 013 / 014 / meta-088 (the popup group is not the home group): pill 0 … 35.6 tall with a 3 pt blue base, its
         // right edge 0.7 inside the frame; coin gold 13.3 … 46.7 · 62.7 … 95.7 on 013; the plus's green 36 … 55 · 83.1 … 102.1
         let pill = CGRect(33.35 * k, 0, 74.4 * k, 35.6 * k)
-        let digits = t.text(textID, .s2(21.4, 0.44, [0x00474D])).sized(21.4 * k)
+        let digits = t.text(textID, .s2(21.4, 0.44, [Skin.hudS2ChromeOfferCoinGroupDigitsText0])).sized(21.4 * k)
         GameButton(id: "popup.coins", label: "Shop", value: "\(coins)", action: { S2Hooks.openShop(app) }) {
             ZStack(alignment: .topLeading) {
                 OfferPill(t: t).placed(pill)
@@ -359,12 +359,12 @@ struct OfferPill: View {
     private func art(_ size: CGSize) -> some View {
         let r = size.height * 0.36
         return ZStack {
-            RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("offer.pillLine", 0x233B3D))
+            RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("offer.pillLine", Skin.hudS2ChromeOfferPillLine))
             RoundedRectangle(cornerRadius: r - 0.6, style: .continuous)
-                .fill(LinearGradient(colors: t.colors("offer.pillBase", [0x62A9A0, 0x22746E]), startPoint: .top, endPoint: .bottom))
+                .fill(LinearGradient(colors: t.colors("offer.pillBase", [Skin.hudS2ChromeOfferPillBase0, Skin.hudS2ChromeOfferPillBase1]), startPoint: .top, endPoint: .bottom))
                 .padding(0.6)
-            RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).fill(t.color("offer.pillFace", 0xE0F0EB))
-                .overlay(RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).strokeBorder(Color(hex: 0xEFF6F4), lineWidth: 0.9))
+            RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).fill(t.color("offer.pillFace", Skin.hudS2ChromeOfferPillFace))
+                .overlay(RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).strokeBorder(Color(hex: Skin.hudS2ChromeOfferPillArtStrokeBorder), lineWidth: 0.9))
                 .padding(EdgeInsets(top: 0.9, leading: 1.2, bottom: 3.4, trailing: 2.4))
         }
     }
@@ -379,9 +379,9 @@ struct OfferWell: View {
     /// shadow, rim, deep (the dark band at the rim), core (the bright ring against the face)
     struct Palette: Equatable {
         let shadow, rim, deep, core: UInt32
-        static let blue = Palette(shadow: 0x143739, rim: 0x114246, deep: 0x00615B, core: 0x35B1A1)
-        static let red = Palette(shadow: 0x440B00, rim: 0x4B0C00, deep: 0x7F110A, core: 0xDB6150)
-        static let purple = Palette(shadow: 0x380C1E, rim: 0x50102C, deep: 0x711241, core: 0xD6277C)
+        static let blue = Palette(shadow: Skin.hudS2ChromePaletteBlueShadow, rim: Skin.hudS2ChromePaletteBlueRim, deep: Skin.hudS2ChromePaletteBlueDeep, core: Skin.hudS2ChromePaletteBlueCore)
+        static let red = Palette(shadow: Skin.hudS2ChromePaletteRedShadow, rim: Skin.hudS2ChromePaletteRedRim, deep: Skin.hudS2ChromePaletteRedDeep, core: Skin.hudS2ChromePaletteRedCore)
+        static let purple = Palette(shadow: Skin.hudS2ChromePalettePurpleShadow, rim: Skin.hudS2ChromePalettePurpleRim, deep: Skin.hudS2ChromePalettePurpleDeep, core: Skin.hudS2ChromePalettePurpleCore)
         var key: String { String(format: "%06X%06X", deep, core) }
     }
     /// Where the well's body sits inside its token frame: the band / fail / win frames include the halo (VERIFIED 014 / 016 /

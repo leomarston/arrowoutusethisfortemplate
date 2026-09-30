@@ -45,7 +45,7 @@ struct ShopView: View {
         let top = m.y(115, .top)
         let bottom = closable ? m.size.height : m.y(771.7, .bottom)
         ZStack(alignment: .topLeading) {
-            t.color("shop.groundBottom", 0x351B1F).frame(width: m.size.width, height: m.size.height)
+            t.color("shop.groundBottom", Skin.shopShopViewShopGroundBottom).frame(width: m.size.width, height: m.size.height)
             ScrollView(.vertical, showsIndicators: false) {
                 ShopContent(layout: layout, prices: prices(rules), buying: buying, scale: m.s) { p in buy(p, rules: rules) }
             }
@@ -291,9 +291,9 @@ private struct ShopRow: View {
     var body: some View {
         let rules = ShellEconomy.rules(app)
         ZStack(alignment: .topLeading) {
-            ground(0x441226, from: 0, to: layout.purpleEnd)
-            ground(0x003135, from: layout.purpleEnd, to: layout.navyEnd)
-            ground(0x351B1F, from: layout.navyEnd, to: layout.height)
+            ground(Skin.shopShopViewShopRowGround, from: 0, to: layout.purpleEnd)
+            ground(Skin.shopShopViewShopRowGroundV2, from: layout.purpleEnd, to: layout.navyEnd)
+            ground(Skin.shopShopViewShopRowGroundV3, from: layout.navyEnd, to: layout.height)
             content(rules)
         }
     }
@@ -366,10 +366,10 @@ private struct ShopStatic<Content: View>: View {
 private struct TestStoreNote: View {
     static let text = "Test store: nothing is charged"
     var body: some View {
-        let st = GameTextStyle.s2(15, 0, [0xFFFFFF], outline: 0x00373B, 1.0, drop: 0.8)
+        let st = GameTextStyle.s2(15, 0, [Skin.shopShopViewTestStoreNoteSt0], outline: Skin.shopShopViewTestStoreNoteStOutline, 1.0, drop: 0.8)
         ZStack {
-            RoundedRectangle(cornerRadius: 12).fill(Color(hex: 0x003135, 0.92))
-            RoundedRectangle(cornerRadius: 12).stroke(Color(hex: 0x40BCAC, 0.6), lineWidth: 1)
+            RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.shopShopViewTestStoreNoteFill, 0.92))
+            RoundedRectangle(cornerRadius: 12).stroke(Color(hex: Skin.shopShopViewTestStoreNoteStroke, 0.6), lineWidth: 1)
             GameText(verbatim: Self.text, style: st, maxWidth: 310)
         }
         .accessibilityElement()
@@ -398,9 +398,9 @@ private struct SectionPlate: View {
         let rail: CGRect = kind == .yellow ? CGRect(0, 16.7, 393, 26.7) : CGRect(0, 12.6, 393, 26.7)
         let style: GameTextStyle = {
             switch kind {
-            case .purple: return .s2(27.6, -0.24, [0xF6FCFF], outline: 0x720D41, 1.91, drop: 1.01)
-            case .blue: return .s2(28.1, -0.72, [0xFFFBF1], outline: 0x00373B, 1.09, drop: 1.02)
-            case .yellow: return .s2(27.6, 0.18, [0xFFF9EE, 0xFFF5E2, 0xFDEDD0], outline: 0x6A3328, 1.86, drop: 1.03)
+            case .purple: return .s2(27.6, -0.24, [Skin.shopShopViewSectionPlateStylePurple0], outline: Skin.shopShopViewSectionPlateStylePurpleOutline, 1.91, drop: 1.01)
+            case .blue: return .s2(28.1, -0.72, [Skin.shopShopViewSectionPlateStyleBlue0], outline: Skin.shopShopViewSectionPlateStyleBlueOutline, 1.09, drop: 1.02)
+            case .yellow: return .s2(27.6, 0.18, [Skin.shopShopViewSectionPlateStyleYellow0, Skin.shopShopViewSectionPlateStyleYellow1, Skin.shopShopViewSectionPlateStyleYellow2], outline: Skin.shopShopViewSectionPlateStyleYellowOutline, 1.86, drop: 1.03)
             }
         }()
         let baseline: CGFloat = kind == .purple ? 157.1 - 120.8 : (kind == .blue ? 442.7 - 403.7 : 386.7 - 355.3 + 8.5)
@@ -419,9 +419,9 @@ private struct SectionRail: View {
     var body: some View {
         let c: [UInt32] = {
             switch kind {
-            case .purple: return [0x920056, 0xF26B9F, 0xCF0D78, 0x920056, 0xD7347F]
-            case .blue: return [0x006B66, 0x95D7C5, 0x40BCAC, 0x006B66, 0x39A496]
-            case .yellow: return [0x84572D, 0xF4D7A8, 0xF2BE72, 0x936230, 0xC4883E]
+            case .purple: return [Skin.shopShopViewSectionRailCPurple0, Skin.shopShopViewSectionRailCPurple1, Skin.shopShopViewSectionRailCPurple2, Skin.shopShopViewSectionRailCPurple3, Skin.shopShopViewSectionRailCPurple4]
+            case .blue: return [Skin.shopShopViewSectionRailCBlue0, Skin.shopShopViewSectionRailCBlue1, Skin.shopShopViewSectionRailCBlue2, Skin.shopShopViewSectionRailCBlue3, Skin.shopShopViewSectionRailCBlue4]
+            case .yellow: return [Skin.shopShopViewSectionRailCYellow0, Skin.shopShopViewSectionRailCYellow1, Skin.shopShopViewSectionRailCYellow2, Skin.shopShopViewSectionRailCYellow3, Skin.shopShopViewSectionRailCYellow4]
             }
         }()
         Rasterized("shopRail|\(c[2])") { size in
@@ -447,9 +447,9 @@ private struct SectionPlateFace: View {
         let r: CGFloat = kind == .purple ? 19.8 : (kind == .blue ? 15.4 : 8.8)
         let c: [UInt32] = {
             switch kind {
-            case .purple: return [0x390F21, 0x983265, 0xCA2B79, 0xB51E6E, 0x891853]
-            case .blue: return [0x003135, 0x009E92, 0x009C90, 0x009188, 0x006E6A]
-            case .yellow: return [0x84572D, 0xA26A31, 0xF4CB8B, 0xF2BE72, 0xE19E4C]
+            case .purple: return [Skin.shopShopViewSectionPlateFaceCPurple0, Skin.shopShopViewSectionPlateFaceCPurple1, Skin.shopShopViewSectionPlateFaceCPurple2, Skin.shopShopViewSectionPlateFaceCPurple3, Skin.shopShopViewSectionPlateFaceCPurple4]
+            case .blue: return [Skin.shopShopViewSectionPlateFaceCBlue0, Skin.shopShopViewSectionPlateFaceCBlue1, Skin.shopShopViewSectionPlateFaceCBlue2, Skin.shopShopViewSectionPlateFaceCBlue3, Skin.shopShopViewSectionPlateFaceCBlue4]
+            case .yellow: return [Skin.shopShopViewSectionPlateFaceCYellow0, Skin.shopShopViewSectionPlateFaceCYellow1, Skin.shopShopViewSectionPlateFaceCYellow2, Skin.shopShopViewSectionPlateFaceCYellow3, Skin.shopShopViewSectionPlateFaceCYellow4]
             }
         }()
         Rasterized("shopPlate|\(c[3])|\(r)", overflow: 2) { size in
@@ -476,7 +476,7 @@ private struct PriceTag: View {
     let buying: Bool
     let action: () -> Void
     var body: some View {
-        let st = GameTextStyle.s2(size, -0.2, [0xFFFFFF], outline: 0x924500, 1.08 * size / 24.4, drop: 1.2 * size / 24.4)
+        let st = GameTextStyle.s2(size, -0.2, [Skin.shopShopViewPriceTagSt0], outline: Skin.shopShopViewPriceTagStOutline, 1.08 * size / 24.4, drop: 1.2 * size / 24.4)
         GameButton(id: id, label: "Shop", value: price ?? ShopPrices.pending, enabled: !buying && price != nil, action: action) {
             ZStack {
                 ChromeButtonFace(colors: .green, n: 4.9)
@@ -512,8 +512,8 @@ private struct OfferCard: View {
 
     var body: some View {
         let o = OfferCard.origin
-        let amount = GameTextStyle.s2(30.7, -0.34, [0xFEFAF7, 0xFAF5EE, 0xF8F0E5], outline: 0x620B00, 2.24, drop: 0.97)
-        let name = GameTextStyle.s2(28.0, -0.25, [0xF6FCFF], outline: 0x720D41, 1.9, drop: 1.4)
+        let amount = GameTextStyle.s2(30.7, -0.34, [Skin.shopShopViewOfferCardAmount0, Skin.shopShopViewOfferCardAmount1, Skin.shopShopViewOfferCardAmount2], outline: Skin.shopShopViewOfferCardAmountOutline, 2.24, drop: 0.97)
+        let name = GameTextStyle.s2(28.0, -0.25, [Skin.shopShopViewOfferCardName0], outline: Skin.shopShopViewOfferCardNameOutline, 1.9, drop: 1.4)
         ZStack(alignment: .topLeading) {
             OfferCardFrame()
             ArtImage(art: .bundleSpecial).placed(r(16, 200, 176, 102))
@@ -547,11 +547,11 @@ private struct OfferCardFrame: View {
         Rasterized("offerCardFrame.v2", overflow: 4) { _ in
             let card = r(8.5, 195.4, 376.3, 193.4)
             // the bevel rim as 8 rounded rings: outer dark → inner light (top 5/7, bottom 10.5/7 of the side step)
-            let rim: [UInt32] = [0x9E3C02, 0xAE4802, 0xBD5904, 0xCA6906, 0xD67C07, 0xE09008, 0xEAB90A, 0xF3C40D]
+            let rim: [UInt32] = [Skin.shopShopViewOfferCardFrameRim0, Skin.shopShopViewOfferCardFrameRim1, Skin.shopShopViewOfferCardFrameRim2, Skin.shopShopViewOfferCardFrameRim3, Skin.shopShopViewOfferCardFrameRim4, Skin.shopShopViewOfferCardFrameRim5, Skin.shopShopViewOfferCardFrameRim6, Skin.shopShopViewOfferCardFrameRim7]
             let field = r(16.4, 200.9, 360.8, 176.9)        // inside the 0.5 pt dark line
             let fieldShape = RoundedRectangle(cornerRadius: 16.5, style: .continuous)
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 27, style: .continuous).fill(Color(hex: 0x2E0D1B))
+                RoundedRectangle(cornerRadius: 27, style: .continuous).fill(Color(hex: Skin.shopShopViewOfferCardFrameFill))
                     .frame(width: card.width + 5, height: card.height + 5).blur(radius: 2)
                     .offset(x: card.minX - 2.5, y: card.minY - 1.5)
                 ForEach(Array(rim.enumerated()), id: \.offset) { i, hex in
@@ -560,33 +560,33 @@ private struct OfferCardFrame: View {
                         .frame(width: card.width - 2 * k, height: card.height - k * (5.0 + 10.5) / 7)
                         .offset(x: card.minX + k, y: card.minY + k * 5.0 / 7)
                 }
-                RoundedRectangle(cornerRadius: 17, style: .continuous).fill(Color(hex: 0x4E1008))
+                RoundedRectangle(cornerRadius: 17, style: .continuous).fill(Color(hex: Skin.shopShopViewOfferCardFrameFillV2))
                     .frame(width: field.width + 1, height: field.height + 1).offset(x: field.minX - 0.5, y: field.minY - 0.5)
                 ZStack(alignment: .topLeading) {
                     // gold field with its sunburst, the orange top bevel and the highlight line
                     ZStack {
-                        LinearGradient(stops: [.init(color: Color(hex: 0xFEC006), location: 0), .init(color: Color(hex: 0xFDB705), location: 0.35),
-                                               .init(color: Color(hex: 0xFDA504), location: 0.8), .init(color: Color(hex: 0xFDA504), location: 1)],
+                        LinearGradient(stops: [.init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops0), location: 0), .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops1), location: 0.35),
+                                               .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops2), location: 0.8), .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops3), location: 1)],
                                        startPoint: .top, endPoint: .bottom)
-                        SunburstRays(centre: CGPoint(x: 100, y: 55), rays: 20, colour: Color(hex: 0xFFD522)).opacity(0.55)
+                        SunburstRays(centre: CGPoint(x: 100, y: 55), rays: 20, colour: Color(hex: Skin.shopShopViewOfferCardFrameColour)).opacity(0.55)
                     }
                     .frame(width: field.width, height: 304.5 - 200.9)
-                    LinearGradient(colors: [Color(hex: 0xC85800), Color(hex: 0xD37904), Color(hex: 0xE9BC0B)], startPoint: .top, endPoint: .bottom)
+                    LinearGradient(colors: [Color(hex: Skin.shopShopViewOfferCardFrameColors0), Color(hex: Skin.shopShopViewOfferCardFrameColors1), Color(hex: Skin.shopShopViewOfferCardFrameColors2)], startPoint: .top, endPoint: .bottom)
                         .frame(width: field.width, height: 1.5)
-                    Color(hex: 0xFEE409).frame(width: field.width, height: 0.8).offset(y: 1.6)
+                    Color(hex: Skin.shopShopViewOfferCardFrame).frame(width: field.width, height: 0.8).offset(y: 1.6)
                     // the ledge
-                    LinearGradient(colors: [Color(hex: 0xCF6902), Color(hex: 0xC35900), Color(hex: 0xAE4400), Color(hex: 0xA03401)],
+                    LinearGradient(colors: [Color(hex: Skin.shopShopViewOfferCardFrameColors0V2), Color(hex: Skin.shopShopViewOfferCardFrameColors1V2), Color(hex: Skin.shopShopViewOfferCardFrameColors2V2), Color(hex: Skin.shopShopViewOfferCardFrameColors3)],
                                    startPoint: .top, endPoint: .bottom)
                         .frame(width: field.width, height: 308.8 - 304.5).offset(y: 304.5 - 200.9)
                     // the purple strip + its dark foot
-                    LinearGradient(stops: [.init(color: Color(hex: 0xE94D8D), location: 0), .init(color: Color(hex: 0xDA3481), location: 0.17),
-                                           .init(color: Color(hex: 0xCC1A78), location: 0.39), .init(color: Color(hex: 0xBC006F), location: 0.59),
-                                           .init(color: Color(hex: 0xB3056B), location: 0.78), .init(color: Color(hex: 0xA41264), location: 1)],
+                    LinearGradient(stops: [.init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops0V2), location: 0), .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops1V2), location: 0.17),
+                                           .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops2V2), location: 0.39), .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops3V2), location: 0.59),
+                                           .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops4), location: 0.78), .init(color: Color(hex: Skin.shopShopViewOfferCardFrameStops5), location: 1)],
                                    startPoint: .top, endPoint: .bottom)
                         .frame(width: field.width, height: 373.0 - 308.8).offset(y: 308.8 - 200.9)
-                    Color(hex: 0x8A1653).frame(width: field.width, height: 0.7).offset(y: 308.8 - 200.9)
-                    Color(hex: 0xF670A4).frame(width: field.width, height: 1.1).offset(y: 309.5 - 200.9)
-                    LinearGradient(colors: [Color(hex: 0x8F1255), Color(hex: 0x660E39), Color(hex: 0x530E2E), Color(hex: 0x470F27)],
+                    Color(hex: Skin.shopShopViewOfferCardFrameV2).frame(width: field.width, height: 0.7).offset(y: 308.8 - 200.9)
+                    Color(hex: Skin.shopShopViewOfferCardFrameV3).frame(width: field.width, height: 1.1).offset(y: 309.5 - 200.9)
+                    LinearGradient(colors: [Color(hex: Skin.shopShopViewOfferCardFrameColors0V3), Color(hex: Skin.shopShopViewOfferCardFrameColors1V3), Color(hex: Skin.shopShopViewOfferCardFrameColors2V3), Color(hex: Skin.shopShopViewOfferCardFrameColors3V2)],
                                    startPoint: .top, endPoint: .bottom)
                         .frame(width: field.width, height: 377.6 - 373.0).offset(y: 373.0 - 200.9)
                 }
@@ -595,8 +595,8 @@ private struct OfferCardFrame: View {
                 .offset(x: field.minX, y: field.minY)
                 // the price button's recessed well (the live PriceTag sits in it at 232.9 · 317.9 · 130.1 · 48.4)
                 let lip = r(230.0, 314.6, 135.9, 55.5), well = r(230.8, 315.4, 134.3, 53.9)
-                Superellipse(n: 4.9).fill(Color(hex: 0xE43D86)).frame(width: lip.width, height: lip.height).offset(x: lip.minX, y: lip.minY)
-                Superellipse(n: 4.9).fill(Color(hex: 0x760F43)).frame(width: well.width, height: well.height).offset(x: well.minX, y: well.minY)
+                Superellipse(n: 4.9).fill(Color(hex: Skin.shopShopViewOfferCardFrameFillV3)).frame(width: lip.width, height: lip.height).offset(x: lip.minX, y: lip.minY)
+                Superellipse(n: 4.9).fill(Color(hex: Skin.shopShopViewOfferCardFrameFillV4)).frame(width: well.width, height: well.height).offset(x: well.minX, y: well.minY)
             }
         }
     }
@@ -612,7 +612,7 @@ struct StarterRibbon: View {
     static let textSize: CGFloat = 15.5
     static let angle: Double = -9
     var body: some View {
-        let st = GameTextStyle.s2(Self.textSize, 0.4, [0xFFFDF8, 0xFFFDF7, 0xFFFBF2], outline: 0x650D05, 0.95, drop: 0.6)
+        let st = GameTextStyle.s2(Self.textSize, 0.4, [Skin.shopShopViewStarterRibbonSt0, Skin.shopShopViewStarterRibbonSt1, Skin.shopShopViewStarterRibbonSt2], outline: Skin.shopShopViewStarterRibbonStOutline, 0.95, drop: 0.6)
         ZStack {
             Rasterized("starterRibbon.v1", overflow: 3) { size in StarterRibbonShape(size: size) }
             GameText("STARTER", style: st, maxWidth: Self.textBox).offset(y: -1.5)
@@ -643,23 +643,23 @@ private struct StarterRibbonShape: View {
         }
         return ZStack(alignment: .topLeading) {
             ForEach([true, false], id: \.self) { left in
-                tail(left).fill(LinearGradient(colors: [Color(hex: 0xA72519), Color(hex: 0x75130B)], startPoint: .top, endPoint: .bottom))
-                tail(left).stroke(Color(hex: 0xC98A00), lineWidth: 1.4)
+                tail(left).fill(LinearGradient(colors: [Color(hex: Skin.shopShopViewStarterRibbonShapeColors0), Color(hex: Skin.shopShopViewStarterRibbonShapeColors1)], startPoint: .top, endPoint: .bottom))
+                tail(left).stroke(Color(hex: Skin.shopShopViewStarterRibbonShapeStroke), lineWidth: 1.4)
                 // the fold: a dark wedge where the band turns under
                 Path { p in
                     let x = left ? band.minX : band.maxX, d: CGFloat = left ? 1 : -1
                     p.move(to: CGPoint(x: x, y: band.maxY)); p.addLine(to: CGPoint(x: x + d * 8, y: band.maxY))
                     p.addLine(to: CGPoint(x: x + d * 8, y: band.maxY + 6)); p.closeSubpath()
-                }.fill(Color(hex: 0x450A00))
+                }.fill(Color(hex: Skin.shopShopViewStarterRibbonShapeFill))
             }
-            RoundedRectangle(cornerRadius: 5).fill(Color(hex: 0x450A00, 0.35)).frame(width: band.width, height: band.height)
+            RoundedRectangle(cornerRadius: 5).fill(Color(hex: Skin.shopShopViewStarterRibbonShapeFill, 0.35)).frame(width: band.width, height: band.height)
                 .offset(x: band.minX, y: band.minY + 1.5).blur(radius: 1.2)
             RoundedRectangle(cornerRadius: 5)
-                .fill(LinearGradient(stops: [.init(color: Color(hex: 0xF1674E), location: 0), .init(color: Color(hex: 0xDC4333), location: 0.45),
-                                             .init(color: Color(hex: 0xB72C1F), location: 1)], startPoint: .top, endPoint: .bottom))
+                .fill(LinearGradient(stops: [.init(color: Color(hex: Skin.shopShopViewStarterRibbonShapeStops0), location: 0), .init(color: Color(hex: Skin.shopShopViewStarterRibbonShapeStops1), location: 0.45),
+                                             .init(color: Color(hex: Skin.shopShopViewStarterRibbonShapeStops2), location: 1)], startPoint: .top, endPoint: .bottom))
                 .frame(width: band.width, height: band.height).offset(x: band.minX, y: band.minY)
             RoundedRectangle(cornerRadius: 5)
-                .stroke(LinearGradient(colors: [Color(hex: 0xFFE680), Color(hex: 0xF5B700), Color(hex: 0xD58E00)], startPoint: .top,
+                .stroke(LinearGradient(colors: [Color(hex: Skin.shopShopViewStarterRibbonShapeColors0V2), Color(hex: Skin.shopShopViewStarterRibbonShapeColors1V2), Color(hex: Skin.shopShopViewStarterRibbonShapeColors2)], startPoint: .top,
                                        endPoint: .bottom), lineWidth: 2)
                 .frame(width: band.width - 2, height: band.height - 2).offset(x: band.minX + 1, y: band.minY + 1)
             Capsule().fill(Color.white.opacity(0.28)).frame(width: band.width - 16, height: 3).offset(x: band.minX + 8, y: band.minY + 4)
@@ -678,8 +678,8 @@ private struct BundleCard: View {
     var body: some View {
         // local frame = the card (7.7 · top · 378.3 · 194.5) offset by (−3, −1) to leave room for the shadow
         let dx: CGFloat = 3.0, dy: CGFloat = 1.0
-        let amount = GameTextStyle.s2(30.7, -0.34, [0xFEFAF7, 0xFAF5EE, 0xF8F0E5], outline: 0x620B00, 2.24, drop: 0.97)
-        let name = GameTextStyle.s2(27.8, 0, [0xFFFFFF], outline: 0x02464D, 1.8, drop: 1.8)
+        let amount = GameTextStyle.s2(30.7, -0.34, [Skin.shopShopViewBundleCardAmount0, Skin.shopShopViewBundleCardAmount1, Skin.shopShopViewBundleCardAmount2], outline: Skin.shopShopViewBundleCardAmountOutline, 2.24, drop: 0.97)
+        let name = GameTextStyle.s2(27.8, 0, [Skin.shopShopViewBundleCardName0], outline: Skin.shopShopViewBundleCardNameOutline, 1.8, drop: 1.8)
         let amountText = ShopFormat.amount(product.grant.coins)
         let al = GameTextLayout.make(amountText, postScriptName: amount.postScriptName, size: amount.size, tracking: amount.tracking)
         ZStack(alignment: .topLeading) {
@@ -719,22 +719,22 @@ private struct BundleCardFrame: View {
     var body: some View {
         Rasterized("bundleCardFrame", overflow: 3) { size in
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 29.6).fill(Color(hex: 0x00272A)).offset(y: 3)
-                RoundedRectangle(cornerRadius: 29.6).fill(LinearGradient(colors: [Color(hex: 0x349889), Color(hex: 0x0E5452)],
+                RoundedRectangle(cornerRadius: 29.6).fill(Color(hex: Skin.shopShopViewBundleCardFrameFill)).offset(y: 3)
+                RoundedRectangle(cornerRadius: 29.6).fill(LinearGradient(colors: [Color(hex: Skin.shopShopViewBundleCardFrameColors0), Color(hex: Skin.shopShopViewBundleCardFrameColors1)],
                                                                           startPoint: .top, endPoint: .bottom))
-                RoundedRectangle(cornerRadius: 26).fill(Color(hex: 0x0E5452)).padding(3)
+                RoundedRectangle(cornerRadius: 26).fill(Color(hex: Skin.shopShopViewBundleCardFrameFillV2)).padding(3)
                 ZStack {
-                    LinearGradient(colors: [Color(hex: 0xF3EADE), Color(hex: 0xF2E3CF)], startPoint: .top, endPoint: .bottom)
+                    LinearGradient(colors: [Color(hex: Skin.shopShopViewBundleCardFrameColors0V2), Color(hex: Skin.shopShopViewBundleCardFrameColors1V2)], startPoint: .top, endPoint: .bottom)
                     SunburstRays(centre: CGPoint(x: 90, y: 45), rays: 20).opacity(0.5)
                 }
                 .frame(width: size.width - 18, height: 92.9)
                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 18, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 18))
                 .offset(x: 9, y: 17)
-                Color(hex: 0xAA5D44).frame(width: size.width - 18, height: 1).offset(x: 9, y: 109.9)
-                Color(hex: 0xDEC9AF).frame(width: size.width - 18, height: 4.5).offset(x: 9, y: 110.9)
+                Color(hex: Skin.shopShopViewBundleCardFrame).frame(width: size.width - 18, height: 1).offset(x: 9, y: 109.9)
+                Color(hex: Skin.shopShopViewBundleCardFrameV2).frame(width: size.width - 18, height: 4.5).offset(x: 9, y: 110.9)
                 ZStack(alignment: .top) {
-                    Color(hex: 0x3CB9A9)
-                    Color(hex: 0x8ED4C5).frame(height: 2.5)
+                    Color(hex: Skin.shopShopViewBundleCardFrameV3)
+                    Color(hex: Skin.shopShopViewBundleCardFrameV4).frame(height: 2.5)
                 }
                 .frame(width: size.width - 18, height: 59.5)
                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 0, bottomLeadingRadius: 18, bottomTrailingRadius: 18, topTrailingRadius: 0))
@@ -751,8 +751,8 @@ private struct ItemsTile: View {
     let gold: Bool
     var body: some View {
         let n = boosters.values.max() ?? 0
-        let st = gold ? GameTextStyle.s2(20.5, -1.0, [0xFEFAF6, 0xFEF6F1, 0xF9F0E6], outline: 0x620B00, 1.4, drop: 0.71)
-                      : GameTextStyle.s2(18.5, 0.03, [0xFEFAF7, 0xFEF6F2, 0xF9F0E6], outline: 0x5A2801, 1.59, drop: 0.97)
+        let st = gold ? GameTextStyle.s2(20.5, -1.0, [Skin.shopShopViewItemsTileSt0, Skin.shopShopViewItemsTileSt1, Skin.shopShopViewItemsTileSt2], outline: Skin.shopShopViewItemsTileStOutline, 1.4, drop: 0.71)
+                      : GameTextStyle.s2(18.5, 0.03, [Skin.shopShopViewItemsTile0, Skin.shopShopViewItemsTile1, Skin.shopShopViewItemsTile2], outline: Skin.shopShopViewItemsTileOutline, 1.59, drop: 0.97)
         ZStack(alignment: .topLeading) {
             ShopTileFace(gold: gold, radius: gold ? 12.8 : 11.2)
             ArtImage(art: .boosterHint).placed(CGRect(18.0, 13.0, 34, 34))
@@ -767,8 +767,8 @@ private struct HeartTile: View {
     let seconds: Double
     let gold: Bool
     var body: some View {
-        let st = gold ? GameTextStyle.s2(20.1, 0.5, [0xFEF9F6, 0xFAF5EE, 0xF8F0E5], outline: 0x620B00, 1.4, drop: 0.71)
-                      : GameTextStyle.s2(18.5, 0.03, [0xFEFAF7, 0xFEF6F2, 0xF9F0E6], outline: 0x5A2801, 1.59, drop: 0.97)
+        let st = gold ? GameTextStyle.s2(20.1, 0.5, [Skin.shopShopViewHeartTileSt0, Skin.shopShopViewHeartTileSt1, Skin.shopShopViewHeartTileSt2], outline: Skin.shopShopViewHeartTileStOutline, 1.4, drop: 0.71)
+                      : GameTextStyle.s2(18.5, 0.03, [Skin.shopShopViewHeartTile0, Skin.shopShopViewHeartTile1, Skin.shopShopViewHeartTile2], outline: Skin.shopShopViewHeartTileOutline, 1.59, drop: 0.97)
         ZStack(alignment: .topLeading) {
             ShopTileFace(gold: gold, radius: gold ? 12.8 : 11.2)
             ArtImage(art: .heartInfiniteSmall).placed(CGRect(7.7, 9.0, 44, 40))
@@ -783,8 +783,8 @@ private struct ShopTileFace: View {
     let radius: CGFloat
     var body: some View {
         Rasterized("shopTile|\(gold)|\(radius)", overflow: 1) { size in
-            let face: UInt32 = gold ? 0xFCA800 : 0xF5DECC, strip: UInt32 = gold ? 0xFC8800 : 0xE8C2AA
-            let rim: UInt32 = gold ? 0xD97A00 : 0xC8967C
+            let face: UInt32 = gold ? Skin.shopShopViewShopTileFaceFaceGold : Skin.shopShopViewShopTileFaceFaceNotGold, strip: UInt32 = gold ? Skin.shopShopViewShopTileFaceXFCA800Gold : Skin.shopShopViewShopTileFaceXFCA800NotGold
+            let rim: UInt32 = gold ? Skin.shopShopViewShopTileFaceRimGold : Skin.shopShopViewShopTileFaceRimNotGold
             ZStack(alignment: .topLeading) {
                 RoundedRectangle(cornerRadius: radius).fill(Color(hex: rim))
                 RoundedRectangle(cornerRadius: radius - 1).fill(Color(hex: face)).padding(1.2)
@@ -802,18 +802,18 @@ private struct ShopTileFace: View {
 private struct CornerSash: View {
     let text: LocalizedStringResource
     var body: some View {
-        let st = GameTextStyle.s2(15, -0.2, [0xFFFFFF], outline: 0x761F48, 1.1, drop: 0.6)
+        let st = GameTextStyle.s2(15, -0.2, [Skin.shopShopViewCornerSashSt0], outline: Skin.shopShopViewCornerSashStOutline, 1.1, drop: 0.6)
         ZStack {
             Rasterized("cornerSash", overflow: 1) { size in
                 Path { p in
                     p.move(to: CGPoint(x: 0, y: size.height * 0.62)); p.addLine(to: CGPoint(x: size.width * 0.62, y: 0))
                     p.addLine(to: CGPoint(x: size.width, y: 0)); p.addLine(to: CGPoint(x: 0, y: size.height)); p.closeSubpath()
                 }
-                .fill(LinearGradient(colors: [Color(hex: 0xF53489), Color(hex: 0xDF147D), Color(hex: 0xAC1F6A)], startPoint: .topLeading,
+                .fill(LinearGradient(colors: [Color(hex: Skin.shopShopViewCornerSashColors0), Color(hex: Skin.shopShopViewCornerSashColors1), Color(hex: Skin.shopShopViewCornerSashColors2)], startPoint: .topLeading,
                                      endPoint: .bottomTrailing))
                 .overlay(Path { p in
                     p.move(to: CGPoint(x: 0, y: size.height)); p.addLine(to: CGPoint(x: size.width, y: 0))
-                }.stroke(Color(hex: 0x761F48), lineWidth: 2.4))
+                }.stroke(Color(hex: Skin.shopShopViewCornerSashStroke), lineWidth: 2.4))
             }
             GameText(text, style: st, maxWidth: 88).rotationEffect(.degrees(-45)).offset(x: -8, y: -8)
         }
@@ -830,7 +830,7 @@ private struct CoinTile: View {
 
     var body: some View {
         let arts: [UIArt] = [.coinPackTiny, .coinPackSmall, .coinPackMedium, .coinPackBig, .coinPackSuper, .coinPackGiant]
-        let amount = GameTextStyle.s2(27.6, -0.42, [0xFFFFFF], outline: 0x620B00, 2.4, drop: 1.2)
+        let amount = GameTextStyle.s2(27.6, -0.42, [Skin.shopShopViewCoinTileAmount0], outline: Skin.shopShopViewCoinTileAmountOutline, 2.4, drop: 1.2)
         ZStack(alignment: .topLeading) {
             CoinTileFace()
             ArtImage(art: arts[min(index, arts.count - 1)]).placed(CGRect(7.7, 12.0, 102, 66))
@@ -850,18 +850,18 @@ private struct CoinTileFace: View {
     var body: some View {
         Rasterized("coinTileFace", overflow: 2) { size in
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 16).fill(Color(hex: 0x512300)).offset(y: 2)
-                RoundedRectangle(cornerRadius: 16).fill(Color(hex: 0xD89B00))
+                RoundedRectangle(cornerRadius: 16).fill(Color(hex: Skin.shopShopViewCoinTileFaceFill)).offset(y: 2)
+                RoundedRectangle(cornerRadius: 16).fill(Color(hex: Skin.shopShopViewCoinTileFaceFillV2))
                 ZStack {
-                    Color(hex: 0xF7EFE1)
+                    Color(hex: Skin.shopShopViewCoinTileFace)
                     SunburstRays(centre: CGPoint(x: size.width / 2, y: 40), rays: 18).opacity(0.7)
                 }
                 .frame(width: size.width - 3, height: 93)
                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 15, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 15))
                 .offset(x: 1.5, y: 1.5)
                 ZStack(alignment: .top) {
-                    Color(hex: 0xFDC306)
-                    Color(hex: 0xFCF201).frame(height: 2.5)
+                    Color(hex: Skin.shopShopViewCoinTileFaceV2)
+                    Color(hex: Skin.shopShopViewCoinTileFaceV3).frame(height: 2.5)
                 }
                 .frame(width: size.width - 3, height: size.height - 96)
                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 0, bottomLeadingRadius: 15, bottomTrailingRadius: 15, topTrailingRadius: 0))
@@ -880,7 +880,7 @@ private struct ShopHeaderCoins: View {
     var body: some View {
         let t = app.tuning.ui.tokens
         let coins = CoinPillDisplay.shared.shown(live ? app.store.state : HomeLive.read(app))
-        let st = GameTextStyle.s2(18.7, -0.17, [0x00474D]).sized(18.7 * m.s)
+        let st = GameTextStyle.s2(18.7, -0.17, [Skin.shopShopViewShopHeaderCoinsSt0]).sized(18.7 * m.s)
         let digits = m.point(CGPoint(x: 76.4, y: 82.6), .top)
         ZStack(alignment: .topLeading) {
             Rasterized("shopHeaderPill") { _ in TopPill(t: t, n: 5.3) }.placed(m.rect(CGRect(5.0, 57.7, 110.4, 38.0), .top))

@@ -25,12 +25,12 @@ struct HomePlayButton: View {
             case .superHard: return (ChromePalette.purple, "home.playSuperHard")
             }
         }()
-        let fallbackOutline: UInt32 = tag == .normal ? 0x924500 : tag == .hard ? 0x610B00 : 0x5C0B32
-        let label = t.text(textID, GameTextStyle(size: 48.8, tracking: -3.25, fill: [Color(hex: 0xFFFBF2)],
+        let fallbackOutline: UInt32 = tag == .normal ? Skin.homePlayButtonHomePlayButtonFallbackOutlineNormal : tag == .hard ? Skin.homePlayButtonHomePlayButtonFallbackOutlineHard : Skin.homePlayButtonHomePlayButtonFallbackOutlineNotHard
+        let label = t.text(textID, GameTextStyle(size: 48.8, tracking: -3.25, fill: [Color(hex: Skin.homePlayButtonHomePlayButtonLabelFill0)],
                                                  outline: Color(hex: fallbackOutline), outlineWidth: 2.2, drop: 2.2))
             .sized(48.8 * m.s)
         let base = m.point(CGPoint(x: 197.0, y: 686.3), .bottom)
-        let frameColors = t.colors("home.playFrame", [0x006963, 0x38B2A2, 0x38AD9D, 0x00857E])
+        let frameColors = t.colors("home.playFrame", [Skin.homePlayButtonHomePlayFrame0, Skin.homePlayButtonHomePlayFrame1, Skin.homePlayButtonHomePlayFrame2, Skin.homePlayButtonHomePlayFrame3])
         return ZStack(alignment: .topLeading) {
             Superellipse(n: t.superellipseN("home.playFrame", 4.4))
                 .fill(LinearGradient(stops: [.init(color: frameColors[0], location: 0),
@@ -67,13 +67,13 @@ struct DifficultyTag: View {
     var body: some View {
         let t = app.tuning.ui.tokens
         let hard = tag == .hard
-        let face = hard ? t.colors("home.ribbonHard", [0xEE5E4A, 0xD03726, 0xA91A0F]) : t.colors("home.ribbonSuperHard", [0xD32D7C, 0x9B1960, 0x6D1840])
-        let outline = hard ? t.color("home.ribbonHardOutline", 0x610B00) : t.color("home.ribbonSuperHardOutline", 0x5C0B32)
+        let face = hard ? t.colors("home.ribbonHard", [Skin.homePlayButtonHomeRibbonHard0, Skin.homePlayButtonHomeRibbonHard1, Skin.homePlayButtonHomeRibbonHard2]) : t.colors("home.ribbonSuperHard", [Skin.homePlayButtonHomeRibbonSuperHard0, Skin.homePlayButtonHomeRibbonSuperHard1, Skin.homePlayButtonHomeRibbonSuperHard2])
+        let outline = hard ? t.color("home.ribbonHardOutline", Skin.homePlayButtonHomeRibbonHardOutline) : t.color("home.ribbonSuperHardOutline", Skin.homePlayButtonHomeRibbonSuperHardOutline)
         let style = hard
-            ? t.text("home.hardRibbon", GameTextStyle(size: 17, tracking: 0.2, fill: [Color(hex: 0xFFFAEF)], outline: Color(hex: 0x610B00),
+            ? t.text("home.hardRibbon", GameTextStyle(size: 17, tracking: 0.2, fill: [Color(hex: Skin.homePlayButtonHomeHardRibbonFill0)], outline: Color(hex: Skin.homePlayButtonHomeHardRibbonOutline),
                                                       outlineWidth: 1.58, drop: 0.35))
-            : t.text("home.superHardRibbon", GameTextStyle(size: 15.8, tracking: -0.43, fill: [Color(hex: 0xFFFAEF)],
-                                                           outline: Color(hex: 0x5C0B32), outlineWidth: 0.93, drop: 0.88))
+            : t.text("home.superHardRibbon", GameTextStyle(size: 15.8, tracking: -0.43, fill: [Color(hex: Skin.homePlayButtonHomeSuperHardRibbonFill0)],
+                                                           outline: Color(hex: Skin.homePlayButtonHomeSuperHardRibbonOutline), outlineWidth: 0.93, drop: 0.88))
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height
             ZStack(alignment: .topLeading) {

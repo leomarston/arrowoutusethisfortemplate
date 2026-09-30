@@ -19,10 +19,10 @@ struct BoosterBuyPopup: View {
         let t = app.tuning.ui.tokens
         let pack = ShellEconomy.rules(app).economy.boosterPack
         let freeze = booster == .freeze
-        let line = GameTextStyle.s2(21, -0.6, [0x5A2801])
-        let buy = GameTextStyle.s2(35.5, -0.92, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.52, drop: 1.84)
-        let count = GameTextStyle.s2(24.0, -0.6, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.3, drop: 1.2)
-        let priceStyle = GameTextStyle.s2(35.7, 1.1, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.61, drop: 1.8)
+        let line = GameTextStyle.s2(21, -0.6, [Skin.popupsBoosterBuyPopupBoosterBuyPopupLine0])
+        let buy = GameTextStyle.s2(35.5, -0.92, [Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy0, Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy1, Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupBuyOutline, 1.52, drop: 1.84)
+        let count = GameTextStyle.s2(24.0, -0.6, [Skin.popupsBoosterBuyPopupBoosterBuyPopupCount0, Skin.popupsBoosterBuyPopupBoosterBuyPopupCount1, Skin.popupsBoosterBuyPopupBoosterBuyPopupCount2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupCountOutline, 1.3, drop: 1.2)
+        let priceStyle = GameTextStyle.s2(35.7, 1.1, [Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle0, Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle1, Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyleOutline, 1.61, drop: 1.8)
         let face = CGRect(80.7, 451.7, 231.9, 86.4)
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: 5.8, t: t, rivetInset: CGPoint(x: 12.7, y: 82.5), rivetAlong: 75).placed(CGRect(10.3, 164.5, 372.6, 425.0))

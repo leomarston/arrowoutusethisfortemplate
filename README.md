@@ -250,6 +250,8 @@ apps/mazeout/tools/test.sh A -only-testing:ArrowOutTests      # unit tests only
 apps/mazeout/tools/core.sh                                    # PathCore on macOS (swift build + swift test), no simulator
 apps/mazeout/tools/levels/content_tests.sh                    # the level bundle, validator, 1000 endless levels
 python3 apps/mazeout/tools/strings/build.py --check           # the string catalogue is up to date with the TSVs
+python3 apps/mazeout/tools/skin/build.py --check             # skin colours: generated Swift up to date (docs/SKIN.md)
+python3 apps/mazeout/tools/skin/build.py --check-literals    # no colour literal in the UI code outside skin/colors.json
 python3 apps/mazeout/tools/release/meta.py audit              # store texts, keywords, captions, IAP catalogue
 python3 apps/mazeout/tools/release/meta.py iap-check          # iap.json == rules.json:shop == ArrowOut.storekit
 sh apps/mazeout/tools/bench/release_gates.sh <Release .app> [<Debug .app>]   # the release-binary gates (brand, provenance, SDKs, token)
@@ -268,6 +270,12 @@ repo's absolute path (GAMEPROMPT.md "OWNER PRE-FLIGHT"). Details: `docs/lessons/
 ---
 
 ## 4. Start a new game from this repo
+
+**Short path: `docs/TEMPLATE.md`.** Inside one repo, `python3 tools/game.py new <slug> --from mazeout --name "Brand"
+--bundle com.manycode.<x>` scaffolds `apps/<slug>` and does the rename below for you; the game's identity, store, flags,
+events and brand bans then live in ONE file, `apps/<slug>/game.yml` (`game.py generate` writes it into every place in
+the checklist, `game.py doctor --game <slug>` checks the whole folder). The steps below are the manual route and the
+reference for what those commands touch.
 
 ### Step 1: copy the repo on GitHub
 This repository is marked as a **template** on GitHub. On its page press **Use this template > Create a new repository**,
@@ -304,6 +312,7 @@ Do the "OWNER PRE-FLIGHT" list at the top of `GAMEPROMPT.md` first (phone, Mac, 
   copying what you reuse (GAMEPROMPT §3.5 / §8.0). Once the new game ships, `apps/mazeout/` can be deleted from that repo.
 
 ### Step 4: the RENAME CHECKLIST
+`tools/game.py` covers rows 1-4, 10-12 and 17-20 (`new` renames, `generate` writes, `doctor` verifies); the rest stay manual.
 Counts are from a grep of the Arrow Out tree on 2026-09-30 (2,575 git files, about 220 MB), split into
 **code+config** (everything except Markdown notes, logs, `research/`, `art/review/`, `design/spike-*`,
 `design/publish/verify/`) and **all files**, plus the files of this repo outside `apps/mazeout`. The Markdown history
@@ -370,6 +379,8 @@ After renaming: `sh apps/<slug>/tools/gen.sh`, build, run the tests, and grep ag
 **Replace (specific to Arrow Out)**
 - The rules of play: the board code in `App/Board/` and `PathCore`'s Grid / Rules / Solver / Content, levels
   (`App/Resources/Levels/`, `design/levels.json`, `design/tools/gen_levels.py`'s parameters), tutorials.
+- The UI colours: `skin/colors.json` (palette + tokens; `tools/skin/recolor.py` moves whole families), see
+  `docs/SKIN.md`.
 - All art (`art/out/`, `art/ui/out/`, the app icon), fonts if the new original looks different, sounds and music.
 - Every text: `App/Resources/Strings/*.tsv`, store texts (`design/publish/store/`), captions, keywords, screenshots,
   the IAP catalogue and prices (`design/publish/iap.json`, `rules.json:shop`, the `.storekit` file).

@@ -75,12 +75,12 @@ struct SocJumpPill: View {
     let action: () -> Void
 
     var body: some View {
-        let st = GameTextStyle.s2(19.2, -0.5, [0xE0E0E0], outline: 0x002226, 1.5, drop: 0.8)
+        let st = GameTextStyle.s2(19.2, -0.5, [Skin.socialLeaderboardViewsSocJumpPillSt0], outline: Skin.socialLeaderboardViewsSocJumpPillStOutline, 1.5, drop: 0.8)
         let title: LocalizedStringResource = jump == .top ? "Top" : "Bottom"
         GameButton(id: "leaderboard.jump", label: title, action: action) {
             ZStack {
-                RoundedRectangle(cornerRadius: 9).fill(Color(hex: 0x003C40, 0.55))
-                RoundedRectangle(cornerRadius: 9).stroke(Color(hex: 0x66C2BD), lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: 9).fill(Color(hex: Skin.socialLeaderboardViewsSocJumpPillFill, 0.55))
+                RoundedRectangle(cornerRadius: 9).stroke(Color(hex: Skin.socialLeaderboardViewsSocJumpPillStroke), lineWidth: 1.5)
                 GameText(title, style: st, maxWidth: 70)
             }
         }
@@ -139,7 +139,7 @@ struct SocWeeklyHeader: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            LinearGradient(colors: [Color(hex: 0x009C8E), Color(hex: 0x009086)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(hex: Skin.socialLeaderboardViewsSocWeeklyHeaderColors0), Color(hex: Skin.socialLeaderboardViewsSocWeeklyHeaderColors1)], startPoint: .top, endPoint: .bottom)
                 .placed(CGRect(0, y(233.6), 393, 270))
             SocRails().placed(CGRect(0, y(200.2), 393, 33.4))
             SocEventLogo(title: "Weekly Cup", frame: CGRect(55, y(191), 287, 54), size: 44)
@@ -169,8 +169,8 @@ struct SocInfoDisc: View {
     var body: some View {
         Rasterized("socInfoDisc", overflow: 1) { size in
             ZStack {
-                Circle().fill(Color(hex: 0x003C40))
-                Circle().fill(LinearGradient(colors: [Color(hex: 0x54C6B7), Color(hex: 0x27AC9D), Color(hex: 0x00887E)],
+                Circle().fill(Color(hex: Skin.socialLeaderboardViewsSocInfoDiscFill))
+                Circle().fill(LinearGradient(colors: [Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors0), Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors1), Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors2)],
                                              startPoint: .top, endPoint: .bottom)).padding(1.5)
                 Capsule().fill(Color.white).frame(width: size.width * 0.14, height: size.height * 0.36).offset(y: size.height * 0.1)
                 Circle().fill(Color.white).frame(width: size.width * 0.16, height: size.width * 0.16).offset(y: -size.height * 0.2)
@@ -199,13 +199,13 @@ struct SocPodiumSlot: View {
         let lilac = r == 2
         // VERIFIED meta-013: "player_qqpvpjp" shrinks to 10.9 pt of 21 (minScale 0.5)
         let nameStyle: GameTextStyle = {
-            var st = GameTextStyle.s2(21, -0.3, [lilac ? 0xEBF6F2 : 0xF6E9D8], outline: lilac ? 0x153032 : 0x7D0C02, 1.6, drop: 1.0)
+            var st = GameTextStyle.s2(21, -0.3, [lilac ? Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStLilac0 : Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStNotLilac0], outline: lilac ? Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStOutlineLilac : Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStOutlineNotLilac, 1.6, drop: 1.0)
             st.minScale = 0.5
             return st
         }()
-        let digit = GameTextStyle.s2(20, 0, [0xFFFFFF], outline: r == 1 ? 0x985316 : r == 2 ? 0x325653 : 0x8C2D18, 1.6, drop: 0.8)
-        let amount = GameTextStyle.s2(15.6, -0.3, [0xF6E9D8], outline: 0x7D0C02, 1.5, drop: 0.8)
-        let scoreSt = GameTextStyle.s2(16.2, -0.3, [0xF6E9D8], outline: lilac ? 0x153032 : 0x7D0C02, 1.3, drop: 0.7)
+        let digit = GameTextStyle.s2(20, 0, [Skin.socialLeaderboardViewsSocPodiumSlotDigit0], outline: r == 1 ? Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineR1 : r == 2 ? Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineR2 : Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineNotR2, 1.6, drop: 0.8)
+        let amount = GameTextStyle.s2(15.6, -0.3, [Skin.socialLeaderboardViewsSocPodiumSlotAmount0], outline: Skin.socialLeaderboardViewsSocPodiumSlotAmountOutline, 1.5, drop: 0.8)
+        let scoreSt = GameTextStyle.s2(16.2, -0.3, [Skin.socialLeaderboardViewsSocPodiumSlotScoreSt0], outline: lilac ? Skin.socialLeaderboardViewsSocPodiumSlotScoreStOutlineLilac : Skin.socialLeaderboardViewsSocPodiumSlotScoreStOutlineNotLilac, 1.3, drop: 0.7)
         ZStack(alignment: .topLeading) {
             SocAvatar(index: row.player.avatar, me: row.isMe).placed(CGRect(avatar.minX, y(avatar.minY), avatar.width, avatar.height))
             GameText(verbatim: "\(r)", style: digit).at(hex.x, digit.capCentre(baseline: y(hex.y) + 7.1))

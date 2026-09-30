@@ -43,15 +43,15 @@ struct WinPanel: View {
             }
             CoinGlow(tier: tier).placed(t.frame("win.glow", CGRect(40, 250, 313, 250))).allowsHitTesting(false)
             TokenText(id: "win.perfect.title", source: .copy("Perfect!"),
-                      style: .s2(45.2, -1.62, [0xFFFAF0, 0xFFF5E1, 0xFDEDCF], outline: tier.textOutline, 2.43, drop: 4.21),
+                      style: .s2(45.2, -1.62, [Skin.popupsWinPanelWinPanelStyle0, Skin.popupsWinPanelWinPanelStyle1, Skin.popupsWinPanelWinPanelStyle2], outline: tier.textOutline, 2.43, drop: 4.21),
                       baseline: 290.4, centreX: 196.8, maxWidth: 300, rings: [(tier.perfectEdge, 5.7), (tier.perfectRing, 5.0)])
             TokenText(id: "win.rewardsLabel.label", source: .copy("Rewards:"),
-                      style: .s2(25.9, -1.52, [0xFFFFFF], outline: tier.textOutline, 1.35, drop: 1.25),
+                      style: .s2(25.9, -1.52, [Skin.popupsWinPanelWinPanelStyle0V2], outline: tier.textOutline, 1.35, drop: 1.25),
                       baseline: 332.8, centreX: 199.5, maxWidth: 240)
             InkImage(art: .coinStackReward, ink: t.frame("win.coinsInk", CGRect(136.4, 363.3, 132.6, 105.2)))
             WinTwinkles(t: t)
             TokenText(id: "win.amountDigits.amt", source: .number("\(summary.reward)"),
-                      style: .s2(56.5, -3.73, [0xFFFFFF], outline: tier.textOutline, 2.6, drop: 1.8),
+                      style: .s2(56.5, -3.73, [Skin.popupsWinPanelWinPanelStyle0V2], outline: tier.textOutline, 2.6, drop: 1.8),
                       baseline: 471.1, centreX: 256.4)
                 .accessibilityIdentifier("win.reward")
                 .accessibilityValue(Text(verbatim: "\(summary.reward)"))
@@ -61,7 +61,7 @@ struct WinPanel: View {
                 GameButton(id: "win.continue", label: "Continue", clicks: false, action: { cont(PopupResult.primary) }) {
                     ZStack(alignment: .topLeading) {
                         ChromeButtonFace(colors: .green, n: t.superellipseN("win.continue", 5.0))
-                        let ls = t.text("win.continue.label", .s2(38.9, 0.05, [0xFFFBF3, 0xFFF8EA, 0xFDF4DF], outline: 0x924500, 1.74, drop: 1.8))
+                        let ls = t.text("win.continue.label", .s2(38.9, 0.05, [Skin.popupsWinPanelWinContinueLabel0, Skin.popupsWinPanelWinContinueLabel1, Skin.popupsWinPanelWinContinueLabel2], outline: Skin.popupsWinPanelWinContinueLabelOutline, 1.74, drop: 1.8))
                         let lp = t.textPoint("win.continue.label", baseline: 551.2, centreX: 197.2)
                         GameText("Continue", style: ls, maxWidth: t.textMaxWidth("win.continue.label", 176))
                             .at(lp.x - face.minX, ls.capCentre(baseline: lp.baseline) - face.minY)
@@ -120,21 +120,21 @@ struct WinTier: Equatable {
     let tag: LevelTag
     init(_ tag: LevelTag) { self.tag = tag }
     var key: String { tag.rawValue }
-    var textOutline: UInt32 { tag == .normal ? 0x00373B : (tag == .hard ? 0x6A0C03 : 0x56092E) }
-    var perfectRing: UInt32 { tag == .normal ? 0x61CEBE : (tag == .hard ? 0xF08776 : 0xFC81AF) }
-    var perfectEdge: UInt32 { tag == .normal ? 0x004C4F : (tag == .hard ? 0x751009 : 0x5C0C33) }
+    var textOutline: UInt32 { tag == .normal ? Skin.popupsWinPanelWinTierTextOutlineNormal : (tag == .hard ? Skin.popupsWinPanelWinTierTextOutlineHard : Skin.popupsWinPanelWinTierTextOutlineNotHard) }
+    var perfectRing: UInt32 { tag == .normal ? Skin.popupsWinPanelWinTierPerfectRingNormal : (tag == .hard ? Skin.popupsWinPanelWinTierPerfectRingHard : Skin.popupsWinPanelWinTierPerfectRingNotHard) }
+    var perfectEdge: UInt32 { tag == .normal ? Skin.popupsWinPanelWinTierPerfectEdgeNormal : (tag == .hard ? Skin.popupsWinPanelWinTierPerfectEdgeHard : Skin.popupsWinPanelWinTierPerfectEdgeNotHard) }
     /// outline, bar (top, bottom), bumper, groove, field, rivet
     var frame: (outline: UInt32, bar: [UInt32], bumper: [UInt32], groove: UInt32, field: UInt32, rivet: UInt32) {
         switch tag {
-        case .normal: return (0x004046, [0x007C76, 0x007873], [0x56C9B8, 0x40BCAC, 0x28A494], 0x003C41, 0x00847E, 0x51B2A4)
-        case .hard: return (0x5A0A01, [0xAF2317, 0xA01B11], [0xE35A49, 0xD44434, 0xBF3224], 0x851108, 0xC1291A, 0xE37667)
-        case .superHard: return (0x510E2D, [0x9E1260, 0x901156], [0xEB448A, 0xD2297C, 0xB6196E], 0x711341, 0xB6046C, 0xEF7BA7)
+        case .normal: return (Skin.popupsWinPanelWinTierFrameNormal, [Skin.popupsWinPanelWinTierFrameNormal0, Skin.popupsWinPanelWinTierFrameNormal1], [Skin.popupsWinPanelWinTierFrameNormal0V2, Skin.popupsWinPanelWinTierFrameNormal1V2, Skin.popupsWinPanelWinTierFrameNormal2], Skin.popupsWinPanelWinTierFrameNormalV2, Skin.popupsWinPanelWinTierFrameNormalV3, Skin.popupsWinPanelWinTierFrameNormalV4)
+        case .hard: return (Skin.popupsWinPanelWinTierFrameHard, [Skin.popupsWinPanelWinTierFrameHard0, Skin.popupsWinPanelWinTierFrameHard1], [Skin.popupsWinPanelWinTierFrameHard0V2, Skin.popupsWinPanelWinTierFrameHard1V2, Skin.popupsWinPanelWinTierFrameHard2], Skin.popupsWinPanelWinTierFrameHardV2, Skin.popupsWinPanelWinTierFrameHardV3, Skin.popupsWinPanelWinTierFrameHardV4)
+        case .superHard: return (Skin.popupsWinPanelWinTierFrameSuperHard, [Skin.popupsWinPanelWinTierFrameSuperHard0, Skin.popupsWinPanelWinTierFrameSuperHard1], [Skin.popupsWinPanelWinTierFrameSuperHard0V2, Skin.popupsWinPanelWinTierFrameSuperHard1V2, Skin.popupsWinPanelWinTierFrameSuperHard2], Skin.popupsWinPanelWinTierFrameSuperHardV2, Skin.popupsWinPanelWinTierFrameSuperHardV3, Skin.popupsWinPanelWinTierFrameSuperHardV4)
         }
     }
-    var closeRing: [UInt32] { tag == .hard ? [0xBA382B, 0x941B11, 0x6A0C03] : [0xC7387A, 0x961C5D, 0x66113A] }
+    var closeRing: [UInt32] { tag == .hard ? [Skin.popupsWinPanelWinTierCloseRing0, Skin.popupsWinPanelWinTierCloseRing1, Skin.popupsWinPanelWinTierCloseRing2] : [Skin.popupsWinPanelWinTierCloseRing0V2, Skin.popupsWinPanelWinTierCloseRing1V2, Skin.popupsWinPanelWinTierCloseRing2V2] }
     /// the popup well recipe in the tier colour (VERIFIED 020 / 037 / 063 at y 541)
     var offerWell: OfferWell.Palette { tag == .normal ? .blue : (tag == .hard ? .red : .purple) }
-    var glow: [UInt32] { tag == .normal ? [0x5CC9BC, 0x009C90] : (tag == .hard ? [0xEF6B55, 0xD23C2B] : [0xF85D9B, 0xCE0D77]) }
+    var glow: [UInt32] { tag == .normal ? [Skin.popupsWinPanelWinTierGlow0, Skin.popupsWinPanelWinTierGlow1] : (tag == .hard ? [Skin.popupsWinPanelWinTierGlowHard0, Skin.popupsWinPanelWinTierGlowHard1] : [Skin.popupsWinPanelWinTierGlowNotHard0, Skin.popupsWinPanelWinTierGlowNotHard1]) }
 }
 
 /// S1's PopupPanelFrame recipe with a tier palette (red / purple win panels).
@@ -231,8 +231,8 @@ struct TierTagRibbon: View {
 
     var body: some View {
         let hard = tag == .hard
-        let style = hard ? t.text("winHard.tagRibbon.tag", .s2(23.4, -0.96, [0xFFFFFF], outline: 0x650D05, 1.56, drop: 1.04))
-                         : t.text("winSuperHard.tagRibbon.tag", .s2(23.2, -0.65, [0xFFFFFF], outline: 0x56092E, 1.87, drop: 0.71))
+        let style = hard ? t.text("winHard.tagRibbon.tag", .s2(23.4, -0.96, [Skin.popupsWinPanelWinHardTagRibbonTag0], outline: Skin.popupsWinPanelWinHardTagRibbonTagOutline, 1.56, drop: 1.04))
+                         : t.text("winSuperHard.tagRibbon.tag", .s2(23.2, -0.65, [Skin.popupsWinPanelWinSuperHardTagRibbonTag0], outline: Skin.popupsWinPanelWinSuperHardTagRibbonTagOutline, 1.87, drop: 0.71))
         let base = CGFloat(hard ? t.number("text.winHard.tagRibbon.tag.baseline", 137.5) : t.number("text.winSuperHard.tagRibbon.tag.baseline", 138.7))
         let label: LocalizedStringResource = hard ? "Hard Level" : "Super Hard"
         let layout = GameTextLayout.make(String(localized: label), postScriptName: style.postScriptName, size: style.size,
@@ -256,11 +256,11 @@ private struct TagPlate: View {
     let hard: Bool
     var body: some View {
         ZStack {
-            TagShape().fill(Color(hex: hard ? 0x6C0D05 : 0x5C0532))
-            TagShape().fill(Color(hex: hard ? 0xCF4C3D : 0xB9006F))
+            TagShape().fill(Color(hex: hard ? Skin.popupsWinPanelTagPlateFillHard : Skin.popupsWinPanelTagPlateFillNotHard))
+            TagShape().fill(Color(hex: hard ? Skin.popupsWinPanelTagPlateFillHardV2 : Skin.popupsWinPanelTagPlateFillNotHardV2))
                 .padding(EdgeInsets(top: 2.2, leading: 2.4, bottom: 0, trailing: 2.4))
-            TagShape().fill(LinearGradient(colors: hard ? [Color(hex: 0xC22719), Color(hex: 0xBB2416)]
-                                                        : [Color(hex: 0xA20063), Color(hex: 0xA20063)],
+            TagShape().fill(LinearGradient(colors: hard ? [Color(hex: Skin.popupsWinPanelTagPlateColorsHard0), Color(hex: Skin.popupsWinPanelTagPlateColorsHard1)]
+                                                        : [Color(hex: Skin.popupsWinPanelTagPlateColorsNotHard0), Color(hex: Skin.popupsWinPanelTagPlateColorsNotHard1)],
                                            startPoint: .top, endPoint: .bottom))
                 .padding(EdgeInsets(top: 3.4, leading: 3.6, bottom: 0, trailing: 3.6))
                 .blur(radius: 0.6)
@@ -293,7 +293,7 @@ struct Skull: View {
     var body: some View {
         Rasterized("skull|\(hard)", overflow: 2) { size in
             let w = size.width, h = size.height
-            let ink = Color(hex: hard ? 0x450A00 : 0x3A0A1F)
+            let ink = Color(hex: hard ? Skin.popupsWinPanelSkullInkHard : Skin.popupsWinPanelSkullInkNotHard)
             ZStack {
                 if !hard {
                     // Super Hard: skull and crossbones (VERIFIED 063)
@@ -311,7 +311,7 @@ struct Skull: View {
                     Ellipse().frame(width: w * 0.8, height: h * 0.62).offset(y: -h * 0.1)
                     RoundedRectangle(cornerRadius: w * 0.09).frame(width: w * 0.44, height: h * 0.27).offset(y: h * 0.27)
                 }
-                .foregroundStyle(LinearGradient(colors: [Color.white, Color(hex: 0xE1E8E6)], startPoint: .top, endPoint: .bottom))
+                .foregroundStyle(LinearGradient(colors: [Color.white, Color(hex: Skin.popupsWinPanelSkullColors1)], startPoint: .top, endPoint: .bottom))
                 HStack(spacing: w * 0.1) {
                     Ellipse().fill(ink).frame(width: w * 0.24, height: h * 0.22)
                     Ellipse().fill(ink).frame(width: w * 0.24, height: h * 0.22)

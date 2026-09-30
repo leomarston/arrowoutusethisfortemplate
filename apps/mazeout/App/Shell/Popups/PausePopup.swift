@@ -26,15 +26,15 @@ struct PausePopup: View {
             PanelPairButton(id: "popup.pause.primary", title: "Resume", colors: .green, textID: "pause.resume",
                             frame: t.frame("pause.resume", CGRect(60.4, 486.1, 125.1, 89.1)), baseline: 539.5, centreX: 123.6,
                             fallback: GameTextStyle(size: 30.5, tracking: -1.0,
-                                                    fill: [Color(hex: 0xFFFBF3), Color(hex: 0xFFF8EA), Color(hex: 0xFDF4E0)],
-                                                    outline: Color(hex: 0x924500), outlineWidth: 1.42, drop: 1.06)) {
+                                                    fill: [Color(hex: Skin.popupsPausePopupPausePopupFill0), Color(hex: Skin.popupsPausePopupPausePopupFill1), Color(hex: Skin.popupsPausePopupPausePopupFill2)],
+                                                    outline: Color(hex: Skin.popupsPausePopupPausePopupOutline), outlineWidth: 1.42, drop: 1.06)) {
                 answer(PopupResult.primary)
             }
             PanelPairButton(id: "popup.pause.secondary", title: "Quit", colors: .red, textID: "pause.quit",
                             frame: t.frame("pause.quit", CGRect(206.5, 486.1, 125.1, 89.1)), baseline: 540.8, centreX: 269.1,
                             fallback: GameTextStyle(size: 30.5, tracking: -0.5,
-                                                    fill: [Color(hex: 0xFFFBF3), Color(hex: 0xFFF8E8), Color(hex: 0xFDF4DF)],
-                                                    outline: Color(hex: 0x610B00), outlineWidth: 1.47, drop: 1.4)) {
+                                                    fill: [Color(hex: Skin.popupsPausePopupPausePopupFill0), Color(hex: Skin.popupsPausePopupPausePopupFill1V2), Color(hex: Skin.popupsPausePopupPausePopupFill2V2)],
+                                                    outline: Color(hex: Skin.popupsPausePopupPausePopupOutlineV2), outlineWidth: 1.47, drop: 1.4)) {
                 answer(PopupResult.secondary)
             }
             PopupTitle(title: "Paused", frame: t.frame("pause.ribbon", CGRect(60.1, 190.5, 274.2, 90.4)), t: t)
@@ -60,7 +60,7 @@ struct SettingRow: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let style = t.text("pause.rowLabel", GameTextStyle(size: 25.5, tracking: 0, fill: [Color(hex: 0x5A2801)]))
+        let style = t.text("pause.rowLabel", GameTextStyle(size: 25.5, tracking: 0, fill: [Color(hex: Skin.popupsPausePopupPauseRowLabelFill0)]))
         let left = labelLeft ?? CGFloat(app.tuning.ui.file.double("text.pause.rowLabel.left", 114.4))
         let text = GameText(label, style: style, maxWidth: toggle.minX - left - 6)
         ZStack(alignment: .topLeading) {

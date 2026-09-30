@@ -1,5 +1,6 @@
 // swiftui_render: render the SwiftUI chrome views (art/ui/code/*.swift) to @3x PNGs with ImageRenderer (macOS 14+).
-//   swiftc -O -parse-as-library -o build/ui-art/swiftuirender art/ui/code/GlossyChrome.swift art/ui/tools/swiftui_render.swift
+//   swiftc -O -parse-as-library -o build/ui-art/swiftuirender art/ui/code/GlossyChrome.swift \
+//     App/Shell/Components/SkinColors.generated.swift art/ui/tools/swiftui_render.swift   (the skin's colour constants)
 //   build/ui-art/swiftuirender OUTDIR            -> OUTDIR/<case>.png (exact frame x 3, transparent)
 import SwiftUI
 import AppKit

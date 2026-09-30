@@ -29,7 +29,7 @@ struct ClaimRewardPopup: View {
                 Color.clear
                 LetterPopTitle(text: ClaimTitle.text(app.tuning.ui.tokens, id: "claim.title.title"),
                                style: ClaimTitle.style(app.tuning.ui.tokens, id: "claim.title.title",
-                                                       .s2(45.2, -0.83, [0xFFDC13, 0xFFC402, 0xFFB700], outline: 0xB24900, 0.94, drop: 1.81)),
+                                                       .s2(45.2, -0.83, [Skin.popupsClaimRewardPopupClaimRewardPopupStyle0, Skin.popupsClaimRewardPopupClaimRewardPopupStyle1, Skin.popupsClaimRewardPopupClaimRewardPopupStyle2], outline: Skin.popupsClaimRewardPopupClaimRewardPopupOutline, 0.94, drop: 1.81)),
                                baseline: 187.4, centreX: 196.8, maxWidth: 360, u: u)
                     .accessibilityIdentifier("claim.title.title")
                 let _ = beats.fire("rewardLand", at: 0.40, u: u) { app.haptics.play(.rewardPop) }
@@ -39,7 +39,7 @@ struct ClaimRewardPopup: View {
                     ClaimSparkles(u: u, t: t)
                 }
                 TokenText(id: "claim.tap.tap", source: .copy("Tap to Claim"),
-                          style: .s2(31.5, -0.48, [0xFFFFFF], outline: 0x56092E, 1.23, drop: 1.17),
+                          style: .s2(31.5, -0.48, [Skin.popupsClaimRewardPopupClaimRewardPopupStyle0V2], outline: Skin.popupsClaimRewardPopupClaimRewardPopupOutlineV2, 1.23, drop: 1.17),
                           baseline: 701.9, centreX: 195.8, maxWidth: 300)
             }
         }
@@ -172,16 +172,16 @@ private struct ClaimRewardRow: View, Equatable {
         case .unlimited(let s):
             InkImage(art: .heartInfinite, ink: t.frame("claim.heart", CGRect(159.8, 374.4, 74.1, 64.7)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claim.amount.amt", source: .number(ClaimItem.duration(s)),
-                      style: .s2(27.6, -1.03, [0xFFFFFF], outline: 0xAE190B, 1.61, drop: 1.16), baseline: 459.7, centreX: 196.5 + dx)
+                      style: .s2(27.6, -1.03, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewUnlimitedStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewUnlimitedOutline, 1.61, drop: 1.16), baseline: 459.7, centreX: 196.5 + dx)
         case .coins(let n):
             InkImage(art: .coinPileSmall, ink: t.frame("claimCoins.coins", CGRect(158.5, 382.7, 76.7, 60.1)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claimCoins.amount.amt", source: .number("\(n)"),
-                      style: .s2(27.2, -1.0, [0xFFFFFF], outline: 0x002226, 2.61, drop: 0.25), baseline: 460.4, centreX: 196.5 + dx)
+                      style: .s2(27.2, -1.0, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewCoinsStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewCoinsOutline, 2.61, drop: 0.25), baseline: 460.4, centreX: 196.5 + dx)
         case .booster(let id, let n):
             InkImage(art: id == BoosterID.freeze.rawValue ? .boosterFreeze : .boosterHint,
                      ink: t.frame("claimBulb.icon", CGRect(174.8, 377.0, 43.7, 63.4)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claimBulb.amount.x", source: .number("x\(n)"),
-                      style: .s2(15.2, 0.3, [0xFFFFFF], outline: 0x002226, 1.3, drop: 0.6), baseline: 448.3, centreX: 195.3 + dx)
+                      style: .s2(15.2, 0.3, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewBoosterStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewBoosterOutline, 1.3, drop: 0.6), baseline: 448.3, centreX: 195.3 + dx)
         }
     }
 }
@@ -202,7 +202,7 @@ private struct ClaimSparkles: View {
                     let k = age / life
                     let s = k < 0.4 ? k / 0.4 : (1 - k) / 0.6
                     ArtImage(art: .sparkleTwinkle)
-                        .colorMultiply(Color(hex: 0xFFD84A))
+                        .colorMultiply(Color(hex: Skin.popupsClaimRewardPopupClaimSparklesColorMultiply))
                         .frame(width: 10, height: 10)
                         .scaleEffect(CGFloat(s))
                         .position(x: 197 + CGFloat(cos(a) * r), y: 411 + CGFloat(sin(a) * r * 0.85))

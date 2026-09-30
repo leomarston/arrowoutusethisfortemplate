@@ -45,6 +45,12 @@ jobs:
         run: python3 $APP_DIR/design/tools/validate_levels.py
       - name: Generated art index is up to date
         run: python3 $APP_DIR/tools/uiart_gen.py --check
+      - name: Skin colours (generated Swift fresh, no colour literal outside skin/colors.json, tool self-tests)
+        run: |
+          python3 $APP_DIR/tools/skin/build.py --check
+          python3 $APP_DIR/tools/skin/build.py --check-literals
+          python3 $APP_DIR/tools/skin/build.py --selftest
+          python3 $APP_DIR/tools/skin/recolor.py --selftest
       - name: Python syntax (all tools)
         run: |
           PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pyc" python3 -m compileall -q scripts tools $APP_DIR/tools $APP_DIR/design/tools

@@ -34,10 +34,10 @@ struct NoLivesPopup: View {
             PriceButton(id: "popup.noLives.refill", label: "Refill", price: price,
                         face: CGRect(80.7, 451.7, 231.9, 86.4), well: CGRect(69.4, 443.0, 254.5, 104.1), n: 4.8,
                         labelID: "moreLives.refill.label",
-                        labelStyle: .s2(35.5, -0.92, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.52, drop: 1.84),
+                        labelStyle: .s2(35.5, -0.92, [Skin.popupsNoLivesPopupNoLivesPopupLabelStyle0, Skin.popupsNoLivesPopupNoLivesPopupLabelStyle1, Skin.popupsNoLivesPopupNoLivesPopupLabelStyle2], outline: Skin.popupsNoLivesPopupNoLivesPopupOutline, 1.52, drop: 1.84),
                         labelAt: (140.3, 505.7),
                         priceID: "moreLives.refill.price",
-                        priceStyle: .s2(35.7, 1.1, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.61, drop: 1.8),
+                        priceStyle: .s2(35.7, 1.1, [Skin.popupsNoLivesPopupNoLivesPopupPriceStyle0, Skin.popupsNoLivesPopupNoLivesPopupPriceStyle1, Skin.popupsNoLivesPopupNoLivesPopupPriceStyle2], outline: Skin.popupsNoLivesPopupNoLivesPopupOutline, 1.61, drop: 1.8),
                         priceAt: (264.9, 505.7),
                         coin: CGRect(190.0, 472.0, 34, 34),
                         wellInset: OfferWell.tightInset) { refill(price) }
@@ -71,9 +71,9 @@ private struct LivesCardContent: View {
         let count = Economy.livesCount(s, now: now, rules: rules)
         let left = Economy.countdown(s, now: now, rules: rules) ?? 0
         let unlimited = Economy.hasUnlimitedLives(s, now: now)
-        let countStyle = GameTextStyle.s2(50.3, 0, [0xFFFAEF], outline: 0x870400, 1.7, drop: 1.2)
-        let caption = GameTextStyle.s2(25.4, -0.7, [0x5A2801])
-        let timer = GameTextStyle.s2(25.4, -0.73, [0xFFFFFF], outline: 0x5A2801, 0.94, drop: 0.6)
+        let countStyle = GameTextStyle.s2(50.3, 0, [Skin.popupsNoLivesPopupLivesCardContentCountStyle0], outline: Skin.popupsNoLivesPopupLivesCardContentCountStyleOutline, 1.7, drop: 1.2)
+        let caption = GameTextStyle.s2(25.4, -0.7, [Skin.popupsNoLivesPopupLivesCardContentCaption0])
+        let timer = GameTextStyle.s2(25.4, -0.73, [Skin.popupsNoLivesPopupLivesCardContentTimer0], outline: Skin.popupsNoLivesPopupLivesCardContentTimerOutline, 0.94, drop: 0.6)
         ZStack(alignment: .topLeading) {
             ArtImage(art: .heartLivesBig).placed(CGRect(146.9, 250.5, 100, 90))
             GameText(verbatim: "\(count)", style: countStyle).at(146.9 + 49.3, countStyle.capCentre(baseline: 311.0))
@@ -98,10 +98,10 @@ private struct TimerCapsule: View {
         Rasterized("livesTimerCapsule", overflow: 1) { size in
             let r = size.height / 2
             ZStack {
-                RoundedRectangle(cornerRadius: r).fill(Color(hex: 0xF6EEE6))
-                RoundedRectangle(cornerRadius: r).fill(Color(hex: 0xDDA769)).padding(EdgeInsets(top: 0, leading: 0.5, bottom: 1.6, trailing: 0.5))
+                RoundedRectangle(cornerRadius: r).fill(Color(hex: Skin.popupsNoLivesPopupTimerCapsuleFill))
+                RoundedRectangle(cornerRadius: r).fill(Color(hex: Skin.popupsNoLivesPopupTimerCapsuleFillV2)).padding(EdgeInsets(top: 0, leading: 0.5, bottom: 1.6, trailing: 0.5))
                 RoundedRectangle(cornerRadius: r)
-                    .fill(LinearGradient(stops: [.init(color: Color(hex: 0xB56340), location: 0), .init(color: Color(hex: 0xD5A189, 0.6), location: 0.22),
+                    .fill(LinearGradient(stops: [.init(color: Color(hex: Skin.popupsNoLivesPopupTimerCapsuleStops0), location: 0), .init(color: Color(hex: Skin.popupsNoLivesPopupTimerCapsuleStops1, 0.6), location: 0.22),
                                                  .init(color: .clear, location: 0.4)], startPoint: .top, endPoint: .bottom))
                     .padding(EdgeInsets(top: 0, leading: 0.5, bottom: 1.6, trailing: 0.5))
             }
@@ -113,7 +113,7 @@ private struct TimerCapsule: View {
 struct SunburstRays: View {
     let centre: CGPoint
     var rays = 16
-    var colour = Color(hex: 0xFFFFFA)
+    var colour = Color(hex: Skin.popupsNoLivesPopupSunburstRaysColour)
     var body: some View {
         Rasterized("sunburst|\(rays)|\(centre.x),\(centre.y)") { size in
             Path { p in

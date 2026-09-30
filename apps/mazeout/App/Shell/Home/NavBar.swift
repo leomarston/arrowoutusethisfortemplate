@@ -35,9 +35,9 @@ struct HomeNavBar: View {
             // #0B9CED → #18A7FA, then 1 pt #0042CB); the raised tile covers the one(s) next to it
             ForEach([131.8, 259.4], id: \.self) { x in
                 HStack(spacing: 0) {
-                    LinearGradient(colors: [Color(hex: 0x3EA594), Color(hex: 0x4DC4B3), Color(hex: 0x42BAAA), Color(hex: 0x37B1A1)],
+                    LinearGradient(colors: [Color(hex: Skin.homeNavBarHomeNavBarColors0), Color(hex: Skin.homeNavBarHomeNavBarColors1), Color(hex: Skin.homeNavBarHomeNavBarColors2), Color(hex: Skin.homeNavBarHomeNavBarColors3)],
                                    startPoint: .top, endPoint: .bottom)
-                    Color(hex: 0x005B58)
+                    Color(hex: Skin.homeNavBarHomeNavBar)
                 }
                 .placed(m.rect(CGRect(x: x, y: 772.2, width: 2.2, height: 852 - 772.2), .bottom))
             }
@@ -50,8 +50,8 @@ struct HomeNavBar: View {
         .accessibilityIdentifier("nav")
     }
 
-    static let barStops: [(Double, UInt32)] = [(0, 0x465D5A), (0.3, 0x005755), (2.0, 0x00706C), (3.4, 0x007570), (3.7, 0x3AAC9C),
-                                               (4.0, 0x4EC4B3), (6.0, 0x1AAD9D), (30.3, 0x009087), (53.3, 0x00807A), (81.1, 0x006B67)]
+    static let barStops: [(Double, UInt32)] = [(0, Skin.homeNavBarHomeNavBarBarStops0), (0.3, Skin.homeNavBarHomeNavBarBarStops1), (2.0, Skin.homeNavBarHomeNavBarBarStops2), (3.4, Skin.homeNavBarHomeNavBarBarStops3), (3.7, Skin.homeNavBarHomeNavBarBarStops4),
+                                               (4.0, Skin.homeNavBarHomeNavBarBarStops5), (6.0, Skin.homeNavBarHomeNavBarBarStops6), (30.3, Skin.homeNavBarHomeNavBarBarStops7), (53.3, Skin.homeNavBarHomeNavBarBarStops8), (81.1, Skin.homeNavBarHomeNavBarBarStops9)]
 
     @ViewBuilder private func tabButton(_ item: HomeTab, t: Tokens, selected: Bool, centreX: CGFloat) -> some View {
         let art: UIArt = item == .shop ? .navCart : item == .home ? .navLodge : .navCup
@@ -73,7 +73,7 @@ struct HomeNavBar: View {
         }()
         let label: LocalizedStringResource = item == .shop ? "Shop" : item == .home ? "Home" : "Leaderboard"
         let labelID = item == .shop ? "home.navLabelShop" : item == .home ? "home.navLabel" : "home.navLabelLeaderboard"
-        let base0 = t.text("home.navLabel", GameTextStyle(size: 15.1, tracking: -0.25, fill: [.white], outline: Color(hex: 0x02464D),
+        let base0 = t.text("home.navLabel", GameTextStyle(size: 15.1, tracking: -0.25, fill: [.white], outline: Color(hex: Skin.homeNavBarHomeNavLabelOutline),
                                                           outlineWidth: 0.98, drop: 0.58))
         let st0 = t.text(labelID, base0)
         let style = st0.sized(st0.size * m.s)
@@ -99,16 +99,16 @@ struct HomeNavBar: View {
 private struct RaisedTab: View {
     let t: Tokens
     var body: some View {
-        let rim = t.colors("nav.tabRim", [0xBCE3D3, 0x4DC3B3, 0x47C0B0])
-        let field = t.colors("nav.tabField", [0x92DCC1, 0x7ED7BE, 0x65D1BC])
+        let rim = t.colors("nav.tabRim", [Skin.homeNavBarNavTabRim0, Skin.homeNavBarNavTabRim1, Skin.homeNavBarNavTabRim2])
+        let field = t.colors("nav.tabField", [Skin.homeNavBarNavTabField0, Skin.homeNavBarNavTabField1, Skin.homeNavBarNavTabField2])
         let shape = UnevenRoundedRectangle(topLeadingRadius: 18, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 18)
         ZStack {
-            shape.fill(t.color("nav.tabEdge", 0x00807B))
+            shape.fill(t.color("nav.tabEdge", Skin.homeNavBarNavTabEdge))
             shape.fill(LinearGradient(colors: rim, startPoint: .top, endPoint: .bottom)).padding(EdgeInsets(top: 1.5, leading: 1.5, bottom: 0, trailing: 1.5))
             UnevenRoundedRectangle(topLeadingRadius: 12, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 12)
-                .fill(t.color("nav.tabGroove", 0x00605B)).padding(EdgeInsets(top: 8.3, leading: 8.7, bottom: 0, trailing: 8.7))
+                .fill(t.color("nav.tabGroove", Skin.homeNavBarNavTabGroove)).padding(EdgeInsets(top: 8.3, leading: 8.7, bottom: 0, trailing: 8.7))
             UnevenRoundedRectangle(topLeadingRadius: 9, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 9)
-                .fill(t.color("nav.tabLine", 0xC3E6D8)).padding(EdgeInsets(top: 13, leading: 13, bottom: 0, trailing: 13))
+                .fill(t.color("nav.tabLine", Skin.homeNavBarNavTabLine)).padding(EdgeInsets(top: 13, leading: 13, bottom: 0, trailing: 13))
             UnevenRoundedRectangle(topLeadingRadius: 8, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 8)
                 .fill(LinearGradient(colors: field, startPoint: .top, endPoint: .bottom)).padding(EdgeInsets(top: 14.5, leading: 14.5, bottom: 0, trailing: 14.5))
         }

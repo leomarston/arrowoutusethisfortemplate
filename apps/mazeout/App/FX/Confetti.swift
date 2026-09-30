@@ -25,7 +25,7 @@ import PathCore
 struct ConfettiSpec {
     var burst = 140
     var rainPerS = 45.0
-    var colors: [UIColor] = [0x1F77F3, 0xEB4FB0, 0x6A11EF, 0xD30A20, 0xFFB807, 0xF8F2DA, 0x65DD2B].map { UIColor(rgb: $0) }
+    var colors: [UIColor] = [Skin.fxConfettiConfettiSpecColors0, Skin.fxConfettiConfettiSpecColors1, Skin.fxConfettiConfettiSpecColors2, Skin.fxConfettiConfettiSpecColors3, Skin.fxConfettiConfettiSpecColors4, Skin.fxConfettiConfettiSpecColors5, Skin.fxConfettiConfettiSpecColors6].map { UIColor(rgb: $0) }
     var sizeMin = 5.0
     var sizeMax = 11.0
     var flipMin = 2.0

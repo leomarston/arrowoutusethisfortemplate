@@ -139,11 +139,11 @@ struct WeekStartBanner: View {
     var body: some View {
         if let c = EventAnnounce.shared.current, c.event == event || (c.double && ["rocketRace", "skyJump"].contains(event.rawValue)) {
             let t = app.tuning.ui.tokens
-            let ribbon = GameTextStyle.s2(26, -0.8, [0xFFFFFF, 0xFFF2D2], outline: 0x891D0A, 1.6, drop: 1.6, face: .blackItalic)
+            let ribbon = GameTextStyle.s2(26, -0.8, [Skin.socialEventAnnounceWeekStartBannerRibbon0, Skin.socialEventAnnounceWeekStartBannerRibbon1], outline: Skin.socialEventAnnounceWeekStartBannerRibbonOutline, 1.6, drop: 1.6, face: .blackItalic)
             ZStack(alignment: .topLeading) {
                 ZStack {
-                    WeekStartRibbonShape().fill(Color(hex: 0x891D0A)).offset(y: 2.5)
-                    WeekStartRibbonShape().fill(LinearGradient(colors: [Color(hex: 0xFF8A3D), Color(hex: 0xDE4E32)],
+                    WeekStartRibbonShape().fill(Color(hex: Skin.socialEventAnnounceWeekStartBannerFill)).offset(y: 2.5)
+                    WeekStartRibbonShape().fill(LinearGradient(colors: [Color(hex: Skin.socialEventAnnounceWeekStartBannerColors0), Color(hex: Skin.socialEventAnnounceWeekStartBannerColors1)],
                                                                startPoint: .top, endPoint: .bottom))
                     GameText(c.double ? "Double Event Week!" : "New Event!", style: ribbon, maxWidth: 250)
                 }
@@ -152,7 +152,7 @@ struct WeekStartBanner: View {
                 .allowsHitTesting(false)
                 if !onCanvas {
                     FramedButton(id: "event.letsGo", title: "Let's Go!", colors: .green, frame: CGRect(106, 700, 181, 66),
-                                 well: CGRect(97, 693, 199, 80), n: 4.9, style: .s2(32, -2.2, [0xFFFBF2], outline: 0x924500, 1.8, drop: 1.8),
+                                 well: CGRect(97, 693, 199, 80), n: 4.9, style: .s2(32, -2.2, [Skin.socialEventAnnounceWeekStartBannerStyle0], outline: Skin.socialEventAnnounceWeekStartBannerOutline, 1.8, drop: 1.8),
                                  baseline: 745, centreX: 196.5, maxWidth: 150, t: t) {
                         EventAnnounce.shared.current = nil
                         Log.mark("event", "week-start \(event.rawValue): Let's Go!")
@@ -239,10 +239,10 @@ struct ComingNextFooter: View {
         let left = Double((status.week?.end.seconds ?? now.seconds) - now.seconds)
         if status.rotating, left > 0, left < Double(rules.events.rotation.teaserHours) * 3600,
            let next = status.nextLive.ladder, let end = status.week?.end {
-            let st = GameTextStyle.s2(17, -0.4, [0xFFFFFF], outline: 0x02464D, 1.2, drop: 0.9)
+            let st = GameTextStyle.s2(17, -0.4, [Skin.socialEventAnnounceComingNextFooterNextSt0], outline: Skin.socialEventAnnounceComingNextFooterNextStOutline, 1.2, drop: 0.9)
             let name = String(localized: EventNames.name(next))
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 16).fill(Color(hex: 0x002629, 0.82)).frame(width: 330, height: 62).offset(x: 31.5, y: 0)
+                RoundedRectangle(cornerRadius: 16).fill(Color(hex: Skin.socialEventAnnounceComingNextFooterNextFill, 0.82)).frame(width: 330, height: 62).offset(x: 31.5, y: 0)
                 GameText("Coming next: \(name)", style: st, maxWidth: 300).position(x: 196.5, y: st.capCentre(baseline: 25))
                 // FIX-2 B review (L28): "Starts in 09:33" ticks on its own like every event countdown (it stood still)
                 LiveCountdown(ends: end, now: now, clock: .page) { s in StartsInLine(seconds: s, style: st.sized(15)) }

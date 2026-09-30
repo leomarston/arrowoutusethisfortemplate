@@ -190,8 +190,8 @@ import PathCore
         // A2: the staged claim titles draw one GameText per letter: every letter's raster (the claim's style and the Sky Jump
         // win's) is made here, all letters at rest, not in the claim's first frames
         let claimTitle = ClaimTitle.style(app.tuning.ui.tokens, id: "claim.title.title",
-                                          .s2(45.2, -0.83, [0xFFDC13, 0xFFC402, 0xFFB700], outline: 0xB24900, 0.94, drop: 1.81))
-        let skyTitle = GameTextStyle.s2(45.5, -1.0, [0xFFDD13, 0xFFC302, 0xFFB700], outline: 0xB24900, 0.9, drop: 1.8)
+                                          .s2(45.2, -0.83, [Skin.hudS2HooksS2PopupsPrewarmClaimTitleStyle0, Skin.hudS2HooksS2PopupsPrewarmClaimTitleStyle1, Skin.hudS2HooksS2PopupsPrewarmClaimTitleStyle2], outline: Skin.hudS2HooksS2PopupsPrewarmClaimTitleOutline, 0.94, drop: 1.81))
+        let skyTitle = GameTextStyle.s2(45.5, -1.0, [Skin.hudS2HooksS2PopupsPrewarmSkyTitle0, Skin.hudS2HooksS2PopupsPrewarmSkyTitle1, Skin.hudS2HooksS2PopupsPrewarmSkyTitle2], outline: Skin.hudS2HooksS2PopupsPrewarmSkyTitleOutline, 0.9, drop: 1.8)
         // A2: the Pause toggle's OFF track (the track and the knob are separate rasters now; ON is made with the Pause popup)
         let tk = app.tuning.ui.tokens
         items.append(ShellPrewarmItem("toggle.off", ReferenceCanvas {

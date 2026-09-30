@@ -25,7 +25,7 @@ import PathCore
     struct Spec {
         var spawn = CGPoint(x: 192, y: 612), spawnDur = 0.12, riseFrom = 0.10, riseDur = 0.83, riseTo = 405.0, rockDeg = 4.0
         var flyFrom = 0.98, flyDur = 0.40, flyControl = CGPoint(x: 175, y: 200), target = CGPoint(x: 107, y: 94), flyEndScale = 0.35
-        var iceFrom = 1.38, iceDur = 0.25, frostFrom = 1.60, frostDur = 0.20, frostColor = UIColor(rgb: 0x6BD4F8)
+        var iceFrom = 1.38, iceDur = 0.25, frostFrom = 1.60, frostDur = 0.20, frostColor = UIColor(rgb: Skin.hudHudFreezeSpecFrostColor)
         var frostSides = 30.0, frostTopBottom = 88.0, tray = CGRect(93, 118, 92, 25), trayIn = 0.20, trayOut = 0.15, endFade = 0.30
 
         init(_ f: TuningFile) {
@@ -38,7 +38,7 @@ import PathCore
             flyEndScale = f.double("freeze.flyEndScale", flyEndScale); iceFrom = f.double("freeze.iceFrom", iceFrom)
             iceDur = f.double("freeze.iceDur", iceDur); frostFrom = f.double("freeze.frostFrom", frostFrom)
             frostDur = f.double("freeze.frostDur", frostDur)
-            if let c = UIColor(hexString: f.string("freeze.frostColor", "#6BD4F8")) { frostColor = c }
+            if let c = UIColor(hexString: f.string("freeze.frostColor", Skin.hudHudFreezeFreezeFrostColorHex)) { frostColor = c }
             frostSides = f.double("freeze.frostDepthSidesPt", frostSides); frostTopBottom = f.double("freeze.frostDepthTopBottomPt", frostTopBottom)
             let t = f.doubles("freeze.tray", []); if t.count == 4 { tray = CGRect(t[0], t[1], t[2], t[3]) }
             trayIn = f.double("freeze.trayIn", trayIn); trayOut = f.double("freeze.trayOut", trayOut); endFade = f.double("freeze.endFade", endFade)
@@ -234,7 +234,7 @@ import PathCore
         tray.bounds = CGRect(origin: .zero, size: size)
         let face = CAGradientLayer()
         face.frame = tray.bounds
-        face.colors = [UIColor(rgb: 0xC0E0D8).cgColor, UIColor(rgb: 0xC0E0D8).cgColor, UIColor(rgb: 0x5FB7B0).cgColor, UIColor(rgb: 0x398981).cgColor]
+        face.colors = [UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors0).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors1).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors2).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors3).cgColor]
         face.locations = [0, 0.7, 0.85, 1]
         face.cornerRadius = 8 * s
         face.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -243,10 +243,10 @@ import PathCore
         let track = CALayer()
         track.frame = CGRect(x: 26.4 * s, y: 7.0 * s, width: 59.7 * s, height: 10 * s)
         track.cornerRadius = 4.7 * s
-        track.backgroundColor = UIColor(rgb: 0x50A197).cgColor
+        track.backgroundColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerTrackBackgroundColor).cgColor
         tray.addSublayer(track)
         let fill = CAGradientLayer()
-        fill.colors = [UIColor(rgb: 0x28AD9F).cgColor, UIColor(rgb: 0x28AD9F).cgColor, UIColor(rgb: 0x00625C).cgColor]
+        fill.colors = [UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors0).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors1).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors2).cgColor]
         fill.locations = [0, 0.5, 1]
         fill.anchorPoint = CGPoint(x: 0, y: 0.5)
         fill.bounds = CGRect(x: 0, y: 0, width: 57.7 * s, height: 7 * s)
@@ -265,7 +265,7 @@ import PathCore
         digit.contentsGravity = .center
         digit.contentsScale = UIScreen.main.scale
         let n = max(1, Int(seconds.rounded(.up)))
-        let style = ui.tokens.text("hudFreeze.digit", .s2(15, -0.5, [0xFFFFFF], outline: 0x004249, 1.0, drop: 0.8)).sized(15 * s)
+        let style = ui.tokens.text("hudFreeze.digit", .s2(15, -0.5, [Skin.hudHudFreezeHudFreezeDigit0], outline: Skin.hudHudFreezeHudFreezeDigitOutline, 1.0, drop: 0.8)).sized(15 * s)
         let images: [CGImage] = (1...n).reversed().compactMap { digitImage("\($0)", style: style) }
         if images.count == n {
             digit.contents = images.first
@@ -306,10 +306,10 @@ import PathCore
             p.closeSubpath()
         }
         l.path = p
-        l.fillColor = UIColor(rgb: 0xF2FBFF).cgColor
-        l.strokeColor = UIColor(rgb: 0x7FC8EE).cgColor
+        l.fillColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerFillColor).cgColor
+        l.strokeColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerStrokeColor).cgColor
         l.lineWidth = 0.8
-        l.shadowColor = UIColor(rgb: 0x2A7FC0).cgColor
+        l.shadowColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerShadowColor).cgColor
         l.shadowOpacity = 0.5
         l.shadowRadius = 0.6
         l.shadowOffset = CGSize(width: 0, height: 0.8)
@@ -391,7 +391,7 @@ struct FreezeFrost: View {
     var body: some View {
         let st = FreezeHUDState.shared
         let f = app.tuning.ui.file
-        let c = Color(hexString: f.string("freeze.frostColor", "#6BD4F8")) ?? Color(hex: 0x6BD4F8)
+        let c = Color(hexString: f.string("freeze.frostColor", Skin.hudHudFreezeFreezeFrostColorHex)) ?? Color(hex: Skin.hudHudFreezeFreezeFrostC)
         let sides = CGFloat(f.double("freeze.frostDepthSidesPt", 30)) * m.s, tb = CGFloat(f.double("freeze.frostDepthTopBottomPt", 88)) * m.s
         let g = { (a: UnitPoint, b: UnitPoint) in
             LinearGradient(stops: [.init(color: c, location: 0), .init(color: c.opacity(0.55), location: 0.35), .init(color: .white.opacity(0), location: 1)],

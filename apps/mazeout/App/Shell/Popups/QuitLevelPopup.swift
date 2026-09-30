@@ -17,11 +17,11 @@ struct QuitLevelPopup: View {
         let extra = max(0, (m.size.width / max(m.popupScale, 0.01) - 393) / 2)
         let band = t.frame("quit.band", CGRect(0, 234.2, 393, 405)).insetBy(dx: -extra, dy: 0)
         let quit = t.frame("quit.quit", CGRect(91.1, 499.4, 211.2, 86.4))
-        let message = t.text("quit.message", GameTextStyle(size: 25.4, tracking: -1.3, fill: [Color(hex: 0x5A2801)]))
+        let message = t.text("quit.message", GameTextStyle(size: 25.4, tracking: -1.3, fill: [Color(hex: Skin.popupsQuitLevelPopupQuitMessageFill0)]))
         let msgAt = t.textPoint("quit.message", baseline: 344.0, centreX: 196.2)
         let label = t.text("quit.quit", GameTextStyle(size: 43.2, tracking: -0.5,
-                                                      fill: [Color(hex: 0xFFFBF3), Color(hex: 0xFFF8E8), Color(hex: 0xFDF3DF)],
-                                                      outline: Color(hex: 0x610B00), outlineWidth: 2.3, drop: 2.25))
+                                                      fill: [Color(hex: Skin.popupsQuitLevelPopupQuitQuitFill0), Color(hex: Skin.popupsQuitLevelPopupQuitQuitFill1), Color(hex: Skin.popupsQuitLevelPopupQuitQuitFill2)],
+                                                      outline: Color(hex: Skin.popupsQuitLevelPopupQuitQuitOutline), outlineWidth: 2.3, drop: 2.25))
         let labelAt = t.textPoint("quit.quit", baseline: 553.7, centreX: 198.0)
         ZStack(alignment: .topLeading) {
             BandPopupFrame(t: t).placed(band)

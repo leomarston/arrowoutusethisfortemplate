@@ -84,7 +84,7 @@ struct ToastLayer: View {
         AnchoredCanvas {
             if let item = center.current {
                 let f = tokens.file
-                let base = tokens.text("toast", GameTextStyle(size: 18, fill: [.white], outline: Color(hex: 0x00373B), outlineWidth: 1.0, drop: 1.0))
+                let base = tokens.text("toast", GameTextStyle(size: 18, fill: [.white], outline: Color(hex: Skin.componentsToastToastOutline), outlineWidth: 1.0, drop: 1.0))
                 let style = base.sized(base.size * m.s)
                 let box = CGFloat(f.double("toast.maxWidth", 330)) * m.s
                 let lines = ToastCenter.wrap(item.text, style: style, maxWidth: box)
@@ -99,10 +99,10 @@ struct ToastLayer: View {
                     let a = center.alpha(ctx.date.timeIntervalSince(item.shownAt))
                     ZStack {
                         RoundedRectangle(cornerRadius: CGFloat(f.double("toast.radius", 16)) * m.s)
-                            .fill((Color(hexString: f.string("toast.plate", "#003135")) ?? Color(hex: 0x003135))
+                            .fill((Color(hexString: f.string("toast.plate", Skin.componentsToastToastPlateHex)) ?? Color(hex: Skin.componentsToastToastLayerFill))
                                 .opacity(f.double("toast.plateAlpha", 0.92)))
                         RoundedRectangle(cornerRadius: CGFloat(f.double("toast.radius", 16)) * m.s)
-                            .strokeBorder(Color(hexString: f.string("toast.border", "#40BCAC")) ?? Color(hex: 0x40BCAC),
+                            .strokeBorder(Color(hexString: f.string("toast.border", Skin.componentsToastToastBorderHex)) ?? Color(hex: Skin.componentsToastToastLayerStrokeBorder),
                                           lineWidth: CGFloat(f.double("toast.borderWidth", 1.5)))
                         ZStack {
                             ForEach(Array(lines.enumerated()), id: \.offset) { i, line in

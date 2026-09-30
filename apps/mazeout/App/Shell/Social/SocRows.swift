@@ -65,28 +65,28 @@ struct SocListContent: Sendable {
 enum SocRowStyles {
     static func name(_ kind: SocListKind) -> SocStyle {
         switch kind {
-        case .world, .country: return SocStyle(size: 23.6, tracking: -0.3, face: 0x05292B, maxWidth: 180)
-        case .weekly: return SocStyle(size: 23.6, tracking: -0.3, face: 0x5A2801, maxWidth: 180)
-        case .streak: return SocStyle(size: 23.6, tracking: -0.3, face: 0x5A2801, maxWidth: 130)
+        case .world, .country: return SocStyle(size: 23.6, tracking: -0.3, face: Skin.socialSocRowsSocRowStylesNameWorldFace, maxWidth: 180)
+        case .weekly: return SocStyle(size: 23.6, tracking: -0.3, face: Skin.socialSocRowsSocRowStylesNameWeeklyFace, maxWidth: 180)
+        case .streak: return SocStyle(size: 23.6, tracking: -0.3, face: Skin.socialSocRowsSocRowStylesNameStreakFace, maxWidth: 130)
         }
     }
     static func rank(_ kind: SocListKind) -> SocStyle {
         switch kind {
-        case .weekly, .streak: return SocStyle(size: 24.8, face: 0xF7E5C7, outline: 0x732517, width: 2.0, drop: 0.7, maxWidth: 44)
-        case .world, .country: return SocStyle(size: 24.8, face: 0xFFFAEF, outline: 0x002226, width: 2.0, drop: 0.7, maxWidth: 44)
+        case .weekly, .streak: return SocStyle(size: 24.8, face: Skin.socialSocRowsSocRowStylesRankWeeklyFace, outline: Skin.socialSocRowsSocRowStylesRankWeeklyOutline, width: 2.0, drop: 0.7, maxWidth: 44)
+        case .world, .country: return SocStyle(size: 24.8, face: Skin.socialSocRowsSocRowStylesRankWorldFace, outline: Skin.socialSocRowsSocRowStylesRankWorldOutline, width: 2.0, drop: 0.7, maxWidth: 44)
         }
     }
     /// The digit on a rank hexagon (≈ 20 pt white, outlined in the hexagon's dark shade; INFERRED).
     static func badgeDigit(_ rank: Int) -> SocStyle {
-        let o: UInt32 = rank == 1 ? 0x985316 : rank == 2 ? 0x325653 : 0x8C2D18
-        return SocStyle(size: 20, face: 0xFFFFFF, outline: o, width: 1.6, drop: 0.8)
+        let o: UInt32 = rank == 1 ? Skin.socialSocRowsSocRowStylesBadgeDigitORank1 : rank == 2 ? Skin.socialSocRowsSocRowStylesBadgeDigitORank2 : Skin.socialSocRowsSocRowStylesBadgeDigitONotRank2
+        return SocStyle(size: 20, face: Skin.socialSocRowsSocRowStylesBadgeDigitFace, outline: o, width: 1.6, drop: 0.8)
     }
-    static let caption = SocStyle(size: 15.3, tracking: -0.25, face: 0xA97630, maxWidth: 60)
-    static let value = SocStyle(size: 26, tracking: -0.7, face: 0xF6E9D8, outline: 0x732517, width: 1.8, drop: 0.8, maxWidth: 52)
+    static let caption = SocStyle(size: 15.3, tracking: -0.25, face: Skin.socialSocRowsSocRowStylesCaptionFace, maxWidth: 60)
+    static let value = SocStyle(size: 26, tracking: -0.7, face: Skin.socialSocRowsSocRowStylesValueFace, outline: Skin.socialSocRowsSocRowStylesValueOutline, width: 1.8, drop: 0.8, maxWidth: 52)
     /// The prize amount on the coin bowl's band (14.3 white outlined #660100).
-    static let prize = SocStyle(size: 14.3, tracking: -0.2, face: 0xFFFFFF, outline: 0x620B00, width: 1.4, drop: 0.6, maxWidth: 46)
+    static let prize = SocStyle(size: 14.3, tracking: -0.2, face: Skin.socialSocRowsSocRowStylesPrizeFace, outline: Skin.socialSocRowsSocRowStylesPrizeOutline, width: 1.4, drop: 0.6, maxWidth: 46)
     /// The Streak Race score in its pill (16.4 cream-white outlined #622200, box 44).
-    static let score = SocStyle(size: 16.4, tracking: -0.2, face: 0xFBF4E7, outline: 0x5A2801, width: 1.3, drop: 0.7, maxWidth: 44)
+    static let score = SocStyle(size: 16.4, tracking: -0.2, face: Skin.socialSocRowsSocRowStylesScoreFace, outline: Skin.socialSocRowsSocRowStylesScoreOutline, width: 1.3, drop: 0.7, maxWidth: 44)
 }
 
 /// Builds rows (any thread).

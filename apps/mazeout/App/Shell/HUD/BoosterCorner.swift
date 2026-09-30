@@ -55,7 +55,7 @@ struct BoosterCornerView: View, Equatable {
     @ViewBuilder private func badgeView(_ r: CGRect) -> some View {
         switch slot.state {
         case .stock(let n):
-            let style = t.text("booster.badge.count", .s2(16.9, 0, [0xFFFBF3, 0xFFF6E6, 0xFEF2DC], outline: 0x650D05, 0.71, drop: 0.56))
+            let style = t.text("booster.badge.count", .s2(16.9, 0, [Skin.hudBoosterCornerBoosterBadgeCount0, Skin.hudBoosterCornerBoosterBadgeCount1, Skin.hudBoosterCornerBoosterBadgeCount2], outline: Skin.hudBoosterCornerBoosterBadgeCountOutline, 0.71, drop: 0.56))
                 .sized(16.9 * m.s)
             ZStack {
                 Rasterized("boosterBadge", overflow: 2) { _ in RedBadge(t: t) }
@@ -84,18 +84,18 @@ private struct BoosterTray: View {
             let off: CGFloat = 40                         // the part beyond the screen edge
             let x = left ? -off : 0
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("booster.trayShadow", 0x7A8C88).opacity(0.4))
+                RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("booster.trayShadow", Skin.hudBoosterCornerBoosterTrayShadow).opacity(0.4))
                     .frame(width: w + off, height: h).offset(x: x, y: 2.6).blur(radius: 1.4)
-                RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("booster.trayOutline", 0x499087))
+                RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("booster.trayOutline", Skin.hudBoosterCornerBoosterTrayOutline))
                     .frame(width: w + off, height: h).offset(x: x)
                 RoundedRectangle(cornerRadius: r - 0.6, style: .continuous)
-                    .fill(LinearGradient(stops: [.init(color: Color(hex: 0xAFD9D1), location: 0), .init(color: t.color("booster.trayRim", 0x76C7C3), location: 0.08),
-                                                 .init(color: Color(hex: 0x76C7C3), location: 0.9), .init(color: Color(hex: 0x398981), location: 1)],
+                    .fill(LinearGradient(stops: [.init(color: Color(hex: Skin.hudBoosterCornerBoosterTrayStops0), location: 0), .init(color: t.color("booster.trayRim", Skin.hudBoosterCornerBoosterTrayRim), location: 0.08),
+                                                 .init(color: Color(hex: Skin.hudBoosterCornerBoosterTrayStops2), location: 0.9), .init(color: Color(hex: Skin.hudBoosterCornerBoosterTrayStops3), location: 1)],
                                          startPoint: .top, endPoint: .bottom))
                     .frame(width: w + off - 1.2, height: h - 1.2).offset(x: x + 0.6, y: 0.6)
                 RoundedRectangle(cornerRadius: max(1, r - 3.4), style: .continuous)
-                    .fill(LinearGradient(stops: t.stops("booster.trayFace", [(0, 0xAFD9D1), (0.012, 0xEFF7F5), (0.025, 0xD9EBE7), (0.045, 0xC0E0D8),
-                                                                             (0.935, 0xC0E0D8), (0.945, 0x63B9B3), (0.97, 0x59AEA6), (1, 0x398981)]),
+                    .fill(LinearGradient(stops: t.stops("booster.trayFace", [(0, Skin.hudBoosterCornerBoosterTrayFace0), (0.012, Skin.hudBoosterCornerBoosterTrayFace1), (0.025, Skin.hudBoosterCornerBoosterTrayFace2), (0.045, Skin.hudBoosterCornerBoosterTrayFace3),
+                                                                             (0.935, Skin.hudBoosterCornerBoosterTrayFace4), (0.945, Skin.hudBoosterCornerBoosterTrayFace5), (0.97, Skin.hudBoosterCornerBoosterTrayFace6), (1, Skin.hudBoosterCornerBoosterTrayFace7)]),
                                          startPoint: .top, endPoint: .bottom))
                     .frame(width: w + off - 6.8, height: h - 1.2).offset(x: x + 3.4, y: 0.6)
             }
@@ -119,15 +119,15 @@ private struct BoosterWell: View {
             // the frame (14.3 / 764.0), a green rim ~3.3 pt at the sides, the face's highlight ~2.6 pt under the top. Every layer
             // carries an explicit size: an unframed shape would take the ZStack's size (the well's) and grow the button 2.7 pt.
             ZStack {
-                shape.fill(t.color("booster.wellEdge", 0xD9ECE7)).frame(width: w + 5.2, height: h + 5.2)
-                shape.fill(t.color("booster.well", 0x4A9A90)).frame(width: w + 4.0, height: h + 4.0)
-                shape.fill(t.color("booster.outline", 0x542500)).frame(width: w, height: h)
-                shape.fill(LinearGradient(colors: t.colors("booster.rim", [0xC9731C, 0xBA6719, 0x944A10]), startPoint: .top, endPoint: .bottom))
+                shape.fill(t.color("booster.wellEdge", Skin.hudBoosterCornerBoosterWellEdge)).frame(width: w + 5.2, height: h + 5.2)
+                shape.fill(t.color("booster.well", Skin.hudBoosterCornerBoosterWell)).frame(width: w + 4.0, height: h + 4.0)
+                shape.fill(t.color("booster.outline", Skin.hudBoosterCornerBoosterOutline)).frame(width: w, height: h)
+                shape.fill(LinearGradient(colors: t.colors("booster.rim", [Skin.hudBoosterCornerBoosterRim0, Skin.hudBoosterCornerBoosterRim1, Skin.hudBoosterCornerBoosterRim2]), startPoint: .top, endPoint: .bottom))
                     .padding(1.0)
                     .frame(width: w, height: h)
                 Superellipse(n: n + 0.3)
-                    .fill(LinearGradient(stops: t.stops("booster.face", [(0, 0xFCBE39), (0.035, 0xEED389), (0.075, 0xFCBF39), (0.6, 0xFFAA1B),
-                                                                         (1, 0xFB9A0E)]),
+                    .fill(LinearGradient(stops: t.stops("booster.face", [(0, Skin.hudBoosterCornerBoosterFace0), (0.035, Skin.hudBoosterCornerBoosterFace1), (0.075, Skin.hudBoosterCornerBoosterFace2), (0.6, Skin.hudBoosterCornerBoosterFace3),
+                                                                         (1, Skin.hudBoosterCornerBoosterFace4)]),
                                          startPoint: .top, endPoint: .bottom))
                     .padding(EdgeInsets(top: 2.4, leading: 4.4, bottom: 5.8, trailing: 4.4))
                     .blur(radius: 0.5)
@@ -143,8 +143,8 @@ private struct RedBadge: View {
     let t: Tokens
     var body: some View {
         ZStack {
-            Circle().fill(t.color("booster.badgeOutline", 0x750F07))
-            Circle().fill(RadialGradient(colors: t.colors("booster.badge", [0xEF7461, 0xED5945, 0xCA3524]),
+            Circle().fill(t.color("booster.badgeOutline", Skin.hudBoosterCornerBoosterBadgeOutline))
+            Circle().fill(RadialGradient(colors: t.colors("booster.badge", [Skin.hudBoosterCornerBoosterBadge0, Skin.hudBoosterCornerBoosterBadge1, Skin.hudBoosterCornerBoosterBadge2]),
                                          center: UnitPoint(x: 0.45, y: 0.35), startRadius: 0, endRadius: 12))
                 .padding(1.2)
         }

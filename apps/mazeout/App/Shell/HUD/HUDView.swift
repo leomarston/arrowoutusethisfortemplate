@@ -177,16 +177,16 @@ private struct HUDPanel: View, Equatable {
         let outer = RoundedRectangle(cornerRadius: radius, style: .continuous)
         let face = RoundedRectangle(cornerRadius: max(1, radius - 3.4), style: .continuous)
         return ZStack {
-            outer.fill(t.color("hud.panelShadow", 0x7A8C88).opacity(0.47)).offset(y: 2).blur(radius: 1.33)
-            outer.fill(LinearGradient(stops: t.stops("hud.panelRimV", [(0, 0x68BCB6), (0.03, 0x9DD3CC), (0.5, 0x80CAC6), (0.9, 0x5CB4AC),
-                                                                       (0.95, 0x408F86), (1, 0x398981)]),
+            outer.fill(t.color("hud.panelShadow", Skin.hudHudViewHudPanelShadow).opacity(0.47)).offset(y: 2).blur(radius: 1.33)
+            outer.fill(LinearGradient(stops: t.stops("hud.panelRimV", [(0, Skin.hudHudViewHudPanelRimV0), (0.03, Skin.hudHudViewHudPanelRimV1), (0.5, Skin.hudHudViewHudPanelRimV2), (0.9, Skin.hudHudViewHudPanelRimV3),
+                                                                       (0.95, Skin.hudHudViewHudPanelRimV4), (1, Skin.hudHudViewHudPanelRimV5)]),
                                       startPoint: .top, endPoint: .bottom))
-            face.fill(LinearGradient(stops: t.stops("hud.panelBody", [(0, 0xEFF7F5), (0.03, 0xE8F3F0), (0.07, 0xC9E4DD), (0.1, 0xC0E0D8),
-                                                                       (1.0, 0xC0E0D8)]),
+            face.fill(LinearGradient(stops: t.stops("hud.panelBody", [(0, Skin.hudHudViewHudPanelBody0), (0.03, Skin.hudHudViewHudPanelBody1), (0.07, Skin.hudHudViewHudPanelBody2), (0.1, Skin.hudHudViewHudPanelBody3),
+                                                                       (1.0, Skin.hudHudViewHudPanelBody4)]),
                                      startPoint: .top, endPoint: .bottom))
                 .padding(EdgeInsets(top: 1.8, leading: 3.4, bottom: 4.6, trailing: 3.4))
                 .blur(radius: 0.9)
-            face.fill(t.color("hud.panel", 0xC0E0D8))
+            face.fill(t.color("hud.panel", Skin.hudHudViewHudPanel))
                 .padding(EdgeInsets(top: 5.0, leading: 5.2, bottom: 5.8, trailing: 5.2))
                 .blur(radius: 1.2)
         }
@@ -206,8 +206,8 @@ private struct HUDLevelTab: View, Equatable {
     var body: some View {
         let r = t.rect("hud.levelTab", CGRect(149.5, 54.0, 94.4, 23.0), .top, m)
         let key = tag == .normal ? "hud.levelTab" : (tag == .hard ? "hud.levelTabHard" : "hud.levelTabSuperHard")
-        let outline: UInt32 = tag == .normal ? 0x00393D : (tag == .hard ? 0x560C00 : 0x4F0F2B)
-        let style = t.text(key + ".label", .s2(17.9, -0.5, [0xFFF9EF, 0xFFF4E0, 0xFDEDCF], outline: outline, 0.65, drop: 0.73))
+        let outline: UInt32 = tag == .normal ? Skin.hudHudViewHudLevelTabOutlineNormal : (tag == .hard ? Skin.hudHudViewHudLevelTabOutlineHard : Skin.hudHudViewHudLevelTabOutlineNotHard)
+        let style = t.text(key + ".label", .s2(17.9, -0.5, [Skin.hudHudViewHudLevelTabStyleText0, Skin.hudHudViewHudLevelTabStyleText1, Skin.hudHudViewHudLevelTabStyleText2], outline: outline, 0.65, drop: 0.73))
             .sized(17.9 * m.s)
         let p = t.textPoint(key + ".label", baseline: 70.7, centreX: 196.8)
         let at = m.point(CGPoint(x: p.x, y: p.baseline), .top)
@@ -229,16 +229,16 @@ private struct HUDLevelTab: View, Equatable {
         let d: [(Double, UInt32)]
         switch tag {
         case .normal:
-            d = [(0, 0x00393D), (0.03, 0x264F4D), (0.059, 0x6EBFB0), (0.074, 0x6CCCBD), (0.088, 0x5EC8B9), (0.118, 0x05A99A),
-                 (0.132, 0x00A293), (0.868, 0x009B8E), (0.926, 0x006D6A), (0.956, 0x006A67), (0.971, 0x00484F), (1.0, 0x004046)]
+            d = [(0, Skin.hudHudViewHudLevelTabTabArtDNormal0), (0.03, Skin.hudHudViewHudLevelTabTabArtDNormal1), (0.059, Skin.hudHudViewHudLevelTabTabArtDNormal2), (0.074, Skin.hudHudViewHudLevelTabTabArtDNormal3), (0.088, Skin.hudHudViewHudLevelTabTabArtDNormal4), (0.118, Skin.hudHudViewHudLevelTabTabArtDNormal5),
+                 (0.132, Skin.hudHudViewHudLevelTabTabArtDNormal6), (0.868, Skin.hudHudViewHudLevelTabTabArtDNormal7), (0.926, Skin.hudHudViewHudLevelTabTabArtDNormal8), (0.956, Skin.hudHudViewHudLevelTabTabArtDNormal9), (0.971, Skin.hudHudViewHudLevelTabTabArtDNormal10), (1.0, Skin.hudHudViewHudLevelTabTabArtDNormal11)]
         case .hard:
-            d = [(0, 0x990101), (0.06, 0xA82A1C), (0.083, 0xE59B90), (0.097, 0xEEA69B), (0.153, 0xED6653), (0.847, 0xEE3E29),
-                 (0.903, 0x960101), (0.944, 0x730A00), (1.0, 0x7D140D)]
+            d = [(0, Skin.hudHudViewHudLevelTabTabArtDHard0), (0.06, Skin.hudHudViewHudLevelTabTabArtDHard1), (0.083, Skin.hudHudViewHudLevelTabTabArtDHard2), (0.097, Skin.hudHudViewHudLevelTabTabArtDHard3), (0.153, Skin.hudHudViewHudLevelTabTabArtDHard4), (0.847, Skin.hudHudViewHudLevelTabTabArtDHard5),
+                 (0.903, Skin.hudHudViewHudLevelTabTabArtDHard6), (0.944, Skin.hudHudViewHudLevelTabTabArtDHard7), (1.0, Skin.hudHudViewHudLevelTabTabArtDHard8)]
         case .superHard:
-            d = [(0, 0x890F51), (0.06, 0xAC2A6B), (0.083, 0xF76D9F), (0.097, 0xFF77A8), (0.153, 0xE42180), (0.847, 0xB81B6E),
-                 (0.903, 0x771345), (0.944, 0x5B0E32), (1.0, 0x791347)]
+            d = [(0, Skin.hudHudViewHudLevelTabTabArtDSuperHard0), (0.06, Skin.hudHudViewHudLevelTabTabArtDSuperHard1), (0.083, Skin.hudHudViewHudLevelTabTabArtDSuperHard2), (0.097, Skin.hudHudViewHudLevelTabTabArtDSuperHard3), (0.153, Skin.hudHudViewHudLevelTabTabArtDSuperHard4), (0.847, Skin.hudHudViewHudLevelTabTabArtDSuperHard5),
+                 (0.903, Skin.hudHudViewHudLevelTabTabArtDSuperHard6), (0.944, Skin.hudHudViewHudLevelTabTabArtDSuperHard7), (1.0, Skin.hudHudViewHudLevelTabTabArtDSuperHard8)]
         }
-        let outline: UInt32 = tag == .normal ? 0x00393D : (tag == .hard ? 0x85120B : 0x5B0E32)
+        let outline: UInt32 = tag == .normal ? Skin.hudHudViewHudLevelTabTabArtOutline : (tag == .hard ? Skin.hudHudViewHudLevelTabTabArtOutlineHard : Skin.hudHudViewHudLevelTabTabArtOutlineNotHard)
         return ZStack {
             RoundedRectangle(cornerRadius: radius, style: .continuous).fill(t.color(key + "Outline", outline))
             RoundedRectangle(cornerRadius: max(1, radius - 1), style: .continuous)

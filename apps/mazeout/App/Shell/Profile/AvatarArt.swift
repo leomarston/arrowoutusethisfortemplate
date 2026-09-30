@@ -33,7 +33,7 @@ struct AvatarFrameTile: View {
                 ArtImage(art: Avatars.art(index), contentMode: .fill)
                     .frame(width: w - 2 * r, height: h - 2 * r)
                     .clipShape(Superellipse(n: n + 0.3))
-                    .overlay(Superellipse(n: n + 0.3).stroke(Color(hex: selected ? 0xA3530E : 0x005A57), lineWidth: max(1, w * 0.012)))
+                    .overlay(Superellipse(n: n + 0.3).stroke(Color(hex: selected ? Skin.profileAvatarArtAvatarFrameTileStrokeSelected : Skin.profileAvatarArtAvatarFrameTileStrokeNotSelected), lineWidth: max(1, w * 0.012)))
             }
             .frame(width: w, height: h)
         }
@@ -47,11 +47,11 @@ private struct AvatarRing: View {
     let n: CGFloat
     var body: some View {
         Rasterized("avatarRing|\(selected)|\(n)", overflow: 1.5) { _ in
-            let ring: [Color] = selected ? [Color(hex: 0xF9DA84), Color(hex: 0xFCBE38), Color(hex: 0xE7870F)]
-                                         : [Color(hex: 0xA5DCC8), Color(hex: 0x14A899), Color(hex: 0x00827B)]
+            let ring: [Color] = selected ? [Color(hex: Skin.profileAvatarArtAvatarRingRing0), Color(hex: Skin.profileAvatarArtAvatarRingRing1), Color(hex: Skin.profileAvatarArtAvatarRingRing2)]
+                                         : [Color(hex: Skin.profileAvatarArtAvatarRing0), Color(hex: Skin.profileAvatarArtAvatarRing1), Color(hex: Skin.profileAvatarArtAvatarRing2)]
             ZStack {
-                Superellipse(n: n).fill(Color(hex: selected ? 0x823F00 : 0x164E4E)).offset(y: 1.2)
-                Superellipse(n: n).fill(Color(hex: selected ? 0x823F00 : 0x164E4E))
+                Superellipse(n: n).fill(Color(hex: selected ? Skin.profileAvatarArtAvatarRingFillSelected : Skin.profileAvatarArtAvatarRingFillNotSelected)).offset(y: 1.2)
+                Superellipse(n: n).fill(Color(hex: selected ? Skin.profileAvatarArtAvatarRingFillSelected : Skin.profileAvatarArtAvatarRingFillNotSelected))
                 Superellipse(n: n)
                     .fill(LinearGradient(stops: [.init(color: ring[0], location: 0), .init(color: ring[1], location: 0.12),
                                                  .init(color: ring[2], location: 1)], startPoint: .top, endPoint: .bottom))

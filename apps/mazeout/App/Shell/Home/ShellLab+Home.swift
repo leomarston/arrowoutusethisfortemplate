@@ -32,7 +32,7 @@ private struct S3LabRedirect: View {
 
     var body: some View {
         ZStack {
-            Color(hex: 0x38504D)
+            Color(hex: Skin.homeShellLabHomeS3LabRedirect)
             if let entry { HomeView(tab: .home, refill: kind == .pileRefill ? 1 : 0, labEntry: entry) }
         }
         .accessibilityIdentifier("screen.shelllab")
@@ -70,7 +70,7 @@ private struct S3LabRedirect: View {
 private struct S3TabTour: View {
     @Environment(AppModel.self) private var app
     var body: some View {
-        Color(hex: 0x38504D)
+        Color(hex: Skin.homeShellLabHomeS3TabTour)
             .onAppear { Task { @MainActor in await S3TabTour.run(app) } }   // not `.task`: the tour outlives this lab view
     }
 

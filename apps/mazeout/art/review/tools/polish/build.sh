@@ -7,6 +7,7 @@ P=build/ui-art/polish
 mkdir -p $P/swift
 sed -n '1,181p;205,289p;363,425p' App/Shell/Popups/PopupChrome.swift > $P/swift/chrome_shell.swift
 xcrun swiftc -O -parse-as-library -target arm64-apple-macos15.0 -o $P/chromerender art/ui/code/GlossyChrome.swift \
+    App/Shell/Components/SkinColors.generated.swift \
     art/review/tools/polish/stubs.swift $P/swift/chrome_shell.swift art/review/tools/polish/chrome_polish.swift \
     art/review/tools/polish/main.swift
 $P/chromerender $P

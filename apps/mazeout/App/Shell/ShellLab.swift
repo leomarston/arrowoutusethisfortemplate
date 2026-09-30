@@ -33,7 +33,7 @@ struct ShellLab: View {
     var body: some View {
         let t = app.tuning.ui.tokens
         ZStack(alignment: .topLeading) {
-            (page == .puppets ? Color(hex: 0xBA7B94) : Color(hex: 0x38504D))
+            (page == .puppets ? Color(hex: Skin.shellShellLabShellLab) : Color(hex: Skin.shellShellLabShellLabV2))
             ReferenceCanvas {
                 // text / components: scaled 0.9 about the bottom so nothing sits under the Dynamic Island
                 switch page {
@@ -57,23 +57,23 @@ struct ShellLab: View {
     // MARK: text
 
     @ViewBuilder private func textPage(_ t: Tokens) -> some View {
-        let title = t.text("popup.title", GameTextStyle(size: 49.2, tracking: -1.0, fill: [.white], outline: Color(hex: 0x6A3510),
-                                                         outlineWidth: 1.87, drop: 3.15, band: Color(hex: 0xF9D89C), bandDY: 1.5))
-        let play = t.text("home.play", GameTextStyle(size: 48.8, tracking: -3.25, fill: [Color(hex: 0xFFFBF2)], outline: Color(hex: 0x924500),
+        let title = t.text("popup.title", GameTextStyle(size: 49.2, tracking: -1.0, fill: [.white], outline: Color(hex: Skin.shellShellLabPopupTitleOutline),
+                                                         outlineWidth: 1.87, drop: 3.15, band: Color(hex: Skin.shellShellLabPopupTitleBand), bandDY: 1.5))
+        let play = t.text("home.play", GameTextStyle(size: 48.8, tracking: -3.25, fill: [Color(hex: Skin.shellShellLabHomePlayFill0)], outline: Color(hex: Skin.shellShellLabHomePlayOutline),
                                                      outlineWidth: 2.2, drop: 2.2))
-        let tab = GameTextStyle(size: 17.9, tracking: -0.5, fill: [Color(hex: 0xFFF9EF), Color(hex: 0xFFF4E0), Color(hex: 0xFDEDCF)],
-                                outline: Color(hex: 0x00393D), outlineWidth: 0.65, drop: 0.73)
-        let timer = GameTextStyle(size: 23.3, tracking: 0.25, fill: [Color(hex: 0xF7F7F9), Color(hex: 0xEDEDF2), Color(hex: 0xE2E3EA)],
-                                  outline: Color(hex: 0x04292C), outlineWidth: 0.67, drop: 1.13)
+        let tab = GameTextStyle(size: 17.9, tracking: -0.5, fill: [Color(hex: Skin.shellShellLabShellLabTextPageTabFill0), Color(hex: Skin.shellShellLabShellLabTextPageTabFill1), Color(hex: Skin.shellShellLabShellLabTextPageTabFill2)],
+                                outline: Color(hex: Skin.shellShellLabShellLabTextPageTabOutline), outlineWidth: 0.65, drop: 0.73)
+        let timer = GameTextStyle(size: 23.3, tracking: 0.25, fill: [Color(hex: Skin.shellShellLabShellLabTextPageTimerFill0), Color(hex: Skin.shellShellLabShellLabTextPageTimerFill1), Color(hex: Skin.shellShellLabShellLabTextPageTimerFill2)],
+                                  outline: Color(hex: Skin.shellShellLabShellLabTextPageTimerOutline), outlineWidth: 0.67, drop: 1.13)
         let resume = t.text("pause.resume", GameTextStyle(size: 30.5, tracking: -1))
         let quit = t.text("pause.quit", GameTextStyle(size: 30.5, tracking: -0.5))
-        let row = t.text("pause.rowLabel", GameTextStyle(size: 25.5, fill: [Color(hex: 0x5A2801)]))
+        let row = t.text("pause.rowLabel", GameTextStyle(size: 25.5, fill: [Color(hex: Skin.shellShellLabPauseRowLabelFill0)]))
         let on = t.text("pause.toggleOn", GameTextStyle(size: 21, tracking: -0.75))
         let caption = t.text("home.levelCaption", GameTextStyle(size: 14.1, tracking: -1.5))
         let number = t.text("home.levelNumber", GameTextStyle(size: 30.6, tracking: -1.5))
         let loading = t.text("loading.label", GameTextStyle(size: 26.8, tracking: -0.5))
         ZStack(alignment: .topLeading) {
-            Color(hex: 0xF4E8D4).placed(CGRect(0, 0, 393, 150))
+            Color(hex: Skin.shellShellLabShellLabTextPage).placed(CGRect(0, 0, 393, 150))
             GameText(verbatim: "Paused", style: title, maxWidth: 228).at(196.5, title.capCentre(baseline: 60)).accessibilityIdentifier("lab.paused")
             GameText(verbatim: "Play", style: play, maxWidth: 175).at(196.5, play.capCentre(baseline: 128)).accessibilityIdentifier("lab.play")
             GameText(verbatim: "Level 32", style: tab).at(80, tab.capCentre(baseline: 190))
@@ -83,7 +83,7 @@ struct ShellLab: View {
             GameText(verbatim: "Resume", style: resume, maxWidth: 100).at(80, resume.capCentre(baseline: 250))
             GameText(verbatim: "Quit", style: quit, maxWidth: 100).at(200, quit.capCentre(baseline: 250))
             GameText(verbatim: "ON", style: on).at(300, on.capCentre(baseline: 250))
-            Color(hex: 0xF4E8D4).placed(CGRect(0, 270, 393, 50))
+            Color(hex: Skin.shellShellLabShellLabTextPage).placed(CGRect(0, 270, 393, 50))
             GameText(verbatim: "Sound", style: row).at(90, row.capCentre(baseline: 305))
             GameText(verbatim: "Haptic", style: row).at(250, row.capCentre(baseline: 305))
             GameText(verbatim: "Loading...", style: loading).at(196.5, loading.capCentre(baseline: 360))

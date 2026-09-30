@@ -12,7 +12,7 @@ enum Sparkles {
         let radius = CGFloat(t.number("fx.sparkles.radius", 22))
         let duration = t.number("fx.sparkles.duration", 0.7)
         let size = CGFloat(t.number("fx.sparkles.size", 9))
-        let colors = t.file.strings("fx.sparkles.colors", ["#FFFFFF", "#FFF6B0", "#FFE14A"])
+        let colors = t.file.strings("fx.sparkles.colors", [Skin.fxSparklesFxSparklesColors0Hex, Skin.fxSparklesFxSparklesColors1Hex, Skin.fxSparklesFxSparklesColors2Hex])
             .compactMap { UIColor(hexString: $0) }
         var rng = PathRandom(seed: seed &+ 0x5EED)
         var out: [CALayer] = []
