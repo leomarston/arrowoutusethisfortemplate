@@ -139,23 +139,6 @@ enum BalloonChest {
     static func art(_ i: Int) -> UIArt { [.rewardChest3, .rewardChest2, .rewardChest1, .rewardChest3, .rewardChest2][i % 5] }
 }
 
-/// A requested art id: the file when it exists, else (DEBUG only) the hatched placeholder; Release draws nothing.
-struct UpAwayArtImage: View {
-    let id: String
-    var contentMode: ContentMode = .fit
-    var body: some View {
-        if let a = UpAwayArt.art(id) {
-            ArtImage(art: a, contentMode: contentMode)
-        } else {
-            #if DEBUG
-            DebugPlaceholder(name: id)
-            #else
-            Color.clear
-            #endif
-        }
-    }
-}
-
 // MARK: - the page
 
 struct SocBalloonPage: View {

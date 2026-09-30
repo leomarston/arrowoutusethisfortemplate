@@ -8,7 +8,8 @@ import PathCore
 // multiplier flame keeps hanging from the token: the win-streak multiplier (Hot Streak) runs in every week. Tap → the Up &
 // Away page. The NEW ribbon (until the page is opened this week) is the rotation's (EventAnnounce); the chip stays blue to the
 // end and reads mm:ss in the last hour (FIX-2 B, v582).
-// Also here: the NEW ribbon and the ×2 gem (Double Event Week) — code-drawn chrome, no bitmaps (events.md §7.1 "rotation").
+// The NEW ribbon and the ×2 gem (Double Event Week) — code-drawn chrome, no bitmaps (events.md §7.1 "rotation") — moved to the
+// home's EventBarChrome.swift in the kit decoupling step (the Treasure Climb bar and the event badges draw them too).
 
 struct BalloonBar: View {
     let balloon: Events.BalloonStatus
@@ -22,7 +23,7 @@ struct BalloonBar: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let bar = t.frame("home.clawBar", ClawBar.frame)
+        let bar = t.frame("home.clawBar", ClawBarFrame.bar)
         let fillFrom = CGFloat(t.number("home.clawBar.fillFromX", 66.7))
         let fillTo = CGFloat(t.number("home.clawBar.fillToX", 330.0))
         let goal = balloon.goal
@@ -83,59 +84,5 @@ private struct UpAwayToken: View {
         } else {
             UpAwayArtImage(id: UpAwayArt.badge)
         }
-    }
-}
-
-/// "NEW" (T1 event.new): a red capsule, bold 11 pt white, wiggling 6° every 6 s (events.md §6.1).
-struct NewRibbon: View {
-    enum Phase: CaseIterable { case rest, left, right, back }
-    var body: some View {
-        let st = GameTextStyle.s2(11, -0.2, [Skin.homeBalloonBarNewRibbonSt0], outline: Skin.homeBalloonBarNewRibbonStOutline, 1.0, drop: 0.6)
-        ZStack {
-            Capsule().fill(Color(hex: Skin.homeBalloonBarNewRibbonFill)).offset(y: 1.2)
-            Capsule().fill(LinearGradient(colors: [Color(hex: Skin.homeBalloonBarNewRibbonColors0), Color(hex: Skin.homeBalloonBarNewRibbonColors1)], startPoint: .top, endPoint: .bottom))
-            GameText("NEW", style: st, maxWidth: 34)
-        }
-        .frame(width: 40, height: 18)
-        .phaseAnimator(Phase.allCases) { v, p in
-            v.rotationEffect(.degrees(p == .left ? -6 : (p == .right ? 6 : 0)))
-        } animation: { p in
-            switch p {
-            case .left, .right: return .easeInOut(duration: 0.12)
-            case .back: return .easeOut(duration: 0.12)
-            case .rest: return .linear(duration: 5.6)                  // the hold: one wiggle every 6 s
-            }
-        }
-        .accessibilityElement()
-        .accessibilityIdentifier("home.event.new")
-    }
-}
-
-/// "×2" on both race badges in a Double Event Week (a gem, code-drawn). A5: R8's D1 CTA tokens — face #FFE08A → #FFB422,
-/// outline #8A3F00, a thin brass rim #E3B04B (art/lanes/events-d1.handoff.json rotation_chrome).
-struct DoubleGem: View {
-    var body: some View {
-        let st = GameTextStyle.s2(13, -0.4, [Skin.homeBalloonBarDoubleGemSt0], outline: Skin.homeBalloonBarDoubleGemStOutline, 1.1, drop: 0.7)
-        ZStack {
-            DiamondShape().fill(Color(hex: Skin.homeBalloonBarDoubleGemFill)).offset(y: 1.2)
-            DiamondShape().fill(LinearGradient(colors: [Color(hex: Skin.homeBalloonBarDoubleGemColors0), Color(hex: Skin.homeBalloonBarDoubleGemColors1)], startPoint: .top, endPoint: .bottom))
-            DiamondShape().stroke(Color(hex: Skin.homeBalloonBarDoubleGemStroke), lineWidth: 0.8).padding(0.4)
-            GameText(verbatim: "×2", style: st, maxWidth: 24)
-        }
-        .frame(width: 30, height: 26)
-        .accessibilityElement()
-        .accessibilityIdentifier("home.event.double")
-    }
-}
-
-private struct DiamondShape: Shape {
-    func path(in r: CGRect) -> Path {
-        var p = Path()
-        p.move(to: CGPoint(x: r.midX, y: r.minY))
-        p.addLine(to: CGPoint(x: r.maxX, y: r.midY))
-        p.addLine(to: CGPoint(x: r.midX, y: r.maxY))
-        p.addLine(to: CGPoint(x: r.minX, y: r.midY))
-        p.closeSubpath()
-        return p
     }
 }

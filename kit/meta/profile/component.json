@@ -5,10 +5,12 @@
  "summary": "The Profile page (avatar, name, stats) with the Edit Profile (avatar grid) and Username popups.",
  "description": "Screen.profile, opened by the home avatar: the page header, the player card (avatar -> Edit Profile, the name -> Username), the stats. EditProfilePopup writes the avatar, UsernamePopup validates and writes the name (3-16 characters, blocklists), both through PlayerStore.",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
   "apps/mazeout/App/Shell/Profile/ProfileView.swift",
   "apps/mazeout/App/Shell/Popups/EditProfilePopup.swift",
-  "apps/mazeout/App/Shell/Popups/UsernamePopup.swift"
+  "apps/mazeout/App/Shell/Popups/UsernamePopup.swift",
+  "apps/mazeout/App/Shell/Profile/ProfileRegistration.swift"
  ],
  "depends": [
   "core",
@@ -16,8 +18,7 @@
   "ui-chrome"
  ],
  "wires": [
-  "shop",
-  "balloon-rise"
+  "shop"
  ],
  "uses": {
   "art": [

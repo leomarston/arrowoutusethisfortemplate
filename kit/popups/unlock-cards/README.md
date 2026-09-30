@@ -10,6 +10,10 @@ UnlockDirector opens UnlockOverlay on the Play of a level whose Levels/unlocks.j
 let r = await popups.present(Popup<PopupResult>.unlockOverlay(feature))
 ```
 
+## Notes
+
+- FeatureUnlock is GameCore's now (Session/FeatureUnlock.swift; the bundle's list reader stays in ArrowEscape). Registered by UnlockCardsRegistration.swift.
+
 ## Open it in a Debug build
 
 ```
@@ -18,10 +22,6 @@ let r = await popups.present(Popup<PopupResult>.unlockOverlay(feature))
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- UnlockDirector reads FeatureUnlock, which lives in ArrowEscape (not GameCore).
 
 ## Take it
 

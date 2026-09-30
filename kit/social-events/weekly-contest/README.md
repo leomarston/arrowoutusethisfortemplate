@@ -20,10 +20,6 @@ _ = await app.popups.present(Popup<PopupResult>.weeklyContestIntro)
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
 
-## Known gaps
-
-- Shared event helpers live in other events' files: SocInfoTitle / SocTwoLines / SocWarningCard (StreakRaceViews.swift), SocInfoDisc / SocReadyWhen (LeaderboardViews.swift), SocGrantText / SocStageStrip (RocketRaceViews.swift), EventTimerChip (StreakBanner.swift); moving them into SocChrome.swift would let each event stand alone.
-
 ## Take it
 
 ```

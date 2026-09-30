@@ -212,20 +212,6 @@ private struct StartsInLine: View {
     }
 }
 
-/// Our event names (ruling 38 / T1; the internal EventID raw values never change: they live in saves).
-enum EventNames {
-    static func name(_ e: EventID) -> LocalizedStringResource {
-        switch e.rawValue {
-        case "streakRace": return "Hot Streak"
-        case "weeklyContest": return "Weekly Cup"
-        case "clawChallenge": return "Treasure Climb"
-        case "rocketRace": return "Rocket Rally"
-        case "skyJump": return "Cloud Hop"
-        default: return "Up & Away"
-        }
-    }
-}
-
 /// events.md §6.3: in a featured ladder event's last `teaserHours` (24 h) its page's footer names next week's pick for this
 /// player — "Coming next: Up & Away" · "Starts in 5h 12m" (T1's two keys). Nothing while the rotation is off.
 struct ComingNextFooter: View {

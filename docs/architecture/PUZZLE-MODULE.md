@@ -31,7 +31,12 @@ Still arrow-shaped and therefore module-private: `SessionEvent`, `SessionAck`, `
 rescue instead (`FailStep.action` → `.puzzleAction(id:amount:)`, §8b).
 
 ## 2. The module
-Split in two halves because the core packages must not depend on UIKit and `SessionPlan` still lives in ArrowEscape:
+Split in two halves because the core packages must not depend on UIKit. The session types every half names are GameCore's:
+`SessionPlan` (one Play = a session of 1…n stages, with its `HeartsCarry`) and `FeatureUnlock` (a feature's first-appearance
+card) moved from ArrowEscape into `GameCore/Session/` (`SessionPlan.swift`, `FeatureUnlock.swift`) in the kit decoupling step:
+same members, same sessions.json / unlocks.json shapes, source compatible through `import PathCore` / `GameCore` (the bundle's
+list reader `FeatureUnlock.decodeList` stays with ArrowEscape's bundle schema). `IntroStyle` (how a stage's board builds in)
+is part of the app half (below), no longer the arrow board's contract.
 
 **Pure half — GameCore `Session/PuzzleContract.swift`:**
 ```swift
@@ -152,7 +157,7 @@ board animates what already happened); outputs in causal order; a `won`/`lost` i
     var allowedTargets: Set<PuzzleTarget>? { get set }        // tutorial restriction
     func prepare() async
     func load(_ stage: StageContext)                          // stage, stages, seed, screen, info: PuzzleStage
-    func playIntro(_ style: IntroStyle)                       // → .introFinished
+    func playIntro(_ style: IntroStyle)                       // → .introFinished (IntroStyle: .growFromTails, .growFromTailsNoHUD, .none)
     func present(_ outputs: [SessionOutput])                  // the whole batch; the board picks its .puzzle events
     func playStageTransition(to: StageContext)                // → .stageTransitionDone
     func playClearWave()
@@ -264,8 +269,8 @@ contract changes — the contract already carries the information). The first fo
 2. Paper designs of three unlike genres fit without new shell code: a **select-then-target** puzzle with no timer and a
    "stuck" fail (sorting), a **swap + cascade** puzzle with a move limit and goals (match-3), a **no-fail progress** puzzle
    (colouring). Known gaps found while building: ~~the HUD has no moves / goals widgets; `outOfMoves` / `stuck` popups have
-   no texts~~ (closed, §8c); `MetaRules.StepGrant` has no `addMoves`; `SessionPlan` (and its `hearts: reset|carry`) still
-   lives in ArrowEscape.
+   no texts~~ (closed, §8c); `MetaRules.StepGrant` has no `addMoves`; ~~`SessionPlan` (and its `hearts: reset|carry`) still
+   lives in ArrowEscape~~ (closed: GameCore, with `FeatureUnlock`; `IntroStyle` in the app contract).
 3. A second real module ships through the whole pipeline (phase 5); its lessons produce contract v1.1. **Status:**
    SortPuzzle (§6b) is written through the contract with one additive contract change (§8b); it is part of the app target
    while ArrowEscape stays active, with core + app unit tests, but **none of its Swift has been compiled yet** (CI run 16,

@@ -118,7 +118,7 @@ struct SocWeeklyTab: View {
         .task(id: model.isOnScreen(.weekly)) {
             guard model.isOnScreen(.weekly) else { return }
             model.listHost(.weekly).list.pageOpened()          // FIX-V2 F-04: open on the player's row, every open
-            if SocialFlows.joinWeeklyIfNeeded(app) { model.request(.weekly) }
+            if SocialEvents.engine?.joinWeeklyIfNeeded(app) == true { model.request(.weekly) }   // the events engine (protocol)
         }
         .onDisappear {
             model.disappear(.weekly)
@@ -161,22 +161,6 @@ struct SocWeeklyHeader: View {
 
     private func openInfo() {
         Task { @MainActor in _ = await app.popups.present(Popup<PopupResult>.weeklyContestIntro) }
-    }
-}
-
-/// The blue (i) disc (SPEC-ui §1.6.20: #00A1FC, a white "i" outlined navy).
-struct SocInfoDisc: View {
-    var body: some View {
-        Rasterized("socInfoDisc", overflow: 1) { size in
-            ZStack {
-                Circle().fill(Color(hex: Skin.socialLeaderboardViewsSocInfoDiscFill))
-                Circle().fill(LinearGradient(colors: [Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors0), Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors1), Color(hex: Skin.socialLeaderboardViewsSocInfoDiscColors2)],
-                                             startPoint: .top, endPoint: .bottom)).padding(1.5)
-                Capsule().fill(Color.white).frame(width: size.width * 0.14, height: size.height * 0.36).offset(y: size.height * 0.1)
-                Circle().fill(Color.white).frame(width: size.width * 0.16, height: size.width * 0.16).offset(y: -size.height * 0.2)
-            }
-        }
-        .padding(8)
     }
 }
 
@@ -226,49 +210,17 @@ struct SocPodiumSlot: View {
     }
 }
 
-// MARK: - capture readiness
+// The capture-ready markers (SocReadyMarker, SocReadyWhen, SocReady) and the (i) disc are shared event chrome:
+// SocEventChrome.swift.
 
-/// Writes Documents/social-ready.json once the list shows a snapshot (captures wait for it; `-pc.capture 1` only), and
-/// exposes `social.ready` (value = the list kind) for UI tests.
-struct SocReadyMarker: View {
-    let kind: SocListKind
-    @Environment(AppModel.self) private var app
+// MARK: - the entry point
 
-    var body: some View {
-        let model = SocialModel.install(app)
-        let v = model.listVersion[kind] ?? 0
-        Color.clear.frame(width: 1, height: 1)
-            .accessibilityElement()
-            .accessibilityIdentifier("social.ready")
-            .accessibilityValue(Text(verbatim: v > 0 ? kind.rawValue : "pending"))
-            .onChange(of: v) { _, nv in if nv == 1 { SocReady.mark("leaderboard:\(kind.rawValue)", app: app) } }
-            .onAppear { if v > 0 { SocReady.mark("leaderboard:\(kind.rawValue)", app: app) } }
-    }
-}
-
-/// Marks the social ready file once `ready` holds (the event pages: their snapshot arrived).
-struct SocReadyWhen: View {
-    let ready: Bool
-    let name: String
-    @Environment(AppModel.self) private var app
-    @State private var done = false
-    var body: some View {
-        Color.clear.frame(width: 1, height: 1)
-            .accessibilityElement()
-            .accessibilityIdentifier("social.ready")
-            .accessibilityValue(Text(verbatim: ready ? name : "pending"))
-            .onAppear { if ready && !done { done = true; SocReady.mark(name, app: app) } }
-            .onChange(of: ready) { _, r in if r && !done { done = true; SocReady.mark(name, app: app) } }
-    }
-}
-
-@MainActor enum SocReady {
-    /// After two presented frames: the social ready file (capture mode) + a log mark.
-    static func mark(_ screen: String, app: AppModel) {
-        Task { @MainActor in
-            if app.args.raw["pc.socialScenario"] != nil { for _ in 0..<80 where !ScenarioReady.done { try? await Task.sleep(nanoseconds: 25_000_000) } }
-            await FrameWaiter.frames(2)
-            CaptureReady.mark(screen: screen, app: app, file: "social-ready.json")
-        }
+// SOCIAL SOC2's `SocialEntryPoint.makeLeaderboard` (ShellContract.swift): the Leaderboard tab body inside social-ui's
+// LeaderboardPageShell. Moved here from SocialEntry.swift in the kit decoupling step, so the leaderboard component provides
+// its own body and the events engine does not wire it.
+extension SocialEntry {
+    static func makeLeaderboard(app: AppModel) -> AnyView {
+        SocialModel.install(app)
+        return AnyView(SocLeaderboardBody())
     }
 }

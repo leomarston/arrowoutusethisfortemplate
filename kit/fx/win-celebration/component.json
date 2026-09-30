@@ -6,7 +6,8 @@
  "description": "WinLogoSequence plays `.celebration(tag)` on the FX host: the logo parts (skin slots logo.part.*, ui.json `win.logo`) with letter beats, fireworks and confetti, pre-built behind Loading. Timings ui.json `win.*`.",
  "status": "stable",
  "files": [
-  "apps/mazeout/App/FX/WinLogoSequence.swift"
+  "apps/mazeout/App/FX/WinLogoSequence.swift",
+  "apps/mazeout/App/FX/WinCelebrationRegistration.swift"
  ],
  "tests": [
   "apps/mazeout/Tests/WinLogoTests.swift",

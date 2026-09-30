@@ -69,8 +69,8 @@ import PathCore
         Log.mark("win", "\(game.levelName) won: \(r.timeLeft) s left, \(r.heartsLeft) hearts")
         Log.mark("win", "\(game.levelName) banked: +\(r.reward) coins \(before.coins) → \(st.coins), pending fly \(st.pendingCoinFly), "
                  + "next level \(st.level), lives \(st.lives.count), first try \(r.firstTry), bumps \(r.bumps)"
-                 + (outcomes.isEmpty ? "" : ", events " + outcomes.map(EventsDirector.describe).joined(separator: "; ")))
-        // FIX-2 A (V3-02): the outcomes are described by EventsDirector's switch, not "\($0)": Swift's reflection-based
+                 + (outcomes.isEmpty ? "" : ", events " + outcomes.map(EventOutcomeLog.describe).joined(separator: "; ")))
+        // FIX-2 A (V3-02): the outcomes are described by a switch (EventOutcomeLog), not "\($0)": Swift's reflection-based
         // description cost the FIRST event-counted win of a process ~14 ms between `won` and `banked` (build/p/FIX2/A/perf/v8-ev3)
         #if DEBUG || PC_MEASURE
         services.app?.autoplayer?.noteWin(r)

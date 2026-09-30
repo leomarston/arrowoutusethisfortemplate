@@ -32,7 +32,7 @@ struct LeaderboardPageShell: View {
         let now = app.clock.wallClock()
         // FIX-2 A: the Leaderboard TAB is part of home: home's parked-aware state proxy, not the store — parked under a level it
         // re-renders nothing on the level's store writes (the attempt at Play, the win at the clearing tap)
-        let st = HomeLive.read(app)
+        let st = ShellScreens.homeState(app)                   // home's proxy (the home component's hooks)
         let status = Events.status(st, now: now, rules: ShellEconomy.rules(app))
         let weekly = status.weekly
         let bodyTop = m.y(190, .top), bodyBottom = m.y(771.7, .bottom)
@@ -73,7 +73,7 @@ private struct LeaderboardTabStrip: View {
 
     var body: some View {
         // B2: the board's country (a territory plays on its parent's board: IC -> ES) in the app's language
-        let country = CountryName.label(HomeLive.read(app).social.country.map { app.tuning.social.config.model.boardCountry($0) },
+        let country = CountryName.label(ShellScreens.homeState(app).social.country.map { app.tuning.social.config.model.boardCountry($0) },
                                         short: app.tuning.ui.file.value("lb.countryShort") as? [String: Any])
         ZStack(alignment: .topLeading) {
             LinearGradient(colors: [Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors0), Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors1)], startPoint: .top, endPoint: .bottom)
@@ -225,7 +225,7 @@ struct EventPageShell<Content: View>: View {
     }
 
     static func close(_ app: AppModel) {
-        HomeScene.requestRefill()
+        ShellScreens.home?.requestRefill()
         app.router.go(.home(.normal, tab: .home))
     }
 }

@@ -6,7 +6,8 @@
  "description": "FXEffect.fireworks(in:) on the FX host; ui.json `fx.firework`.",
  "status": "stable",
  "files": [
-  "apps/mazeout/App/FX/Fireworks.swift"
+  "apps/mazeout/App/FX/Fireworks.swift",
+  "apps/mazeout/App/FX/FireworksRegistration.swift"
  ],
  "depends": [
   "core"

@@ -97,14 +97,13 @@ struct WinPanel: View {
         }
     }
 
+    /// The strip under the panel: a slot the event components fill (`PanelStrips`; the first that draws wins — the Rocket Race
+    /// bar while a race runs, else Up & Away's strip while it runs (B1: it replaces the Hot Streak strip, VERIFIED v582,
+    /// balloon.md §5), else the Streak Race strip).
     @ViewBuilder private var under: some View {
-        if let race = RocketRaceStripSource.provider?(app) {
-            RocketRaceStrip(data: race, shownAt: shownAt)
-        } else if let balloon = BalloonStripSource.data(app, outcomes: summary.outcomes) {
-            // B1: while Up & Away runs its strip replaces the Hot Streak strip (VERIFIED v582, balloon.md §5)
-            BalloonStrip(data: balloon, shownAt: shownAt)
-        } else if let strip = StreakStripSource.data(app, level: summary.levels.last ?? 0, outcomes: summary.outcomes, lost: false) {
-            StreakStrip(data: strip, shownAt: shownAt)
+        if let strip = PanelStrips.view(PanelStripContext(app: app, place: .win, level: summary.levels.last ?? 0,
+                                                          outcomes: summary.outcomes, shownAt: shownAt)) {
+            strip
         }
     }
 

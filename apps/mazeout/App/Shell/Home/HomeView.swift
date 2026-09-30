@@ -46,12 +46,12 @@ struct HomeView: View {
                 // animations unaffected), so a tab tap starts the slide, not a page build in the tap's frame; a page that is
                 // sliding out stays mounted until the slide ends
                 if parts >= HomeBuild.shop, tab == .shop || HomeLive.shared.tabsMounted || strip.shown.contains(.shop) {
-                    HomeTabPage(page: .shop, width: m.size.width) { ShopView() }
+                    HomeTabPage(page: .shop, width: m.size.width) { ShellScreens.tabPage(.shop) ?? AnyView(EmptyView()) }   // the shop component
                         .allowsHitTesting(tab == .shop).accessibilityShown(tab == .shop)
                 }
                 if parts >= HomeBuild.leaderboard,
                    tab == .leaderboard || HomeLive.shared.tabsMounted || strip.shown.contains(.leaderboard) {
-                    HomeTabPage(page: .leaderboard, width: m.size.width) { LeaderboardPageShell() }
+                    HomeTabPage(page: .leaderboard, width: m.size.width) { ShellScreens.tabPage(.leaderboard) ?? AnyView(EmptyView()) }   // social-ui
                         .allowsHitTesting(tab == .leaderboard)
                         .accessibilityShown(tab == .leaderboard)
                 }

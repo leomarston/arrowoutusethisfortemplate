@@ -88,16 +88,10 @@ struct BoosterBuyPopup: View {
         .frame(width: 393, height: 852, alignment: .topLeading)
     }
 
-    /// B3: the description as one line while it fits `width` at ≥ 0.70, else the two-line break whose wider line is narrowest.
+    /// B3: the description as one line while it fits `width` at ≥ 0.70, else the two-line break whose wider line is narrowest
+    /// (ui-chrome's `SocTwoLines.descriptionLines`, shared with the generic offer popup since the kit decoupling step).
     static func descriptionLines(_ text: String, style: GameTextStyle, width: CGFloat) -> [String] {
-        func adv(_ s: String) -> CGFloat {
-            GameTextLayout.make(s, postScriptName: style.postScriptName, size: style.size, tracking: style.tracking).advance
-        }
-        guard adv(text) * 0.70 > width else { return [text] }
-        let two = SocTwoLines.split(text, size: style.size, parts: 2)
-        let w = two.map(adv).max() ?? 0
-        FitLedger.note("boosterBuy.desc2", text: text, need: width / max(w, 1))
-        return two
+        SocTwoLines.descriptionLines(text, style: style, width: width)
     }
 
     /// B3: the one scale of the "Buy" + "x3" group that fits `width` (GameText's frame: the ink box + the outline pad + 1.5 pt

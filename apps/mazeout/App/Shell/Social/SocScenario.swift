@@ -39,7 +39,7 @@ import PathCore
                 // the running race first (for a moment), then the world ends it at an events refresh: lost, kept by C3 in
                 // `lastRun` / `lastEndedAt` (SocCompute.rocket draws the result from those; there is no in-memory memo any more)
                 try? await Task.sleep(nanoseconds: 400_000_000)
-                SocialFlows.refreshEvents(app) { SocialModel.shared?.request(.rocket) }
+                SocialEvents.engine?.refreshEvents(app, home: true) { SocialModel.shared?.request(.rocket) }
             }
             ScenarioReady.done = true
         }

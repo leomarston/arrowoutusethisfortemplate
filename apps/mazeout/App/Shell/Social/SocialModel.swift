@@ -15,6 +15,30 @@ import PathCore
 // The player's home country is frozen at the first social use from the device region (`Locale.current.region`, SPEC-social
 // §2.3; `-pc.socialCountry <ISO>` overrides it for tests and captures).
 
+/// What the social pages (the leaderboard's Weekly join, the social model's install and weekly settlement, the capture
+/// scenarios' refresh) ask of the events engine, without naming it (kit decoupling step: the leaderboard alone needs no event).
+/// The events-engine component registers its implementation (EventsEngineRegistration.swift, over SocialFlows / SocHooks);
+/// without one the lists still draw and the engine's upkeep and joins simply do not run.
+@MainActor protocol SocialEventsEngine: AnyObject {
+    /// SHELL's hooks the engine fills (the home badges' Rocket rank, the trophy news, the win panel's race bar, the claims).
+    func installHooks(_ app: AppModel, model: SocialModel)
+    /// Weekly Contests that ended: the final rank from the world, then the settlement (off the main thread).
+    func settleEndedWeeks(_ app: AppModel)
+    /// `Events.refresh` on a background copy, applied if the state is unchanged; `then` runs once done.
+    func refreshEvents(_ app: AppModel, home: Bool, then: (() -> Void)?)
+    /// Opening the Weekly tab at the unlock joins this week's contest; true when it joined now.
+    func joinWeeklyIfNeeded(_ app: AppModel) -> Bool
+}
+
+@MainActor enum SocialEvents {
+    private static var _engine: (any SocialEventsEngine)?
+    static func register(_ engine: any SocialEventsEngine) { _engine = engine }
+    static var engine: (any SocialEventsEngine)? {
+        ComponentRegistry.installOnce()
+        return _engine
+    }
+}
+
 /// Everything a background computation needs, captured on the main thread (values and thread-safe objects only).
 struct SocInputs: @unchecked Sendable {
     let world: SocialWorld
@@ -145,7 +169,7 @@ struct SocRunMemo: Sendable, Equatable {
         if let m = shared, m.app === app { return m }
         let m = SocialModel(app: app)
         shared = m
-        SocHooks.install(app, model: m)
+        SocialEvents.engine?.installHooks(app, model: m)             // the events engine's SHELL hooks (SocHooks)
         // the social screens' rasters decoded OFF the main thread now (behind Loading), so no page's first frame decodes a
         // full-screen backdrop on the main thread (SPEC-architecture §10.2 "no first-presentation stall")
         DispatchQueue.global(qos: .utility).async { ArtStore.preload(SocialModel.art) }
@@ -157,7 +181,7 @@ struct SocRunMemo: Sendable, Equatable {
             }
             SocScenario.applyIfRequested(app)
             for _ in 0..<100 where app.socialWorld == nil { try? await Task.sleep(nanoseconds: 50_000_000) }
-            SocialFlows.settleEndedWeeks(app)
+            SocialEvents.engine?.settleEndedWeeks(app)
             Log.mark("social", "SocialModel installed (country \(app.store.state.social.country ?? "-"), refresh \(m.config.refreshSeconds) s)")
             #if DEBUG || PC_MEASURE
             if app.args.raw["pc.lab"] == "open" { SocOpenBench.run(app) }        // SocialLab.swift (Debug / Measure only)

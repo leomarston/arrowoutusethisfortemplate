@@ -1,4 +1,5 @@
 import SwiftUI
+import PathCore
 
 // SHELL S1 (SPEC-architecture §6.6, §6.11; design/ui-measure.md "Chrome layer recipes"; art/STYLE.md §B.1). The shared chrome
 // of v552's popups, drawn in code at the measured frames (ui.json `frames.pause.*`, colours `colors.panel.*` …):
@@ -478,4 +479,84 @@ struct ChromeButtonFace: View {
         }
         .accessibilityHidden(true)
     }
+}
+
+// MARK: - shared popup pieces (kit decoupling step: moved as they were from NoLivesPopup.swift, which the Shop and the booster
+// popup borrowed the rays from, and LevelFailedPopup.swift, whose ribbon label the win panel reads too)
+
+/// Code-drawn sunburst rays (#FFFFFA on the cream card, `rays` wedges from `centre`).
+struct SunburstRays: View {
+    let centre: CGPoint
+    var rays = 16
+    var colour = Color(hex: Skin.popupsNoLivesPopupSunburstRaysColour)
+    var body: some View {
+        Rasterized("sunburst|\(rays)|\(centre.x),\(centre.y)") { size in
+            Path { p in
+                let r = max(size.width, size.height) * 1.5
+                for i in 0..<rays {
+                    let a0 = Double(i) / Double(rays) * 2 * .pi, a1 = a0 + .pi / Double(rays)
+                    p.move(to: centre)
+                    p.addLine(to: CGPoint(x: centre.x + r * CGFloat(cos(a0)), y: centre.y + r * CGFloat(sin(a0))))
+                    p.addLine(to: CGPoint(x: centre.x + r * CGFloat(cos(a1)), y: centre.y + r * CGFloat(sin(a1))))
+                    p.closeSubpath()
+                }
+            }
+            .fill(colour.opacity(0.85))
+        }
+    }
+}
+
+/// The panels' ribbon label: "Level 32", or the session's panel label ("Level 1-4", Levels/sessions.json `panel_label`).
+@MainActor enum PanelLabel {
+    private static var sessionLabels: [[Int]: String]?
+
+    static func resource(_ levels: [Int]) -> LocalizedStringResource {
+        if levels.count > 1, let key = labels()[levels] { return LocalizedStringResource(String.LocalizationValue(key)) }
+        let n = levels.first ?? 0
+        return "Level \(n)"
+    }
+
+    private static func labels() -> [[Int]: String] {
+        if let sessionLabels { return sessionLabels }
+        struct File: Decodable { struct S: Decodable { let levels: [Int]; let panel_label: String? }; let sessions: [S] }
+        var out: [[Int]: String] = [:]
+        if let url = Bundle.main.url(forResource: "sessions", withExtension: "json", subdirectory: "Levels"),
+           let data = try? Data(contentsOf: url), let f = try? JSONDecoder().decode(File.self, from: data) {
+            for s in f.sessions { if let l = s.panel_label { out[s.levels] = l } }
+        }
+        sessionLabels = out
+        return out
+    }
+}
+
+// The unlock overlay's beats, which the claim screen's staged entrance reuses (moved as it was from UnlockOverlay.swift in the
+// kit decoupling step, so the claim screen needs no unlock card).
+/// The beats (ui.json `unlock.*`; the ◆ UnlockBeats reader + `acceptFrom`).
+struct UnlockTiming {
+    let b: UnlockBeats
+    let acceptFrom: Double
+    init(_ ui: UITuning) {
+        b = ui.unlockBeats
+        acceptFrom = ui.file.double("unlock.acceptFrom", 0.94)
+    }
+    var dismissFade: Double { b.dismissFade }
+    var sparkles: Double { b.sparkles }
+
+    /// Scale of an element at u (nil before its beat): the generic overshoot pop kf[0: from, rise: over, total: 1.0].
+    static func pop(_ u: Double, at: Double, from: Double, over: Double, rise: Double, total: Double) -> Double? {
+        let x = u - at
+        if x < 0 { return nil }
+        if x >= total { return 1 }
+        if x < rise { return from + (over - from) * Easing.outQuad(x / rise) }
+        return over + (1 - over) * Easing.inOutQuad((x - rise) / max(0.001, total - rise))
+    }
+
+    func icon(_ u: Double) -> Double? { Self.pop(u, at: b.icon, from: 0, over: 1.3, rise: 0.16, total: max(0.2, b.iconSettle - b.icon)) }
+    func title(_ u: Double) -> Double? { Self.pop(u, at: b.title, from: 0.2, over: 1.15, rise: 0.12, total: 0.16) }
+    func unlocked(_ u: Double) -> Double? {
+        let x = u - b.unlocked
+        if x < 0 { return nil }
+        return x >= 0.08 ? 1 : 0.2 + 0.8 * Easing.outBack(x / 0.08)
+    }
+    func card(_ u: Double) -> Double? { Self.pop(u, at: b.card, from: 0.2, over: 1.12, rise: 0.12, total: 0.16) }
 }

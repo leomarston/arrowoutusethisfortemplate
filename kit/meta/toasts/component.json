@@ -6,7 +6,8 @@
  "description": "ToastCenter.show(_:) - a plate with one or two lines of the toast text role; timings and look in ui.json `toast.*`.",
  "status": "stable",
  "files": [
-  "apps/mazeout/App/Shell/Components/Toast.swift"
+  "apps/mazeout/App/Shell/Components/Toast.swift",
+  "apps/mazeout/App/Shell/Components/ToastsRegistration.swift"
  ],
  "depends": [
   "core"

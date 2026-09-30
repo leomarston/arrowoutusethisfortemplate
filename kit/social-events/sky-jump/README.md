@@ -11,6 +11,11 @@ _ = await app.popups.present(Popup<PopupResult>.skyJump(.offer))
 app.router.go(.event(.skyJump))
 ```
 
+## Notes
+
+- Kit decoupling step: the helpers every event shares are social-ui's (SocEventChrome.swift, Countdown.swift) or ui-chrome's (SocTwoLines); its closure is the events engine (inherent: its pages run the engine's flows, announcements and finish states) + social-ui + ui-chrome.
+- It borrows the claim screen's letter-pop title (claim-reward: BeatOnce, LetterPopTitle) for its win page: a small, deliberate dependency.
+
 ## Open it in a Debug build
 
 ```
@@ -19,10 +24,6 @@ app.router.go(.event(.skyJump))
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- Shared event helpers live in other events' files: SocInfoTitle / SocTwoLines / SocWarningCard (StreakRaceViews.swift), SocInfoDisc / SocReadyWhen (LeaderboardViews.swift), SocGrantText / SocStageStrip (RocketRaceViews.swift), EventTimerChip (StreakBanner.swift); moving them into SocChrome.swift would let each event stand alone.
 
 ## Take it
 

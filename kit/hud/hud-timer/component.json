@@ -5,12 +5,12 @@
  "summary": "The stopwatch + m:ss pill, red alert beats, the '+30 sec' pop; frozen look while a freeze runs.",
  "description": "TimerPill draws HUDModel's timer text; shown when the puzzle's capabilities include a timer fail rule.",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
   "apps/mazeout/App/Shell/HUD/TimerPill.swift"
  ],
  "depends": [
   "core",
-  "game-loop",
   "ui-chrome"
  ],
  "uses": {

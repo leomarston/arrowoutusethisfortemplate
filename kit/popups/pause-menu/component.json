@@ -5,8 +5,10 @@
  "summary": "The in-level Pause popup: Sound and Haptic toggles, Resume, Quit, X.",
  "description": "PausePopup answers .primary (Resume), .secondary (Quit: the game then asks Quit Level?) or .close. The toggles write PlayerState.settings through PlayerStore and apply at once to the audio bus and haptics. Also defines SettingRow and PanelPairButton (reused by other popups).",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
-  "apps/mazeout/App/Shell/Popups/PausePopup.swift"
+  "apps/mazeout/App/Shell/Popups/PausePopup.swift",
+  "apps/mazeout/App/Shell/Popups/PauseMenuRegistration.swift"
  ],
  "depends": [
   "core",

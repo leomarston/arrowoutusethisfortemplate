@@ -9,7 +9,8 @@
   "apps/mazeout/App/Shell/Popups/PopupChrome.swift",
   "apps/mazeout/App/Shell/Components/PageChrome.swift",
   "apps/mazeout/App/Shell/HUD/S2Chrome.swift",
-  "apps/mazeout/art/ui/code/GlossyChrome.swift"
+  "apps/mazeout/art/ui/code/GlossyChrome.swift",
+  "apps/mazeout/App/Shell/Components/TwoLineText.swift"
  ],
  "depends": [
   "core"
@@ -46,6 +47,7 @@
   ],
   "strings": [
    "Close",
+   "Levels",
    "OFF",
    "ON",
    "Shop"
@@ -55,6 +57,7 @@
    "ui.json:colors.band",
    "ui.json:colors.card",
    "ui.json:colors.close",
+   "ui.json:colors.home",
    "ui.json:colors.offer",
    "ui.json:colors.page",
    "ui.json:colors.panel",
@@ -69,13 +72,17 @@
    "ui.json:text.pause",
    "ui.json:text.popup",
    "ui.json:toggle.flipAt",
-   "ui.json:toggle.slide"
+   "ui.json:toggle.slide",
+   "ui.json:unlock.acceptFrom"
   ],
   "skinTokens": [
    "art.glossyChrome",
    "components.pageChrome",
+   "home.homeTopBar",
    "hud.s2Chrome",
-   "popups.popupChrome"
+   "popups.noLivesPopup",
+   "popups.popupChrome",
+   "social.streakRaceViews"
   ]
  },
  "launchArgs": [

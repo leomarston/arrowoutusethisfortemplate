@@ -21,7 +21,7 @@ Make this repo a template where a new game = **plug in a puzzle** + **reskin** +
 | D3 | Arrow Out stays in the repo as the reference game and regression fixture ("looks and behaves the same" + its tests) | owner, 2026-09-30 |
 | D4 | Layout: one repo, `Engine/` (shared) + `Puzzles/<module>` + `Games/<slug>` (config, skin, strings, levels, store) | proposed default; revisit if the owner prefers one repo per game |
 | D5 | Original games' captures, levels and assets are never committed; new games use their own/generated content | 2026-09-30 |
-| D6 | The component kit is a catalog layer (`kit/`, `tools/kit.py`): code stays where it is, components point at it | 2026-09-30 |
+| D6 | The component kit is a catalog layer (`kit/`, `tools/kit.py`): code stays where it is, components point at it. Amended by the decoupling step: a shared helper moves to a shared file (never a feature's), and the shell's hubs ask registries each component fills (`GameComponents.swift` lists them) | 2026-09-30 |
 
 ## Target shape
 ```
@@ -98,7 +98,8 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         ("no behaviour change" proof), then the §7.2 paper designs (sorting, match-3, colouring) before freezing v1
   - [ ] Gaps for other genres (found while building, not needed by Arrow Out): ~~HUD moves/goals widgets~~ (done, phase 5
         shell gaps), ~~`outOfMoves`/`stuck` popup texts (13 languages) and Shell variants~~ (done: OfferPopup),
-        `MetaRules.StepGrant.addMoves`, `SessionPlan` into GameCore, audio cue key `cues.arrowTap` → a generic move cue
+        `MetaRules.StepGrant.addMoves`, ~~`SessionPlan` into GameCore~~ (done: kit decoupling step), audio cue key
+        `cues.arrowTap` → a generic move cue
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,
       sounds, names; prove it with a second skin and zero Swift changes
   - [x] Colour tokens (code): every colour literal of App/Shell, App/FX and GlossyChrome (1,703 sites) is a `Skin.<token>`
@@ -183,10 +184,18 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         never secrets) / add --game (dry run by default) / scan / catalog / check (+ `--selftest`, CI Linux job).
         Code does not move (D6). Every Swift file under App, Packages/*/Sources, art/ui/code owned by exactly one
         component or core. `docs/guides/KIT.md`
-  - [ ] Cut the couplings the kit found (each is a component `gap`): shared event helpers living in feature files
-        (StreakRaceViews, LeaderboardViews, RocketRaceViews, StreakBanner) -> SocChrome; Countdown out of ClawBar.swift
-        (then the claw bar leaves core); the fail flow's streak strip as a hook; ShopView/BoosterBuy borrowing other
-        popups' helpers; game loop / unlocks naming ArrowEscape's SessionPlan / FeatureUnlock and the arrow IntroStyle
+  - [x] Cut the couplings the kit found (owner: "take any piece without breaking the main part"): shared event helpers ->
+        social-ui (`SocEventChrome.swift`, `Countdown.swift`) / ui-chrome (`TwoLineText.swift`, page and popup pieces); ClawBar
+        -> claw-challenge (its bar chrome -> home's `EventBarChrome.swift`); new `economy-ui` (ShopFormat / ShopTitles /
+        CoinPillDisplay / LivesText; `ShellEconomy` stays core); UpAwayArt -> its own core file; Track.swift -> the arrow
+        board's; registries instead of hubs (`ShellRegistry.swift`, `FXEffects`; each component's `<Name>Registration.swift`,
+        listed once in `App/GameComponents.swift`); the fail flow's / win panel's strips and Continue?'s chips as slots;
+        the leaderboard reaches the events engine through `SocialEventsEngine`; `SessionPlan` / `HeartsCarry` /
+        `FeatureUnlock` -> GameCore, `IntroStyle` -> the generic board contract; `kit.py check` enforces `maxClosure` on
+        stable components. Closures (files excl. core): leaderboard 381 -> 19, fail-flow 393 -> 49, shop 29 -> 16.
+  - [ ] Next kit steps: the events engine still wires each event page in its own hubs (SocialPopups / SocialEntry /
+        EventBadges / EventsDirector): a per-event registration like the shell's; AppModel still builds the social world,
+        events and store for every game; booster ids from config
 
 ## Blocked / needs the owner
 - CI excludes two machine-dependent checks from gating (run non-gating): `ShellStoreKitTests` (SKTestSession answers
@@ -268,3 +277,16 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   compileall, ref.py goldens). Swift (app + core + `ModuleShellTests` / `ModuleBoosterPackTests`) not compiled in this
   session: CI's core + app jobs are the first build. Owner items: art for `booster.undo.icon` / `booster.extraTube.icon`
   (and optionally `popup.stuck.icon`, `hud.progress.icon`): no existing raster fits, the name / text fallbacks ship meanwhile.
+- 2026-09-30: kit decoupling (owner: take any piece without breaking the main part): the couplings the kit recorded are
+  cut (Phase 6 item). Closures, files with deps excluding core (before -> after): pause-menu 5 -> 7 (its registration
+  file + ui-chrome's new shared text file), leaderboard 381 -> 19, fail-flow 393 -> 49 (29 Swift: the game loop + its sounds, inherent), shop 29 -> 16,
+  settings 6 -> 9, every event 383-389 -> 84-85 (the events engine, inherent), win-flow 398 -> 46, hud 8 -> 10, sounds 25
+  -> 25, game-loop 347 -> 43, unlock-cards 349 -> 46, claim-reward 350 -> 7, sort-puzzle-board 314 -> 7. The shell's hubs
+  (PopupHost, RootView, Router, the FX host, S2Hooks; S3Hooks.swift is gone) name no component: 24 registration files +
+  `App/GameComponents.swift` (one line each) reproduce the reference routing (warm-up list, strip priority, FX order kept
+  by explicit orders). `SessionPlan` / `HeartsCarry` / `FeatureUnlock` moved to GameCore (same members and JSON; no
+  typealias needed: nothing spells `ArrowEscape.SessionPlan`), `IntroStyle` to PuzzleBoardContract.swift. New component
+  `economy-ui`; `maxClosure` budgets (kit.py check + 2 selftest cases). Linux: every CI `checks` step green (strings,
+  meta, levels, sortpuzzle, uiart, skin / art / variant, doctor, game.py tests, harness gate, kit check + selftest, brand
+  grep, compileall). Swift (package move, ~40 app files, 24 new registration files, ShellS3Tests' key-file list) not
+  compiled in this session: CI's core + app jobs are the first build.

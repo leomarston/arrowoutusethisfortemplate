@@ -65,7 +65,7 @@ struct ContinuePopup: View {
     @ViewBuilder private func band(_ v: Variant) -> some View {
         let t = app.tuning.ui.tokens
         let key = v == .life ? "continueLife" : "continueStreak"
-        let steps = StreakStripSource.steps(app)
+        let steps = ShellEconomy.streakSteps(app)
         let step = max(0, min(steps.count - 1, app.store.state.events.streakStep))
         // a full-width band stretches edge to edge on phones wider than the 393 pt canvas (SPEC-ui §1.1; S1's Quit Level? rule)
         let extra = max(0, (m.size.width / max(m.popupScale, 0.01) - 393) / 2)
@@ -86,8 +86,11 @@ struct ContinuePopup: View {
             default:
                 TokenText(id: "continueStreak.message.msg", source: .copy("You will lose your streak!"), style: .s2(22.9, -0.54, [Skin.popupsContinuePopupContinuePopupBandDefaultStyle0]),
                           baseline: 347.7, centreX: 196.2, maxWidth: 340)
-                StreakChipRow(steps: steps, lit: Double(step), ring: 1,
-                              frame: t.frame("continueStreak.chips", CGRect(8.0, 372.0, 376.7, 66.4)), t: t, onCream: true)
+                // the multiplier chips (a slot: the Streak Race's chip row, when that component is in the game — `ContinueChips`)
+                if let chips = ContinueChips.view(steps: steps, lit: step,
+                                                  frame: t.frame("continueStreak.chips", CGRect(8.0, 372.0, 376.7, 66.4)), t: t) {
+                    chips
+                }
             }
             PriceButton(id: "popup.continue.primary", label: "Play On", price: offer.price,
                         // one face for every variant: 015 (life) measures pixel-identical to 014 (streak) — green 88.7 · 499.8 ·

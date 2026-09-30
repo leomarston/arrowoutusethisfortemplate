@@ -173,32 +173,8 @@ enum LevelCoding {
     }
 
     // MARK: SessionPlan
-
-    static func decodeSession(from decoder: Decoder) throws -> SessionPlan {
-        let c = try decoder.container(keyedBy: LevelKey.self)
-        let levels = try c.decode([Int].self, forKey: "levels")
-        guard !levels.isEmpty else {
-            throw DecodingError.dataCorruptedError(forKey: "levels", in: c, debugDescription: "a session needs ≥ 1 level")
-        }
-        return SessionPlan(id: try c.decode(String.self, forKey: "id"),
-                           levels: levels,
-                           hudLabel: try c.decodeIfPresent(String.self, forKey: "hud_label"),
-                           panelLabel: try c.decodeIfPresent(String.self, forKey: "panel_label"),
-                           reward: try c.decodeIfPresent(Int.self, forKey: "reward"),
-                           stageGap: try c.decodeIfPresent(Double.self, forKey: "stage_gap_s"),
-                           hearts: try c.decodeIfPresent(HeartsCarry.self, forKey: "hearts") ?? .carry)
-    }
-
-    static func encode(_ s: SessionPlan, to encoder: Encoder) throws {
-        var c = encoder.container(keyedBy: LevelKey.self)
-        try c.encode(s.id, forKey: "id")
-        try c.encode(s.levels, forKey: "levels")
-        try c.encodeIfPresent(s.hudLabel, forKey: "hud_label")
-        try c.encodeIfPresent(s.panelLabel, forKey: "panel_label")
-        try c.encodeIfPresent(s.reward, forKey: "reward")
-        try c.encodeIfPresent(s.stageGap, forKey: "stage_gap_s")
-        try c.encode(s.hearts, forKey: "hearts")
-    }
+    // The session mapping (`sessionKeys` above stays the inspector's list) is GameCore's `SessionPlan` Codable body now
+    // (GameCore/Session/SessionPlan.swift, the same keys and rules).
 }
 
 // MARK: - Public entry points

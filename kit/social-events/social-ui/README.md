@@ -2,7 +2,7 @@
 
 Off-main-thread social lists: shaped text, CA rows, the recycling list, event page chrome, the social model.
 
-SocialModel wraps the world + clock for the app (every query off the main thread); SocType shapes the row text with CoreText; SocRows / SocArt / SocList draw the 200-row lists as Core Animation layers; SocChrome holds the shared event chrome; SocialEntry / SocialPopups / SocialFlows plug the event screens and popups into the shell; SocScenario presets states for captures; SocialShells is the leaderboard / event page frame. SocialLab is the debug host.
+SocialModel wraps the world + clock for the app (every query off the main thread); SocType shapes the row text with CoreText; SocRows / SocArt / SocList draw the 200-row lists as Core Animation layers; SocChrome and SocEventChrome hold the event pages' shared chrome (titles, info disc, warning card, stage strip, timer chip, reward icon, capture-ready markers); Countdown.swift the one event countdown formatter and its live ticking; SocScenario presets states for captures; SocialShells is the leaderboard / event page frame (the Leaderboard tab page, registered by SocialUIRegistration.swift). It reaches the events engine only through `SocialEventsEngine` (SocialModel.swift), which the engine registers. SocialLab is the debug host.
 
 ## How the app uses it
 
@@ -19,10 +19,6 @@ SocialModel wraps the world + clock for the app (every query off the main thread
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- SocialShells / SocialModel name the home (HomeLive, HomeScene) and the profile (TopCanvas); SocialModel calls SocialFlows' hooks (events-engine, wired).
 
 ## Take it
 

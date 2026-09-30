@@ -35,7 +35,7 @@ struct HUDTimerPill: View, Equatable {
         let at = m.point(CGPoint(x: p.x, y: p.baseline), .top)
         // FIX-2 A (V3-04): the next two seconds' rasters are made off the main thread now, so the next ticks composite
         let _ = Self.seconds(text).map { now in
-            GameText.prefetch(verbatim: [now - 1, now - 2].filter { $0 >= 0 }.map(HUDWriter.text), style: style,
+            GameText.prefetch(verbatim: [now - 1, now - 2].filter { $0 >= 0 }.map(TimerText.text), style: style,
                               maxWidth: pill.width - 6, scale: displayScale)
         }
         ZStack(alignment: .topLeading) {
@@ -62,5 +62,15 @@ struct TimerWell: View {
                                                                        (0.9, Skin.hudTimerPillHudTimerPillWell3), (0.95, Skin.hudTimerPillHudTimerPillWell4), (0.965, Skin.hudTimerPillHudTimerPillWell5),
                                                                        (0.985, Skin.hudTimerPillHudTimerPillWell6), (1.0, Skin.hudTimerPillHudTimerPillWell7)]),
                                  startPoint: .top, endPoint: .bottom))
+    }
+}
+
+/// The level timer's text: "m:ss" with no leading zero on the minutes ("3:00", "0:59", "0:00"; SPEC-motion-audio §4,
+/// CONSISTENCY T-2). Moved as it was from GAME's HUDWriter (which forwards to it) in the kit decoupling step, so the pill needs
+/// no game loop.
+enum TimerText {
+    static func text(_ seconds: Int) -> String {
+        let s = max(0, seconds)
+        return "\(s / 60):" + String(format: "%02d", s % 60)
     }
 }

@@ -5,8 +5,10 @@
  "summary": "'Quit Level?' band popup: 'You will lose a life!', Quit, X.",
  "description": "The band popup of the Continue? family asked by HUD back and by Pause -> Quit; Quit -> .lost(.quit).",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
-  "apps/mazeout/App/Shell/Popups/QuitLevelPopup.swift"
+  "apps/mazeout/App/Shell/Popups/QuitLevelPopup.swift",
+  "apps/mazeout/App/Shell/Popups/QuitLevelRegistration.swift"
  ],
  "depends": [
   "core",

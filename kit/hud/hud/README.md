@@ -11,6 +11,11 @@ HUDView lays out the HUD from HUDModel (written only by the game loop's HUDWrite
 HUDView(model: app.hud, actions: actions)
 ```
 
+## Notes
+
+- Open (not a coupling): the counters other genres need (HUDCounter.swift: moves / progress / goals from PuzzleCapabilities.hud) are not yet proven on a device (docs/ROADMAP.md).
+- Its warm-up renders are registered by HUDRegistration.swift; the booster corners and the widgets are its `wires`.
+
 ## Open it in a Debug build
 
 ```
@@ -20,10 +25,6 @@ HUDView(model: app.hud, actions: actions)
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- The counters other genres need (HUDCounter.swift: moves / progress / goals from PuzzleCapabilities.hud) are being added in phase 5 and are not yet proven on a device (docs/ROADMAP.md).
 
 ## Take it
 

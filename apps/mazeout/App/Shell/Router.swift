@@ -42,7 +42,7 @@ import PathCore
     init(_ ctx: AppContext) {
         self.ctx = ctx
         self.timing = ShellTiming(ui: ctx.tuning.ui)
-        LoadingArt.shared.start()
+        ShellScreens.loading?.startArt()                    // the loading component's art, decoded off-main
         HomeArtPreload.start()                              // FIX-2 A: home's art decoded off-main before its slices
     }
 
@@ -58,7 +58,7 @@ import PathCore
 
     func attach(_ app: AppModel) {
         self.app = app
-        HomeLive.shared.attach(app.store)                  // FIX-A1: home's view of the player state (parked home: frozen)
+        ShellScreens.home?.attach(app.store)               // FIX-A1: home's view of the player state (parked home: frozen)
     }
 
     // MARK: Routing
@@ -70,7 +70,7 @@ import PathCore
         // so the cut's frame shows home instead of re-rendering its changed parts (the arrival after a win cost 33-39 ms,
         // almost all of it our own work). The answered popup stays drawn until the cut (A3's hand-over, the queued path).
         let prep = target.isHome && !screen.isHome && screen != .loading && layers.contains(where: { $0.screen.isHome })
-            && HomeLive.shared.arrivalStale
+            && (ShellScreens.home?.arrivalStale ?? false)
         // FIX-2 A-R: an event page whose art was released (RootView `EventArtPolicy`) decodes it off the main thread first —
         // only then; every other page opens at once (FIX-2 A's hidden draw before a first open delayed it by 80-90 ms)
         var decodeFirst: EventScreen?
@@ -88,7 +88,7 @@ import PathCore
             await previous?.value
             guard let self else { host?.transitionDone(); return }
             self.busy = true
-            if prep, HomeLive.shared.prepareArrival() {
+            if prep, ShellScreens.home?.prepareArrival() == true {
                 Log.mark("router", "home copy refreshed a frame before the cut")
                 await FrameWaiter.frames(1)
             }
@@ -146,7 +146,7 @@ import PathCore
             // Home tab switch / entry change: swap in place (HomeView keeps its identity).
             screen = target
             if let i = layers.lastIndex(where: { $0.screen.sameKind(target) }) { layers[i].screen = target }
-            if let tab = target.homeTab { HomeTabStrip.shared.slide(to: tab, ui: timing.ui) }   // A2: the tab push-slide
+            if let tab = target.homeTab { ShellScreens.home?.slideTab(to: tab, ui: timing.ui) }   // A2: the tab push-slide
             await visible(target)
             return
         }
@@ -162,7 +162,7 @@ import PathCore
         // FIX-A1: home's hidden Shop / Leaderboard pages are built with home, under the opaque Loading view, instead of on
         // an idle home frame ~1.8 s after the first arrival (34-65 ms, build/fixa1/runs/base0-loop-1). Not in UI tests or
         // captures (HomeTabsPremount's rule: they open the pages themselves).
-        if target.isLevel || target.isHome, let app, !app.args.quietUI { HomeLive.shared.mountTabs() }
+        if target.isLevel || target.isHome, let app, !app.args.quietUI { ShellScreens.home?.mountTabs() }
         // FIX-A1: when the first screen is a level (the FTUE's first board), home is built here, hidden, a frame BEFORE the
         // level starts (its cut K and intro stay exactly as they were): the first home arrival then shows a built screen
         // instead of building it (a 165 ms frame at the first home, build/feel)
@@ -170,7 +170,7 @@ import PathCore
             mountHiddenHome()
             await FrameWaiter.frames(1)
         }
-        HomeBuild.shared.finish()                          // FIX-2 A: a slice the Loading cap cut off is built now
+        ShellScreens.home?.finishBuild()                   // FIX-2 A: a slice the Loading cap cut off is built now
         guard prepare(target) else {
             Log.error("router", "\(target.logName) refused to start from Loading: going home")
             await crossFadeOutOfLoading(to: .home(.normal, tab: .home))
@@ -179,17 +179,17 @@ import PathCore
         let id: Int
         if case .home(let entry, _) = target, let i = layers.firstIndex(where: { $0.screen.isHome }) {
             // a home already built hidden (the first level was refused): it fades in, no second home
-            HomeLive.shared.prepareArrival()               // FIX-2 A: the parked copy takes the boot's writes first
+            ShellScreens.home?.prepareArrival()            // FIX-2 A: the parked copy takes the boot's writes first
             layers[i].screen = target
             layers[i].arrival = nextLayerID
             nextLayerID += 1
             id = layers[i].id
-            HomeLive.shared.arrive(entry, arrival: layers[i].arrival)
+            ShellScreens.home?.arrive(entry, arrival: layers[i].arrival)
         } else {
             id = mount(target, opacity: 0)
-            if case .home(let entry, _) = target { HomeLive.shared.arrive(entry, arrival: id) }
+            if case .home(let entry, _) = target { ShellScreens.home?.arrive(entry, arrival: id) }
         }
-        if let tab = target.homeTab { HomeTabStrip.shared.jump(to: tab) }          // A2: a cut into home shows its tab at once
+        if let tab = target.homeTab { ShellScreens.home?.jumpTab(to: tab) }        // A2: a cut into home shows its tab at once
         screen = target
         await FrameWaiter.frames(2)                        // the first screen builds under the opaque Loading view
         let duration = timing.fromLoading(to: target)
@@ -206,7 +206,7 @@ import PathCore
         layers.removeAll { $0.id != id && !($0.screen.isHome && $0.opacity == 0) }       // Loading goes; a parked home stays
         Log.mark("router", "cross-fade loading → \(target.logName) \(String(format: "%.3f", ProcessInfo.processInfo.systemUptime - start)) s (spec \(duration))")
         await FrameWaiter.frames(1)
-        LoadingArt.shared.release()                         // FIX-2 A (V3-09): Loading never shows again this launch
+        ShellScreens.loading?.releaseArt()                  // FIX-2 A (V3-09): Loading never shows again this launch
         Log.mark("launch", "\(target.logName) fully visible")
         Log.mark("raster", "\(RasterCache.misses) chrome rasters rendered before the first screen; later renders are logged")
         RasterCache.logMisses = true
@@ -233,8 +233,8 @@ import PathCore
         let probe = CutProbe.start(target, enabled: ctx.args.raw["pc.frameWatch"] != nil)
         let leavingLevel = screen.isLevel
         if screen.isHome, !target.isHome {
-            PayoutSequence.cancel()
-            HomeLive.shared.park()
+            ShellScreens.home?.cancelPayout()
+            ShellScreens.home?.park()
         }
         if leavingLevel, let old = levelHost {
             Log.mark("router", "teardown \(old.launch.levels.first.map { "L\($0)" } ?? "?")")
@@ -247,7 +247,7 @@ import PathCore
         if target.isLevel, !prepare(target) {
             // Refused (no lives: GAME has already put its popup up). From home: stay. From a torn-down level: home.
             Log.mark("router", "\(target.logName) refused to start: \(leavingLevel ? "home" : "staying on \(screen.logName)")")
-            guard leavingLevel else { HomeLive.shared.resume(); return }
+            guard leavingLevel else { ShellScreens.home?.resume(); return }
             target = .home(.afterLoss, tab: .home)
         }
         probe?.mark("prepare")
@@ -256,8 +256,8 @@ import PathCore
             (app?.popups as? PopupHost)?.endBridge("cut to \(target.logName)")   // A3: an answered popup goes on the new screen's frame
             layers = cutLayers(to: target)
             if case .home(let entry, let tab) = target, let h = layers.first(where: { $0.screen.isHome }) {
-                HomeLive.shared.arrive(entry, arrival: h.arrival)
-                HomeTabStrip.shared.jump(to: tab)                                   // A2: a cut into home shows its tab at once
+                ShellScreens.home?.arrive(entry, arrival: h.arrival)
+                ShellScreens.home?.jumpTab(to: tab)                                 // A2: a cut into home shows its tab at once
             }
             screen = target
         }
@@ -276,7 +276,7 @@ import PathCore
         levelHost = host
         levelView = host.makeView()
         // FIX-2 A: the level home shows after a win, its tag read off the main thread now (not in the arrival frame)
-        if let last = launch.levels.last { HomeLevelInfo.prefetch(last + 1, args: app.args) }
+        if let last = launch.levels.last { ShellScreens.home?.prefetchLevel(last + 1, args: app.args) }
         return true
     }
 
@@ -316,7 +316,7 @@ import PathCore
         let keepLevel = target.isLevel || (parkLevel && levelView != nil)
         for var l in layers where l.screen.isHome || (l.screen.isLevel && keepLevel) {
             if target.isHome, l.screen.isHome {
-                if HomeScene.takeRefill() { homeRefill = arrival }
+                if ShellScreens.home?.takeRefill() == true { homeRefill = arrival }
                 l.screen = target; l.opacity = 1; l.arrival = arrival; placed = true
             } else if target.isLevel, l.screen.isLevel {
                 l.screen = target; l.opacity = 1; l.arrival = arrival; placed = true
@@ -326,7 +326,7 @@ import PathCore
             out.append(l)
         }
         if !placed {
-            if target.isHome, HomeScene.takeRefill() { homeRefill = arrival }
+            if target.isHome, ShellScreens.home?.takeRefill() == true { homeRefill = arrival }
             out.append(ScreenLayer(id: arrival, screen: target, opacity: 1, arrival: arrival))
         }
         return out
@@ -344,17 +344,17 @@ import PathCore
         default: return
         }
         let t0 = ProcessInfo.processInfo.systemUptime
-        HomeBuild.shared.begin()
+        ShellScreens.home?.beginBuild()
         mountHiddenHome()
-        if !app.args.quietUI { HomeLive.shared.mountTabs() }        // the Shop / Leaderboard tabs are two of the slices
+        if !app.args.quietUI { ShellScreens.home?.mountTabs() }    // the Shop / Leaderboard tabs are two of the slices
         var slices = 0
-        while HomeBuild.shared.building, screen == .loading {
+        while ShellScreens.home?.isBuilding == true, screen == .loading {
             await FrameWaiter.frames(1)
-            HomeBuild.shared.step()
+            ShellScreens.home?.buildStep()
             slices += 1
         }
         await FrameWaiter.frames(1)
-        HomeBuild.shared.finish()
+        ShellScreens.home?.finishBuild()
         Log.mark("warmup", String(format: "home built behind Loading: %d slices over %.3f s", slices,
                                   ProcessInfo.processInfo.systemUptime - t0))
     }
@@ -362,7 +362,7 @@ import PathCore
     /// Home, built hidden under Loading (not arrived: arrival 0) when the first screen is a level.
     private func mountHiddenHome() {
         guard !layers.contains(where: { $0.screen.isHome }) else { return }
-        HomeLive.shared.park()
+        ShellScreens.home?.park()
         layers.insert(ScreenLayer(id: nextLayerID, screen: .home(.normal, tab: .home), opacity: 0, arrival: 0), at: 0)
         nextLayerID += 1
     }
@@ -476,16 +476,10 @@ extension ShellEntry {
             case PopupID.settings.rawValue:
                 let r = await popups.present(Popup<PopupResult>.settings)
                 Log.mark("popup", "settings → \(r)")
-            case let id where InfoPage.Kind(popupID: id) != nil:
-                // S1-private ids for the offline pages (`-pc.popup page.support|page.terms|page.privacy`), over Settings
-                Task { @MainActor in _ = await popups.present(Popup<PopupResult>.settings) }
-                for _ in 0..<60 where popups.topID != .settings { try? await Task.sleep(nanoseconds: 16_000_000) }
-                let r = await popups.present(Popup<PopupResult>(.custom(id: id, params: [:]), style: PopupStyle(dim: .none), fallback: .close))
-                Log.mark("popup", "\(id) → \(r)")
             default:
-                if await S2Popups.debugPresent(p, app: app) { return }                 // S2 hook (HUD/S2Hooks.swift)
-                if await S3Popups.debugPresent(p, app: app) { return }                 // S3 hook (Popups/S3Hooks.swift)
-                if await SocialPopups.debugPresent(p, app: app) { return }             // SOC2 hook (Social/SocialPopups.swift)
+                // every other id: the component that registered it (`DebugPopups`: the offline pages `page.*` are the settings
+                // component's; the fail chain, win, unlock and claim S2's; the S3 popups and the Shop; the event popups)
+                if await DebugPopups.present(p, app: app) { return }
                 Log.error("popup", "-pc.popup \(p.id): no panel built yet (S1 builds pause, quitLevel, settings, page.*)")
             }
         }
@@ -507,7 +501,7 @@ extension ShellEntry {
         let gap = app.args.raw["pc.tabLoopGap"].flatMap(Double.init) ?? 1.2
         let delay = app.args.raw["pc.tabLoopDelay"].flatMap(Double.init) ?? 1.5
         let slide = app.tuning.ui.tabSlideDuration
-        HomeTabStrip.shared.probeCommits = true
+        ShellScreens.home?.probeTabCommits()
         Task { @MainActor in
             try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
             // the home queue's pages (daily offers, the Streak board) are answered first: the slides run on a bare home

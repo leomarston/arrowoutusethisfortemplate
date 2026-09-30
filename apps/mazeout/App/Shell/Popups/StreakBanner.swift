@@ -329,60 +329,11 @@ private struct StripBand: View {
     }
 }
 
-/// A cream event countdown chip with the small stopwatch overlapping its left end (SPEC-ui §1.6.15).
-/// FIX-2 lane B (review of L28): given the countdown's end (`live`), the chip ticks on its own — `LiveCountdown`'s page clock,
-/// on every second, with the text drawn from cached per-glyph rasters (`GlyphRunText`: "09:34" composes, anything else is a
-/// GameText); without it the chip draws `text` as given ("Finished", a lab). Before, every page drew the time of its last
-/// render: "09:32" stood still on the pages (build/p/FIX2/review-B/ticks).
-struct EventTimerChip: View {
-    let text: String
-    let frame: CGRect
-    let textID: String
-    let t: Tokens
-    /// The countdown's end and the caller's clock reading; nil = the static `text`.
-    var live: (ends: SocialTime, now: SocialTime)? = nil
-
-    var body: some View {
-        Group {
-            if let live {
-                LiveCountdown(ends: live.ends, now: live.now, clock: .page) { s in chip(Countdown.text(s)) }
-            } else {
-                chip(text)
-            }
-        }
-        .placed(frame)
-    }
-
-    private func chip(_ text: String) -> some View {
-        let style = t.text(textID, .s2(15.0, -0.6, [Skin.popupsStreakBannerEventTimerChipChipStyleText0]))
-        let k = frame.height / 28
-        return ZStack(alignment: .topLeading) {
-            Rasterized("timerChip", overflow: 2) { _ in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 11.8, style: .continuous).fill(Color(hex: Skin.popupsStreakBannerEventTimerChipChipFill))
-                    RoundedRectangle(cornerRadius: 10.8, style: .continuous).fill(t.color("event.timerChip", Skin.popupsStreakBannerEventTimerChip)).padding(1.2)
-                }
-            }
-            .frame(width: frame.width - 10 * k, height: frame.height).offset(x: 10 * k)
-            GlyphRunText(text: text, style: style.sized(style.size * k), maxWidth: frame.width - 26 * k)
-                .at(frame.width / 2 + 9 * k, style.sized(style.size * k).capCentre(baseline: frame.height * 19.5 / 28))
-            InkImage(art: .hudTimerIconSmall, ink: CGRect(-3 * k, -0.5 * k, 26 * k, 28 * k))
-        }
-        .frame(width: frame.width, height: frame.height, alignment: .topLeading)
-        .accessibilityElement(children: .ignore)
-        .accessibilityIdentifier("event.timer")
-        .accessibilityValue(Text(verbatim: text))
-    }
-}
-
 // MARK: - data from the player's state
 
 @MainActor enum StreakStripSource {
-    /// The multiplier steps (`rules.json streak.steps`).
-    static func steps(_ app: AppModel) -> [Int] {
-        let v = app.tuning.rules.doubles("streak.steps", [1, 5, 10, 25, 100]).map { Int($0) }
-        return v.isEmpty ? [1, 5, 10, 25, 100] : v
-    }
+    /// The multiplier steps (`rules.json streak.steps`; ShellEconomy's reader, shared with the fail flow's Continue?).
+    static func steps(_ app: AppModel) -> [Int] { ShellEconomy.streakSteps(app) }
 
     /// The strip for a panel: shown only from the Streak Race unlock (social.json `unlocks.streakRace`, L30).
     static func data(_ app: AppModel, level: Int, outcomes: [EventOutcome], lost: Bool) -> StreakStripData? {

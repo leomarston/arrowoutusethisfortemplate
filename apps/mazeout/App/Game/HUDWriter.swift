@@ -171,9 +171,7 @@ import PathCore
         onWrite?(field)
     }
 
-    /// "m:ss" with no leading zero on the minutes ("3:00", "0:59", "0:00"; SPEC-motion-audio §4, CONSISTENCY T-2).
-    nonisolated static func text(_ seconds: Int) -> String {
-        let s = max(0, seconds)
-        return "\(s / 60):" + String(format: "%02d", s % 60)
-    }
+    /// "m:ss" with no leading zero on the minutes ("3:00", "0:59", "0:00"; SPEC-motion-audio §4, CONSISTENCY T-2): the timer
+    /// pill's formatter (TimerPill.swift `TimerText`, the kit's hud-timer).
+    nonisolated static func text(_ seconds: Int) -> String { TimerText.text(seconds) }
 }

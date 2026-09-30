@@ -10,7 +10,7 @@ StoreService is the real store of every Release build (prices only from StoreKit
 let outcome = await app.shop.purchase(productID)   // StorePurchasing: grants, saves, then finishes
 ```
 
-## Wiring
+## Notes
 
 - IAP catalogue == rules.json shop == .storekit: python3 apps/<slug>/tools/release/meta.py iap-check.
 

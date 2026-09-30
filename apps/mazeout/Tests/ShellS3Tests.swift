@@ -201,7 +201,9 @@ import PathCore
 
     func testEveryS3TokenKeyIsInUIJson() throws {
         let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
-        let files = ["App/Shell/Home/ClawBar.swift", "App/Shell/Home/EventBadges.swift", "App/Shell/Home/HomeView.swift",
+        // kit decoupling step: ClawBar.swift's shared chrome and countdowns moved to EventBarChrome.swift / Social/Countdown.swift
+        let files = ["App/Shell/Home/ClawBar.swift", "App/Shell/Home/EventBarChrome.swift", "App/Shell/Social/Countdown.swift",
+                     "App/Shell/Home/EventBadges.swift", "App/Shell/Home/HomeView.swift",
                      "App/Shell/Popups/NoLivesPopup.swift", "App/Shell/Popups/BoosterBuyPopup.swift", "App/Shell/Shop/ShopView.swift",
                      "App/Shell/Profile/ProfileView.swift"]
         let prefix = ["frame": "frames.", "text": "text.", "color": "colors.", "colors": "colors.", "number": ""]

@@ -108,25 +108,3 @@ private struct TimerCapsule: View {
         }
     }
 }
-
-/// Code-drawn sunburst rays (#FFFFFA on the cream card, `rays` wedges from `centre`).
-struct SunburstRays: View {
-    let centre: CGPoint
-    var rays = 16
-    var colour = Color(hex: Skin.popupsNoLivesPopupSunburstRaysColour)
-    var body: some View {
-        Rasterized("sunburst|\(rays)|\(centre.x),\(centre.y)") { size in
-            Path { p in
-                let r = max(size.width, size.height) * 1.5
-                for i in 0..<rays {
-                    let a0 = Double(i) / Double(rays) * 2 * .pi, a1 = a0 + .pi / Double(rays)
-                    p.move(to: centre)
-                    p.addLine(to: CGPoint(x: centre.x + r * CGFloat(cos(a0)), y: centre.y + r * CGFloat(sin(a0))))
-                    p.addLine(to: CGPoint(x: centre.x + r * CGFloat(cos(a1)), y: centre.y + r * CGFloat(sin(a1))))
-                    p.closeSubpath()
-                }
-            }
-            .fill(colour.opacity(0.85))
-        }
-    }
-}

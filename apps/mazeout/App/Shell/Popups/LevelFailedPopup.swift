@@ -5,7 +5,8 @@ import PathCore
 // the blue panel 10 · 198.2 · 373.3 · 464.4 (n 6.0), the ribbon with the level label ("Level 62"; "Level 1-4" for the FTUE
 // session), the cream card 54.7 · 280.9 · 283.9 · 210.2 with the broken heart and "Level Failed!" (25 / −0.7 #622100), the
 // framed green "Try Again" 90.4 · 517.1 · 212.5 · 88.4 (37.7 / −1.9), the X (361.3, 229.7) and, from the Streak Race unlock,
-// the Streak Race strip under it with the lit chip sliding back to x1 (SPEC-motion-audio §5 "Fail panel").
+// the Streak Race strip under it with the lit chip sliding back to x1 (SPEC-motion-audio §5 "Fail panel"; a `PanelStrips` slot
+// the streak-race component fills). The ribbon label (`PanelLabel`) is ui-chrome's (PopupChrome.swift).
 // Answers: Try Again → .primary (GAME: the same board, the lives gate); X → .close (home; before the first home a retry,
 // CONSISTENCY §21 item 17 — GAME's routing).
 
@@ -36,33 +37,13 @@ struct LevelFailedPopup: View {
                        baselineFromTop: CGFloat(t.number("text.failed.ribbon.title.baseline", 229.9)) - 171.1)
             PopupCloseButton(id: "popup.levelFailed.close", t: t) { answer(PopupResult.close) }
                 .placed(t.frame("failed.closeDisc", CGRect(338.8, 207.2, 45, 45)))
-            if let strip = StreakStripSource.data(app, level: levels.last ?? 0, outcomes: [], lost: true) {
-                StreakStrip(data: strip, shownAt: shownAt)
+            // the strip under the panel (a slot: the Streak Race's strip with its chip sliding back to x1, when that component is
+            // in the game — `PanelStrips`, registered by StreakRaceRegistration)
+            if let strip = PanelStrips.view(PanelStripContext(app: app, place: .levelFailed, level: levels.last ?? 0, outcomes: [],
+                                                              shownAt: shownAt)) {
+                strip
             }
         }
         .onAppear { shownAt = app.clock.gameTime() }
-    }
-}
-
-/// The panels' ribbon label: "Level 32", or the session's panel label ("Level 1-4", Levels/sessions.json `panel_label`).
-@MainActor enum PanelLabel {
-    private static var sessionLabels: [[Int]: String]?
-
-    static func resource(_ levels: [Int]) -> LocalizedStringResource {
-        if levels.count > 1, let key = labels()[levels] { return LocalizedStringResource(String.LocalizationValue(key)) }
-        let n = levels.first ?? 0
-        return "Level \(n)"
-    }
-
-    private static func labels() -> [[Int]: String] {
-        if let sessionLabels { return sessionLabels }
-        struct File: Decodable { struct S: Decodable { let levels: [Int]; let panel_label: String? }; let sessions: [S] }
-        var out: [[Int]: String] = [:]
-        if let url = Bundle.main.url(forResource: "sessions", withExtension: "json", subdirectory: "Levels"),
-           let data = try? Data(contentsOf: url), let f = try? JSONDecoder().decode(File.self, from: data) {
-            for s in f.sessions { if let l = s.panel_label { out[s.levels] = l } }
-        }
-        sessionLabels = out
-        return out
     }
 }

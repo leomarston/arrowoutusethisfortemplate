@@ -3,27 +3,23 @@
  "title": "Fail flow (out of time, continue, level failed)",
  "category": "popups",
  "summary": "The fail chain: Out of Time! / Out of Lives! offer, Continue? variants, then Level Failed with Try Again.",
- "description": "FailFlowDirector drives the chain from the session's .offer / .lost events (rules.json `failChain`, game.json `fail.*`): OutOfTimePopup (+30 sec for coins; Out of Lives! for hearts), ContinuePopup (streak / token / life / hearts-out variants, pays through the shop when short), LevelFailedPopup (Try Again). The streak strip under the panels is the streak-race component's.",
- "status": "needs-work",
- "gaps": [
-  "Continue? and Level Failed draw the Streak Race strip and chips (StreakBanner.swift), so the fail flow depends on streak-race and, through it, on the events engine.",
-  "The generic offer popup for other genres' fail kinds (OfferPopup.swift: out of moves, stuck; texts in 13 languages) exists; its text fit is still to be measured on the Mac."
- ],
+ "description": "FailFlowDirector drives the chain from the session's .offer / .lost events (rules.json `failChain`, game.json `fail.*`): OutOfTimePopup (+30 sec for coins; Out of Lives! for hearts), ContinuePopup (streak / token / life / hearts-out variants, pays through the shop when short), LevelFailedPopup (Try Again), OfferPopup (the other genres' fail kinds). Registered by FailFlowRegistration.swift (panels, `-pc.popup` ids, warm-ups). The Streak Race strip under Level Failed and the chips on Continue? are slots (`PanelStrips`, `ContinueChips`) the streak-race component fills: without it they are simply not drawn.",
+ "status": "stable",
+ "maxClosure": 50,
  "files": [
   "apps/mazeout/App/Game/FailFlowDirector.swift",
   "apps/mazeout/App/Shell/Popups/OutOfTimePopup.swift",
   "apps/mazeout/App/Shell/Popups/ContinuePopup.swift",
   "apps/mazeout/App/Shell/Popups/LevelFailedPopup.swift",
-  "apps/mazeout/App/Shell/Popups/OfferPopup.swift"
+  "apps/mazeout/App/Shell/Popups/OfferPopup.swift",
+  "apps/mazeout/App/Shell/Popups/FailFlowRegistration.swift"
  ],
  "tests": [
   "apps/mazeout/UITests/FailFlowTests.swift"
  ],
  "depends": [
   "core",
-  "boosters",
   "game-loop",
-  "streak-race",
   "ui-chrome"
  ],
  "uses": {
@@ -44,7 +40,6 @@
    "fail",
    "Keep going with a few more moves!",
    "Level Failed!",
-   "Levels",
    "No Moves Left!",
    "Out of Lives!",
    "Out of Moves!",
@@ -96,5 +91,9 @@
   "-pc.go level -pc.level 32 -pc.lose timeUp",
   "-pc.go level -pc.popup continue:life",
   "-pc.go level -pc.popup levelFailed"
+ ],
+ "notes": [
+  "Its closure is the game loop (FailFlowDirector is a game director) + ui-chrome: inherent. 29 of its 49 files are Swift; the rest are the sound engine's (9 .wav files and its synthesis tools) that the loop plays.",
+  "Open (not a coupling): the generic offer popup for other genres' fail kinds (OfferPopup.swift: out of moves, stuck; texts in 13 languages) exists; its text fit is still to be measured on the Mac."
  ]
 }

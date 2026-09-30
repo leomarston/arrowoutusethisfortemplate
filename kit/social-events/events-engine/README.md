@@ -12,6 +12,10 @@ Events.onWin(&state, at: now, world: world)
 app.router.go(.event(.claw))
 ```
 
+## Notes
+
+- Kit decoupling step: it registers itself (EventsEngineRegistration.swift: the event popups in the popup host, their `-pc.popup` ids and warm-ups, and `SocialEvents.engine` for the social pages). Its closure (the game loop, the home, the tutorial, social-ui) is inherent: EventsDirector is a game director and the events live on the home.
+
 ## Open it in a Debug build
 
 ```
@@ -23,7 +27,7 @@ app.router.go(.event(.claw))
 
 ## Known gaps
 
-- EventsDirector names the game loop (GameController / GameServices), the home (HomeView, PayoutSequence) and the tutorial; every event page / popup is wired through SocialEntry / SocialPopups / SocialFlows.
+- The event pages and popups are still wired in the engine's own hubs (SocialPopups, SocialEntry.makeEventScreen, EventBadges, EventsDirector: `kit.py rdeps <event>` prints the lines); a per-event registration like the shell's (ShellRegistry.swift) is the next step.
 
 ## Take it
 

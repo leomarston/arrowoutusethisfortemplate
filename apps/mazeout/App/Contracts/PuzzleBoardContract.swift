@@ -15,6 +15,15 @@ import PathCore
 
 // MARK: - The board
 
+/// How a stage's board builds in (`PuzzleBoard.playIntro`). Moved from BoardContract.swift (the arrow board's contract) in the
+/// kit decoupling step: the Game layer picks it, every board reads it (a board without a build-in treats both grow styles as
+/// its own intro, SortPuzzleBoard). The case names are the reference board's (its arrows grow from their tails).
+enum IntroStyle: Equatable {
+    case growFromTails                 // the build-in (Curves.buildIn) with the HUD drop in SwiftUI
+    case growFromTailsNoHUD            // the FTUE's first board: the HUD is already in place after the Loading cross-fade
+    case none
+}
+
 /// Everything a board needs to build one stage.
 struct StageContext {
     let stage: Int                     // 0-based

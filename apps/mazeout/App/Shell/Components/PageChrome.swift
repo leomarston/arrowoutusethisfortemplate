@@ -388,3 +388,65 @@ private struct BandRivet: View {
         }
     }
 }
+
+// MARK: - shared page pieces (kit decoupling step: moved as they were from the home top bar and the Profile page, which the
+// Shop tab, the social pages and the Edit Profile popup borrowed them from)
+
+/// The light-blue pill of the top bar (#DEEEFF, superellipse n 5, a thin darker rim).
+struct TopPill: View {
+    let t: Tokens
+    var n: CGFloat = 5
+    var body: some View {
+        ZStack {
+            Superellipse(n: n).fill(t.color("home.topPillEdge", Skin.homeHomeTopBarHomeTopPillEdge))
+            Superellipse(n: n).fill(LinearGradient(colors: [Color(hex: Skin.homeHomeTopBarTopPillColors0), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill)],
+                                                   startPoint: .top, endPoint: .bottom)).padding(1)
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+/// A GameText whose ink starts at `left` (the name): shrink to the box (floor 0.7), then "…".
+struct LeftText: View {
+    let text: String
+    let style: GameTextStyle
+    let left: CGFloat
+    let baseline: CGFloat
+    let box: CGFloat
+
+    var body: some View {
+        let shown = Self.fit(text, style: style, box: box)
+        let l = GameTextLayout.make(shown, postScriptName: style.postScriptName, size: style.size, tracking: style.tracking, maxWidth: box)
+        GameText(verbatim: shown, style: style, maxWidth: box)
+            .at(left + min(l.advance, box) / 2, style.capCentre(baseline: baseline))
+    }
+
+    /// The text as drawn: whole when it fits at ≥ 0.7 scale, else cut with "…".
+    static func fit(_ text: String, style: GameTextStyle, box: CGFloat) -> String {
+        func width(_ s: String) -> CGFloat {
+            GameTextLayout.make(s, postScriptName: style.postScriptName, size: style.size, tracking: style.tracking).advance
+        }
+        guard width(text) * style.minScale > box else { return text }
+        var chars = Array(text)
+        while chars.count > 1 {
+            chars.removeLast()
+            let s = String(chars) + "…"
+            if width(s) * style.minScale <= box { return s }
+        }
+        return text
+    }
+}
+
+/// A 393-wide reference-canvas block, top-anchored as a whole (x · s, y' = safeTop + (y − 59) · s) — pages whose content is
+/// all top-anchored (Profile, the Shop's scroll content).
+struct TopCanvas<Content: View>: View {
+    @Environment(\.shellMetrics) private var m
+    @ViewBuilder var content: Content
+    var body: some View {
+        ZStack(alignment: .topLeading) { content }
+            .frame(width: 393, height: 852, alignment: .topLeading)
+            .scaleEffect(m.s, anchor: .topLeading)
+            .offset(y: m.safeTop - 59 * m.s)
+            .frame(width: m.size.width, height: m.size.height, alignment: .topLeading)
+    }
+}

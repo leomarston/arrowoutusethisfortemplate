@@ -69,11 +69,7 @@ struct StageSetup {
     }
 }
 
-enum IntroStyle: Equatable {
-    case growFromTails                 // the build-in (Curves.buildIn) with the HUD drop in SwiftUI
-    case growFromTailsNoHUD            // the FTUE's first board: the HUD is already in place after the Loading cross-fade
-    case none
-}
+// `IntroStyle` (how a stage's board builds in) is part of the generic board contract: PuzzleBoardContract.swift.
 
 /// The §9.4 `board.probe` JSON (accessibilityValue under -pc.uitest 1, Documents/probe.json under -pc.probeFile 1).
 /// Keys are EXACT (VERIFY parses them). The board fills its half (zoom, pitch, settled, moving, fps, arrows' x/y/red,

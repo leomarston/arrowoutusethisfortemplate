@@ -4,17 +4,15 @@
  "category": "popups",
  "summary": "A feature's first appearance: staggered icon / title / 'Unlocked!' / card over the level, tap to dismiss.",
  "description": "UnlockDirector opens UnlockOverlay on the Play of a level whose Levels/unlocks.json feature is not yet in PlayerState.unlocksSeen; beats in ui.json `unlock.*` (UnlockBeats). The card texts come from the puzzle module's unlock data.",
- "status": "needs-work",
- "gaps": [
-  "UnlockDirector reads FeatureUnlock, which lives in ArrowEscape (not GameCore)."
- ],
+ "status": "stable",
+ "maxClosure": 50,
  "files": [
   "apps/mazeout/App/Game/UnlockDirector.swift",
-  "apps/mazeout/App/Shell/Popups/UnlockOverlay.swift"
+  "apps/mazeout/App/Shell/Popups/UnlockOverlay.swift",
+  "apps/mazeout/App/Shell/Popups/UnlockCardsRegistration.swift"
  ],
  "depends": [
   "core",
-  "arrow-escape",
   "game-loop",
   "ui-chrome"
  ],
@@ -54,5 +52,8 @@
  "launchArgs": [
   "-pc.go shelllab -pc.lab unlock:pipe",
   "-pc.go level -pc.level 21 -pc.unlocks force"
+ ],
+ "notes": [
+  "FeatureUnlock is GameCore's now (Session/FeatureUnlock.swift; the bundle's list reader stays in ArrowEscape). Registered by UnlockCardsRegistration.swift."
  ]
 }

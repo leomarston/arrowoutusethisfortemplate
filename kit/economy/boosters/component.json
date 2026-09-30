@@ -6,14 +6,15 @@
  "description": "GameCore Boosters (what each does, start stock, price; rules.json `boosters`) and BoosterDirector (slots from the puzzle's BoosterSpecs; tap -> use, or BoosterBuyPopup at 0 stock). BoosterCorner draws the corner trays with count badges; HUDFreeze is the time-freeze booster's HUD effect (ui.json `freeze.*`).",
  "status": "needs-work",
  "gaps": [
-  "BoosterBuyPopup borrows SocTwoLines (StreakRaceViews.swift, streak-race), SunburstRays (NoLivesPopup.swift, lives) and CoinPillDisplay (home).",
   "Booster ids are still the reference's (freeze, hint) in BoosterID; booster ids from config are open (docs/ROADMAP.md phase 1)."
  ],
+ "maxClosure": 50,
  "files": [
   "apps/mazeout/App/Game/BoosterDirector.swift",
   "apps/mazeout/App/Shell/Popups/BoosterBuyPopup.swift",
   "apps/mazeout/App/Shell/HUD/BoosterCorner.swift",
-  "apps/mazeout/App/Shell/HUD/HUDFreeze.swift"
+  "apps/mazeout/App/Shell/HUD/HUDFreeze.swift",
+  "apps/mazeout/App/Shell/HUD/BoostersRegistration.swift"
  ],
  "tests": [
   "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/BoostersTests.swift",
@@ -24,10 +25,8 @@
  ],
  "depends": [
   "core",
+  "economy-ui",
   "game-loop",
-  "home",
-  "lives",
-  "streak-race",
   "ui-chrome"
  ],
  "wires": [
@@ -91,5 +90,8 @@
   "-pc.go level -pc.level 32 -pc.boosters freeze=0,hint=0",
   "-pc.go level -pc.popup boosterBuy:hint",
   "-pc.go shelllab -pc.lab freeze"
+ ],
+ "notes": [
+  "Kit decoupling step: the borrowed helpers moved to ui-chrome (SocTwoLines, SunburstRays) and economy-ui (CoinPillDisplay); the Time Freeze runs on the FX host as FreezeFX (HUDFreeze.swift), registered by BoostersRegistration.swift with the buy popup."
  ]
 }

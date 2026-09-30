@@ -22,7 +22,8 @@
   "apps/mazeout/Packages/PathCore/Sources/GameCore/Economy/ShopCatalog.swift"
  ],
  "depends": [
-  "core"
+  "core",
+  "economy-ui"
  ],
  "uses": {
   "tuning": [

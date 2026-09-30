@@ -19,14 +19,6 @@ import PathCore
 //   [PC][payout] <beat> planned H+<s> at H+<s>
 // The coins are already banked in `PlayerState.coins` (kill-safe, GP §9.1); `CoinPillDisplay` hides the part still in flight.
 
-/// What the home coin pills show: the banked coins minus what has not landed yet (`pendingCoinFly` before the sequence takes
-/// it, then the coins still flying).
-@MainActor @Observable final class CoinPillDisplay {
-    static let shared = CoinPillDisplay()
-    var flying = 0
-    func shown(_ s: PlayerState) -> Int { max(0, s.coins - max(0, s.pendingCoinFly) - flying) }
-}
-
 struct HomeReturnTiming {
     var clawDimIn = (0.03, 0.13), clawDim = 0.50, tokenAt = 0.03, tokenDur = 0.10, flashAt = 0.23, badgeAt = 0.23
     var badgeSlide = (0.53, 0.15), burstAt = 0.68, labelAt = 0.88, dimOut = (1.33, 0.20), flyAt = 1.43, flyDur = 0.30

@@ -6,7 +6,8 @@
  "description": "FXEffect.sparkles(at:); count / radius / duration / size in ui.json `fx.sparkles`.",
  "status": "stable",
  "files": [
-  "apps/mazeout/App/FX/Sparkles.swift"
+  "apps/mazeout/App/FX/Sparkles.swift",
+  "apps/mazeout/App/FX/SparklesRegistration.swift"
  ],
  "depends": [
   "core"

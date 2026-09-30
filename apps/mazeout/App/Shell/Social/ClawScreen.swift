@@ -54,7 +54,7 @@ struct SocClawPage: View {
                 }
                 let sub = GameTextStyle.s2(17.2, -0.27, [Skin.socialClawScreenSocClawPageSub0, Skin.socialClawScreenSocClawPageSub1, Skin.socialClawScreenSocClawPageSub2], outline: Skin.socialClawScreenSocClawPageSubOutline, 1.1, drop: 0.7)
                 GameText("Beat levels without fail to get more rewards!", style: sub, maxWidth: 367).at(196.8, sub.capCentre(baseline: 306.5))
-                SocChevronChips(steps: StreakStripSource.steps(app), lit: app.store.state.events.streakStep)
+                SocChevronChips(steps: ShellEconomy.streakSteps(app), lit: app.store.state.events.streakStep)
                     .placed(CGRect(18.3, 315.3, 347, 55))
                 SocClawProgress(points: claw?.points ?? 0, target: claw?.target ?? 1, reward: claw?.nextReward)
                     .placed(CGRect(23.4, 380.3, 347, 41.7))
@@ -179,33 +179,6 @@ private struct SocClawProgress: View {
         .accessibilityElement()
         .accessibilityIdentifier("claw.progress")
         .accessibilityValue(Text(verbatim: "\(points)/\(target)"))
-    }
-}
-
-/// A reward as the Claw draws it: ∞ heart + duration, coin bowl + amount, booster + "xN".
-struct SocRewardIcon: View {
-    let grant: Grant
-    var small = false
-    var body: some View {
-        GeometryReader { geo in
-            let w = geo.size.width, h = geo.size.height
-            ZStack {
-                if grant.unlimitedLives > 0 {
-                    ArtImage(art: small ? .livesUnlimitedSmall : .livesUnlimited).frame(width: w, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 11 : 16, -0.3, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutline, small ? 1.0 : 1.4, drop: 0.5)
-                    GameText(verbatim: SocGrantText.duration(grant.unlimitedLives), style: st, maxWidth: w * 0.8).offset(y: h * 0.28)
-                } else if grant.coins > 0 {
-                    ArtImage(art: .rewardCoinBowl).frame(width: w, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 10.5 : 13.5, -0.2, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV2, small ? 1.0 : 1.3, drop: 0.5)
-                    GameText(verbatim: "\(grant.coins)", style: st, maxWidth: w * 0.7).offset(y: h * 0.24)
-                } else if let b = grant.boosters.first(where: { $0.value > 0 }) {
-                    ArtImage(art: b.key == "freeze" ? .boosterFreezeIcon : .boosterHintIcon).frame(width: w * 0.8, height: h * 0.9)
-                    let st = GameTextStyle.s2(small ? 11 : 15.2, 0, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV3, 1.2, drop: 0.5)
-                    GameText(verbatim: "x\(b.value)", style: st).offset(x: w * 0.28, y: h * 0.3)
-                }
-            }
-            .frame(width: w, height: h)
-        }
     }
 }
 

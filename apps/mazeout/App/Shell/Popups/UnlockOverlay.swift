@@ -71,36 +71,6 @@ struct UnlockOverlay: View {
     }
 }
 
-/// The beats (ui.json `unlock.*`; the ◆ UnlockBeats reader + `acceptFrom`).
-struct UnlockTiming {
-    let b: UnlockBeats
-    let acceptFrom: Double
-    init(_ ui: UITuning) {
-        b = ui.unlockBeats
-        acceptFrom = ui.file.double("unlock.acceptFrom", 0.94)
-    }
-    var dismissFade: Double { b.dismissFade }
-    var sparkles: Double { b.sparkles }
-
-    /// Scale of an element at u (nil before its beat): the generic overshoot pop kf[0: from, rise: over, total: 1.0].
-    static func pop(_ u: Double, at: Double, from: Double, over: Double, rise: Double, total: Double) -> Double? {
-        let x = u - at
-        if x < 0 { return nil }
-        if x >= total { return 1 }
-        if x < rise { return from + (over - from) * Easing.outQuad(x / rise) }
-        return over + (1 - over) * Easing.inOutQuad((x - rise) / max(0.001, total - rise))
-    }
-
-    func icon(_ u: Double) -> Double? { Self.pop(u, at: b.icon, from: 0, over: 1.3, rise: 0.16, total: max(0.2, b.iconSettle - b.icon)) }
-    func title(_ u: Double) -> Double? { Self.pop(u, at: b.title, from: 0.2, over: 1.15, rise: 0.12, total: 0.16) }
-    func unlocked(_ u: Double) -> Double? {
-        let x = u - b.unlocked
-        if x < 0 { return nil }
-        return x >= 0.08 ? 1 : 0.2 + 0.8 * Easing.outBack(x / 0.08)
-    }
-    func card(_ u: Double) -> Double? { Self.pop(u, at: b.card, from: 0.2, over: 1.12, rise: 0.12, total: 0.16) }
-}
-
 /// Title, "Unlocked!", icon and card at time u (Equatable: after the card settles only the twinkles re-render).
 struct UnlockParts: View, Equatable {
     let content: UnlockContent

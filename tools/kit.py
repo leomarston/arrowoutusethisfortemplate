@@ -21,7 +21,8 @@ what it depends on and how to open it in a Debug build. This tool reads those fo
                                                          tokens) and which components they reference; --write adds the
                                                          missing entries to component.json (--prune also drops stale ones)
     python3 tools/kit.py catalog                         write kit/CATALOG.md and kit/catalog.html (generated)
-    python3 tools/kit.py check [-v] [--strict]           (CI) schema, references, deps, OWNERSHIP, fresh catalog
+    python3 tools/kit.py check [-v] [--strict]           (CI) schema, references, deps, OWNERSHIP, closure budgets
+                                                         (`maxClosure` of stable components), fresh catalog
     python3 tools/kit.py check --selftest                plant failures and prove check catches each one
 
 Ownership: every Swift file under apps/<game>/App, apps/<game>/Packages/*/Sources and apps/<game>/art/ui/code belongs to
@@ -61,7 +62,7 @@ CATEGORY_TITLES = {
 STATUSES = ["stable", "needs-work"]
 USE_KINDS = ["art", "rigs", "sounds", "cues", "strings", "tuning", "skinTokens"]
 REQUIRED = ["id", "title", "category", "summary", "description", "files", "depends", "status"]
-OPTIONAL = ["tests", "related", "wires", "uses", "launchArgs", "gaps", "preview", "notes"]
+OPTIONAL = ["tests", "related", "wires", "uses", "launchArgs", "gaps", "preview", "notes", "maxClosure"]
 ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
 # Never exported, whatever a component lists (CLAUDE.md "Secrets"); .gitignore'd paths are dropped too.
 SECRET_PATTERNS = [".env", ".env.*", "keys/**", "**/keys/**", "machine.env", "**/machine.env", "*.p8", "*.p12", "*.cer",
@@ -448,6 +449,19 @@ def effective_files(repo, comps, c, owners):
     return out
 
 
+def closure_files(repo, comps, owners, cid, with_core=False):
+    """Every file of `cid` and its transitive dependencies (core's excluded unless `with_core`): what an export takes on top
+    of a template-derived game (the `maxClosure` budget counts these)."""
+    total = set()
+    for i in closure(comps, [cid]):
+        if i == "core" and not with_core:
+            continue
+        total |= set(effective_files(repo, comps, comps[i], owners))
+    if not with_core and "core" in comps:
+        total -= set(effective_files(repo, comps, comps["core"], owners))
+    return total
+
+
 # ============================================================================================ scanning the sources
 
 # Top-level, non-private type declarations only (column 0): nested helper types (`Info`, `Kind`) would be noise.
@@ -594,6 +608,9 @@ def validate(repo, comps, load_errors=(), check_fresh=True, verbose=False, drift
                 errors.append(f"{where}: `{k}` must be a non-empty string")
         if isinstance(c.summary, str) and "\n" in c.summary:
             errors.append(f"{where}: `summary` is one line")
+        mc = c.data.get("maxClosure")
+        if mc is not None and (isinstance(mc, bool) or not isinstance(mc, int) or mc < 1):
+            errors.append(f"{where}: `maxClosure` must be a whole number ≥ 1 (files with its dependencies, excluding core)")
         for k in ("files", "depends", "wires", "tests", "related", "launchArgs", "gaps", "preview"):
             v = c.data.get(k)
             if v is not None and (not isinstance(v, list) or not all(isinstance(x, str) for x in v)):
@@ -683,6 +700,16 @@ def validate(repo, comps, load_errors=(), check_fresh=True, verbose=False, drift
     # ---- ownership
     owners, problems = ownership(repo, comps)
     errors += [f"ownership: {p}" for p in problems]
+    # ---- closure budgets: a stable component that declares `maxClosure` must stay within it
+    for c in comps.values():
+        mc = c.data.get("maxClosure")
+        if c.id == "core" or c.status != "stable" or isinstance(mc, bool) or not isinstance(mc, int) or mc < 1:
+            continue
+        n = len(closure_files(repo, comps, owners, c.id))
+        if n > mc:
+            errors.append(f"{c.path}: its closure is {n} files (with its dependencies, excluding core) > maxClosure {mc}: a new "
+                          f"dependency or file made it heavier (`tools/kit.py deps {c.id}`; cut the coupling, or raise the "
+                          f"budget in component.json and say why)")
     # ---- drift (warnings): sources use things a component does not declare / reference undeclared components
     if drift and not any(e.startswith("ownership:") for e in errors):
         index = symbol_index(repo, comps, owners)
@@ -1481,6 +1508,10 @@ def show(repo, comps, i):
                 print(f"  {owner:18} {f}: {', '.join(names[:6])}")
     others = total - set(effective_files(repo, comps, comps["core"], owners)) if "core" in comps else total
     print(f"Totals: {len(own)} own files, {len(total)} with deps, {len(others)} with deps excluding core")
+    if c.data.get("maxClosure") is not None:
+        mc = c.data["maxClosure"]
+        state = "enforced by check" if c.status == "stable" else "declared; enforced once the component is stable"
+        print(f"Budget: maxClosure {mc} (uses {len(others)}; {state})")
     if c.launchArgs:
         print("Open it (Debug build, tools/run.sh):")
         for a in c.launchArgs:
@@ -1577,6 +1608,11 @@ def selftest():
     expect("secret listed", lambda r, cs: cs[anyc].data["files"].append(".env"), "secret path", [".env"])
     expect("unknown wire", lambda r, cs: cs[anyc].data.__setitem__("wires", ["no-such-component"]), "wires unknown")
     expect("preview outside art/", lambda r, cs: cs[anyc].data.__setitem__("preview", ["README.md"]), "preview")
+    expect("bad maxClosure", lambda r, cs: cs[anyc].data.__setitem__("maxClosure", "small"), "`maxClosure` must be")
+    heavy = next(i for i in comps if i != "core" and len(closure(comps, [i])) > 2)
+    expect("closure over its budget", lambda r, cs: (cs[heavy].data.__setitem__("status", "stable"),
+                                                     cs[heavy].data.pop("gaps", None),
+                                                     cs[heavy].data.__setitem__("maxClosure", 1)), "> maxClosure 1")
     # stale catalog: a component changed after the catalog was written
     r2 = Repo()
     cs2, le2 = load_components(r2)

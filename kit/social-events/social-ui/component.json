@@ -3,11 +3,9 @@
  "title": "Social list UI kit",
  "category": "social-events",
  "summary": "Off-main-thread social lists: shaped text, CA rows, the recycling list, event page chrome, the social model.",
- "description": "SocialModel wraps the world + clock for the app (every query off the main thread); SocType shapes the row text with CoreText; SocRows / SocArt / SocList draw the 200-row lists as Core Animation layers; SocChrome holds the shared event chrome; SocialEntry / SocialPopups / SocialFlows plug the event screens and popups into the shell; SocScenario presets states for captures; SocialShells is the leaderboard / event page frame. SocialLab is the debug host.",
- "status": "needs-work",
- "gaps": [
-  "SocialShells / SocialModel name the home (HomeLive, HomeScene) and the profile (TopCanvas); SocialModel calls SocialFlows' hooks (events-engine, wired)."
- ],
+ "description": "SocialModel wraps the world + clock for the app (every query off the main thread); SocType shapes the row text with CoreText; SocRows / SocArt / SocList draw the 200-row lists as Core Animation layers; SocChrome and SocEventChrome hold the event pages' shared chrome (titles, info disc, warning card, stage strip, timer chip, reward icon, capture-ready markers); Countdown.swift the one event countdown formatter and its live ticking; SocScenario presets states for captures; SocialShells is the leaderboard / event page frame (the Leaderboard tab page, registered by SocialUIRegistration.swift). It reaches the events engine only through `SocialEventsEngine` (SocialModel.swift), which the engine registers. SocialLab is the debug host.",
+ "status": "stable",
+ "maxClosure": 20,
  "files": [
   "apps/mazeout/App/Shell/Social/SocialModel.swift",
   "apps/mazeout/App/Shell/Social/SocType.swift",
@@ -17,7 +15,10 @@
   "apps/mazeout/App/Shell/Social/SocChrome.swift",
   "apps/mazeout/App/Shell/Social/SocScenario.swift",
   "apps/mazeout/App/Shell/Social/SocialLab.swift",
-  "apps/mazeout/App/Shell/Pages/SocialShells.swift"
+  "apps/mazeout/App/Shell/Pages/SocialShells.swift",
+  "apps/mazeout/App/Shell/Social/SocEventChrome.swift",
+  "apps/mazeout/App/Shell/Social/Countdown.swift",
+  "apps/mazeout/App/Shell/Pages/SocialUIRegistration.swift"
  ],
  "tests": [
   "apps/mazeout/Tests/SocialScreensTests.swift",
@@ -27,12 +28,7 @@
  "depends": [
   "core",
   "avatars",
-  "home",
-  "profile",
   "ui-chrome"
- ],
- "wires": [
-  "events-engine"
  ],
  "uses": {
   "art": [
@@ -81,6 +77,10 @@
    "social.scoreChip"
   ],
   "strings": [
+   "%lld:%02lld",
+   "event.finished",
+   "fail",
+   "Finished",
    "Hot Streak",
    "Info",
    "Leaderboard",
@@ -94,15 +94,25 @@
    "World"
   ],
   "tuning": [
-   "ui.json:lb.countryShort"
+   "ui.json:colors.clawChip",
+   "ui.json:colors.event",
+   "ui.json:home.clawTimerChip",
+   "ui.json:lb.countryShort",
+   "ui.json:text.home"
   ],
   "skinTokens": [
+   "home.clawBar",
    "pages.socialShells",
+   "popups.streakBanner",
+   "social.clawScreen",
+   "social.leaderboardViews",
+   "social.rocketRaceViews",
    "social.socArt",
    "social.socChrome",
    "social.socialLab",
    "social.socList",
-   "social.socRows"
+   "social.socRows",
+   "social.streakRaceViews"
   ]
  },
  "launchArgs": [

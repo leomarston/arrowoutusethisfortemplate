@@ -2,7 +2,7 @@
 
 The Leaderboard tab: Weekly / World / Country boards with the pinned player row and jump pill.
 
-LeaderboardViews draws the tab bodies inside the page shell (header, tab strip, weekly countdown): the World and Country top lists and the player's weekly group, all from the offline social world.
+LeaderboardViews draws the tab bodies inside social-ui's page shell (header, tab strip, weekly countdown): the World and Country top lists and the player's weekly group, all from the offline social world. It provides its own body (`SocialEntry.makeLeaderboard`) and joins the week's contest through `SocialEvents.engine` (a protocol the events engine fills), so it needs no event.
 
 ## How the app uses it
 
@@ -19,10 +19,6 @@ app.router.go(.home(.normal, tab: .leaderboard))
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- LeaderboardViews calls SocialFlows (events-engine), so taking the leaderboard takes the events engine and, through EventsDirector, the game loop. Its page frame (LeaderboardPageShell) is in social-ui.
 
 ## Take it
 

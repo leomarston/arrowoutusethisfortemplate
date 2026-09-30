@@ -1,7 +1,7 @@
 {
   "about": "Literals that look like colours to build.py --check-literals but are not colours (checked by hand in context). One entry per (file, exact literal text).",
   "allow": [
-    {"file": "App/Shell/HUD/S2Hooks.swift", "literal": "0xC0FFEE",
+    {"file": "App/FX/WinCelebrationRegistration.swift", "literal": "0xC0FFEE",
      "reason": "the seed of the win-celebration RNG (`seed: UInt64(0xC0FFEE) &+ UInt64(handle.id)`), not a colour"}
   ]
 }

@@ -152,7 +152,7 @@ private struct OfferLine: View {
 }
 
 /// The body in the prop's place: the grant's style at ui.json `modules.offer.bodySize`, one line or two balanced lines
-/// (BoosterBuyPopup's rule), centred on the prop's frame.
+/// (the booster popup's rule, `SocTwoLines.descriptionLines`), centred on the prop's frame.
 private struct OfferBody: View {
     let text: String
     let frame: CGRect
@@ -164,7 +164,7 @@ private struct OfferBody: View {
         let st = style.sized(CGFloat(t.number("modules.offer.bodySize", 30)))
         let width = CGFloat(t.number("modules.offer.bodyMaxWidth", 330))
         let gap = CGFloat(t.number("modules.offer.bodyLineGap", 40))
-        let lines = BoosterBuyPopup.descriptionLines(text, style: st, width: width)
+        let lines = SocTwoLines.descriptionLines(text, style: st, width: width)
         ZStack(alignment: .topLeading) {
             ForEach(Array(lines.enumerated()), id: \.offset) { i, line in
                 GameText(verbatim: line, style: st, maxWidth: width)

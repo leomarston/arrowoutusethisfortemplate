@@ -6,15 +6,17 @@
  "description": "GameCore Events (join / progress / claim state machines over PlayerState.events, the calendar on the world clock, the finished-event state, the featured-events rotation), the win-streak multiplier, the app's EventsDirector (hooks after win / loss, the home auto-sequence), EventRotationPolicy, the week-start announcements and the home event badges. The individual events are separate components.",
  "status": "needs-work",
  "gaps": [
-  "EventsDirector names the game loop (GameController / GameServices), the home (HomeView, PayoutSequence) and the tutorial; every event page / popup is wired through SocialEntry / SocialPopups / SocialFlows."
+  "The event pages and popups are still wired in the engine's own hubs (SocialPopups, SocialEntry.makeEventScreen, EventBadges, EventsDirector: `kit.py rdeps <event>` prints the lines); a per-event registration like the shell's (ShellRegistry.swift) is the next step."
  ],
+ "maxClosure": 85,
  "files": [
   "apps/mazeout/App/Game/EventsDirector.swift",
   "apps/mazeout/App/Shell/Social/EventAnnounce.swift",
   "apps/mazeout/App/Shell/Home/EventBadges.swift",
   "apps/mazeout/App/Shell/Social/SocialEntry.swift",
   "apps/mazeout/App/Shell/Social/SocialPopups.swift",
-  "apps/mazeout/App/Shell/Social/SocialFlows.swift"
+  "apps/mazeout/App/Shell/Social/SocialFlows.swift",
+  "apps/mazeout/App/Shell/Social/EventsEngineRegistration.swift"
  ],
  "tests": [
   "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/Events*.swift",
@@ -42,14 +44,13 @@
   "ui-chrome"
  ],
  "wires": [
-  "streak-race",
+  "balloon-rise",
+  "claw-challenge",
+  "rating-prompt",
   "rocket-race",
   "sky-jump",
-  "claw-challenge",
-  "balloon-rise",
-  "weekly-contest",
-  "leaderboard",
-  "rating-prompt"
+  "streak-race",
+  "weekly-contest"
  ],
  "uses": {
   "art": [
@@ -79,10 +80,7 @@
    "Let's Go!",
    "New Event!",
    "Rocket Rally",
-   "This event has ended.",
-   "Treasure Climb",
-   "Up & Away",
-   "Weekly Cup"
+   "This event has ended."
   ],
   "tuning": [
    "rules.json:streak",
@@ -101,5 +99,8 @@
  "launchArgs": [
   "-pc.go home -pc.socialScenario rotation",
   "-pc.go sociallab -pc.lab weeks"
+ ],
+ "notes": [
+  "Kit decoupling step: it registers itself (EventsEngineRegistration.swift: the event popups in the popup host, their `-pc.popup` ids and warm-ups, and `SocialEvents.engine` for the social pages). Its closure (the game loop, the home, the tutorial, social-ui) is inherent: EventsDirector is a game director and the events live on the home."
  ]
 }

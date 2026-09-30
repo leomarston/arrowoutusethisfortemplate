@@ -2,7 +2,7 @@
 
 App skeleton, contracts, save, tuning, skin runtime, router, popup and FX hosts, and all of GameCore.
 
-What every game built from the template already has and every other component assumes: the composition root (AppModel, GameApp), the frozen contracts (screens, popups, presentation, audio, the puzzle board), launch arguments, logging, the motion clock, the player save (PlayerStore / PlayerState / StateStore), tuning loading, the skin runtime (Tokens, GameText, ArtStore, the generated UIArt / SkinColors / SkinScenes), the router and root view with its transitions, the popup host and its wiring hooks (S2Hooks / S3Hooks, which register the panels of other components), the FX host, GameButton and the whole GameCore target: random, persistence, IDs, motion, the puzzle session contract, meta rules, the generated GameConfig, AND the meta model (economy, lives, boosters, shop catalogue, the events' state machines, the offline social world). GameCore cannot be split by file: PlayerState embeds the events and social state, Events.swift drives every event, Economy reads the events and lives, so the event / economy components list their GameCore files under `related` instead of owning them. Export core only when the target is not template-derived.
+What every game built from the template already has and every other component assumes: the composition root (AppModel, GameApp) and the game's component list (GameComponents.swift: one `<Name>Registration.register()` line per component), the frozen contracts (screens, popups, presentation, audio, the puzzle board, IntroStyle), launch arguments, logging, the motion clock, the player save (PlayerStore / PlayerState / StateStore), tuning loading, the skin runtime (Tokens, GameText, ArtStore and its DEBUG-only missing-art stand-in DebugPlaceholder, the generated UIArt / SkinColors / SkinScenes, Up & Away's slot table UpAwayArt), the router and root view with their transitions, the popup host, the FX host, and the registries they ask instead of naming other components (ShellRegistry.swift: popup panels, `-pc.popup` launchers, Loading warm-up items and boot work, panel strips and slots, screens and tab pages, kept / preloaded art, the home screen's hooks; FXOverlayView.swift `FXEffects`: effect handlers and layer builders), S2Hooks (the app reference, the offers' Shop route), the economy table (ShellEconomy) and the event names / outcome log lines, GameButton, and the whole GameCore target: random, persistence, IDs, motion, the puzzle session contract (incl. SessionPlan and FeatureUnlock), meta rules, the generated GameConfig, AND the meta model (economy, lives, boosters, shop catalogue, the events' state machines, the offline social world). GameCore cannot be split by file: PlayerState embeds the events and social state, Events.swift drives every event, Economy reads the events and lives, so the event / economy components list their GameCore files under `related` instead of owning them. Export core only when the target is not template-derived.
 
 ## How the app uses it
 
@@ -15,9 +15,10 @@ app.fx.play(.sparkles(at: point))                               // FX host: Core
 app.store.mutate { $0.coins += 100 }                            // PlayerStore: the one save
 ```
 
-## Wiring
+## Notes
 
-- S2Hooks.swift / S3Hooks.swift / PopupHost `PopupContent` / FXOverlay are the registration points: a component's panel or effect is wired there with one line; removing a component means deleting that line.
+- Kit decoupling step (docs/ROADMAP.md): PopupHost, RootView, the router, the FX host and S2Hooks name no panel, screen or effect of another component any more: each component registers itself (its `<Name>Registration.swift`), and GameComponents.swift lists them. `kit.py rdeps <id>` / `show <id>` print that one line (plus any wiring by other components).
+- Moved out of core in that step: ClawBar.swift (to claw-challenge; its shared chrome to home's EventBarChrome.swift, the countdowns to social-ui's Countdown.swift), the shop formats (economy-ui), Board/Track.swift (the arrow board's), S3Hooks.swift (split into the components' registrations).
 
 ## Open it in a Debug build
 
@@ -30,9 +31,9 @@ app.store.mutate { $0.coins += 100 }                            // PlayerStore: 
 
 ## Known gaps
 
-- App-side helpers many components share are owned by core until they get a home of their own: Shop/ShopEconomy.swift (ShellEconomy, ShopFormat, ShopTitles), Game/EventRotationPolicy.swift (UpAwayArt), Board/Track.swift (keyframe tracks, used by the puppets), Home/ClawBar.swift (the Treasure Climb bar AND the Countdown / LiveCountdown / CountdownChip / EventWord helpers every event page uses), Components/DebugPlaceholder.swift.
-- The hooks (S2Hooks, S3Hooks, SocialPopups, FXOverlay) name concrete panels: removing a component still needs a hand edit there (no registry yet).
-- AppModel builds the social world, events and store for every game; a game without events still compiles them.
+- AppModel (the composition root) builds the social world, the events and the store for every game, and picks the puzzle module (ActivePuzzle in Contracts/PuzzleBoardContract.swift names ArrowEscapeEntry / SortPuzzleEntry; AppModel names the arrow board's BoardEngine for its warm-up): a game without events still compiles them.
+- The debug harness is named directly inside `#if DEBUG || PC_MEASURE` (Router: GlitchRun; FXOverlayView: FrameWatch; ShellContract: DebugScreens), and RasterCache.swift names ui-chrome's PanelButtonStyleColors (its warm-up key).
+- ShellEconomy (Shop/ShopEconomy.swift, the economy table) and UpAwayArt (Components/UpAwayArt.swift, one event's slot ids) stay in core: the shell's own event-art and rotation policies read them, and several components name them.
 
 ## Take it
 

@@ -2,7 +2,7 @@
 
 WinDirector banks the win at the last move, plays the celebration, then the win panel (normal / Hard / Super Hard).
 
-At the winning move the win is banked at once (Economy.finishAttempt), the board's clear wave and the celebration play, then WinPanel shows the reward (tier colours) with the event strips under it (streak-race banner / rocket-race bar). Continue -> home with the payout queue.
+At the winning move the win is banked at once (Economy.finishAttempt), the board's clear wave and the celebration play (`FXEffect.celebration`: the win-celebration component's, through the FX host's registry), then WinPanel shows the reward (tier colours) with a strip under it — a slot (`PanelStrips`) the events fill: the Rocket Race bar, Up & Away's strip or the Streak Race strip. Continue -> home with the payout queue. Registered by WinFlowRegistration.swift.
 
 ## How the app uses it
 
@@ -10,6 +10,10 @@ At the winning move the win is banked at once (Economy.finishAttempt), the board
 celebration = services.fx.play(.celebration(result.tag))
 let answer = await services.popups.present(Popup<PopupResult>.winPanel(summary))
 ```
+
+## Notes
+
+- Without the win-celebration component the `.celebration` effect finishes at once (logged) and the panel follows; without events no strip is drawn.
 
 ## Open it in a Debug build
 
@@ -20,10 +24,6 @@ let answer = await services.popups.present(Popup<PopupResult>.winPanel(summary))
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- WinPanel names EventsDirector (events-engine) and PanelLabel (LevelFailedPopup.swift, fail-flow); the event strips under the panel are wired (streak / rocket / balloon).
 
 ## Take it
 

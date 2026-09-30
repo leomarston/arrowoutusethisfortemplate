@@ -13,6 +13,11 @@ app.router.go(.level(LevelLaunch(session: plan.id, levels: [32])))
 let r = await services.popups.present(Popup<PopupResult>.pause)
 ```
 
+## Notes
+
+- Kit decoupling step: the loop names no puzzle type any more (SessionPlan and FeatureUnlock are GameCore's, IntroStyle is the generic board contract's: PuzzleBoardContract.swift). Its closure is the HUD, the timer text, sounds (the move cue) and haptics: inherent (the loop plays the move's haptic and cue and places the HUD).
+- It installs its directors by name (GameController: FailFlowDirector, WinDirector; GameDirectors+G2.swift: the G2 directors): those are its `wires`, the lines to edit when a director's component is removed.
+
 ## Open it in a Debug build
 
 ```
@@ -20,10 +25,6 @@ let r = await services.popups.present(Popup<PopupResult>.pause)
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- The generic loop still names SessionPlan (ArrowEscape) and IntroStyle (App/Contracts/BoardContract.swift, the arrow board's contract) - docs/ROADMAP.md 'SessionPlan into GameCore'.
 
 ## Take it
 

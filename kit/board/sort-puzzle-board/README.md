@@ -11,6 +11,10 @@ SortPuzzleBoard draws tubes and units from skin tokens (`puzzle.sortBoard.*`) an
 static let entry: PuzzlePluginEntry.Type = SortPuzzleEntry.self
 ```
 
+## Notes
+
+- Kit decoupling step: SessionPlan / FeatureUnlock are GameCore's and IntroStyle the generic board contract's, so the plugin needs no arrow type.
+
 ## Open it in a Debug build
 
 ```
@@ -18,10 +22,6 @@ static let entry: PuzzlePluginEntry.Type = SortPuzzleEntry.self
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- Names ArrowEscape's FeatureUnlock / SessionPlan and the arrow board's IntroStyle (the game-loop seam).
 
 ## Take it
 

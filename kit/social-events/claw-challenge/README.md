@@ -1,8 +1,8 @@
 # Treasure Climb (claw challenge) (`claw-challenge`)
 
-The weekly points ladder (Treasure Climb): its page and (i) overlay; the home bar is in core for now.
+The weekly points ladder (Treasure Climb): its page, (i) overlay and home bar.
 
-GameCore ClawChallenge (weekly ladder, rules.json `claw`) + ClawScreen (page + (i) overlay) + ClawBar (the home bar).
+GameCore ClawChallenge (weekly ladder, rules.json `claw`) + ClawScreen (page + (i) overlay) + ClawBar (the home bar; its frame, fill, token and flame are the home's shared event-bar chrome, EventBarChrome.swift, which Up & Away's bar and the payout draw too).
 
 ## How the app uses it
 
@@ -10,6 +10,10 @@ GameCore ClawChallenge (weekly ladder, rules.json `claw`) + ClawScreen (page + (
 app.router.go(.event(.claw))
 _ = await app.popups.present(Popup<PopupResult>.clawInfo)
 ```
+
+## Notes
+
+- Kit decoupling step: the helpers every event shares are social-ui's (SocEventChrome.swift, Countdown.swift) or ui-chrome's (SocTwoLines); its closure is the events engine (inherent: its pages run the engine's flows, announcements and finish states) + social-ui + ui-chrome.
 
 ## Open it in a Debug build
 
@@ -19,11 +23,6 @@ _ = await app.popups.present(Popup<PopupResult>.clawInfo)
 ```
 
 (`apps/mazeout/tools/run.sh` passes launch arguments; see `App/Support/LaunchArgs.swift`.)
-
-## Known gaps
-
-- Its home bar (App/Shell/Home/ClawBar.swift) is owned by core: the same file holds the Countdown helpers every event uses. Split Countdown out, then move the bar here.
-- Shared event helpers live in other events' files: SocInfoTitle / SocTwoLines / SocWarningCard (StreakRaceViews.swift), SocInfoDisc / SocReadyWhen (LeaderboardViews.swift), SocGrantText / SocStageStrip (RocketRaceViews.swift), EventTimerChip (StreakBanner.swift); moving them into SocChrome.swift would let each event stand alone.
 
 ## Take it
 

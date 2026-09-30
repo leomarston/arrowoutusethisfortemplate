@@ -3,27 +3,18 @@
  "title": "Win flow and win panel",
  "category": "popups",
  "summary": "WinDirector banks the win at the last move, plays the celebration, then the win panel (normal / Hard / Super Hard).",
- "description": "At the winning move the win is banked at once (Economy.finishAttempt), the board's clear wave and the celebration play, then WinPanel shows the reward (tier colours) with the event strips under it (streak-race banner / rocket-race bar). Continue -> home with the payout queue.",
- "status": "needs-work",
- "gaps": [
-  "WinPanel names EventsDirector (events-engine) and PanelLabel (LevelFailedPopup.swift, fail-flow); the event strips under the panel are wired (streak / rocket / balloon)."
- ],
+ "description": "At the winning move the win is banked at once (Economy.finishAttempt), the board's clear wave and the celebration play (`FXEffect.celebration`: the win-celebration component's, through the FX host's registry), then WinPanel shows the reward (tier colours) with a strip under it — a slot (`PanelStrips`) the events fill: the Rocket Race bar, Up & Away's strip or the Streak Race strip. Continue -> home with the payout queue. Registered by WinFlowRegistration.swift.",
+ "status": "stable",
+ "maxClosure": 50,
  "files": [
   "apps/mazeout/App/Game/WinDirector.swift",
-  "apps/mazeout/App/Shell/Popups/WinPanel.swift"
+  "apps/mazeout/App/Shell/Popups/WinPanel.swift",
+  "apps/mazeout/App/Shell/Popups/WinFlowRegistration.swift"
  ],
  "depends": [
   "core",
-  "events-engine",
-  "fail-flow",
   "game-loop",
-  "ui-chrome",
-  "win-celebration"
- ],
- "wires": [
-  "streak-race",
-  "rocket-race",
-  "balloon-rise"
+  "ui-chrome"
  ],
  "uses": {
   "art": [
@@ -55,5 +46,8 @@
   "-pc.go level -pc.level 32 -pc.win normal",
   "-pc.go level -pc.level 36 -pc.win hard",
   "-pc.go level -pc.popup win"
+ ],
+ "notes": [
+  "Without the win-celebration component the `.celebration` effect finishes at once (logged) and the panel follows; without events no strip is drawn."
  ]
 }

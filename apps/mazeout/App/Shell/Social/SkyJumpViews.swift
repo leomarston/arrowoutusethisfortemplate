@@ -48,7 +48,11 @@ struct SocSkyOffer: View {
             if let end = status.skyJump?.endsAt {                          // FIX-2 B review (L28): ticks; no run = no chip
                 SocSkyChip(seconds: SocTime.left(end, now: now), live: (ends: end, now: now)).placed(CGRect(158.8, 209.5, 75.4, 23.4))
             }
-            SocStageStrip(stage: stage, frame: CGRect(40.7, 455.4, 309.9, 105.8), goal: goal, space: false)
+            SocStageStrip(stage: stage, frame: CGRect(40.7, 455.4, 309.9, 105.8), goal: goal, space: false) { s, tileW in
+                ArtImage(art: s == 1 ? .rewardChest1 : s == 2 ? .rewardChest2 : .rewardChest3)
+                    .frame(width: 52, height: 39).position(x: tileW / 2, y: 26)
+                if s < stage { ArtImage(art: .iconCheck).frame(width: 39.4, height: 31.7).position(x: 30, y: 22) }
+            }
             FramedButton(id: "popup.skyJump.primary", title: "Start", colors: .green, frame: CGRect(89.7, 574.8, 212.5, 87.7),
                          well: CGRect(78.2, 566.1, 235.5, 106.4), n: 4.9,
                          style: .s2(44.3, -3.4, [Skin.socialSkyJumpViewsSocSkyOfferStyle0], outline: Skin.socialSkyJumpViewsSocSkyOfferOutline, 2.0, drop: 2.0),

@@ -39,7 +39,7 @@ struct ShopView: View {
         // re-renders nothing on the level's store writes (the attempt at Play, the win banked at the clearing tap: before,
         // this body + its ScrollView re-ran inside those frames, build/p/FIX2/A/tp/base-tp1). The closable page (over a level
         // or a popup) reads the live store.
-        let state = closable ? app.store.state : HomeLive.read(app)
+        let state = closable ? app.store.state : ShellScreens.homeState(app)
         let visible = rules.shop.visible(state)
         let layout = ShopLayout(products: visible, testStore: app.shop.isTestStore)
         let top = m.y(115, .top)
@@ -114,7 +114,7 @@ struct ShopView: View {
             switch outcome {
             case .granted:
                 let gained = max(0, app.store.state.coins - before)
-                if !closable { HomeLive.shared.sync() }            // FIX-2 A: the tab's header counts the coins and the fly together
+                if !closable { ShellScreens.home?.syncState() }            // FIX-2 A: the tab's header counts the coins and the fly together
                 if gained > 0 { CoinPillDisplay.shared.flying += gained }
                 await ShopPurchaseFlow.claim(p.grant, coins: gained, app: app, metrics: m)
             case .pending:
@@ -879,7 +879,7 @@ private struct ShopHeaderCoins: View {
     @Environment(\.shellMetrics) private var m
     var body: some View {
         let t = app.tuning.ui.tokens
-        let coins = CoinPillDisplay.shared.shown(live ? app.store.state : HomeLive.read(app))
+        let coins = CoinPillDisplay.shared.shown(live ? app.store.state : ShellScreens.homeState(app))
         let st = GameTextStyle.s2(18.7, -0.17, [Skin.shopShopViewShopHeaderCoinsSt0]).sized(18.7 * m.s)
         let digits = m.point(CGPoint(x: 76.4, y: 82.6), .top)
         ZStack(alignment: .topLeading) {

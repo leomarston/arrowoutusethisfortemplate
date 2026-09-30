@@ -96,20 +96,6 @@ private struct PlainTopValue: View {
     }
 }
 
-/// The light-blue pill of the top bar (#DEEEFF, superellipse n 5, a thin darker rim).
-struct TopPill: View {
-    let t: Tokens
-    var n: CGFloat = 5
-    var body: some View {
-        ZStack {
-            Superellipse(n: n).fill(t.color("home.topPillEdge", Skin.homeHomeTopBarHomeTopPillEdge))
-            Superellipse(n: n).fill(LinearGradient(colors: [Color(hex: Skin.homeHomeTopBarTopPillColors0), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill), t.color("home.topPill", Skin.homeHomeTopBarHomeTopPill)],
-                                                   startPoint: .top, endPoint: .bottom)).padding(1)
-        }
-        .accessibilityHidden(true)
-    }
-}
-
 /// The avatar tile (SPEC-ui §1.6.12, VERIFIED 002 column x 50 / row y 67): a dark-blue outline, a bright blue ring (#0CAFFB →
 /// #008BFE, a light top line, a darker bottom lip), a dark inner rim, and the portrait tile — the default silhouette #637F93 on
 /// #86A3AE with a soft inner shadow at the bottom (the player's portrait from S3 on).
@@ -213,56 +199,6 @@ private struct LivesGroup: View {
             GameText(verbatim: "\(s.lives.count)", style: style)
                 .at(p.x - box.minX, style.capCentre(baseline: p.y) - box.minY)
         }
-    }
-}
-
-/// The lives pill's text and its accessibility value (`home.lives`: "n|mm:ss|full|inf:mm:ss", §9.8). SPEC-ui §2.2.2: counting
-/// "mm:ss" (always two-digit minutes); the word "Finished" for ≈ 1 s when a life has just arrived; unlimited "mm:ss" below an
-/// hour, "1h 20m" from an hour.
-enum LivesText {
-    enum Pill: Equatable { case full, finished, time(String) }
-
-    static func state(_ s: PlayerState, now: Date, refill: Double) -> Pill {
-        if let until = s.unlimitedLivesUntil, until > now {
-            let left = until.timeIntervalSince(now)
-            return .time(left >= 3600 ? hoursMinutes(left) : clock(left))
-        }
-        guard s.lives.count < 5 else { return .full }
-        guard let anchor = s.lives.anchor else { return .time(clock(refill)) }
-        let elapsed = now.timeIntervalSince(anchor)
-        let period = max(refill, 1)
-        if elapsed >= period, elapsed.truncatingRemainder(dividingBy: period) < 1 { return .finished }
-        return .time(clock(max(0, period - elapsed.truncatingRemainder(dividingBy: period))))
-    }
-
-    /// nil = "Full" / "Finished"; else the time text.
-    static func pill(_ s: PlayerState, now: Date, refill: Double) -> String? {
-        if case .time(let t) = state(s, now: now, refill: refill) { return t }
-        return nil
-    }
-
-    static func value(_ s: PlayerState, now: Date, refill: Double) -> String {
-        if let until = s.unlimitedLivesUntil, until > now, case .time(let shown) = state(s, now: now, refill: refill) {
-            return "inf:" + shown                                   // CONSISTENCY Y-4: "inf:<the displayed text>"
-        }
-        switch state(s, now: now, refill: refill) {
-        case .full: return "full"
-        case .finished: return "\(s.lives.count)|finished"
-        case .time(let t): return "\(s.lives.count)|\(t)"
-        }
-    }
-
-    /// mm:ss (h:mm:ss above an hour: the accessibility value).
-    static func clock(_ seconds: Double) -> String {
-        let t = Int(seconds.rounded(.up))
-        let h = t / 3600, mnt = (t % 3600) / 60, sec = t % 60
-        return h > 0 ? String(format: "%d:%02d:%02d", h, mnt, sec) : String(format: "%02d:%02d", mnt, sec)
-    }
-
-    /// "1h 20m" (units are the original's letters in both languages).
-    static func hoursMinutes(_ seconds: Double) -> String {
-        let t = Int(seconds.rounded(.up))
-        return "\(t / 3600)h \(((t % 3600) / 60))m"
     }
 }
 

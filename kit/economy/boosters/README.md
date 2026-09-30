@@ -11,6 +11,10 @@ let r = await popups.present(Popup<PopupResult>.boosterBuy(.hint))
 app.fx.play(.custom(id: "freeze", params: ["seconds": 10]))
 ```
 
+## Notes
+
+- Kit decoupling step: the borrowed helpers moved to ui-chrome (SocTwoLines, SunburstRays) and economy-ui (CoinPillDisplay); the Time Freeze runs on the FX host as FreezeFX (HUDFreeze.swift), registered by BoostersRegistration.swift with the buy popup.
+
 ## Open it in a Debug build
 
 ```
@@ -23,7 +27,6 @@ app.fx.play(.custom(id: "freeze", params: ["seconds": 10]))
 
 ## Known gaps
 
-- BoosterBuyPopup borrows SocTwoLines (StreakRaceViews.swift, streak-race), SunburstRays (NoLivesPopup.swift, lives) and CoinPillDisplay (home).
 - Booster ids are still the reference's (freeze, hint) in BoosterID; booster ids from config are open (docs/ROADMAP.md phase 1).
 
 ## Take it

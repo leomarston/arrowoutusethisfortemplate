@@ -117,25 +117,6 @@ public struct LevelSpec: Codable, Sendable, Equatable {
     public func encode(to encoder: Encoder) throws { try LevelCoding.encode(self, to: encoder) }
 }
 
-/// Whether hearts reset or carry between the stages of a multi-board session (PENDING-gameplay; default .carry).
-public enum HeartsCarry: String, Codable, Sendable, CaseIterable { case reset, carry }
-
-/// One Play = one session = 1…n stages (sessions.json; a level in no session is a one-stage session).
-public struct SessionPlan: Codable, Sendable, Equatable {
-    public var id: String
-    public var levels: [Int]                      // [1, 2, 3, 4] (VERIFIED tutorials §2) or [n]
-    public var hudLabel: String?                  // "Levels 1-4" (else "Level %lld"); a strings-table KEY, not display text
-    public var panelLabel: String?                // "Level 1-4" (singular on the win panel, VERIFIED); a strings-table KEY
-    public var reward: Int?                       // 80 (VERIFIED); nil = by tag
-    public var stageGap: Double?                  // last exit → next board built: 0.7 s (VERIFIED tutorials §2)
-    public var hearts: HeartsCarry                // PENDING-gameplay (no heart was lost in V1); default .carry
-
-    public init(id: String, levels: [Int], hudLabel: String? = nil, panelLabel: String? = nil, reward: Int? = nil,
-                stageGap: Double? = nil, hearts: HeartsCarry = .carry) {
-        self.id = id; self.levels = levels; self.hudLabel = hudLabel; self.panelLabel = panelLabel
-        self.reward = reward; self.stageGap = stageGap; self.hearts = hearts
-    }
-
-    public init(from decoder: Decoder) throws { self = try LevelCoding.decodeSession(from: decoder) }
-    public func encode(to encoder: Encoder) throws { try LevelCoding.encode(self, to: encoder) }
-}
+// `HeartsCarry` and `SessionPlan` (one Play = a session of 1…n stages) are generic: they moved to GameCore
+// (Session/SessionPlan.swift, with their sessions.json mapping) in the kit decoupling step; `import GameCore` above keeps
+// every use here and in the app unchanged.

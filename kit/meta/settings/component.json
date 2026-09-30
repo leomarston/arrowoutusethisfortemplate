@@ -5,8 +5,10 @@
  "summary": "The Settings page: notifications, sound / music / haptic toggles, links, and the Terms / Privacy info pages.",
  "description": "A full page opened by the home gear (PopupID.settings): the Notifications card, three square toggles (Sound / Music / Haptic) that write PlayerState.settings and apply at once, the support / Terms / Privacy links (InfoPage) and the version line. Links in ui.json `settings.links`.",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
-  "apps/mazeout/App/Shell/Popups/SettingsPopup.swift"
+  "apps/mazeout/App/Shell/Popups/SettingsPopup.swift",
+  "apps/mazeout/App/Shell/Popups/SettingsRegistration.swift"
  ],
  "depends": [
   "core",

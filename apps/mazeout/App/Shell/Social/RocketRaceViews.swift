@@ -48,7 +48,10 @@ struct SocRocketOffer: View {
             if stage == 1 && firstToday && (prize.coins > 0 || prize.unlimitedLives > 0) {
                 SocPrizeBubble(grant: prize).placed(CGRect(214.8, 333.6, 158.8, 83.4))
             }
-            SocStageStrip(stage: stage, frame: CGRect(40.7, 453.7, 312.9, 107.4), goal: goal, space: true)
+            SocStageStrip(stage: stage, frame: CGRect(40.7, 453.7, 312.9, 107.4), goal: goal, space: true) { s, tileW in
+                ArtImage(art: s == 1 ? .eventRocketRaceStage1 : s == 2 ? .eventRocketRaceStage2 : .eventRocketRaceStage3)
+                    .frame(width: s == 3 ? 76 : 44, height: 44).position(x: tileW / 2, y: 26)
+            }
             FramedButton(id: "popup.rocketRace.primary", title: "Start", colors: .green, frame: CGRect(91.4, 575.2, 210.8, 86.7),
                          well: CGRect(79.9, 566.5, 233.8, 105.4), n: 4.6,
                          style: .s2(44.3, -3.4, [Skin.socialRocketRaceViewsSocRocketOfferStyle0], outline: Skin.socialRocketRaceViewsSocRocketOfferOutline, 2.0, drop: 2.0),
@@ -116,73 +119,6 @@ struct SocPrizeBubble: View {
             }
         }
         .frame(width: 158.8, height: 83.4, alignment: .topLeading)
-    }
-}
-
-enum SocGrantText {
-    /// "30m", "45m", "1h", "1h 30m", "3h" (the claim / bubble durations, SPEC-ui §2.11).
-    static func duration(_ s: TimeInterval) -> String {
-        let m = Int(s / 60)
-        if m < 60 { return String(localized: "\(m)m") }
-        let h = m / 60, r = m % 60
-        return r == 0 ? String(localized: "\(h)h") : String(localized: "\(h)h \(r)m")
-    }
-}
-
-/// The stage strip (rr 21.7): three tiles "Stage 1/2/3" with their planets (Rocket) or chests (Sky Jump), the current stage lit
-/// #008CFF, won stages checked; under them the navy rules strip "Beat N Levels before others …" / "Pass N Levels …".
-struct SocStageStrip: View {
-    let stage: Int
-    let frame: CGRect
-    let goal: Int
-    /// true: the Rocket Race planets + rules; false: the Sky Jump chests + rules (purple tray).
-    var space = true
-
-    var body: some View {
-        let label = GameTextStyle.s2(space ? 15.2 : 18, -0.46, [Skin.socialRocketRaceViewsSocStageStripLabel0], outline: Skin.socialRocketRaceViewsSocStageStripLabelOutline, space ? 1.3 : 1.8, drop: 0)
-        let tileW = (frame.width - 8) / 3
-        ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 21.7).fill(Color(hex: space ? Skin.socialRocketRaceViewsSocStageStripFillSpace : Skin.socialRocketRaceViewsSocStageStripFillNotSpace))
-            ForEach(1...3, id: \.self) { s in
-                let x = 4 + CGFloat(s - 1) * tileW
-                ZStack(alignment: .topLeading) {
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(Color(hex: s == stage ? (space ? Skin.socialRocketRaceViewsSocStageStripFillStageSpace : Skin.socialRocketRaceViewsSocStageStripFillStageNotSpace) : (space ? Skin.socialRocketRaceViewsSocStageStripFillNotStageSpace : Skin.socialRocketRaceViewsSocStageStripFillNotStageNotSpace)))
-                        .frame(width: tileW - 4, height: frame.height * 0.52)
-                        .offset(x: 2, y: 4)
-                    if space {
-                        ArtImage(art: s == 1 ? .eventRocketRaceStage1 : s == 2 ? .eventRocketRaceStage2 : .eventRocketRaceStage3)
-                            .frame(width: s == 3 ? 76 : 44, height: 44).position(x: tileW / 2, y: 26)
-                    } else {
-                        ArtImage(art: s == 1 ? .rewardChest1 : s == 2 ? .rewardChest2 : .rewardChest3)
-                            .frame(width: 52, height: 39).position(x: tileW / 2, y: 26)
-                        if s < stage { ArtImage(art: .iconCheck).frame(width: 39.4, height: 31.7).position(x: 30, y: 22) }
-                    }
-                    GameText("Stage \(s)", style: label, maxWidth: tileW - 10).at(tileW / 2, label.capCentre(baseline: frame.height * 0.47))
-                }
-                .frame(width: tileW, height: frame.height, alignment: .topLeading)
-                .offset(x: x)
-            }
-            SocRulesText(space: space, goal: goal, width: frame.width - 20)
-                .position(x: frame.width / 2, y: frame.height * 0.78)
-        }
-        .frame(width: frame.width, height: frame.height, alignment: .topLeading)
-        .placed(frame)
-    }
-}
-
-/// "Beat 5 Levels before others to win and advance to next stages for greater prizes!" (Rocket) / "Pass 5 Levels in a row on
-/// first try and advance to next stages!" (Sky Jump): 14.6 pt white outlined #0A2176, the "N Levels" run yellow #FFC400, two lines.
-struct SocRulesText: View {
-    let space: Bool
-    let goal: Int
-    let width: CGFloat
-    var body: some View {
-        let text: LocalizedStringResource = space ? "Beat \(goal) Levels before others to win and advance to next stages for greater prizes!"
-                                                  : "Pass \(goal) Levels in a row on first try and advance to next stages!"
-        SocTwoLines(text: text, centreX: width / 2 + 10, baselines: [-4, 13.5], box: width, size: 14.6, faceHex: Skin.socialRocketRaceViewsSocRulesTextFaceHex,
-                    hotHex: Skin.socialRocketRaceViewsSocRulesTextHotHex, outline: Skin.socialRocketRaceViewsSocRulesTextOutline, hot: "\(goal) Levels")
-            .frame(width: width + 20, height: 1)
     }
 }
 

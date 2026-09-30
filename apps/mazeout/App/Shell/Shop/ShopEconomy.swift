@@ -52,58 +52,15 @@ import PathCore
         return g
     }
 
+    /// The streak multiplier steps (`rules.json streak.steps`): the Continue? chips and token count, the Streak Race strip.
+    /// Moved from the Streak Race's StreakStripSource in the kit decoupling step (the fail flow reads it without the event).
+    static func streakSteps(_ app: AppModel) -> [Int] {
+        let v = app.tuning.rules.doubles("streak.steps", [1, 5, 10, 25, 100]).map { Int($0) }
+        return v.isEmpty ? [1, 5, 10, 25, 100] : v
+    }
+
     /// The live lives count and the next-life countdown (refills applied at the effective time).
     static func lives(_ app: AppModel) -> LivesStatus {
         Economy.lives(app.store.state, now: app.clock.wallClock(), rules: rules(app))
-    }
-}
-
-/// The catalogue's titles and the section a product sits in (SPEC-gameplay §9.4, §16.8; strings keys = these literals).
-enum ShopTitles {
-    static func title(_ p: ShopProduct) -> LocalizedStringResource {
-        switch p.id {
-        case "offer.special": return "Special Offer"
-        case "bundle.mini": return "Mini Bundle"
-        case "bundle.epic": return "Epic Bundle"
-        case "bundle.elite": return "Elite Bundle"
-        case "bundle.mega": return "Mega Bundle"
-        case "bundle.legendary": return "Legendary Bundle"
-        default: return "Coins"
-        }
-    }
-
-    /// The English title (StoreProductInfo.displayName and the logs; the page draws `title`).
-    static func english(_ p: ShopProduct) -> String {
-        switch p.id {
-        case "offer.special": return "Special Offer"
-        case "bundle.mini": return "Mini Bundle"
-        case "bundle.epic": return "Epic Bundle"
-        case "bundle.elite": return "Elite Bundle"
-        case "bundle.mega": return "Mega Bundle"
-        case "bundle.legendary": return "Legendary Bundle"
-        default: return "\(ShopFormat.amount(p.grant.coins)) Coins"
-        }
-    }
-}
-
-/// Number formats of the shop (SPEC-ui §2.12.2: a thin space groups thousands, "1 000", in both languages). Money is never
-/// formatted here: the Shop shows StoreKit's `displayPrice` (A1, release-plan §3.2); the DEBUG FakeStore's reference price
-/// lists live in FakeStore.swift (DEBUG only).
-enum ShopFormat {
-    /// "1 000", "60 000", "100 000" (U+2009 THIN SPACE, VERIFIED EN on a TR phone).
-    static func amount(_ n: Int) -> String {
-        let digits = String(abs(n))
-        var out = ""
-        for (i, ch) in digits.enumerated() {
-            if i > 0 && (digits.count - i) % 3 == 0 { out.append("\u{2009}") }
-            out.append(ch)
-        }
-        return (n < 0 ? "-" : "") + out
-    }
-
-    /// "1h", "3h", "72h" for an unlimited-lives duration; "30m" below an hour.
-    static func duration(_ seconds: Double) -> String {
-        let m = Int((seconds / 60).rounded())
-        return m >= 60 && m % 60 == 0 ? "\(m / 60)h" : (m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m")
     }
 }

@@ -8,6 +8,7 @@
  "gaps": [
   "The cue key `cues.arrowTap` is the reference puzzle's name; a generic move cue is open (docs/ROADMAP.md)."
  ],
+ "maxClosure": 25,
  "files": [
   "apps/mazeout/App/Audio/AudioEngine.swift",
   "apps/mazeout/App/Audio/SoundBank.swift",

@@ -5,13 +5,14 @@
  "summary": "'Congratulations!' - the reward (coins, boosters, unlimited lives) popping in, tap to claim.",
  "description": "ClaimRewardPopup shows a Grant (coins / booster / unlimited lives variants) and answers on tap; used by events and gifts.",
  "status": "stable",
+ "maxClosure": 10,
  "files": [
-  "apps/mazeout/App/Shell/Popups/ClaimRewardPopup.swift"
+  "apps/mazeout/App/Shell/Popups/ClaimRewardPopup.swift",
+  "apps/mazeout/App/Shell/Popups/ClaimRewardRegistration.swift"
  ],
  "depends": [
   "core",
-  "ui-chrome",
-  "unlock-cards"
+  "ui-chrome"
  ],
  "uses": {
   "art": [
@@ -37,6 +38,7 @@
    "ui.json:text.claimCoins"
   ],
   "skinTokens": [
+   "hud.s2Hooks",
    "popups.claimRewardPopup"
   ]
  },

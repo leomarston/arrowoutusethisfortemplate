@@ -6,7 +6,8 @@
  "description": "Shown from the first frame while AppModel.boot() and the warm-ups run; its layers are data (skin/scenes.json `loading` -> SkinScenes). Timings in ui.json `loading.*`, the cross-fades out in `transition.*`.",
  "status": "stable",
  "files": [
-  "apps/mazeout/App/Shell/LoadingScreen.swift"
+  "apps/mazeout/App/Shell/LoadingScreen.swift",
+  "apps/mazeout/App/Shell/LoadingRegistration.swift"
  ],
  "depends": [
   "core"

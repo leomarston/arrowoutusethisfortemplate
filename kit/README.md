@@ -21,7 +21,8 @@ kit/
   <category>/<id>/     one folder per component
     component.json     id, title, category, summary, description, files (paths or globs), tests, related,
                        depends, wires, uses (art slots, rigs, sounds, cues, strings, tuning keys, skin token
-                       prefixes), launchArgs, status (stable / needs-work) + gaps, preview, notes
+                       prefixes), launchArgs, status (stable / needs-work) + gaps, preview, notes,
+                       maxClosure (the closure budget CI enforces on stable components)
     README.md          what it is, how the app uses it (a Swift snippet), how to open it in a Debug build
     preview/           optional: OUR OWN screenshots only (or list existing images under apps/<game>/art/ in
                        component.json `preview`); never another game's captures
@@ -50,12 +51,18 @@ and `CHECKLIST.md` (what the target must provide, where the pieces are wired in,
 ## Honest dependencies
 
 `depends` is what a component's sources really name (the scanner in `tools/kit.py scan` reads them), so taking a piece
-takes what it needs. Some pieces are coupled more than their names suggest (the fail flow draws the Streak Race's strip,
-the event pages share helpers that live in each other's files); each such coupling is written down in the component's
-`gaps` with the fix that would cut it. `wires` lists components a piece names only to register or present them (the game
-loop installs the directors, the home hosts the Shop tab): those are the lines to edit when you remove one, and
-`show` / `rdeps` print them.
+takes what it needs. The shell's hubs (the popup host, the root view, the router, the FX host) name no component: each
+component registers its panels, screens, warm-ups, effects and strips itself (`<Name>Registration.swift`), and a game lists
+its components in one file, `apps/<game>/App/GameComponents.swift`. Panels that show another component's piece do it
+through a slot (the Streak Race strip under Level Failed, the event strips under the win panel), so the fail flow needs no
+event and the leaderboard no events engine. What still couples a piece more than its name suggests is written in its
+`gaps` (with the fix that would cut it); what is inherent (the fail flow runs inside the game loop) in its `notes`.
+`wires` lists components a piece names only to register or present them (the game loop installs the directors, the events
+engine presents the event pages): those are the lines to edit when you remove one, and `show` / `rdeps` print them.
+
+Each cleaned component declares `maxClosure`, the number of files its closure may hold (excluding core): a stable
+component over its budget fails `check`, so a new coupling shows up in CI (docs/guides/KIT.md §3).
 
 `python3 tools/kit.py check` (CI) keeps all of this true: every Swift file belongs to exactly one component or to core,
 every referenced file / slot / sound / string / tuning key / token exists, the dependency graph is acyclic and closed,
-and the generated catalog is fresh.
+every stable component is within its closure budget, and the generated catalog is fresh.
