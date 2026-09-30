@@ -1,0 +1,107 @@
+# CI for the game template. Three jobs:
+#   checks  (Linux)  the Python content/store checks that need no Apple toolchain
+#   core    (macOS)  the pure-Swift game core: swift build + swift test
+#   app     (macOS)  xcodegen -> Debug build -> app unit tests on an iOS simulator
+# The app folder is a matrix-free env var so a future Games/<slug> layout only changes APP_DIR.
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  APP_DIR: apps/mazeout
+
+jobs:
+  checks:
+    name: Content & store checks (Linux)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: String catalogue is up to date (13 languages)
+        run: python3 $APP_DIR/tools/strings/build.py --check
+      - name: Strings self-test + coverage
+        run: |
+          python3 $APP_DIR/tools/strings/selftest.py
+          python3 $APP_DIR/tools/strings/coverage.py --strict-code
+      - name: Store texts, keywords, captions audit
+        run: python3 $APP_DIR/tools/release/meta.py audit
+      - name: IAP catalogue == rules.json shop == .storekit
+        run: python3 $APP_DIR/tools/release/meta.py iap-check
+      - name: Release metadata self-test
+        run: python3 $APP_DIR/tools/release/meta.py selftest
+      - name: Level bundle == design/levels.json (publish form)
+        run: python3 $APP_DIR/tools/levels/bundle_check.py --publish
+      - name: Level validator (every authored level solvable, rules-clean)
+        run: python3 $APP_DIR/design/tools/validate_levels.py
+      - name: Generated art index is up to date
+        run: python3 $APP_DIR/tools/uiart_gen.py --check
+      - name: Python syntax (all tools)
+        run: |
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pyc" python3 -m compileall -q scripts tools $APP_DIR/tools $APP_DIR/design/tools
+
+  core:
+    name: Game core (swift test, macOS)
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select the newest Xcode
+        run: |
+          ls -d /Applications/Xcode*.app
+          XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$XC" ] && sudo xcode-select -s "$XC"
+          xcodebuild -version; swift --version
+      - name: swift build + swift test (PathCore)
+        run: sh $APP_DIR/tools/core.sh
+
+  app:
+    name: App build + unit tests (iOS simulator)
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select the newest Xcode
+        run: |
+          XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$XC" ] && sudo xcode-select -s "$XC"
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate the Xcode project
+        run: sh $APP_DIR/tools/gen.sh
+      - name: Pick an iPhone simulator
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys
+          d=json.load(sys.stdin)["devices"]
+          ios=[(k,v) for k,v in d.items() if "iOS" in k]
+          ios.sort(key=lambda kv:[int(x) for x in kv[0].split("iOS-")[-1].split("-")])
+          for k,v in reversed(ios):
+              for dev in v:
+                  if dev["name"].startswith("iPhone"):
+                      print(dev["udid"]); sys.exit()')
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+          xcrun simctl list devices | grep "$UDID"
+      - name: Build (Debug) and run the app unit tests
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          set -o pipefail
+          xcodebuild -project ArrowOut.xcodeproj -scheme ArrowOut -configuration Debug \
+            -destination "id=$SIM_UDID" -derivedDataPath build/dd-ci \
+            -only-testing:ArrowOutTests test 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
+            | grep -E "error:|warning: .*deprecated|Test Suite .*(passed|failed)|Executed|\*\* (TEST|BUILD)" || true
+          grep -q "\*\* TEST SUCCEEDED \*\*" "$RUNNER_TEMP/xcodebuild.log"
+      - name: Upload the build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: xcodebuild-log, path: "${{ runner.temp }}/xcodebuild.log" }
