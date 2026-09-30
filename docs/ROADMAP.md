@@ -87,4 +87,4 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   machine-dependent checks above; core 403 tests with 1 failure: SocialIntlTests read the OS's region list, which on
   macOS 26.6 also holds groupings (003, 202, 419, EU, EZ, UN) -> the test now requires every COUNTRY to have a board
   and every grouping to land on a real or local one. After the Meta removal + purchase fix: app build + gating unit
-  tests GREEN on CI (run 5).
+  tests GREEN on CI (run 5). Run 6: ALL jobs green (Linux checks, core 403 tests, app build + gating unit tests).
