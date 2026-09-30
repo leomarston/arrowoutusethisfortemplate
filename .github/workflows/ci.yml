@@ -14,8 +14,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# One run per branch: a push to a branch with an open PR fires both `push` and `pull_request`; sharing the group (PR head
+# branch name == pushed branch name) keeps only the newest, so two identical macOS app jobs never compete (the board's
+# render-clock timing tests missed their windows under that load on PR #1).
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 env:
