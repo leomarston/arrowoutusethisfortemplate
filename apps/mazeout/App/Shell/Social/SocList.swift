@@ -95,10 +95,10 @@ final class SocRowView: UIView {
         guard changed else { return }
         let top: CGFloat = 0
         // the player's green row: white numbers with a dark green outline, the caption dark green
-        let green: (face: UInt32, outline: UInt32?)? = r.isMe ? (0xFFFFFF, 0x7C3A00) : nil
-        rankLabel.tint = r.isMe && r.badge == nil ? (0xFFFFFF, nil) : nil        // white rank, its navy / brown outline (meta-026)
+        let green: (face: UInt32, outline: UInt32?)? = r.isMe ? (Skin.socialSocListSocRowViewConfigureGreen, Skin.socialSocListSocRowViewConfigureGreenV2) : nil
+        rankLabel.tint = r.isMe && r.badge == nil ? (Skin.socialSocListSocRowViewConfigureTint, nil) : nil        // white rank, its navy / brown outline (meta-026)
         valueLabel.tint = green
-        captionLabel.tint = r.isMe ? (0x7C3A00, nil) : nil
+        captionLabel.tint = r.isMe ? (Skin.socialSocListSocRowViewConfigureTintV2, nil) : nil
         prizeLabel.tint = nil
         // face
         if r.isMe {
@@ -128,7 +128,7 @@ final class SocRowView: UIView {
             captionLabel.set(nil, origin: .zero)
             if r.prize > 0 {
                 bowl.isHidden = false
-                bowl.contents = SocArt.art(.coinBowl)
+                bowl.contents = SocArt.art(.rewardCoinBowl)
                 // the 74 × 62 canvas (ink 69 × 56) scaled so the ink is 55.4 × 43 at (243.2, +10.7) (SPEC-ui §2.16)
                 bowl.frame = CGRect(x: 241.2, y: top + 8.3, width: 59.4, height: 49.8)
                 prizeLabel.set(r.prizeText, centreX: 270.9, baseline: top + 44.4 + (r.prizeText?.capHeight ?? 0) / 2)
@@ -139,7 +139,7 @@ final class SocRowView: UIView {
             pill.frame = CGRect(x: 325.6, y: top + 16, width: 53.4, height: 33.4)
             pill.contents = SocArt.pill(r.look, size: CGSize(width: 53.4, height: 33.4), scale: scale)
             flag.frame = CGRect(x: 299.4, y: top + 11.9, width: 39.6, height: 43.6)
-            flag.contents = SocArt.art(.scoreChip)
+            flag.contents = SocArt.art(.socialScoreChip)
             setValue(r.value, animateFrom: old)
         } else {
             captionLabel.set(r.captionText, centreX: 355, baseline: top + 19.2)

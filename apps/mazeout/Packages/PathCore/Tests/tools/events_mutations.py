@@ -20,7 +20,7 @@ OUTDIR = os.path.join(APP, 'build', 'p', 'B1')
 MUT = os.path.join(OUTDIR, 'mut')
 COPY = os.path.join(MUT, 'Packages', 'PathCore')
 SUITES = 'EventRotationTests|BalloonRiseTests|EventsRotationHookTests|EventsBenchTests|EventsTests|EventsFinishedTests'
-E = 'Sources/PathCore/Events/'
+E = 'Sources/GameCore/Events/'
 
 MUTATIONS = [
     # events.md §8.4 A11

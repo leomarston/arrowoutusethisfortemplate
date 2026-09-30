@@ -25,7 +25,7 @@ struct EditProfilePopup: View {
         let s = app.store.state
         let current = avatar < 0 ? s.social.avatar : avatar
         let shown = name.isEmpty ? s.social.displayName(installSeed: s.installSeed) : name
-        let saveStyle = GameTextStyle.s2(49.1, -1.71, [0xF9F1EA, 0xF7EEE4, 0xF6E9D7], outline: 0x793B00, 3.27, drop: 1.87)
+        let saveStyle = GameTextStyle.s2(49.1, -1.71, [Skin.popupsEditProfilePopupEditProfilePopupSaveStyle0, Skin.popupsEditProfilePopupEditProfilePopupSaveStyle1, Skin.popupsEditProfilePopupEditProfilePopupSaveStyle2], outline: Skin.popupsEditProfilePopupEditProfilePopupSaveStyleOutline, 3.27, drop: 1.87)
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: 6.5, t: t, rivetInset: CGPoint(x: 13.1, y: 78.8), rivetAlong: 75.3).placed(CGRect(5.7, 132.1, 382.0, 638.9))
             PopupCard(radius: 17.9, t: t).placed(CGRect(59.1, 204.2, 275.2, 97.7))
@@ -97,21 +97,21 @@ private struct NameField: View {
     let begin: () -> Void
 
     var body: some View {
-        let style = GameTextStyle.s2(25.4, 0.1, [0x6F2111])
+        let style = GameTextStyle.s2(25.4, 0.1, [Skin.popupsEditProfilePopupNameFieldStyle0])
         ZStack(alignment: .topLeading) {
             Rasterized("nameWell|\(invalid)", overflow: 1) { _ in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 12.9).fill(Color(hex: invalid ? 0xD13D2B : 0xC59C71))
-                    RoundedRectangle(cornerRadius: 12).fill(Color(hex: 0xEEDBC0)).padding(invalid ? 2 : 1)
+                    RoundedRectangle(cornerRadius: 12.9).fill(Color(hex: invalid ? Skin.popupsEditProfilePopupNameFieldFillInvalid : Skin.popupsEditProfilePopupNameFieldFillNotInvalid))
+                    RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.popupsEditProfilePopupNameFieldFill)).padding(invalid ? 2 : 1)
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(LinearGradient(colors: [Color(hex: 0xC59765, 0.7), .clear], startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3)))
+                        .fill(LinearGradient(colors: [Color(hex: Skin.popupsEditProfilePopupNameFieldColors0, 0.7), .clear], startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3)))
                         .padding(invalid ? 2 : 1)
                 }
             }
             if editing {
-                TextField(text: $text, prompt: Text(verbatim: shown).foregroundStyle(Color(hex: 0x6F2111, 0.4))) { EmptyView() }
+                TextField(text: $text, prompt: Text(verbatim: shown).foregroundStyle(Color(hex: Skin.popupsEditProfilePopupNameFieldForegroundStyle, 0.4))) { EmptyView() }
                     .font(GameText.pageFont(25.4))
-                    .foregroundStyle(Color(hex: 0x6F2111))
+                    .foregroundStyle(Color(hex: Skin.popupsEditProfilePopupNameFieldForegroundStyle))
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .submitLabel(.done)

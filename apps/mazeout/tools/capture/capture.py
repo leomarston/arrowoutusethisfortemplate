@@ -49,7 +49,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import flat_check  # noqa: E402  (tools/flat_check.py)
 
-SLOTS = {"A": "177520B6-4889-46C2-BDD9-155813D2B175", "B": "B80EDB24-6280-4C52-A63F-E8AADD245017"}   # = tools/slot.sh
+sys.path.insert(0, os.path.join(ROOT, "..", "..", "tools"))   # <repo>/tools: machine.py (this Mac's simulators)
+import machine  # noqa: E402
+SLOTS = {s: machine.get(f"SIM_{s}_UDID") for s in "AB"}   # = tools/slot.sh (from <repo>/machine.env)
 BUNDLE = "com.manycode.arrowout"
 LOG_TAG = "[PC]"
 # The shell's log line when a first-screen-is-a-level launch overran its boot cap (MF: "boot work hit the 6.0 s cap").
@@ -99,7 +101,7 @@ def store_args(entry_args, lang):
 
 def release_app_problem(slot):
     """None when slot's Release product is a store-grade build; else why not (store captures refuse Debug products)."""
-    udid = SLOTS[slot]
+    udid = machine.slot_udid(slot)
     app = os.path.join(ROOT, "build", f"dd-{slot}", "Build", "Products", "Release-iphonesimulator", "ArrowOut.app")
     if not os.path.isdir(app):
         return f"no Release build at {app} (CONFIG=Release tools/build.sh {slot})"
@@ -330,7 +332,7 @@ def run_actions(actions, udid, data, logpath, trace):
 
 
 def capture(entry, lang, slot, out_dir, timeout, store=False):
-    udid = SLOTS[slot]
+    udid = machine.slot_udid(slot)
     cid = entry["id"]
     base = os.path.join(out_dir, f"{cid}-{lang}")
     data = container(udid)

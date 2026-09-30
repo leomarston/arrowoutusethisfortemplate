@@ -58,8 +58,9 @@ import sys
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SLOTS = {"A": ("177520B6-4889-46C2-BDD9-155813D2B175", "Maze A"),      # = tools/slot.sh
-         "B": ("B80EDB24-6280-4C52-A63F-E8AADD245017", "Maze B")}
+sys.path.insert(0, os.path.join(ROOT, "..", "..", "tools"))   # <repo>/tools: machine.py (this Mac's simulators)
+import machine  # noqa: E402
+SLOTS = {s: (machine.get(f"SIM_{s}_UDID"), machine.get(f"SIM_{s}_NAME", f"Game {s}")) for s in "AB"}   # = tools/slot.sh
 BUNDLE = "com.manycode.arrowout"
 APP_NAME = "ArrowOut"
 BENCH = os.path.join(ROOT, "build", "bench")
@@ -258,7 +259,7 @@ def host_state(full=True):
         # the other slot's app renders on the same GPU: record whether it is running and its CPU
         ps = sh(["ps", "-Ao", "pcpu,command"], check=False)
         d["simApps"] = {name: [float(l.split()[0]) for l in ps.splitlines()
-                               if udid in l and f"{APP_NAME}.app/{APP_NAME}" in l]
+                               if udid and udid in l and f"{APP_NAME}.app/{APP_NAME}" in l]
                         for name, (udid, _) in SLOTS.items()}
         d["xcodebuilds"] = sum(1 for l in ps.splitlines() if "/usr/bin/xcodebuild" in l)
         d["swiftFrontends"] = sum(1 for l in ps.splitlines() if "swift-frontend" in l)
@@ -310,7 +311,7 @@ class Slot:
     def __init__(self, s):
         if s not in SLOTS:
             sys.exit(f"slot must be A or B, not {s}")
-        self.slot, (self.udid, self.name) = s, SLOTS[s]
+        self.slot, (self.udid, self.name) = s, (machine.slot_udid(s), SLOTS[s][1])
         self.app = APP_OVERRIDE or os.path.join(ROOT, "build", f"dd-{s}", "Build", "Products",
                                                 f"{CONFIG}-iphonesimulator", f"{APP_NAME}.app")
         self.simlog = os.path.expanduser(f"~/Library/Developer/CoreSimulator/Devices/{self.udid}/data/tmp/pc-run-{s}.log")

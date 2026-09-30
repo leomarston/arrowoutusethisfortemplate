@@ -1,3 +1,6 @@
+// Debug harness: compiled into Debug and Measure only (`#if DEBUG || PC_MEASURE`), never into the Release (store) build.
+// tools/harness_gate.py (CI) fails when a harness type is used outside that gate.
+#if DEBUG || PC_MEASURE
 import SwiftUI
 import UIKit
 import PathCore
@@ -16,8 +19,10 @@ struct BoardLab: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            BoardHost(board: app.board)
-                .ignoresSafeArea()
+            if let engine = app.board {
+                BoardHost(board: engine)
+                    .ignoresSafeArea()
+            }
             if let c = controller, !app.args.capture {
                 Text(verbatim: c.status)
                     .font(.system(size: 11, weight: .semibold, design: .monospaced))
@@ -363,3 +368,4 @@ struct BoardLab: View {
         try? await Task.sleep(nanoseconds: UInt64(max(0, seconds) * 1_000_000_000))
     }
 }
+#endif

@@ -4,6 +4,8 @@ import SwiftUI
 // text styles in Tuning/ui.json (copied there from design/ui-tokens.json; the app never reads design/). Every call site passes
 // the compiled default (the measured value), so a missing key never crashes; each miss is recorded (`Tokens.missing`) and
 // logged once, and ShellTests require none on the S1 screens. `-pc.tune ui.<key>=v` overrides scalars.
+// SKIN (docs/SKIN.md): ui.json's colour slots are "@<ui id>" references into skin/colors.json `ui`; Tuning.load resolves
+// them (Tuning/ui-colors.json), so every read here sees "#RRGGBB" strings.
 
 struct Tokens {
     let file: TuningFile

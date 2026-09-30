@@ -1,0 +1,92 @@
+{
+ "id": "debug-labs",
+ "title": "Debug labs (ShellLab and friends)",
+ "category": "tooling",
+ "summary": "The Debug-only hosts: ShellLab pages (text, components, puppets, HUD, win, unlock...), glitch runs, frame watch.",
+ "description": "Compiled only into Debug / Measure (`#if DEBUG || PC_MEASURE`, tools/harness_gate.py): ShellLab and its popup pages, the placeholder view, the GlitchRun stress path and FrameWatch. Each page writes Documents/lab-ready.json for captures.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/ShellLab.swift",
+  "apps/mazeout/App/Shell/Popups/ShellLab+Popups.swift",
+  "apps/mazeout/App/Shell/GlitchRun.swift",
+  "apps/mazeout/App/FX/FrameWatch.swift",
+  "apps/mazeout/App/Audio/SoundBoard.swift",
+  "apps/mazeout/App/Shell/HUD/ShellLab+HUD.swift",
+  "apps/mazeout/App/Shell/Home/ShellLab+Home.swift",
+  "apps/mazeout/tools/harness_gate.py"
+ ],
+ "depends": [
+  "core",
+  "haptics",
+  "home",
+  "hud",
+  "pause-menu",
+  "puppets",
+  "rocket-race",
+  "social-ui",
+  "sounds",
+  "tutorial",
+  "ui-chrome",
+  "win-celebration"
+ ],
+ "uses": {
+  "art": [
+   "icon.music",
+   "icon.settings",
+   "icon.sound",
+   "lives.heart"
+  ],
+  "sounds": [
+   "clawComplete",
+   "clawMerge",
+   "clawTick",
+   "clawToken",
+   "coinCollect",
+   "streakPop",
+   "uiClick"
+  ],
+  "cues": [
+   "uiButton"
+  ],
+  "strings": [
+   "Allow notifications in iOS Settings.",
+   "Haptic",
+   "LEVEL",
+   "Music",
+   "OFF",
+   "ON",
+   "Paused",
+   "Play",
+   "Quit",
+   "Resume",
+   "Settings",
+   "Sound",
+   "Tap to move!",
+   "Terms"
+  ],
+  "tuning": [
+   "ui.json:anchors.home",
+   "ui.json:anchors.loading",
+   "ui.json:anchors.pause",
+   "ui.json:frames.home",
+   "ui.json:frames.loading",
+   "ui.json:frames.pause",
+   "ui.json:gradients.pause",
+   "ui.json:shapes.pause",
+   "ui.json:text.home",
+   "ui.json:text.loading",
+   "ui.json:text.pause",
+   "ui.json:text.popup",
+   "ui.json:text.quit",
+   "ui.json:text.settings"
+  ],
+  "skinTokens": [
+   "home.shellLabHome",
+   "shell.shellLab"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab text",
+  "-pc.go shelllab -pc.lab components"
+ ]
+}

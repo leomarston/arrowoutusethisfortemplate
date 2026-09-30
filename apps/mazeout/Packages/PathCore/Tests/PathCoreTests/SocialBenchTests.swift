@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (SPEC-social §9; the orchestrator's acceptance: "the 52-week bench (active / casual / absent user)"). A Swift port
 // of design/social/tools/bench.py driving the SHIPPED world (PUBLISH B2: the v2 world; SOC1 ran it on the calibrated v552

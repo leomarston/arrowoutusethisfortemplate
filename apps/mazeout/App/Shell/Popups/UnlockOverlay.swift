@@ -71,36 +71,6 @@ struct UnlockOverlay: View {
     }
 }
 
-/// The beats (ui.json `unlock.*`; the ◆ UnlockBeats reader + `acceptFrom`).
-struct UnlockTiming {
-    let b: UnlockBeats
-    let acceptFrom: Double
-    init(_ ui: UITuning) {
-        b = ui.unlockBeats
-        acceptFrom = ui.file.double("unlock.acceptFrom", 0.94)
-    }
-    var dismissFade: Double { b.dismissFade }
-    var sparkles: Double { b.sparkles }
-
-    /// Scale of an element at u (nil before its beat): the generic overshoot pop kf[0: from, rise: over, total: 1.0].
-    static func pop(_ u: Double, at: Double, from: Double, over: Double, rise: Double, total: Double) -> Double? {
-        let x = u - at
-        if x < 0 { return nil }
-        if x >= total { return 1 }
-        if x < rise { return from + (over - from) * Easing.outQuad(x / rise) }
-        return over + (1 - over) * Easing.inOutQuad((x - rise) / max(0.001, total - rise))
-    }
-
-    func icon(_ u: Double) -> Double? { Self.pop(u, at: b.icon, from: 0, over: 1.3, rise: 0.16, total: max(0.2, b.iconSettle - b.icon)) }
-    func title(_ u: Double) -> Double? { Self.pop(u, at: b.title, from: 0.2, over: 1.15, rise: 0.12, total: 0.16) }
-    func unlocked(_ u: Double) -> Double? {
-        let x = u - b.unlocked
-        if x < 0 { return nil }
-        return x >= 0.08 ? 1 : 0.2 + 0.8 * Easing.outBack(x / 0.08)
-    }
-    func card(_ u: Double) -> Double? { Self.pop(u, at: b.card, from: 0.2, over: 1.12, rise: 0.12, total: 0.16) }
-}
-
 /// Title, "Unlocked!", icon and card at time u (Equatable: after the card settles only the twinkles re-render).
 struct UnlockParts: View, Equatable {
     let content: UnlockContent
@@ -120,7 +90,7 @@ struct UnlockParts: View, Equatable {
                     InkImage(art: content.icon, ink: content.iconInk)
                     if let digit = content.digit {
                         // content-driven (unlocks.json digit size / outline), so no ui.json override
-                        let st = GameTextStyle.s2(content.digitSize, 0, [0xFFFFFF, 0xFDF2F7], outline: content.digitOutline, 1.9,
+                        let st = GameTextStyle.s2(content.digitSize, 0, [Skin.popupsUnlockOverlayUnlockPartsSt0, Skin.popupsUnlockOverlayUnlockPartsSt1], outline: content.digitOutline, 1.9,
                                                   drop: 1.4)
                         let c = ArtInk.canvas(content.icon, ink: content.iconInk)
                         GameText(verbatim: digit, style: st)
@@ -131,14 +101,14 @@ struct UnlockParts: View, Equatable {
             }
             if let s = beats.title(u) {
                 TokenText(id: "unlock.title.title", source: .copy(content.title),
-                          style: .s2(54.4, -3.65, [0xFFFBF4, 0xFFF5E2, 0xFDF0D6], outline: 0x003E44, 0.35, drop: 1.3, dropColor: 0x00635E),
+                          style: .s2(54.4, -3.65, [Skin.popupsUnlockOverlayUnlockPartsStyle0, Skin.popupsUnlockOverlayUnlockPartsStyle1, Skin.popupsUnlockOverlayUnlockPartsStyle2], outline: Skin.popupsUnlockOverlayUnlockPartsOutline, 0.35, drop: 1.3, dropColor: Skin.popupsUnlockOverlayUnlockPartsDropColor),
                           baseline: 220.9, centreX: 196.5, maxWidth: 345,
-                          rings: [(0x00706C, 3.6), (0x008881, 3.3), (0x00A596, 2.4), (0x005B59, 2.0)])
+                          rings: [(Skin.popupsUnlockOverlayUnlockPartsRings0, 3.6), (Skin.popupsUnlockOverlayUnlockPartsRings1, 3.3), (Skin.popupsUnlockOverlayUnlockPartsRings2, 2.4), (Skin.popupsUnlockOverlayUnlockPartsRings3, 2.0)])
                     .scaleEffect(CGFloat(s), anchor: UnitPoint(x: 0.5, y: 203.0 / 852))
             }
             if let s = beats.unlocked(u) {
                 TokenText(id: "unlock.subtitle.sub", source: .copy("Unlocked!"),
-                          style: .s2(24.5, 0.26, [0xFFFFFF], outline: 0x00373B, 1.67, drop: 1.16),
+                          style: .s2(24.5, 0.26, [Skin.popupsUnlockOverlayUnlockPartsStyle0V2], outline: Skin.popupsUnlockOverlayUnlockPartsOutlineV2, 1.67, drop: 1.16),
                           baseline: 299.0, centreX: 196.7, maxWidth: 300)
                     .scaleEffect(CGFloat(s), anchor: UnitPoint(x: 0.5, y: 290.0 / 852))
             }
@@ -158,7 +128,7 @@ private struct UnlockCard: View {
 
     var body: some View {
         let frame = t.frame("unlock.card", CGRect(42.7, 517.1, 307.9, 100.1))
-        let style0 = t.text("unlock.card.line1", .s2(22.3, -0.66, [0x002E32]))
+        let style0 = t.text("unlock.card.line1", .s2(22.3, -0.66, [Skin.popupsUnlockOverlayUnlockCardLine10]))
         // FIX-V2 F-02: greedy breaks (the phone's), else the balanced break + one shrink for both lines (TR "ASANSÖRÜ …" overflowed)
         // B3: units, not words: a CJK card breaks between its words (LineUnits) and lights its `**` run (no letter case)
         let base = CGFloat(t.textMaxWidth("unlock.card.line1", 272) ?? 272)
@@ -172,24 +142,24 @@ private struct UnlockCard: View {
                 // VERIFIED 040 at y 575 / x 196: an 11.3 pt border — navy hairline, the blue band, a cyan line, a deep-blue line, a
                 // dark line, a tan bevel ~3 pt, a light hairline — then the cream (54.4 / 528.4 on a 42.7 / 517.1 frame)
                 ZStack {
-                    RoundedRectangle(cornerRadius: 23.9, style: .continuous).fill(Color(hex: 0x001E21))
-                    RoundedRectangle(cornerRadius: 23.2, style: .continuous).fill(t.color("unlock.cardBorder", 0x007572)).padding(0.8)
-                    RoundedRectangle(cornerRadius: 19.8, style: .continuous).fill(Color(hex: 0x1AA495)).padding(4.2)
-                    RoundedRectangle(cornerRadius: 19.2, style: .continuous).fill(Color(hex: 0x00494F)).padding(4.9)
-                    RoundedRectangle(cornerRadius: 17.8, style: .continuous).fill(Color(hex: 0x002326)).padding(6.3)
+                    RoundedRectangle(cornerRadius: 23.9, style: .continuous).fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFill))
+                    RoundedRectangle(cornerRadius: 23.2, style: .continuous).fill(t.color("unlock.cardBorder", Skin.popupsUnlockOverlayUnlockCardBorder)).padding(0.8)
+                    RoundedRectangle(cornerRadius: 19.8, style: .continuous).fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFillV2)).padding(4.2)
+                    RoundedRectangle(cornerRadius: 19.2, style: .continuous).fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFillV3)).padding(4.9)
+                    RoundedRectangle(cornerRadius: 17.8, style: .continuous).fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFillV4)).padding(6.3)
                     RoundedRectangle(cornerRadius: 17.2, style: .continuous)
-                        .fill(Color(hex: 0xDCBB95))
-                        .overlay(RoundedRectangle(cornerRadius: 17.2, style: .continuous).strokeBorder(Color(hex: 0xC18F5D), lineWidth: 1.1)
+                        .fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFillV5))
+                        .overlay(RoundedRectangle(cornerRadius: 17.2, style: .continuous).strokeBorder(Color(hex: Skin.popupsUnlockOverlayUnlockCardStrokeBorder), lineWidth: 1.1)
                             .blur(radius: 0.5))
                         .clipShape(RoundedRectangle(cornerRadius: 17.2, style: .continuous))
                         .padding(7.0)
-                    RoundedRectangle(cornerRadius: 14.2, style: .continuous).fill(Color(hex: 0xFAF4EB)).padding(10.2)
-                    RoundedRectangle(cornerRadius: 13.6, style: .continuous).fill(t.color("unlock.card", 0xF4E8D4)).padding(10.9)
+                    RoundedRectangle(cornerRadius: 14.2, style: .continuous).fill(Color(hex: Skin.popupsUnlockOverlayUnlockCardFillV6)).padding(10.2)
+                    RoundedRectangle(cornerRadius: 13.6, style: .continuous).fill(t.color("unlock.card", Skin.popupsUnlockOverlayUnlockCard)).padding(10.9)
                 }
             }
             .placed(frame)
             ForEach(Array(lines.enumerated()), id: \.offset) { i, line in
-                MultiRunText(units: line, style: style, highlight: t.color("unlock.caps", 0x00736E))
+                MultiRunText(units: line, style: style, highlight: t.color("unlock.caps", Skin.popupsUnlockOverlayUnlockCaps))
                     .at(196.5, style.capCentre(baseline: lines.count == 1 ? (b1 + b2) / 2 : (i == 0 ? b1 : b2)))
             }
         }
@@ -388,19 +358,19 @@ struct UnlockContent: Equatable {
         let icon = row?.icon.flatMap(UIArt.init(rawValue:)) ?? Self.defaultIcon(feature)
         // measured ink boxes: Pipe 040, Box 134; the others centred where the phone centres the icon (196.5, 410)
         let ink: CGRect
-        var digit: String?, size: CGFloat = 30, outline: UInt32 = 0x123538, at = CGPoint.zero
+        var digit: String?, size: CGFloat = 30, outline: UInt32 = Skin.popupsUnlockOverlayUnlockContentOfOutline, at = CGPoint.zero
         switch icon {
-        case .unlockIconPipe:
+        case .unlockPipeIcon:
             // the counter cap's centre in the canvas (art/ui/out/unlockIconPipe@3x.png), the phone's "3" (040)
             ink = CGRect(125.0, 353.0, 142.0, 117.0)       // the whole pipe incl. its gold mouths (040: x 125-267, y 353-470)
-            digit = "3"; size = 26; outline = 0x713201
+            digit = "3"; size = 26; outline = Skin.popupsUnlockOverlayUnlockContentOfOutlineUnlockIconPipe
             at = CGPoint(x: 0.437, y: 0.225)
-        case .unlockIconBox:
+        case .unlockBoxIcon:
             // the ring's centre (unlockIconBox@3x.png), the phone's "5" (134)
             ink = CGRect(136.5, 351.0, 121.5, 127.5)
-            digit = "5"; size = 34; outline = 0x19383A
+            digit = "5"; size = 34; outline = Skin.popupsUnlockOverlayUnlockContentOfOutlineUnlockIconBox
             at = CGPoint(x: 0.475, y: 0.47)
-        case .unlockIconCorner:
+        case .unlockCornerIcon:
             ink = CGRect(146.55, 363.25, 100, 100)          // FIX-2 A (L02): the whole 100 pt canvas centred on 456's ink centre
         default:
             ink = CGRect(136.5, 355.0, 120.0, 110.0)
@@ -412,13 +382,13 @@ struct UnlockContent: Equatable {
 
     private static func defaultIcon(_ f: FeatureID) -> UIArt {
         switch f {
-        case .linked: return .unlockIconLinked
-        case .box: return .unlockIconBox
-        case .pipe: return .unlockIconPipe
-        case .elevator: return .unlockIconElevator
-        case .door: return .unlockIconDoor
-        case .curtain: return .unlockIconBox        // FIX-2 B (A4-r2): a curtain wears the BOX skin (ruling 11); unlockIconCurtain is retired
-        default: return .unlockIconLinked
+        case .linked: return .unlockLinkedIcon
+        case .box: return .unlockBoxIcon
+        case .pipe: return .unlockPipeIcon
+        case .elevator: return .unlockElevatorIcon
+        case .door: return .unlockDoorIcon
+        case .curtain: return .unlockBoxIcon        // FIX-2 B (A4-r2): a curtain wears the BOX skin (ruling 11); unlockIconCurtain is retired
+        default: return .unlockLinkedIcon
         }
     }
 }
@@ -445,8 +415,8 @@ private struct UnlockTwinkles: View {
                     let size = CGFloat(t.number("fx.unlockTwinkles.sizeMin", 12) + (t.number("fx.unlockTwinkles.sizeMax", 20) - t.number("fx.unlockTwinkles.sizeMin", 12)) * r.2)
                     let k = age / life
                     let s = k < 0.5 ? k / 0.5 : (1 - k) / 0.5
-                    ArtImage(art: .sparkleTwinkle)
-                        .colorMultiply(r.2 < 0.5 ? Color(hex: 0xFFE680) : .white)
+                    ArtImage(art: .fxSparkle)
+                        .colorMultiply(r.2 < 0.5 ? Color(hex: Skin.popupsUnlockOverlayUnlockTwinklesColorMultiply) : .white)
                         .frame(width: size, height: size)
                         .scaleEffect(CGFloat(s))
                         .rotationEffect(.degrees(45 * k))

@@ -1,0 +1,129 @@
+# game.yml: the ONE config file of a game made from this template (docs/TEMPLATE.md).
+#
+#   python3 tools/game.py doctor   --game <id>             # is the game folder consistent and complete?
+#   python3 tools/game.py generate --game <id> --check      # would generate change anything? (no write)
+#   python3 tools/game.py generate --game <id>             # write these values into every file that repeats them
+#
+# What lives here and what does not (design decision, docs/TEMPLATE.md "Why game.yml references the tuning"):
+#   * IDENTITY, STORE, FEATURE FLAGS, EVENT SWITCHES, SOCIAL SEEDS and BRAND BANS: this file is the SOURCE. `generate`
+#     writes each value into the places that repeat it (project.yml, fastlane, tools, gates, tuning keys) with targeted
+#     text replacement, and writes whole generated files (the core's Swift constants: Packages/PathCore/Sources/GameCore/
+#     Config/GameConfig.generated.swift); `doctor` fails when any of them disagrees or is stale.
+#   * ECONOMY TABLES and the IAP CATALOGUE are NOT duplicated: prices, grants, lives, boosters, fail chain, rewards and
+#     products stay in App/Resources/Tuning/rules.json and design/publish/iap.json, which the app / the store scripts read
+#     directly. This file points at them; `doctor` checks that they exist, carry the listed sections, and agree with each
+#     other (meta.py iap-check) and with the bundle id. Copying ~200 numbers here would only create a second source.
+# Keys marked (derived) are not stored: game.py computes them. Keys marked (new only) are fixed when `game.py new`
+# scaffolds the folder (renaming them later is a manual rename; see README §4 rename checklist).
+
+schema: 1                         # this file's format version (game.py refuses an unknown one)
+id: mazeout                       # (new only) the slug = the folder apps/<id>; lowercase, [a-z][a-z0-9-]*
+
+identity:
+  brand_name: "Arrow Out"         # the product/display name. project.yml PC_BRAND_NAME -> Info.plist -> Brand.name (its
+                                  #   one source in code), iap.json appName, tools/strings/build.py BRANDS (copy must
+                                  #   interpolate Brand.name, never spell it)
+  product: ArrowOut               # (new only) Xcode project / app target / scheme / <product>.app / <product>.storekit
+                                  #   (+ <product>Tests, <product>UITests); CamelCase, no spaces
+  bundle_id: com.manycode.arrowout   # App Store bundle id = the IAP product-id prefix (+ "."); project.yml (app, .tests,
+                                  #   .uitests), fastlane Appfile/Fastfile, tools/slot.sh, bench.py, capture.py,
+                                  #   play-watch.sh, meta.py, .storekit, iap.json, queue labels and log subsystem in Swift
+  team_id: GDU77F3MXL             # Apple Developer team: project.yml DEVELOPMENT_TEAM, .storekit _developerTeamID
+  profile_name: "manycode arrowout appstore"   # App Store provisioning profile (scripts/signing_setup.py --profile-name;
+                                  #   fastlane Fastfile provisioningProfiles)
+  # (derived) sku_prefix = the bundle id's last segment: Fastfile create_app sku "<prefix>-<time>"
+  # (derived) iap_prefix = bundle_id + "."
+
+puzzle:
+  module: arrow-escape            # the puzzle module id (docs/architecture/PUZZLE-MODULE.md `PuzzleModule.id`)
+  levels_source: design/levels.json      # authored levels (the level tools' source of truth)
+  levels_bundle: App/Resources/Levels    # the shipped (publish-form) bundle
+  checks:                         # the module's own level checks, run from apps/<id> by doctor (genre-specific, so listed
+                                  #   here and not hard-coded in game.py); `doctor --quick` skips them
+    - tools/levels/bundle_check.py --publish   # bundle == design/levels.json value for value (publish form)
+    - design/tools/validate_levels.py          # every authored level solvable and rules-clean (~25 s)
+
+store:
+  name: "Arrow Out: Arrow Escape Puzzle"   # en-US App Store name (<= 30): Fastfile create_app app_name,
+                                  #   tools/release/loc.py NAME_EN; must equal design/publish/store/en-US.json "name"
+  keyword_seed: "arrow out"       # tools/release/loc.py SEED: the first keyword in every locale (lowercase)
+  texts: design/publish/store     # per-locale name / subtitle / promotional text / description (<locale>.json): the
+                                  #   subtitle's SOURCE; tools/release/meta.py write copies them to fastlane/metadata
+  keywords: design/keywords.json  # per-locale keywords (scripts/asc_keywords.py pushes them)
+  primary_category: GAMES         # fastlane/Deliverfile
+  subcategories: [GAMES_PUZZLE, GAMES_CASUAL]   # a GAMES app needs exactly two (Deliverfile)
+  privacy_url: "https://leomarston.github.io/manycode-legal/privacy-arrow-out.html"   # fastlane/metadata/*/privacy_url.txt, loc.py PRIVACY
+  support_url: "https://leomarston.github.io/manycode-legal/support.html"             # fastlane/metadata/*/support_url.txt, loc.py SUPPORT
+  support_email: anycodeapps@gmail.com    # the in-game "Contact us" button: App/Resources/Tuning/game.json support.email
+  copyright: "2026 Manycode Apps"         # fastlane/metadata/copyright.txt, loc.py COPYRIGHT
+  locales: [en-US, de-DE, fr-FR, es-ES, it, pt-BR, tr, ja, ko, zh-Hans, pl, sk, sl-SI]   # store locales: loc.py
+                                  #   LOCALES, iap.json locales, fastlane/metadata/<locale>/, design/publish/store/<locale>.json
+  app_locales: [en, de, fr, es, it, pt-BR, tr, ja, ko, zh-Hans, pl, sk, sl]   # in-app languages: project.yml
+                                  #   postGenCommand (known regions) and the string catalogue (tools/strings/build.py)
+
+economy:                          # REFERENCED, not mirrored (see the header)
+  tuning: App/Resources/Tuning/rules.json
+  sections: [economy, lives, boosters, rewards, streak, failChain, shop]   # doctor: each section exists in the tuning file
+
+iap:                              # REFERENCED, not mirrored
+  catalogue: design/publish/iap.json          # App Store Connect + RevenueCat source (scripts/asc_consumables.py)
+  # the triple iap.json == rules.json:shop == App/Resources/StoreKit/<product>.storekit is proved by
+  # apps/<id>/tools/release/meta.py iap-check (doctor runs it)
+
+events:                           # MIRRORED into App/Resources/Tuning/social.json (generate writes, doctor compares)
+  unlocks:                        # event id -> the level that unlocks it (social.json "unlocks"); an event listed here is
+    streakRace: 30                #   enabled. Adding or removing an event id is a manual edit of social.json (+ skin/strings)
+    clawChallenge: 33
+    balloonRise: 33
+    skyJump: 40
+    weeklyContest: 50
+    rocketRace: 55
+  rotation:                       # social.json events.rotation: the weekly event calendar
+    enabled: true
+    always: [streakRace, weeklyContest]      # run every week
+    ladder: [clawChallenge, balloonRise]     # alternate as the "ladder" slot
+    race: [rocketRace, skyJump]              # alternate as the "race" slot
+
+social:                           # the offline "online-looking" world: deterministic from these + the clock (CLAUDE.md).
+                                  #   generate writes them into GameConfig.generated.swift (GameCore reads only that);
+                                  #   the frozen Python reference (design/social/tools/socialsim) must agree (doctor)
+  world_seed: "0x41524F57204F5554"    # GameConfig.worldSeed = SocialWorldModel.worldSeed: every simulated player, name
+                                      #   and country. Changing it = a different world (and new goldens)
+  world_epoch: 1788764400             # GameConfig.worldEpoch: the shipped world's epoch (Mon 2026-09-07 07:00 UTC)
+  calendar_epoch: 1777273200          # GameConfig.calendarEpoch = SocialCalendar.epoch + social.json events.rotation.epoch
+  rotation_seed: "0x524F544154494F4E" # GameConfig.rotationSeed + social.json events.rotation.seed ("ROTATION")
+
+brand_bans:                       # the ORIGINAL game's names (and its publisher): never in copy, bundle, binary or store
+  # Written by generate into tools/strings/build.py BRANDS (+ our own brand_name/product), tools/bench/release_gates.sh
+  # gate 3 and Tests/AppTests/BrandTests.swift bannedExact. (derived) the multi-word ones in any case, joined and spaced
+  # ("mazeout", "maze out", ...): BrandTests.bannedAnyCase + gate 3's data-file grep; the rest case-sensitive there.
+  - Maze
+  - MazeOut
+  - Arrow Jam
+  - Grand Games
+  - grandgames
+  - arrowjam
+
+brand_ban_forms:                  # the other shapes of the original's names each gate matches. generate writes every list;
+                                  #   doctor checks each still catches every brand_ban (a new original needs new ones)
+  store_patterns: ['maze', 'mazeout', 'grand\s*games', '\bgrand\b', '\bjam\b', 'arrow\s*jam', 'tap\s*away',
+                   # the title word in our 12 other languages: Apple combines name words ("Out" + maze = the other brand)
+                   'labyrinth', 'labyrinthe', 'laberint', 'labirint', 'labirent', 'labirynt', 'labyrint',
+                   '迷路', '迷宮', '迷宫', '미로']
+                                  # regexes, case-insensitive, every locale: tools/release/loc.py BANNED_BRAND (the
+                                  #   store-text gate; its category words, competitors and "online" claims stay there)
+  file_stems: [maze, grand, arrowjam]   # no shipped file NAME contains one, any case (release_gates.sh gate 3)
+  binary_words: [maze]            # never in the Release binary, not even a symbol, never excused by an SDK
+                                  #   (release_gates.sh gate 7c WORDS / NEVER_SDK); keep it to words no SDK spells
+  review_patterns: ['\bmaze\s*out', '\bmazeout', 'grand\s*games', 'arrow\s*jam', 'tap\s*away', 'tapaway', 'v552']
+                                  # tools/strings/l10n_review.py BRAND_RE (translation review; also the former name
+                                  #   and version tag)
+
+features:
+  ad_attribution: false           # docs/ROADMAP.md D2: no ad/attribution SDK in the template (docs/recipes/ad-attribution.md
+                                  #   when a game opts in). false = doctor checks project.yml has no such package and
+                                  #   PrivacyInfo says NSPrivacyTracking false
+  notifications: true             # ask for notification permission on first launch (Tuning/game.json
+                                  #   notifications.askOnFirstLaunch)
+  ipad: false                     # false = iPhone only (project.yml TARGETED_DEVICE_FAMILY "1"; true = "1,2")
+  rating_after_level: 34          # the in-app rating prompt appears after this level (Tuning/game.json rating.afterLevel)

@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (SPEC-social §8.2): the reference's property tests (design/social/tools/tests.py, 18 checks) ported 1:1 and run on
 // BOTH parameter sets, plus the Swift-only checks (rewind, state round trip, ledger rules). Sampling uses a fixed-seed

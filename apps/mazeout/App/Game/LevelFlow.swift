@@ -16,16 +16,17 @@ import PathCore
 //    `.lost(.quit)` → Level Failed directly (FailFlowDirector);
 //  - background: the timer holds (`.background`) and the Pause popup is up on the return (§8.6);
 //  - the debug outcome jumps `-pc.win <tag>` / `-pc.lose timeUp|hearts|quit` (§9.1).
+// Template phase 2: genre-agnostic — the stages and the session come from the active module (`services.puzzle`), the board
+// is a `PuzzleBoard`, the booster corners are the module's `BoosterSpec`s.
 
 @MainActor final class LevelFlow: GameDirector {
     unowned let game: GameController
     private var debugJumpDone = false
-    private var boardConfig: BoardConfig?
 
     init(_ game: GameController) { self.game = game }
 
     private var services: GameServices { game.services }
-    private var session: LevelSession? { game.session }
+    private var session: (any PuzzleSession)? { game.session }
 
     // MARK: start (§8.5)
 
@@ -34,17 +35,8 @@ import PathCore
         let t0 = CACurrentMediaTime()
         let s = services
         let plan = game.plan
-        // the boards first: a level that cannot load never costs a life
-        var stages: [LevelSpec] = []
-        for n in plan.levels {
-            guard let l = s.level(n) else {
-                Log.error("game", "L\(n) is not available (library / provider): the Play is refused")
-                return false
-            }
-            stages.append(l)
-        }
-        if let t = s.args.timer { for i in stages.indices { stages[i].timerSeconds = max(1, Int(t.rounded(.up))) } }
-        if let h = s.args.hearts { for i in stages.indices { stages[i].hearts = max(1, h) } }
+        // the boards first: a level that cannot load never costs a life (the module logs which one is missing)
+        guard let stages = s.puzzle.stages(for: plan, args: s.args), !stages.isEmpty else { return false }
 
         // the lives gate (C3): a life is taken now and given back on a win
         let now = s.clock.wallClock()
@@ -80,17 +72,17 @@ import PathCore
             return false
         }
         setup.firstStage = game.launch.isRetry ? 0 : min(max(game.launch.firstStage, 0), stages.count - 1)
-        let session = LevelSession(plan: plan, stages: stages, setup: setup, rules: s.rules)
-        session.streakActive = Events.continueWarning(s.store.state, now: now, rules: s.economy).streakActive
+        let streakActive = Events.continueWarning(s.store.state, now: now, rules: s.economy).streakActive
+        let session = s.puzzle.makeSession(plan: plan, stages: stages, setup: setup, streakActive: streakActive)
         game.install(session: session, stages: stages, setup: setup)
 
         // the board: load (synchronously), then the intro
         let board = s.board
         board.delegate = game
         board.inputEnabled = false
-        board.allowedArrows = nil
+        board.allowedTargets = nil
         let k = session.stage
-        board.load(stageSetup(k))
+        board.load(stageContext(k))
         let fromLoading = s.router.screen == .loading
         let style: IntroStyle = fromLoading ? .growFromTailsNoHUD : .growFromTails
         game.markCut()
@@ -99,47 +91,45 @@ import PathCore
 
         // the HUD's first state (the cut): the HUD is already in place when Loading cross-fades into the level (T-14)
         let level = stages[k]
-        game.hudWriter.begin(label: label(for: level), tag: level.tag, seconds: level.timerSeconds, hearts: session.hearts,
-                             maxHearts: level.hearts, coins: s.store.state.coins, boosters: boosterSlots(),
-                             intro: fromLoading ? .shown : .playing(start: game.cutAt))
+        game.hudWriter.begin(label: label(for: level), tag: level.tag, seconds: level.timerSeconds ?? 0, hearts: session.hearts,
+                             maxHearts: level.hearts ?? 0, coins: s.store.state.coins, boosters: boosterSlots(),
+                             intro: fromLoading ? .shown : .playing(start: game.cutAt), widgets: game.capabilities.hud)
         game.fanOut(session.start(), origin: .start)
         s.levelStarted(plan.levels.last ?? level.level)
+        let timerText: String = level.timerSeconds.map { "\($0) s" } ?? "none"
+        let heartsText: String = session.hearts.map { "\($0)" } ?? "none"
         Log.mark("game", "start \(game.levelName) attempt \(setup.attemptIndex) stage \(k + 1)/\(stages.count): L\(level.level) "
-                 + "\(level.arrows.count) arrows, timer \(level.timerSeconds) s, hearts \(session.hearts), tag \(level.tag.rawValue), "
+                 + "\(level.summary), timer \(timerText), hearts \(heartsText), tag \(level.tag.rawValue), "
                  + "intro \(style), lives \(s.store.state.lives.count), coins \(s.store.state.coins)"
-                 + (session.streakActive ? ", streak x\(Events.continueWarning(s.store.state, now: now, rules: s.economy).multiplier)" : "")
+                 + (streakActive ? ", streak x\(Events.continueWarning(s.store.state, now: now, rules: s.economy).multiplier)" : "")
                  + String(format: " (main %.2f ms)", (CACurrentMediaTime() - t0) * 1000))
         return true
     }
 
-    /// The board's setup for stage k (the board's own play rect and caps; the fx seed per stage).
-    func stageSetup(_ k: Int) -> StageSetup {
-        let config = boardConfig ?? (services.board as? BoardEngine)?.config ?? BoardConfig(services.tuning.board)
-        boardConfig = config
+    /// What the board needs for stage k (the module's level, the screen, the fx seed per stage).
+    func stageContext(_ k: Int) -> StageContext {
         let seed = (game.setup?.seed ?? 1) &+ UInt64(k)
-        return StageSetup(level: game.stages[k], stage: k, stages: game.stages.count, seed: seed, screen: services.screenSize(),
-                          config: config)
+        return StageContext(stage: k, stages: game.stages.count, seed: seed, screen: services.screenSize(), info: game.stages[k])
     }
 
     /// "Level 32", or the session's HUD label key ("Levels 1-4", sessions.json `hud_label`: a strings-table key).
-    func label(for level: LevelSpec) -> LocalizedStringResource {
+    func label(for level: PuzzleStage) -> LocalizedStringResource {
         if game.plan.levels.count > 1, let key = game.plan.hudLabel { return LocalizedStringResource(String.LocalizationValue(key)) }
         return "Level \(level.level)"
     }
 
-    /// Both corners from the player's stock (freeze left, hint right; 0 → the "+" badge).
+    /// The module's booster corners in its order (ArrowEscape: freeze left, hint right) from the player's stock (0 → the "+"
+    /// badge).
     func boosterSlots() -> [BoosterSlotVM] {
         let b = services.store.state.boosters
-        return ["freeze", "hint"].map { id in
-            let n = b[id] ?? 0
-            return BoosterSlotVM(id: BoosterID(id), state: n > 0 ? .stock(n) : .empty)
-        }
+        return game.capabilities.boosters.map { spec in game.boosterSlot(spec, stock: b[spec.id.rawValue] ?? 0) }
     }
 
     // MARK: GameDirector
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for o in outputs {
+            guard case .meta(let e) = o else { continue }
             switch e {
             case .timerStarted(let stage):
                 if stage < game.stages.count { Log.mark("game", "play L\(game.stages[stage].level)") }
@@ -157,12 +147,20 @@ import PathCore
     /// pauses that timeline at rest, while a `.shown` write would swap the HUD's view branch — a measured 37–40 ms hitch at
     /// K + 1.96 s on every level, build/g1.)
     func frame(gameTime: Double) {
+        #if DEBUG || PC_MEASURE
         if !debugJumpDone, game.introDone, let s = session, case .ready = s.phase, !services.popups.isPresenting {
             if services.args.win != nil || services.args.lose != nil {
                 debugJumpDone = true
                 runDebugJump()
             }
         }
+        #else
+        // the debug outcome jumps are Debug / Measure only: the store build plays the level (and says so once)
+        if !debugJumpDone, services.args.win != nil || services.args.lose != nil {
+            debugJumpDone = true
+            Log.error("game", "-pc.win / -pc.lose: no debug outcome jump in this build (Release); they run in Debug / Measure")
+        }
+        #endif
     }
 
     // MARK: stage transitions (§5.7, MA §3.7)
@@ -171,10 +169,10 @@ import PathCore
     /// the HUD timer re-arms at the swap.
     func stageLeftBoard(_ k: Int) {
         guard k + 1 < game.stages.count else { return }
-        let next = stageSetup(k + 1)
+        let next = stageContext(k + 1)
         services.board.playStageTransition(to: next)
         let gap = game.plan.stageGap ?? services.tuning.board.stageGap
-        game.hudWriter.scheduleRearm(atGameTime: services.clock.gameTime() + gap, seconds: game.stages[k + 1].timerSeconds)
+        game.hudWriter.scheduleRearm(atGameTime: services.clock.gameTime() + gap, seconds: game.stages[k + 1].timerSeconds ?? 0)
         Log.mark("game", "\(game.levelName) stage \(k + 1) cleared → stage \(k + 2)/\(game.stages.count) "
                  + "L\(game.stages[k + 1].level) at W+\(gap) s")
     }
@@ -238,8 +236,9 @@ import PathCore
         pause()
     }
 
-    // MARK: debug outcome jumps (§9.1 `-pc.win`, `-pc.lose`)
+    // MARK: debug outcome jumps (§9.1 `-pc.win`, `-pc.lose`; Debug / Measure only)
 
+    #if DEBUG || PC_MEASURE
     private func runDebugJump() {
         guard let s = session else { return }
         if let tag = services.args.win {
@@ -255,8 +254,8 @@ import PathCore
         case .timeUp:
             Task { @MainActor [self, game] in
                 defer { withExtendedLifetime(game) {} }
-                // the first tap starts the clock (the real pipeline), then the clock runs out
-                guard let unit = s.hint(), let a = unit.first else { return }
+                // the first move starts the clock (the real pipeline), then the clock runs out
+                guard let a = s.hint() else { return }
                 tap(a)
                 guard await game.wait(frames: 2), case .playing = s.phase else { return }
                 game.fanOut(s.tick(s.clock.remaining + 0.01), origin: .tick)
@@ -265,31 +264,27 @@ import PathCore
             Task { @MainActor [self, game] in
                 defer { withExtendedLifetime(game) {} }
                 var tries = 0
-                while s.hearts > 0, tries < 12, !game.isTornDown {
+                while (s.hearts ?? 0) > 0, tries < 12, !game.isTornDown {
                     tries += 1
                     switch s.phase { case .ready, .playing: break; default: return }
-                    let snap = s.snapshot()
-                    let free = Set(snap.free.flatMap { $0 })
-                    let red = Set(services.board.probe().arrows.filter(\.red).map { ArrowID($0.id) })
-                    guard let a = snap.live.first(where: { !free.contains($0) && !red.contains($0) }) else {
-                        Log.error("game", "-pc.lose hearts: no blocked arrow to bump on L\(s.level.level)")
+                    // the module's deliberate mistake (ArrowEscape: a blocked arrow that is not red yet → a bump)
+                    guard let a = services.puzzle.mistakeTargets(s, board: services.board).first else {
+                        Log.error("game", "-pc.lose hearts: no mistake to make on L\(game.currentStage?.level ?? 0)")
                         return
                     }
                     tap(a)
                     guard await game.wait(gameSeconds: 0.6) else { return }
                 }
             }
-        case .killed:
+        case .killed, .outOfMoves, .stuck:
             break
         }
     }
+    #endif
 
-    /// A tap through the real release handler when the board is the engine (ripple, hit test), else straight to the session.
-    func tap(_ a: ArrowID) {
-        if let e = services.board as? BoardEngine, let p = e.tapPoint(of: a) {
-            e.handleRelease(screenPoint: p, touchTimestamp: CACurrentMediaTime())
-        } else {
-            game.boardReleased(arrow: a, contentPoint: .zero, touchTimestamp: CACurrentMediaTime())
-        }
+    /// A tap through the board's real release handler when it can (ripple, hit test), else straight to the session.
+    func tap(_ target: PuzzleTarget) {
+        if services.board.performTap(on: target) { return }
+        game.boardInput(.tap(target), touchTimestamp: CACurrentMediaTime())
     }
 }

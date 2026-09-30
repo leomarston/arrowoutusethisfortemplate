@@ -34,9 +34,9 @@ l10n/strings.<lang>.tsv (B3; de fr es it pt-BR ja ko zh-Hans pl sk sl)
     `**`, no brand, no stray whitespace). `**run**` in a caseless language (ja ko zh-Hans) marks the run MultiRunText lights
     where EN/TR light a CAPS word (the unlock cards).
 
-infoplist.tsv (META 2026-09-29, the Meta SDK in 1.0)
+infoplist.tsv (the Info.plist permission texts; may be empty)
   - header `key<TAB>en<TAB>tr<TAB>de … sl<TAB>note` (the 13 languages in INFOPLIST_LANGS order): one row per Info.plist key
-    whose value iOS shows to the player (today NSUserTrackingUsageDescription, the ATT alert's body). Written to
+    whose value iOS shows to the player (permission texts: camera, tracking, …; none in the template). Written to
     App/Resources/InfoPlist.xcstrings (Xcode compiles <lang>.lproj/InfoPlist.strings). Every cell non-empty, no stray
     whitespace, no brand, no format specifier or ** run; the EN cell must equal the key's value in project.yml's info: block
     (the base plist's development-language value), or nothing is written.
@@ -66,14 +66,15 @@ OUT = os.path.join(APP, "App", "Resources", "Localizable.xcstrings")
 L10N = os.path.join(APP, "App", "Resources", "Strings", "l10n")
 # B3: the languages of the l10n tables (EN + TR live in strings.tsv); the catalogue order is Xcode's (sorted keys).
 LANGS = ["de", "fr", "es", "it", "pt-BR", "ja", "ko", "zh-Hans", "pl", "sk", "sl"]
-# The working title (dev builds only, behind `Brand`), its code spelling, the original's former name and its publisher.
-# Matched case-insensitively as substrings of either column.
-BRANDS = ("Maze Out", "MazeOut", "Arrow Jam", "Grand Games", "Arrow Out", "ArrowOut")
+# The original's names (game.yml brand_bans, the same list as release_gates.sh gate 3 and BrandTests) + our own product
+# name and its code spelling (copy interpolates Brand.name). Matched case-insensitively as substrings of either column.
+# Written by `python3 tools/game.py generate --game <slug>` from apps/<slug>/game.yml; edit game.yml, not this line.
+BRANDS = ("Maze", "MazeOut", "Arrow Jam", "Grand Games", "grandgames", "arrowjam", "Arrow Out", "ArrowOut")
 # FIX-2 lane B (B1b-r3): identifier keys -> their English text (App/Resources/Strings/keys.tsv; header key<TAB>en<TAB>note).
 # A key that is not its English text: English says one word where other languages need two ('Finished' = a life arrived vs
 # 'event.finished' = the event is over). Code: String(localized: "<key>", defaultValue: "<en>").
 KEYS_TSV = os.path.join(APP, "App", "Resources", "Strings", "keys.tsv")
-# META (2026-09-29): the Info.plist strings (the ATT purpose) -> App/Resources/InfoPlist.xcstrings
+# The Info.plist strings (permission texts) -> App/Resources/InfoPlist.xcstrings (absent when infoplist.tsv has no rows)
 INFOPLIST_TSV = os.path.join(APP, "App", "Resources", "Strings", "infoplist.tsv")
 INFOPLIST_OUT = os.path.join(APP, "App", "Resources", "InfoPlist.xcstrings")
 INFOPLIST_LANGS = ["en", "tr"] + LANGS
@@ -347,7 +348,7 @@ def catalogue(rows, tables=None):
 
 
 def load_infoplist(path=INFOPLIST_TSV, project_yml=PROJECT_YML):
-    """META: infoplist.tsv -> ({plist key: {lang: value}}, {key: note}, errors). Absent file = no Info.plist strings."""
+    """infoplist.tsv -> ({plist key: {lang: value}}, {key: note}, errors). Absent file = no Info.plist strings."""
     out, notes, errors = {}, {}, []
     if not os.path.exists(path):
         return out, notes, errors
@@ -424,7 +425,7 @@ def main(argv):
     if "--en-tr-only" not in argv:
         tables, l10n_errors = load_l10n({r["en"] for r in rows})
         errors = errors + l10n_errors
-    ip_rows, ip_notes, ip_errors = load_infoplist() if tsv == TSV else ({}, {}, [])     # META: the Info.plist strings
+    ip_rows, ip_notes, ip_errors = load_infoplist() if tsv == TSV else ({}, {}, [])     # the Info.plist strings
     errors = errors + ip_errors
     for e in errors:
         print("error:", e, file=sys.stderr)
@@ -442,9 +443,8 @@ def main(argv):
         if cur != text:
             print(f"strings: {os.path.relpath(OUT, APP)} is stale; run tools/strings/build.py", file=sys.stderr)
             return 1
-        if ip_text is not None:
-            cur = open(INFOPLIST_OUT, encoding="utf-8").read() if os.path.exists(INFOPLIST_OUT) else None
-            if cur != ip_text:
+        cur = open(INFOPLIST_OUT, encoding="utf-8").read() if os.path.exists(INFOPLIST_OUT) else None
+        if cur != ip_text:                          # no rows: the catalogue must not exist (a leftover ships old text)
                 print(f"strings: {os.path.relpath(INFOPLIST_OUT, APP)} is stale; run tools/strings/build.py", file=sys.stderr)
                 return 1
         print(f"strings: {len(rows)} keys ({nreq} from requests) x {2 + len(tables)} languages, catalogue up to date")
@@ -458,6 +458,9 @@ def main(argv):
             f.write(ip_text)
         os.replace(INFOPLIST_OUT + ".tmp", INFOPLIST_OUT)
         print(f"strings: {len(ip_rows)} Info.plist key(s) -> {os.path.relpath(INFOPLIST_OUT, APP)} ({len(INFOPLIST_LANGS)} languages)")
+    elif os.path.exists(INFOPLIST_OUT):
+        os.remove(INFOPLIST_OUT)
+        print(f"strings: no Info.plist strings in infoplist.tsv: removed {os.path.relpath(INFOPLIST_OUT, APP)}")
     print(f"strings: {len(rows)} keys ({len(rows) - nreq} strings.tsv + {nreq} from requests/*.tsv) -> "
           f"{os.path.relpath(OUT, APP)} ({2 + len(tables)} languages: en tr {' '.join(tables)}; all translated)")
     return 0

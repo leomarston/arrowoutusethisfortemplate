@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// Non-monotone fixtures (C4): boards where the order matters.
 enum SolverFixtures {

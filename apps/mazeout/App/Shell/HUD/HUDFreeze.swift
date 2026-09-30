@@ -25,7 +25,7 @@ import PathCore
     struct Spec {
         var spawn = CGPoint(x: 192, y: 612), spawnDur = 0.12, riseFrom = 0.10, riseDur = 0.83, riseTo = 405.0, rockDeg = 4.0
         var flyFrom = 0.98, flyDur = 0.40, flyControl = CGPoint(x: 175, y: 200), target = CGPoint(x: 107, y: 94), flyEndScale = 0.35
-        var iceFrom = 1.38, iceDur = 0.25, frostFrom = 1.60, frostDur = 0.20, frostColor = UIColor(rgb: 0x6BD4F8)
+        var iceFrom = 1.38, iceDur = 0.25, frostFrom = 1.60, frostDur = 0.20, frostColor = UIColor(rgb: Skin.hudHudFreezeSpecFrostColor)
         var frostSides = 30.0, frostTopBottom = 88.0, tray = CGRect(93, 118, 92, 25), trayIn = 0.20, trayOut = 0.15, endFade = 0.30
 
         init(_ f: TuningFile) {
@@ -38,7 +38,7 @@ import PathCore
             flyEndScale = f.double("freeze.flyEndScale", flyEndScale); iceFrom = f.double("freeze.iceFrom", iceFrom)
             iceDur = f.double("freeze.iceDur", iceDur); frostFrom = f.double("freeze.frostFrom", frostFrom)
             frostDur = f.double("freeze.frostDur", frostDur)
-            if let c = UIColor(hexString: f.string("freeze.frostColor", "#6BD4F8")) { frostColor = c }
+            if let c = UIColor(hexString: f.string("freeze.frostColor", Skin.hudHudFreezeFreezeFrostColorHex)) { frostColor = c }
             frostSides = f.double("freeze.frostDepthSidesPt", frostSides); frostTopBottom = f.double("freeze.frostDepthTopBottomPt", frostTopBottom)
             let t = f.doubles("freeze.tray", []); if t.count == 4 { tray = CGRect(t[0], t[1], t[2], t[3]) }
             trayIn = f.double("freeze.trayIn", trayIn); trayOut = f.double("freeze.trayOut", trayOut); endFade = f.double("freeze.endFade", endFade)
@@ -108,7 +108,7 @@ import PathCore
 
         // the flying hourglass
         let glass = CALayer()
-        if let img = ArtStore.image(.boosterFreeze)?.cgImage { glass.contents = img }
+        if let img = ArtStore.image(.boosterFreezeIcon)?.cgImage { glass.contents = img }
         let gs = CGSize(width: 106 * s, height: 106 * s)           // the 56 pt canvas whose ink is ≈ 90 × 100 at this size
         glass.bounds = CGRect(origin: .zero, size: gs)
         glass.opacity = 0
@@ -234,7 +234,7 @@ import PathCore
         tray.bounds = CGRect(origin: .zero, size: size)
         let face = CAGradientLayer()
         face.frame = tray.bounds
-        face.colors = [UIColor(rgb: 0xC0E0D8).cgColor, UIColor(rgb: 0xC0E0D8).cgColor, UIColor(rgb: 0x5FB7B0).cgColor, UIColor(rgb: 0x398981).cgColor]
+        face.colors = [UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors0).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors1).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors2).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFaceColors3).cgColor]
         face.locations = [0, 0.7, 0.85, 1]
         face.cornerRadius = 8 * s
         face.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -243,10 +243,10 @@ import PathCore
         let track = CALayer()
         track.frame = CGRect(x: 26.4 * s, y: 7.0 * s, width: 59.7 * s, height: 10 * s)
         track.cornerRadius = 4.7 * s
-        track.backgroundColor = UIColor(rgb: 0x50A197).cgColor
+        track.backgroundColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerTrackBackgroundColor).cgColor
         tray.addSublayer(track)
         let fill = CAGradientLayer()
-        fill.colors = [UIColor(rgb: 0x28AD9F).cgColor, UIColor(rgb: 0x28AD9F).cgColor, UIColor(rgb: 0x00625C).cgColor]
+        fill.colors = [UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors0).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors1).cgColor, UIColor(rgb: Skin.hudHudFreezeHudFreezeFXTrayLayerFillColors2).cgColor]
         fill.locations = [0, 0.5, 1]
         fill.anchorPoint = CGPoint(x: 0, y: 0.5)
         fill.bounds = CGRect(x: 0, y: 0, width: 57.7 * s, height: 7 * s)
@@ -265,7 +265,7 @@ import PathCore
         digit.contentsGravity = .center
         digit.contentsScale = UIScreen.main.scale
         let n = max(1, Int(seconds.rounded(.up)))
-        let style = ui.tokens.text("hudFreeze.digit", .s2(15, -0.5, [0xFFFFFF], outline: 0x004249, 1.0, drop: 0.8)).sized(15 * s)
+        let style = ui.tokens.text("hudFreeze.digit", .s2(15, -0.5, [Skin.hudHudFreezeHudFreezeDigit0], outline: Skin.hudHudFreezeHudFreezeDigitOutline, 1.0, drop: 0.8)).sized(15 * s)
         let images: [CGImage] = (1...n).reversed().compactMap { digitImage("\($0)", style: style) }
         if images.count == n {
             digit.contents = images.first
@@ -306,10 +306,10 @@ import PathCore
             p.closeSubpath()
         }
         l.path = p
-        l.fillColor = UIColor(rgb: 0xF2FBFF).cgColor
-        l.strokeColor = UIColor(rgb: 0x7FC8EE).cgColor
+        l.fillColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerFillColor).cgColor
+        l.strokeColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerStrokeColor).cgColor
         l.lineWidth = 0.8
-        l.shadowColor = UIColor(rgb: 0x2A7FC0).cgColor
+        l.shadowColor = UIColor(rgb: Skin.hudHudFreezeHudFreezeFXIceLayerShadowColor).cgColor
         l.shadowOpacity = 0.5
         l.shadowRadius = 0.6
         l.shadowOffset = CGSize(width: 0, height: 0.8)
@@ -391,7 +391,7 @@ struct FreezeFrost: View {
     var body: some View {
         let st = FreezeHUDState.shared
         let f = app.tuning.ui.file
-        let c = Color(hexString: f.string("freeze.frostColor", "#6BD4F8")) ?? Color(hex: 0x6BD4F8)
+        let c = Color(hexString: f.string("freeze.frostColor", Skin.hudHudFreezeFreezeFrostColorHex)) ?? Color(hex: Skin.hudHudFreezeFreezeFrostC)
         let sides = CGFloat(f.double("freeze.frostDepthSidesPt", 30)) * m.s, tb = CGFloat(f.double("freeze.frostDepthTopBottomPt", 88)) * m.s
         let g = { (a: UnitPoint, b: UnitPoint) in
             LinearGradient(stops: [.init(color: c, location: 0), .init(color: c.opacity(0.55), location: 0.35), .init(color: .white.opacity(0), location: 1)],
@@ -414,7 +414,7 @@ struct FreezeFrost: View {
 }
 
 /// FIX-A2 (`-pc.uitest` / probe runs only): the countdown tray as UI tests see it — `hud.freeze.tray`, whose value is
-/// computed from the layers when XCUITest asks (`S2FX.freezeTrayProbe`), so it costs nothing per frame.
+/// computed from the layers when XCUITest asks (`FreezeFX.trayProbe`), so it costs nothing per frame.
 private struct FreezeTrayProbe: UIViewRepresentable {
     func makeUIView(context: Context) -> FreezeTrayProbeView { FreezeTrayProbeView() }
     func updateUIView(_ uiView: FreezeTrayProbeView, context: Context) {}
@@ -434,7 +434,161 @@ final class FreezeTrayProbeView: UIView {
     @available(*, unavailable) required init?(coder: NSCoder) { fatalError() }
 
     override var accessibilityValue: String? {
-        get { S2FX.freezeTrayProbe() }
+        get { FreezeFX.shared.trayProbe() }
         set {}
+    }
+}
+
+// MARK: - the Time Freeze on the FX host
+
+/// The Time Freeze HUD bits as an FX host effect (`.custom("freeze")`, `"freezeGo"`, `"freezeHold"`): `finished` at the freeze's
+/// end, the layers gone after the fade. Moved as it was from S2FX (HUD/S2Hooks.swift) in the kit decoupling step: the boosters
+/// component registers it (BoostersRegistration.swift, `FXEffects`), so the FX host names no booster.
+@MainActor final class FreezeFX: FXEffectHandler {
+    static let shared = FreezeFX()
+
+    private var loose: [Int: (CALayer, Double)] = [:]     // handle → (root, removal in game time)
+    private var freezes: [Int: FreezeRun] = [:]           // handle → the running Time Freeze
+    private var looseDone: [Int: Double] = [:]            // handle → `finished` in game time (the freeze's end)
+
+    /// A running Time Freeze (FIX-A2: pausable). `end` = the countdown's end in game time (∞ while the tray holds "10" for
+    /// the first tap, ruling 30); `countdownAt` = its start in the parts' own time; `heldSince` = game time the session's
+    /// hold began (the layers stand still, `finished` and the removal wait; the resume moves `end` by the held span).
+    private struct FreezeRun {
+        let parts: HUDFreezeFX.Parts
+        let b: Double
+        var end: Double
+        var countdownAt: CFTimeInterval?
+        var heldSince: Double?
+    }
+
+    /// Publishes a freeze's end (the removal after the fade), or waits while it is held or holding for the first tap.
+    private func setFreezeEnd(_ h: Int, _ run: FreezeRun) {
+        guard let root = loose[h]?.0 else { return }
+        let done = run.heldSince == nil ? run.end : .infinity
+        looseDone[h] = done
+        loose[h] = (root, done + run.parts.spec.endFade + 0.05)
+    }
+
+    func owns(_ h: FXHandle) -> Bool { loose[h.id] != nil }
+
+    /// FIX-A2, UI tests (`hud.freeze.tray`, computed when queried): the newest freeze's tray as drawn —
+    /// "held=<0|1> phase=<flight|holding|counting|ended> digit=<n> bar=<width fraction> left=<s>" in the parts' own time, or
+    /// "off" when no freeze runs. `bar` is read from the presentation layer (what is on screen).
+    func trayProbe() -> String {
+        guard let run = freezes.max(by: { $0.key < $1.key })?.value else { return "off" }
+        let p = run.parts
+        let local = HUDFreezeFX.localTime(p)
+        let n = max(1, Int(p.seconds.rounded(.up)))
+        var phase = "holding", digit = n, left = p.seconds
+        if local < p.t0 + p.spec.frostFrom {
+            phase = "flight"
+        } else if let c = run.countdownAt {
+            left = max(0, p.seconds - max(0, local - c))
+            phase = left > 0 ? "counting" : "ended"
+            digit = left > 0 ? min(n, Int((left - 1e-9).rounded(.up))) : 0
+        }
+        let full = max(0.001, p.fill.bounds.width)
+        let shown = (p.fill.presentation() ?? p.fill).bounds.width
+        return String(format: "held=%d phase=%@ digit=%d bar=%.3f left=%.2f", run.heldSince == nil ? 0 : 1, phase, digit,
+                      Double(shown / full), left)
+    }
+
+    var isPlaying: Bool { !loose.isEmpty }
+
+    func play(_ effect: FXEffect, handle: FXHandle, fx: FXOverlay) -> Bool {
+        guard let clock = S2Hooks.app?.clock else { return false }
+        switch effect {
+        case .custom(let id, let params) where id == "freeze":
+            // the Time Freeze HUD bits (HUD/HUDFreeze.swift): `finished` at the freeze's end, the layers gone after the fade.
+            // params["hold"] = 1 (SPEC.md ruling 30, the hourglass before the first tap): the flight, icing and tray as usual,
+            // the tray holding "10" until `.custom("freezeGo", ["handle": id])` starts the countdown (the first board tap)
+            let host = fx.hostView.layer
+            let t0 = host.convertTime(CACurrentMediaTime(), from: nil)
+            let seconds = params["seconds"] ?? fx.ui.file.double("freeze.seconds", 10)
+            let hold = (params["hold"] ?? 0) > 0
+            let safeTop = fx.hostView.window?.safeAreaInsets.top ?? fx.hostView.safeAreaInsets.top
+            CATransaction.begin(); CATransaction.setDisableActions(true)
+            let parts = HUDFreezeFX.build(host: host, t0: t0, seconds: seconds, ui: fx.ui, safeTop: safeTop > 0 ? safeTop : 59, hold: hold)
+            host.addSublayer(parts.root)
+            CATransaction.commit()
+            let spec = parts.spec
+            let now = clock.gameTime()
+            let run = FreezeRun(parts: parts, b: now, end: hold ? .infinity : now + spec.frostFrom + seconds,
+                                countdownAt: hold ? nil : parts.t0 + spec.frostFrom, heldSince: nil)
+            freezes[handle.id] = run
+            loose[handle.id] = (parts.root, 0)
+            setFreezeEnd(handle.id, run)
+            Log.mark("fx", "freeze \(seconds) s at B (tray at B+\(spec.frostFrom))" + (hold ? ", holding \"\(Int(seconds))\" until the first tap" : ""))
+            Task { @MainActor in
+                while let e = self.loose[handle.id], clock.gameTime() < e.1 { try? await Task.sleep(nanoseconds: 50_000_000) }
+                self.stop(handle)
+            }
+            return true
+        case .custom(let id, let params) where id == "freezeGo":
+            // ruling 30: the first board tap starts a held freeze's countdown (never before its tray is out, B + 1.60)
+            guard let h = params["handle"].map({ Int($0) }), var run = freezes[h], loose[h] != nil else { return true }
+            let parts = run.parts
+            let spec = parts.spec
+            let local = HUDFreezeFX.localTime(parts)                  // the parts' own time (it stops while held)
+            let start = max(local, parts.t0 + spec.frostFrom)
+            HUDFreezeFX.startCountdown(parts, at: start)
+            let now = clock.gameTime()
+            run.countdownAt = start
+            run.end = (run.heldSince ?? now) + (start - local) + parts.seconds
+            freezes[h] = run
+            setFreezeEnd(h, run)
+            Log.mark("fx", String(format: "freeze countdown from B+%.2f of its own time (%.0f s)", start - parts.t0, parts.seconds))
+            return true
+        case .custom(let id, let params) where id == "freezeHold":
+            // FIX-A2: the session's clock is held (Pause, a popup, an offer, a tutorial, the background) or runs again: the
+            // flight, icing, tray and frost stand still with it and end with C2's freeze
+            guard let h = params["handle"].map({ Int($0) }), var run = freezes[h], loose[h] != nil else { return true }
+            let on = (params["on"] ?? 0) > 0
+            let now = clock.gameTime()
+            if on, run.heldSince == nil {
+                run.heldSince = now
+                HUDFreezeFX.hold(run.parts, true)
+                FreezeHUDState.shared.hold(true)
+            } else if !on, let since = run.heldSince {
+                run.heldSince = nil
+                if run.end.isFinite { run.end += now - since }
+                HUDFreezeFX.hold(run.parts, false)
+                FreezeHUDState.shared.hold(false)
+                Log.mark("fx", String(format: "freeze resumed after %.2f s held", now - since))
+            } else {
+                return true
+            }
+            freezes[h] = run
+            setFreezeEnd(h, run)
+            if on { Log.mark("fx", String(format: "freeze held at B+%.2f of its own time", HUDFreezeFX.localTime(run.parts) - run.parts.t0)) }
+            return true
+        default:
+            return false
+        }
+    }
+
+    func finished(_ h: FXHandle) async {
+        guard let clock = S2Hooks.app?.clock else { return }
+        while loose[h.id] != nil {
+            if let done = looseDone[h.id], clock.gameTime() >= done { return }
+            try? await Task.sleep(nanoseconds: 16_000_000)
+        }
+    }
+
+    func skip(_ h: FXHandle) { stop(h) }
+
+    func stop(_ h: FXHandle) {
+        if looseDone.removeValue(forKey: h.id) != nil { FreezeHUDState.shared.cancel() }   // a freeze: the frost goes with it
+        freezes[h.id] = nil
+        if let l = loose.removeValue(forKey: h.id) {
+            CATransaction.begin(); CATransaction.setDisableActions(true); l.0.removeFromSuperlayer(); CATransaction.commit()
+        }
+        CelebrationState.shared.update()
+    }
+
+    func stopAll() {
+        FreezeHUDState.shared.cancel()
+        for id in Array(loose.keys) { stop(FXHandle(id: id)) }
     }
 }

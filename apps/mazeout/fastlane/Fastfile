@@ -4,11 +4,18 @@ default_platform(:ios)
 require "dotenv"
 require "shellwords"
 Dotenv.load(File.expand_path("../../../.env", __dir__))
-# RFIX 2026-09-29: the Meta client token leaves ENV at once. gym runs xcodebuild with this process's environment, and Xcode
-# turns every environment variable into a build setting (exported into every script phase, printed by a verbose log); the
-# build reads the token from the .env FILE itself (tools/meta_token.py), so nothing needs it in ENV. The lanes compare with
-# this constant and never print it.
-META_ENV_TOKEN = ENV.delete("META_CLIENT_TOKEN").to_s.strip.freeze
+
+# gym runs xcodebuild with this process's environment, and Xcode exports every environment variable as a build setting
+# (into every script phase, and into a verbose log). The lanes still need some secrets themselves (the Apple web session
+# for create_app / upload_privacy, the ASC key for deliver), so they are hidden only while gym builds, then restored.
+BUILD_SECRET_KEYS = %w[META_CLIENT_TOKEN RC_SECRET_KEY GEMINI_API_KEY FASTLANE_SESSION FASTLANE_PASSWORD
+                       ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_PATH REVIEW_PHONE REVIEW_EMAIL].freeze
+def without_build_secrets
+  saved = BUILD_SECRET_KEYS.to_h { |k| [k, ENV.delete(k)] }
+  yield
+ensure
+  saved.each { |k, v| ENV[k] = v unless v.nil? }
+end
 
 # Two "Apple Distribution: ..." identities can exist in the search list at once (a stale
 # cert plus the live one). Resolving by NAME then picks arbitrarily, and codesign fails with
@@ -46,39 +53,9 @@ def unlock_signing_keychain
          "-s", "-k", pw, kc, out: File::NULL, err: File::NULL)
 end
 
-# META (OWNER 2026-09-29 19:33, the Meta SDK in 1.0; memory idfa-declaration-and-invalid-binary): the app links FacebookCore
-# and shows the ATT prompt, so the version must say usesIdfa = true, or Apple's automated check fails it as INVALID_BINARY with
-# no readable reason (usesIdfa null).
-# RFIX 2026-09-29 (review): that answer is NOT made here. fastlane 2.240.1's deliver IGNORES every add_id_info_* key (no
-# uses_idfa anywhere in deliver/lib or spaceship/connect_api; only the retired tunes AppSubmission class still names them), and
-# deliver reads submission_information only when submit_for_review is true, which no lane here sets. The old
-# META_IDFA_ANSWERS hash therefore did nothing, and its "tracks_action: false" was untrue besides (the purchase and level
-# events exist precisely to attribute in-app actions to ads). The IDFA declaration is made by
-#     python3 scripts/asc_submit.py --slug mazeout --bundle com.manycode.arrowout --uses-idfa
-# which PATCHes appStoreVersions/<id> usesIdfa = true and reads it back BEFORE it creates the review submission, then poll the
-# version for 15+ minutes for INVALID_BINARY. The honest answers, for a person filling them in anywhere: uses the IDFA = yes (only
-# after ATT "Allow"); attributes app installs to ads = yes; attributes in-app actions to earlier ads = YES; serves ads = no;
-# honours the user's tracking choice (ATT) = yes.
+# No ad / attribution SDK in the template (docs/ROADMAP.md D2), so the version declares no IDFA use. A game that adds one
+# must run `scripts/asc_submit.py --uses-idfa` (deliver ignores every add_id_info_* key; docs/recipes/ad-attribution.md).
 SUBMISSION_INFO = { export_compliance_uses_encryption: false }.freeze
-
-# The Meta client token must be in the factory .env (tools/meta_token.py writes it into the BUILT Info.plist; a Release build
-# without it stops at its first phase). A store lane also refuses the internal verification switch, and after gym reads the
-# IPA's FacebookClientToken back and compares it with the .env one (the value is never printed).
-def meta_token_ready!
-  if ENV["PC_META_VERIFICATION_BUILD"].to_s != ""
-    UI.user_error!("PC_META_VERIFICATION_BUILD is set: that switch builds WITHOUT the Meta client token and never goes to App Store Connect. Unset it.")
-  end
-  unless META_ENV_TOKEN.match?(/\A[0-9a-f]{32}\z/)
-    UI.user_error!("META_CLIENT_TOKEN is missing or malformed in the factory .env (developers.facebook.com > Arrow Out > App settings > Advanced > Client token). The store build needs it.")
-  end
-  # RFIX 2026-09-29 (review): the facts on Meta's side, read from Meta (tools/meta_dashboard_check.py; the token is never
-  # printed): the .env token is Arrow Out's CLIENT token and not its App Secret (both are 32 hex: an App Secret would ship in
-  # every IPA), "Log in-app events automatically" is OFF (else FBSDK logs every purchase a second time) and Automatic
-  # Advanced Matching is OFF (else the SDK reads text fields; the privacy page says names are not collected).
-  root = File.expand_path("..", __dir__)
-  ok = system("/usr/bin/python3", File.join(root, "tools", "meta_dashboard_check.py"), "all")
-  UI.user_error!("tools/meta_dashboard_check.py did not pass (see its lines above): not building a store binary") unless ok
-end
 
 # RFIX 2026-09-29 (VERIFY F4, SPEC ruling 55(b)): the store IPA carries NO dSYM (gym include_symbols false + uploadSymbols
 # false: FIX-3 counted the build tree's path 2,110 times in the dSYM) and its binary carries no 'mazeout' in `strings -a` or
@@ -95,18 +72,6 @@ def ipa_provenance_clean!(ipa)
     hits = `strings -a #{Shellwords.escape(bin)} | grep -ci mazeout`.to_i + `nm -a #{Shellwords.escape(bin)} 2>/dev/null | grep -ci mazeout`.to_i
     UI.user_error!("the IPA's binary names 'mazeout' #{hits} time(s) (strings -a + nm): not uploading") unless hits.zero?
     UI.success("provenance: no dSYM in the IPA; 0 'mazeout' in the binary's strings -a and nm")
-  end
-end
-
-def meta_token_in_ipa!(ipa)
-  raise "no IPA at #{ipa}" unless ipa && File.exist?(ipa)
-  require "tmpdir"
-  Dir.mktmpdir do |d|
-    sh("unzip -q -o #{Shellwords.escape(ipa)} 'Payload/*.app/Info.plist' -d #{Shellwords.escape(d)}", log: false)
-    plist = Dir.glob(File.join(d, "Payload", "*.app", "Info.plist")).first
-    got = `/usr/libexec/PlistBuddy -c 'Print :FacebookClientToken' #{Shellwords.escape(plist.to_s)} 2>/dev/null`.strip
-    UI.user_error!("the IPA's FacebookClientToken is empty or differs from the factory .env: not uploading") unless got == META_ENV_TOKEN && !got.empty?
-    UI.success("META: the IPA carries the .env client token (value not printed)")
   end
 end
 
@@ -131,16 +96,15 @@ platform :ios do
     )
   end
 
-  desc "Archive + upload + metadata + screenshots + submit for review"
+  desc "Archive + upload + metadata + screenshots (does NOT submit: scripts/asc_submit.py does)"
   lane :release do
-    meta_token_ready!
     unlock_signing_keychain
     regenerate_project
     key = asc_key
     # Cihazsiz imzalama (scripts/signing_setup.py once calismis olmali):
     # arsiv imzasiz alinir, imza export'ta manual profille atilir. Cloud signing
     # (Admin key) ve kayitli cihaz gerektirmez.
-    gym(
+    without_build_secrets do gym(
       scheme: "ArrowOut",
       export_method: "app-store",
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
@@ -154,12 +118,10 @@ platform :ios do
       output_directory: "build",
       include_symbols: false,   # RFIX (ruling 55(b), VERIFY F4): a dSYM-less IPA; the archive keeps the dSYM locally
       clean: true
-    )
-    meta_token_in_ipa!(lane_context[SharedValues::IPA_OUTPUT_PATH])
+    ) end
     ipa_provenance_clean!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     # App Privacy (nutrition label): ilk submit icin zorunlu, yoksa ASC reddeder.
-    # JSON, PrivacyInfo.xcprivacy ile tutarli. META (2026-09-29): Purchase History + Product Interaction + Device ID
-    # "used to track you" (Meta), Crash Data + Other Data not linked (FBSDKCoreKit's own manifest).
+    # JSON, PrivacyInfo.xcprivacy ile tutarli: only Purchase History (RevenueCat), not linked, no tracking.
     # DIKKAT: Bu action ASC API key DEGIL Apple ID oturumu kullanir (2FA isteyebilir);
     # JSON semasini ilk kosuda ASC'de dogrula.
     # Privacy details need an interactive Apple ID password; they only need to be
@@ -198,11 +160,10 @@ platform :ios do
 
   desc "Sadece binary yukle (revizyon) — metadata/screenshot'a dokunmaz"
   lane :upload_build do
-    meta_token_ready!
     unlock_signing_keychain
     regenerate_project
     key = asc_key
-    gym(
+    without_build_secrets do gym(
       scheme: "ArrowOut",
       export_method: "app-store",
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
@@ -216,8 +177,7 @@ platform :ios do
       output_directory: "build",
       include_symbols: false,   # RFIX (ruling 55(b), VERIFY F4): a dSYM-less IPA; the archive keeps the dSYM locally
       clean: true
-    )
-    meta_token_in_ipa!(lane_context[SharedValues::IPA_OUTPUT_PATH])
+    ) end
     ipa_provenance_clean!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     deliver(
       api_key: key,

@@ -85,18 +85,18 @@ private struct RaceBand: View {
             let w = geo.size.width, h = geo.size.height
             let side: CGFloat = 40
             ZStack(alignment: .topLeading) {
-                t.color("raceBar.outline", 0x00464E).frame(width: w, height: h)
-                t.color("raceBar.rail", 0x40BCAC).frame(width: w, height: 17).offset(y: 1.3)
-                LinearGradient(colors: [Color(hex: 0x007470), Color(hex: 0x00867F)], startPoint: .top, endPoint: .bottom)
+                t.color("raceBar.outline", Skin.popupsRaceBarRaceBarOutline).frame(width: w, height: h)
+                t.color("raceBar.rail", Skin.popupsRaceBarRaceBarRail).frame(width: w, height: 17).offset(y: 1.3)
+                LinearGradient(colors: [Color(hex: Skin.popupsRaceBarRaceBandColors0), Color(hex: Skin.popupsRaceBarRaceBandColors1)], startPoint: .top, endPoint: .bottom)
                     .frame(width: w - 2 * (side + 80), height: 17).offset(x: side + 80, y: 1.3)
                 ForEach([side + 35, w - side - 35], id: \.self) { x in
-                    Circle().fill(RadialGradient(colors: [Color(hex: 0xB7DAD2), Color(hex: 0x39A496)], center: UnitPoint(x: 0.42, y: 0.38),
+                    Circle().fill(RadialGradient(colors: [Color(hex: Skin.popupsRaceBarRaceBandColors0V2), Color(hex: Skin.popupsRaceBarRaceBandColors1V2)], center: UnitPoint(x: 0.42, y: 0.38),
                                                  startRadius: 0, endRadius: 6))
-                        .overlay(Circle().stroke(Color(hex: 0x00706B), lineWidth: 1.2))
+                        .overlay(Circle().stroke(Color(hex: Skin.popupsRaceBarRaceBandStroke), lineWidth: 1.2))
                         .frame(width: 11.5, height: 11.5).position(x: x, y: 9.8)
                 }
-                t.color("band.railLine", 0x007371).frame(width: w, height: 1.3).offset(y: 18.3)
-                LinearGradient(colors: t.colors("raceBar.field", [0x007874, 0x007874, 0x006E6B]), startPoint: .top, endPoint: .bottom)
+                t.color("band.railLine", Skin.popupsRaceBarBandRailLine).frame(width: w, height: 1.3).offset(y: 18.3)
+                LinearGradient(colors: t.colors("raceBar.field", [Skin.popupsRaceBarRaceBarField0, Skin.popupsRaceBarRaceBarField1, Skin.popupsRaceBarRaceBarField2]), startPoint: .top, endPoint: .bottom)
                     .frame(width: w, height: h - 19.6).offset(y: 19.6)
                 Chequer(t: t).frame(width: 16, height: h - 19.6).offset(x: side + 377, y: 19.6)
             }
@@ -115,7 +115,7 @@ private struct Chequer: View {
             while y < size.height {
                 var x: CGFloat = row % 2 == 0 ? 0 : s
                 while x < size.width {
-                    ctx.fill(Path(CGRect(x: x, y: y, width: s, height: s)), with: .color(t.color("raceBar.chequer", 0x203131)))
+                    ctx.fill(Path(CGRect(x: x, y: y, width: s, height: s)), with: .color(t.color("raceBar.chequer", Skin.popupsRaceBarRaceBarChequer)))
                     x += 2 * s
                 }
                 y += s; row += 1
@@ -128,13 +128,13 @@ private struct RacePlate: View {
     let frame: CGRect
     let t: Tokens
     var body: some View {
-        let style = t.text("raceBar.plate.t", .s2(17.8, -0.31, [0xFFFFFF], outline: 0x7D0C02, 1.3, drop: 1.0))
+        let style = t.text("raceBar.plate.t", .s2(17.8, -0.31, [Skin.popupsRaceBarRaceBarPlateT0], outline: Skin.popupsRaceBarRaceBarPlateTOutline, 1.3, drop: 1.0))
         ZStack {
             Rasterized("racePlate", overflow: 2) { _ in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color(hex: 0xB85A00))
+                    RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color(hex: Skin.popupsRaceBarRacePlateFill))
                     RoundedRectangle(cornerRadius: 5.2, style: .continuous)
-                        .fill(LinearGradient(colors: [Color(hex: 0xFFE34A), Color(hex: 0xFFC400), Color(hex: 0xF7A500)],
+                        .fill(LinearGradient(colors: [Color(hex: Skin.popupsRaceBarRacePlateColors0), Color(hex: Skin.popupsRaceBarRacePlateColors1), Color(hex: Skin.popupsRaceBarRacePlateColors2)],
                                              startPoint: .top, endPoint: .bottom))
                         .padding(1.2)
                 }
@@ -159,28 +159,28 @@ private struct RaceTile: View {
         let me = lane.isMe
         let tile = me ? CGRect(x - 3, 730.6, 65.7, 107.1) : CGRect(x, 736.6, 59.7, 96.4)
         let name = t.text(me ? "raceBar.tileMe.n" : "raceBar.tileOther.n",
-                          me ? .s2(15.1, -0.3, [0x7B3B00]) : .s2(15.3, 0.05, [0x5A2801]))
+                          me ? .s2(15.1, -0.3, [Skin.popupsRaceBarRaceTileNameText0]) : .s2(15.3, 0.05, [Skin.popupsRaceBarRaceTileNameText0V2]))
         let prog = t.text(me ? "raceBar.tileMe.p" : "raceBar.tileOther.p",
-                          me ? .s2(17.5, 0.3, [0xFFF8EA], outline: 0x833E00, 1.0, drop: 0.6) : .s2(17.5, 0.3, [0xF7EBD9], outline: 0x5A2801, 1.0, drop: 0.6))
-        let rank = t.text("raceBar.rankBubble.r", .s2(16.8, 0, [0xFFFFFF], outline: 0x7D0C02, 1.3, drop: 0.87))
+                          me ? .s2(17.5, 0.3, [Skin.popupsRaceBarRaceTileProgText0], outline: Skin.popupsRaceBarRaceTileProgOutline, 1.0, drop: 0.6) : .s2(17.5, 0.3, [Skin.popupsRaceBarRaceTileProgText0V2], outline: Skin.popupsRaceBarRaceTileProgOutlineV2, 1.0, drop: 0.6))
+        let rank = t.text("raceBar.rankBubble.r", .s2(16.8, 0, [Skin.popupsRaceBarRaceBarRankBubbleR0], outline: Skin.popupsRaceBarRaceBarRankBubbleROutline, 1.3, drop: 0.87))
         ZStack(alignment: .topLeading) {
             Rasterized("raceTile|\(me)", overflow: 3) { _ in TileFace(me: me) }.placed(tile)
             AvatarPortrait(index: lane.avatar, me: me).placed(CGRect(tile.midX - 22, tile.minY + 13.5, 44, 44))
             GameText(verbatim: lane.name, style: name, maxWidth: 54).at(tile.midX, name.capCentre(baseline: tile.minY + (me ? 73.2 : 69.6)))
-            Capsule().fill(Color(hex: me ? 0xB56010 : 0xD2A068)).frame(width: 44, height: 20)
+            Capsule().fill(Color(hex: me ? Skin.popupsRaceBarRaceTileFillMe : Skin.popupsRaceBarRaceTileFillNotMe)).frame(width: 44, height: 20)
                 .position(x: tile.midX, y: tile.minY + (me ? 88.5 : 83.3))
             GameText(verbatim: "\(lane.progress)/\(goal)", style: prog, maxWidth: 40)
                 .scaleEffect(CGFloat(pop))
                 .at(tile.midX, prog.capCentre(baseline: tile.minY + (me ? 94.4 : 89.0)))
             if leader {
-                InkImage(art: .rankBadgeGold, ink: CGRect(tile.midX - 16, tile.minY - 19, 32, 32))
+                InkImage(art: .rank1Badge, ink: CGRect(tile.midX - 16, tile.minY - 19, 32, 32))
                 GameText(verbatim: "1", style: rank).at(tile.midX, rank.capCentre(baseline: tile.minY + 2.5))
             } else {
                 ZStack {
-                    Circle().fill(Color(hex: 0x993C27))
-                    Circle().fill(LinearGradient(colors: [Color(hex: 0xF8EBD7), Color(hex: 0xEACDA5)], startPoint: .top, endPoint: .bottom))
+                    Circle().fill(Color(hex: Skin.popupsRaceBarRaceTileFill))
+                    Circle().fill(LinearGradient(colors: [Color(hex: Skin.popupsRaceBarRaceTileColors0), Color(hex: Skin.popupsRaceBarRaceTileColors1)], startPoint: .top, endPoint: .bottom))
                         .padding(1.3)
-                    Circle().fill(Color(hex: me ? 0xCF7310 : 0xD55842)).padding(4.2)
+                    Circle().fill(Color(hex: me ? Skin.popupsRaceBarRaceTileFillMeV2 : Skin.popupsRaceBarRaceTileFillNotMeV2)).padding(4.2)
                 }
                 .frame(width: 25, height: 25).position(x: tile.midX, y: tile.minY - 3)
                 GameText(verbatim: "\(lane.rank)", style: rank).at(tile.midX, rank.capCentre(baseline: tile.minY + 2.8))
@@ -196,36 +196,34 @@ private struct TileFace: View {
     let me: Bool
     var body: some View {
         ZStack {
-            Superellipse(n: 5.3).fill(Color(hex: me ? 0x934400 : 0x946023))
+            Superellipse(n: 5.3).fill(Color(hex: me ? Skin.popupsRaceBarTileFaceFillMe : Skin.popupsRaceBarTileFaceFillNotMe))
             Superellipse(n: 5.3)
-                .fill(LinearGradient(colors: me ? [Color(hex: 0xFFDA7B), Color(hex: 0xFCA421), Color(hex: 0xE07F0A)]
-                                              : [Color(hex: 0xFDF7ED), Color(hex: 0xF4E8D4), Color(hex: 0xE9D4B7)],
+                .fill(LinearGradient(colors: me ? [Color(hex: Skin.popupsRaceBarTileFaceColorsMe0), Color(hex: Skin.popupsRaceBarTileFaceColorsMe1), Color(hex: Skin.popupsRaceBarTileFaceColorsMe2)]
+                                              : [Color(hex: Skin.popupsRaceBarTileFaceColorsNotMe0), Color(hex: Skin.popupsRaceBarTileFaceColorsNotMe1), Color(hex: Skin.popupsRaceBarTileFaceColorsNotMe2)],
                                      startPoint: .top, endPoint: .bottom))
                 .padding(EdgeInsets(top: 1.2, leading: 1.2, bottom: 3.2, trailing: 1.2))
         }
     }
 }
 
-/// A player's portrait in the blue AvatarFrame ring (the player's own in green): index 0 = the default silhouette, 1…8 = the
-/// shipped portraits (SPEC-ui §2.14.2 index table: Walkie, CapGlasses, Detective, Burger, Scientist, Party, BoxHead, Notebook).
+/// A player's portrait in the blue AvatarFrame ring (the player's own in green): index 0 = the default silhouette (drawn), 1…8 =
+/// the skin's portraits (the `avatar.<n>` slots, `Avatars`: the same index table as Profile and the leaderboards).
 struct AvatarPortrait: View {
     let index: Int
     var me = false
-
-    static let files = ["Walkie", "CapGlasses", "Detective", "Burger", "Scientist", "Party", "BoxHead", "Notebook"]
 
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width
             ZStack {
-                Superellipse(n: 3.5).fill(Color(hex: me ? 0xA3530F : 0x164E4E))
+                Superellipse(n: 3.5).fill(Color(hex: me ? Skin.popupsRaceBarAvatarPortraitFillMe : Skin.popupsRaceBarAvatarPortraitFillNotMe))
                 Superellipse(n: 3.5)
-                    .fill(LinearGradient(colors: me ? [Color(hex: 0xF4D57F), Color(hex: 0xFEBB32)] : [Color(hex: 0x14A899), Color(hex: 0x00827B)],
+                    .fill(LinearGradient(colors: me ? [Color(hex: Skin.popupsRaceBarAvatarPortraitColorsMe0), Color(hex: Skin.popupsRaceBarAvatarPortraitColorsMe1)] : [Color(hex: Skin.popupsRaceBarAvatarPortraitColorsNotMe0), Color(hex: Skin.popupsRaceBarAvatarPortraitColorsNotMe1)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1)
                 Group {
-                    if index >= 1 && index <= Self.files.count {
-                        PathImage(path: "Art/char_avatar\(Self.files[index - 1])@3x.png", maxPixel: Int(w * 3))
+                    if index >= 1 && index < Avatars.count {
+                        PathImage(path: Avatars.art(index).path, maxPixel: Int(w * 3))
                     } else {
                         DefaultSilhouette()
                     }
@@ -243,9 +241,9 @@ struct DefaultSilhouette: View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height
             ZStack {
-                Color(hex: 0x829992)
-                Circle().fill(Color(hex: 0x6C7F79)).frame(width: w * 0.46, height: w * 0.46).offset(y: -h * 0.1)
-                Ellipse().fill(Color(hex: 0x6C7F79)).frame(width: w * 0.98, height: h * 0.62).offset(y: h * 0.44)
+                Color(hex: Skin.popupsRaceBarDefaultSilhouette)
+                Circle().fill(Color(hex: Skin.popupsRaceBarDefaultSilhouetteFill)).frame(width: w * 0.46, height: w * 0.46).offset(y: -h * 0.1)
+                Ellipse().fill(Color(hex: Skin.popupsRaceBarDefaultSilhouetteFill)).frame(width: w * 0.98, height: h * 0.62).offset(y: h * 0.44)
             }
         }
     }

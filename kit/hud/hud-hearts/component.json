@@ -1,0 +1,32 @@
+{
+ "id": "hud-hearts",
+ "title": "HUD hearts row",
+ "category": "hud",
+ "summary": "Three heart slots; the rightmost full heart breaks on a mistake (right to left).",
+ "description": "HeartsRow draws HUDModel.hearts (full / lost / empty) with the break animation; used by a hearts fail rule.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/HUD/HeartsRow.swift"
+ ],
+ "depends": [
+  "core",
+  "hud",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "hud.heart.full",
+   "hud.heart.halves",
+   "hud.heart.lost"
+  ],
+  "tuning": [
+   "ui.json:anchors.hud",
+   "ui.json:frames.hud",
+   "ui.json:hud.heartInkScale"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab hud:hearts1",
+  "-pc.go shelllab -pc.lab hudBreak"
+ ]
+}

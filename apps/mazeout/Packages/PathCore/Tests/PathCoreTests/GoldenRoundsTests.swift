@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// §4.17 GoldenRoundsTests (C2): the golden test from REAL PLAY. Every arrow the phone bot tapped on the owner's phone
 /// (research/bot/log.jsonl, result == "tapped", L32–L61; 1697 taps, no heart lost to a bot tap: research/levels.md) must be

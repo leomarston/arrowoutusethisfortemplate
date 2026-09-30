@@ -372,7 +372,7 @@ apps/mazeout/
 │  │  ├─ Popups/ PopupHost, PopupChrome, PausePopup, QuitLevelPopup, SettingsPopup                              S1
 │  │  │         OutOfTimePopup, ContinuePopup, LevelFailedPopup, WinPanel, StreakBanner, RaceBar,
 │  │  │         UnlockOverlay, ClaimRewardPopup, TutorialLayer, ShellLab+Popups                                 S2
-│  │  │         UsernamePopup, EditProfilePopup, NoLivesPopup, BoosterBuyPopup, ShellLab+Meta                  S3
+│  │  │         UsernamePopup, EditProfilePopup, NoLivesPopup, BoosterBuyPopup, S3Hooks                        S3
 │  │  ├─ Shop/  ShopView, StoreService, FakeStore                                 S3
 │  │  ├─ Profile/ ProfileView                                                     S3
 │  │  └─ Social/ SocialModel, LeaderboardView, LeaderboardRow, WeeklyContestIntro, WeeklyContestTutorial,

@@ -1,0 +1,35 @@
+{
+  "about": "Skin scenes: what the home and Loading scenes draw, back to front, on the 393 x 852 reference canvas. `art` names a slot of skin/art.json, `rig` / `centrepiece` a rig slot (its motion: ui.json puppet.<rig folder>); `frame` is the ui.json frames key that places it (tunable without a build) and `at` its default rect [x, y, w, h] in pt; `fill` draws the art aspect-fill over `at`; `only` / `excluding` name a `rigParts` set (a rig split around another layer). Edit, then python3 tools/skin/art.py (docs/SKIN.md §4).",
+  "rigParts": {
+    "home.character.main": {
+      "arms": ["armL", "armR", "armR_point"]
+    }
+  },
+  "home": {
+    "back": [
+      {"art": "home.backdrop", "fill": true, "at": [0, 0, 393, 852]},
+      {"rig": "home.character.main", "excluding": "arms"},
+      {"art": "home.station", "frame": "home.scene.console", "at": [109, 176, 191, 192]},
+      {"rig": "home.character.main", "only": "arms"},
+      {"art": "home.floor", "frame": "home.scene.platform", "at": [0, 576, 393, 182]},
+      {"art": "home.stand", "frame": "home.scene.capsuleMachine", "at": [95, 365, 206, 215]},
+      {"centrepiece": "home.centrepiece", "frame": "home.scene.arrowPile", "at": [101.5, 385.96, 190, 128]}
+    ],
+    "front": [
+      {"rig": "home.character.left"},
+      {"rig": "home.character.right"}
+    ]
+  },
+  "loading": {
+    "backdrop": "loading.backdrop",
+    "logo": "logo.main",
+    "cast": [
+      {"art": "loading.cast.1", "at": [-6.0, 434.0, 96.0, 76.0]},
+      {"art": "loading.cast.2", "at": [270.75, 399.56, 153.0, 144.0]},
+      {"art": "loading.cast.3", "at": [81.26, 334.28, 210.0, 250.0]},
+      {"art": "loading.cast.4", "at": [208.7, 153.69, 170.0, 160.0]},
+      {"art": "loading.cast.5", "at": [208.55, 545.69, 180.0, 220.0]},
+      {"art": "loading.cast.6", "at": [-9.91, 573.89, 270.0, 280.0]}
+    ]
+  }
+}

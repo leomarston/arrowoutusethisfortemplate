@@ -29,7 +29,9 @@ import sys
 import urllib.parse
 import urllib.request
 
-DEVICE = os.environ.get("PHONE_DEVICE", "878DB538-F187-596F-B24B-EAF8853617DE")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # <repo>/tools
+import machine  # noqa: E402
+DEVICE = machine.get("PHONE_DEVICE")   # the CoreDevice id, from <repo>/machine.env (checked where it is used)
 PORT = 8100
 CACHE = "/tmp/phonedriver-tunnel-ip"
 
@@ -37,7 +39,7 @@ CACHE = "/tmp/phonedriver-tunnel-ip"
 def tunnel_ip(refresh=False):
     if not refresh and os.path.exists(CACHE):
         return open(CACHE).read().strip()
-    out = subprocess.run(["xcrun", "devicectl", "device", "info", "details", "--device", DEVICE],
+    out = subprocess.run(["xcrun", "devicectl", "device", "info", "details", "--device", machine.require("PHONE_DEVICE")],
                          capture_output=True, text=True).stdout
     for line in out.splitlines():
         if "tunnelIPAddress" in line:
@@ -68,7 +70,7 @@ def main(argv):
         return
     cmd, args = argv[0], argv[1:]
     if cmd == "apps":
-        subprocess.run(["xcrun", "devicectl", "device", "info", "apps", "--device", DEVICE, "--include-all-apps"])
+        subprocess.run(["xcrun", "devicectl", "device", "info", "apps", "--device", machine.require("PHONE_DEVICE"), "--include-all-apps"])
         return
     capture = os.path.join(os.path.dirname(os.path.abspath(__file__)), "capture", "build")
     if cmd in ("grab", "rec"):

@@ -47,7 +47,8 @@ Run everything from `apps/mazeout`. Keep each command under ~4 min; multiprocess
 sh art/pipeline/render/build.sh                  # -> build/art/mfrender (swiftc, ~1 min; not xcodebuild)
 # svg.py compiles build/ui-art/svgr itself on first use
 xcrun swiftc -O -parse-as-library -target arm64-apple-macos15.0 -o build/ui-art/swiftuirender \
-    art/ui/code/GlossyChrome.swift art/ui/tools/swiftui_render.swift     # ~40 s
+    art/ui/code/GlossyChrome.swift App/Shell/Components/SkinColors.generated.swift \
+    art/ui/tools/swiftui_render.swift     # ~40 s (the colours are skin tokens: docs/SKIN.md)
 ```
 
 ## Naming and sizes

@@ -18,7 +18,7 @@ struct GameScreen: View {
         // `_ZStackLayout.sizeThatFits` → `explicitAlignment`). A3 tried it once under host load and saw no change; re-measured
         // here by the cut's own main-thread CPU (CutProbe), A/B on one build machine state.
         LayerStack {
-            BoardHost(board: app.board)
+            PuzzleBoardHost(board: game.board)                  // the active module's board (ArrowEscape: the BoardEngine)
                 .ignoresSafeArea()
             HUDView(model: app.hud, actions: HUDActions(back: { game.flow.back() }, pause: { game.flow.pause() },
                                                         booster: { game.boosterTapped($0) }))

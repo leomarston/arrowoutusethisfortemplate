@@ -95,26 +95,25 @@ import PathCore
     // with and without `confirmIn:`). The purchase-result mapping is covered by the FakeStore path (ShellS3Tests, ShellS3UITests);
     // the grant-once / replay logic by the session-made transactions above.
 
-    // MARK: VERIFY (2026-09-29, META): the StoreKit half of the Meta purchase event
+    // MARK: the purchase-report hook (Support/Attribution.swift): what a game's attribution SDK would receive
 
-    /// Records what the pipeline reports to Meta (MetaAds in the app).
-    private final class MetaReportRecorder: PurchaseReporting {
+    /// Records what the pipeline reports (a game's attribution adapter in an app that has one).
+    private final class ReportRecorder: PurchaseReporting {
         var values: [PurchaseValue] = []
         func purchaseCompleted(_ value: PurchaseValue) { values.append(value) }
     }
 
-    private func makeReportingService(_ reporter: MetaReportRecorder) -> StoreService {
+    private func makeReportingService(_ reporter: ReportRecorder) -> StoreService {
         StoreService(catalogue: rules.shop, reporter: reporter) { [unowned self] pid, tid in
             Economy.applyPurchase(&self.state, productID: pid, transactionID: tid, now: Date(), rules: self.rules)
         }
     }
 
-    /// A REAL StoreKit transaction (the session buys, `Transaction.updates` delivers it to the service) reaches the Meta
-    /// reporter exactly once with StoreKit's own price, currency and quantity (`StoreKitDelivery.value`: MetaEventsTests
-    /// feeds hand-made values, so this is the only proof of the Transaction → PurchaseValue mapping), and the event built
-    /// from it is the fb_mobile_purchase Meta receives. The replay of the same transaction reports nothing.
-    func testASessionPurchaseReachesMetaWithTheTransactionsPriceAndCurrency() async throws {
-        let reporter = MetaReportRecorder()
+    /// A REAL StoreKit transaction (the session buys, `Transaction.updates` delivers it to the service) reaches the
+    /// reporter exactly once with StoreKit's own price, currency and quantity (`StoreKitDelivery.value`, the proof of the
+    /// Transaction → PurchaseValue mapping). The replay of the same transaction reports nothing.
+    func testASessionPurchaseReachesTheReporterWithTheTransactionsPriceAndCurrency() async throws {
+        let reporter = ReportRecorder()
         let svc = makeReportingService(reporter)
         await svc.start()
         let pid = "com.manycode.arrowout.coins.1000"
@@ -122,7 +121,7 @@ import PathCore
         let product = try XCTUnwrap(priced.first, "the local catalogue prices \(pid)")
         let tx = try await session.buyProduct(identifier: pid)
         let arrived = await eventually { reporter.values.count == 1 }
-        XCTAssertTrue(arrived, "the granted transaction was reported to Meta")
+        XCTAssertTrue(arrived, "the granted transaction was reported")
         let v = try XCTUnwrap(reporter.values.first)
         XCTAssertEqual(v.productID, pid)
         XCTAssertEqual(v.transactionID, String(tx.id), "the transaction that was granted")
@@ -132,26 +131,9 @@ import PathCore
         XCTAssertEqual(v.currency, try XCTUnwrap(tx.currency?.identifier), "StoreKit's recorded currency")
         XCTAssertEqual(v.currency, "USD", "the configuration's storefront is USA")
         XCTAssertEqual(v.quantity, 1)
-        let e = try XCTUnwrap(MetaEvents.purchase(v), "a priced purchase is revenue")
-        XCTAssertEqual(e.name, "fb_mobile_purchase")
-        XCTAssertEqual(try XCTUnwrap(e.valueToSum), NSDecimalNumber(decimal: product.price).doubleValue, accuracy: 0.000_001)
-        XCTAssertEqual(e.parameters["fb_currency"], .text("USD"))
-        XCTAssertEqual(e.parameters["fb_content_id"], .text(pid))
-        print("[VERIFY][meta] session purchase \(pid): reported \(v.amount) \(v.currency) tx \(v.transactionID) (displayPrice \(product.displayPrice))")
-        // RFIX 2026-09-29: StoreKit's own environment rides along, and MetaAds sends only production money: this SKTestSession
-        // transaction (like a TestFlight / App Review sandbox purchase) is test money and never reaches Meta as revenue
+        // StoreKit's own environment rides along: this SKTestSession transaction (like a TestFlight / App Review sandbox
+        // purchase) is test money, which a reporter must not count as revenue
         XCTAssertEqual(v.environment, .xcode, "Transaction.environment of an SKTestSession purchase")
-        XCTAssertFalse(MetaEvents.isRevenue(v))
-        final class Sink: MetaEventSink {
-            var events: [MetaEvent] = []
-            func start(idfa: Bool) {}
-            func activate() {}
-            func log(_ event: MetaEvent) { events.append(event) }
-            func setIDFACollection(_ on: Bool) {}
-        }
-        let sink = Sink()
-        MetaAds(mode: .live, sink: sink).purchaseCompleted(v)
-        XCTAssertEqual(sink.events, [], "a live reporter logs it and sends nothing")
         // the same transaction delivered again: no grant, so no second report
         let replay = try XCTUnwrap(svc.lastVerification)
         let again = await svc.handle(replay)
@@ -163,18 +145,18 @@ import PathCore
     /// recorded for THAT transaction.
     func testTheReportedCurrencyFollowsTheTransactionsStorefront() async throws {
         session.storefront = "TUR"
-        let reporter = MetaReportRecorder()
+        let reporter = ReportRecorder()
         let svc = makeReportingService(reporter)
         await svc.start()
         let tx = try await session.buyProduct(identifier: "com.manycode.arrowout.coins.1000")
         let arrived = await eventually { reporter.values.count == 1 }
-        XCTAssertTrue(arrived, "the granted transaction was reported to Meta")
+        XCTAssertTrue(arrived, "the granted transaction was reported")
         let v = try XCTUnwrap(reporter.values.first)
         XCTAssertEqual(v.currency, try XCTUnwrap(tx.currency?.identifier), "the transaction's own currency")
         XCTAssertEqual(v.amount, try XCTUnwrap(tx.price), "the transaction's own price")
         XCTAssertEqual(tx.storefront.countryCode, "TUR")
         XCTAssertEqual(v.environment, .xcode, "RFIX: the transaction's own environment (never revenue in a StoreKit test)")
-        print("[VERIFY][meta] TUR storefront purchase: reported \(v.amount) \(v.currency) (transaction currency \(tx.currency?.identifier ?? "nil"))")
+        print("[VERIFY][report] TUR storefront purchase: reported \(v.amount) \(v.currency) (transaction currency \(tx.currency?.identifier ?? "nil"))")
     }
 
     func testUnknownProductFailsWithoutGrant() async {

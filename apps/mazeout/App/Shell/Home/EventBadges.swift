@@ -157,9 +157,9 @@ enum EventBadgeKind: String, CaseIterable, Hashable {
     /// A4 (R3 HOME, art/lanes/home.handoff.json "badges"): the D1 badge's full render (the preload and the fallback)…
     var art: UIArt {
         switch self {
-        case .streakRace: return .badgeHotStreak
-        case .rocketRace: return .badgeRocketRally
-        case .skyJump: return .badgeCloudHop
+        case .streakRace: return .eventStreakRaceBadge
+        case .rocketRace: return .eventRocketRaceBadge
+        case .skyJump: return .eventSkyJumpBadge
         }
     }
 
@@ -167,9 +167,9 @@ enum EventBadgeKind: String, CaseIterable, Hashable {
     /// the pennants wave, the rocket lifts off in its exhaust, the drum hops; the phases stagger them).
     var rig: String {
         switch self {
-        case .streakRace: return "badge_hotstreak_rig"
-        case .rocketRace: return "badge_rocketrally_rig"
-        case .skyJump: return "badge_cloudhop_rig"
+        case .streakRace: return ArtRig.eventStreakRaceBadge.folder
+        case .rocketRace: return ArtRig.eventRocketRaceBadge.folder
+        case .skyJump: return ArtRig.eventSkyJumpBadge.folder
         }
     }
 }
@@ -218,9 +218,9 @@ struct EventBadge: View {
 
     private var riderSpec: (String, CGPoint, GameTextStyle) {
         if kind == .rocketRace {
-            return ("rocket", CGPoint(x: 40.0, y: 30.45), GameTextStyle.s2(20, 0, [0xFFFFFF], outline: 0x073A3E, 1.6, drop: 1.0))
+            return ("rocket", CGPoint(x: 40.0, y: 30.45), GameTextStyle.s2(20, 0, [Skin.homeEventBadgesEventBadgeRiderSpec0], outline: Skin.homeEventBadgesEventBadgeRiderSpecOutline, 1.6, drop: 1.0))
         }
-        return ("drum", CGPoint(x: 40.0, y: 32.63), GameTextStyle.s2(15.6, 0, [0xFFFFFF], outline: 0xC14F67, 1.4, drop: 0.8))
+        return ("drum", CGPoint(x: 40.0, y: 32.63), GameTextStyle.s2(15.6, 0, [Skin.homeEventBadgesEventBadgeRiderSpec0], outline: Skin.homeEventBadgesEventBadgeRiderSpecOutlineV2, 1.4, drop: 0.8))
     }
 
     private var label: LocalizedStringResource {
@@ -267,7 +267,7 @@ struct EventBadge: View {
     @ViewBuilder private func pedestal(_ s: BadgeState) -> some View {
         let blue = kind == .streakRace
         if s.join {
-            let st = t.text("home.eventBadge.join", .s2(10.8, -0.3, [0xFFFFFF], outline: 0x49142B, 0.9, drop: 0.9))
+            let st = t.text("home.eventBadge.join", .s2(10.8, -0.3, [Skin.homeEventBadgesHomeEventBadgeJoin0], outline: Skin.homeEventBadgesHomeEventBadgeJoinOutline, 0.9, drop: 0.9))
             GameText("Join", style: st, maxWidth: 50).at(40.6, st.capCentre(baseline: CGFloat(t.number("home.eventBadge.textBaseline", 71.0))))
         } else if let c = s.countdown {
             let st = Self.pedestalStyle(t, blue: blue)
@@ -292,7 +292,7 @@ struct EventBadge: View {
     /// The pedestal's countdown style (B1b: shared with the Finished prewarm, so both hit the same GameText raster).
     static func pedestalStyle(_ t: Tokens, blue: Bool) -> GameTextStyle {
         t.text(blue ? "home.eventBadge.streakTimer" : "home.eventBadge.timer",
-               .s2(13.0, -0.35, [0xFFFFFF], outline: blue ? 0x02464D : 0x49142B, 1.0, drop: 0.9))
+               .s2(13.0, -0.35, [Skin.homeEventBadgesEventBadgePedestalStyleText0], outline: blue ? Skin.homeEventBadgesEventBadgePedestalStyleOutlineBlue : Skin.homeEventBadgesEventBadgePedestalStyleOutlineNotBlue, 1.0, drop: 0.9))
     }
     /// B1b: the width "Finished" is fitted to on the pedestal (v582's ≈ 41 pt, PH-0a).
     static func finishedMaxWidth(_ t: Tokens) -> CGFloat { CGFloat(t.number("home.eventBadge.finishedMaxWidth", 44)) }
@@ -301,10 +301,10 @@ struct EventBadge: View {
     /// on the drum (15.6 pt, outline #DB2B6E) (VERIFIED 173 "4", 070 "0").
     @ViewBuilder private func artNumber(_ n: Int) -> some View {
         if kind == .rocketRace {
-            let st = GameTextStyle.s2(20, 0, [0xFFFFFF], outline: 0x073A3E, 1.6, drop: 1.0)
+            let st = GameTextStyle.s2(20, 0, [Skin.homeEventBadgesEventBadgeArtNumberSt0], outline: Skin.homeEventBadgesEventBadgeArtNumberStOutline, 1.6, drop: 1.0)
             GameText(verbatim: "\(n)", style: st).at(40.6, st.capCentre(baseline: 39))
         } else {
-            let st = GameTextStyle.s2(15.6, 0, [0xFFFFFF], outline: 0xC14F67, 1.4, drop: 0.8)
+            let st = GameTextStyle.s2(15.6, 0, [Skin.homeEventBadgesEventBadgeArtNumberSt0], outline: Skin.homeEventBadgesEventBadgeArtNumberStOutlineV2, 1.4, drop: 0.8)
             GameText(verbatim: "\(n)", style: st).at(40.2, st.capCentre(baseline: 40.5))
         }
     }
@@ -371,8 +371,8 @@ private struct NewsDot: View {
     var body: some View {
         Rasterized("newsDot", overflow: 1) { size in
             ZStack {
-                Circle().fill(Color(hex: 0x711910))
-                Circle().fill(RadialGradient(colors: [Color(hex: 0xEF7865), Color(hex: 0xED5945), Color(hex: 0xCA3525)],
+                Circle().fill(Color(hex: Skin.homeEventBadgesNewsDotFill))
+                Circle().fill(RadialGradient(colors: [Color(hex: Skin.homeEventBadgesNewsDotColors0), Color(hex: Skin.homeEventBadgesNewsDotColors1), Color(hex: Skin.homeEventBadgesNewsDotColors2)],
                                              center: UnitPoint(x: 0.45, y: 0.35), startRadius: 0, endRadius: size.width * 0.5))
                     .padding(1.1)
                 Capsule().fill(Color.white).frame(width: size.width * 0.16, height: size.height * 0.40).offset(y: -size.height * 0.08)

@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1: the ◆ SocialWorld surface as SOC2 / GAME / C3 will call it (SPEC-architecture §4.10-§4.11; SPEC-social §3).
 

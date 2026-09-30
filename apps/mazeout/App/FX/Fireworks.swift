@@ -16,7 +16,7 @@ struct FireworkSpec {
     var speedMin = 260.0
     var speedMax = 420.0
     var life = 0.8
-    var colors: [UIColor] = [0xFFFFFF, 0xFFFFFF, 0x8D5FFF, 0x4079FF, 0xFF2FC6, 0xFFCE01].map { UIColor(rgb: $0) }
+    var colors: [UIColor] = [Skin.fxFireworksFireworkSpecColors0, Skin.fxFireworksFireworkSpecColors1, Skin.fxFireworksFireworkSpecColors2, Skin.fxFireworksFireworkSpecColors3, Skin.fxFireworksFireworkSpecColors4, Skin.fxFireworksFireworkSpecColors5].map { UIColor(rgb: $0) }
     var launchX: [Double] = [150, 240, 120, 270, 200, 170]
     var flash = 0.08
 

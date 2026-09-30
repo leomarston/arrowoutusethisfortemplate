@@ -20,10 +20,8 @@ import PathCore
 //       show on the pill), (3) the Rocket Race result page after a lost race, (4) offers (Rocket Race after L55, Sky Jump after
 //       L40, once per event day), (5) the day's Streak Race list (first home of the event day after L30), (6) the Claw
 //       Challenge's first-open page after the L32 win — (3)–(6) are SOC2's screens and are skipped (logged) until SOC2's
-//       panels / pages exist (`PopupContent.hasPanel`, `G2Hooks.eventPagesInstalled`); then (7) the rating prompt; then
-//       (8) META: the one-time App Tracking Transparency prompt (`TrackingPrompt`: after the FTUE, never in the visit that
-//       showed the rating sheet; the queue does not wait for its answer). At the arrival itself: the FTUE-end event
-//       (`MetaAds.ftueEndedIfNeeded`, once per install);
+//       panels / pages exist (`PopupContent.hasPanel`, `G2Hooks.eventPagesInstalled`); then (7) the rating prompt (a game
+//       that adds an attribution SDK puts its one-time tracking prompt after it: docs/recipes/ad-attribution.md);
 //     - a foreground on home refreshes the same way (§8.6).
 //     - B1 (PUBLISH item 14; events.md §6.2) while the weekly rotation runs: after the claims and the Rocket result, the
 //       WEEK-START pages — once per featured event per week, the event's own page (the ladder: Treasure Climb / Up & Away,
@@ -55,8 +53,9 @@ import PathCore
 
     private var services: GameServices { game.services }
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for out in outputs {
+            guard case .meta(let e) = out else { continue }
             if case .won = e {
                 // G1 banked the win in the same batch (WinDirector ran before this director): log its outcomes
                 let outcomes = game.win.outcomes
@@ -91,25 +90,8 @@ import PathCore
 
     // MARK: log helpers
 
-    static func describe(_ o: EventOutcome) -> String {
-        switch o {
-        case .multiplier(let a, let b): return "streak multiplier x\(a) → x\(b)"
-        case .clawPoints(let added, let total, let target): return "clawChallenge +\(added) → \(total)/\(target)"
-        case .clawStep(let step, let reward): return "clawChallenge step \(step) completed: \(reward)"
-        case .streakRaceScore(let n): return "streakRace score \(n)"
-        case .skyJumpProgress(let n, let of): return "skyJump progress \(n)/\(of)"
-        case .skyJumpWon(let share, let winners): return "skyJump won: \(share) coins (\(winners) winners)"
-        case .skyJumpFailed: return "skyJump failed"
-        case .rocketProgress(let n): return "rocketRace progress \(n)"
-        case .rocketFinished(let rank, let reward): return "rocketRace finished rank \(rank)\(reward.map { " \($0)" } ?? "")"
-        case .weeklyScore(let n): return "weeklyContest score \(n)"
-        case .grant(let g): return "grant \(g)"
-        // A0: contract amend 4 (SPEC.md §5 item 42), Balloon Rise (v582 rules); B1 emits these
-        case .balloonStreak(let added, let total, let goal): return "balloonRise +\(added) → \(total)\(goal.map { "/\($0)" } ?? " (all platforms)")"
-        case .balloonStep(let step, let reward): return "balloonRise platform \(step) reached: \(reward)"
-        case .balloonFell(let from): return "balloonRise fell from \(from) to 0"
-        }
-    }
+    /// The log line of an outcome (moved to core's EventOutcomeLog in the kit decoupling step: the win flow logs it too).
+    static func describe(_ o: EventOutcome) -> String { EventOutcomeLog.describe(o) }
 }
 
 // MARK: - the Weekly Contest tutorial on the first Play at L50
@@ -247,10 +229,8 @@ import PathCore
             note(String(format: "done after %.2f s%@", ProcessInfo.processInfo.systemUptime - t0, Task.isCancelled ? " (home left)" : ""))
         }
         note("arrival (\(HomeView.name(entry))): claims \(app.store.state.events.claims.count), rating due \(ratingDue)")
-        MetaAds.shared.ftueEndedIfNeeded(app.store)                              // META: fb_mobile_tutorial_completion, once
         refresh(app)
         await waitForPayout(app)
-        MetaAds.shared.ftueEndedIfNeeded(app.store)                        // META: the first home's `homeSeen` is set by now
         guard stillHome(app) else { return }
 
         // (2) claims, in the order they were earned
@@ -292,19 +272,14 @@ import PathCore
             }
         }
 
-        // (7) the rating prompt after the L34 win, (8) the tracking prompt
+        // (7) the rating prompt after the L34 win
         guard stillHome(app) else { return }
         await closeVisit(app)
     }
 
-    /// The visit's last steps: (7) the rating prompt after the L34 win; (8) META: the one-time ATT prompt when it is due and
-    /// the rating sheet did not just show (one system sheet per visit), once nothing covers home.
+    /// The visit's last step: (7) the rating prompt after the L34 win.
     private func closeVisit(_ app: AppModel) async {
-        let ratedBefore = app.store.state.flags.ratingPromptShown
         if RatingDirector.requestIfDue(app, due: ratingDue) { ratingDue = false }
-        let ratedNow = !ratedBefore && app.store.state.flags.ratingPromptShown
-        guard await idle(app) else { return }
-        TrackingPrompt.askIfDue(app, ratedThisVisit: ratedNow) { [weak self] in self?.note($0) }
     }
 
     /// B1: the rotation's unrequested pages (week-start pages, daily offers, the Hot Streak list), at most `announceCap` per
@@ -438,7 +413,7 @@ import PathCore
     }
 
     static func metrics(_ app: AppModel) -> ShellMetrics {
-        guard let w = BoardEngine.keyWindow() else { return ShellMetrics() }
+        guard let w = GameServices.keyWindow() else { return ShellMetrics() }
         return ShellMetrics(size: w.bounds.size, safeTop: w.safeAreaInsets.top, safeBottom: w.safeAreaInsets.bottom,
                             popupUpscale: app.tuning.ui.popupUpscale)
     }

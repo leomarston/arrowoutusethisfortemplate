@@ -155,8 +155,9 @@ final class GameTextLayout {
 }
 
 struct GameText: View {
-    static let blackPostScript = "PCDisplay-Black"
-    static let italicPostScript = "PCDisplay-BlackItalic"
+    /// The skin's faces (skin/fonts.json -> SkinData.generated.swift).
+    static let blackPostScript = SkinFonts.black
+    static let italicPostScript = SkinFonts.blackItalic
 
     let text: String
     let style: GameTextStyle

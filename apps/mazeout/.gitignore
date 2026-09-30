@@ -44,3 +44,9 @@ research/levels/video/verify/*.png
 design/tools/work/
 # raw downloaded name dumps (Wikidata / statistics offices); regenerable, provenance in design/social/SOURCES.md
 design/social/sources/
+
+# Template hygiene (2026-09-30): comparison sheets and motion stills may contain captures of the ORIGINAL game.
+# They are review history, not build inputs: keep them on the machine that made them, never in git.
+art/review/**/*.png
+art/review/**/*.jpg
+design/publish/motion-evidence/

@@ -50,6 +50,9 @@ struct ContinuePopup: View {
     var body: some View {
         let v = Self.variant(offer, app: app)
         switch v {
+        case .time where OfferPopup.handles(offer.kind) && Self.forced == nil:
+            // template phase 5: a kind without a measured popup (stuck, outOfMoves) keeps its own texts in the same layout
+            OfferPopup(offer: offer, pay: pay, answer: answer, popupID: "continue")
         case .time, .hearts:
             OutOfTimePopup(offer: ContinueOffer(kind: v == .hearts ? .outOfHearts : .outOfTime, step: offer.step, price: offer.price,
                                                 grant: offer.grant, warning: offer.warning, isLast: offer.isLast),
@@ -62,7 +65,7 @@ struct ContinuePopup: View {
     @ViewBuilder private func band(_ v: Variant) -> some View {
         let t = app.tuning.ui.tokens
         let key = v == .life ? "continueLife" : "continueStreak"
-        let steps = StreakStripSource.steps(app)
+        let steps = ShellEconomy.streakSteps(app)
         let step = max(0, min(steps.count - 1, app.store.state.events.streakStep))
         // a full-width band stretches edge to edge on phones wider than the 393 pt canvas (SPEC-ui §1.1; S1's Quit Level? rule)
         let extra = max(0, (m.size.width / max(m.popupScale, 0.01) - 393) / 2)
@@ -71,20 +74,23 @@ struct ContinuePopup: View {
                 .placed(t.frame("continue.band", CGRect(0, 233.2, 393, 404.8)).insetBy(dx: -extra, dy: 0))
             switch v {
             case .life:
-                TokenText(id: "continueLife.message.msg", source: .copy("You will lose a life!"), style: .s2(26.1, -1.59, [0x5A2801]),
+                TokenText(id: "continueLife.message.msg", source: .copy("You will lose a life!"), style: .s2(26.1, -1.59, [Skin.popupsContinuePopupContinuePopupBandLifeStyle0]),
                           baseline: 346.0, centreX: 196.2, maxWidth: 340)
-                InkImage(art: .heartBroken, ink: t.frame("continueLife.brokenHeart", CGRect(132.65, 359.25, 128.6, 101.8)))
+                InkImage(art: .livesLost, ink: t.frame("continueLife.brokenHeart", CGRect(132.65, 359.25, 128.6, 101.8)))
             case .token:
-                InkImage(art: .treasureToken, ink: t.frame("continueToken.token", CGRect(50.0, 322.0, 55.0, 53.0)))
+                InkImage(art: .eventClawChallengeToken, ink: t.frame("continueToken.token", CGRect(50.0, 322.0, 55.0, 53.0)))
                 TokenLine(multiplier: steps[step], t: t)
-                TokenText(id: "continueToken.texts.l2", source: .copy("and your streak!"), style: .s2(21.1, -0.34, [0x5A2801]),
+                TokenText(id: "continueToken.texts.l2", source: .copy("and your streak!"), style: .s2(21.1, -0.34, [Skin.popupsContinuePopupContinuePopupBandTokenStyle0]),
                           baseline: 369.1, centreX: 222.5, maxWidth: 235)
                 ChevronChipRow(steps: steps, lit: step, frame: t.frame("continueToken.chips", CGRect(30.0, 390.3, 343.6, 53.4)), t: t)
             default:
-                TokenText(id: "continueStreak.message.msg", source: .copy("You will lose your streak!"), style: .s2(22.9, -0.54, [0x5A2801]),
+                TokenText(id: "continueStreak.message.msg", source: .copy("You will lose your streak!"), style: .s2(22.9, -0.54, [Skin.popupsContinuePopupContinuePopupBandDefaultStyle0]),
                           baseline: 347.7, centreX: 196.2, maxWidth: 340)
-                StreakChipRow(steps: steps, lit: Double(step), ring: 1,
-                              frame: t.frame("continueStreak.chips", CGRect(8.0, 372.0, 376.7, 66.4)), t: t, onCream: true)
+                // the multiplier chips (a slot: the Streak Race's chip row, when that component is in the game — `ContinueChips`)
+                if let chips = ContinueChips.view(steps: steps, lit: step,
+                                                  frame: t.frame("continueStreak.chips", CGRect(8.0, 372.0, 376.7, 66.4)), t: t) {
+                    chips
+                }
             }
             PriceButton(id: "popup.continue.primary", label: "Play On", price: offer.price,
                         // one face for every variant: 015 (life) measures pixel-identical to 014 (streak) — green 88.7 · 499.8 ·
@@ -93,10 +99,10 @@ struct ContinuePopup: View {
                         well: t.frame(key + ".playOnFrame", CGRect(68.4, 489.7, 256.5, 105.5)),
                         n: t.superellipseN("continueStreak.playOn", 5.0),
                         labelID: key + ".playOn.label",
-                        labelStyle: .s2(31.0, 0.4, [0xFFFBF1, 0xFFF7E5, 0xFDF3DF], outline: 0x924500, 2.16, drop: 0.73),
+                        labelStyle: .s2(31.0, 0.4, [Skin.popupsContinuePopupContinuePopupBandLabelStyle0, Skin.popupsContinuePopupContinuePopupBandLabelStyle1, Skin.popupsContinuePopupContinuePopupBandLabelStyle2], outline: Skin.popupsContinuePopupContinuePopupBandOutline, 2.16, drop: 0.73),
                         labelAt: (147.5, 550.3),
                         priceID: key + ".playOn.price",
-                        priceStyle: .s2(31.6, 0.71, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 2.07, drop: 0.92),
+                        priceStyle: .s2(31.6, 0.71, [Skin.popupsContinuePopupContinuePopupBandPriceStyle0, Skin.popupsContinuePopupContinuePopupBandPriceStyle1, Skin.popupsContinuePopupContinuePopupBandPriceStyle2], outline: Skin.popupsContinuePopupContinuePopupBandOutline, 2.07, drop: 0.92),
                         priceAt: (273.6, 551.1),
                         coin: t.frame(key + ".playOnCoin", CGRect(213.0, 529.2, 26.5, 26.5))) { buy() }
             PopupTitle(title: "Continue?", frame: t.frame("continueStreak.ribbon", CGRect(60.1, 193.5, 274.2, 90.4)), t: t,
@@ -126,10 +132,10 @@ private struct TokenLine: View {
     let t: Tokens
 
     var body: some View {
-        let style = t.text("continueToken.texts.l1", .s2(21.0, -0.29, [0x5A2801]))
+        let style = t.text("continueToken.texts.l1", .s2(21.0, -0.29, [Skin.popupsContinuePopupContinueTokenTextsL10]))
         let p = t.textPoint("continueToken.texts.l1", baseline: 343.4, centreX: 223.7)
         let full = String(localized: "You will lose \(multiplier) tokens")
-        RunsText(text: full, highlight: "\(multiplier)", highlightColor: t.color("continueToken.red", 0xD12D1C), style: style,
+        RunsText(text: full, highlight: "\(multiplier)", highlightColor: t.color("continueToken.red", Skin.popupsContinuePopupContinueTokenRed), style: style,
                  maxWidth: t.textMaxWidth("continueToken.texts.l1", 245))
             .at(p.x, style.capCentre(baseline: p.baseline))
             .accessibilityIdentifier("continueToken.texts.l1")
@@ -199,8 +205,8 @@ struct ChevronChipRow: View {
         // (its face 294.6 … 361 at y 428)
         let centres = t.list("continueToken.chipCentres", [65.0, 133.9, 199.0, 261.5, 329.6]).map { (CGFloat($0) - frame.minX) }
         let bodies = t.list("continueToken.chipBodies", [67.6, 133.2, 197.5, 262.3, 327.2]).map { (CGFloat($0) - frame.minX) }
-        let plain = t.text("continueToken.chips.x1", .s2(22.3, -1.67, [0xFFFFFF], outline: 0x00383C, 1.5, drop: 0.74)).sized(22.3 * k)
-        let lightStyle = t.text("continueToken.chips.x100", .s2(22.6, -0.08, [0xFFFFFF], outline: 0x7D0C02, 1.6, drop: 0.71)).sized(22.6 * k)
+        let plain = t.text("continueToken.chips.x1", .s2(22.3, -1.67, [Skin.popupsContinuePopupContinueTokenChipsX10], outline: Skin.popupsContinuePopupContinueTokenChipsX1Outline, 1.5, drop: 0.74)).sized(22.3 * k)
+        let lightStyle = t.text("continueToken.chips.x100", .s2(22.6, -0.08, [Skin.popupsContinuePopupContinueTokenChipsX1000], outline: Skin.popupsContinuePopupContinueTokenChipsX100Outline, 1.6, drop: 0.71)).sized(22.6 * k)
         let base = frame.height * 32.3 / 53.4
         ZStack(alignment: .topLeading) {
             // the navy track ends under the last chip's body (VERIFIED meta-070: with x100 lit it never shows past the gold chip)
@@ -208,8 +214,8 @@ struct ChevronChipRow: View {
             // the track: a pale hairline, navy, 30.7 · 393.3 … 439.3 (VERIFIED meta-070 at y 416 / x 98)
             Rasterized("chevTrack|\(lastLit)", overflow: 1) { _ in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Color(hex: 0xD0E3DB))
-                    RoundedRectangle(cornerRadius: 8.4, style: .continuous).fill(t.color("continueToken.track", 0x002B2E)).padding(0.6)
+                    RoundedRectangle(cornerRadius: 9, style: .continuous).fill(Color(hex: Skin.popupsContinuePopupChevronChipRowFill))
+                    RoundedRectangle(cornerRadius: 8.4, style: .continuous).fill(t.color("continueToken.track", Skin.popupsContinuePopupContinueTokenTrack)).padding(0.6)
                 }
             }
             .frame(width: frame.width - (lastLit ? 29 : 7) * k, height: frame.height - 7.4 * k).offset(x: 0.1 * k, y: 2.4 * k)
@@ -244,12 +250,12 @@ private struct Chevron: View {
                     ChevronShape(notched: notched).fill(Color.black.opacity(0.35)).blur(radius: 1.4).offset(y: 1.2)
                 }
                 ChevronShape(notched: notched)
-                    .fill(LinearGradient(colors: lit ? [Color(hex: 0xF58A10), Color(hex: 0xE06A00), Color(hex: 0xB04E00)]
-                                                     : [Color(hex: 0x00454D), Color(hex: 0x00454D)],
+                    .fill(LinearGradient(colors: lit ? [Color(hex: Skin.popupsContinuePopupChevronColorsLit0), Color(hex: Skin.popupsContinuePopupChevronColorsLit1), Color(hex: Skin.popupsContinuePopupChevronColorsLit2)]
+                                                     : [Color(hex: Skin.popupsContinuePopupChevronColorsNotLit0), Color(hex: Skin.popupsContinuePopupChevronColorsNotLit1)],
                                          startPoint: .top, endPoint: .bottom))
                 ChevronShape(notched: notched)
-                    .fill(LinearGradient(colors: lit ? [Color(hex: 0xFFE84A), Color(hex: 0xFED902), Color(hex: 0xFFB700)]
-                                                     : [Color(hex: 0x45BEAF), Color(hex: 0x29AD9E), Color(hex: 0x009C8F)],
+                    .fill(LinearGradient(colors: lit ? [Color(hex: Skin.popupsContinuePopupChevronColorsLit0V2), Color(hex: Skin.popupsContinuePopupChevronColorsLit1V2), Color(hex: Skin.popupsContinuePopupChevronColorsLit2V2)]
+                                                     : [Color(hex: Skin.popupsContinuePopupChevronColorsNotLit0V2), Color(hex: Skin.popupsContinuePopupChevronColorsNotLit1V2), Color(hex: Skin.popupsContinuePopupChevronColorsNotLit2)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(lit ? EdgeInsets(top: 2.6, leading: 3.4, bottom: 4.6, trailing: 3.8)
                                  : EdgeInsets(top: 1.6, leading: 2.2, bottom: 3.2, trailing: 2.6))

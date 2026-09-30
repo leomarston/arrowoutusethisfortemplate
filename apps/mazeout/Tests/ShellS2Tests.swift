@@ -224,7 +224,7 @@ import PathCore
         let parts = try XCTUnwrap(LogoParts.make(file))
         XCTAssertEqual(parts.mode, .pairs)
         for id in spec.layers.values.flatMap(\.contents) {
-            XCTAssertNotNil(ArtStore.image(try XCTUnwrap(UIArt(rawValue: id), id))?.cgImage, "\(id) decodes")
+            XCTAssertNotNil(ArtStore.image(try XCTUnwrap(LogoSpec.art(id), id))?.cgImage, "\(id) decodes")
         }
         // letters left → right inside the blue sign, glyphs inside the arrow sign (logo_rect, a 0.01 margin)
         let blue = try XCTUnwrap(spec.layers["logoSignBlue"]).logoRect, purple = try XCTUnwrap(spec.layers["logoSignPurple"]).logoRect
@@ -252,7 +252,7 @@ import PathCore
         let l = ["A", "R1", "R2", "O", "W"], o = ["O", "U", "T", "Bang"]
         XCTAssertEqual(order, ["logoSignPurple", "logoPegs", "logoSignBlue"] + l.map { "logoLetter\($0)Ext" } + l.map { "logoLetter\($0)Face" }
                        + o.map { "logoOut\($0)Ext" } + o.map { "logoOut\($0)Face" })
-        let whole = try XCTUnwrap(ArtStore.image(.logoArrowOut)?.cgImage)
+        let whole = try XCTUnwrap(ArtStore.image(.logoMain)?.cgImage)
         let W = whole.width, H = whole.height
         XCTAssertEqual([W, H], [918, 708])
         func context() throws -> CGContext {

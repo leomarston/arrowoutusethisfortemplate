@@ -1,0 +1,6 @@
+# Python deps for the game tools beyond the store scripts (requirements.txt):
+# apps/<slug>/tools/store/compose.py (App Store frames), tools/audio/* (sound synthesis + checks), tools/copygate.py,
+# tools/compare/*, tools/levels/render.py. Install: pip3 install -r requirements.txt -r requirements-tools.txt
+numpy
+scipy
+Pillow

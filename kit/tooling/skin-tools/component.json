@@ -1,0 +1,29 @@
+{
+ "id": "skin-tools",
+ "title": "Skin tools",
+ "category": "tooling",
+ "summary": "Colour tokens, fonts, names, art slots, scenes and skin variants: build, check, recolour.",
+ "description": "apps/<slug>/tools/skin (build.py, art.py, recolor.py, variant.py, codemod.py) + tools/uiart_gen.py over skin/*.json -> the generated Swift (SkinColors, SkinData, UIArt, SkinScenes) and Tuning/ui-colors.json.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/tools/skin/**",
+  "apps/mazeout/tools/uiart_gen.py",
+  "apps/mazeout/skin/art.json",
+  "apps/mazeout/skin/colors.json",
+  "apps/mazeout/skin/variants/**",
+  "apps/mazeout/art/MANIFEST.json"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/AppTests/SkinArtTests.swift",
+  "apps/mazeout/Tests/AppTests/SkinColorsTests.swift",
+  "apps/mazeout/Tests/AppTests/SkinColorsTable.generated.swift",
+  "apps/mazeout/Tests/AppTests/UIArtBundleTests.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "launchArgs": [
+  "python3 apps/mazeout/tools/skin/build.py --check",
+  "python3 apps/mazeout/tools/skin/art.py --check"
+ ]
+}

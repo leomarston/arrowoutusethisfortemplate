@@ -20,33 +20,10 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<false/>
-	<key>FacebookAppID</key>
-	<string>2657116281470019</string>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<false/>
-	<key>FacebookClientToken</key>
-	<string></string>
-	<key>FacebookDisplayName</key>
-	<string>$(PC_BRAND_NAME)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.puzzle-games</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Meta uses this to tell us which of our ads brought you to the game, so we can improve those ads. The game works the same either way.</string>
 	<key>PCBrandName</key>
 	<string>$(PC_BRAND_NAME)</string>
-	<key>SKAdNetworkItems</key>
-	<array>
-		<dict>
-			<key>SKAdNetworkIdentifier</key>
-			<string>v9wttpbfk9.skadnetwork</string>
-		</dict>
-		<dict>
-			<key>SKAdNetworkIdentifier</key>
-			<string>n38lu8286q.skadnetwork</string>
-		</dict>
-	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fonts/PCDisplay-Black.ttf</string>

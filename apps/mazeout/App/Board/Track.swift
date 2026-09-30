@@ -2,12 +2,15 @@
 // spike, committed by the orchestrator), plus the `TravelProfile` it needs, copied as-is from
 // design/spike-src/App/Core/Geometry.swift. BOARD owns this file from B1 on (the production exit timing is
 // ExitKinematics, §4.16/D5; the spike's accelerate-then-cruise profile stays here only as the proven reference).
+// Kit decoupling step: the spike's `Track` is `TravelTrack` now (a rename inside this file only: nothing else names it), so the
+// puppets' own nested `PuppetMotion.Track` no longer reads as a use of this board file; the file is the arrow board's
+// (`CAAnimation.hi()` and `AnimationEnd` are what its movers use), no longer core's.
 
 import QuartzCore
 
 /// Travel keyframes shared by every layer of a moving arrow (body trim, head position, trail mask, dots,
 /// tail emitter): `travel[i]` at `times[i]` seconds; `fns[i]` shapes the segment after keyframe i.
-struct Track {
+struct TravelTrack {
     var times: [Double]
     var travel: [CGFloat]
     var fns: [CAMediaTimingFunction]?
@@ -23,19 +26,19 @@ struct Track {
     static let easeOutCubic = CAMediaTimingFunction(controlPoints: 0.215, 0.61, 0.355, 1)
 
     /// 0 -> distance at the profile's speed (constant, or accelerate-then-cruise).
-    static func forward(_ p: TravelProfile, to distance: CGFloat) -> Track {
+    static func forward(_ p: TravelProfile, to distance: CGFloat) -> TravelTrack {
         if p.accel > 0, distance > p.accelDistance {
-            return Track(times: [0, p.accel, p.time(toReach: distance)], travel: [0, p.accelDistance, distance],
+            return TravelTrack(times: [0, p.accel, p.time(toReach: distance)], travel: [0, p.accelDistance, distance],
                          fns: [accelerate, cruise])
         }
         if p.accel > 0 {
-            return Track(times: [0, p.time(toReach: distance)], travel: [0, distance], fns: [accelerate])
+            return TravelTrack(times: [0, p.time(toReach: distance)], travel: [0, distance], fns: [accelerate])
         }
-        return Track(times: [0, p.time(toReach: distance)], travel: [0, distance], fns: nil)
+        return TravelTrack(times: [0, p.time(toReach: distance)], travel: [0, distance], fns: nil)
     }
 
     /// Forward to the contact point, then eased back to rest.
-    static func bump(_ p: TravelProfile, contact: CGFloat, back: Double) -> Track {
+    static func bump(_ p: TravelProfile, contact: CGFloat, back: Double) -> TravelTrack {
         var t = forward(p, to: contact)
         let n = t.times.count - 1
         t.times.append(t.duration + back)
@@ -54,14 +57,14 @@ struct Track {
     }
 
     /// Same timing, travel clamped to `limit` (inserts the keyframe where the clamp starts).
-    func clamped(to limit: CGFloat, profile: TravelProfile) -> Track {
+    func clamped(to limit: CGFloat, profile: TravelProfile) -> TravelTrack {
         guard final > limit else { return self }
         let tc = profile.time(toReach: limit)
         var times: [Double] = [], travel: [CGFloat] = []
         for (t, s) in zip(self.times, self.travel) where t < tc { times.append(t); travel.append(s) }
         times.append(tc); travel.append(limit)
         times.append(duration); travel.append(limit)
-        return Track(times: times, travel: travel, fns: nil)
+        return TravelTrack(times: times, travel: travel, fns: nil)
     }
 
     /// Uniform samples (plus every keyframe) for properties that are not linear in travel.
@@ -91,7 +94,7 @@ final class AnimationEnd: NSObject, CAAnimationDelegate {
     }
 }
 
-func keyframes(_ keyPath: String, _ values: [Any], _ track: Track) -> CAKeyframeAnimation {
+func keyframes(_ keyPath: String, _ values: [Any], _ track: TravelTrack) -> CAKeyframeAnimation {
     let a = CAKeyframeAnimation(keyPath: keyPath)
     a.values = values
     a.keyTimes = track.keyTimes

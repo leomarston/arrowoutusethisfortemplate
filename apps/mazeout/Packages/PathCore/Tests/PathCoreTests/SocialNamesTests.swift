@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (§12.2 acceptance: "100 k generated names pass the blocklists; Resources/Social byte-identical to
 // design/social/data"; SPEC-architecture §4.11 invariant 6) + the shipped social.json.

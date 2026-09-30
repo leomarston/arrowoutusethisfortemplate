@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// §4.7.
 final class ComboTests: XCTestCase {

@@ -1,5 +1,6 @@
 import Foundation
-import PathCore
+import GameCore
+import ArrowEscape
 
 // pclevels: the content CLI over PathCore (SPEC-architecture §4.14). C4 owns this file.
 // Exit codes: 0 ok, 1 findings / failures, 64 usage, 66 unreadable input.

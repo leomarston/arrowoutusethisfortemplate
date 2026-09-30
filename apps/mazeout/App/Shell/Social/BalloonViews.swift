@@ -136,24 +136,7 @@ private struct DriftingHero: UIViewRepresentable {
 
 /// The chest art of a platform (the phone's colour cycle red, blue, green, pink, teal on our three chest renders).
 enum BalloonChest {
-    static func art(_ i: Int) -> UIArt { [.stageChestPink, .stageChestBlue, .stageChestGreen, .stageChestPink, .stageChestBlue][i % 5] }
-}
-
-/// A requested art id: the file when it exists, else (DEBUG only) the hatched placeholder; Release draws nothing.
-struct UpAwayArtImage: View {
-    let id: String
-    var contentMode: ContentMode = .fit
-    var body: some View {
-        if let a = UpAwayArt.art(id) {
-            ArtImage(art: a, contentMode: contentMode)
-        } else {
-            #if DEBUG
-            DebugPlaceholder(name: id)
-            #else
-            Color.clear
-            #endif
-        }
-    }
+    static func art(_ i: Int) -> UIArt { [.rewardChest3, .rewardChest2, .rewardChest1, .rewardChest3, .rewardChest2][i % 5] }
 }
 
 // MARK: - the page
@@ -203,7 +186,7 @@ struct SocBalloonPage: View {
                 .onAppear { scroll(proxy, geo: geo, target: target) }
             }
             ZStack(alignment: .topLeading) {
-                LinearGradient(colors: [Color(hex: 0x001617, 0.85), .clear], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color(hex: Skin.socialBalloonViewsSocBalloonPageColors0, 0.85), .clear], startPoint: .top, endPoint: .bottom)
                     .frame(width: 393, height: 170)
                 SocEventLogo(title: "Up & Away", frame: CGRect(58, 50, 277, 60), size: 40)
                 // FIX-2 B review (L28): the chip ticks on its own; with no Up & Away of this player's to count down (not this
@@ -318,9 +301,9 @@ struct SocBalloonPage: View {
 /// teal, a mint band, a warm dawn at the foot (was B1's navy → violet → pink).
 private struct BalloonSky: View {
     var body: some View {
-        LinearGradient(stops: [.init(color: Color(hex: 0x0B2A33), location: 0), .init(color: Color(hex: 0x1D5963), location: 0.40),
-                               .init(color: Color(hex: 0x5FA3A0), location: 0.66), .init(color: Color(hex: 0xF2C9A0), location: 0.84),
-                               .init(color: Color(hex: 0xF8B98A), location: 1)],
+        LinearGradient(stops: [.init(color: Color(hex: Skin.socialBalloonViewsBalloonSkyStops0), location: 0), .init(color: Color(hex: Skin.socialBalloonViewsBalloonSkyStops1), location: 0.40),
+                               .init(color: Color(hex: Skin.socialBalloonViewsBalloonSkyStops2), location: 0.66), .init(color: Color(hex: Skin.socialBalloonViewsBalloonSkyStops3), location: 0.84),
+                               .init(color: Color(hex: Skin.socialBalloonViewsBalloonSkyStops4), location: 1)],
                        startPoint: .top, endPoint: .bottom)
     }
 }
@@ -336,13 +319,13 @@ private struct BalloonTowerArt: View {
     static let tile: CGFloat = 340
     /// R8's suggested cloud spots (page pt; balloonCloudA 150 × 70, balloonCloudB 100 × 56), kept above the foot.
     static let clouds: [(UIArt, CGPoint, CGSize)] = [
-        (.balloonCloudA, CGPoint(x: 250, y: 520), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 290, y: 880), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 240, y: 1250), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 284, y: 1600), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 262, y: 1930), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 296, y: 2280), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 236, y: 2620), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 250, y: 520), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 290, y: 880), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 240, y: 1250), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 284, y: 1600), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 262, y: 1930), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 296, y: 2280), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 236, y: 2620), CGSize(width: 150, height: 70)),
     ]
 
     var body: some View {
@@ -387,10 +370,10 @@ private struct BalloonTower: View {
             BalloonTowerArt(height: geo.height)
             Color.clear.frame(width: 1, height: 1).position(x: 196, y: geo.groundY + 200).id("balloon.ground")
             // the track: dark rail, green fill to the count
-            RoundedRectangle(cornerRadius: trackW / 2).fill(Color(hex: 0x041E20))
+            RoundedRectangle(cornerRadius: trackW / 2).fill(Color(hex: Skin.socialBalloonViewsBalloonTowerFill))
                 .frame(width: trackW + 6, height: geo.groundY - topY + 6).position(x: trackX, y: (geo.groundY + topY) / 2)
             RoundedRectangle(cornerRadius: trackW / 2)
-                .fill(LinearGradient(colors: [Color(hex: 0xFFDA86), Color(hex: 0xF19327)], startPoint: .leading, endPoint: .trailing))
+                .fill(LinearGradient(colors: [Color(hex: Skin.socialBalloonViewsBalloonTowerColors0), Color(hex: Skin.socialBalloonViewsBalloonTowerColors1)], startPoint: .leading, endPoint: .trailing))
                 .frame(width: trackW, height: max(0, geo.groundY - fillTop)).position(x: trackX, y: (geo.groundY + fillTop) / 2)
             // the ledges (platform i), their signs and chests
             ForEach(Array(geo.platforms.enumerated()), id: \.offset) { i, at in
@@ -430,7 +413,7 @@ private struct BalloonLedge: View {
     let onChest: () -> Void
 
     var body: some View {
-        let sign = GameTextStyle.s2(15, -0.3, [0xFFFFFF], outline: 0x02464D, 1.1, drop: 0.8)
+        let sign = GameTextStyle.s2(15, -0.3, [Skin.socialBalloonViewsBalloonLedgeSign0], outline: Skin.socialBalloonViewsBalloonLedgeSignOutline, 1.1, drop: 0.8)
         ZStack(alignment: .topLeading) {
             // A4: R8's timber ledge with its hanging teal board (was B1's code-drawn purple bar, blue sign and posts); the live
             // "Step N" sits on the board (local 34…118 × 112…140), the chest box is B1's
@@ -457,11 +440,11 @@ private struct BalloonMilestone: View {
     let count: Int
     let passed: Bool
     var body: some View {
-        let st = GameTextStyle.s2(count >= 100 ? 14 : 17, -0.5, [0xFFFFFF], outline: passed ? 0x94460A : 0x00424A, 1.2, drop: 0.8)
+        let st = GameTextStyle.s2(count >= 100 ? 14 : 17, -0.5, [Skin.socialBalloonViewsBalloonMilestoneSt0], outline: passed ? Skin.socialBalloonViewsBalloonMilestoneStOutlinePassed : Skin.socialBalloonViewsBalloonMilestoneStOutlineNotPassed, 1.2, drop: 0.8)
         ZStack {
-            BalloonCloudShape().fill(Color(hex: passed ? 0x94460A : 0x00424A)).frame(width: 52, height: 38).offset(y: 1.5)
-            BalloonCloudShape().fill(LinearGradient(colors: passed ? [Color(hex: 0xFFDA86), Color(hex: 0xF19327)]
-                                                                   : [Color(hex: 0xC5E5E3), Color(hex: 0x4FC1C5)],
+            BalloonCloudShape().fill(Color(hex: passed ? Skin.socialBalloonViewsBalloonMilestoneFillPassed : Skin.socialBalloonViewsBalloonMilestoneFillNotPassed)).frame(width: 52, height: 38).offset(y: 1.5)
+            BalloonCloudShape().fill(LinearGradient(colors: passed ? [Color(hex: Skin.socialBalloonViewsBalloonMilestoneColorsPassed0), Color(hex: Skin.socialBalloonViewsBalloonMilestoneColorsPassed1)]
+                                                                   : [Color(hex: Skin.socialBalloonViewsBalloonMilestoneColorsNotPassed0), Color(hex: Skin.socialBalloonViewsBalloonMilestoneColorsNotPassed1)],
                                                     startPoint: .top, endPoint: .bottom))
                 .frame(width: 50, height: 36)
             GameText(verbatim: "\(count)", style: st, maxWidth: 44).position(x: 26, y: st.capCentre(baseline: 25))
@@ -488,10 +471,10 @@ struct BalloonCloudShape: Shape {
 private struct BalloonCounterBadge: View {
     let count: Int
     var body: some View {
-        let st = GameTextStyle.s2(17, -0.5, [0xFFFFFF], outline: 0x894B14, 1.3, drop: 0.8)
+        let st = GameTextStyle.s2(17, -0.5, [Skin.socialBalloonViewsBalloonCounterBadgeSt0], outline: Skin.socialBalloonViewsBalloonCounterBadgeStOutline, 1.3, drop: 0.8)
         ZStack {
-            RoundedRectangle(cornerRadius: 9).fill(Color(hex: 0x894B14)).frame(width: 42, height: 30).offset(y: 1.5)
-            RoundedRectangle(cornerRadius: 8).fill(LinearGradient(colors: [Color(hex: 0xFFE45A), Color(hex: 0xFFB300)],
+            RoundedRectangle(cornerRadius: 9).fill(Color(hex: Skin.socialBalloonViewsBalloonCounterBadgeFill)).frame(width: 42, height: 30).offset(y: 1.5)
+            RoundedRectangle(cornerRadius: 8).fill(LinearGradient(colors: [Color(hex: Skin.socialBalloonViewsBalloonCounterBadgeColors0), Color(hex: Skin.socialBalloonViewsBalloonCounterBadgeColors1)],
                                                                    startPoint: .top, endPoint: .bottom)).frame(width: 40, height: 28)
             GameText(verbatim: "\(count)", style: st, maxWidth: 34).position(x: 21, y: st.capCentre(baseline: 20))
         }
@@ -506,12 +489,12 @@ private struct BalloonCounterBadge: View {
 private struct BalloonBubble: View {
     let reward: Grant?
     var body: some View {
-        let st = GameTextStyle.s2(15, -0.3, [0x5A2801])
+        let st = GameTextStyle.s2(15, -0.3, [Skin.socialBalloonViewsBalloonBubbleSt0])
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 14).fill(Color(hex: 0xC59C71)).frame(width: 150, height: 66).offset(y: 2)
-            RoundedRectangle(cornerRadius: 14).fill(Color(hex: 0xFAF3EA)).frame(width: 150, height: 66)
+            RoundedRectangle(cornerRadius: 14).fill(Color(hex: Skin.socialBalloonViewsBalloonBubbleFill)).frame(width: 150, height: 66).offset(y: 2)
+            RoundedRectangle(cornerRadius: 14).fill(Color(hex: Skin.socialBalloonViewsBalloonBubbleFillV2)).frame(width: 150, height: 66)
             Path { p in p.move(to: CGPoint(x: 64, y: 64)); p.addLine(to: CGPoint(x: 86, y: 64)); p.addLine(to: CGPoint(x: 75, y: 80)) }
-                .fill(Color(hex: 0xFAF3EA))
+                .fill(Color(hex: Skin.socialBalloonViewsBalloonBubbleFillV2))
             if let reward {
                 BalloonRewardRow(grant: reward).frame(width: 140, height: 56).offset(x: 5, y: 5)
             } else {
@@ -567,11 +550,11 @@ struct SocBalloonInfo: View {
                 SocPopIn(u: u, start: 0.18, duration: 0.10, overshoot: 1.10, at: CGPoint(x: 196.8, y: 82.9 - 13)) {
                     SocInfoTitle(title: "Up & Away", baseline: 82.9)
                 }
-                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 110, y: 190)) { ArtImage(art: .infoPathIcon).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
+                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 110, y: 190)) { ArtImage(art: .iconInfo).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 111.7, y: 264)) {
                     SocTwoLines(text: "Beat levels in a row to rise higher!", centreX: 111.7, baselines: [270.5, 290.5], box: 170, greedy: true)
                 }
-                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 254, y: 258)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(234, 236, 40, 45)) }
+                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 254, y: 258)) { ArtImage(art: .iconPointer).placed(CGRect(234, 236, 40, 45)) }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 280, y: 350)) {
                     UpAwayArtImage(id: UpAwayArt.hero).placed(CGRect(236, 300, 90, 110))
                 }
@@ -579,9 +562,9 @@ struct SocBalloonInfo: View {
                     SocTwoLines(text: "Every stop has a reward!", centreX: 262.7, baselines: [438.5, 458.5], box: 170, greedy: true)
                 }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 254, y: 510)) {
-                    ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45))
+                    ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45))
                 }
-                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 554)) { ArtImage(art: .coinPileSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
+                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 554)) { ArtImage(art: .rewardCoinsSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
                 SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 608)) {
                     SocTwoLines(text: "Reach the top for the big prize!", centreX: 127, baselines: [608, 628], box: 200, hot: "big prize",
                                 greedy: true)
@@ -670,13 +653,13 @@ private struct BalloonStripBody: View {
         let track = CGRect(0, 72, 393, 60)
         // the window keeps the balloon at 1/3 of the width; milestones outside it are clipped
         let origin = 130 - CGFloat(position) * step
-        let chip = GameTextStyle.s2(12.2, -1.38, [0x5A2801])
+        let chip = GameTextStyle.s2(12.2, -1.38, [Skin.socialBalloonViewsBalloonStripBodyChip0])
         ZStack(alignment: .topLeading) {
-            LinearGradient(colors: [Color(hex: 0xA4316D), Color(hex: 0x6D2346)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(hex: Skin.socialBalloonViewsBalloonStripBodyColors0), Color(hex: Skin.socialBalloonViewsBalloonStripBodyColors1)], startPoint: .top, endPoint: .bottom)
                 .frame(width: 393, height: 152.1).offset(y: 12)
             SocRails().frame(width: 393, height: 14).offset(y: 6)
             SocEventLogo(title: "Up & Away", frame: CGRect(78.4, -12.7, 233.5, 53.4), size: 34)
-            RoundedRectangle(cornerRadius: 12).fill(Color(hex: 0xF5E8D4)).frame(width: 76.7, height: 28).offset(x: 313.6, y: 6.7)
+            RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.socialBalloonViewsBalloonStripBodyFill)).frame(width: 76.7, height: 28).offset(x: 313.6, y: 6.7)
             Group {                                                          // FIX-2 B review (L28): ticks on its own
                 if let end = data.ends {
                     LiveCountdown(ends: end, now: SocTime.now(app), clock: .page) { s in
@@ -688,9 +671,9 @@ private struct BalloonStripBody: View {
             }
             .position(x: 356, y: chip.capCentre(baseline: 25))
             ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 9).fill(Color(hex: 0x2C111C)).frame(width: 2000, height: 18).offset(x: origin - 20, y: 30)
+                RoundedRectangle(cornerRadius: 9).fill(Color(hex: Skin.socialBalloonViewsBalloonStripBodyFillV2)).frame(width: 2000, height: 18).offset(x: origin - 20, y: 30)
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(LinearGradient(colors: [Color(hex: 0xFFDA86), Color(hex: 0xF19327)], startPoint: .top, endPoint: .bottom))
+                    .fill(LinearGradient(colors: [Color(hex: Skin.socialBalloonViewsBalloonStripBodyColors0V2), Color(hex: Skin.socialBalloonViewsBalloonStripBodyColors1V2)], startPoint: .top, endPoint: .bottom))
                     .frame(width: max(0, CGFloat(position) * step + 10), height: 14).offset(x: origin - 5, y: 32)
                 BalloonMilestoneSmall(count: 0, passed: true).position(x: origin, y: 39)
                 ForEach(Array(data.platforms.enumerated()), id: \.offset) { i, at in
@@ -715,10 +698,10 @@ private struct BalloonMilestoneSmall: View {
     let count: Int
     let passed: Bool
     var body: some View {
-        let st = GameTextStyle.s2(12, -0.4, [0xFFFFFF], outline: passed ? 0x94460A : 0x662343, 1.0, drop: 0.6)
+        let st = GameTextStyle.s2(12, -0.4, [Skin.socialBalloonViewsBalloonMilestoneSmallSt0], outline: passed ? Skin.socialBalloonViewsBalloonMilestoneSmallStOutlinePassed : Skin.socialBalloonViewsBalloonMilestoneSmallStOutlineNotPassed, 1.0, drop: 0.6)
         ZStack {
-            BalloonCloudShape().fill(LinearGradient(colors: passed ? [Color(hex: 0xFFDA86), Color(hex: 0xF19327)]
-                                                                   : [Color(hex: 0xFAD5E4), Color(hex: 0xE59CB9)],
+            BalloonCloudShape().fill(LinearGradient(colors: passed ? [Color(hex: Skin.socialBalloonViewsBalloonMilestoneSmallColorsPassed0), Color(hex: Skin.socialBalloonViewsBalloonMilestoneSmallColorsPassed1)]
+                                                                   : [Color(hex: Skin.socialBalloonViewsBalloonMilestoneSmallColorsNotPassed0), Color(hex: Skin.socialBalloonViewsBalloonMilestoneSmallColorsNotPassed1)],
                                                     startPoint: .top, endPoint: .bottom))
                 .frame(width: 36, height: 26)
             GameText(verbatim: "\(count)", style: st, maxWidth: 30).position(x: 18, y: st.capCentre(baseline: 18))

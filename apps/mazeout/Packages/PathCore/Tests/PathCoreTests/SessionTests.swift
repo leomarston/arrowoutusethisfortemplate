@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// §4.5 path by path (the diagram in LevelSession.swift).
 final class SessionTests: XCTestCase {

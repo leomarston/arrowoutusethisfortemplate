@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// §4.14 / §4.17 LevelLibraryTests (C4): `pclevels bundle` (ContentBundle) writes App/Resources/Levels from
 /// design/levels.json (pinned: Fixtures/content/levels.json) byte for byte and the library loads it; every authored level is valid and won by the driver; the

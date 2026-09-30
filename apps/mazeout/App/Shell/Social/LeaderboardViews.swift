@@ -75,12 +75,12 @@ struct SocJumpPill: View {
     let action: () -> Void
 
     var body: some View {
-        let st = GameTextStyle.s2(19.2, -0.5, [0xE0E0E0], outline: 0x002226, 1.5, drop: 0.8)
+        let st = GameTextStyle.s2(19.2, -0.5, [Skin.socialLeaderboardViewsSocJumpPillSt0], outline: Skin.socialLeaderboardViewsSocJumpPillStOutline, 1.5, drop: 0.8)
         let title: LocalizedStringResource = jump == .top ? "Top" : "Bottom"
         GameButton(id: "leaderboard.jump", label: title, action: action) {
             ZStack {
-                RoundedRectangle(cornerRadius: 9).fill(Color(hex: 0x003C40, 0.55))
-                RoundedRectangle(cornerRadius: 9).stroke(Color(hex: 0x66C2BD), lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: 9).fill(Color(hex: Skin.socialLeaderboardViewsSocJumpPillFill, 0.55))
+                RoundedRectangle(cornerRadius: 9).stroke(Color(hex: Skin.socialLeaderboardViewsSocJumpPillStroke), lineWidth: 1.5)
                 GameText(title, style: st, maxWidth: 70)
             }
         }
@@ -118,7 +118,7 @@ struct SocWeeklyTab: View {
         .task(id: model.isOnScreen(.weekly)) {
             guard model.isOnScreen(.weekly) else { return }
             model.listHost(.weekly).list.pageOpened()          // FIX-V2 F-04: open on the player's row, every open
-            if SocialFlows.joinWeeklyIfNeeded(app) { model.request(.weekly) }
+            if SocialEvents.engine?.joinWeeklyIfNeeded(app) == true { model.request(.weekly) }   // the events engine (protocol)
         }
         .onDisappear {
             model.disappear(.weekly)
@@ -139,7 +139,7 @@ struct SocWeeklyHeader: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            LinearGradient(colors: [Color(hex: 0x009C8E), Color(hex: 0x009086)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(hex: Skin.socialLeaderboardViewsSocWeeklyHeaderColors0), Color(hex: Skin.socialLeaderboardViewsSocWeeklyHeaderColors1)], startPoint: .top, endPoint: .bottom)
                 .placed(CGRect(0, y(233.6), 393, 270))
             SocRails().placed(CGRect(0, y(200.2), 393, 33.4))
             SocEventLogo(title: "Weekly Cup", frame: CGRect(55, y(191), 287, 54), size: 44)
@@ -147,7 +147,7 @@ struct SocWeeklyHeader: View {
                 SocInfoDisc()
             }
             .placed(CGRect(13.3 - 8, y(242.9) - 8, 24.4 + 16, 22.4 + 16))
-            ArtImage(art: .cupPodium).placed(CGRect(2, y(294), 389, 206))
+            ArtImage(art: .leaderboardPodium).placed(CGRect(2, y(294), 389, 206))
             if let s = snap {
                 ForEach(Array(s.podium.enumerated()), id: \.offset) { _, row in
                     SocPodiumSlot(row: row, prize: row.rank <= s.prizes.count ? s.prizes[row.rank - 1] : 0, y0: 190)
@@ -161,22 +161,6 @@ struct SocWeeklyHeader: View {
 
     private func openInfo() {
         Task { @MainActor in _ = await app.popups.present(Popup<PopupResult>.weeklyContestIntro) }
-    }
-}
-
-/// The blue (i) disc (SPEC-ui §1.6.20: #00A1FC, a white "i" outlined navy).
-struct SocInfoDisc: View {
-    var body: some View {
-        Rasterized("socInfoDisc", overflow: 1) { size in
-            ZStack {
-                Circle().fill(Color(hex: 0x003C40))
-                Circle().fill(LinearGradient(colors: [Color(hex: 0x54C6B7), Color(hex: 0x27AC9D), Color(hex: 0x00887E)],
-                                             startPoint: .top, endPoint: .bottom)).padding(1.5)
-                Capsule().fill(Color.white).frame(width: size.width * 0.14, height: size.height * 0.36).offset(y: size.height * 0.1)
-                Circle().fill(Color.white).frame(width: size.width * 0.16, height: size.width * 0.16).offset(y: -size.height * 0.2)
-            }
-        }
-        .padding(8)
     }
 }
 
@@ -199,19 +183,19 @@ struct SocPodiumSlot: View {
         let lilac = r == 2
         // VERIFIED meta-013: "player_qqpvpjp" shrinks to 10.9 pt of 21 (minScale 0.5)
         let nameStyle: GameTextStyle = {
-            var st = GameTextStyle.s2(21, -0.3, [lilac ? 0xEBF6F2 : 0xF6E9D8], outline: lilac ? 0x153032 : 0x7D0C02, 1.6, drop: 1.0)
+            var st = GameTextStyle.s2(21, -0.3, [lilac ? Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStLilac0 : Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStNotLilac0], outline: lilac ? Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStOutlineLilac : Skin.socialLeaderboardViewsSocPodiumSlotNameStyleStOutlineNotLilac, 1.6, drop: 1.0)
             st.minScale = 0.5
             return st
         }()
-        let digit = GameTextStyle.s2(20, 0, [0xFFFFFF], outline: r == 1 ? 0x985316 : r == 2 ? 0x325653 : 0x8C2D18, 1.6, drop: 0.8)
-        let amount = GameTextStyle.s2(15.6, -0.3, [0xF6E9D8], outline: 0x7D0C02, 1.5, drop: 0.8)
-        let scoreSt = GameTextStyle.s2(16.2, -0.3, [0xF6E9D8], outline: lilac ? 0x153032 : 0x7D0C02, 1.3, drop: 0.7)
+        let digit = GameTextStyle.s2(20, 0, [Skin.socialLeaderboardViewsSocPodiumSlotDigit0], outline: r == 1 ? Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineR1 : r == 2 ? Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineR2 : Skin.socialLeaderboardViewsSocPodiumSlotDigitOutlineNotR2, 1.6, drop: 0.8)
+        let amount = GameTextStyle.s2(15.6, -0.3, [Skin.socialLeaderboardViewsSocPodiumSlotAmount0], outline: Skin.socialLeaderboardViewsSocPodiumSlotAmountOutline, 1.5, drop: 0.8)
+        let scoreSt = GameTextStyle.s2(16.2, -0.3, [Skin.socialLeaderboardViewsSocPodiumSlotScoreSt0], outline: lilac ? Skin.socialLeaderboardViewsSocPodiumSlotScoreStOutlineLilac : Skin.socialLeaderboardViewsSocPodiumSlotScoreStOutlineNotLilac, 1.3, drop: 0.7)
         ZStack(alignment: .topLeading) {
             SocAvatar(index: row.player.avatar, me: row.isMe).placed(CGRect(avatar.minX, y(avatar.minY), avatar.width, avatar.height))
             GameText(verbatim: "\(r)", style: digit).at(hex.x, digit.capCentre(baseline: y(hex.y) + 7.1))
             GameText(verbatim: row.player.name, style: nameStyle, maxWidth: 110).at(cx, nameStyle.capCentre(baseline: y(nameBase)))
             if prize > 0 {
-                ArtImage(art: .coinBowl).placed(CGRect(bowl.minX, y(bowl.minY), bowl.width, bowl.height))
+                ArtImage(art: .rewardCoinBowl).placed(CGRect(bowl.minX, y(bowl.minY), bowl.width, bowl.height))
                 GameText(verbatim: "\(prize)", style: amount, maxWidth: 50).at(bowl.midX, amount.capCentre(baseline: y(bowl.minY) + 45.5))
             }
             RoundedRectangle(cornerRadius: 7).fill(Color.black.opacity(0.28))
@@ -226,49 +210,17 @@ struct SocPodiumSlot: View {
     }
 }
 
-// MARK: - capture readiness
+// The capture-ready markers (SocReadyMarker, SocReadyWhen, SocReady) and the (i) disc are shared event chrome:
+// SocEventChrome.swift.
 
-/// Writes Documents/social-ready.json once the list shows a snapshot (captures wait for it; `-pc.capture 1` only), and
-/// exposes `social.ready` (value = the list kind) for UI tests.
-struct SocReadyMarker: View {
-    let kind: SocListKind
-    @Environment(AppModel.self) private var app
+// MARK: - the entry point
 
-    var body: some View {
-        let model = SocialModel.install(app)
-        let v = model.listVersion[kind] ?? 0
-        Color.clear.frame(width: 1, height: 1)
-            .accessibilityElement()
-            .accessibilityIdentifier("social.ready")
-            .accessibilityValue(Text(verbatim: v > 0 ? kind.rawValue : "pending"))
-            .onChange(of: v) { _, nv in if nv == 1 { SocReady.mark("leaderboard:\(kind.rawValue)", app: app) } }
-            .onAppear { if v > 0 { SocReady.mark("leaderboard:\(kind.rawValue)", app: app) } }
-    }
-}
-
-/// Marks the social ready file once `ready` holds (the event pages: their snapshot arrived).
-struct SocReadyWhen: View {
-    let ready: Bool
-    let name: String
-    @Environment(AppModel.self) private var app
-    @State private var done = false
-    var body: some View {
-        Color.clear.frame(width: 1, height: 1)
-            .accessibilityElement()
-            .accessibilityIdentifier("social.ready")
-            .accessibilityValue(Text(verbatim: ready ? name : "pending"))
-            .onAppear { if ready && !done { done = true; SocReady.mark(name, app: app) } }
-            .onChange(of: ready) { _, r in if r && !done { done = true; SocReady.mark(name, app: app) } }
-    }
-}
-
-@MainActor enum SocReady {
-    /// After two presented frames: the social ready file (capture mode) + a log mark.
-    static func mark(_ screen: String, app: AppModel) {
-        Task { @MainActor in
-            if app.args.raw["pc.socialScenario"] != nil { for _ in 0..<80 where !ScenarioReady.done { try? await Task.sleep(nanoseconds: 25_000_000) } }
-            await FrameWaiter.frames(2)
-            CaptureReady.mark(screen: screen, app: app, file: "social-ready.json")
-        }
+// SOCIAL SOC2's `SocialEntryPoint.makeLeaderboard` (ShellContract.swift): the Leaderboard tab body inside social-ui's
+// LeaderboardPageShell. Moved here from SocialEntry.swift in the kit decoupling step, so the leaderboard component provides
+// its own body and the events engine does not wire it.
+extension SocialEntry {
+    static func makeLeaderboard(app: AppModel) -> AnyView {
+        SocialModel.install(app)
+        return AnyView(SocLeaderboardBody())
     }
 }

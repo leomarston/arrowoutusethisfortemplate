@@ -30,7 +30,7 @@ struct SettingsPopup: View {
         let t = app.tuning.ui.tokens
         let s = app.store.state.settings
         let r = { (id: String, d: CGRect) in t.rect("settings." + id, d, .top, m) }
-        let label = t.text("settings.label", GameTextStyle(size: 22.9, tracking: 0.1, fill: [.white], outline: Color(hex: 0x00474D),
+        let label = t.text("settings.label", GameTextStyle(size: 22.9, tracking: 0.1, fill: [.white], outline: Color(hex: Skin.popupsSettingsPopupSettingsLabelOutline),
                                                            outlineWidth: 1.15, drop: 1.15))
         let lst = label.sized(label.size * m.s)
         let f = t.file
@@ -39,16 +39,16 @@ struct SettingsPopup: View {
         let centres = f.doubles("text.settings.label.rowCentres", [90.6, 195.7, 300.4]).map { m.point(CGPoint(x: $0, y: 0), .top).x }
         let notifWord = GameText("Notifications", style: lst, maxWidth: CGFloat(f.double("text.settings.label.notifBox", 150)) * m.s)
         let support = t.text("settings.support", GameTextStyle(size: 30.6, tracking: -0.6,
-                                                               fill: [Color(hex: 0xFFFBF3), Color(hex: 0xFFF8E8), Color(hex: 0xFDF4DF)],
-                                                               outline: Color(hex: 0x924500), outlineWidth: 1.42, drop: 1.2))
-        let link = t.text("settings.link", GameTextStyle(size: 22.3, fill: [.white], outline: Color(hex: 0x00474D), outlineWidth: 1.1, drop: 1.2))
+                                                               fill: [Color(hex: Skin.popupsSettingsPopupSettingsSupportFill0), Color(hex: Skin.popupsSettingsPopupSettingsSupportFill1), Color(hex: Skin.popupsSettingsPopupSettingsSupportFill2)],
+                                                               outline: Color(hex: Skin.popupsSettingsPopupSettingsSupportOutline), outlineWidth: 1.42, drop: 1.2))
+        let link = t.text("settings.link", GameTextStyle(size: 22.3, fill: [.white], outline: Color(hex: Skin.popupsSettingsPopupSettingsLinkOutline), outlineWidth: 1.1, drop: 1.2))
         let supportFace = r("support", CGRect(102.8, 438.4, 188.8, 77.4))
         let supportBase = m.y(485.9, .top), supportCX = m.point(CGPoint(x: 197.7, y: 0), .top).x
         ZStack(alignment: .topLeading) {
             ShellPageBackground(t: t).frame(width: m.size.width, height: m.size.height)
             // notifications
             BlueCard(radius: t.radius("settings.notifCard", 23.7) * m.s, t: t).placed(r("notifCard", CGRect(19.0, 134.1, 355.3, 95.7)))
-            OutlinedArt(art: .glyphBell, outline: Color(hex: 0x003D42)).placed(r("bell", CGRect(44.0, 164.5, 30.7, 38.4)).insetBy(dx: 1.3, dy: 1.3))
+            OutlinedArt(art: .iconBell, outline: Color(hex: Skin.popupsSettingsPopupSettingsPopupOutline)).placed(r("bell", CGRect(44.0, 164.5, 30.7, 38.4)).insetBy(dx: 1.3, dy: 1.3))
             notifWord.at(notifAt.x + notifWord.layout.advance / 2, lst.capCentre(baseline: notifAt.y))
             PopupToggle(id: "settings.toggle.notifications", isOn: s.notifications, t: t, well: .blue) {
                 SettingsPopup.toggleNotifications(app)
@@ -60,15 +60,15 @@ struct SettingsPopup: View {
                 GameText(pair.0, style: lst, maxWidth: CGFloat(f.double("text.settings.label.rowBox", 90)) * m.s)
                     .at(pair.1, lst.capCentre(baseline: rowBase))
             }
-            ShellSquareToggle(id: "settings.toggle.sound", glyph: .glyphSound, isOn: s.sound, t: t) {
+            ShellSquareToggle(id: "settings.toggle.sound", glyph: .iconSound, isOn: s.sound, t: t) {
                 ShellSettings.toggle(app, \.sound, name: "settings.toggle.sound")
             }
             .placed(r("sound", CGRect(58.0, 312.3, 66.1, 65.7)))
-            ShellSquareToggle(id: "settings.toggle.music", glyph: .glyphMusic, isOn: SettingsPopup.musicShown(app), t: t) {
+            ShellSquareToggle(id: "settings.toggle.music", glyph: .iconMusic, isOn: SettingsPopup.musicShown(app), t: t) {
                 SettingsPopup.tapMusic(app)
             }
             .placed(r("music", CGRect(162.1, 311.9, 65.7, 65.7)))
-            ShellSquareToggle(id: "settings.toggle.haptic", glyph: .glyphHaptic, isOn: s.haptic, t: t) {
+            ShellSquareToggle(id: "settings.toggle.haptic", glyph: .iconHaptic, isOn: s.haptic, t: t) {
                 ShellSettings.toggle(app, \.haptic, name: "settings.toggle.haptic")
             }
             .placed(r("haptic", CGRect(266.9, 311.6, 66.1, 65.7)))
@@ -195,15 +195,15 @@ struct InfoPage: View {
         let bottom = m.size.height - m.safeBottom - 34 * m.s
         let body = CGFloat(f.double("text.page.body.size", 17)) * m.s
         let heading = CGFloat(f.double("text.page.body.heading", 21)) * m.s
-        let colour = Color(hexString: f.string("text.page.body.colour", "#5A2801")) ?? Color(hex: 0x5A2801)
+        let colour = Color(hexString: f.string("text.page.body.colour", Skin.popupsSettingsPopupTextPageBodyColourHex)) ?? Color(hex: Skin.popupsSettingsPopupInfoPageColour)
         let inset = CGFloat(f.double("text.page.body.inset", 20)) * m.s
         let lineGap = body * (CGFloat(f.double("text.page.body.lineHeight", 1.3)) - 1)
         let email = SettingsPopup.supportEmail(app)
         ZStack(alignment: .topLeading) {
             ShellPageBackground(t: t).frame(width: m.size.width, height: m.size.height)
             ZStack {
-                RoundedRectangle(cornerRadius: 23.7 * m.s).fill(Color(hex: 0x032527))
-                RoundedRectangle(cornerRadius: 22.7 * m.s).fill(t.color("card.fill", 0xF4E8D4)).padding(1.2)
+                RoundedRectangle(cornerRadius: 23.7 * m.s).fill(Color(hex: Skin.popupsSettingsPopupInfoPageFill))
+                RoundedRectangle(cornerRadius: 22.7 * m.s).fill(t.color("card.fill", Skin.popupsSettingsPopupCardFill)).padding(1.2)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 14 * m.s) {
                         ForEach(Array(sections(email: email).enumerated()), id: \.offset) { _, sec in
@@ -224,7 +224,7 @@ struct InfoPage: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(inset)
-                    .tint(Color(hex: 0x00736E))     // A5: the auto-detected email link in D1 teal (was the system blue)
+                    .tint(Color(hex: Skin.popupsSettingsPopupInfoPageTint))     // A5: the auto-detected email link in D1 teal (was the system blue)
                 }
                 .padding(1.2)
                 .clipShape(RoundedRectangle(cornerRadius: 22.7 * m.s))
@@ -246,7 +246,7 @@ struct InfoPage: View {
         VStack(alignment: .leading, spacing: 6 * m.s) {
             Text("Write to us at").font(GameText.pageFont(body)).foregroundStyle(colour)
             HStack(spacing: 10 * m.s) {
-                Text(verbatim: email).font(GameText.pageFont(body)).foregroundStyle(Color(hex: 0x00474D))
+                Text(verbatim: email).font(GameText.pageFont(body)).foregroundStyle(Color(hex: Skin.popupsSettingsPopupInfoPageContactForegroundStyle))
                     .textSelection(.enabled)
                 GameButton(id: "page.support.copy", label: "Copy", action: {
                     UIPasteboard.general.string = email
@@ -254,7 +254,7 @@ struct InfoPage: View {
                 }) {
                     Text("Copy").font(GameText.pageFont(body * 0.9)).foregroundStyle(.white)
                         .padding(.horizontal, 12 * m.s).padding(.vertical, 5 * m.s)
-                        .background(Capsule().fill(Color(hex: 0x00837C)))
+                        .background(Capsule().fill(Color(hex: Skin.popupsSettingsPopupInfoPageContactFill)))
                 }
             }
         }
@@ -291,14 +291,11 @@ struct InfoPage: View {
             if let email { list.append(Section(heading: nil, body: "Questions? Write to \(email)")) }
             return list
         case .privacy:
-            // META (OWNER 2026-09-29 19:33, the Meta SDK in 1.0): "no tracking" became false — ¶1 keeps only what stays true
-            // (no accounts, no ads shown), and two paragraphs say exactly what Meta receives and how to change it.
+            // A game that adds an attribution SDK must add paragraphs here saying what it sends (docs/recipes/ad-attribution.md).
             var list = [
                 Section(heading: nil, body: "\(name) has no accounts and shows no ads."),
                 Section(heading: nil, body: "Your progress, settings and profile name are stored only on this device."),
                 Section(heading: nil, body: "The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records."),
-                Section(heading: nil, body: "We advertise \(name) on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information."),
-                Section(heading: nil, body: "If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking."),
                 Section(heading: nil, body: "Notifications are scheduled on your device and can be turned off in Settings."),
             ]
             if let email {

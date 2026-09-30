@@ -15,6 +15,10 @@ import PathCore
 // B1 (VERIFIED v582, build/p/PH0/balloon.md §5): when the failed attempt loses an Up & Away streak of ≥ 2
 // (`balloonRise.fallPageMinStreak`), the chain's end first shows Up & Away's page by itself — the balloon falls to the ground —
 // and its X leads to Level Failed (the bands themselves carry no balloon wording). A loss of 1 goes straight to Level Failed.
+// Template phase 2: genre-agnostic — driven by the `.meta(.offer / .lost)` events of any module; the first step's delay is
+// `fail.zeroHoldSeconds` for a clock that ran out (the pill shows 0:00) and `fail.heartsOutDelay` for every other kind; the
+// popup's texts follow `ContinueOffer.Kind` (S2's OutOfTimePopup / ContinuePopup for time and hearts; template phase 5: the
+// generic OfferPopup for `stuck` / `outOfMoves`, its texts by kind and its grant line by the grant).
 
 @MainActor final class FailFlowDirector: GameDirector {
     unowned let game: GameController
@@ -28,8 +32,9 @@ import PathCore
     private var zeroHold: Double { services.tuning.game.file.double("fail.zeroHoldSeconds", 1.61) }
     private var heartsOutDelay: Double { services.tuning.game.file.double("fail.heartsOutDelay", 0.60) }
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for out in outputs {
+            guard case .meta(let e) = out else { continue }
             switch e {
             case .offer(let o):
                 Task { @MainActor [self, game] in
@@ -46,7 +51,7 @@ import PathCore
 
     private func offer(_ o: ContinueOffer) async {
         guard let s = game.session else { return }
-        let delay = o.step == 0 ? (o.kind == .outOfTime ? zeroHold : heartsOutDelay) : 0
+        let delay = o.step == 0 ? firstStepDelay(o.kind) : 0
         Log.mark("fail", "\(game.levelName) offer \(o.kind.rawValue) step \(o.step) (\(o.warning.rawValue)) in \(delay) s")
         if delay > 0 { guard await game.wait(gameSeconds: delay) else { return } }
         guard !game.isTornDown, case .offer(let now) = s.phase, now == o else { return }
@@ -68,6 +73,11 @@ import PathCore
             game.fanOut(s.declineContinue(), origin: .director)
         }
         game.updateInput()
+    }
+
+    /// Out of Time!: the pill holds 0:00 first; every other chain (hearts, moves, stuck) opens after the break's beat.
+    private func firstStepDelay(_ kind: ContinueOffer.Kind) -> Double {
+        kind == .outOfTime ? zeroHold : heartsOutDelay
     }
 
     /// The offer's price: spent at once when the player has it (an immediate save), else the Shop over the popup (the popup

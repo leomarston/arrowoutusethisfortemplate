@@ -1,0 +1,36 @@
+{
+ "id": "hud-coins",
+ "title": "HUD coin pill",
+ "category": "hud",
+ "summary": "The level's coin group: coin icon over a recessed pill with the balance.",
+ "description": "CoinPillHUD shows HUDModel.coins beside the Dynamic Island; tapping it opens the Shop over the level.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/HUD/CoinPillHUD.swift"
+ ],
+ "depends": [
+  "core",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "currency.coin.icon"
+  ],
+  "strings": [
+   "Coins"
+  ],
+  "tuning": [
+   "ui.json:anchors.hud",
+   "ui.json:colors.hud",
+   "ui.json:frames.hud",
+   "ui.json:shapes.hud",
+   "ui.json:text.hud"
+  ],
+  "skinTokens": [
+   "hud.coinPillHUD"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 32 -pc.coins 2240"
+ ]
+}

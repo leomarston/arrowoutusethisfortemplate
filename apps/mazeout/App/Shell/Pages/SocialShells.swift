@@ -32,7 +32,7 @@ struct LeaderboardPageShell: View {
         let now = app.clock.wallClock()
         // FIX-2 A: the Leaderboard TAB is part of home: home's parked-aware state proxy, not the store — parked under a level it
         // re-renders nothing on the level's store writes (the attempt at Play, the win at the clearing tap)
-        let st = HomeLive.read(app)
+        let st = ShellScreens.homeState(app)                   // home's proxy (the home component's hooks)
         let status = Events.status(st, now: now, rules: ShellEconomy.rules(app))
         let weekly = status.weekly
         let bodyTop = m.y(190, .top), bodyBottom = m.y(771.7, .bottom)
@@ -73,12 +73,12 @@ private struct LeaderboardTabStrip: View {
 
     var body: some View {
         // B2: the board's country (a territory plays on its parent's board: IC -> ES) in the app's language
-        let country = CountryName.label(HomeLive.read(app).social.country.map { app.tuning.social.config.model.boardCountry($0) },
+        let country = CountryName.label(ShellScreens.homeState(app).social.country.map { app.tuning.social.config.model.boardCountry($0) },
                                         short: app.tuning.ui.file.value("lb.countryShort") as? [String: Any])
         ZStack(alignment: .topLeading) {
-            LinearGradient(colors: [Color(hex: 0x008E85), Color(hex: 0x008E85)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors0), Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors1)], startPoint: .top, endPoint: .bottom)
                 .frame(width: 393, height: 76.7).position(x: 196.5, y: 110.1 + 38.35)
-            LinearGradient(colors: [Color(hex: 0x005252), Color(hex: 0x051B1C)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors0V2), Color(hex: Skin.pagesSocialShellsLeaderboardTabStripColors1V2)], startPoint: .top, endPoint: .bottom)
                 .frame(width: 393, height: 4).position(x: 196.5, y: 188)
             tab(.weekly, "Weekly", centre: 72.7)
             tab(.world, "World", centre: 196.1)
@@ -89,7 +89,7 @@ private struct LeaderboardTabStrip: View {
     /// A tab centred on its measured centre; the selected one is 8 pt wider (125.4 vs 117.4, VERIFIED meta-013).
     private func tab(_ id: LeaderboardShellState.Tab, _ title: LocalizedStringResource?, centre: CGFloat, verbatim: String? = nil) -> some View {
         let on = state.tab == id
-        let st = GameTextStyle.s2(23, -0.4, [0xFFFAF0, 0xFDF1D9], outline: on ? 0x924500 : 0x073A3E, 1.5, drop: 1.0)
+        let st = GameTextStyle.s2(23, -0.4, [Skin.pagesSocialShellsLeaderboardTabStripTabSt0, Skin.pagesSocialShellsLeaderboardTabStripTabSt1], outline: on ? Skin.pagesSocialShellsLeaderboardTabStripTabStOutlineOn : Skin.pagesSocialShellsLeaderboardTabStripTabStOutlineNotOn, 1.5, drop: 1.0)
         let w: CGFloat = on ? 125.4 : 117.4
         let frame = CGRect(centre - w / 2, 122.4, w, on ? 52.4 : 52.0)
         return GameButton(id: "leaderboard.tab.\(id.rawValue)", label: title, value: on ? "selected" : nil,   // §9.8 id
@@ -108,14 +108,14 @@ private struct TabFace: View {
     var body: some View {
         Rasterized("lbTab|\(on)", overflow: 1) { _ in
             ZStack {
-                RoundedRectangle(cornerRadius: on ? 24 : 17).fill(Color(hex: 0x004249))
+                RoundedRectangle(cornerRadius: on ? 24 : 17).fill(Color(hex: Skin.pagesSocialShellsTabFaceFill))
                 RoundedRectangle(cornerRadius: on ? 23 : 16)
-                    .fill(LinearGradient(colors: on ? [Color(hex: 0xFFBB2F), Color(hex: 0xFFA818), Color(hex: 0x964809)]
-                                                    : [Color(hex: 0x008980), Color(hex: 0x007772), Color(hex: 0x00282B)],
+                    .fill(LinearGradient(colors: on ? [Color(hex: Skin.pagesSocialShellsTabFaceColorsOn0), Color(hex: Skin.pagesSocialShellsTabFaceColorsOn1), Color(hex: Skin.pagesSocialShellsTabFaceColorsOn2)]
+                                                    : [Color(hex: Skin.pagesSocialShellsTabFaceColorsNotOn0), Color(hex: Skin.pagesSocialShellsTabFaceColorsNotOn1), Color(hex: Skin.pagesSocialShellsTabFaceColorsNotOn2)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1)
                 RoundedRectangle(cornerRadius: on ? 21 : 14)
-                    .fill(LinearGradient(colors: on ? [Color(hex: 0xF3CF62), Color(hex: 0xFFA818)] : [Color(hex: 0x009C90), Color(hex: 0x006D6A)],
+                    .fill(LinearGradient(colors: on ? [Color(hex: Skin.pagesSocialShellsTabFaceColorsOn0V2), Color(hex: Skin.pagesSocialShellsTabFaceColorsOn1)] : [Color(hex: Skin.pagesSocialShellsTabFaceColorsNotOn0V2), Color(hex: Skin.pagesSocialShellsTabFaceColorsNotOn1V2)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(EdgeInsets(top: 2, leading: 2.5, bottom: 5, trailing: 2.5))
             }
@@ -127,7 +127,7 @@ private struct TabFace: View {
 /// broken from one key).
 private struct WeeklyLockedText: View {
     var body: some View {
-        let st = GameTextStyle.s2(26, -0.5, [0xFFFFFF], outline: 0x00373B, 1.4, drop: 1.2)
+        let st = GameTextStyle.s2(26, -0.5, [Skin.pagesSocialShellsWeeklyLockedTextSt0], outline: Skin.pagesSocialShellsWeeklyLockedTextStOutline, 1.4, drop: 1.2)
         let full = String(localized: "Reach level 50 to join the Weekly Cup!")
         let lines = Self.lines(full)
         VStack(spacing: 4) {
@@ -146,7 +146,7 @@ private struct WeeklyLockedText: View {
         // B3: words = LineUnits (the old space split; dictionary words in ja / zh-Hans, which have no spaces)
         let words = LineUnits.units(s)
         guard words.count >= 3 else { return [s] }
-        let st = GameTextStyle.s2(26, -0.5, [0xFFFFFF])
+        let st = GameTextStyle.s2(26, -0.5, [Skin.pagesSocialShellsWeeklyLockedTextLinesSt0])
         func width(_ w: ArraySlice<TextUnit>) -> CGFloat {
             GameTextLayout.make(LineUnits.join(w), postScriptName: st.postScriptName, size: st.size, tracking: st.tracking).advance
         }
@@ -196,7 +196,7 @@ enum CountryName {
     static func label(_ iso: String?, short table: [String: Any]?, language: String = appLanguage) -> String {
         let code = (iso ?? Locale.current.region?.identifier ?? "US").uppercased()
         let name = Self.name(code, language: language)
-        let st = GameTextStyle.s2(23, -0.4, [0xFFFFFF])
+        let st = GameTextStyle.s2(23, -0.4, [Skin.pagesSocialShellsCountryNameLabelSt0])
         let w = GameTextLayout.make(name, postScriptName: st.postScriptName, size: st.size, tracking: st.tracking).advance
         guard w * 0.7 > 100 else { return name }
         return short(code, language: language, table: table) ?? code
@@ -225,7 +225,7 @@ struct EventPageShell<Content: View>: View {
     }
 
     static func close(_ app: AppModel) {
-        HomeScene.requestRefill()
+        ShellScreens.home?.requestRefill()
         app.router.go(.home(.normal, tab: .home))
     }
 }
@@ -237,8 +237,8 @@ struct PageInfoButton: View {
         GameButton(id: "event.info", label: "Info", action: action) {
             Rasterized("infoDisc", overflow: 1) { size in
                 ZStack {
-                    Circle().fill(Color(hex: 0x003C40))
-                    Circle().fill(LinearGradient(colors: [Color(hex: 0x54C6B7), Color(hex: 0x27AC9D), Color(hex: 0x00887E)],
+                    Circle().fill(Color(hex: Skin.pagesSocialShellsPageInfoButtonFill))
+                    Circle().fill(LinearGradient(colors: [Color(hex: Skin.pagesSocialShellsPageInfoButtonColors0), Color(hex: Skin.pagesSocialShellsPageInfoButtonColors1), Color(hex: Skin.pagesSocialShellsPageInfoButtonColors2)],
                                                  startPoint: .top, endPoint: .bottom)).padding(1.5)
                     Capsule().fill(Color.white).frame(width: size.width * 0.14, height: size.height * 0.36).offset(y: size.height * 0.1)
                     Circle().fill(Color.white).frame(width: size.width * 0.16, height: size.width * 0.16).offset(y: -size.height * 0.2)
@@ -269,11 +269,11 @@ struct PageTimerChip: View {
     }
 
     private func chip(_ text: String) -> some View {
-        let st = GameTextStyle.s2(15.4, -0.3, [0x5A2801])
+        let st = GameTextStyle.s2(15.4, -0.3, [Skin.pagesSocialShellsPageTimerChipChipSt0])
         return ZStack(alignment: .topLeading) {
-            Rasterized("pageChip") { _ in RoundedRectangle(cornerRadius: 12).fill(Color(hex: 0xF5E8D4)) }
+            Rasterized("pageChip") { _ in RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.pagesSocialShellsPageTimerChipChipFill)) }
                 .placed(CGRect(x: 12, y: 1.5, width: 74.7, height: 24))
-            ArtImage(art: .iconStopwatchSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
+            ArtImage(art: .hudTimerIconSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
             GlyphRunText(text: text, style: st, maxWidth: 56).at(52, st.capCentre(baseline: 19.0))
         }
         .frame(width: 86.7, height: 27, alignment: .topLeading)

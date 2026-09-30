@@ -1,0 +1,61 @@
+{
+ "id": "claw-challenge",
+ "title": "Treasure Climb (claw challenge)",
+ "category": "social-events",
+ "summary": "The weekly points ladder (Treasure Climb): its page, (i) overlay and home bar.",
+ "description": "GameCore ClawChallenge (weekly ladder, rules.json `claw`) + ClawScreen (page + (i) overlay) + ClawBar (the home bar; its frame, fill, token and flame are the home's shared event-bar chrome, EventBarChrome.swift, which Up & Away's bar and the payout draw too).",
+ "status": "stable",
+ "maxClosure": 85,
+ "files": [
+  "apps/mazeout/App/Shell/Social/ClawScreen.swift",
+  "apps/mazeout/App/Shell/Home/ClawBar.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/ClawChallenge.swift"
+ ],
+ "depends": [
+  "core",
+  "events-engine",
+  "home",
+  "social-ui",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "event.clawChallenge.header",
+   "event.clawChallenge.token",
+   "fx.sunburst",
+   "icon.check",
+   "icon.info",
+   "icon.lock",
+   "icon.pointer",
+   "reward.coinsSmall"
+  ],
+  "strings": [
+   "Beat levels without fail to get more rewards!",
+   "Beat levels without losing!",
+   "Increase your score multiplier!",
+   "Info",
+   "Tap to Continue",
+   "Treasure Climb"
+  ],
+  "tuning": [
+   "rules.json:claw",
+   "social.json:unlocks.clawChallenge",
+   "ui.json:frames.home",
+   "ui.json:home",
+   "ui.json:home.clawBar",
+   "ui.json:text.home"
+  ],
+  "skinTokens": [
+   "social.clawScreen"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go event:claw -pc.socialScenario clawStep",
+  "-pc.go home -pc.popup clawInfo"
+ ],
+ "notes": [
+  "Kit decoupling step: the helpers every event shares are social-ui's (SocEventChrome.swift, Countdown.swift) or ui-chrome's (SocTwoLines); its closure is the events engine (inherent: its pages run the engine's flows, announcements and finish states) + social-ui + ui-chrome."
+ ]
+}

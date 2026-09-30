@@ -1,9 +1,9 @@
 import SwiftUI
 
 // SHELL S1 (SPEC-architecture §6.3; research/tutorials.md §1 VERIFIED; design/ui-measure.md `loading`, research/kickoff/state.png).
-// The cover for the boot sequence and the warm-ups (§5.9, §8.5): full-bleed `loadingBackdrop`, the loading characters
-// (Art/char_loading_layout.json places each render so its eyes sit on the original's), our "ARROW OUT!" logo (`logoArrowOut`)
-// at `loading.logo`, and "Loading" with cycling dots at `loading.label`. Its only animation is a periodic TimelineView on the
+// The cover for the boot sequence and the warm-ups (§5.9, §8.5): the skin's Loading scene (skin/scenes.json `loading` ->
+// `SkinScenes`): the full-bleed backdrop, the cast (each render placed so its eyes sit on the original's; R4 LOADING's layout),
+// the logo slot at `loading.logo`, and "Loading" with cycling dots at `loading.label`. Its only animation is a periodic TimelineView on the
 // dots (`loading.dotsPeriod` 0.4 s), cheap enough that the warm-up's frames are not starved. The dots cycle ".", "..", "..."
 // (3 states, CONSISTENCY T-16); the word never moves (its left edge is fixed).
 // The scene art (backdrop, characters) is placed with an aspect-FILL transform of the 393 x 852 reference (identity on the
@@ -17,22 +17,22 @@ struct LoadingScreen: View {
         let t = app.tuning.ui.tokens
         // SPEC-ui C3: the captured #CCCCCC / #681E1A were the colours under the iOS alert's 0.80 dim: the face is white,
         // the outline #82251F
-        let style = t.text("loading.label", GameTextStyle(size: 26.8, tracking: -0.5, fill: [Color(hex: 0xFFFFFF)],
-                                                          outline: Color(hex: 0x7E2A1C), outlineWidth: 0.88, drop: 0.39))
+        let style = t.text("loading.label", GameTextStyle(size: 26.8, tracking: -0.5, fill: [Color(hex: Skin.shellLoadingScreenLoadingLabelFill0)],
+                                                          outline: Color(hex: Skin.shellLoadingScreenLoadingLabelOutline), outlineWidth: 0.88, drop: 0.39))
         let word = GameText("Loading", style: style, maxWidth: 220)
         let label = t.textPoint("loading.label", baseline: 792.7, centreX: 187.2)
         let origin = m.point(CGPoint(x: label.x, y: label.baseline), t.anchor("loading.label", .bottom))
         let left = origin.x - word.layout.advance * m.s / 2
         ZStack(alignment: .topLeading) {
-            t.color("loading.base", 0xB7A587)
+            t.color("loading.base", Skin.shellLoadingScreenLoadingBase)
             if LoadingArt.shared.ready {
                 SceneLayer(size: m.size) {
-                    ArtImage(art: .loadingBackdrop, contentMode: .fill).frame(width: 393, height: 852)
-                    ForEach(LoadingLayout.shared.characters, id: \.file) { c in
-                        PathImage(path: "Art/" + c.file).placed(c.frame)
+                    ArtImage(art: SkinScenes.loadingBackdrop, contentMode: .fill).frame(width: 393, height: 852)
+                    ForEach(SkinScenes.loadingCast.indices, id: \.self) { i in
+                        PathImage(path: SkinScenes.loadingCast[i].art.path).placed(SkinScenes.loadingCast[i].rect)
                     }
                 }
-                ArtImage(art: .logoArrowOut).placed(t.rect("loading.logo", CGRect(20, 66.7, 206.8, 160.1), .top, m))
+                ArtImage(art: SkinScenes.loadingLogo).placed(t.rect("loading.logo", CGRect(20, 66.7, 206.8, 160.1), .top, m))
             }
             ZStack(alignment: .topLeading) {
                 word.at(word.layout.advance / 2, style.capCentre(baseline: 0))
@@ -118,7 +118,7 @@ struct LoadingDots: UIViewRepresentable {
 
     /// Every bundle path the Loading screen draws.
     static var paths: [String] {
-        [UIArt.loadingBackdrop.path, UIArt.logoArrowOut.path] + LoadingLayout.shared.characters.map { "Art/" + $0.file }
+        [SkinScenes.loadingBackdrop.path, SkinScenes.loadingLogo.path] + SkinScenes.loadingCast.map(\.art.path)
     }
 
     /// FIX-2 A (V3-09): Loading shows once per launch; once its layer is gone its decoded art (the full-bleed backdrop alone is
@@ -142,30 +142,6 @@ struct LoadingDots: UIViewRepresentable {
                 Log.mark("warmup", "loading art \(n)/\(paths.count) decoded \(String(format: "%.3f", ProcessInfo.processInfo.systemUptime - t0)) s")
             }
         }
-    }
-}
-
-/// The loading characters' placement (Art/char_loading_layout.json: frame top-left in reference pt, z back → front).
-struct LoadingLayout {
-    struct Character { let file: String; let frame: CGRect; let z: Int }
-    let characters: [Character]
-
-    static let shared = LoadingLayout.load()
-
-    static func load(bundle: Bundle = .main) -> LoadingLayout {
-        guard let url = bundle.resourceURL?.appendingPathComponent("Art/char_loading_layout.json"),
-              let data = try? Data(contentsOf: url),
-              let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let chars = root["characters"] as? [String: [String: Any]] else {
-            Log.mark("loading", "Art/char_loading_layout.json missing: no loading characters")
-            return LoadingLayout(characters: [])
-        }
-        let list: [Character] = chars.values.compactMap { c in
-            guard let file = c["file"] as? String, let f = c["frame_pt"] as? [Double], f.count == 2,
-                  let x = (c["x"] as? NSNumber)?.doubleValue, let y = (c["y"] as? NSNumber)?.doubleValue else { return nil }
-            return Character(file: file, frame: CGRect(x, y, f[0], f[1]), z: (c["z"] as? Int) ?? 0)
-        }
-        return LoadingLayout(characters: list.sorted { $0.z < $1.z })
     }
 }
 

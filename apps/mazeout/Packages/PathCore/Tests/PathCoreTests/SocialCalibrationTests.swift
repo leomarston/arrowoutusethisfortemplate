@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 // SOC1 (the orchestrator's brief: "calibrate against what the phone showed (research/meta.md …); if SPEC-social disagrees
 // with those observations, follow the observations"). The SHIPPED world (v552) against the owner's phone on

@@ -1,0 +1,17 @@
+{
+  "about": "Swift sources that may name art files or bundle art paths (tools/skin/art.py --check; docs/SKIN.md §4). Everything else asks for a slot (UIArt.<slot>, ArtRig.<slot>). An entry that no longer names a file fails as stale.",
+  "files": [
+    {
+      "path": "App/Board/",
+      "reason": "the puzzle module's board sprites: the level files and the obstacle code address them by sprite id in the bundle's UI/ folder (SpriteCatalog / SpriteCache: `<id>@3x.png`); a new puzzle module brings its own sprite catalogue, so these ids are the module's data, not the shell skin's (their files are still covered: every one is a `puzzle.<id>` slot of skin/art.json, so the shipped set and the bundle tests stay exact)"
+    },
+    {
+      "path": "App/FX/WinLogoSequence.swift",
+      "reason": "the win logo's part names are ui.json `win.logo`'s ids (its parts, containers, arrow order); they equal the art ids of Arrow Out's logo files. The code resolves every image id through `LogoSpec.art(id)` = the slot `logo.part.<id>` (and the one-piece fallback through `logo.main`), and art.py --check proves every win.logo id has its slot"
+    },
+    {
+      "path": "App/Shell/Home/PuppetRig.swift",
+      "reason": "the rig loader: a rig is a FOLDER (`Art/<folder>/rig.json` + its layer PNGs); the folder comes from `ArtRig.<slot>.folder` (skin/art.json `rigs`)"
+    }
+  ]
+}

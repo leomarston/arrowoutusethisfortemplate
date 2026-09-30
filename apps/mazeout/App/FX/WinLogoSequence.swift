@@ -141,6 +141,10 @@ struct LogoSpec: Sendable {
     let flatUntil: Double
     let arrowLetters: [String]
 
+    /// The art slot of one of this spec's image ids (a layer id or a `contents` entry): `logo.part.<id>` in skin/art.json
+    /// (`tools/skin/art.py --check` fails on an id the skin does not map).
+    static func art(_ id: String) -> UIArt? { UIArt(rawValue: "logo.part." + id) }
+
     static let arrowOrder = ["logoLetterA", "logoLetterR1", "logoLetterR2", "logoLetterO", "logoLetterW"]
     static let outOrder = ["logoOutO", "logoOutU", "logoOutT", "logoOutBang"]
 
@@ -339,15 +343,17 @@ final class LogoParts: @unchecked Sendable {       // immutable after `make`; th
     /// composed round-1/2 ids), 4 at a time. Missing files → the fallbacks (logged): OUT! as ONE layer, or the one-piece logo.
     static func loadImages(_ spec: LogoSpec?, bundle: Bundle = .main) -> ([String: CGImage], Mode) {
         if spec == nil { Log.error("fx", "ui.json win.logo missing or malformed: the one-piece logo at rest") }
-        func decode(_ ids: [String]) -> [String: CGImage] {
+        /// Decodes each (image id, its slot) pair; the result is keyed by the image id.
+        func decodeArt(_ items: [(id: String, art: UIArt?)]) -> [String: CGImage] {
             let lock = NSLock()
             var out: [String: CGImage] = [:]
-            DispatchQueue.concurrentPerform(iterations: ids.count) { i in
-                guard let art = UIArt(rawValue: ids[i]), let cg = ArtStore.image(path: art.path, bundle: bundle)?.cgImage else { return }
-                lock.lock(); out[ids[i]] = cg; lock.unlock()
+            DispatchQueue.concurrentPerform(iterations: items.count) { i in
+                guard let art = items[i].art, let cg = ArtStore.image(path: art.path, bundle: bundle)?.cgImage else { return }
+                lock.lock(); out[items[i].id] = cg; lock.unlock()
             }
             return out
         }
+        func decode(_ ids: [String]) -> [String: CGImage] { decodeArt(ids.map { (id: $0, art: LogoSpec.art($0)) }) }
         if let spec {
             let needed = Array(Set(spec.layers.values.filter { $0.part != "logoOut" }.flatMap(\.contents))).sorted()
             var images = decode(needed)
@@ -362,7 +368,7 @@ final class LogoParts: @unchecked Sendable {       // immutable after `make`; th
             }
         }
         Log.error("fx", "logo: the one-piece logoArrowOut at rest (the group bounce only)")
-        return (decode(["logoArrowOut"]), .onePiece)
+        return (decodeArt([(id: "logoArrowOut", art: UIArt.logoMain)]), .onePiece)      // the skin's `logo.main` slot
     }
 
     /// The tree with its baked animations (any thread).

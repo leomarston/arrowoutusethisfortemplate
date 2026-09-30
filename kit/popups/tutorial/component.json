@@ -1,0 +1,42 @@
+{
+ "id": "tutorial",
+ "title": "In-level tutorial",
+ "category": "popups",
+ "summary": "Tutorial steps from Levels/tutorials.json: caption + hand pointer over the board, input gating.",
+ "description": "TutorialDirector plays the module's TutorialStep list (trigger / dismiss) through TutorialLayer (caption and hand; ui.json `tutorial.*`).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Game/TutorialDirector.swift",
+  "apps/mazeout/App/Shell/Popups/TutorialLayer.swift"
+ ],
+ "depends": [
+  "core",
+  "game-loop",
+  "hud"
+ ],
+ "uses": {
+  "art": [
+   "tutorial.hand"
+  ],
+  "tuning": [
+   "ui.json:text.tutorial",
+   "ui.json:tutorial",
+   "ui.json:tutorial.captionKf",
+   "ui.json:tutorial.captionOut",
+   "ui.json:tutorial.handFirstHold",
+   "ui.json:tutorial.handIn",
+   "ui.json:tutorial.handLoop",
+   "ui.json:tutorial.handOut",
+   "ui.json:tutorial.handPressScale",
+   "ui.json:tutorial.handScale",
+   "ui.json:tutorial.showAfter"
+  ],
+  "skinTokens": [
+   "popups.tutorialLayer"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab tutorial",
+  "-pc.reset 1 -pc.tutorials force"
+ ]
+}

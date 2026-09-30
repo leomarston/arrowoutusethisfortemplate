@@ -49,13 +49,13 @@ struct HUDHeartsRow: View {
         let state = i < hearts.count ? hearts[i] : .empty
         ZStack(alignment: .topLeading) {
             if let scale = shownScale(i, state: state, now: now) {
-                let c = ArtInk.canvas(.heartHUD, ink: frame)
-                ArtImage(art: .heartHUD)
+                let c = ArtInk.canvas(.hudHeartFull, ink: frame)
+                ArtImage(art: .hudHeartFull)
                     .frame(width: c.width, height: c.height)
                     .scaleEffect(CGFloat(scale), anchor: .center)          // about the heart's own centre (then placed)
                     .position(x: c.midX, y: c.midY)
             } else {
-                InkImage(art: .heartHUDLost, ink: frame)
+                InkImage(art: .hudHeartLost, ink: frame)
             }
             if let c = breaks[i] {
                 let tau = app.clock.sequenceTime("heartBreak", now - c)
@@ -126,8 +126,8 @@ private struct HeartHalf: View {
 
     var body: some View {
         let h = motion.heartHalf(tau, side: left ? -1 : 1)
-        let canvas = ArtInk.canvas(.heartHUDHalves, ink: frame)
-        ArtImage(art: .heartHUDHalves)
+        let canvas = ArtInk.canvas(.hudHeartHalves, ink: frame)
+        ArtImage(art: .hudHeartHalves)
             .frame(width: canvas.width, height: canvas.height)
             .mask(HeartCrackMask(left: left))
             .rotationEffect(.degrees(h.degrees), anchor: left ? .bottomTrailing : .bottomLeading)

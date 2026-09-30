@@ -64,12 +64,10 @@ final class ContractAmend4Tests: XCTestCase {
                                 "PrivacyInfo.xcprivacy is in the app bundle (release-plan S-5; ITMS-91053 otherwise)")
         let plist = try XCTUnwrap(PropertyListSerialization.propertyList(from: Data(contentsOf: url), format: nil)
                                   as? [String: Any])
-        // META (OWNER 2026-09-29 19:33, the Meta SDK in 1.0): the ruled declarations CHANGED (tracking, ep1.facebook.com, the
-        // Meta-shared types); every one is still pinned exactly — the reason the old values (no tracking, purchase history
-        // only, not linked) are gone is that they became false the moment FacebookCore ships (memory meta-sdk-wiring).
-        XCTAssertEqual(plist["NSPrivacyTracking"] as? Bool, true, "the app links the Meta SDK and shows the ATT prompt")
-        XCTAssertEqual(plist["NSPrivacyTrackingDomains"] as? [String], ["ep1.facebook.com"],
-                       "EXACTLY FBSDKCoreKit's own domain: empty = ITMS-91064; graph/www.facebook.com would block the SDK for everyone who declines")
+        // The template ships no ad / attribution SDK (docs/ROADMAP.md D2): no tracking, no tracking domains. A game that adds
+        // one restates these pins together with the manifest, the label and the privacy text (docs/recipes/ad-attribution.md).
+        XCTAssertEqual(plist["NSPrivacyTracking"] as? Bool, false, "no tracking in the template")
+        XCTAssertEqual(plist["NSPrivacyTrackingDomains"] as? [String], [], "no tracking domains")
         let apis = try XCTUnwrap(plist["NSPrivacyAccessedAPITypes"] as? [[String: Any]])
         var reasons: [String: [String]] = [:]
         for a in apis { reasons[a["NSPrivacyAccessedAPIType"] as? String ?? ""] = a["NSPrivacyAccessedAPITypeReasons"] as? [String] }
@@ -78,19 +76,11 @@ final class ContractAmend4Tests: XCTestCase {
         XCTAssertEqual(apis.count, 2)
         let collected = try XCTUnwrap(plist["NSPrivacyCollectedDataTypes"] as? [[String: Any]])
         let p = "NSPrivacyCollectedDataTypePurpose", t = "NSPrivacyCollectedDataType"
-        let ads: Set<String> = [p + "Analytics", p + "DeveloperAdvertising", p + "ThirdPartyAdvertising"]
         // type -> (linked, tracking, purposes)
         let want: [String: (Bool, Bool, Set<String>)] = [
-            t + "PurchaseHistory": (true, true, ads.union([p + "AppFunctionality"])),     // RevenueCat + Meta's purchase event
-            t + "ProductInteraction": (true, true, ads),                                // app opened / tutorial / levels won
-            // the IDFA, only after ATT .authorized. RFIX 2026-09-29: + AppFunctionality, which FBSDKCoreKit's own manifest
-            // declares for DeviceID (Xcode's combined privacy report showed a purpose the label lacked; checked below for every
-            // embedded SDK manifest, not only this one row)
-            t + "DeviceID": (true, true, ads.union([p + "AppFunctionality"])),
-            t + "CrashData": (false, false, [p + "AppFunctionality"]),                  // FBSDKCoreKit's own manifest
-            t + "OtherDataTypes": (false, false, [p + "Analytics"]),                    // FBSDKCoreKit's own manifest
+            t + "PurchaseHistory": (false, false, [p + "AppFunctionality", p + "Analytics"]),     // RevenueCat (observer mode)
         ]
-        XCTAssertEqual(collected.count, want.count, "exactly the five declared types")
+        XCTAssertEqual(collected.count, want.count, "exactly the declared types")
         for c in collected {
             let type = c["NSPrivacyCollectedDataType"] as? String ?? "?"
             guard let (linked, tracking, purposes) = want[type] else { XCTFail("undeclared type \(type)"); continue }
@@ -103,10 +93,7 @@ final class ContractAmend4Tests: XCTestCase {
                                   as? [[String: Any]])
         var byCategory: [String: Set<String>] = [:]
         for e in label { byCategory[e["category"] as? String ?? "?"] = Set(e["data_protections"] as? [String] ?? []) }
-        XCTAssertEqual(byCategory, ["PURCHASE_HISTORY": ["DATA_LINKED_TO_YOU", "DATA_USED_TO_TRACK_YOU"],
-                                    "PRODUCT_INTERACTION": ["DATA_LINKED_TO_YOU", "DATA_USED_TO_TRACK_YOU"],
-                                    "DEVICE_ID": ["DATA_LINKED_TO_YOU", "DATA_USED_TO_TRACK_YOU"],
-                                    "CRASH_DATA": ["DATA_NOT_LINKED_TO_YOU"], "OTHER_DATA": ["DATA_NOT_LINKED_TO_YOU"]],
+        XCTAssertEqual(byCategory, ["PURCHASE_HISTORY": ["DATA_NOT_LINKED_TO_YOU"]],
                        "the label mirrors the manifest one for one (a mismatch draws an ITMS-91xxx notice / a 5.1.2 rejection)")
         // RFIX 2026-09-29: the PURPOSES too, one for one (the label check above compared only the protections)
         let catName = [t + "PurchaseHistory": "PURCHASE_HISTORY", t + "ProductInteraction": "PRODUCT_INTERACTION", t + "DeviceID": "DEVICE_ID",
@@ -120,14 +107,14 @@ final class ContractAmend4Tests: XCTestCase {
             let cat = try XCTUnwrap(catName[type], type)
             XCTAssertEqual(labelPurposes[cat], Set(row.2.compactMap { purposeName[$0] }), "\(cat): the label's purposes = the manifest's")
         }
-        // RFIX 2026-09-29: every SDK manifest embedded in the app (FBSDKCoreKit, its Basics, FBAEMKit, RevenueCat's bundle) is
+        // RFIX 2026-09-29: every SDK manifest embedded in the app (today RevenueCat's bundle) is
         // COVERED by ours: Xcode's privacy report merges them, so each type an SDK collects must be declared here with at least
         // its purposes, linked if it says linked, tracking if it says tracking
         let appRoot = Bundle.main.bundleURL.standardizedFileURL
         let files = FileManager.default.enumerator(at: appRoot, includingPropertiesForKeys: nil)?.compactMap { $0 as? URL }
             .filter { $0.lastPathComponent == "PrivacyInfo.xcprivacy" && $0.standardizedFileURL.deletingLastPathComponent() != appRoot } ?? []
         let names = Set(files.map { $0.deletingLastPathComponent().lastPathComponent })
-        XCTAssertTrue(names.contains("FBSDKCoreKit.framework"), "the Meta SDK's own manifest is embedded: \(names.sorted())")
+        XCTAssertFalse(names.contains { $0.hasPrefix("FBSDK") || $0.hasPrefix("FBAEM") }, "no Meta SDK in the template: \(names.sorted())")
         let ours = Dictionary(uniqueKeysWithValues: collected.map { ($0["NSPrivacyCollectedDataType"] as? String ?? "?", $0) })
         for f in files {
             let sdk = try XCTUnwrap(PropertyListSerialization.propertyList(from: Data(contentsOf: f), format: nil) as? [String: Any])

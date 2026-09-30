@@ -22,8 +22,8 @@ struct UsernamePopup: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let caption = GameTextStyle.s2(22, -0.5, [0x5A2801])
-        let cont = GameTextStyle.s2(38.9, -1.2, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 2.2, drop: 1.8)
+        let caption = GameTextStyle.s2(22, -0.5, [Skin.popupsUsernamePopupUsernamePopupCaption0])
+        let cont = GameTextStyle.s2(38.9, -1.2, [Skin.popupsUsernamePopupUsernamePopupCont0, Skin.popupsUsernamePopupUsernamePopupCont1, Skin.popupsUsernamePopupUsernamePopupCont2], outline: Skin.popupsUsernamePopupUsernamePopupContOutline, 2.2, drop: 1.8)
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: 5.8, t: t, bumperArm: CGSize(width: 70, height: 70), rivetInset: CGPoint(x: 12.7, y: 66), rivetAlong: 75)
                 .placed(CGRect(10.3, 250.0, 372.6, 330.0))
@@ -75,16 +75,16 @@ private struct UsernameField: View {
         ZStack {
             Rasterized("usernameWell|\(invalid)", overflow: 1) { _ in
                 ZStack {
-                    RoundedRectangle(cornerRadius: 14).fill(Color(hex: invalid ? 0xD13D2B : 0xC59C71))
-                    RoundedRectangle(cornerRadius: 13).fill(Color(hex: 0xEEDBC0)).padding(invalid ? 2.2 : 1)
+                    RoundedRectangle(cornerRadius: 14).fill(Color(hex: invalid ? Skin.popupsUsernamePopupUsernameFieldFillInvalid : Skin.popupsUsernamePopupUsernameFieldFillNotInvalid))
+                    RoundedRectangle(cornerRadius: 13).fill(Color(hex: Skin.popupsUsernamePopupUsernameFieldFill)).padding(invalid ? 2.2 : 1)
                     RoundedRectangle(cornerRadius: 13)
-                        .fill(LinearGradient(colors: [Color(hex: 0xC59765, 0.7), .clear], startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3)))
+                        .fill(LinearGradient(colors: [Color(hex: Skin.popupsUsernamePopupUsernameFieldColors0, 0.7), .clear], startPoint: .top, endPoint: UnitPoint(x: 0.5, y: 0.3)))
                         .padding(invalid ? 2.2 : 1)
                 }
             }
             TextField(text: $text, prompt: Text(verbatim: "")) { EmptyView() }
                 .font(GameText.pageFont(25.4))
-                .foregroundStyle(Color(hex: 0x6F2111))
+                .foregroundStyle(Color(hex: Skin.popupsUsernamePopupUsernameFieldForegroundStyle))
                 .multilineTextAlignment(.center)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()

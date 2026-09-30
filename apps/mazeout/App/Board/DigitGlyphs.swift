@@ -28,7 +28,7 @@ import CoreText
 
     private func build(_ text: String) -> CGPath {
         if font == nil {
-            font = CTFontCreateWithName("PCDisplay-Black" as CFString, Self.referenceSize, nil)
+            font = CTFontCreateWithName(SkinFonts.black as CFString, Self.referenceSize, nil)
         }
         guard let font else { return CGMutablePath() }
         let attr = NSAttributedString(string: text, attributes: [NSAttributedString.Key(kCTFontAttributeName as String): font])

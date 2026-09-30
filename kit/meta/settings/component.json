@@ -1,0 +1,77 @@
+{
+ "id": "settings",
+ "title": "Settings page",
+ "category": "meta",
+ "summary": "The Settings page: notifications, sound / music / haptic toggles, links, and the Terms / Privacy info pages.",
+ "description": "A full page opened by the home gear (PopupID.settings): the Notifications card, three square toggles (Sound / Music / Haptic) that write PlayerState.settings and apply at once, the support / Terms / Privacy links (InfoPage) and the version line. Links in ui.json `settings.links`.",
+ "status": "stable",
+ "maxClosure": 10,
+ "files": [
+  "apps/mazeout/App/Shell/Popups/SettingsPopup.swift",
+  "apps/mazeout/App/Shell/Popups/SettingsRegistration.swift"
+ ],
+ "depends": [
+  "core",
+  "pause-menu",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "icon.bell",
+   "icon.haptic",
+   "icon.music",
+   "icon.sound"
+  ],
+  "strings": [
+   "Allow notifications in iOS Settings.",
+   "Boosters",
+   "Coins, lives, boosters and other items in the game have no money value and cannot be exchanged or refunded outside the game.",
+   "Copied",
+   "Copy",
+   "Haptic",
+   "How to play",
+   "If you write to support, we use your message only to answer you.",
+   "Lives",
+   "Music",
+   "Notifications",
+   "Notifications are scheduled on your device and can be turned off in Settings.",
+   "Please describe your issue above. We will get back to you as soon as possible.",
+   "Privacy",
+   "Purchases are made through Apple and follow the App Store terms. We never see your payment details.",
+   "Settings",
+   "Sound",
+   "Starting a level uses a life; winning gives it back. A new life arrives every 30 minutes.",
+   "Support",
+   "Tap an arrow to send it out along its path. If something is in the way it bumps back and you lose a heart. Clear every arrow before the time runs out!",
+   "Terms",
+   "The game is provided as is. We may update the game and these terms.",
+   "The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.",
+   "The hourglass freezes the timer for 10 seconds. The bulb shows an arrow that can move.",
+   "Write to us at",
+   "Your progress",
+   "Your progress and coins are saved only on this device. Deleting the game erases them.",
+   "Your progress, settings and profile name are stored only on this device."
+  ],
+  "tuning": [
+   "game.json:support",
+   "game.json:support.email",
+   "ui.json:anchors.settings",
+   "ui.json:colors.card",
+   "ui.json:frames.page",
+   "ui.json:frames.settings",
+   "ui.json:settings",
+   "ui.json:settings.musicInert",
+   "ui.json:shapes.settings",
+   "ui.json:text.page",
+   "ui.json:text.settings",
+   "ui.json:toggle"
+  ],
+  "skinTokens": [
+   "popups.settingsPopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go settings",
+  "-pc.go home -pc.popup settings"
+ ]
+}

@@ -17,7 +17,7 @@ APP = os.path.abspath(os.path.join(PKG, '..', '..'))
 OUTDIR = os.path.join(APP, 'build', 'soc1c')
 MUT = os.path.join(OUTDIR, 'mut')
 COPY = os.path.join(MUT, 'Packages', 'PathCore')
-S = 'Sources/PathCore/Social/'
+S = 'Sources/GameCore/Social/'
 FILTER = 'SocialGoldenTests|SocialModelGoldenTests|SocialPropertyTests'
 # PUBLISH B2: the suites that pin the v2 world (goldens, intl fixture + tests_v2 properties, the shipped name bank)
 V2F = 'SocialModelGoldenTests/testV2|SocialIntlTests|SocialNamesTests|SocialPropertyTests'
@@ -91,7 +91,9 @@ MUTATIONS = [
      'let useNative = v < UInt64(nativeT?[culture] ?? 180)', 'let useNative = v < 180', V2F),
     ('v10-kana-dropped', S + 'Names.swift', 'if kanaP > 0 && useNative && culture == "jp"', 'if kanaP > 100 && useNative && culture == "jp"', V2F),
     ('v11-head-unscaled', S + 'Names.swift', 'let headN = max(1, min(D.headN, ntok / 6))', 'let headN = max(1, min(D.headN, ntok))', V2F),
-    ('v12-world-epoch-a-week-early', S + 'SocialModel.swift', 'm.epoch = 1_788_764_400', 'm.epoch = 1_788_764_400 - 604_800', V2F),
+    # the shipped world's epoch comes from game.yml via the generated GameConfig (tools/game.py generate)
+    ('v12-world-epoch-a-week-early', 'Sources/GameCore/Config/GameConfig.generated.swift',
+     'worldEpoch: Int = 1_788_764_400', 'worldEpoch: Int = 1_788_764_400 - 604_800', V2F),
     ('v13-unit-count-ignores-start', S + 'Population.swift',
      'for u in g.units where u.e > b { tot += u.e - max(b, u.s) }', 'for u in g.units where u.e > b { tot += u.e - b }', V2F),
     ('v14-hashed-blocklist-ignored', S + 'Names.swift', 'let hashed = !d.blockHashed.isEmpty', 'let hashed = false', V2F),

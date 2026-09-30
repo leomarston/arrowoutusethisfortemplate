@@ -26,7 +26,7 @@ import PathCore
     }
 
     private var t = 1000.0
-    private var scriptsBackup: ((GameController) -> [TutorialScript])?
+    private var scriptsBackup: ((GameController) -> [TutorialStep])?
     private var unlocksBackup: ((GameController) -> [FeatureUnlock])?
 
     override func setUp() {
@@ -68,10 +68,11 @@ import PathCore
         let first = launchLevel ?? levels[0].level
         let thePlan = plan ?? SessionPlan(id: "L\(first)", levels: [first])
         let services = GameServices(
-            args: args, tuning: tuning, rules: rules, economy: economy, clock: MotionClock(args: args), store: store, hud: hud,
-            board: board, audio: G.FakeAudio(log), haptics: G.FakeHaptics(log), popups: popups, fx: fx ?? G.FakeFX(log), router: router,
+            args: args, tuning: tuning, rules: rules.meta, economy: economy, clock: MotionClock(args: args), store: store, hud: hud,
+            board: board, puzzle: ArrowEscapePlugin(rules: rules, level: { byNumber[$0] }),
+            audio: G.FakeAudio(log), haptics: G.FakeHaptics(log), popups: popups, fx: fx ?? G.FakeFX(log), router: router,
             latency: LatencyProbe(), perf: PerfMonitor(),
-            level: { byNumber[$0] }, plan: { _ in thePlan },
+            plan: { _ in thePlan },
             rivals: { SocialWorld(installSeed: 7, config: .default, names: NameBank()) },
             screenSize: { CGSize(width: 393, height: 852) },
             screenAfterWin: { .home(.afterWin($0), tab: .home) },
@@ -149,7 +150,7 @@ import PathCore
     func testTapToMoveShowsAtTheReadyBeatAndGoesAtTheFirstTap() {
         TutorialDirector.source = { _ in
             [TutorialScript(id: "tapToMove", level: 900, stage: 0, trigger: .stageReady, caption: "Tap to move!",
-                            hand: TutorialHand(arrow: ArrowID(2), at: [3.0, 1.5]), dismiss: .anyTap, holdTimer: false)]
+                            hand: TutorialHand(arrow: ArrowID(2), at: [3.0, 1.5]), dismiss: .anyTap, holdTimer: false)].map(\.step)
         }
         let r = makeRig()
         XCTAssertTrue(r.game.start())
@@ -158,7 +159,7 @@ import PathCore
         r.game.boardBeat(.introFinished)
         XCTAssertTrue(r.game.hint.isShown, "shown on the ready beat (not from Loading: K + ack)")
         XCTAssertEqual(r.game.session?.clock.started, false, "holdTimer false: the timer still waits for the first tap")
-        XCTAssertNil(r.board.allowedArrows, "anyTap: no input restriction")
+        XCTAssertNil(r.board.allowedTargets, "anyTap: no input restriction")
         tap(r, 2)
         XCTAssertNotNil(r.game.hint.dismissedAt, "the first accepted tap dismisses it")
         XCTAssertEqual(r.game.session?.clock.started, true, "…and starts the timer as always")
@@ -173,7 +174,7 @@ import PathCore
     }
 
     func testTutorialIsOffUnderUITestUnlessForced() {
-        TutorialDirector.source = { _ in [TutorialScript(id: "tapToMove", level: 900, caption: "Tap to move!", hand: TutorialHand(arrow: ArrowID(2)))] }
+        TutorialDirector.source = { _ in [TutorialScript(id: "tapToMove", level: 900, caption: "Tap to move!", hand: TutorialHand(arrow: ArrowID(2)))].map(\.step) }
         let quiet = makeRig(["pc.uitest": "1"])
         XCTAssertTrue(quiet.game.start()); quiet.game.boardBeat(.introFinished)
         XCTAssertFalse(quiet.game.hint.isShown, "-pc.uitest: hints off")
@@ -183,7 +184,7 @@ import PathCore
     }
 
     func testABumpAlsoDismissesAndATargetTapStepRestrictsInput() {
-        TutorialDirector.source = { _ in [TutorialScript(id: "any", level: 900, caption: "Tap to move!", hand: TutorialHand(arrow: ArrowID(2)))] }
+        TutorialDirector.source = { _ in [TutorialScript(id: "any", level: 900, caption: "Tap to move!", hand: TutorialHand(arrow: ArrowID(2)))].map(\.step) }
         let b = makeRig()
         XCTAssertTrue(b.game.start()); b.game.boardBeat(.introFinished)
         XCTAssertTrue(b.game.hint.isShown)
@@ -191,12 +192,12 @@ import PathCore
         XCTAssertNotNil(b.game.hint.dismissedAt, "a bump is an accepted tap too (anyTap)")
 
         TutorialDirector.source = { _ in [TutorialScript(id: "only1", level: 900, caption: "Tap to move!",
-                                                          hand: TutorialHand(arrow: ArrowID(2)), dismiss: .targetTap)] }
+                                                          hand: TutorialHand(arrow: ArrowID(2)), dismiss: .targetTap)].map(\.step) }
         let r = makeRig()
         XCTAssertTrue(r.game.start()); r.game.boardBeat(.introFinished)
-        XCTAssertEqual(r.board.allowedArrows, [ArrowID(2)], "targetTap: only the hand's arrow takes input")
+        XCTAssertEqual(r.board.allowedTargets, [ArrowID(2).target], "targetTap: only the hand's arrow takes input")
         tap(r, 2)
-        XCTAssertNil(r.board.allowedArrows)
+        XCTAssertNil(r.board.allowedTargets)
         XCTAssertTrue(r.store.state.tutorialsDone.contains("only1"))
     }
 
@@ -402,7 +403,7 @@ import PathCore
             ArrowSpec(id: ArrowID(3), cells: [Cell(0, 0), Cell(1, 0)], dir: .right)])
         let r = makeRig(["pc.boosters": "hint=2"], levels: [level])
         XCTAssertTrue(r.game.start()); r.game.boardBeat(.introFinished)
-        let session = r.game.session!
+        let session = r.game.levelSession!                                   // Arrow Out's LevelSession behind the Play's session
         XCTAssertEqual(r.game.services.rules.boosters.hintPolicy, .unblocksMost, "rules.json boosters.hintPolicy")
         XCTAssertEqual(session.hint(), [ArrowID(0)], "greedy (BoardLab, the HeadlessDriver): a0")
         XCTAssertEqual(Solver.hintUnit(session.board, policy: .unblocksMost), [ArrowID(1)], "the policy's unit: a1")
@@ -410,14 +411,14 @@ import PathCore
         r.game.boosterTapped(BoosterID("hint"))
         XCTAssertEqual(r.store.state.boosters["hint"], 1, "one bulb taken")
         XCTAssertTrue(r.log.lines.contains { $0.hasPrefix("board.present") && $0.contains("other") }, "hintShown reaches the board: \(r.log.lines)")
-        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(1)], "the bulb's .hintShown carries the policy's unit")
+        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(1).target], "the bulb's .hintShown carries the policy's unit")
         XCTAssertEqual(session.clock.started, false, "the bulb never starts the timer")
         XCTAssertEqual(session.clock.freezeRemaining, 0, "a bulb freezes nothing")
         tap(r, 1)                                                            // the hinted arrow leaves → usable again
         XCTAssertNil(directors(r, BoosterDirector.self)?.hinted)
         // a0, a2, a3 are free now and none crosses another: the tie goes to the lowest id (both policies agree)
         r.game.boosterTapped(BoosterID("hint"))
-        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(0)])
+        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(0).target])
         XCTAssertEqual(r.store.state.boosters["hint"], 0)
     }
 
@@ -428,7 +429,7 @@ import PathCore
         r.game.boosterTapped(BoosterID("hint"))
         XCTAssertEqual(r.store.state.boosters["hint"], 0)
         XCTAssertTrue(r.log.lines.contains { $0.hasPrefix("board.present") && $0.contains("other") }, "hintShown reaches the board: \(r.log.lines)")
-        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(2)], "C2's unit: arrow 2 (the only free one)")
+        XCTAssertEqual(directors(r, BoosterDirector.self)?.hinted, [ArrowID(2).target], "C2's unit: arrow 2 (the only free one)")
         XCTAssertEqual(r.game.session?.clock.started, false, "the bulb never starts the timer")
         XCTAssertEqual(r.hud.boosters.first { $0.id.rawValue == "hint" }?.state, .empty, "0 left → the + badge")
         tap(r, 2)

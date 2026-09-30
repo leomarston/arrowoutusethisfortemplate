@@ -134,8 +134,6 @@ Questions? Write to %@	有疑问？请发邮件至%@
 %@ has no accounts and shows no ads.	%@没有账户，也不显示广告。	META
 Your progress, settings and profile name are stored only on this device.	你的进度、设置和个人资料名称仅保存在此设备上。	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	游戏可离线运行。购买由Apple处理。我们的购买服务RevenueCat会收到一个匿名ID和你的购买记录。	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	我们在Facebook和Instagram上为%@投放广告。为了衡量这些广告的效果，游戏会将应用事件（打开游戏、完成教程、通过的关卡、购买及其价格）连同一个随机ID和基本设备信息发送给Meta。	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	如果你在iOS询问时允许跟踪，Meta还会收到你设备的广告标识符，并可能将这些事件与你的Meta账户关联。你可以随时在iPhone的“设置”App中前往“隐私与安全性”>“跟踪”更改此选择。	META
 Notifications are scheduled on your device and can be turned off in Settings.	通知由你的设备本地定时发送，可在“设置”中关闭。	
 If you write to support, we use your message only to answer you.	如果你联系客服，我们只会用你的消息来回复你。	
 Contact: %@	联系方式：%@	
@@ -274,3 +272,18 @@ Up & Away Best Streak	直上云霄最高连胜	B3 (B1 key): Profile stat tile, b
 %@ ends soon!	%@即将结束！	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	名称须为2-16个字符	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@没有账户、没有广告，也没有追踪。	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	无路可走！	TPL5 NEW
+Out of Moves!	步数用完了！	TPL5 NEW
+You are stuck! Keep going with a little help.	卡住了！借点帮助继续吧。	TPL5 NEW
+Keep going with a few more moves!	再多几步，继续挑战！	TPL5 NEW
+Add Moves	增加步数	TPL5 NEW
++1 Move	+1步	TPL5 NEW
++%lld Moves	+%lld步	TPL5 NEW
++%lld sec	+%lld秒	TPL5 NEW
++1 Tube	试管 +1	TPL5 NEW
++%lld Tubes	试管 +%lld	TPL5 NEW
+Undo	撤销	TPL5 NEW
+Extra Tube	额外试管	TPL5 NEW
+Take back your last move!	撤销上一步！	TPL5 NEW
+Add an empty tube to the board!	添加一个空试管！	TPL5 NEW

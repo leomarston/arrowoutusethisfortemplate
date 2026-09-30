@@ -46,12 +46,12 @@ struct HomeView: View {
                 // animations unaffected), so a tab tap starts the slide, not a page build in the tap's frame; a page that is
                 // sliding out stays mounted until the slide ends
                 if parts >= HomeBuild.shop, tab == .shop || HomeLive.shared.tabsMounted || strip.shown.contains(.shop) {
-                    HomeTabPage(page: .shop, width: m.size.width) { ShopView() }
+                    HomeTabPage(page: .shop, width: m.size.width) { ShellScreens.tabPage(.shop) ?? AnyView(EmptyView()) }   // the shop component
                         .allowsHitTesting(tab == .shop).accessibilityShown(tab == .shop)
                 }
                 if parts >= HomeBuild.leaderboard,
                    tab == .leaderboard || HomeLive.shared.tabsMounted || strip.shown.contains(.leaderboard) {
-                    HomeTabPage(page: .leaderboard, width: m.size.width) { LeaderboardPageShell() }
+                    HomeTabPage(page: .leaderboard, width: m.size.width) { ShellScreens.tabPage(.leaderboard) ?? AnyView(EmptyView()) }   // social-ui
                         .allowsHitTesting(tab == .leaderboard)
                         .accessibilityShown(tab == .leaderboard)
                 }
@@ -86,24 +86,23 @@ struct HomeView: View {
     }
 
     /// The home screen's rasters, decoded before it shows.
-    static let art: [UIArt] = [.homeWorkshop, .homeFloor, .homeScaffold, .homeCabinet, .iconCoin,
-                               .iconPlusGreen, .heartLives, .glyphGear, .navCart, .navLodge, .navCup]
+    static let art: [UIArt] = [.homeBackdrop, .homeFloor, .homeStation, .homeStand, .currencyCoinIcon,
+                               .hudPlusBadge, .livesHeart, .iconSettings, .navShopIcon, .navHomeIcon, .navLeaderboardIcon]
 
-    /// A4 (R2 CAST's one mapping step, art/lanes/cast.handoff.json): the D1 rigs carry the SAME layer names, groups, defaults and
-    /// pivots as the rigs they replace (char_sci_home_rig / char_wk_homeL_blue_rig / char_wk_homeR_blue_rig), so PuppetStage,
-    /// `PuppetPart.scientistArms` and the ui.json puppet tracks apply unchanged; only the folder names changed. The scene's
-    /// `Puppet(rigName:)` calls spell the same names as literals (UIArtBundleTests scans them in this file).
-    static let bossRig = "char_boss_home_rig"
-    static let diggerLeftRig = "char_dig_homeL_rig"
-    static let diggerRightRig = "char_dig_homeR_rig"
-    static let signpostRig = "home_signpost_rig"
+    /// The home rigs by slot (skin/art.json `rigs`; the scene's layers: skin/scenes.json `home`). A4 (R2 CAST): the D1 rigs carry
+    /// the SAME layer names, groups, defaults and pivots as the rigs they replaced, so PuppetStage, the scene's rig part sets
+    /// and the ui.json puppet tracks (keyed by the rig folder) apply unchanged.
+    static let bossRig = ArtRig.homeCharacterMain.folder
+    static let diggerLeftRig = ArtRig.homeCharacterLeft.folder
+    static let diggerRightRig = ArtRig.homeCharacterRight.folder
+    static let signpostRig = ArtRig.homeCentrepiece.folder
 
-    /// A4 FEEL: every layer PNG of the rigs home draws (the boss, the Diggers, the signpost, the three event badges, the Up & Away
-    /// token), for the boot prewarm to decode OFF the main thread under Loading — PuppetView builds its layers from ArtStore's
-    /// cache, so home's first build pays no PNG decode (Release sim before: a 240 ms main-thread frame at the Loading → home cut).
+    /// A4 FEEL: every layer PNG of the rigs home draws (every rig slot of the skin: the characters, the centrepiece, the event
+    /// badges, the Up & Away token), for the boot prewarm to decode OFF the main thread under Loading — PuppetView builds its
+    /// layers from ArtStore's cache, so home's first build pays no PNG decode (Release sim before: a 240 ms main-thread frame at
+    /// the Loading → home cut).
     @MainActor static func rigLayerPaths() -> [String] {
-        let rigs = [bossRig, diggerLeftRig, diggerRightRig, signpostRig, "badge_upaway_rig"] + EventBadgeKind.allCases.map(\.rig)
-        return rigs.compactMap { PuppetCache.rig($0) }.flatMap { r in r.layers.map { r.path($0) } }
+        ArtRig.allCases.compactMap { PuppetCache.rig($0.folder) }.flatMap { r in r.layers.map { r.path($0) } }
     }
 
     static func name(_ e: HomeEntry) -> String {
@@ -128,13 +127,14 @@ private struct HomeMainPage: View {
     var body: some View {
         let t = app.tuning.ui.tokens
         LayerStack {                                                                // FIX-A1: was a top-leading ZStack
-            t.color("home.base", 0x23565A)
+            t.color("home.base", Skin.homeHomeViewHomeBase)
             if parts >= HomeBuild.scene { scene(t) }
             if parts >= HomeBuild.controls {
                 HomeLevelControls()
                 SceneLayer(size: m.size) {
-                    Puppet(rigName: "char_dig_homeL_rig")
-                    Puppet(rigName: "char_dig_homeR_rig")
+                    ForEach(SkinScenes.homeFront.indices, id: \.self) { i in
+                        HomeSceneLayerView(layer: SkinScenes.homeFront[i], t: t, refill: refill)
+                    }
                 }
                 HomeReturnDimView(clock: app.clock).frame(width: m.size.width, height: m.size.height)   // S3: the home-return dim (MA §8.3 A1)
             }
@@ -148,22 +148,49 @@ private struct HomeMainPage: View {
         }
     }
 
-    /// The scene (the back of home: its art, the boss, the signpost).
+    /// The scene (the back of home: its art, the main character, the centrepiece).
     @ViewBuilder private func scene(_ t: Tokens) -> some View {
-            // back → front (SPEC-ui §2.2.1; R3 HOME "order_back_to_front"): the workshop, the boss's torso + head, his scaffold
-            // station (the key keeps its name `console`: ShellTests' token list), the boss's arms (the hands rest on the rail),
-            // the floor, the cabinet, the signpost; the LEVEL plate and Play; the Diggers in front of the cabinet's lower
-            // corners; the top bar.
+            // back → front = skin/scenes.json `home.back` (SPEC-ui §2.2.1; R3 HOME "order_back_to_front"): the backdrop, the main
+            // character's torso + head, his station, his arms (the hands rest on the rail), the floor, the stand, the centrepiece;
+            // then the LEVEL plate and Play; `home.front` (the two characters in front of the stand's lower corners); the top bar.
             SceneLayer(size: m.size) {
-                ArtImage(art: .homeWorkshop, contentMode: .fill).frame(width: 393, height: 852)
-                Puppet(rigName: "char_boss_home_rig", part: .excluding(PuppetPart.scientistArms))
-                ArtImage(art: .homeScaffold).placed(t.frame("home.scene.console", CGRect(109, 176, 191, 192)))
-                Puppet(rigName: "char_boss_home_rig", part: .only(PuppetPart.scientistArms))
-                ArtImage(art: .homeFloor).placed(t.frame("home.scene.platform", CGRect(0, 576, 393, 182)))
-                ArtImage(art: .homeCabinet).placed(t.frame("home.scene.capsuleMachine", CGRect(95, 365, 206, 215)))
-                HomeSignpost(refill: refill)                                        // A4: owner item 4 (Home/HomeScene.swift)
-                    .placed(t.frame("home.scene.arrowPile", CGRect(101.5, 385.96, 190, 128)))
+                ForEach(SkinScenes.homeBack.indices, id: \.self) { i in
+                    HomeSceneLayerView(layer: SkinScenes.homeBack[i], t: t, refill: refill)
+                }
             }
+    }
+}
+
+/// One layer of a home scene list (skin/scenes.json -> `SkinScenes`): a raster at its ui.json frame (or aspect-filled over its
+/// rect), a puppet (whole, or the part set it names) at its rig placement, or the centrepiece rig at its frame.
+private struct HomeSceneLayerView: View {
+    let layer: SkinScenes.Layer
+    let t: Tokens
+    let refill: Int
+
+    var body: some View {
+        switch layer.kind {
+        case .art(let art):
+            if layer.fill {
+                ArtImage(art: art, contentMode: .fill).frame(width: layer.rect.width, height: layer.rect.height)
+            } else {
+                ArtImage(art: art).placed(placedRect)
+            }
+        case .rig(let rig):
+            Puppet(rigName: rig.folder, part: puppetPart)
+        case .centrepiece(let rig):
+            HomeSignpost(rigName: rig.folder, refill: refill)                        // A4: owner item 4 (Home/HomeScene.swift)
+                .placed(placedRect)
+        }
+    }
+
+    /// The layer's rect: its ui.json frames key (the scene data's rect is that key's default), or the rect itself.
+    private var placedRect: CGRect { layer.frameKey.isEmpty ? layer.rect : t.frame(layer.frameKey, layer.rect) }
+
+    private var puppetPart: PuppetPart {
+        if !layer.only.isEmpty { return .only(Set(layer.only)) }
+        if !layer.excluding.isEmpty { return .excluding(Set(layer.excluding)) }
+        return .all
     }
 }
 
@@ -239,15 +266,17 @@ private struct HomeArrival: View {
 /// A4: the signpost centrepiece (R3), its idle loop and its refill (a light tick per board landing, `rewardPop` = R3's
 /// "light 0.45": the home reward beats' own light style, motion-catalog §5.1 row 20).
 private struct HomeSignpost: View {
+    /// The centrepiece's rig folder (skin/scenes.json's `centrepiece` slot; ui.json puppet.<folder> + its `refill`).
+    let rigName: String
     let refill: Int
     @Environment(AppModel.self) private var app
 
     var body: some View {
-        if let rig = PuppetCache.rig(HomeView.signpostRig) {
+        if let rig = PuppetCache.rig(rigName) {
             let freeze = app.clock.freezeAt.flatMap { $0.sequence == "puppets" ? $0.t : nil }
             let file = app.tuning.ui.file
-            HomeCentrepiece(rig: rig, motion: PuppetMotion(file, rig: HomeView.signpostRig),
-                            steps: SignpostRefill(file, rig: HomeView.signpostRig), refill: refill, clock: app.clock,
+            HomeCentrepiece(rig: rig, motion: PuppetMotion(file, rig: rigName),
+                            steps: SignpostRefill(file, rig: rigName), refill: refill, clock: app.clock,
                             animate: !app.args.capture || freeze != nil, freezeAt: freeze,
                             tick: { [app] k in app.haptics.play(.rewardPop, intensity: k) })
                 .accessibilityHidden(true)

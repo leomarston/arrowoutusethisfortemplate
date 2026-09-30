@@ -1,0 +1,22 @@
+{
+ "id": "release-gates",
+ "title": "Release gates and store metadata",
+ "category": "tooling",
+ "summary": "Store texts / keywords / IAP audits, the release gates (brand bans, SDK allow-list, Release strip), fastlane.",
+ "description": "apps/<slug>/tools/release (meta.py audit / iap-check / selftest, loc.py), tools/bench/release_gates.sh, the fastlane lanes; README §6 is the order. Run every store script with --dry-run first.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/tools/release/**",
+  "apps/mazeout/tools/bench/release_gates.sh",
+  "apps/mazeout/fastlane/Fastfile",
+  "apps/mazeout/fastlane/Appfile",
+  "apps/mazeout/fastlane/Deliverfile"
+ ],
+ "depends": [
+  "core"
+ ],
+ "launchArgs": [
+  "python3 apps/mazeout/tools/release/meta.py audit",
+  "python3 apps/mazeout/tools/release/meta.py iap-check"
+ ]
+}

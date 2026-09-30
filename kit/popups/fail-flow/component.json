@@ -1,0 +1,99 @@
+{
+ "id": "fail-flow",
+ "title": "Fail flow (out of time, continue, level failed)",
+ "category": "popups",
+ "summary": "The fail chain: Out of Time! / Out of Lives! offer, Continue? variants, then Level Failed with Try Again.",
+ "description": "FailFlowDirector drives the chain from the session's .offer / .lost events (rules.json `failChain`, game.json `fail.*`): OutOfTimePopup (+30 sec for coins; Out of Lives! for hearts), ContinuePopup (streak / token / life / hearts-out variants, pays through the shop when short), LevelFailedPopup (Try Again), OfferPopup (the other genres' fail kinds). Registered by FailFlowRegistration.swift (panels, `-pc.popup` ids, warm-ups). The Streak Race strip under Level Failed and the chips on Continue? are slots (`PanelStrips`, `ContinueChips`) the streak-race component fills: without it they are simply not drawn.",
+ "status": "stable",
+ "maxClosure": 50,
+ "files": [
+  "apps/mazeout/App/Game/FailFlowDirector.swift",
+  "apps/mazeout/App/Shell/Popups/OutOfTimePopup.swift",
+  "apps/mazeout/App/Shell/Popups/ContinuePopup.swift",
+  "apps/mazeout/App/Shell/Popups/LevelFailedPopup.swift",
+  "apps/mazeout/App/Shell/Popups/OfferPopup.swift",
+  "apps/mazeout/App/Shell/Popups/FailFlowRegistration.swift"
+ ],
+ "tests": [
+  "apps/mazeout/UITests/FailFlowTests.swift"
+ ],
+ "depends": [
+  "core",
+  "game-loop",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "event.clawChallenge.token",
+   "lives.lost",
+   "popup.outOfTime.stopwatch"
+  ],
+  "strings": [
+   "+1 Move",
+   "+3 Lives",
+   "+30 sec",
+   "Add Lives",
+   "Add Moves",
+   "Add Time",
+   "and your streak!",
+   "Continue?",
+   "fail",
+   "Keep going with a few more moves!",
+   "Level Failed!",
+   "No Moves Left!",
+   "Out of Lives!",
+   "Out of Moves!",
+   "Out of Time!",
+   "Play On",
+   "Try Again",
+   "You are stuck! Keep going with a little help.",
+   "You will lose a life!",
+   "You will lose your streak!"
+  ],
+  "tuning": [
+   "game.json:fail",
+   "game.json:fail.heartsOutDelay",
+   "game.json:fail.zeroHoldSeconds",
+   "rules.json:failChain",
+   "social.json:unlocks.clawChallenge",
+   "ui.json:anchors.failed",
+   "ui.json:colors.continueToken",
+   "ui.json:colors.heartBig",
+   "ui.json:colors.outOfLives",
+   "ui.json:colors.outOfTime",
+   "ui.json:continueToken.chipBodies",
+   "ui.json:continueToken.chipCentres",
+   "ui.json:frames.continue",
+   "ui.json:frames.continueLife",
+   "ui.json:frames.continueStreak",
+   "ui.json:frames.continueToken",
+   "ui.json:frames.failed",
+   "ui.json:frames.outOfLives",
+   "ui.json:frames.outOfTime",
+   "ui.json:modules.offer",
+   "ui.json:shapes.continueStreak",
+   "ui.json:shapes.failed",
+   "ui.json:shapes.outOfTime",
+   "ui.json:text.continue",
+   "ui.json:text.continueLife",
+   "ui.json:text.continueStreak",
+   "ui.json:text.continueToken",
+   "ui.json:text.failed",
+   "ui.json:text.outOfTime"
+  ],
+  "skinTokens": [
+   "popups.continuePopup",
+   "popups.levelFailedPopup",
+   "popups.outOfTimePopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 32 -pc.lose timeUp",
+  "-pc.go level -pc.popup continue:life",
+  "-pc.go level -pc.popup levelFailed"
+ ],
+ "notes": [
+  "Its closure is the game loop (FailFlowDirector is a game director) + ui-chrome: inherent. 29 of its 49 files are Swift; the rest are the sound engine's (9 .wav files and its synthesis tools) that the loop plays.",
+  "Open (not a coupling): the generic offer popup for other genres' fail kinds (OfferPopup.swift: out of moves, stuck; texts in 13 languages) exists; its text fit is still to be measured on the Mac."
+ ]
+}

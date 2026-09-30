@@ -3,7 +3,7 @@ import PathCore
 
 // B1 (SPEC-architecture §9.4, P8). The board fills its half of `BoardProbeData` (zoom, pitch, settled, moving, fps, each
 // live arrow's tap point + red flag, the tapes); the session's half (lvl, stage, phase, t, hearts, free, unit, hidden,
-// counters) comes from the delegate when it conforms to `BoardProbeSupplying` (GAME's GameController, BoardLab), so
+// counters) comes from the delegate when it conforms to `BoardProbeSupplying` (ArrowPuzzleBoard for a Play, BoardLab), so
 // GAME merges without a contract change. Published under `-pc.uitest 1` as the `board.probe` element's value and under
 // `-pc.probeFile 1` as Documents/probe.json, refreshed continuously at ≤ `probe.hz` (4 Hz) from the display link.
 

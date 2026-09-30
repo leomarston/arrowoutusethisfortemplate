@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// B1b EVENTS FINISHED STATE (owner item 14; events.md "PH-0a", VERIFIED v582 across the Monday 07:00 UTC roll): the ended
 /// events' badges stay and read "Finished" and the trophy tab gets a red "!" until the player opens the result; then the new

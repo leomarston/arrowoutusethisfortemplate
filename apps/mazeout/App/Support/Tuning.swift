@@ -111,6 +111,39 @@ struct TuningFile: @unchecked Sendable {          // immutable after init; JSON 
         }
     }
 
+    /// SKIN (docs/SKIN.md): `<bundle>/Tuning/<name>.json`'s "colors" object, {id: "#RRGGBB[AA]"}. tools/skin/build.py
+    /// generates it (ui-colors.json) from skin/colors.json `ui`; missing or malformed -> empty, and the references stay
+    /// unresolved, so every read falls back to its compiled default (a missing file never crashes).
+    static func referenceTable(_ name: String, bundle: Bundle) -> [String: String] {
+        guard let url = bundle.url(forResource: name, withExtension: "json", subdirectory: "Tuning"),
+              let d = try? Data(contentsOf: url),
+              let obj = (try? JSONSerialization.jsonObject(with: d)) as? [String: Any],
+              let colors = obj["colors"] as? [String: String] else {
+            Log.error("tuning", "\(name).json is missing or has no \"colors\" object: skin references stay unresolved")
+            return [:]
+        }
+        return colors
+    }
+
+    /// SKIN (docs/SKIN.md): the same file with every string "@<id>" (in the JSON and in the `-pc.tune` overrides) replaced
+    /// by `table[id]`, e.g. ui.json's colour slots by the skin's colours. An id the table lacks stays as written (the typed
+    /// read then uses its compiled default). `data` stays the raw file.
+    func resolvingReferences(_ table: [String: String]) -> TuningFile {
+        guard !table.isEmpty else { return self }
+        func resolve(_ node: Any) -> Any {
+            if let s = node as? String {
+                if s.hasPrefix("@"), let v = table[String(s.dropFirst())] { return v }
+                return s
+            }
+            if let d = node as? [String: Any] { return d.mapValues(resolve) }
+            if let a = node as? [Any] { return a.map(resolve) }
+            return node
+        }
+        let resolved = (resolve(json) as? [String: Any]) ?? json
+        let ov = overrides.mapValues { (resolve($0) as? String) ?? $0 }
+        return TuningFile(name: name, json: resolved, data: data, overrides: ov)
+    }
+
     /// The whole file decoded as `T` (PathCore's Codable tuning types); nil when the file is missing or does not decode.
     func decode<T: Decodable>(_ type: T.Type) -> T? {
         guard let data else { return nil }
@@ -292,11 +325,16 @@ struct Tuning: Sendable {
     static func load(bundle: Bundle = .main, tune: [String: String] = [:]) -> Tuning {
         Tuning(board: BoardTuning(file: .load("board", bundle: bundle, tune: tune)),
                game: GameTuning(file: .load("game", bundle: bundle, tune: tune)),
-               ui: UITuning(file: .load("ui", bundle: bundle, tune: tune)),
+               ui: UITuning(file: TuningFile.load("ui", bundle: bundle, tune: tune)
+                                .resolvingReferences(TuningFile.referenceTable(uiColorsFile, bundle: bundle))),
                audio: AudioTuning(file: .load("audio", bundle: bundle, tune: tune)),
                social: SocialTuning(file: .load("social", bundle: bundle, tune: tune)),
                rules: .load("rules", bundle: bundle, tune: tune))
     }
+
+    /// SKIN: ui.json names no colour; its colour slots are "@<id>" references resolved at load from this generated file
+    /// (`Tuning/ui-colors.json`, tools/skin/build.py from skin/colors.json `ui`).
+    static let uiColorsFile = "ui-colors"
 
     /// Compiled defaults only (tests, previews).
     static let defaults = Tuning(board: BoardTuning(file: TuningFile(name: "board", json: [:])),

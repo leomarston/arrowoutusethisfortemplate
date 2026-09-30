@@ -19,32 +19,32 @@ import PathCore
 enum ArtInk {
     /// Alpha bbox of the @3x file as fractions of its canvas (x0, y0, x1, y1), alpha > 24/255.
     static let boxes: [UIArt: (Double, Double, Double, Double)] = [
-        .heartHUD: (0.0108, 0.0123, 0.9892, 0.9877),
-        .heartHUDLost: (0.0215, 0.0000, 0.9785, 1.0000),
-        .heartHUDHalves: (0.0215, 0.0494, 1.0000, 0.9877),
-        .iconStopwatch: (0.0606, 0.0101, 0.9394, 1.0000),
-        .iconCoin: (0.0444, 0.0333, 0.9556, 0.9778),
-        .iconPlusGreen: (0.0500, 0.0333, 0.9500, 0.9667),
-        .boosterFreeze: (0.1786, 0.1429, 0.8214, 0.8631),
-        .boosterHint: (0.2321, 0.1012, 0.7679, 0.8988),
-        .stopwatchBig: (0.0415, 0.0133, 0.9526, 0.9881),
-        .heartBroken: (0.0146, 0.0480, 0.9854, 0.9520),
-        .coinStackReward: (0.0212, 0.1100, 0.9939, 0.8900),
+        .hudHeartFull: (0.0108, 0.0123, 0.9892, 0.9877),
+        .hudHeartLost: (0.0215, 0.0000, 0.9785, 1.0000),
+        .hudHeartHalves: (0.0215, 0.0494, 1.0000, 0.9877),
+        .hudTimerIcon: (0.0606, 0.0101, 0.9394, 1.0000),
+        .currencyCoinIcon: (0.0444, 0.0333, 0.9556, 0.9778),
+        .hudPlusBadge: (0.0500, 0.0333, 0.9500, 0.9667),
+        .boosterFreezeIcon: (0.1786, 0.1429, 0.8214, 0.8631),
+        .boosterHintIcon: (0.2321, 0.1012, 0.7679, 0.8988),
+        .popupOutOfTimeStopwatch: (0.0415, 0.0133, 0.9526, 0.9881),
+        .livesLost: (0.0146, 0.0480, 0.9854, 0.9520),
+        .rewardCoins: (0.0212, 0.1100, 0.9939, 0.8900),
         .tutorialHand: (0.0654, 0.0343, 0.9150, 0.9412),
-        .heartLives: (0.0000, 0.0208, 1.0000, 0.9479),
-        .treasureToken: (0.0500, 0.1083, 0.9500, 0.9250),       // A4: R8's D1 token (was iconHexArrow), measured by this table's rule
-        .iconCheckeredFlag: (0.0778, 0.0729, 0.9778, 1.0000),
-        .heartInfinite: (0.0725, 0.0913, 0.9239, 0.8889),
-        .coinPileSmall: (0.0245, 0.1607, 0.9755, 0.9405),
-        .sparkleTwinkle: (0.0833, 0.0833, 0.9167, 0.9167),
-        .unlockIconPipe: (0.0214, 0.0323, 0.9380, 0.9812),
-        .unlockIconLinked: (0.0583, 0.1394, 0.9417, 0.8818),
-        .unlockIconBox: (0.0354, 0.0448, 0.9646, 0.9851),
-        .unlockIconDoor: (0.0722, 0.0485, 0.9361, 0.9848),
-        .unlockIconElevator: (0.0083, 0.1424, 0.9917, 0.8727),
-        .iconStopwatchSmall: (0.0556, 0.0000, 0.9444, 1.0000),
-        .rankBadgeGold: (0.0278, 0.0370, 0.9722, 0.9630),
-        .logoArrowOut: (0.0283, 0.0071, 0.9771, 0.9845),
+        .livesHeart: (0.0000, 0.0208, 1.0000, 0.9479),
+        .eventClawChallengeToken: (0.0500, 0.1083, 0.9500, 0.9250),       // A4: R8's D1 token (was iconHexArrow), measured by this table's rule
+        .iconFinishFlag: (0.0778, 0.0729, 0.9778, 1.0000),
+        .livesUnlimited: (0.0725, 0.0913, 0.9239, 0.8889),
+        .rewardCoinsSmall: (0.0245, 0.1607, 0.9755, 0.9405),
+        .fxSparkle: (0.0833, 0.0833, 0.9167, 0.9167),
+        .unlockPipeIcon: (0.0214, 0.0323, 0.9380, 0.9812),
+        .unlockLinkedIcon: (0.0583, 0.1394, 0.9417, 0.8818),
+        .unlockBoxIcon: (0.0354, 0.0448, 0.9646, 0.9851),
+        .unlockDoorIcon: (0.0722, 0.0485, 0.9361, 0.9848),
+        .unlockElevatorIcon: (0.0083, 0.1424, 0.9917, 0.8727),
+        .hudTimerIconSmall: (0.0556, 0.0000, 0.9444, 1.0000),
+        .rank1Badge: (0.0278, 0.0370, 0.9722, 0.9630),
+        .logoMain: (0.0283, 0.0071, 0.9771, 0.9845),
     ]
 
     /// The canvas rect that puts `art`'s visible pixels onto `ink` (aspect kept: the visible box is fitted and centred).
@@ -201,32 +201,32 @@ struct TierPalette: Equatable {
     var glyph: UInt32, glyphLine: UInt32
     /// The pause bars' tinted foot (VERIFIED 003 #7CB7DB, 036 #9A5454, 061 #AB54EF at y 96) and the bar outline (#072884,
     /// #650000, #4C0088 at y 97.5).
-    var barFoot: [UInt32] = [0xB6D5CC, 0x81BBB0]
+    var barFoot: [UInt32] = [Skin.hudS2ChromeTierPaletteBarFoot0, Skin.hudS2ChromeTierPaletteBarFoot1]
     var barLine: UInt32? = nil
 
     static func == (a: TierPalette, b: TierPalette) -> Bool { a.shadow == b.shadow && a.face == b.face && a.glyph == b.glyph }
 
     /// GlossyChrome BlueSquareButton's numbers (VERIFIED 003).
-    static let blue = TierPalette(shadow: 0x212B2B,
-                                  outer: [(0x00625D, 0), (0x006864, 0.1), (0x006C68, 0.86), (0x007B76, 0.9), (0x006864, 0.94),
-                                          (0x005F5B, 0.97), (0x005050, 1)],
-                                  side: 0x004148, face: [0x00A293, 0x009C8F],
-                                  rim: [(0x62CDBF, 0), (0x50C3B5, 0.07), (0x009E90, 0.14), (0x00998C, 0.6), (0x009C8F, 1)],
-                                  glyph: 0xF3FDF9, glyphLine: 0x003B3F)
+    static let blue = TierPalette(shadow: Skin.hudS2ChromeTierPaletteBlueShadow,
+                                  outer: [(Skin.hudS2ChromeTierPaletteBlueOuter0, 0), (Skin.hudS2ChromeTierPaletteBlueOuter1, 0.1), (Skin.hudS2ChromeTierPaletteBlueOuter2, 0.86), (Skin.hudS2ChromeTierPaletteBlueOuter3, 0.9), (Skin.hudS2ChromeTierPaletteBlueOuter4, 0.94),
+                                          (Skin.hudS2ChromeTierPaletteBlueOuter5, 0.97), (Skin.hudS2ChromeTierPaletteBlueOuter6, 1)],
+                                  side: Skin.hudS2ChromeTierPaletteBlueSide, face: [Skin.hudS2ChromeTierPaletteBlueFace0, Skin.hudS2ChromeTierPaletteBlueFace1],
+                                  rim: [(Skin.hudS2ChromeTierPaletteBlueRim0, 0), (Skin.hudS2ChromeTierPaletteBlueRim1, 0.07), (Skin.hudS2ChromeTierPaletteBlueRim2, 0.14), (Skin.hudS2ChromeTierPaletteBlueRim3, 0.6), (Skin.hudS2ChromeTierPaletteBlueRim4, 1)],
+                                  glyph: Skin.hudS2ChromeTierPaletteBlueGlyph, glyphLine: Skin.hudS2ChromeTierPaletteBlueGlyphLine)
     /// Hard (VERIFIED 036 grad.hud.pauseButtonHard: face #EC0911, rim #FC777A → #FD5357, lip #A3010F → #780109).
-    static let red = TierPalette(shadow: 0x370E05,
-                                 outer: [(0x88160D, 0), (0x9F1D12, 0.1), (0xA92014, 0.86), (0xB72B1D, 0.9), (0x9D170D, 0.94),
-                                         (0x85130B, 0.97), (0x740E05, 1)],
-                                 side: 0x660C03, face: [0xEC6552, 0xE64D39, 0xDD3624],
-                                 rim: [(0xED8272, 0), (0xED7866, 0.07), (0xE2523F, 0.14), (0xDE3F2D, 0.6), (0xDD3624, 1)],
-                                 glyph: 0xFFF5F5, glyphLine: 0x86251D, barFoot: [0xC39891, 0x925950], barLine: 0x610B00)
+    static let red = TierPalette(shadow: Skin.hudS2ChromeTierPaletteRedShadow,
+                                 outer: [(Skin.hudS2ChromeTierPaletteRedOuter0, 0), (Skin.hudS2ChromeTierPaletteRedOuter1, 0.1), (Skin.hudS2ChromeTierPaletteRedOuter2, 0.86), (Skin.hudS2ChromeTierPaletteRedOuter3, 0.9), (Skin.hudS2ChromeTierPaletteRedOuter4, 0.94),
+                                         (Skin.hudS2ChromeTierPaletteRedOuter5, 0.97), (Skin.hudS2ChromeTierPaletteRedOuter6, 1)],
+                                 side: Skin.hudS2ChromeTierPaletteRedSide, face: [Skin.hudS2ChromeTierPaletteRedFace0, Skin.hudS2ChromeTierPaletteRedFace1, Skin.hudS2ChromeTierPaletteRedFace2],
+                                 rim: [(Skin.hudS2ChromeTierPaletteRedRim0, 0), (Skin.hudS2ChromeTierPaletteRedRim1, 0.07), (Skin.hudS2ChromeTierPaletteRedRim2, 0.14), (Skin.hudS2ChromeTierPaletteRedRim3, 0.6), (Skin.hudS2ChromeTierPaletteRedRim4, 1)],
+                                 glyph: Skin.hudS2ChromeTierPaletteRedGlyph, glyphLine: Skin.hudS2ChromeTierPaletteRedGlyphLine, barFoot: [Skin.hudS2ChromeTierPaletteRedBarFoot0, Skin.hudS2ChromeTierPaletteRedBarFoot1], barLine: Skin.hudS2ChromeTierPaletteRedBarLine)
     /// Super Hard (VERIFIED 061 grad.hud.pauseButtonSuperHard: face #9100E4, rim #B751FC, lip #6909B1 → #480683).
-    static let purple = TierPalette(shadow: 0x2B131C,
-                                    outer: [(0x751545, 0), (0x8A1653, 0.1), (0x96125A, 0.86), (0xA51666, 0.9), (0x891351, 0.94),
-                                            (0x741243, 0.97), (0x601036, 1)],
-                                    side: 0x4F0E2B, face: [0xCE0077, 0xC70074, 0xBA006E],
-                                    rim: [(0xEE3A89, 0), (0xE62D84, 0.07), (0xCD0D77, 0.14), (0xC20172, 0.6), (0xBA006E, 1)],
-                                    glyph: 0xFFF6F9, glyphLine: 0x65173C, barFoot: [0xF18FB3, 0xDE4286], barLine: 0x640D38)
+    static let purple = TierPalette(shadow: Skin.hudS2ChromeTierPalettePurpleShadow,
+                                    outer: [(Skin.hudS2ChromeTierPalettePurpleOuter0, 0), (Skin.hudS2ChromeTierPalettePurpleOuter1, 0.1), (Skin.hudS2ChromeTierPalettePurpleOuter2, 0.86), (Skin.hudS2ChromeTierPalettePurpleOuter3, 0.9), (Skin.hudS2ChromeTierPalettePurpleOuter4, 0.94),
+                                            (Skin.hudS2ChromeTierPalettePurpleOuter5, 0.97), (Skin.hudS2ChromeTierPalettePurpleOuter6, 1)],
+                                    side: Skin.hudS2ChromeTierPalettePurpleSide, face: [Skin.hudS2ChromeTierPalettePurpleFace0, Skin.hudS2ChromeTierPalettePurpleFace1, Skin.hudS2ChromeTierPalettePurpleFace2],
+                                    rim: [(Skin.hudS2ChromeTierPalettePurpleRim0, 0), (Skin.hudS2ChromeTierPalettePurpleRim1, 0.07), (Skin.hudS2ChromeTierPalettePurpleRim2, 0.14), (Skin.hudS2ChromeTierPalettePurpleRim3, 0.6), (Skin.hudS2ChromeTierPalettePurpleRim4, 1)],
+                                    glyph: Skin.hudS2ChromeTierPalettePurpleGlyph, glyphLine: Skin.hudS2ChromeTierPalettePurpleGlyphLine, barFoot: [Skin.hudS2ChromeTierPalettePurpleBarFoot0, Skin.hudS2ChromeTierPalettePurpleBarFoot1], barLine: Skin.hudS2ChromeTierPalettePurpleBarLine)
 
     static func of(_ tag: LevelTag) -> TierPalette {
         switch tag {
@@ -334,14 +334,14 @@ struct OfferCoinGroup: View {
         // VERIFIED 013 / 014 / meta-088 (the popup group is not the home group): pill 0 … 35.6 tall with a 3 pt blue base, its
         // right edge 0.7 inside the frame; coin gold 13.3 … 46.7 · 62.7 … 95.7 on 013; the plus's green 36 … 55 · 83.1 … 102.1
         let pill = CGRect(33.35 * k, 0, 74.4 * k, 35.6 * k)
-        let digits = t.text(textID, .s2(21.4, 0.44, [0x00474D])).sized(21.4 * k)
+        let digits = t.text(textID, .s2(21.4, 0.44, [Skin.hudS2ChromeOfferCoinGroupDigitsText0])).sized(21.4 * k)
         GameButton(id: "popup.coins", label: "Shop", value: "\(coins)", action: { S2Hooks.openShop(app) }) {
             ZStack(alignment: .topLeading) {
                 OfferPill(t: t).placed(pill)
                 GameText(verbatim: "\(coins)", style: digits, maxWidth: 58 * k)
                     .at(pill.minX + 38.4 * k, digits.capCentre(baseline: 25.0 * k))
-                InkImage(art: .iconCoin, ink: CGRect(-1.1 * k, -0.4 * k, 37.0 * k, 38.3 * k))
-                InkImage(art: .iconPlusGreen, ink: CGRect(21.9 * k, 18.7 * k, 22.3 * k, 23.1 * k))
+                InkImage(art: .currencyCoinIcon, ink: CGRect(-1.1 * k, -0.4 * k, 37.0 * k, 38.3 * k))
+                InkImage(art: .hudPlusBadge, ink: CGRect(21.9 * k, 18.7 * k, 22.3 * k, 23.1 * k))
             }
             .frame(width: frame.width, height: frame.height, alignment: .topLeading)
         }
@@ -359,12 +359,12 @@ struct OfferPill: View {
     private func art(_ size: CGSize) -> some View {
         let r = size.height * 0.36
         return ZStack {
-            RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("offer.pillLine", 0x233B3D))
+            RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("offer.pillLine", Skin.hudS2ChromeOfferPillLine))
             RoundedRectangle(cornerRadius: r - 0.6, style: .continuous)
-                .fill(LinearGradient(colors: t.colors("offer.pillBase", [0x62A9A0, 0x22746E]), startPoint: .top, endPoint: .bottom))
+                .fill(LinearGradient(colors: t.colors("offer.pillBase", [Skin.hudS2ChromeOfferPillBase0, Skin.hudS2ChromeOfferPillBase1]), startPoint: .top, endPoint: .bottom))
                 .padding(0.6)
-            RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).fill(t.color("offer.pillFace", 0xE0F0EB))
-                .overlay(RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).strokeBorder(Color(hex: 0xEFF6F4), lineWidth: 0.9))
+            RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).fill(t.color("offer.pillFace", Skin.hudS2ChromeOfferPillFace))
+                .overlay(RoundedRectangle(cornerRadius: r - 1.5, style: .continuous).strokeBorder(Color(hex: Skin.hudS2ChromeOfferPillArtStrokeBorder), lineWidth: 0.9))
                 .padding(EdgeInsets(top: 0.9, leading: 1.2, bottom: 3.4, trailing: 2.4))
         }
     }
@@ -379,9 +379,9 @@ struct OfferWell: View {
     /// shadow, rim, deep (the dark band at the rim), core (the bright ring against the face)
     struct Palette: Equatable {
         let shadow, rim, deep, core: UInt32
-        static let blue = Palette(shadow: 0x143739, rim: 0x114246, deep: 0x00615B, core: 0x35B1A1)
-        static let red = Palette(shadow: 0x440B00, rim: 0x4B0C00, deep: 0x7F110A, core: 0xDB6150)
-        static let purple = Palette(shadow: 0x380C1E, rim: 0x50102C, deep: 0x711241, core: 0xD6277C)
+        static let blue = Palette(shadow: Skin.hudS2ChromePaletteBlueShadow, rim: Skin.hudS2ChromePaletteBlueRim, deep: Skin.hudS2ChromePaletteBlueDeep, core: Skin.hudS2ChromePaletteBlueCore)
+        static let red = Palette(shadow: Skin.hudS2ChromePaletteRedShadow, rim: Skin.hudS2ChromePaletteRedRim, deep: Skin.hudS2ChromePaletteRedDeep, core: Skin.hudS2ChromePaletteRedCore)
+        static let purple = Palette(shadow: Skin.hudS2ChromePalettePurpleShadow, rim: Skin.hudS2ChromePalettePurpleRim, deep: Skin.hudS2ChromePalettePurpleDeep, core: Skin.hudS2ChromePalettePurpleCore)
         var key: String { String(format: "%06X%06X", deep, core) }
     }
     /// Where the well's body sits inside its token frame: the band / fail / win frames include the halo (VERIFIED 014 / 016 /
@@ -481,7 +481,7 @@ struct PriceButton: View {
                     ChromeButtonFace(colors: .green, n: n)
                     GameText(label, style: ls, maxWidth: t.textMaxWidth(labelID, max(40, coin.minX - face.minX - 14)))
                         .at(lp.x - face.minX, ls.capCentre(baseline: lp.baseline) - face.minY)
-                    InkImage(art: .iconCoin, ink: coin.offsetBy(dx: -face.minX, dy: -face.minY))
+                    InkImage(art: .currencyCoinIcon, ink: coin.offsetBy(dx: -face.minX, dy: -face.minY))
                     GameText(verbatim: "\(price)", style: ps)
                         .at(pp.x - face.minX, ps.capCentre(baseline: pp.baseline) - face.minY)
                 }

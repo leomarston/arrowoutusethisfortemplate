@@ -1,0 +1,49 @@
+{
+ "id": "game-loop",
+ "title": "Level screen and game loop",
+ "category": "screens",
+ "summary": "GameController + LevelFlow + HUDWriter + GameScreen: runs a puzzle session and fans its events out.",
+ "description": "One GameController per Play: owns the module's PuzzleSession, is the board's delegate, and fans every output batch out in a fixed order (board, HUD, audio/haptics, directors). LevelFlow runs the start sequence (lives gate, intro), pause / back / quit; HUDWriter is the only writer of HUDModel; GameScreen stacks board, HUD, tutorial layer. The directors (win, fail, boosters, unlocks, tutorial, events) are separate components installed through GameDirectors+G2.",
+ "status": "stable",
+ "maxClosure": 45,
+ "files": [
+  "apps/mazeout/App/Game/*.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/GameControllerTests.swift",
+  "apps/mazeout/Tests/GameG2Tests.swift",
+  "apps/mazeout/UITests/GameFlowTests.swift",
+  "apps/mazeout/UITests/FlowTests.swift",
+  "apps/mazeout/UITests/GameG2UITests.swift"
+ ],
+ "depends": [
+  "core",
+  "haptics",
+  "hud",
+  "hud-timer",
+  "sounds"
+ ],
+ "wires": [
+  "boosters",
+  "events-engine",
+  "fail-flow",
+  "ftue",
+  "notifications",
+  "tutorial",
+  "unlock-cards",
+  "win-flow"
+ ],
+ "uses": {
+  "tuning": [
+   "game.json:fail",
+   "game.json:hud"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 32"
+ ],
+ "notes": [
+  "Kit decoupling step: the loop names no puzzle type any more (SessionPlan and FeatureUnlock are GameCore's, IntroStyle is the generic board contract's: PuzzleBoardContract.swift). Its closure is the HUD, the timer text, sounds (the move cue) and haptics: inherent (the loop plays the move's haptic and cue and places the HUD).",
+  "It installs its directors by name (GameController: FailFlowDirector, WinDirector; GameDirectors+G2.swift: the G2 directors): those are its `wires`, the lines to edit when a director's component is removed."
+ ]
+}

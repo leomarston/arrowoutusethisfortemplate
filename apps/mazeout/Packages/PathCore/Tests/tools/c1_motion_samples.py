@@ -4,7 +4,7 @@
 Reads the motion analyst's raw outputs (research/motion-tools/out/*.txt, read-only) plus the tables quoted from
 research/motion.md / research/tutorials.md, and writes Packages/PathCore/Tests/Fixtures/c1_motion_samples.json:
     {"<curve>": [{"t": .., "v": .., "tol": .., "src": ".."}, ...], ...}
-With --tracks it also prints the averaged key tracks that are embedded in Sources/PathCore/Motion/Curves*.swift, so every
+With --tracks it also prints the averaged key tracks that are embedded in Sources/ArrowEscape/Motion/Curves*.swift, so every
 number there is reproducible from the raw files (python3 Packages/PathCore/Tests/tools/c1_motion_samples.py --tracks).
 Standard library only.
 """

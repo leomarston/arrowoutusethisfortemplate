@@ -1,0 +1,76 @@
+{
+ "id": "sky-jump",
+ "title": "Sky Jump",
+ "category": "social-events",
+ "summary": "A 24 h stage climb with a shared prize pool: offer, matching, tutorial, map progress, win.",
+ "description": "GameCore SkyJump (stages, pools, the 24 h run) + SkyJumpViews (offer, matching, tutorial, progress map, win).",
+ "status": "stable",
+ "maxClosure": 85,
+ "files": [
+  "apps/mazeout/App/Shell/Social/SkyJumpViews.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/SkyJump.swift"
+ ],
+ "depends": [
+  "core",
+  "claim-reward",
+  "events-engine",
+  "social-ui",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "event.skyJump.backdrop",
+   "event.skyJump.offer",
+   "event.skyJump.pad",
+   "event.skyJump.platform",
+   "event.skyJump.platformFar",
+   "event.skyJump.platformFar2",
+   "hud.timer.iconSmall",
+   "icon.check",
+   "icon.info",
+   "icon.pointer",
+   "reward.chest.1",
+   "reward.chest.2",
+   "reward.chest.3",
+   "reward.coinBowl"
+  ],
+  "strings": [
+   "100 players",
+   "Advance to next stages for greater prizes!",
+   "Cloud Hop",
+   "Congratulations!",
+   "Continue",
+   "Finding players on your level.",
+   "greater prizes",
+   "If you fail a level, you will fail the challenge!",
+   "Info",
+   "Levels",
+   "Players",
+   "PRIZE",
+   "Stages",
+   "Start",
+   "Start with 100 players!",
+   "Tap to Continue",
+   "You failed the challenge!",
+   "You win!"
+  ],
+  "tuning": [
+   "social.json:events.skyJump",
+   "social.json:skyBots",
+   "social.json:unlocks.skyJump"
+  ],
+  "skinTokens": [
+   "social.skyJumpViews"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go event:skyJump -pc.socialScenario skyStep2",
+  "-pc.go home -pc.popup skyJump:offer"
+ ],
+ "notes": [
+  "Kit decoupling step: the helpers every event shares are social-ui's (SocEventChrome.swift, Countdown.swift) or ui-chrome's (SocTwoLines); its closure is the events engine (inherent: its pages run the engine's flows, announcements and finish states) + social-ui + ui-chrome.",
+  "It borrows the claim screen's letter-pop title (claim-reward: BeatOnce, LetterPopTitle) for its win page: a small, deliberate dependency."
+ ]
+}

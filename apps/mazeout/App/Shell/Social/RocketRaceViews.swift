@@ -36,7 +36,7 @@ struct SocRocketOffer: View {
         ZStack(alignment: .topLeading) {
             Color.clear
             PopupPanelFrame(t: t).placed(CGRect(9.7, 180.2, 379.0, 527.1))
-            ArtImage(art: .rallyOfferScene, contentMode: .fill)
+            ArtImage(art: .eventRocketRaceOffer, contentMode: .fill)
                 .frame(width: 330, height: 504)
                 .clipShape(RoundedRectangle(cornerRadius: 34))
                 .placed(CGRect(32, 188, 330, 504))
@@ -48,16 +48,19 @@ struct SocRocketOffer: View {
             if stage == 1 && firstToday && (prize.coins > 0 || prize.unlimitedLives > 0) {
                 SocPrizeBubble(grant: prize).placed(CGRect(214.8, 333.6, 158.8, 83.4))
             }
-            SocStageStrip(stage: stage, frame: CGRect(40.7, 453.7, 312.9, 107.4), goal: goal, space: true)
+            SocStageStrip(stage: stage, frame: CGRect(40.7, 453.7, 312.9, 107.4), goal: goal, space: true) { s, tileW in
+                ArtImage(art: s == 1 ? .eventRocketRaceStage1 : s == 2 ? .eventRocketRaceStage2 : .eventRocketRaceStage3)
+                    .frame(width: s == 3 ? 76 : 44, height: 44).position(x: tileW / 2, y: 26)
+            }
             FramedButton(id: "popup.rocketRace.primary", title: "Start", colors: .green, frame: CGRect(91.4, 575.2, 210.8, 86.7),
                          well: CGRect(79.9, 566.5, 233.8, 105.4), n: 4.6,
-                         style: .s2(44.3, -3.4, [0xFFFBF2], outline: 0x924500, 2.0, drop: 2.0),
+                         style: .s2(44.3, -3.4, [Skin.socialRocketRaceViewsSocRocketOfferStyle0], outline: Skin.socialRocketRaceViewsSocRocketOfferOutline, 2.0, drop: 2.0),
                          baseline: 634.0, centreX: firstToday ? 178 : 196.8, maxWidth: 130, t: t) {
                 answer(PopupResult.primary)
                 SocialFlows.startRocketRace(app)
             }
             if firstToday {
-                ArtImage(art: .heartInfiniteSmall).placed(CGRect(236, 598, 46, 42)).allowsHitTesting(false)
+                ArtImage(art: .livesUnlimitedSmall).placed(CGRect(236, 598, 46, 42)).allowsHitTesting(false)
             }
             PopupCloseButton(id: "popup.rocketRace.close", t: t) { answer(PopupResult.close) }
                 .placed(CGRect(338.3, 176.5, 45, 45))
@@ -77,14 +80,14 @@ struct SocRocketLettering: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             // the blue badge behind the lettering (VERIFIED 163 / 167: a rounded plate, light rim, deep blue face)
-            RoundedRectangle(cornerRadius: frame.height * 0.16).fill(Color(hex: 0x004147))
+            RoundedRectangle(cornerRadius: frame.height * 0.16).fill(Color(hex: Skin.socialRocketRaceViewsSocRocketLetteringFill))
                 .frame(width: frame.width * 0.74, height: frame.height * 0.86).offset(x: frame.width * 0.05, y: frame.height * 0.07)
             RoundedRectangle(cornerRadius: frame.height * 0.14)
-                .fill(LinearGradient(colors: [Color(hex: 0x009D91), Color(hex: 0x006864)], startPoint: .top, endPoint: .bottom))
+                .fill(LinearGradient(colors: [Color(hex: Skin.socialRocketRaceViewsSocRocketLetteringColors0), Color(hex: Skin.socialRocketRaceViewsSocRocketLetteringColors1)], startPoint: .top, endPoint: .bottom))
                 .frame(width: frame.width * 0.74 - 5, height: frame.height * 0.86 - 5).offset(x: frame.width * 0.05 + 2.5, y: frame.height * 0.07 + 2.5)
             SocEventLogo(title: "Rocket Rally", frame: CGRect(0, 0, frame.width * 0.82, frame.height), size: frame.height * 0.42,
                          yellowFirst: false, twoLines: true)
-            ArtImage(art: .rallyRocketMine).rotationEffect(.degrees(80))
+            ArtImage(art: .eventRocketRaceRacerMine).rotationEffect(.degrees(80))
                 .placed(CGRect(frame.width * 0.72, frame.height * 0.44, frame.height * 0.34, frame.height * 0.48))
         }
         .rotationEffect(.degrees(-4))
@@ -99,90 +102,23 @@ struct SocRocketLettering: View {
 struct SocPrizeBubble: View {
     let grant: Grant
     var body: some View {
-        let amount = GameTextStyle.s2(14.5, -0.3, [0xFFFFFF], outline: 0x620B00, 1.3, drop: 0.6)
-        let dur = GameTextStyle.s2(12.5, -0.3, [0xFFFFFF], outline: 0xAE190B, 1.2, drop: 0.5)
-        let plus = GameTextStyle.s2(22, 0, [0xFFFFFF], outline: 0x5A2801, 1.5)
+        let amount = GameTextStyle.s2(14.5, -0.3, [Skin.socialRocketRaceViewsSocPrizeBubbleAmount0], outline: Skin.socialRocketRaceViewsSocPrizeBubbleAmountOutline, 1.3, drop: 0.6)
+        let dur = GameTextStyle.s2(12.5, -0.3, [Skin.socialRocketRaceViewsSocPrizeBubbleDur0], outline: Skin.socialRocketRaceViewsSocPrizeBubbleDurOutline, 1.2, drop: 0.5)
+        let plus = GameTextStyle.s2(22, 0, [Skin.socialRocketRaceViewsSocPrizeBubblePlus0], outline: Skin.socialRocketRaceViewsSocPrizeBubblePlusOutline, 1.5)
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 10.7).fill(Color(hex: 0xCDA071)).offset(y: 1.5)
-            RoundedRectangle(cornerRadius: 10.7).fill(Color(hex: 0xF4E8D4))
+            RoundedRectangle(cornerRadius: 10.7).fill(Color(hex: Skin.socialRocketRaceViewsSocPrizeBubbleFill)).offset(y: 1.5)
+            RoundedRectangle(cornerRadius: 10.7).fill(Color(hex: Skin.socialRocketRaceViewsSocPrizeBubbleFillV2))
             if grant.coins > 0 {
-                ArtImage(art: .coinBowl).placed(CGRect(8, 8, 66, 55))
+                ArtImage(art: .rewardCoinBowl).placed(CGRect(8, 8, 66, 55))
                 GameText(verbatim: "\(grant.coins)", style: amount, maxWidth: 48).at(41, amount.capCentre(baseline: 58))
             }
             GameText(verbatim: "+", style: plus).at(80, plus.capCentre(baseline: 50))
             if grant.unlimitedLives > 0 {
-                ArtImage(art: .heartInfiniteSmall).placed(CGRect(94, 14, 52, 47))
+                ArtImage(art: .livesUnlimitedSmall).placed(CGRect(94, 14, 52, 47))
                 GameText(verbatim: SocGrantText.duration(grant.unlimitedLives), style: dur, maxWidth: 40).at(120, dur.capCentre(baseline: 60))
             }
         }
         .frame(width: 158.8, height: 83.4, alignment: .topLeading)
-    }
-}
-
-enum SocGrantText {
-    /// "30m", "45m", "1h", "1h 30m", "3h" (the claim / bubble durations, SPEC-ui §2.11).
-    static func duration(_ s: TimeInterval) -> String {
-        let m = Int(s / 60)
-        if m < 60 { return String(localized: "\(m)m") }
-        let h = m / 60, r = m % 60
-        return r == 0 ? String(localized: "\(h)h") : String(localized: "\(h)h \(r)m")
-    }
-}
-
-/// The stage strip (rr 21.7): three tiles "Stage 1/2/3" with their planets (Rocket) or chests (Sky Jump), the current stage lit
-/// #008CFF, won stages checked; under them the navy rules strip "Beat N Levels before others …" / "Pass N Levels …".
-struct SocStageStrip: View {
-    let stage: Int
-    let frame: CGRect
-    let goal: Int
-    /// true: the Rocket Race planets + rules; false: the Sky Jump chests + rules (purple tray).
-    var space = true
-
-    var body: some View {
-        let label = GameTextStyle.s2(space ? 15.2 : 18, -0.46, [0xFFFFFF], outline: 0x003135, space ? 1.3 : 1.8, drop: 0)
-        let tileW = (frame.width - 8) / 3
-        ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 21.7).fill(Color(hex: space ? 0x063A3E : 0x8F1E5C))
-            ForEach(1...3, id: \.self) { s in
-                let x = 4 + CGFloat(s - 1) * tileW
-                ZStack(alignment: .topLeading) {
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(Color(hex: s == stage ? (space ? 0x009D90 : 0xE7639B) : (space ? 0x0F5B57 : 0xE25190)))
-                        .frame(width: tileW - 4, height: frame.height * 0.52)
-                        .offset(x: 2, y: 4)
-                    if space {
-                        ArtImage(art: s == 1 ? .planetStage1 : s == 2 ? .planetStage2 : .planetStage3)
-                            .frame(width: s == 3 ? 76 : 44, height: 44).position(x: tileW / 2, y: 26)
-                    } else {
-                        ArtImage(art: s == 1 ? .stageChestGreen : s == 2 ? .stageChestBlue : .stageChestPink)
-                            .frame(width: 52, height: 39).position(x: tileW / 2, y: 26)
-                        if s < stage { ArtImage(art: .iconCheck).frame(width: 39.4, height: 31.7).position(x: 30, y: 22) }
-                    }
-                    GameText("Stage \(s)", style: label, maxWidth: tileW - 10).at(tileW / 2, label.capCentre(baseline: frame.height * 0.47))
-                }
-                .frame(width: tileW, height: frame.height, alignment: .topLeading)
-                .offset(x: x)
-            }
-            SocRulesText(space: space, goal: goal, width: frame.width - 20)
-                .position(x: frame.width / 2, y: frame.height * 0.78)
-        }
-        .frame(width: frame.width, height: frame.height, alignment: .topLeading)
-        .placed(frame)
-    }
-}
-
-/// "Beat 5 Levels before others to win and advance to next stages for greater prizes!" (Rocket) / "Pass 5 Levels in a row on
-/// first try and advance to next stages!" (Sky Jump): 14.6 pt white outlined #0A2176, the "N Levels" run yellow #FFC400, two lines.
-struct SocRulesText: View {
-    let space: Bool
-    let goal: Int
-    let width: CGFloat
-    var body: some View {
-        let text: LocalizedStringResource = space ? "Beat \(goal) Levels before others to win and advance to next stages for greater prizes!"
-                                                  : "Pass \(goal) Levels in a row on first try and advance to next stages!"
-        SocTwoLines(text: text, centreX: width / 2 + 10, baselines: [-4, 13.5], box: width, size: 14.6, faceHex: 0xFFFFFF,
-                    hotHex: 0xFFC400, outline: 0x003135, hot: "\(goal) Levels")
-            .frame(width: width + 20, height: 1)
     }
 }
 
@@ -199,19 +135,19 @@ struct SocRocketTutorial: View {
             ZStack(alignment: .topLeading) {
                 Color.clear
                 SocPopIn(u: u, start: 0.18, duration: 0.10, overshoot: 1.10, at: CGPoint(x: 196.8, y: 83.2 - 13)) { SocInfoTitle(title: "Rocket Rally", baseline: 83.2) }
-                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 45 + 113 / 2, y: 119 + 113 / 2)) { ArtImage(art: .infoPathIcon).placed(CGRect(45, 119, 113, 113)) }
+                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 45 + 113 / 2, y: 119 + 113 / 2)) { ArtImage(art: .iconInfo).placed(CGRect(45, 119, 113, 113)) }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 100, y: 248 - 6)) { SocTwoLines(text: "Beat levels!", centreX: 100, baselines: [248], box: 170) }
-                SocPopIn(u: u, start: 0.50, at: CGPoint(x: 200 + 38 / 2, y: 160 + 41 / 2)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(196, 145, 40, 45)) }
-                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 255 + 80 / 2, y: 200 + 115 / 2)) { ArtImage(art: .rallyRocketMine).placed(CGRect(255, 200, 80, 115)) }
+                SocPopIn(u: u, start: 0.50, at: CGPoint(x: 200 + 38 / 2, y: 160 + 41 / 2)) { ArtImage(art: .iconPointer).placed(CGRect(196, 145, 40, 45)) }
+                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 255 + 80 / 2, y: 200 + 115 / 2)) { ArtImage(art: .eventRocketRaceRacerMine).placed(CGRect(255, 200, 80, 115)) }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 295, y: 330 - 6)) {
                     SocTwoLines(text: "Finish race before others!", centreX: 295, baselines: [330, 349.5], box: 150, greedy: true)
                 }
-                SocPopIn(u: u, start: 0.66, at: CGPoint(x: 245 + 38 / 2, y: 375 + 41 / 2)) { ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(242, 318, 40, 45)) }
+                SocPopIn(u: u, start: 0.66, at: CGPoint(x: 245 + 38 / 2, y: 375 + 41 / 2)) { ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(242, 318, 40, 45)) }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 104.5, y: 412.5)) {
                     ZStack {
-                        ArtImage(art: .coinPileSmall).frame(width: 110, height: 86).offset(x: -46, y: 20)
-                        ArtImage(art: .coinPileSmall).frame(width: 110, height: 86).offset(x: 52, y: 22)
-                        ArtImage(art: .stageChestPink).frame(width: 112, height: 84).offset(y: -10)
+                        ArtImage(art: .rewardCoinsSmall).frame(width: 110, height: 86).offset(x: -46, y: 20)
+                        ArtImage(art: .rewardCoinsSmall).frame(width: 110, height: 86).offset(x: 52, y: 22)
+                        ArtImage(art: .rewardChest3).frame(width: 112, height: 84).offset(y: -10)
                     }
                     .frame(width: 193, height: 115)
                     .position(x: 104.5, y: 412.5)
@@ -219,12 +155,12 @@ struct SocRocketTutorial: View {
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 107, y: 494 - 6)) {
                     SocTwoLines(text: "Win amazing rewards!", centreX: 107, baselines: [494], box: 280, hot: "rewards")
                 }
-                SocPopIn(u: u, start: 0.80, at: CGPoint(x: 118 + 38 / 2, y: 525 + 41 / 2)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(118, 540, 40, 45)) }
+                SocPopIn(u: u, start: 0.80, at: CGPoint(x: 118 + 38 / 2, y: 525 + 41 / 2)) { ArtImage(art: .iconPointer).placed(CGRect(118, 540, 40, 45)) }
                 SocPopIn(u: u, start: 0.88, at: CGPoint(x: 281, y: 580)) {
                     ZStack(alignment: .topLeading) {
-                        ArtImage(art: .planetStage1).placed(CGRect(0, 50, 44, 44))
-                        ArtImage(art: .planetStage2).placed(CGRect(50, 28, 52, 52))
-                        ArtImage(art: .planetStage3).placed(CGRect(86, 0, 104, 60))
+                        ArtImage(art: .eventRocketRaceStage1).placed(CGRect(0, 50, 44, 44))
+                        ArtImage(art: .eventRocketRaceStage2).placed(CGRect(50, 28, 52, 52))
+                        ArtImage(art: .eventRocketRaceStage3).placed(CGRect(86, 0, 104, 60))
                     }
                     .frame(width: 190, height: 100, alignment: .topLeading)
                     .placed(CGRect(186, 530, 190, 100))
@@ -262,8 +198,8 @@ struct SocRocketPage: View {
         let result = snap?.result ?? (app.store.state.events.rocket.active == nil ? (app.store.state.events.rocket.lastResult?.rawValue ?? "none") : "none")
         let ended = result != "none"
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x002326).frame(width: m.size.width, height: m.size.height)
-            ArtImage(art: .rallyBackdrop, contentMode: .fill).frame(width: m.size.width, height: m.size.height).clipped()
+            Color(hex: Skin.socialRocketRaceViewsSocRocketPage).frame(width: m.size.width, height: m.size.height)
+            ArtImage(art: .eventRocketRaceBackdrop, contentMode: .fill).frame(width: m.size.width, height: m.size.height).clipped()
             ReferenceCanvas {
                 ZStack(alignment: .topLeading) {
                     SocStageTag(stage: snap?.stage ?? 1).placed(CGRect(0, 196.2, 61.4, 23.4))
@@ -271,7 +207,7 @@ struct SocRocketPage: View {
                         EventTimerChip(text: Countdown.text(SocTime.left(end, now: now)), frame: CGRect(318.9, 190.2, 74.1, 36.7),
                                        textID: "rocket.timer", t: t, live: (ends: end, now: now))
                     }
-                    LinearGradient(colors: [Color(hex: 0x008D85), Color(hex: 0x008780)], startPoint: .top, endPoint: .bottom)
+                    LinearGradient(colors: [Color(hex: Skin.socialRocketRaceViewsSocRocketPageColors0), Color(hex: Skin.socialRocketRaceViewsSocRocketPageColors1)], startPoint: .top, endPoint: .bottom)
                         .placed(CGRect(0, 226.9, 393, 110.1))
                     SocRails().placed(CGRect(0, 226.9, 393, 16))
                     SocRocketLettering(frame: CGRect(93.4, 166.8, 203.5, 106.8))
@@ -279,11 +215,11 @@ struct SocRocketPage: View {
                         .frame(width: 393, height: 110).placed(CGRect(0, 226.9, 393, 110.1))
                     SocRocketLanes(snap: snap)
                     if ended {
-                        LinearGradient(colors: [Color(hex: 0x007470), Color(hex: 0x005F5B)], startPoint: .top, endPoint: .bottom)
+                        LinearGradient(colors: [Color(hex: Skin.socialRocketRaceViewsSocRocketPageColors0V2), Color(hex: Skin.socialRocketRaceViewsSocRocketPageColors1V2)], startPoint: .top, endPoint: .bottom)
                             .placed(CGRect(0, 717.3, 393, 135.4))
                         FramedButton(id: "event.rocketRace.continue", title: "Continue", colors: .green,
                                      frame: CGRect(91.4, 741.3, 210.5, 86.4), well: CGRect(80.0, 732.6, 233.3, 104.1), n: 4.6,
-                                     style: .s2(38.9, 0.05, [0xFFFFFF, 0xF9F0E1], outline: 0x924500, 2.0, drop: 2.0),
+                                     style: .s2(38.9, 0.05, [Skin.socialRocketRaceViewsSocRocketPageStyle0, Skin.socialRocketRaceViewsSocRocketPageStyle1], outline: Skin.socialRocketRaceViewsSocRocketPageOutline, 2.0, drop: 2.0),
                                      baseline: 798.0, centreX: 196.6, maxWidth: 172, t: t) { finish() }
                     }
                 }
@@ -335,10 +271,10 @@ struct SocRocketPage: View {
 struct SocStageTag: View {
     let stage: Int
     var body: some View {
-        let st = GameTextStyle.s2(15.2, -0.85, [0x5A2801])
+        let st = GameTextStyle.s2(15.2, -0.85, [Skin.socialRocketRaceViewsSocStageTagSt0])
         ZStack {
             UnevenRoundedRectangle(topLeadingRadius: 0, bottomLeadingRadius: 0, bottomTrailingRadius: 9, topTrailingRadius: 9)
-                .fill(LinearGradient(colors: [Color(hex: 0xFFE36A), Color(hex: 0xFFC400)], startPoint: .top, endPoint: .bottom))
+                .fill(LinearGradient(colors: [Color(hex: Skin.socialRocketRaceViewsSocStageTagColors0), Color(hex: Skin.socialRocketRaceViewsSocStageTagColors1)], startPoint: .top, endPoint: .bottom))
             GameText("Stage \(stage)", style: st, maxWidth: 56)
         }
     }
@@ -357,7 +293,7 @@ private struct SocRocketBandText: View {
         default: text = "Beat \(goal) levels before others to finish the race"
         }
         return SocTwoLines(text: text, centreX: 196.5, baselines: [292.3 - 226.9, 314.4 - 226.9], box: 362, size: 19.7,
-                           faceHex: 0xFFFFFF, hotHex: result == "none" ? 0xFFC400 : 0xFFFFFF, outline: 0x073A3E,
+                           faceHex: Skin.socialRocketRaceViewsSocRocketBandTextFaceHex, hotHex: result == "none" ? Skin.socialRocketRaceViewsSocRocketBandTextHotHexResult : Skin.socialRocketRaceViewsSocRocketBandTextHotHexNotResult, outline: Skin.socialRocketRaceViewsSocRocketBandTextOutline,
                            hot: "\(goal) levels", greedy: true)
     }
 }
@@ -382,7 +318,7 @@ private struct SocRocketLanes: View {
             let e = u < 0.5 ? 2 * u * u : 1 - pow(-2 * u + 2, 2) / 2
             ZStack(alignment: .topLeading) {
                 ForEach(1..<5, id: \.self) { i in
-                    Color(hex: 0x006661).frame(width: 2, height: 515).position(x: CGFloat(i) * 78.6, y: 336.9 + 257.5)
+                    Color(hex: Skin.socialRocketRaceViewsSocRocketLanes).frame(width: 2, height: 515).position(x: CGFloat(i) * 78.6, y: 336.9 + 257.5)
                 }
                 ForEach(Array(lanes.prefix(5).enumerated()), id: \.offset) { i, lane in
                     let cx = centres[i]
@@ -394,13 +330,13 @@ private struct SocRocketLanes: View {
                     if winner {
                         SocWinnerCard().placed(CGRect(cx - 36.7, 333.6, 73.4, 93.4))
                     } else {
-                        ArtImage(art: lane.isMe ? .rallyRocketMine : .rallyRocketOther).placed(CGRect(cx - 36.5, top, 73, 103.4))
+                        ArtImage(art: lane.isMe ? .eventRocketRaceRacerMine : .eventRocketRaceRacerOther).placed(CGRect(cx - 36.5, top, 73, 103.4))
                         SocCounterBubble(n: lane.progress).placed(CGRect(cx - 17, top - 26.6, 34, 31.7))
                     }
                     if !ended && lane.rank == 1 && lane.progress > 0 {
                         ZStack {
-                            ArtImage(art: .rankWings1)
-                            GameText(verbatim: "1", style: .s2(20, 0, [0xFFFFFF], outline: 0x7D0C02, 1.6, drop: 0.8))
+                            ArtImage(art: .rank1Wings)
+                            GameText(verbatim: "1", style: .s2(20, 0, [Skin.socialRocketRaceViewsSocRocketLanesStyle0], outline: Skin.socialRocketRaceViewsSocRocketLanesOutline, 1.6, drop: 0.8))
                                 .offset(y: -0.8)
                         }
                         .placed(CGRect(cx - 26, 339.0, 52, 38))
@@ -429,9 +365,9 @@ private struct SocCounterBubble: View {
     let n: Int
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 6).fill(Color(hex: 0x59968E)).offset(y: 1)
-            RoundedRectangle(cornerRadius: 6).fill(Color(hex: 0xFFF7EC))
-            GameText(verbatim: "\(n)", style: .s2(18, 0, [0x073A3E]))
+            RoundedRectangle(cornerRadius: 6).fill(Color(hex: Skin.socialRocketRaceViewsSocCounterBubbleFill)).offset(y: 1)
+            RoundedRectangle(cornerRadius: 6).fill(Color(hex: Skin.socialRocketRaceViewsSocCounterBubbleFillV2))
+            GameText(verbatim: "\(n)", style: .s2(18, 0, [Skin.socialRocketRaceViewsSocCounterBubbleStyle0]))
         }
     }
 }
@@ -440,14 +376,14 @@ private struct SocCounterBubble: View {
 private struct SocWinnerCard: View {
     var body: some View {
         ZStack(alignment: .top) {
-            RoundedRectangle(cornerRadius: 10).fill(Color(hex: 0xC59C71)).offset(y: 2)
-            RoundedRectangle(cornerRadius: 10).fill(Color(hex: 0xF4E8D4))
+            RoundedRectangle(cornerRadius: 10).fill(Color(hex: Skin.socialRocketRaceViewsSocWinnerCardFill)).offset(y: 2)
+            RoundedRectangle(cornerRadius: 10).fill(Color(hex: Skin.socialRocketRaceViewsSocWinnerCardFillV2))
             ZStack {
-                ArtImage(art: .rankWings1)
-                GameText(verbatim: "1", style: .s2(18, 0, [0xFFFFFF], outline: 0x7D0C02, 1.5, drop: 0.7))
+                ArtImage(art: .rank1Wings)
+                GameText(verbatim: "1", style: .s2(18, 0, [Skin.socialRocketRaceViewsSocWinnerCardStyle0], outline: Skin.socialRocketRaceViewsSocWinnerCardOutline, 1.5, drop: 0.7))
             }
             .frame(width: 50, height: 36).offset(y: 5)
-            ArtImage(art: .stageChestBlue).frame(width: 60, height: 45).offset(y: 42)
+            ArtImage(art: .rewardChest2).frame(width: 60, height: 45).offset(y: 42)
         }
     }
 }
@@ -457,12 +393,12 @@ struct SocNameTile: View {
     let player: SimPlayer
     let me: Bool
     var body: some View {
-        let st = GameTextStyle.s2(15.3, -0.4, [me ? 0xFFFFFF : 0x5A2801], outline: me ? 0x924500 : nil, me ? 1.2 : 0)
+        let st = GameTextStyle.s2(15.3, -0.4, [me ? Skin.socialRocketRaceViewsSocNameTileStMe0 : Skin.socialRocketRaceViewsSocNameTileStNotMe0], outline: me ? Skin.socialRocketRaceViewsSocNameTileStOutlineMe : nil, me ? 1.2 : 0)
         GeometryReader { geo in
             ZStack(alignment: .top) {
-                RoundedRectangle(cornerRadius: 12).fill(Color(hex: me ? 0xB55E08 : 0xAF7F4A)).offset(y: 2)
+                RoundedRectangle(cornerRadius: 12).fill(Color(hex: me ? Skin.socialRocketRaceViewsSocNameTileFillMe : Skin.socialRocketRaceViewsSocNameTileFillNotMe)).offset(y: 2)
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(LinearGradient(colors: me ? [Color(hex: 0xF3CF62), Color(hex: 0xFDBE38)] : [Color(hex: 0xFDF8F0), Color(hex: 0xF4E8D4)],
+                    .fill(LinearGradient(colors: me ? [Color(hex: Skin.socialRocketRaceViewsSocNameTileColorsMe0), Color(hex: Skin.socialRocketRaceViewsSocNameTileColorsMe1)] : [Color(hex: Skin.socialRocketRaceViewsSocNameTileColorsNotMe0), Color(hex: Skin.socialRocketRaceViewsSocNameTileColorsNotMe1)],
                                          startPoint: .top, endPoint: .bottom))
                 SocAvatar(index: player.avatar, me: me).frame(width: 44, height: 44).offset(y: 7)
                 GameText(verbatim: player.name, style: { var x = st; x.minScale = 0.5; return x }(), maxWidth: min(54, geo.size.width - 6))

@@ -134,8 +134,6 @@ Questions? Write to %@	Des questions ? Écris à %@
 %@ has no accounts and shows no ads.	%@ n'a pas de compte et n'affiche aucune publicité.	META
 Your progress, settings and profile name are stored only on this device.	Ta progression, tes réglages et ton pseudo sont stockés uniquement sur cet appareil.	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	Le jeu fonctionne hors ligne. Les achats sont traités par Apple. Notre service d'achats, RevenueCat, reçoit un identifiant anonyme et l'historique de tes achats.	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	Nous faisons la publicité de %@ sur Facebook et Instagram. Pour mesurer ces publicités, le jeu envoie à Meta des événements de l'app (ouverture du jeu, tutoriel terminé, niveaux gagnés, achats et leur prix) avec un identifiant aléatoire et des informations de base sur l'appareil.	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	Si tu autorises le suivi quand iOS te le demande, Meta reçoit aussi l'identifiant publicitaire de ton appareil et peut associer ces événements à ton compte Meta. Tu peux modifier ce choix à tout moment dans l'app Réglages de l'iPhone, sous Confidentialité et sécurité > Suivi.	META
 Notifications are scheduled on your device and can be turned off in Settings.	Les notifications sont programmées sur ton appareil et peuvent être désactivées dans les Réglages.	
 If you write to support, we use your message only to answer you.	Si tu écris à l'assistance, nous utilisons ton message uniquement pour te répondre.	
 Contact: %@	Contact : %@	
@@ -274,3 +272,18 @@ Up & Away Best Streak	Envolée : meilleure série	B3 (B1 key): Profile stat til
 %@ ends soon!	%@ se termine bientôt !	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	Le pseudo doit faire 2 à 16 caractères	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ n'a ni compte, ni publicité, ni suivi.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	Aucun coup possible !	TPL5 NEW
+Out of Moves!	Plus de coups !	TPL5 NEW
+You are stuck! Keep going with a little help.	Tu es bloqué ! Continue avec un petit coup de pouce.	TPL5 NEW
+Keep going with a few more moves!	Continue avec quelques coups de plus !	TPL5 NEW
+Add Moves	Ajouter	TPL5 NEW
++1 Move	+1 coup	TPL5 NEW
++%lld Moves	+%lld coups	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	+1 tube	TPL5 NEW
++%lld Tubes	+%lld tubes	TPL5 NEW
+Undo	Annuler	TPL5 NEW
+Extra Tube	Tube bonus	TPL5 NEW
+Take back your last move!	Annule ton dernier coup !	TPL5 NEW
+Add an empty tube to the board!	Ajoute un tube vide !	TPL5 NEW

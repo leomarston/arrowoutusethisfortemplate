@@ -20,6 +20,10 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 NAME="$(basename "$ROOT")"
 PARENT="$(dirname "$ROOT")"
 OUT="${1:-$PARENT/${NAME}-portable.zip}"
+# zip runs inside the staging dir (deleted on exit), so a relative OUT must be made absolute first,
+# or the zip is written into the temp dir and silently lost.
+case "$OUT" in /*) ;; *) OUT="$(pwd)/$OUT" ;; esac
+echo "⚠️  $OUT will contain live secrets (.env, keys/). Keep it private."
 
 # Filter rules (rsync applies them in order, first match wins).
 # NOTE: '.git/***' MUST come first — branch refs live at paths like

@@ -36,8 +36,8 @@ struct RootView: View {
                     FXOverlayView(fx: fx).allowsHitTesting(false).frame(width: size.width, height: size.height).zIndex(1_000_000)
                 }
                 if let host = app.popups as? PopupHost { PopupLayer(host: host, app: app).zIndex(1_000_001) }
-                if let toasts = app.toasts as? ToastCenter {
-                    ToastLayer(center: toasts, tokens: app.tuning.ui.tokens, inLevel: router.screen.isLevel).zIndex(1_000_002)
+                if let toasts = ShellScreens.toastLayer(app, inLevel: router.screen.isLevel) {     // the toasts component
+                    toasts.zIndex(1_000_002)
                 }
                 CaptureReadyMarker().zIndex(1_000_003)
                 if app.args.uitest {                                              // FIX-2 A-R (UI tests)
@@ -103,10 +103,11 @@ private struct LayerView: View {
     var body: some View {
         switch layer.screen {
         case .loading:
-            LoadingScreen().onAppear { router.loadingAppeared() }
+            // the loading component's screen (ShellScreens); the router's boot waits for its first appearance either way
+            (ShellScreens.loading?.makeView() ?? AnyView(Color.clear)).onAppear { router.loadingAppeared() }
         case .home(_, let tab):
             // home is built once and parked (hidden) under other screens; its arrivals come from HomeLive (Router)
-            HomeView(tab: tab, refill: router.homeRefill)
+            if let home = ShellScreens.home { home.makeView(tab: tab, refill: router.homeRefill) }
         case .level(let launch):
             if let view = router.levelView { view } else {
                 // unreachable: Router.prepare sets levelView before any level layer mounts. F3-A (ruling 52(a)): the WP0
@@ -120,7 +121,7 @@ private struct LayerView: View {
         case .event(let e):
             SocialEntry.makeEventScreen(e, app: app)
         case .profile:
-            ProfileView()                                                           // S3 (Profile/ProfileView.swift)
+            if let profile = ShellScreens.profileView() { profile }                // the profile component (ProfileView)
         case .lab(let id):
             if let lab = DebugScreens.make(id.rawValue, app: app) { lab } else {
                 NotInstalledView(text: "-pc.go \(id.rawValue): that owner's debug screen is not installed")
@@ -147,8 +148,15 @@ struct ShellPrewarmItem {
 @MainActor enum KeyboardWarm {
     private static var done = false
 
+    /// The app's key window (the same lookup the boards use; the shell names no board).
+    private static func keyWindow() -> UIWindow? {
+        let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+        let windows = scenes.flatMap(\.windows)
+        return windows.first(where: \.isKeyWindow) ?? windows.first
+    }
+
     static func run(_ app: AppModel) {
-        guard !done, app.args.raw["pc.keyboardWarm"] != "0", let window = BoardEngine.keyWindow() else { return }
+        guard !done, app.args.raw["pc.keyboardWarm"] != "0", let window = keyWindow() else { return }
         done = true
         let t0 = CACurrentMediaTime()
         let cpu0 = clock_gettime_nsec_np(CLOCK_THREAD_CPUTIME_ID)
@@ -292,7 +300,7 @@ final class WarmProbeView: UIView {
     @available(*, unavailable) required init?(coder: NSCoder) { fatalError() }
 
     override var accessibilityValue: String? {
-        get { "dim=\(S2FX.celebrationDimProbe()) warms=\(PopupWarm.shared.count) mounted=\(PopupWarm.shared.item == nil ? 0 : 1)" }
+        get { "dim=\(FXEffects.dimProbe()) warms=\(PopupWarm.shared.count) mounted=\(PopupWarm.shared.item == nil ? 0 : 1)" }
         set {}
     }
 }
@@ -327,14 +335,14 @@ extension EnvironmentValues {
     /// Every raster the event's own screens draw (its page, its offer, its stage chests).
     static func art(_ e: EventID) -> [UIArt] {
         switch e {
-        case .rocketRace: return [.rallyBackdrop, .rallyOfferScene, .rallyRocketMine, .rallyRocketOther, .planetStage1, .planetStage2,
-                                  .planetStage3, .stageChestGreen, .stageChestBlue, .stageChestPink, .rankWings1]
-        case .skyJump: return [.hopBackdrop, .hopIsland, .hopIslandFar, .hopIslandFar2, .hopPad, .hopOfferScene,
-                               .stageChestGreen, .stageChestBlue, .stageChestPink]
-        case .balloonRise: return [.balloonHero, .balloonTowerTop, .balloonTowerShaft, .balloonTowerFoot, .balloonLedge, .balloonCloudA,
-                                   .balloonCloudB, .stageChestPink, .stageChestBlue, .stageChestGreen]
-        case .clawChallenge: return [.treasureHeader]
-        case .streakRace: return [.streakHeader]
+        case .rocketRace: return [.eventRocketRaceBackdrop, .eventRocketRaceOffer, .eventRocketRaceRacerMine, .eventRocketRaceRacerOther, .eventRocketRaceStage1, .eventRocketRaceStage2,
+                                  .eventRocketRaceStage3, .rewardChest1, .rewardChest2, .rewardChest3, .rank1Wings]
+        case .skyJump: return [.eventSkyJumpBackdrop, .eventSkyJumpPlatform, .eventSkyJumpPlatformFar, .eventSkyJumpPlatformFar2, .eventSkyJumpPad, .eventSkyJumpOffer,
+                               .rewardChest1, .rewardChest2, .rewardChest3]
+        case .balloonRise: return [.eventBalloonRiseHero, .eventBalloonRiseTowerTop, .eventBalloonRiseTowerShaft, .eventBalloonRiseTowerFoot, .eventBalloonRiseLedge, .eventBalloonRiseCloudA,
+                                   .eventBalloonRiseCloudB, .rewardChest3, .rewardChest2, .rewardChest1]
+        case .clawChallenge: return [.eventClawChallengeHeader]
+        case .streakRace: return [.eventStreakRaceHeader]
         default: return []
         }
     }
@@ -353,8 +361,9 @@ extension EnvironmentValues {
 
     static let managed: [EventID] = [.rocketRace, .skyJump, .balloonRise, .clawChallenge, .streakRace]
 
-    /// Never released: art a screen other than the event pages draws (home, the Shop tab, Profile).
-    static var kept: Set<UIArt> { Set(HomeView.art + ShopView.art + ProfileView.art) }
+    /// Never released: art a screen other than the event pages draws (home, the Shop tab, Profile: their components register
+    /// it, `ShellArt.registerKept`).
+    static var kept: Set<UIArt> { Set(ShellArt.kept) }
 
     /// The art to release when `openable` are the events the player can open now: the other events' art that no openable
     /// event and no `kept` screen draws.
@@ -435,8 +444,8 @@ extension EnvironmentValues {
     static func start() {
         guard !started else { return }
         started = true
-        let art = ShopView.art + HomeView.art
-        let rigLayers = HomeView.rigLayerPaths()
+        let art = ShellArt.preload                                      // the Shop page's art, then home's (their components)
+        let rigLayers = ShellScreens.home?.rigLayerPaths() ?? []
         let t0 = ProcessInfo.processInfo.systemUptime
         Task.detached(priority: .userInitiated) {
             ArtStore.preload(art)
@@ -463,19 +472,11 @@ extension EnvironmentValues {
     private(set) static var done = false
     /// Every item (each owner's hook returns its list). Order: the home / meta screens first, the in-play popups and the HUD
     /// last — the chrome raster cache drops its OLDEST entries when full, so what a level needs is made last.
-    static func items(_ app: AppModel) -> [ShellPrewarmItem] {
-        let host = PopupHost(ui: app.tuning.ui)
-        var list: [ShellPrewarmItem] = []
-        list += S3Popups.prewarm(app)                                                // S3 hook (Popups/ShellLab+Meta.swift)
-        list += SocialPopups.prewarm(app)                                            // SOC2 hook (Social/SocialPopups.swift)
-        list += [
-            ShellPrewarmItem("settings", ReferenceCanvas { SettingsPopup(answer: PopupAnswer(id: -2, host: host)) }),
-            ShellPrewarmItem("quitLevel", ReferenceCanvas { QuitLevelPopup(answer: PopupAnswer(id: -3, host: host)) }),
-            ShellPrewarmItem("pause", ReferenceCanvas { PausePopup(answer: PopupAnswer(id: -1, host: host)) }),
-        ]
-        list += S2Popups.prewarm(app)                                                // S2 hook (HUD/S2Hooks.swift)
-        return list
-    }
+    /// Kit decoupling step: each component registers its items with an order (`ShellPrewarmItems`, ShellRegistry.swift); the
+    /// reference game's orders reproduce the old owner lists exactly: S3's (100-160: noLives, boosterBuy, editProfile, username,
+    /// shop, profile, leaderboardShell), SOC2's (200), S1's (300-320: settings, quitLevel, pause), S2's (400-460: the fail
+    /// chain, the win tiers, unlockParts, the claims, toggle.off, claim.letters, the HUDs).
+    static func items(_ app: AppModel) -> [ShellPrewarmItem] { ShellPrewarmItems.items(app) }
 
     /// When the warm-up must be done: the router's Loading cap (launch + `loading.capSeconds`), less a margin for the drain.
     static func deadline(_ app: AppModel) -> Double { app.launchUptime + app.tuning.ui.loadingCapSeconds - 0.35 }
@@ -534,15 +535,15 @@ private struct PopupPrewarm: View {
         KeyboardWarm.run(app)
         await FrameWaiter.frames(1)
         S2Hooks.warmUp(app)
-        S3Hooks.warmUp(app)
+        ShellWarmUps.run(app)                                                   // the components' boot work (celebration, Shop)
         // FIX-2 A (A4-o1): home first, in slices, hidden under Loading (the cut out of Loading then only shows it) — once its
         // art is decoded off the main thread (started with the router: HomeArtPreload)
         await HomeArtPreload.wait(timeout: 1.0)
         await (app.router as? Router)?.buildHomeBehindLoading()
         // the rasters the Shop page and home show, decoded off the main thread before their items mount (ArtStore is
         // thread-safe; they are decoded and kept anyway once shown)
-        let art = ShopView.art + HomeView.art
-        let rigLayers = HomeView.rigLayerPaths()                            // A4 FEEL: the home rigs' layers too
+        let art = ShellArt.preload                                          // the Shop page's and home's art (their components)
+        let rigLayers = ShellScreens.home?.rigLayerPaths() ?? []            // A4 FEEL: the home rigs' layers too
         Task.detached(priority: .userInitiated) {
             ArtStore.preload(art)
             for p in rigLayers { _ = ArtStore.image(path: p) }

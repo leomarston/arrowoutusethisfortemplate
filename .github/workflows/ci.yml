@@ -1,0 +1,199 @@
+# CI for the game template. Three jobs (+ a tiny `changes` job that decides whether the macOS jobs are needed):
+#   checks  (Linux)  the Python content/store checks that need no Apple toolchain
+#   core    (macOS)  the pure-Swift game core: swift build + swift test
+#   app     (macOS)  xcodegen -> Debug build -> app unit tests on an iOS simulator
+# The repository is public (runner minutes free); if it goes private again, macOS minutes cost 10x and the account's
+# Actions budget stops CI when the included minutes run out. Either way a push that changes ONLY docs (*.md, docs/**) or Python (*.py) skips core/app
+# (a tool whose output is Swift/JSON commits that output too, so the output file triggers them). Manual runs and PRs always run all.
+# The app folder is a matrix-free env var so a future Games/<slug> layout only changes APP_DIR.
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+  workflow_dispatch:
+
+# One run per branch: a push to a branch with an open PR fires both `push` and `pull_request`; sharing the group (PR head
+# branch name == pushed branch name) keeps only the newest, so two identical macOS app jobs never compete (the board's
+# render-clock timing tests missed their windows under that load on PR #1).
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  APP_DIR: apps/mazeout
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      macos: ${{ steps.diff.outputs.macos }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - id: diff
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" != "push" ] || [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            echo "macos=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          FILES=$(git diff --name-only "$BEFORE" "$GITHUB_SHA")
+          echo "$FILES"
+          if echo "$FILES" | grep -qvE '(\.md$|^docs/|\.py$)'; then echo "macos=true"; else echo "macos=false"; fi >> "$GITHUB_OUTPUT"
+  checks:
+    name: Content & store checks (Linux)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: String catalogue is up to date (13 languages)
+        run: python3 $APP_DIR/tools/strings/build.py --check
+      - name: Strings self-test + coverage
+        run: |
+          python3 $APP_DIR/tools/strings/selftest.py
+          python3 $APP_DIR/tools/strings/coverage.py --strict-code
+      - name: Store texts, keywords, captions audit
+        run: python3 $APP_DIR/tools/release/meta.py audit
+      - name: IAP catalogue == rules.json shop == .storekit
+        run: python3 $APP_DIR/tools/release/meta.py iap-check
+      - name: Release metadata self-test
+        run: python3 $APP_DIR/tools/release/meta.py selftest
+      - name: Level bundle == design/levels.json (publish form)
+        run: python3 $APP_DIR/tools/levels/bundle_check.py --publish
+      - name: Level validator (every authored level solvable, rules-clean)
+        run: python3 $APP_DIR/design/tools/validate_levels.py
+      - name: SortPuzzle goldens == the Python reference (generator + solver; SortPuzzleTests pins the Swift to them)
+        run: python3 $APP_DIR/tools/sortpuzzle/ref.py --check
+      - name: Generated art index is up to date
+        run: python3 $APP_DIR/tools/uiart_gen.py --check
+      - name: Skin (colours, ui.json colours, fonts, names; generated files fresh, no colour literal in the UI sources or ui.json, tool self-tests)
+        run: |
+          # --check: SkinColors/SkinData.generated.swift, Tuning/ui-colors.json and the UIAppFonts lists fresh; ui.json holds
+          # only "@<ui id>" colour references, each in skin/colors.json `ui`, and every ui entry is used
+          python3 $APP_DIR/tools/skin/build.py --check
+          python3 $APP_DIR/tools/skin/build.py --check-literals
+          python3 $APP_DIR/tools/skin/build.py --selftest
+          python3 $APP_DIR/tools/skin/recolor.py --selftest
+      - name: Skin art slots + scenes (UIArt/ArtRig/SkinScenes fresh, every shipped file has a slot and exists, Swift names slots never files)
+        run: |
+          # --check: skin/art.json + skin/scenes.json valid; UIArt.swift, SkinScenes.generated.swift fresh; every UIArt(rawValue:)
+          # / UpAwayArt / ui.json win.logo slot exists; no App Swift string names an art file (tools/skin/art_allowlist.json)
+          python3 $APP_DIR/tools/skin/art.py --check
+          python3 $APP_DIR/tools/skin/art.py --selftest
+      - name: Second skin is data only (every skin/variants/<name> builds; its generated files differ from the active skin's only in colour values)
+        run: |
+          python3 $APP_DIR/tools/skin/variant.py --check
+          python3 $APP_DIR/tools/skin/variant.py --selftest
+      - name: Game config doctor + game.py tests
+        run: |
+          pip install -q pyyaml
+          python3 tools/game.py doctor --game mazeout --quick
+          python3 -m unittest discover -s tools/tests
+      - name: Debug harness out of Release (labs / autoplayer gated `#if DEBUG || PC_MEASURE`, no use outside the gate; CI builds Debug only)
+        run: |
+          python3 $APP_DIR/tools/harness_gate.py
+          python3 $APP_DIR/tools/harness_gate.py --selftest
+      - name: Component kit (every Swift file owned by one component or core, references exist, deps acyclic, catalog fresh) + self-test
+        run: |
+          # kit/**/component.json: docs/guides/KIT.md. A new Swift file in a shared folder fails here until a component owns it.
+          python3 tools/kit.py check
+          python3 tools/kit.py check --selftest
+      - name: Brand name spelled only in project.yml (fast twin of BrandTests.testTheNameHasOneSource)
+        run: |
+          BRAND=$(sed -n 's/^ *PC_BRAND_NAME: *"\([^"]*\)".*/\1/p' $APP_DIR/project.yml)
+          test -n "$BRAND"
+          if grep -rnF "$BRAND" $APP_DIR/App $APP_DIR/art/ui/code $APP_DIR/Packages/PathCore/Sources --include='*.swift'; then
+            echo "::error::\"$BRAND\" spelled outside project.yml (use Brand.name, or name the module in comments)"; exit 1
+          fi
+      - name: Python syntax (all tools)
+        run: |
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pyc" python3 -m compileall -q scripts tools $APP_DIR/tools $APP_DIR/design/tools
+
+  core:
+    needs: changes
+    if: needs.changes.outputs.macos == 'true'
+    name: Game core (swift test, macOS)
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select the newest Xcode
+        run: |
+          ls -d /Applications/Xcode*.app
+          XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$XC" ] && sudo xcode-select -s "$XC"
+          xcodebuild -version; swift --version
+      - name: swift build + swift test (PathCore)
+        run: |
+          set -o pipefail
+          sh $APP_DIR/tools/core.sh 2>&1 | tee "$RUNNER_TEMP/core.log" > /dev/null || {
+            echo "---- failures ----"; grep -E "error:|: failed|Test Case .* failed" "$RUNNER_TEMP/core.log" | head -60; exit 1; }
+          grep -E "Executed [0-9]+ tests" "$RUNNER_TEMP/core.log" | tail -1
+
+  app:
+    needs: changes
+    if: needs.changes.outputs.macos == 'true'
+    name: App build + unit tests (iOS simulator)
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select the newest Xcode
+        run: |
+          XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$XC" ] && sudo xcode-select -s "$XC"
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate the Xcode project
+        run: sh $APP_DIR/tools/gen.sh
+      - name: Pick an iPhone simulator
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys
+          d=json.load(sys.stdin)["devices"]
+          ios=[(k,v) for k,v in d.items() if "iOS" in k]
+          ios.sort(key=lambda kv:[int(x) for x in kv[0].split("iOS-")[-1].split("-")])
+          for k,v in reversed(ios):
+              for dev in v:
+                  if dev["name"].startswith("iPhone"):
+                      print(dev["udid"]); sys.exit()')
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+          xcrun simctl list devices | grep "$UDID"
+      # Gating run: every app unit test except the two that depend on the machine, not the code (run below, non-gating):
+      # ShellStoreKitTests (SKTestSession.buyProduct answers notEntitled on hosted runners) and one animation-timing test
+      # (render-server timing on a shared VM). Both must pass on the Mac (docs/ROADMAP.md).
+      - name: Build (Debug) and run the app unit tests
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          set -o pipefail
+          xcodebuild -project ArrowOut.xcodeproj -scheme ArrowOut -configuration Debug \
+            -destination "id=$SIM_UDID" -derivedDataPath build/dd-ci \
+            -only-testing:ArrowOutTests \
+            -skip-testing:ArrowOutTests/ShellStoreKitTests \
+            -skip-testing:ArrowOutTests/BoardEngineTests/testBumpReportsContactThenFinishedAndStaysRed \
+            test 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
+            | grep -E "error:|Test Suite .*(passed|failed)|Executed|\*\* (TEST|BUILD)" || true
+          grep -q "\*\* TEST SUCCEEDED \*\*" "$RUNNER_TEMP/xcodebuild.log"
+      - name: Release compiles (the store configuration; its `#else` paths of the debug-harness gates are only built here)
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          set -o pipefail
+          xcodebuild -project ArrowOut.xcodeproj -scheme ArrowOut -configuration Release \
+            -destination "id=$SIM_UDID" -derivedDataPath build/dd-rel CODE_SIGNING_ALLOWED=NO \
+            build 2>&1 | tee "$RUNNER_TEMP/release.log" | grep -E "error:|\*\* BUILD" || true
+          grep -q "\*\* BUILD SUCCEEDED \*\*" "$RUNNER_TEMP/release.log"
+      - name: Machine-dependent tests (informational, never gating)
+        if: always()
+        continue-on-error: true
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          xcodebuild -project ArrowOut.xcodeproj -scheme ArrowOut -configuration Debug \
+            -destination "id=$SIM_UDID" -derivedDataPath build/dd-ci \
+            -only-testing:ArrowOutTests/ShellStoreKitTests \
+            -only-testing:ArrowOutTests/BoardEngineTests/testBumpReportsContactThenFinishedAndStaysRed \
+            test-without-building 2>&1 | grep -E "error:|Executed|\*\* TEST" || true

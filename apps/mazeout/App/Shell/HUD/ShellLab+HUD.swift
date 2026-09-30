@@ -1,3 +1,6 @@
+// Debug harness: compiled into Debug and Measure only (`#if DEBUG || PC_MEASURE`), never into the Release (store) build.
+// tools/harness_gate.py (CI) fails when a harness type is used outside that gate.
+#if DEBUG || PC_MEASURE
 import SwiftUI
 import PathCore
 
@@ -34,12 +37,12 @@ struct HUDLabPage: View {
         S2Hooks.app = app
         switch kind {
         case .still(let tag, let hearts):
-            HUDLab.fill(hud, tag: tag, hearts: hearts)
+            HUDSample.fill(hud, tag: tag, hearts: hearts)
             await S2LabReady.visible(app)
             CaptureReady.mark(screen: "shelllab:hud:\(tag.rawValue):\(hearts)", app: app, file: "lab-ready.json")
             Log.mark("lab", "shelllab:hud done")
         case .intro:
-            HUDLab.fill(hud, tag: .normal, hearts: 3)
+            HUDSample.fill(hud, tag: .normal, hearts: 3)
             hud.introPhase = .hidden
             await S2LabReady.visible(app)
             try? await Task.sleep(nanoseconds: 500_000_000)
@@ -65,7 +68,7 @@ struct HUDLabPage: View {
             CaptureReady.mark(screen: "shelllab:hudIntro", app: app, file: "lab-ready.json")
             Log.mark("lab", "shelllab:hudIntro done")
         case .breaking:
-            HUDLab.fill(hud, tag: .normal, hearts: 3)
+            HUDSample.fill(hud, tag: .normal, hearts: 3)
             await S2LabReady.visible(app)
             for lost in 1...3 {
                 try? await Task.sleep(nanoseconds: 1_500_000_000)
@@ -80,7 +83,7 @@ struct HUDLabPage: View {
             Log.mark("lab", "shelllab:hudBreak done")
         case .breakOnce:
             // one bump contact: heart 3 breaks (`-pc.freezeAt heartBreak@τ` holds the halves at τ)
-            HUDLab.fill(hud, tag: .normal, hearts: 3)
+            HUDSample.fill(hud, tag: .normal, hearts: 3)
             await S2LabReady.visible(app)
             try? await Task.sleep(nanoseconds: 400_000_000)
             hud.hearts = [.full, .full, .lost]
@@ -100,28 +103,10 @@ struct HUDLabPage: View {
 }
 
 @MainActor enum HUDLab {
-    static func fill(_ hud: HUDModel, tag: LevelTag, hearts: Int) {
-        let level = tag == .normal ? 32 : (tag == .hard ? 34 : 39)
-        let secs = tag == .hard ? 210 : 180
-        hud.levelLabel = "Level \(level)"
-        hud.tag = tag
-        hud.timerSeconds = secs
-        hud.timerText = HUDLab.text(secs)
-        hud.timerFrozen = true
-        hud.hearts = (0..<3).map { $0 < hearts ? .full : .lost }
-        hud.coins = 2240
-        hud.boosters = [BoosterSlotVM(id: .freeze, state: .stock(3)), BoosterSlotVM(id: .hint, state: .stock(3))]
-        hud.introPhase = .shown
-        hud.isVisible = true
-    }
-
-    /// "m:ss" with no leading zero on the minutes (SPEC-motion-audio §4).
-    static func text(_ s: Int) -> String { "\(s / 60):" + String(format: "%02d", s % 60) }
-
     /// 60 s of play written the HUDWriter way; counts writes (Observation) and top-row renders; logs the rates.
     static func soak(_ app: AppModel) async {
         let hud = app.hud
-        fill(hud, tag: .normal, hearts: 3)
+        HUDSample.fill(hud, tag: .normal, hearts: 3)
         await S2LabReady.visible(app)
         let meter = HUDWriteMeter(hud)
         meter.start()
@@ -144,7 +129,7 @@ struct HUDLabPage: View {
             if disp != shown {                                         // the ≤ 10 Hz rule: write only when the second changes
                 shown = disp
                 hud.timerSeconds = disp
-                hud.timerText = text(disp)
+                hud.timerText = HUDSample.text(disp)
             }
             if now >= nextEvent {                                      // an event now and then: a bump, a booster, coins
                 nextEvent += 7
@@ -216,3 +201,4 @@ struct HUDLabPage: View {
         }
     }
 }
+#endif

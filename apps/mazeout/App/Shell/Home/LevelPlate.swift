@@ -17,20 +17,20 @@ struct HomeLevelPlate: View {
         let t = app.tuning.ui.tokens
         let plate = t.rect("home.levelPlate", CGRect(147.5, 536.8, 98.4, 32.4), .bottom, m)
         let caption = t.text("home.levelCaption", GameTextStyle(size: 14.1, tracking: -1.5, fill: [.white],
-                                                                outline: Color(hex: 0x00434A), outlineWidth: 0.82, drop: 0.76))
+                                                                outline: Color(hex: Skin.homeLevelPlateHomeLevelCaptionOutline), outlineWidth: 0.82, drop: 0.76))
         let numberID: String = tag == .hard ? "home.levelNumberHard" : tag == .superHard ? "home.levelNumberSuperHard" : "home.levelNumber"
-        let number = t.text(numberID, GameTextStyle(size: 30.6, tracking: -1.5, fill: [.white], outline: Color(hex: 0x924500),
+        let number = t.text(numberID, GameTextStyle(size: 30.6, tracking: -1.5, fill: [.white], outline: Color(hex: Skin.homeLevelPlateHomeLevelPlateNumberOutline),
                                                     outlineWidth: 2.14, drop: 0.5))
         let face: [Color]
         let outline: Color
         switch tag {
         case .normal:
-            face = t.colors("home.plateFace", [0xFFAA1C, 0xFC9D10, 0xE4830A, 0xA1500A]); outline = t.color("home.plateOutline", 0x954709)
+            face = t.colors("home.plateFace", [Skin.homeLevelPlateHomePlateFace0, Skin.homeLevelPlateHomePlateFace1, Skin.homeLevelPlateHomePlateFace2, Skin.homeLevelPlateHomePlateFace3]); outline = t.color("home.plateOutline", Skin.homeLevelPlateHomePlateOutline)
         case .hard:
-            face = t.colors("home.plateFaceHard", [0xD83A28, 0xB92517, 0x9F140A, 0x660B02]); outline = t.color("home.plateOutlineHard", 0x660B02)
+            face = t.colors("home.plateFaceHard", [Skin.homeLevelPlateHomePlateFaceHard0, Skin.homeLevelPlateHomePlateFaceHard1, Skin.homeLevelPlateHomePlateFaceHard2, Skin.homeLevelPlateHomePlateFaceHard3]); outline = t.color("home.plateOutlineHard", Skin.homeLevelPlateHomePlateOutlineHard)
         case .superHard:
-            face = t.colors("home.plateFaceSuperHard", [0xAE1A6A, 0x901456, 0x751344, 0x4B1029])
-            outline = t.color("home.plateOutlineSuperHard", 0x4B1029)
+            face = t.colors("home.plateFaceSuperHard", [Skin.homeLevelPlateHomePlateFaceSuperHard0, Skin.homeLevelPlateHomePlateFaceSuperHard1, Skin.homeLevelPlateHomePlateFaceSuperHard2, Skin.homeLevelPlateHomePlateFaceSuperHard3])
+            outline = t.color("home.plateOutlineSuperHard", Skin.homeLevelPlateHomePlateOutlineSuperHard)
         }
         let r = t.radius("home.levelPlate", 14.85) * m.s
         let cap = m.point(CGPoint(x: 196.0, y: 531.8), .bottom)

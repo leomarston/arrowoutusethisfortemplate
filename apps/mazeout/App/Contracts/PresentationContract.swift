@@ -33,7 +33,13 @@ enum BoosterSlotState: Equatable, Sendable {
 struct BoosterSlotVM: Identifiable, Equatable, Sendable {
     var id: BoosterID
     var state: BoosterSlotState
-    init(id: BoosterID, state: BoosterSlotState) { self.id = id; self.state = state }
+    /// Template phase 5 (additive): the corner's art slot (`BoosterSpec.icon`; nil = `booster.<id>.icon`) and, for a module
+    /// booster the shell has no name for, its name's string key (the corner's label, and its face when the slot has no art).
+    var icon: String?
+    var nameKey: String?
+    init(id: BoosterID, state: BoosterSlotState, icon: String? = nil, nameKey: String? = nil) {
+        self.id = id; self.state = state; self.icon = icon; self.nameKey = nameKey
+    }
 }
 
 /// The HUD intro (the top row drops, the boosters slide in, the big timer and the hearts pop; §6.5). Times are
@@ -57,6 +63,12 @@ enum HUDIntroPhase: Equatable, Sendable {
     var boosters: [BoosterSlotVM] = []
     var introPhase: HUDIntroPhase = .hidden
     var isVisible = false
+    /// Template phase 5 (additive): the widgets the active module declares (`PuzzleCapabilities.hud`, in slot order); the
+    /// default is the reference game's timer + hearts. The counters' values: moves left (`movesChanged`) and the goals
+    /// (`goalProgress`; the progress / goals / score widgets read them).
+    var widgets: [HUDWidget] = [.timer, .hearts]
+    var movesLeft: Int?
+    var goals: [GoalState] = []
     init() {}
 }
 

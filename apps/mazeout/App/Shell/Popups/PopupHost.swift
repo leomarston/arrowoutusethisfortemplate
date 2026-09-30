@@ -171,7 +171,7 @@ import PathCore
             // close in one frame as before), a dim that faded out on purpose (the unlock card's content cut), or a band rising
             // away (its ghost is already drawn in `leaving`)
             if stack.isEmpty, Self.expectsSuccessor(p.request, answer: answer), !dimWasFading,
-               !leaving.contains(where: { $0.id == id }), !PopupContent.isPage(p.request) || SocialPopups.isPage(p.request) {
+               !leaving.contains(where: { $0.id == id }), !PopupContent.isPage(p.request) || PopupPanels.pageHandsOver(p.request) {
                 var c = p
                 c.closingDrawn = true
                 closing = [c]
@@ -394,8 +394,10 @@ enum PopupEntrance: Equatable {
         case .skyJump(let p): return "skyJump.\(p.rawValue)"
         case .rocketRace(let p): return "rocketRace.\(p.rawValue)"
         case .continueOffer(let offer, _):
-            let v = ContinuePopup.variant(offer, clawRunning: false)
-            return v == .time || v == .hearts ? "continue.\(v.rawValue)" : "continue"
+            // ContinuePopup's layout with the Claw not running: no warning = the Out of Time layout (`continue.time` /
+            // `continue.hearts`, instant); a streak / token / life warning = the band (kit decoupling: the host names no panel)
+            guard offer.warning == .none else { return "continue" }
+            return offer.kind == .outOfHearts ? "continue.hearts" : "continue.time"
         case .custom(let id, _): return id
         default: return r.id.rawValue
         }
@@ -569,16 +571,12 @@ private struct KeyedEntrance: ViewModifier {
     }
 }
 
-/// The panel for each request. S1: pause, quitLevel, settings (a full page) and the offline pages `.custom("page.support" |
-/// "page.terms" | "page.privacy")`; S2 / S3 / SOC2 add theirs here.
+/// The panel for each request: the component that registered it (ShellRegistry.swift `PopupPanels`; the reference game's
+/// list is GameComponents.swift: pause, quitLevel, settings + the offline pages `.custom("page.support" | "page.terms" |
+/// "page.privacy")`, the fail chain, the win panel, the unlock and claim screens, the S3 popups and the closable Shop, the
+/// event popups). A request no component draws gets the DEBUG pending panel (Release answers its fallback: `present`).
 @MainActor enum PopupContent {
-    static func hasPanel(_ request: PopupRequest) -> Bool {
-        switch request {
-        case .pause, .quitLevel, .settings: return true
-        case .custom(let id, _): return InfoPage.Kind(popupID: id) != nil || S3Popups.hasPanel(request) || SocialPopups.hasPanel(request)   // S3: the closable Shop; SOC2 custom ids
-        default: return S2Popups.hasPanel(request) || S3Popups.hasPanel(request) || SocialPopups.hasPanel(request)  // S2 / S3 / SOC2 hooks
-        }
-    }
+    static func hasPanel(_ request: PopupRequest) -> Bool { PopupPanels.provider(for: request) != nil }
 
     /// `popup.<id>` (§9.8); a custom page is `popup.page.<name>`.
     static func containerID(_ request: PopupRequest) -> String {
@@ -587,31 +585,13 @@ private struct KeyedEntrance: ViewModifier {
     }
 
     /// Full-screen pages drawn on the live screen (not the scaled popup canvas).
-    static func isPage(_ request: PopupRequest) -> Bool {
-        switch request {
-        case .settings: return true
-        case .custom(let id, _): return InfoPage.Kind(popupID: id) != nil || S3Popups.isPage(request) || SocialPopups.isPage(request)   // S3: the closable Shop; SOC2 custom ids
-        default: return SocialPopups.isPage(request)                                // SOC2 hook (Social/SocialPopups.swift)
-        }
-    }
+    static func isPage(_ request: PopupRequest) -> Bool { PopupPanels.isPage(request) }
 
     @ViewBuilder static func make(_ request: PopupRequest, style: PopupStyle, answer: PopupAnswer, app: AppModel) -> some View {
-        switch request {
-        case .pause: PausePopup(answer: answer)
-        case .quitLevel: QuitLevelPopup(answer: answer)
-        case .settings: SettingsPopup(answer: answer)
-        case .custom(let id, _):
-            if let kind = InfoPage.Kind(popupID: id) { InfoPage(kind: kind, answer: answer) }
-            else if S3Popups.hasPanel(request) { S3Popups.make(request, answer: answer) }       // S3 hook (Popups/ShellLab+Meta.swift)
-            else if SocialPopups.hasPanel(request) { SocialPopups.make(request, answer: answer) }  // SOC2 hook (Social/SocialPopups.swift)
-            else { PendingPopupPanel(id: request.id, answer: answer) }
-        case .username, .editProfile, .noLives, .boosterBuy:
-            S3Popups.make(request, answer: answer)                                  // S3 hook (Popups/ShellLab+Meta.swift)
-        case .outOfTime, .continueOffer, .levelFailed, .winPanel, .unlockOverlay, .claimReward:
-            S2Popups.make(request, answer: answer)                                  // S2 hook (HUD/S2Hooks.swift)
-        default:
-            if SocialPopups.hasPanel(request) { SocialPopups.make(request, answer: answer) }   // SOC2 hook (Social/SocialPopups.swift)
-            else { PendingPopupPanel(id: request.id, answer: answer) }
+        if let provider = PopupPanels.provider(for: request) {
+            provider.make(request, answer)
+        } else {
+            PendingPopupPanel(id: request.id, answer: answer)
         }
     }
 }

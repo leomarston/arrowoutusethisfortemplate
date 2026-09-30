@@ -134,8 +134,6 @@ Questions? Write to %@	¿Preguntas? Escribe a %@
 %@ has no accounts and shows no ads.	%@ no tiene cuentas ni muestra anuncios.	META
 Your progress, settings and profile name are stored only on this device.	Tu progreso, tus ajustes y tu nombre de perfil se guardan solo en este dispositivo.	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	El juego funciona sin conexión. Apple procesa las compras. Nuestro servicio de compras, RevenueCat, recibe un ID anónimo y tu historial de compras.	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	Anunciamos %@ en Facebook e Instagram. Para medir estos anuncios, el juego envía a Meta eventos de la app (apertura del juego, tutorial completado, niveles ganados, compras y su precio) junto con un ID aleatorio y datos básicos del dispositivo.	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	Si permites el rastreo cuando iOS te lo pregunte, Meta también recibe el identificador de publicidad de tu dispositivo y puede vincular estos eventos a tu cuenta de Meta. Puedes cambiarlo cuando quieras en la app Ajustes del iPhone, en Privacidad y seguridad > Rastreo.	META
 Notifications are scheduled on your device and can be turned off in Settings.	Las notificaciones se programan en tu dispositivo y puedes desactivarlas en Ajustes.	
 If you write to support, we use your message only to answer you.	Si escribes a soporte, usamos tu mensaje solo para responderte.	
 Contact: %@	Contacto: %@	
@@ -274,3 +272,18 @@ Up & Away Best Streak	Rumbo al cielo: mejor racha	B3 (B1 key): Profile stat tile
 %@ ends soon!	¡%@ termina pronto!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	El nombre debe tener entre 2 y 16 caracteres	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ no tiene cuentas, ni anuncios, ni rastreo.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	¡Sin salida!	TPL5 NEW
+Out of Moves!	¡Sin movimientos!	TPL5 NEW
+You are stuck! Keep going with a little help.	¡Estás atascado! Sigue con una pequeña ayuda.	TPL5 NEW
+Keep going with a few more moves!	¡Sigue con unos movimientos más!	TPL5 NEW
+Add Moves	Añadir	TPL5 NEW
++1 Move	+1 movimiento	TPL5 NEW
++%lld Moves	+%lld movimientos	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	+1 tubo	TPL5 NEW
++%lld Tubes	+%lld tubos	TPL5 NEW
+Undo	Deshacer	TPL5 NEW
+Extra Tube	Tubo extra	TPL5 NEW
+Take back your last move!	¡Deshaz tu último movimiento!	TPL5 NEW
+Add an empty tube to the board!	¡Añade un tubo vacío!	TPL5 NEW

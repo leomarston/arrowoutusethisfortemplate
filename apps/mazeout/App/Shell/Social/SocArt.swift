@@ -14,11 +14,11 @@ enum SocRowLook: Int, Sendable, CaseIterable {
     /// meta-045 / store 6; outlines INFERRED from the captures' 1 pt dark edge).
     var colours: (face: [UInt32], highlight: UInt32, lip: [UInt32], outline: UInt32) {
         switch self {
-        case .cream: return ([0xFBEDDC, 0xF8E7D2, 0xF3DDC6], 0xFFF7EF, [0xAA5F45, 0x8A4630], 0x6E3420)
-        case .me: return ([0xF8D159, 0xFDBE38, 0xFC9F11], 0xFFDF85, [0xB55E08, 0x672F00], 0x723400)
-        case .gold: return ([0xFFF25B, 0xFEDD00, 0xFFD800], 0xFFF7A0, [0xC48A00, 0x8F5E00], 0x7A4E00)
-        case .silver: return ([0xEAEDFD, 0xBCC6ED, 0xAFBAE3], 0xF4F6FF, [0x7282BF, 0x4F5E9C], 0x3C4A84)
-        case .bronze: return ([0xF6CFB2, 0xF89D59, 0xF49548], 0xFBE2CF, [0xB85C26, 0x8A3D12], 0x74300C)
+        case .cream: return ([Skin.socialSocArtSocRowLookColoursCream0, Skin.socialSocArtSocRowLookColoursCream1, Skin.socialSocArtSocRowLookColoursCream2], Skin.socialSocArtSocRowLookColoursCream, [Skin.socialSocArtSocRowLookColoursCream0V2, Skin.socialSocArtSocRowLookColoursCream1V2], Skin.socialSocArtSocRowLookColoursCreamV2)
+        case .me: return ([Skin.socialSocArtSocRowLookColoursMe0, Skin.socialSocArtSocRowLookColoursMe1, Skin.socialSocArtSocRowLookColoursMe2], Skin.socialSocArtSocRowLookColoursMe, [Skin.socialSocArtSocRowLookColoursMe0V2, Skin.socialSocArtSocRowLookColoursMe1V2], Skin.socialSocArtSocRowLookColoursMeV2)
+        case .gold: return ([Skin.socialSocArtSocRowLookColoursGold0, Skin.socialSocArtSocRowLookColoursGold1, Skin.socialSocArtSocRowLookColoursGold2], Skin.socialSocArtSocRowLookColoursGold, [Skin.socialSocArtSocRowLookColoursGold0V2, Skin.socialSocArtSocRowLookColoursGold1V2], Skin.socialSocArtSocRowLookColoursGoldV2)
+        case .silver: return ([Skin.socialSocArtSocRowLookColoursSilver0, Skin.socialSocArtSocRowLookColoursSilver1, Skin.socialSocArtSocRowLookColoursSilver2], Skin.socialSocArtSocRowLookColoursSilver, [Skin.socialSocArtSocRowLookColoursSilver0V2, Skin.socialSocArtSocRowLookColoursSilver1V2], Skin.socialSocArtSocRowLookColoursSilverV2)
+        case .bronze: return ([Skin.socialSocArtSocRowLookColoursBronze0, Skin.socialSocArtSocRowLookColoursBronze1, Skin.socialSocArtSocRowLookColoursBronze2], Skin.socialSocArtSocRowLookColoursBronze, [Skin.socialSocArtSocRowLookColoursBronze0V2, Skin.socialSocArtSocRowLookColoursBronze1V2], Skin.socialSocArtSocRowLookColoursBronzeV2)
         }
     }
 
@@ -26,11 +26,11 @@ enum SocRowLook: Int, Sendable, CaseIterable {
     /// INFERRED the same ~25 % darker shade).
     var pill: UInt32 {
         switch self {
-        case .cream: return 0xA06E31
-        case .me: return 0xC76D0F
-        case .gold: return 0xC15B00
-        case .silver: return 0x4F63B8
-        case .bronze: return 0xAC3C04
+        case .cream: return Skin.socialSocArtSocRowLookPillCream
+        case .me: return Skin.socialSocArtSocRowLookPillMe
+        case .gold: return Skin.socialSocArtSocRowLookPillGold
+        case .silver: return Skin.socialSocArtSocRowLookPillSilver
+        case .bronze: return Skin.socialSocArtSocRowLookPillBronze
         }
     }
 }
@@ -126,8 +126,8 @@ enum SocArt {
             let n: CGFloat = 3.5
             let full = CGRect(origin: .zero, size: size)
             let ringT = size.width * 0.075
-            let dark: UInt32 = me ? 0x823F00 : 0x164E4E
-            let ring: [UInt32] = me ? [0xF9DA84, 0xFCBE38, 0xE7870F] : [0xA5DCC8, 0x14A899, 0x00827B]
+            let dark: UInt32 = me ? Skin.socialSocArtSocArtAvatarTileDarkMe : Skin.socialSocArtSocArtAvatarTileDarkNotMe
+            let ring: [UInt32] = me ? [Skin.socialSocArtSocArtAvatarTileRing0, Skin.socialSocArtSocArtAvatarTileRing1, Skin.socialSocArtSocArtAvatarTileRing2] : [Skin.socialSocArtSocArtAvatarTileRing0V2, Skin.socialSocArtSocArtAvatarTileRing1V2, Skin.socialSocArtSocArtAvatarTileRing2V2]
             ctx.addPath(superellipse(full.insetBy(dx: 0.2, dy: 0.2), n: n)); ctx.setFillColor(cg(dark)); ctx.fillPath()
             ctx.saveGState()
             ctx.addPath(superellipse(full.insetBy(dx: 1.2, dy: 1.2), n: n)); ctx.clip()
@@ -150,7 +150,7 @@ enum SocArt {
                 ctx.restoreGState()
             }
             ctx.addPath(innerPath)
-            ctx.setStrokeColor(cg(me ? 0xA3530E : 0x005A57))
+            ctx.setStrokeColor(cg(me ? Skin.socialSocArtSocArtAvatarTileSetStrokeColorMe : Skin.socialSocArtSocArtAvatarTileSetStrokeColorNotMe))
             ctx.setLineWidth(max(1, size.width * 0.012))
             ctx.strokePath()
             return ctx.makeImage()
@@ -174,7 +174,7 @@ enum SocArt {
             ctx.setFillColor(cg(look.pill)); ctx.fillPath()
             ctx.saveGState()
             ctx.addPath(CGPath(roundedRect: r, cornerWidth: rad, cornerHeight: rad, transform: nil)); ctx.clip()
-            ctx.setFillColor(cg(0x000000, 0.18))
+            ctx.setFillColor(cg(Skin.socialSocArtSocArtPillSetFillColor, 0.18))
             ctx.fill(CGRect(x: r.minX, y: r.minY, width: r.width, height: 2.2))     // a dark inner top shadow
             ctx.restoreGState()
             return ctx.makeImage()
@@ -186,7 +186,7 @@ enum SocArt {
         cached("sep|\(width)@\(scale)") {
             let size = CGSize(width: width, height: 36)
             guard let ctx = context(size, scale) else { return nil }
-            ctx.setFillColor(cg(0xF4E8D4))
+            ctx.setFillColor(cg(Skin.socialSocArtSocArtSeparatorSetFillColor))
             for i in -1...1 {
                 ctx.fillEllipse(in: CGRect(x: width / 2 + CGFloat(i) * 16 - 3, y: 15, width: 6, height: 6))
             }
@@ -210,7 +210,7 @@ enum SocArt {
             }
             if r.isMe || c.kind == .streak { _ = pill(r.isMe ? .me : r.look, size: CGSize(width: 53.4, height: 33.4), scale: scale) }
         }
-        for a in [UIArt.rankBadgeGold, .rankBadgeSilver, .rankBadgeBronze, .coinBowl, .scoreChip] { _ = art(a) }
+        for a in [UIArt.rank1Badge, .rank2Badge, .rank3Badge, .rewardCoinBowl, .socialScoreChip] { _ = art(a) }
         _ = separator(width: 393, scale: scale)
     }
 

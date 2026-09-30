@@ -134,8 +134,6 @@ Questions? Write to %@	Vprašanja? Piši na %@
 %@ has no accounts and shows no ads.	%@ nima računov in ne prikazuje oglasov.	META
 Your progress, settings and profile name are stored only on this device.	Tvoj napredek, nastavitve in ime profila so shranjeni samo v tej napravi.	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	Igra deluje brez povezave. Nakupe obdela Apple. Naša storitev za nakupe, RevenueCat, prejme anonimni ID in zgodovino tvojih nakupov.	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	%@ oglašujemo na Facebooku in Instagramu. Za merjenje teh oglasov igra pošilja podjetju Meta dogodke aplikacije (zagon igre, dokončana vadnica, osvojene stopnje, nakupi in njihova cena) skupaj z naključnim ID-jem in osnovnimi podatki o napravi.	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	Če dovoliš sledenje, ko te iOS vpraša, Meta prejme tudi oglaševalski identifikator tvoje naprave in lahko te dogodke poveže s tvojim računom Meta. To lahko kadar koli spremeniš v aplikaciji Nastavitve na iPhonu pod Zasebnost in varnost > Sledenje.	META
 Notifications are scheduled on your device and can be turned off in Settings.	Obvestila se načrtujejo v tvoji napravi in jih lahko izklopiš v Nastavitvah.	
 If you write to support, we use your message only to answer you.	Če pišeš podpori, tvoje sporočilo uporabimo samo za odgovor.	
 Contact: %@	Stik: %@	
@@ -274,3 +272,18 @@ Up & Away Best Streak	Najdaljši niz – V višave	B3 (B1 key): Profile stat til
 %@ ends soon!	%@ se kmalu konča!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	Vzdevek mora imeti od 2 do 16 znakov	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ nima računov, oglasov ali sledenja.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	Ni več potez!	TPL5 NEW
+Out of Moves!	Zmanjkalo je potez!	TPL5 NEW
+You are stuck! Keep going with a little help.	Obtičal si! Nadaljuj z malo pomoči.	TPL5 NEW
+Keep going with a few more moves!	Nadaljuj z nekaj potezami več!	TPL5 NEW
+Add Moves	Več potez	TPL5 NEW
++1 Move	Poteza +1	TPL5 NEW
++%lld Moves	Poteze +%lld	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	Epruveta +1	TPL5 NEW
++%lld Tubes	Epruvete +%lld	TPL5 NEW
+Undo	Razveljavi	TPL5 NEW
+Extra Tube	Dodatna epruveta	TPL5 NEW
+Take back your last move!	Razveljavi svojo zadnjo potezo!	TPL5 NEW
+Add an empty tube to the board!	Dodaj prazno epruveto!	TPL5 NEW

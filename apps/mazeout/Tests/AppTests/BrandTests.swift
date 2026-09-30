@@ -33,8 +33,8 @@ final class BrandTests: XCTestCase {
         XCTAssertEqual(Bundle.main.object(forInfoDictionaryKey: "PCBrandName") as? String, brand)
         XCTAssertEqual(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String, brand)
         XCTAssertEqual(Brand.name, brand)
-        XCTAssertEqual(Brand.logoArtID, "logoArrowOut")
-        XCTAssertTrue(ArtStore.exists(.logoArrowOut), "the logo is art, never text")
+        XCTAssertEqual(UIArt(rawValue: Brand.logoArtID), .logoMain, "the logo is the skin's logo slot")
+        XCTAssertTrue(ArtStore.exists(.logoMain), "the logo is art, never text")
         // project.yml is the only file that spells it (sources, tools-generated code, the chrome, PathCore)
         var offenders: [String] = []
         let files = V1Repo.files("App", extensions: ["swift", "json", "tsv", "txt", "plist", "xcstrings", "storekit", "strings"])

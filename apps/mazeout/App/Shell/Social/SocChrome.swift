@@ -21,13 +21,13 @@ struct SocEventLogo: View {
     /// true: "Weekly" yellow + "Contest" white; false: the first word white, the rest yellow ("Sky" white, "Jump" yellow).
     var yellowFirst = true
     var twoLines = false
-    var outline: UInt32 = 0x00605B
-    var extrusion: UInt32 = 0x00434A
+    var outline: UInt32 = Skin.socialSocChromeSocEventLogoOutline
+    var extrusion: UInt32 = Skin.socialSocChromeSocEventLogoExtrusion
 
     var body: some View {
-        let yellow = GameTextStyle.s2(size, -size * 0.06, [0xFFF46A, 0xFFD21A, 0xF6A800], outline: outline, size * 0.075,
+        let yellow = GameTextStyle.s2(size, -size * 0.06, [Skin.socialSocChromeSocEventLogoYellow0, Skin.socialSocChromeSocEventLogoYellow1, Skin.socialSocChromeSocEventLogoYellow2], outline: outline, size * 0.075,
                                       drop: size * 0.07, dropColor: extrusion, face: .blackItalic)
-        let white = GameTextStyle.s2(size, -size * 0.06, [0xFFFFFF, 0xF0F8F6, 0xD2E9E4], outline: outline, size * 0.075,
+        let white = GameTextStyle.s2(size, -size * 0.06, [Skin.socialSocChromeSocEventLogoWhite0, Skin.socialSocChromeSocEventLogoWhite1, Skin.socialSocChromeSocEventLogoWhite2], outline: outline, size * 0.075,
                                      drop: size * 0.07, dropColor: extrusion, face: .blackItalic)
         let full = String(localized: title)
         // B3: the first WORD (LineUnits: the first space-separated word, or a CJK name's first dictionary word) takes the
@@ -85,10 +85,10 @@ struct SocRails: View {
     var gold = false
     var body: some View {
         Rasterized("socRails|\(gold)") { size in
-            let face: UInt32 = gold ? 0xFED023 : 0x40BCAC
-            let light: UInt32 = gold ? 0xFFF08A : 0x95D7C5
-            let dark: UInt32 = gold ? 0xB77F00 : 0x007471
-            let rivet: UInt32 = gold ? 0xE0A400 : 0x39A496
+            let face: UInt32 = gold ? Skin.socialSocChromeSocRailsFaceGold : Skin.socialSocChromeSocRailsFaceNotGold
+            let light: UInt32 = gold ? Skin.socialSocChromeSocRailsLightGold : Skin.socialSocChromeSocRailsLightNotGold
+            let dark: UInt32 = gold ? Skin.socialSocChromeSocRailsDarkGold : Skin.socialSocChromeSocRailsDarkNotGold
+            let rivet: UInt32 = gold ? Skin.socialSocChromeSocRailsRivetGold : Skin.socialSocChromeSocRailsRivetNotGold
             ZStack(alignment: .topLeading) {
                 Color(hex: dark)
                 LinearGradient(colors: [Color(hex: light), Color(hex: face), Color(hex: face)], startPoint: .top, endPoint: .bottom)
@@ -116,7 +116,7 @@ struct SocTapTo: View {
     let text: LocalizedStringResource
     let baseline: CGFloat
     var body: some View {
-        let st = GameTextStyle.s2(20.8, -0.6, [0xFDF6E9, 0xF5E3CB], outline: 0x1A3132, 1.2, drop: 1.0)
+        let st = GameTextStyle.s2(20.8, -0.6, [Skin.socialSocChromeSocTapToSt0, Skin.socialSocChromeSocTapToSt1], outline: Skin.socialSocChromeSocTapToStOutline, 1.2, drop: 1.0)
         GameText(text, style: st, maxWidth: 330).at(196.5, st.capCentre(baseline: baseline))
     }
 }
@@ -133,8 +133,8 @@ struct SocInfoLine: View {
     var alignLeft = false
 
     var body: some View {
-        let plain = GameTextStyle.s2(size, 0, [0xF6E9D8], outline: 0x1A3132, 1.0, drop: 0.8)
-        let hot = GameTextStyle.s2(size, 0, [0xFFE45A, 0xFFD302], outline: 0x1A3132, 1.0, drop: 0.8)
+        let plain = GameTextStyle.s2(size, 0, [Skin.socialSocChromeSocInfoLinePlain0], outline: Skin.socialSocChromeSocInfoLinePlainOutline, 1.0, drop: 0.8)
+        let hot = GameTextStyle.s2(size, 0, [Skin.socialSocChromeSocInfoLineHot0, Skin.socialSocChromeSocInfoLineHot1], outline: Skin.socialSocChromeSocInfoLineHotOutline, 1.0, drop: 0.8)
         let full = String(localized: text)
         let k = key.map { String(localized: $0) }
         if let k, let r = full.range(of: k) {

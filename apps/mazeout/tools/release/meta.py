@@ -87,8 +87,8 @@ def audit_store(P, R):
             if re.search(r"[{}]|\\n|\s{3,}\S", s.replace("\n\n", "")):
                 R.err(f"{loc}: {k} has template debris (braces / literal \\n / run of spaces)")
         name = v.get("name", "")
-        if not name.startswith("Arrow Out"):
-            R.err(f"{loc}: name must start with the seed 'Arrow Out' (got {name!r})")
+        if not name.startswith(L.BRAND):
+            R.err(f"{loc}: name must start with the seed {L.BRAND!r} (got {name!r})")
         hits = L.banned_hits(name, L.BANNED_NAME)
         if hits:
             R.err(f"{loc}: name has banned {hits}")
@@ -278,8 +278,8 @@ def audit_iap(P, R):
                 R.err(f"iap {pid}/{lc}: unlimited-lives hours {ul // 3600} not stated")
             if not b and not ul and rest:
                 R.err(f"iap {pid}/{lc}: stray numbers {rest} in a coin-pack description")
-    if iap.get("appName") != "Arrow Out":
-        R.err("iap appName must be 'Arrow Out' (rc_consumables.py names the RC app from it)")
+    if iap.get("appName") != L.BRAND:
+        R.err(f"iap appName must be {L.BRAND!r} (rc_consumables.py names the RC app from it)")
     if "CHN" not in (iap.get("excludeTerritories") or []):
         R.err("iap excludeTerritories must hold CHN (ruling 38: no China mainland)")
     if iap.get("familySharable") is not False:

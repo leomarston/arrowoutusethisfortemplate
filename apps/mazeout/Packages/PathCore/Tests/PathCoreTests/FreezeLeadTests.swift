@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// CORE-2, SPEC.md ruling 30 (K-4): the hourglass used BEFORE the first tap. Its flight (B → B + `boosters.freezeFlight`
 /// 1.6 s) counts from the use, its 10 s countdown from the first tap (`LevelClock.freeze(_:lead:)`, `freezeLead`,

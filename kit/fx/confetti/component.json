@@ -1,0 +1,26 @@
+{
+ "id": "confetti",
+ "title": "Confetti",
+ "category": "fx",
+ "summary": "Core Animation confetti: precomputed keyframes on the render server, zero main-thread work while it falls.",
+ "description": "FXEffect.confetti(in:) on the FX host; counts, colours and timing in ui.json `fx.confetti`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/FX/Confetti.swift",
+  "apps/mazeout/App/FX/ConfettiRegistration.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "ui.json:fx.confetti"
+  ],
+  "skinTokens": [
+   "fx.confetti"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab celebrate:normal"
+ ]
+}

@@ -57,7 +57,10 @@ final class BoardHostView: UIView {
 
 extension BoardEntry {
     static func makeBoard(_ ctx: AppContext) -> any BoardControlling { BoardEngine(ctx) }
+    #if DEBUG || PC_MEASURE
+    // BoardLab is Debug / Measure only; the Release build keeps BoardEntryPoint's default (no debug screen)
     static func makeDebugScreen(_ name: String, app: AppModel) -> AnyView? {
         name == LabID.boardlab.rawValue ? AnyView(BoardLab(app: app)) : nil
     }
+    #endif
 }

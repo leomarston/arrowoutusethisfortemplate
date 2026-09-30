@@ -1,0 +1,50 @@
+{
+ "id": "lives",
+ "title": "Lives",
+ "category": "economy",
+ "summary": "The More Lives popup (0 lives at a Play: next-life timer, Refill for coins) over GameCore's lives rules.",
+ "description": "GameCore Lives (max, refill seconds, refill price, unlimited windows; rules.json `lives`) and the More Lives popup (NoLivesPopup: the big heart, time to next life, Refill for coins) that LevelFlow opens when a Play finds 0 lives.",
+ "status": "stable",
+ "maxClosure": 10,
+ "files": [
+  "apps/mazeout/App/Shell/Popups/NoLivesPopup.swift",
+  "apps/mazeout/App/Shell/Popups/LivesRegistration.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/LivesTests.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Economy/Lives.swift"
+ ],
+ "depends": [
+  "core",
+  "economy-ui",
+  "ui-chrome"
+ ],
+ "wires": [
+  "shop"
+ ],
+ "uses": {
+  "art": [
+   "hud.timer.icon",
+   "lives.heartBig"
+  ],
+  "strings": [
+   "More Lives",
+   "Refill",
+   "Time to next life:"
+  ],
+  "tuning": [
+   "rules.json:lives",
+   "ui.json:text.moreLives"
+  ],
+  "skinTokens": [
+   "popups.noLivesPopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go home -pc.lives 0 -pc.livesNextIn 900",
+  "-pc.go home -pc.popup noLives",
+  "-pc.go home -pc.unlimitedLives 1800"
+ ]
+}

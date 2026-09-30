@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// INTEG (SOC2's C3 request, build-3): an ended Rocket Race / Sky Jump run is kept in `EventsState` — its window, join time,
 /// stage, the player's final lane and when C3 judged it over (`lastRun`, `lastEndedAt`) — so SOC2's result pages rebuild the

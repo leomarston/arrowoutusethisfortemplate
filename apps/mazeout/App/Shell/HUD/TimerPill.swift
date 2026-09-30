@@ -29,13 +29,13 @@ struct HUDTimerPill: View, Equatable {
     var body: some View {
         let pill = t.rect("hud.timerPill", CGRect(112.4, 81.7, 73.4, 26.4), .top, m)
         let watch = t.rect("hud.stopwatch", CGRect(92.7, 77.7, 29, 33), .top, m)
-        let style = t.text("hud.timerPill.timer", .s2(23.3, 0.25, [0xF7F7F9, 0xEDEDF2, 0xE2E3EA], outline: 0x04292C, 0.67, drop: 1.13))
+        let style = t.text("hud.timerPill.timer", .s2(23.3, 0.25, [Skin.hudTimerPillHudTimerPillTimer0, Skin.hudTimerPillHudTimerPillTimer1, Skin.hudTimerPillHudTimerPillTimer2], outline: Skin.hudTimerPillHudTimerPillTimerOutline, 0.67, drop: 1.13))
             .sized(23.3 * m.s)
         let p = t.textPoint("hud.timerPill.timer", baseline: 104.1, centreX: 152.3)
         let at = m.point(CGPoint(x: p.x, y: p.baseline), .top)
         // FIX-2 A (V3-04): the next two seconds' rasters are made off the main thread now, so the next ticks composite
         let _ = Self.seconds(text).map { now in
-            GameText.prefetch(verbatim: [now - 1, now - 2].filter { $0 >= 0 }.map(HUDWriter.text), style: style,
+            GameText.prefetch(verbatim: [now - 1, now - 2].filter { $0 >= 0 }.map(TimerText.text), style: style,
                               maxWidth: pill.width - 6, scale: displayScale)
         }
         ZStack(alignment: .topLeading) {
@@ -46,21 +46,31 @@ struct HUDTimerPill: View, Equatable {
                     .scaleEffect(CGFloat(scale), anchor: .center)
                     .at(at.x, style.capCentre(baseline: at.y))
             }
-            InkImage(art: .iconStopwatch, ink: watch)
+            InkImage(art: .hudTimerIcon, ink: watch)
         }
     }
 }
 
-/// The recessed timer well (grad.hud.timerPill, VERIFIED 003).
-private struct TimerWell: View {
+/// The recessed timer well (grad.hud.timerPill, VERIFIED 003). Also the well of the module counters (HUDCounter.swift).
+struct TimerWell: View {
     let radius: CGFloat
     let t: Tokens
 
     var body: some View {
         RoundedRectangle(cornerRadius: radius, style: .continuous)
-            .fill(LinearGradient(stops: t.stops("hud.timerPillWell", [(0, 0x57ADA5), (0.05, 0x48978D), (0.2, 0x50A197),
-                                                                       (0.9, 0x50A197), (0.95, 0x4A988E), (0.965, 0x59A49B),
-                                                                       (0.985, 0xBADAD3), (1.0, 0xDAECE7)]),
+            .fill(LinearGradient(stops: t.stops("hud.timerPillWell", [(0, Skin.hudTimerPillHudTimerPillWell0), (0.05, Skin.hudTimerPillHudTimerPillWell1), (0.2, Skin.hudTimerPillHudTimerPillWell2),
+                                                                       (0.9, Skin.hudTimerPillHudTimerPillWell3), (0.95, Skin.hudTimerPillHudTimerPillWell4), (0.965, Skin.hudTimerPillHudTimerPillWell5),
+                                                                       (0.985, Skin.hudTimerPillHudTimerPillWell6), (1.0, Skin.hudTimerPillHudTimerPillWell7)]),
                                  startPoint: .top, endPoint: .bottom))
+    }
+}
+
+/// The level timer's text: "m:ss" with no leading zero on the minutes ("3:00", "0:59", "0:00"; SPEC-motion-audio §4,
+/// CONSISTENCY T-2). Moved as it was from GAME's HUDWriter (which forwards to it) in the kit decoupling step, so the pill needs
+/// no game loop.
+enum TimerText {
+    static func text(_ seconds: Int) -> String {
+        let s = max(0, seconds)
+        return "\(s / 60):" + String(format: "%02d", s % 60)
     }
 }

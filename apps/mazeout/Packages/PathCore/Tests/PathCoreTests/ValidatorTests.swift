@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// §4.14 / §4.17 ValidatorTests (C4): the validator = design/tools/validate_levels.py (the same findings, message for
 /// message, on the reference's 15 negative controls), plus sprites and the game's own rules.

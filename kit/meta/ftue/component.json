@@ -1,0 +1,23 @@
+{
+ "id": "ftue",
+ "title": "First-time user experience",
+ "category": "meta",
+ "summary": "The first run: Loading -> the first board with the tutorial -> the first home (+coins) without a menu first.",
+ "description": "FTUEDirector chains the first sessions until game.json `ftue.chainUntilLevel`, with the notification prompt over Loading.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Game/FTUEDirector.swift"
+ ],
+ "depends": [
+  "core",
+  "game-loop"
+ ],
+ "uses": {
+  "tuning": [
+   "game.json:ftue"
+  ]
+ },
+ "launchArgs": [
+  "-pc.reset 1"
+ ]
+}

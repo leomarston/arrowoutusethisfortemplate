@@ -1,0 +1,32 @@
+{
+ "id": "notifications",
+ "title": "Notification prompt and local notifications",
+ "category": "meta",
+ "summary": "Asks for notification permission once (first launch) and schedules the offline lives / event reminders.",
+ "description": "NotificationPrompt asks over Loading on the first launch (game.json `notifications.*`) and schedules local notifications (lives full, the weekly contest ending) from GameCore's EventNotifications planner. No server: everything is local.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Game/NotificationPrompt.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventNotifications.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "strings": [
+   "The Weekly Cup ends in 2 hours!",
+   "Up & Away",
+   "Your lives are full! Time to play!"
+  ],
+  "tuning": [
+   "game.json:notifications",
+   "game.json:notifications.livesFull",
+   "game.json:notifications.weeklyEndingHours"
+  ]
+ },
+ "launchArgs": [
+  "-pc.reset 1"
+ ]
+}

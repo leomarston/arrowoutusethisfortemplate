@@ -33,8 +33,8 @@ struct HomeTopBarView: View {
                     PlainTopValue(text: "\(coins)", styleID: "home.coins", size: 18.8, tracking: 0, centre: CGPoint(x: 165.5, y: 76.5),
                                   maxWidth: 62, origin: groupOrigin(t))
                     // the rasters carry padding: draw them where their visible pixels land on the phone's (S1 measured 002)
-                    ArtImage(art: .iconCoin).placed(local(t.rect("home.coinIconArt", CGRect(93.45, 51.15, 38.5, 38.5), .top, m)))
-                    ArtImage(art: .iconPlusGreen).placed(local(t.rect("home.plusBadgeArt", CGRect(116.6, 71.1, 23.5, 23.5), .top, m)))
+                    ArtImage(art: .currencyCoinIcon).placed(local(t.rect("home.coinIconArt", CGRect(93.45, 51.15, 38.5, 38.5), .top, m)))
+                    ArtImage(art: .hudPlusBadge).placed(local(t.rect("home.plusBadgeArt", CGRect(116.6, 71.1, 23.5, 23.5), .top, m)))
                 }
                 .frame(width: coinGroup(t).width, height: coinGroup(t).height, alignment: .topLeading)
             }
@@ -49,7 +49,7 @@ struct HomeTopBarView: View {
                 .placed(t.rect("home.coinPill", CGRect(126.8, 55.7, 73.7, 32), .top, m))
             LivesGroup(t: t, onTap: onLives)
             GameButton(id: "home.settings", label: "Settings", action: onSettings) {
-                BlueSquareButton { ArtImage(art: .glyphGear).frame(width: 26, height: 26) }
+                BlueSquareButton { ArtImage(art: .iconSettings).frame(width: 26, height: 26) }
             }
             .placed(squareFrame(t.rect("home.gearButton", CGRect(334.3, 49, 40, 39.7), .top, m)))
             .anchor(.settings)
@@ -89,24 +89,10 @@ private struct PlainTopValue: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let style = t.text(styleID, GameTextStyle(size: size, tracking: tracking, fill: [Color(hex: 0x00474D)])).sized(size * m.s)
+        let style = t.text(styleID, GameTextStyle(size: size, tracking: tracking, fill: [Color(hex: Skin.homeHomeTopBarPlainTopValueStyleFill0)])).sized(size * m.s)
         let p = m.point(centre, .top)
         GameText(verbatim: text, style: style, maxWidth: maxWidth * m.s)
             .at(p.x - origin.x, style.capCentre(baseline: p.y) - origin.y)
-    }
-}
-
-/// The light-blue pill of the top bar (#DEEEFF, superellipse n 5, a thin darker rim).
-struct TopPill: View {
-    let t: Tokens
-    var n: CGFloat = 5
-    var body: some View {
-        ZStack {
-            Superellipse(n: n).fill(t.color("home.topPillEdge", 0x8BC0BB))
-            Superellipse(n: n).fill(LinearGradient(colors: [Color(hex: 0xF4F9FF), t.color("home.topPill", 0xE0F0EB), t.color("home.topPill", 0xE0F0EB)],
-                                                   startPoint: .top, endPoint: .bottom)).padding(1)
-        }
-        .accessibilityHidden(true)
     }
 }
 
@@ -118,26 +104,26 @@ private struct AvatarTile: View {
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height
-            let ring = t.colors("home.avatarRing", [0x41B7A7, 0x38B2A2, 0x009C8F])
+            let ring = t.colors("home.avatarRing", [Skin.homeHomeTopBarHomeAvatarRing0, Skin.homeHomeTopBarHomeAvatarRing1, Skin.homeHomeTopBarHomeAvatarRing2])
             let tile = CGRect(x: 8.6, y: 8.3, width: w - 17.2, height: h - 16.0)
             ZStack(alignment: .topLeading) {
-                Superellipse(n: 3.6).fill(Color(hex: 0x164E4E))
+                Superellipse(n: 3.6).fill(Color(hex: Skin.homeHomeTopBarAvatarTileFill))
                 Superellipse(n: 3.6)
-                    .fill(LinearGradient(stops: [.init(color: Color(hex: 0xA5DCC8), location: 0), .init(color: ring[0], location: 0.06),
+                    .fill(LinearGradient(stops: [.init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops0), location: 0), .init(color: ring[0], location: 0.06),
                                                  .init(color: ring[1], location: 0.3), .init(color: ring[min(2, ring.count - 1)], location: 0.93),
-                                                 .init(color: Color(hex: 0x007571), location: 0.965), .init(color: Color(hex: 0x005957), location: 1)],
+                                                 .init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops4), location: 0.965), .init(color: Color(hex: Skin.homeHomeTopBarAvatarTileStops5), location: 1)],
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1.3)
-                Superellipse(n: 3.8).fill(Color(hex: 0x005A57))
+                Superellipse(n: 3.8).fill(Color(hex: Skin.homeHomeTopBarAvatarTileFillV2))
                     .frame(width: tile.width + 2.6, height: tile.height + 2.6).offset(x: tile.minX - 1.3, y: tile.minY - 1.3)
                 ZStack {
-                    t.color("home.avatarPlaceholder", 0x8FA39C)
+                    t.color("home.avatarPlaceholder", Skin.homeHomeTopBarHomeAvatarPlaceholder)
                     // the default silhouette: a head + wide shoulders reaching the tile's bottom
-                    Circle().fill(t.color("home.avatarSilhouette", 0x6B807A))
+                    Circle().fill(t.color("home.avatarSilhouette", Skin.homeHomeTopBarHomeAvatarSilhouette))
                         .frame(width: tile.width * 0.46, height: tile.width * 0.46).offset(y: -tile.height * 0.1)
-                    Ellipse().fill(t.color("home.avatarSilhouette", 0x6B807A))
+                    Ellipse().fill(t.color("home.avatarSilhouette", Skin.homeHomeTopBarHomeAvatarSilhouette))
                         .frame(width: tile.width * 0.98, height: tile.height * 0.62).offset(y: tile.height * 0.44)
-                    LinearGradient(colors: [.clear, Color(hex: 0x475C58, 0.7)], startPoint: UnitPoint(x: 0.5, y: 0.9), endPoint: .bottom)
+                    LinearGradient(colors: [.clear, Color(hex: Skin.homeHomeTopBarAvatarTileColors1, 0.7)], startPoint: UnitPoint(x: 0.5, y: 0.9), endPoint: .bottom)
                 }
                 .frame(width: tile.width, height: tile.height)
                 .clipShape(Superellipse(n: 3.8))
@@ -170,7 +156,7 @@ private struct LivesGroup: View {
                 } else {
                     content(s, box: box)
                 }
-                ArtImage(art: .heartLives)
+                ArtImage(art: .livesHeart)
                     .placed(t.rect("home.livesHeartArt", CGRect(210.5, 50.9, 42.3, 39.8), .top, m).offsetBy(dx: -box.minX, dy: -box.minY))
                 countText(s, box: box)
             }
@@ -187,8 +173,8 @@ private struct LivesGroup: View {
         let pill = LivesText.state(s, now: now, refill: refill)
         let text: String? = { if case .time(let t) = pill { return t }; return nil }()
         let full = text == nil
-        let style = full ? t.text("home.lives", GameTextStyle(size: 19.1, tracking: -0.75, fill: [Color(hex: 0x00474D)]))
-                         : t.text("home.livesTimer", GameTextStyle(size: 18.9, tracking: -0.35, fill: [Color(hex: 0x00474D)]))
+        let style = full ? t.text("home.lives", GameTextStyle(size: 19.1, tracking: -0.75, fill: [Color(hex: Skin.homeHomeTopBarHomeLivesFill0)]))
+                         : t.text("home.livesTimer", GameTextStyle(size: 18.9, tracking: -0.35, fill: [Color(hex: Skin.homeHomeTopBarHomeLivesTimerFill0)]))
         let st = style.sized(style.size * m.s)
         let p = m.point(CGPoint(x: full ? 285.4 : 285.1, y: 76.9), .top)
         Group {
@@ -201,13 +187,13 @@ private struct LivesGroup: View {
 
     @ViewBuilder private func countText(_ s: PlayerState, box: CGRect) -> some View {
         let unlimited = s.unlimitedLivesUntil.map { $0 > HomeLive.shared.livesClock(app) } ?? false
-        let base = t.text("home.livesCount", GameTextStyle(size: 21.8, fill: [.white], outline: Color(hex: 0x870400), outlineWidth: 0.95,
+        let base = t.text("home.livesCount", GameTextStyle(size: 21.8, fill: [.white], outline: Color(hex: Skin.homeHomeTopBarHomeLivesCountOutline), outlineWidth: 0.95,
                                                            drop: 1.04))
         let style = base.sized(base.size * m.s)
         let at = t.textPoint("home.livesCount", baseline: 77.0, centreX: 232.2)
         let p = m.point(CGPoint(x: at.x, y: at.baseline), .top)
         if unlimited {
-            InfinityGlyph(outline: Color(hex: 0x870400)).frame(width: 22 * m.s, height: 12 * m.s)
+            InfinityGlyph(outline: Color(hex: Skin.homeHomeTopBarLivesGroupCountTextOutline)).frame(width: 22 * m.s, height: 12 * m.s)
                 .at(p.x - box.minX, style.capCentre(baseline: p.y) - box.minY)
         } else {
             GameText(verbatim: "\(s.lives.count)", style: style)
@@ -216,61 +202,11 @@ private struct LivesGroup: View {
     }
 }
 
-/// The lives pill's text and its accessibility value (`home.lives`: "n|mm:ss|full|inf:mm:ss", §9.8). SPEC-ui §2.2.2: counting
-/// "mm:ss" (always two-digit minutes); the word "Finished" for ≈ 1 s when a life has just arrived; unlimited "mm:ss" below an
-/// hour, "1h 20m" from an hour.
-enum LivesText {
-    enum Pill: Equatable { case full, finished, time(String) }
-
-    static func state(_ s: PlayerState, now: Date, refill: Double) -> Pill {
-        if let until = s.unlimitedLivesUntil, until > now {
-            let left = until.timeIntervalSince(now)
-            return .time(left >= 3600 ? hoursMinutes(left) : clock(left))
-        }
-        guard s.lives.count < 5 else { return .full }
-        guard let anchor = s.lives.anchor else { return .time(clock(refill)) }
-        let elapsed = now.timeIntervalSince(anchor)
-        let period = max(refill, 1)
-        if elapsed >= period, elapsed.truncatingRemainder(dividingBy: period) < 1 { return .finished }
-        return .time(clock(max(0, period - elapsed.truncatingRemainder(dividingBy: period))))
-    }
-
-    /// nil = "Full" / "Finished"; else the time text.
-    static func pill(_ s: PlayerState, now: Date, refill: Double) -> String? {
-        if case .time(let t) = state(s, now: now, refill: refill) { return t }
-        return nil
-    }
-
-    static func value(_ s: PlayerState, now: Date, refill: Double) -> String {
-        if let until = s.unlimitedLivesUntil, until > now, case .time(let shown) = state(s, now: now, refill: refill) {
-            return "inf:" + shown                                   // CONSISTENCY Y-4: "inf:<the displayed text>"
-        }
-        switch state(s, now: now, refill: refill) {
-        case .full: return "full"
-        case .finished: return "\(s.lives.count)|finished"
-        case .time(let t): return "\(s.lives.count)|\(t)"
-        }
-    }
-
-    /// mm:ss (h:mm:ss above an hour: the accessibility value).
-    static func clock(_ seconds: Double) -> String {
-        let t = Int(seconds.rounded(.up))
-        let h = t / 3600, mnt = (t % 3600) / 60, sec = t % 60
-        return h > 0 ? String(format: "%d:%02d:%02d", h, mnt, sec) : String(format: "%02d:%02d", mnt, sec)
-    }
-
-    /// "1h 20m" (units are the original's letters in both languages).
-    static func hoursMinutes(_ seconds: Double) -> String {
-        let t = Int(seconds.rounded(.up))
-        return "\(t / 3600)h \(((t % 3600) / 60))m"
-    }
-}
-
 /// The ∞ drawn in code (PCDisplay has no ∞ glyph, fonts.md §7 coverage): a white lemniscate with a dark outline.
 struct InfinityGlyph: View {
     var outline: Color
     /// The phone's ∞ face is cream, not white (VERIFIED 035 median).
-    var face: Color = Color(hex: 0xF2E6D5)
+    var face: Color = Color(hex: Skin.homeHomeTopBarInfinityGlyphFace)
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height

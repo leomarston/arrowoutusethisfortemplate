@@ -25,10 +25,13 @@ import jwt
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://api.appstoreconnect.apple.com"
 # Portable: signing material lives inside the repo (keys/signing), so the
-# Distribution cert + private key travel with the project. Falls back to the
-# legacy ~/keys/signing only if the repo copy doesn't exist.
-SIGN_DIR = (ROOT / "keys" / "signing") if (ROOT / "keys" / "signing").exists() \
-    else Path(os.path.expanduser("~/keys/signing"))
+# Distribution cert + private key travel with the project, and the fastlane lanes
+# (apps/<slug>/fastlane/Fastfile) read it ONLY from there. The legacy
+# ~/keys/signing is used only when it already holds a certificate and the repo
+# copy doesn't exist yet; otherwise the repo folder is created on first use.
+_REPO_SIGN = ROOT / "keys" / "signing"
+_LEGACY_SIGN = Path(os.path.expanduser("~/keys/signing"))
+SIGN_DIR = _LEGACY_SIGN if (not _REPO_SIGN.exists() and (_LEGACY_SIGN / "dist.cer").exists()) else _REPO_SIGN
 _SSL_CTX = ssl.create_default_context(cafile=certifi.where())
 
 
@@ -266,6 +269,9 @@ def main():
     ap.add_argument("--profile-name", help="provisioning profile name when the Fastfile's differs "
                                            "(default: 'manycode <slug> appstore')")
     args = ap.parse_args()
+    if SIGN_DIR == _LEGACY_SIGN:
+        print(f"!! using the legacy {_LEGACY_SIGN} (it holds a certificate; {_REPO_SIGN} does not exist).\n"
+              f"   fastlane reads only {_REPO_SIGN}: copy it there (cp -R {_LEGACY_SIGN} {_REPO_SIGN}) and re-run.")
     e = env()
     bundle = resolve_bundle(e, args.slug, args.bundle)
     tok = token(e)

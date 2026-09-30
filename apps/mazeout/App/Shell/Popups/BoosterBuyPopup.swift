@@ -9,6 +9,9 @@ import PathCore
 // − 900, stock + 3 (Economy.buyBooster, saved) → .primary (the player taps the booster again to use it); short of coins → the
 // Shop opens over the popup (scrolled to Coins) and the popup stays to re-check; X → .close. The panel is shortened to end
 // under the one button (DECISION: the More Lives height would leave an empty field).
+// Template phase 5: a module booster (SortPuzzle's `undo` / `extraTube`) gets the same popup with its own data: the title and
+// line are its name / description keys and the pack its own (`ModuleBooster`, the module's data file; rules.json's freeze /
+// hint are unchanged); the icon is its art slot (`booster.<id>.icon`), else its name on a green face (no stand-in art).
 
 struct BoosterBuyPopup: View {
     let booster: BoosterID
@@ -17,12 +20,16 @@ struct BoosterBuyPopup: View {
 
     var body: some View {
         let t = app.tuning.ui.tokens
-        let pack = ShellEconomy.rules(app).economy.boosterPack
+        let pack = ShellEconomy.rules(app).boosterPack(for: booster)
         let freeze = booster == .freeze
-        let line = GameTextStyle.s2(21, -0.6, [0x5A2801])
-        let buy = GameTextStyle.s2(35.5, -0.92, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.52, drop: 1.84)
-        let count = GameTextStyle.s2(24.0, -0.6, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.3, drop: 1.2)
-        let priceStyle = GameTextStyle.s2(35.7, 1.1, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.61, drop: 1.8)
+        let known = freeze || booster == .hint                                  // the reference game's two boosters
+        let module = known ? nil : app.puzzle.moduleBooster(booster)
+        let name: LocalizedStringResource = known ? (freeze ? "Time Freeze" : "Hint")
+            : (module?.nameResource ?? LocalizedStringResource(String.LocalizationValue(booster.rawValue)))
+        let line = GameTextStyle.s2(21, -0.6, [Skin.popupsBoosterBuyPopupBoosterBuyPopupLine0])
+        let buy = GameTextStyle.s2(35.5, -0.92, [Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy0, Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy1, Skin.popupsBoosterBuyPopupBoosterBuyPopupBuy2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupBuyOutline, 1.52, drop: 1.84)
+        let count = GameTextStyle.s2(24.0, -0.6, [Skin.popupsBoosterBuyPopupBoosterBuyPopupCount0, Skin.popupsBoosterBuyPopupBoosterBuyPopupCount1, Skin.popupsBoosterBuyPopupBoosterBuyPopupCount2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupCountOutline, 1.3, drop: 1.2)
+        let priceStyle = GameTextStyle.s2(35.7, 1.1, [Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle0, Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle1, Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyle2], outline: Skin.popupsBoosterBuyPopupBoosterBuyPopupPriceStyleOutline, 1.61, drop: 1.8)
         let face = CGRect(80.7, 451.7, 231.9, 86.4)
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: 5.8, t: t, rivetInset: CGPoint(x: 12.7, y: 82.5), rivetAlong: 75).placed(CGRect(10.3, 164.5, 372.6, 425.0))
@@ -31,10 +38,17 @@ struct BoosterBuyPopup: View {
                 .frame(width: 261.6, height: 169.2)
                 .clipShape(RoundedRectangle(cornerRadius: 17.2))
                 .placed(CGRect(66.2, 249.3, 261.6, 169.2))
-            ArtImage(art: freeze ? .boosterFreeze : .boosterHint).placed(CGRect(142.0, 256.0, 110, 110))
+            if known {
+                ArtImage(art: freeze ? .boosterFreezeIcon : .boosterHintIcon).placed(CGRect(142.0, 256.0, 110, 110))
+            } else if let art = BoosterArt.icon(id: booster, slot: app.puzzle.capabilities.booster(booster)?.icon) {
+                ArtImage(art: art).placed(CGRect(142.0, 256.0, 110, 110))
+            } else {
+                BoosterNameFace(name: name, style: buy, t: t).placed(CGRect(142.0, 256.0, 110, 110))
+            }
             // B3: one line (EN/TR, as before); a translation that would need < 0.70 on one line takes two balanced lines
             // (SPEC-ui's 2-line frame for this copy), 12.5 pt above and below the one-line baseline
-            let desc = String(localized: freeze ? "Freeze the timer for 10 seconds!" : "Find an arrow that can move!")
+            let desc = known ? String(localized: freeze ? "Freeze the timer for 10 seconds!" : "Find an arrow that can move!")
+                : module.map { String(localized: $0.descriptionResource) } ?? ""
             let descLines = Self.descriptionLines(desc, style: line, width: 262)
             ForEach(Array(descLines.enumerated()), id: \.offset) { i, l in
                 GameText(verbatim: l, style: line, maxWidth: 262)
@@ -59,13 +73,13 @@ struct BoosterBuyPopup: View {
                     }
                     .frame(width: 118, height: 60)
                     .position(x: 143.5 - face.minX, y: buy.capCentre(baseline: 505.7) - face.minY)
-                    ArtImage(art: .iconCoin).placed(CGRect(203.5 - face.minX, 472.0 - face.minY, 34, 34))
+                    ArtImage(art: .currencyCoinIcon).placed(CGRect(203.5 - face.minX, 472.0 - face.minY, 34, 34))
                     GameText(verbatim: "\(pack.price)", style: priceStyle).at(272.0 - face.minX, priceStyle.capCentre(baseline: 505.7) - face.minY)
                 }
                 .frame(width: face.width, height: face.height, alignment: .topLeading)
             }
             .placed(face)
-            PopupTitle(title: freeze ? "Time Freeze" : "Hint", frame: CGRect(60.4, 136.8, 274.2, 90.4), t: t, baselineFromTop: 59.3)
+            PopupTitle(title: name, frame: CGRect(60.4, 136.8, 274.2, 90.4), t: t, baselineFromTop: 59.3)
             PopupCloseButton(id: "popup.boosterBuy.close", t: t) { answer(PopupResult.close) }
                 .placed(CGRect(339.9, 175.7, 45, 45))
             OfferCoinGroup(frame: CGRect(13.0, 64.7, 105.1, 41.4), coins: CoinPillDisplay.shared.shown(app.store.state),
@@ -74,16 +88,10 @@ struct BoosterBuyPopup: View {
         .frame(width: 393, height: 852, alignment: .topLeading)
     }
 
-    /// B3: the description as one line while it fits `width` at ≥ 0.70, else the two-line break whose wider line is narrowest.
+    /// B3: the description as one line while it fits `width` at ≥ 0.70, else the two-line break whose wider line is narrowest
+    /// (ui-chrome's `SocTwoLines.descriptionLines`, shared with the generic offer popup since the kit decoupling step).
     static func descriptionLines(_ text: String, style: GameTextStyle, width: CGFloat) -> [String] {
-        func adv(_ s: String) -> CGFloat {
-            GameTextLayout.make(s, postScriptName: style.postScriptName, size: style.size, tracking: style.tracking).advance
-        }
-        guard adv(text) * 0.70 > width else { return [text] }
-        let two = SocTwoLines.split(text, size: style.size, parts: 2)
-        let w = two.map(adv).max() ?? 0
-        FitLedger.note("boosterBuy.desc2", text: text, need: width / max(w, 1))
-        return two
+        SocTwoLines.descriptionLines(text, style: style, width: width)
     }
 
     /// B3: the one scale of the "Buy" + "x3" group that fits `width` (GameText's frame: the ink box + the outline pad + 1.5 pt
@@ -109,5 +117,26 @@ struct BoosterBuyPopup: View {
         Log.mark("popup", "boosterBuy \(booster.rawValue) → \(ok ? "bought x\(pack.count), stock \(app.store.state.boosters[booster.rawValue] ?? 0)" : "refused (coins \(app.store.state.coins))")")
         if ok { answer(PopupResult.primary); return }
         if app.store.state.coins < pack.price { ShopPage.openOver(app, section: .coins) }
+    }
+}
+
+/// Template phase 5: a module booster without art in the skin — its name on the green glossy face (the Buy button's text style,
+/// ui.json `modules.booster.popupLabelSize`), in the popup's 110 pt icon place.
+struct BoosterNameFace: View {
+    let name: LocalizedStringResource
+    let style: GameTextStyle
+    let t: Tokens
+
+    var body: some View {
+        GeometryReader { geo in
+            let st = style.sized(CGFloat(t.number("modules.booster.popupLabelSize", 26)))
+            ZStack(alignment: .topLeading) {
+                ChromeButtonFace(colors: .green, n: 4.8)
+                GameText(name, style: st, maxWidth: geo.size.width - 16)
+                    .at(geo.size.width / 2, st.capCentre(baseline: geo.size.height / 2 + st.size * 0.36))
+            }
+            .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+        }
+        .accessibilityHidden(true)
     }
 }

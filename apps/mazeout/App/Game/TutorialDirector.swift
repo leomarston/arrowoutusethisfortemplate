@@ -9,7 +9,7 @@ import PathCore
 //              board's FIRST VISIBLE FRAME + `tutorial.showAfter` (0.36 s, VERIFIED V1 0.44 → 0.80). On the FTUE board that
 //              frame is the start of the Loading cross-fade (the router's level layer turning opaque), which is ≈ 2 frames
 //              after the board's draw-in begins (K); anywhere else the step shows on the intro ack (K + 1.015).
-//              Input is closed for those ≤ 2 frames only (`allowedArrows = []`), so no tap can beat the hint.
+//              Input is closed for those ≤ 2 frames only (`allowedTargets = []`), so no tap can beat the hint.
 //   hand       the fingertip at `hand.at` in the level's lattice (integer = a cell centre): [0.89, 1.06] on arrow 1 = its
 //              left stroke edge, 38 % down its drawn length (T-29), converted to screen points through the board's own
 //              `screenPoint(of:)` (the arrow's middle cell) and `pitchOnScreen`;
@@ -20,14 +20,17 @@ import PathCore
 //              keeps it pending (the retry shows it).
 // Tests and captures (`-pc.uitest` / `-pc.capture`) show no hint unless `-pc.tutorials force` (SPEC-architecture §9.1).
 // Log: `[PC][tutorial] show <id> …` with the offsets from K and from the first visible frame, `[PC][tutorial] dismiss <id> …`.
+// Template phase 2: genre-agnostic — the steps are the module's in generic form (`TutorialStep`: the hand points at a
+// `PuzzleTarget`, the board turns it into the fingertip, `PuzzleBoard.handPoint`); "a tap" is any output whose puzzle event
+// reports a resolved move; the input restriction is the board's `allowedTargets`.
 
 @MainActor final class TutorialDirector: GameDirector {
     unowned let game: GameController
     /// Where the steps come from (the bundle's Levels/tutorials.json through C1's LevelLibrary); tests inject theirs.
-    static var source: (GameController) -> [TutorialScript] = { $0.services.app?.library?.tutorials ?? [] }
+    static var source: (GameController) -> [TutorialStep] = { $0.services.puzzle.tutorials }
 
-    private var pending: [TutorialScript] = []
-    private(set) var active: TutorialScript?
+    private var pending: [TutorialStep] = []
+    private(set) var active: TutorialStep?
     private var activeStage: Int?
     private var tappedStages: Set<Int> = []
     private var gated = false
@@ -55,19 +58,17 @@ import PathCore
         }
     }
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
-            switch e {
-            case .timerArmed(let k, _):
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for o in outputs {
+            switch o {
+            case .meta(.timerArmed(let k, _)):
                 trigger(.stageReady, stage: k)
-            case .timerStarted(let k):
+            case .meta(.timerStarted(let k)):
                 trigger(.firstTap, stage: k)
-            case .exited(let plan):
-                tapped(plan.tapped)
-            case .bumped(let plan):
-                tapped(plan.arrow)
-            case .stageCleared, .won, .lost:
+            case .meta(.stageCleared(_)), .meta(.won(_)), .meta(.lost(_)):
                 clear(reason: "the stage ended")
+            case .puzzle(let p):
+                if let move = p.move { tapped(move.target) }             // an exit or a bump: an accepted move
             default:
                 break
             }
@@ -75,7 +76,7 @@ import PathCore
     }
 
     func teardown(_ game: GameController) {
-        if gated { game.board.allowedArrows = nil; gated = false }
+        if gated { game.board.allowedTargets = nil; gated = false }
         if active != nil { clear(reason: "the Play ended") }
     }
 
@@ -95,7 +96,7 @@ import PathCore
 
     /// `stageReady`: at the board's first visible frame + showAfter. From Loading that frame is the cross-fade's start
     /// (watched from `levelStarted`, when the Play is built under the opaque Loading screen).
-    private func schedule(_ script: TutorialScript, stage k: Int) {
+    private func schedule(_ script: TutorialStep, stage k: Int) {
         let showAfter = services.tuning.ui.file.double("tutorial.showAfter", 0.36)
         let clock = services.clock
         let k0 = game.cutAt
@@ -105,7 +106,7 @@ import PathCore
             return
         }
         // FTUE: close input for the few frames until the hint shows (nothing may beat it)
-        game.board.allowedArrows = []
+        game.board.allowedTargets = []
         gated = true
         Task { @MainActor [weak self, game] in
             var frames = 0
@@ -153,11 +154,11 @@ import PathCore
     private func ungate() {
         guard gated else { return }
         gated = false
-        if active?.dismiss != .targetTap { game.board.allowedArrows = nil }
+        if active?.dismiss != .targetTap { game.board.allowedTargets = nil }
     }
 
     /// `anchor` = (K, the board's first visible frame) in MotionClock game time, for the log.
-    private func show(_ script: TutorialScript, stage k: Int, anchor: (Double, Double)?) {
+    private func show(_ script: TutorialStep, stage k: Int, anchor: (Double, Double)?) {
         let clock = services.clock
         let now = clock.gameTime()
         let tip = fingertip(script)
@@ -170,10 +171,10 @@ import PathCore
         activeStage = k
         shownAt = now
         if script.holdTimer { game.session?.hold(.tutorial) }
-        if script.dismiss == .targetTap, let a = script.hand?.arrow {
-            game.board.allowedArrows = Set(script.allowedArrows ?? [a])
-        } else if let only = script.allowedArrows {
-            game.board.allowedArrows = Set(only)
+        if script.dismiss == .targetTap, let a = script.hand?.target {
+            game.board.allowedTargets = Set(script.allowedTargets ?? [a])
+        } else if let only = script.allowedTargets {
+            game.board.allowedTargets = Set(only)
         }
         var line = "show \(script.id.rawValue) L\(game.stages[k].level) stage \(k + 1)"
         if let (k0, first) = anchor {
@@ -185,32 +186,28 @@ import PathCore
         Log.mark("tutorial", line)
     }
 
-    /// The fingertip on screen: `hand.at` (lattice coordinates) relative to the arrow's middle cell, scaled by the pitch.
-    private func fingertip(_ script: TutorialScript) -> CGPoint? {
-        guard let hand = script.hand, let level = game.currentLevel,
-              let arrow = level.arrows.first(where: { $0.id == hand.arrow }),
-              let mid = game.board.screenPoint(of: hand.arrow) else { return nil }
-        guard let at = hand.at, at.count == 2, !arrow.cells.isEmpty else { return mid }
-        let c = arrow.cells[arrow.cells.count / 2]                          // the board's own anchor cell (screenPoint)
-        let p = game.board.pitchOnScreen
-        return CGPoint(x: mid.x + (CGFloat(at[0]) - CGFloat(c.c)) * p, y: mid.y + (CGFloat(at[1]) - CGFloat(c.r)) * p)
+    /// The fingertip on screen: the board converts the hand's target + offset (ArrowEscape: `hand.at` in lattice coordinates
+    /// relative to the arrow's middle cell, scaled by the pitch).
+    private func fingertip(_ script: TutorialStep) -> CGPoint? {
+        guard let hand = script.hand else { return nil }
+        return game.board.handPoint(for: hand.target, at: hand.at)
     }
 
     // MARK: dismiss
 
-    private func tapped(_ arrow: ArrowID) {
+    private func tapped(_ target: PuzzleTarget) {
         if let s = activeStage { tappedStages.insert(s) } else if let k = game.session?.stage { tappedStages.insert(k) }
         guard let script = active else { return }
-        if script.dismiss == .targetTap, let a = script.hand?.arrow, a != arrow { return }
+        if script.dismiss == .targetTap, let a = script.hand?.target, a != target { return }
         guard script.dismiss == .anyTap || script.dismiss == .targetTap else { return }
         let clock = services.clock
         game.hint.dismiss(clock: clock)
-        finish(script, how: String(format: "the first tap (a%d) %.3f s after the show", arrow.raw, clock.gameTime() - (shownAt ?? 0)))
+        finish(script, how: "the first tap (\(target)) " + String(format: "%.3f s after the show", clock.gameTime() - (shownAt ?? 0)))
     }
 
-    private func finish(_ script: TutorialScript, how: String) {
+    private func finish(_ script: TutorialStep, how: String) {
         if script.holdTimer { game.session?.release(.tutorial) }
-        if script.dismiss == .targetTap || script.allowedArrows != nil { game.board.allowedArrows = nil }
+        if script.dismiss == .targetTap || script.allowedTargets != nil { game.board.allowedTargets = nil }
         active = nil
         activeStage = nil
         services.store.mutateAndSave { $0.tutorialsDone.insert(script.id.rawValue) }
@@ -220,7 +217,7 @@ import PathCore
     private func clear(reason: String) {
         guard let script = active else { return }
         if script.holdTimer { game.session?.release(.tutorial) }
-        if script.dismiss == .targetTap || script.allowedArrows != nil { game.board.allowedArrows = nil }
+        if script.dismiss == .targetTap || script.allowedTargets != nil { game.board.allowedTargets = nil }
         game.hint.clear()
         active = nil
         activeStage = nil

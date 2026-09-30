@@ -19,7 +19,7 @@ import sys
 
 APP = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 os.chdir(APP)
-for p in ("tools", "art/ui/recipes", "art/ui/tools", "art/pipeline"):
+for p in ("tools", "tools/skin", "art/ui/recipes", "art/ui/tools", "art/pipeline"):
     sys.path.insert(0, os.path.join(APP, p))
 
 import numpy as np  # noqa: E402
@@ -34,7 +34,8 @@ os.makedirs(DST, exist_ok=True)
 
 
 def ui_tokens():
-    u = json.load(open(UI))
+    import skinlib                      # ui.json's colours are "@<ui id>" references into the skin (docs/SKIN.md)
+    u = skinlib.resolve_ui_json(json.load(open(UI)))
     return u["frames"]["loading"], u["text"]["loading"]["label"]
 
 

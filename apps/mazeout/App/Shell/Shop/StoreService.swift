@@ -10,9 +10,9 @@ import PathCore
 // RevenueCat runs in OBSERVER mode next to it (RevenueCatObserver): it never buys or finishes anything, it only records.
 //   .success(.verified)   → PurchasePipeline: grant once (Economy.applyPurchase keyed by the transaction id, saved at once)
 //                            → RevenueCat records the purchase (exactly once, a purchase made in the app) → finish → .granted
-//                            META: a GRANTED transaction (any path: a purchase, Transaction.updates, .unfinished) is reported
-//                            once to MetaAds (fb_mobile_purchase, the transaction's own price + currency); a replay grants
-//                            nothing and reports nothing
+//                            a GRANTED transaction (any path: a purchase, Transaction.updates, .unfinished) is reported
+//                            once to the optional `reporter` (a game's attribution SDK; none in the template), with the
+//                            transaction's own price + currency; a replay grants nothing and reports nothing
 //   .success(.unverified) → nothing granted or recorded, finished → .failed
 //   .userCancelled        → RETURNS .cancelled (StoreKit 2 does not throw on cancel)
 //   .pending              → .pending (the Shop toasts "Purchase pending"; the grant arrives later through Transaction.updates)
@@ -29,7 +29,7 @@ import PathCore
     var productID: String { get }
     var transactionID: String { get }
     var isVerified: Bool { get }
-    /// META: the price and currency StoreKit recorded (nil = unknown: nothing is reported to Meta).
+    /// The price and currency StoreKit recorded (nil = unknown: nothing is reported).
     var value: PurchaseValue? { get }
     func finish() async
 }
@@ -62,7 +62,7 @@ struct RecordablePurchase {
     /// disk; a replay (already granted), an unknown product or an unverified transaction reports nothing.
     @discardableResult
     static func complete(_ tx: some DeliveredTransaction, apply: (_ productID: String, _ transactionID: String) -> Grant?,
-                         persist: (@MainActor () async -> Void)? = nil,
+                         persist: (@MainActor () async -> Bool)? = nil,
                          record: RecordablePurchase? = nil, recorder: PurchaseRecording? = nil,
                          report: PurchaseReporting? = nil) async -> Grant? {
         guard tx.isVerified else {
@@ -71,14 +71,21 @@ struct RecordablePurchase {
             return nil
         }
         let g = apply(tx.productID, tx.transactionID)
-        if let persist { await persist() }
+        // `persist` says whether the grant reached the disk. If it did not (a write error, e.g. a full disk), the
+        // transaction is left UNFINISHED: StoreKit delivers it again at the next launch and this function grants it
+        // then (or finds it already granted, if a later save carried it). Finishing it now could lose paid coins.
+        let durable = await persist?() ?? true
         if let record, let recorder { await recorder.record(record) }
         if g != nil, let report {
             if let v = tx.value { report.purchaseCompleted(v) } else {
-                Log.error("shop", "StoreKit: \(tx.productID) tx \(tx.transactionID) has no StoreKit price: not reported to Meta")
+                Log.error("shop", "StoreKit: \(tx.productID) tx \(tx.transactionID) has no StoreKit price: not reported")
             }
         }
-        await tx.finish()
+        if durable {
+            await tx.finish()
+        } else {
+            Log.error("shop", "StoreKit: \(tx.productID) tx \(tx.transactionID): the save failed, left unfinished for redelivery")
+        }
         return g
     }
 }
@@ -95,8 +102,8 @@ struct StoreKitDelivery: DeliveredTransaction {
     var productID: String { transaction.productID }
     var transactionID: String { String(transaction.id) }
     var isVerified: Bool { if case .verified = result { return true } else { return false } }
-    /// META: StoreKit's recorded price (`Transaction.price`), currency (`Transaction.currency`, ISO 4217) and environment
-    /// (`Transaction.environment`, RFIX 2026-09-29: MetaAds reports only `.production` money as revenue).
+    /// StoreKit's recorded price (`Transaction.price`), currency (`Transaction.currency`, ISO 4217) and environment
+    /// (`Transaction.environment`: a reporter should count only `.production` money as revenue).
     var value: PurchaseValue? {
         let t = transaction
         guard let price = t.price, let currency = t.currency?.identifier else { return nil }
@@ -151,9 +158,9 @@ enum StorePlan: String, Equatable {
     let catalogue: ShopCatalog
     private let apply: @MainActor (_ productID: String, _ transactionID: String) -> Grant?
     private let recorder: PurchaseRecording?
-    /// META: where a granted purchase is reported (MetaAds; nil = not reported).
+    /// Where a granted purchase is reported (a game's attribution adapter, Support/Attribution.swift; nil = not reported).
     private let reporter: PurchaseReporting?
-    private let persist: (@MainActor () async -> Void)?
+    private let persist: (@MainActor () async -> Bool)?
     private(set) var products: [StoreProductInfo] = []
     private var storeProducts: [String: Product] = [:]
     private var updates: Task<Void, Never>?
@@ -171,7 +178,7 @@ enum StorePlan: String, Equatable {
     /// `persist`: waits until the grant's save is on disk (the app: PlayerStore.flushed); nil in the StoreKit tests.
     init(catalogue: ShopCatalog, isTestStore: Bool = false, recorder: PurchaseRecording? = nil,
          reporter: PurchaseReporting? = nil,
-         persist: (@MainActor () async -> Void)? = nil,
+         persist: (@MainActor () async -> Bool)? = nil,
          apply: @escaping @MainActor (_ productID: String, _ transactionID: String) -> Grant?) {
         self.catalogue = catalogue
         self.isTestStore = isTestStore
@@ -239,12 +246,14 @@ enum StorePlan: String, Equatable {
                     await PurchasePipeline.complete(delivery, apply: apply)     // finishes it, grants nothing
                     return .failed("unverified")
                 }
-                await PurchasePipeline.complete(delivery, apply: apply, persist: persist,
+                let grant = await PurchasePipeline.complete(delivery, apply: apply, persist: persist,
                                                 record: RecordablePurchase(productID: productID, transactionID: delivery.transactionID,
                                                                            result: result),
                                                 recorder: recorder, report: reporter)
                 onChange?()
-                return .granted
+                // nil: nothing was granted by THIS delivery (an unknown product, or a transaction already granted), so
+                // the shop must not show claim screens for it.
+                return grant != nil ? .granted : .failed("not granted")
             case .userCancelled:
                 Log.mark("shop", "StoreKit: \(productID) cancelled")
                 return .cancelled
@@ -299,7 +308,7 @@ enum StorePlan: String, Equatable {
         #endif
         args = ctx.args
         let recorder: PurchaseRecording? = plan == .fake ? nil : RevenueCatObserver.shared
-        let reporter: PurchaseReporting? = plan == .fake ? nil : MetaAds.shared     // META: live only in a real Release run
+        let reporter: PurchaseReporting? = nil     // no attribution SDK in the template (docs/recipes/ad-attribution.md)
         makeKit = { testStore in
             StoreService(catalogue: rules.shop, isTestStore: testStore, recorder: recorder, reporter: reporter,
                          persist: { await store.flushed() }) { pid, tid in

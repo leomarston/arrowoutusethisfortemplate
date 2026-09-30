@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// B1 EVENTS-P — events.md §8.4 A5 (the hooks under the rotation) and the event notifications' planner (§6.4; A11's
 /// "outside 10-21 local" mutation target): a Join outside a live week → `.notLive(next:)`; a Sky Jump run crossing the roll

@@ -43,12 +43,13 @@ extension BoardEngine {
             container.layoutIfNeeded()
             attached = true
         }
-        guard container.window != nil, let level = LabBoards.level("warmfx", bundle: bundle) else {
+        guard container.window != nil else {
             Log.mark("warmup", String(format: "board %.3f s (no window: sprites + glyphs only)",
                                       ProcessInfo.processInfo.systemUptime - t0))
             warmedUp = true
             return
         }
+        let level = WarmBoards.effectsBoard()           // crafted in code (Board/WarmBoard.swift; BoardLab's `warmfx`)
         let savedDelegate = delegate
         let savedInput = inputEnabled
         let savedAllowed = allowedArrows

@@ -1,5 +1,6 @@
 import XCTest
-@testable import PathCore     // the published xoshiro vector needs the raw-state init (internal)
+@testable import GameCore     // the published xoshiro vector needs the raw-state init (internal)
+@testable import ArrowEscape
 
 /// C1 (SPEC-architecture §4.13, D12): PathRandom equals the independent references — tools/rng_ref.py (MF's, read-only)
 /// and Tests/tools/c1_rng_ref_extra.py (levelSeed, below) — pinned here AND checked live against the scripts' output.

@@ -127,7 +127,7 @@ private struct TutorialFrame: View {
     let m: ShellMetrics
 
     var body: some View {
-        let style = t.text("tutorial.caption", .s2(40, 0, [0x072527])).sized(40 * m.s)
+        let style = t.text("tutorial.caption", .s2(40, 0, [Skin.popupsTutorialLayerTutorialCaption0])).sized(40 * m.s)
         let p = t.textPoint("tutorial.caption", baseline: 303.0, centreX: 196.5)
         let at = m.point(CGPoint(x: p.x, y: p.baseline), .top)
         let captionScale = out.map { max(0, 1 - Easing.inQuad($0 / max(0.01, motion.captionOut))) } ?? motion.captionScale(u)

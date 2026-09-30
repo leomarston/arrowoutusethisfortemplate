@@ -59,7 +59,7 @@ struct BootPlaceholderView: View {
             Color.white.ignoresSafeArea()
             VStack(spacing: 16) {
                 Text(verbatim: Brand.name)
-                    .font(.custom("PCDisplay-Black", fixedSize: 44))
+                    .font(.custom(GameText.blackPostScript, fixedSize: 44))
                     .foregroundStyle(Color(.sRGB, red: 0x43 / 255.0, green: 0xAA / 255.0, blue: 0x99 / 255.0))
                     .accessibilityIdentifier("boot.brand")
                 #if DEBUG
@@ -67,8 +67,8 @@ struct BootPlaceholderView: View {
                     row("screen", screen.logName)
                     row("fonts", AppModel.fontNames.map { "\($0) \(app.fonts[$0] == true ? "ok" : "MISSING")" }
                         .joined(separator: "\n"))
-                    Text(verbatim: "PCDisplay-BlackItalic sample")
-                        .font(.custom("PCDisplay-BlackItalic", fixedSize: 18))
+                    Text(verbatim: GameText.italicPostScript + " sample")
+                        .font(.custom(GameText.italicPostScript, fixedSize: 18))
                     row("tuning", app.tuning.loadedFiles.joined(separator: ", "))
                     row("bundle", AppModel.bundleSummary(app.bundle).map { "\($0.0) \($0.1)" }.joined(separator: " · "))
                     row("player", "level \(app.store.state.level) · coins \(app.store.state.coins) · lives \(app.store.state.lives.count)")
@@ -106,7 +106,7 @@ struct LoadingPlaceholderView: View {
             TimelineView(.periodic(from: .now, by: 0.4)) { ctx in
                 let n = Int(ctx.date.timeIntervalSinceReferenceDate / 0.4) % 3 + 1
                 Text(verbatim: "Loading" + String(repeating: ".", count: n))
-                    .font(.custom("PCDisplay-Black", fixedSize: 26.8))
+                    .font(.custom(GameText.blackPostScript, fixedSize: 26.8))
                     .foregroundStyle(Color(.sRGB, red: 0xCC / 255.0, green: 0xCC / 255.0, blue: 0xCC / 255.0))
                     .frame(width: 160, alignment: .leading)
             }

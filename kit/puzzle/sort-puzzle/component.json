@@ -1,0 +1,22 @@
+{
+ "id": "sort-puzzle",
+ "title": "SortPuzzle puzzle (rules)",
+ "category": "puzzle",
+ "summary": "The second module (colour sorting): level model, seeded generator, solver, session, module. GameCore only.",
+ "description": "Packages/PathCore/Sources/SortPuzzle, pinned to the Python reference (tools/sortpuzzle/ref.py goldens).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/Packages/PathCore/Sources/SortPuzzle/*.swift",
+  "apps/mazeout/App/Resources/Tuning/sort.json",
+  "apps/mazeout/tools/sortpuzzle/*.py"
+ ],
+ "tests": [
+  "apps/mazeout/Packages/PathCore/Tests/SortPuzzleTests/*.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "launchArgs": [
+  "python3 apps/mazeout/tools/sortpuzzle/ref.py --check"
+ ]
+}

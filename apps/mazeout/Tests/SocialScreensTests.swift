@@ -98,7 +98,7 @@ import PathCore
         XCTAssertEqual(rows.filter(\.isMe).count, 1)
         // levels are non-increasing down the list
         for (a, b) in zip(rows, rows.dropFirst()) where a.rank + 1 == b.rank { XCTAssertGreaterThanOrEqual(a.value, b.value) }
-        XCTAssertEqual(rows.first?.badge, .rankBadgeGold)
+        XCTAssertEqual(rows.first?.badge, .rank1Badge)
         XCTAssertEqual(rows.dropFirst(3).first?.badge, nil)
     }
 
@@ -237,9 +237,9 @@ import PathCore
         for l in SocRowLook.allCases { XCTAssertNotNil(SocArt.rowFace(l, size: CGSize(width: 378, height: 64.4), scale: 3)) }
         // A4 ART-INTEG (R8 EVENT-ART, owner items 14 + 15): the same 18 rasters under their D1 ids (podium, Hot Streak header,
         // Rocket Rally backdrop + rockets, Cloud Hop backdrop / pad / island, Treasure Climb header) — each must still ship
-        for a in [UIArt.rankBadgeGold, .rankBadgeSilver, .rankBadgeBronze, .coinBowl, .scoreChip, .cupPodium, .streakHeader,
-                  .rallyBackdrop, .rallyRocketMine, .rallyRocketOther, .rankWings1, .hopBackdrop, .hopPad, .hopIsland,
-                  .treasureHeader, .infoPathIcon, .pointerArrowDown, .pointerArrowYellow] {
+        for a in [UIArt.rank1Badge, .rank2Badge, .rank3Badge, .rewardCoinBowl, .socialScoreChip, .leaderboardPodium, .eventStreakRaceHeader,
+                  .eventRocketRaceBackdrop, .eventRocketRaceRacerMine, .eventRocketRaceRacerOther, .rank1Wings, .eventSkyJumpBackdrop, .eventSkyJumpPad, .eventSkyJumpPlatform,
+                  .eventClawChallengeHeader, .iconInfo, .iconPointerDown, .iconPointer] {
             XCTAssertNotNil(ArtStore.image(a), "\(a.rawValue) ships")
         }
     }

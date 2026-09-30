@@ -35,8 +35,8 @@ struct StreakChipRow: View {
         let cx = t.list("streakRace.chipCentres", Self.centres.map(Double.init)).map { CGFloat($0) }
         let xs = cx.map { ($0 - 8) * k }
         let litX = interpolate(xs, lit)
-        let plain = t.text("streakRace.chips.plain", .s2(27.2, -1.7, [0x5A2801])).sized(27.2 * k)
-        let lightStyle = t.text("streakRace.chips.lit", .s2(30.8, -2.9, [0xFFFAEF], outline: 0x703400, 1.7, drop: 1.6)).sized(30.8 * k)
+        let plain = t.text("streakRace.chips.plain", .s2(27.2, -1.7, [Skin.popupsStreakBannerStreakRaceChipsPlain0])).sized(27.2 * k)
+        let lightStyle = t.text("streakRace.chips.lit", .s2(30.8, -2.9, [Skin.popupsStreakBannerStreakRaceChipsLit0], outline: Skin.popupsStreakBannerStreakRaceChipsLitOutline, 1.7, drop: 1.6)).sized(30.8 * k)
         let litIndex = Int(lit.rounded())
         let base = frame.height * 41.3 / 64.4
         ZStack(alignment: .topLeading) {
@@ -44,7 +44,7 @@ struct StreakChipRow: View {
                 .frame(width: frame.width, height: frame.height)
             ForEach(1..<xs.count, id: \.self) { i in
                 if abs(lit - Double(i)) > 0.6 && abs(lit - Double(i - 1)) > 0.6 {
-                    t.color("streakRace.divider", 0xCEA981).frame(width: 1.2, height: frame.height - 12)
+                    t.color("streakRace.divider", Skin.popupsStreakBannerStreakRaceDivider).frame(width: 1.2, height: frame.height - 12)
                         .position(x: (xs[i - 1] + xs[i]) / 2, y: frame.height / 2)
                 }
             }
@@ -87,32 +87,32 @@ private struct StripTrack: View {
             let r = min(geo.size.height * 0.26, 16.5)
             if onCream {
                 ZStack {
-                    RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("continueStreak.trackRim", 0xC2905D))
+                    RoundedRectangle(cornerRadius: r, style: .continuous).fill(t.color("continueStreak.trackRim", Skin.popupsStreakBannerContinueStreakTrackRim))
                     RoundedRectangle(cornerRadius: r - 1, style: .continuous)
-                        .fill(LinearGradient(colors: [Color(hex: 0xC59D73), Color(hex: 0xDBBA94)], startPoint: .top, endPoint: .bottom))
+                        .fill(LinearGradient(colors: [Color(hex: Skin.popupsStreakBannerStripTrackColors0), Color(hex: Skin.popupsStreakBannerStripTrackColors1)], startPoint: .top, endPoint: .bottom))
                         .padding(1.4)
                     RoundedRectangle(cornerRadius: r - 3, style: .continuous)
-                        .fill(LinearGradient(stops: [.init(color: t.color("streakRace.track", 0xF4E9D5), location: 0),
-                                                     .init(color: t.color("streakRace.track", 0xF4E9D5), location: 0.86),
-                                                     .init(color: Color(hex: 0xE2CAAC), location: 1)], startPoint: .top, endPoint: .bottom))
+                        .fill(LinearGradient(stops: [.init(color: t.color("streakRace.track", Skin.popupsStreakBannerStreakRaceTrack), location: 0),
+                                                     .init(color: t.color("streakRace.track", Skin.popupsStreakBannerStreakRaceTrack), location: 0.86),
+                                                     .init(color: Color(hex: Skin.popupsStreakBannerStripTrackStops2), location: 1)], startPoint: .top, endPoint: .bottom))
                         .padding(EdgeInsets(top: 3.2, leading: 3, bottom: 4.2, trailing: 3))
                 }
             } else {
                 let rr = r - 2
                 ZStack {
-                    RoundedRectangle(cornerRadius: rr, style: .continuous).fill(t.color("streakRace.trackLine", 0x00A294))
+                    RoundedRectangle(cornerRadius: rr, style: .continuous).fill(t.color("streakRace.trackLine", Skin.popupsStreakBannerStreakRaceTrackLine))
                     RoundedRectangle(cornerRadius: rr - 0.7, style: .continuous)
-                        .fill(LinearGradient(colors: t.colors("streakRace.trackRim", [0x006762, 0x004D50, 0x00464E, 0x00615C]),
+                        .fill(LinearGradient(colors: t.colors("streakRace.trackRim", [Skin.popupsStreakBannerStreakRaceTrackRim0, Skin.popupsStreakBannerStreakRaceTrackRim1, Skin.popupsStreakBannerStreakRaceTrackRim2, Skin.popupsStreakBannerStreakRaceTrackRim3]),
                                              startPoint: .top, endPoint: .bottom))
                         .padding(0.7)
                     RoundedRectangle(cornerRadius: rr - 4.5, style: .continuous)
-                        .fill(LinearGradient(stops: t.stops("streakRace.trackBevel", [(0, 0xCEA274), (0.5, 0xD7B288), (0.84, 0xE3C9A9),
-                                                                                         (0.93, 0xC19262), (1, 0x945C50)]),
+                        .fill(LinearGradient(stops: t.stops("streakRace.trackBevel", [(0, Skin.popupsStreakBannerStreakRaceTrackBevel0), (0.5, Skin.popupsStreakBannerStreakRaceTrackBevel1), (0.84, Skin.popupsStreakBannerStreakRaceTrackBevel2),
+                                                                                         (0.93, Skin.popupsStreakBannerStreakRaceTrackBevel3), (1, Skin.popupsStreakBannerStreakRaceTrackBevel4)]),
                                              startPoint: .top, endPoint: .bottom))
                         .padding(EdgeInsets(top: 5.0, leading: 4.9, bottom: 3.7, trailing: 4.3))
-                    RoundedRectangle(cornerRadius: rr - 7, style: .continuous).fill(t.color("streakRace.track", 0xF4E9D5))
+                    RoundedRectangle(cornerRadius: rr - 7, style: .continuous).fill(t.color("streakRace.track", Skin.popupsStreakBannerStreakRaceTrack))
                         .overlay(RoundedRectangle(cornerRadius: rr - 7, style: .continuous)
-                            .strokeBorder(Color(hex: 0xFAF4EB).opacity(0.85), lineWidth: 0.9))
+                            .strokeBorder(Color(hex: Skin.popupsStreakBannerStripTrackStrokeBorder).opacity(0.85), lineWidth: 0.9))
                         .padding(EdgeInsets(top: 6.3, leading: 7.6, bottom: 8.7, trailing: 7.7))
                 }
                 .padding(EdgeInsets(top: 1.7, leading: 0.4, bottom: 3.0, trailing: -3.4))
@@ -132,11 +132,11 @@ private struct LitChip: View {
                     // VERIFIED 014 at x 24: the orange outline, a gold ring 6 pt at the top, an orange 3D base 4 pt at the bottom
                     Rasterized("litRing2") { _ in
                         ZStack {
-                            RoundedRectangle(cornerRadius: h * 0.26, style: .continuous).fill(t.color("streakRace.ringLine", 0xD55A06))
+                            RoundedRectangle(cornerRadius: h * 0.26, style: .continuous).fill(t.color("streakRace.ringLine", Skin.popupsStreakBannerStreakRaceRingLine))
                             RoundedRectangle(cornerRadius: h * 0.24, style: .continuous)
-                                .fill(LinearGradient(stops: t.stops("streakRace.ringFill", [(0, 0xF8D865), (0.05, 0xFFDC25), (0.1, 0xFFD600),
-                                                                                             (0.5, 0xFFC500), (0.86, 0xFFB400), (0.9, 0xEE7D02),
-                                                                                             (1, 0xCF5504)]),
+                                .fill(LinearGradient(stops: t.stops("streakRace.ringFill", [(0, Skin.popupsStreakBannerStreakRaceRingFill0), (0.05, Skin.popupsStreakBannerStreakRaceRingFill1), (0.1, Skin.popupsStreakBannerStreakRaceRingFill2),
+                                                                                             (0.5, Skin.popupsStreakBannerStreakRaceRingFill3), (0.86, Skin.popupsStreakBannerStreakRaceRingFill4), (0.9, Skin.popupsStreakBannerStreakRaceRingFill5),
+                                                                                             (1, Skin.popupsStreakBannerStreakRaceRingFill6)]),
                                                      startPoint: .top, endPoint: .bottom))
                                 .padding(1.2)
                         }
@@ -148,15 +148,15 @@ private struct LitChip: View {
                 Rasterized("litChip2") { size in
                     let r = size.height * 0.2
                     ZStack {
-                        RoundedRectangle(cornerRadius: r + 1, style: .continuous).fill(t.color("streakRace.litLine", 0xC75D00))
+                        RoundedRectangle(cornerRadius: r + 1, style: .continuous).fill(t.color("streakRace.litLine", Skin.popupsStreakBannerStreakRaceLitLine))
                         ZStack {
                             RoundedRectangle(cornerRadius: r, style: .continuous)
-                                .fill(LinearGradient(stops: t.stops("streakRace.litFace", [(0, 0xFFBA30), (0.12, 0xFFDA82), (0.16, 0xFFE09D),
-                                                                                            (0.3, 0xFCD563), (0.5, 0xFFB42E), (0.6, 0xF89409),
-                                                                                            (0.85, 0xE18009), (1, 0xCF7109)]),
+                                .fill(LinearGradient(stops: t.stops("streakRace.litFace", [(0, Skin.popupsStreakBannerStreakRaceLitFace0), (0.12, Skin.popupsStreakBannerStreakRaceLitFace1), (0.16, Skin.popupsStreakBannerStreakRaceLitFace2),
+                                                                                            (0.3, Skin.popupsStreakBannerStreakRaceLitFace3), (0.5, Skin.popupsStreakBannerStreakRaceLitFace4), (0.6, Skin.popupsStreakBannerStreakRaceLitFace5),
+                                                                                            (0.85, Skin.popupsStreakBannerStreakRaceLitFace6), (1, Skin.popupsStreakBannerStreakRaceLitFace7)]),
                                                      startPoint: .top, endPoint: .bottom))
                             RoundedRectangle(cornerRadius: r, style: .continuous)
-                                .stroke(t.color("streakRace.litShade", 0x884200), lineWidth: 3.2).blur(radius: 1.1)
+                                .stroke(t.color("streakRace.litShade", Skin.popupsStreakBannerStreakRaceLitShade), lineWidth: 3.2).blur(radius: 1.1)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: r, style: .continuous))
                         .padding(1)
@@ -177,9 +177,9 @@ struct StreakRaceLettering: View {
 
     var body: some View {
         let k = frame.width / 233.5
-        let streak = t.text("streakRace.logoStreak", .s2(41, -2.6, [0xFFF46A, 0xFFD21A, 0xF6A800], outline: 0x00434A, 3.0, drop: 2.8,
+        let streak = t.text("streakRace.logoStreak", .s2(41, -2.6, [Skin.popupsStreakBannerStreakRaceLogoStreak0, Skin.popupsStreakBannerStreakRaceLogoStreak1, Skin.popupsStreakBannerStreakRaceLogoStreak2], outline: Skin.popupsStreakBannerStreakRaceLogoStreakOutline, 3.0, drop: 2.8,
                                                          face: .blackItalic)).sized(41 * k)
-        let race = t.text("streakRace.logoRace", .s2(41, -2.6, [0xFFFFFF, 0xF0F8F6, 0xD2E9E4], outline: 0x00434A, 3.0, drop: 2.8,
+        let race = t.text("streakRace.logoRace", .s2(41, -2.6, [Skin.popupsStreakBannerStreakRaceLogoRace0, Skin.popupsStreakBannerStreakRaceLogoRace1, Skin.popupsStreakBannerStreakRaceLogoRace2], outline: Skin.popupsStreakBannerStreakRaceLogoRaceOutline, 3.0, drop: 2.8,
                                                      face: .blackItalic)).sized(41 * k)
         // our lettering of the event name (strings "Streak Race" / "Seri Yarışı"): the first word yellow, the rest white
         // B3: first word = LineUnits' first unit (a CJK name has no space: its first dictionary word, "連勝" + "フィーバー")
@@ -202,9 +202,9 @@ struct StreakRaceLettering: View {
         let x0 = frame.width / 2 - total / 2
         let base = frame.height * 38 / 53.4
         ZStack(alignment: .topLeading) {
-            InkImage(art: .iconCheckeredFlag, ink: CGRect(0, 4 * k, 28 * k, 32 * k))
-            ArtImage(art: .iconCheckeredFlag).scaleEffect(x: -1, y: 1)
-                .placed(ArtInk.canvas(.iconCheckeredFlag, ink: CGRect(frame.width - 28 * k, 4 * k, 28 * k, 32 * k)))
+            InkImage(art: .iconFinishFlag, ink: CGRect(0, 4 * k, 28 * k, 32 * k))
+            ArtImage(art: .iconFinishFlag).scaleEffect(x: -1, y: 1)
+                .placed(ArtInk.canvas(.iconFinishFlag, ink: CGRect(frame.width - 28 * k, 4 * k, 28 * k, 32 * k)))
             GameText(verbatim: w1, style: st1, maxWidth: box1).at(x0 + a.advance / 2, st1.capCentre(baseline: base))
             GameText(verbatim: w2, style: st2, maxWidth: box2)
                 .at(x0 + a.advance + gap + b.advance / 2, st2.capCentre(baseline: base))
@@ -304,23 +304,23 @@ private struct StripBand: View {
             ZStack(alignment: .topLeading) {
                 LinearGradient(colors: [.black.opacity(0), .black.opacity(0.35)], startPoint: .top, endPoint: .bottom)
                     .frame(width: w, height: 1.6).offset(y: top - 1.6)
-                LinearGradient(stops: t.stops("streakRace.rail", [(0, 0x00484E), (0.12, 0x00827C), (0.6, 0x00746F), (1, 0x02665F)]),
+                LinearGradient(stops: t.stops("streakRace.rail", [(0, Skin.popupsStreakBannerStreakRaceRail0), (0.12, Skin.popupsStreakBannerStreakRaceRail1), (0.6, Skin.popupsStreakBannerStreakRaceRail2), (1, Skin.popupsStreakBannerStreakRaceRail3)]),
                                startPoint: .top, endPoint: .bottom)
                     .frame(width: w, height: rail).offset(y: top)
-                LinearGradient(stops: t.stops("band.bumperV", [(0, 0x008882), (0.1, 0x95D7C5), (0.22, 0x40BCAC), (0.88, 0x40BCAC),
-                                                                (1, 0x53A493)]),
+                LinearGradient(stops: t.stops("band.bumperV", [(0, Skin.popupsStreakBannerBandBumperV0), (0.1, Skin.popupsStreakBannerBandBumperV1), (0.22, Skin.popupsStreakBannerBandBumperV2), (0.88, Skin.popupsStreakBannerBandBumperV3),
+                                                                (1, Skin.popupsStreakBannerBandBumperV4)]),
                                startPoint: .top, endPoint: .bottom)
                     .frame(width: side + 51.4, height: rail).offset(y: top)
-                Color(hex: 0x56C5B9).frame(width: 1.2, height: rail).offset(x: side + 50.2, y: top)
-                Circle().fill(RadialGradient(colors: [Color(hex: 0xB7DAD2), Color(hex: 0x39A496)], center: UnitPoint(x: 0.42, y: 0.38),
+                Color(hex: Skin.popupsStreakBannerStripBand).frame(width: 1.2, height: rail).offset(x: side + 50.2, y: top)
+                Circle().fill(RadialGradient(colors: [Color(hex: Skin.popupsStreakBannerStripBandColors0), Color(hex: Skin.popupsStreakBannerStripBandColors1)], center: UnitPoint(x: 0.42, y: 0.38),
                                              startRadius: 0, endRadius: 4.6))
-                    .overlay(Circle().stroke(Color(hex: 0x00706B), lineWidth: 1.0))
+                    .overlay(Circle().stroke(Color(hex: Skin.popupsStreakBannerStripBandStroke), lineWidth: 1.0))
                     .frame(width: 8.6, height: 8.6).position(x: side + 45.7, y: top + rail / 2)
-                LinearGradient(colors: t.colors("streakRace.groove", [0x002F33, 0x003C41, 0x004C50, 0x00615C]), startPoint: .top,
+                LinearGradient(colors: t.colors("streakRace.groove", [Skin.popupsStreakBannerStreakRaceGroove0, Skin.popupsStreakBannerStreakRaceGroove1, Skin.popupsStreakBannerStreakRaceGroove2, Skin.popupsStreakBannerStreakRaceGroove3]), startPoint: .top,
                                endPoint: .bottom)
                     .frame(width: w, height: groove).offset(y: top + rail)
-                LinearGradient(stops: t.stops("streakRace.field", [(0, 0x00A394), (0.2, 0x009087), (0.51, 0x008680), (0.83, 0x007E79),
-                                                                    (1, 0x007976)]),
+                LinearGradient(stops: t.stops("streakRace.field", [(0, Skin.popupsStreakBannerStreakRaceField0), (0.2, Skin.popupsStreakBannerStreakRaceField1), (0.51, Skin.popupsStreakBannerStreakRaceField2), (0.83, Skin.popupsStreakBannerStreakRaceField3),
+                                                                    (1, Skin.popupsStreakBannerStreakRaceField4)]),
                                startPoint: .top, endPoint: .bottom)
                     .frame(width: w, height: h - top - rail - groove).offset(y: top + rail + groove)
             }
@@ -329,60 +329,11 @@ private struct StripBand: View {
     }
 }
 
-/// A cream event countdown chip with the small stopwatch overlapping its left end (SPEC-ui §1.6.15).
-/// FIX-2 lane B (review of L28): given the countdown's end (`live`), the chip ticks on its own — `LiveCountdown`'s page clock,
-/// on every second, with the text drawn from cached per-glyph rasters (`GlyphRunText`: "09:34" composes, anything else is a
-/// GameText); without it the chip draws `text` as given ("Finished", a lab). Before, every page drew the time of its last
-/// render: "09:32" stood still on the pages (build/p/FIX2/review-B/ticks).
-struct EventTimerChip: View {
-    let text: String
-    let frame: CGRect
-    let textID: String
-    let t: Tokens
-    /// The countdown's end and the caller's clock reading; nil = the static `text`.
-    var live: (ends: SocialTime, now: SocialTime)? = nil
-
-    var body: some View {
-        Group {
-            if let live {
-                LiveCountdown(ends: live.ends, now: live.now, clock: .page) { s in chip(Countdown.text(s)) }
-            } else {
-                chip(text)
-            }
-        }
-        .placed(frame)
-    }
-
-    private func chip(_ text: String) -> some View {
-        let style = t.text(textID, .s2(15.0, -0.6, [0x5A2801]))
-        let k = frame.height / 28
-        return ZStack(alignment: .topLeading) {
-            Rasterized("timerChip", overflow: 2) { _ in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 11.8, style: .continuous).fill(Color(hex: 0xB07C3C))
-                    RoundedRectangle(cornerRadius: 10.8, style: .continuous).fill(t.color("event.timerChip", 0xF5E8D4)).padding(1.2)
-                }
-            }
-            .frame(width: frame.width - 10 * k, height: frame.height).offset(x: 10 * k)
-            GlyphRunText(text: text, style: style.sized(style.size * k), maxWidth: frame.width - 26 * k)
-                .at(frame.width / 2 + 9 * k, style.sized(style.size * k).capCentre(baseline: frame.height * 19.5 / 28))
-            InkImage(art: .iconStopwatchSmall, ink: CGRect(-3 * k, -0.5 * k, 26 * k, 28 * k))
-        }
-        .frame(width: frame.width, height: frame.height, alignment: .topLeading)
-        .accessibilityElement(children: .ignore)
-        .accessibilityIdentifier("event.timer")
-        .accessibilityValue(Text(verbatim: text))
-    }
-}
-
 // MARK: - data from the player's state
 
 @MainActor enum StreakStripSource {
-    /// The multiplier steps (`rules.json streak.steps`).
-    static func steps(_ app: AppModel) -> [Int] {
-        let v = app.tuning.rules.doubles("streak.steps", [1, 5, 10, 25, 100]).map { Int($0) }
-        return v.isEmpty ? [1, 5, 10, 25, 100] : v
-    }
+    /// The multiplier steps (`rules.json streak.steps`; ShellEconomy's reader, shared with the fail flow's Continue?).
+    static func steps(_ app: AppModel) -> [Int] { ShellEconomy.streakSteps(app) }
 
     /// The strip for a panel: shown only from the Streak Race unlock (social.json `unlocks.streakRace`, L30).
     static func data(_ app: AppModel, level: Int, outcomes: [EventOutcome], lost: Bool) -> StreakStripData? {

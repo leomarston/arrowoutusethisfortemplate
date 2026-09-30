@@ -5,16 +5,18 @@
 #
 # Only these two UDIDs are ours. Never boot, shut down or erase any other simulator (GAMEPROMPT §3.3: a
 # `simctl shutdown all` once killed another session's simulator).
-case "$1" in
-  A) UDID=177520B6-4889-46C2-BDD9-155813D2B175; SIM_NAME="Maze A" ;;
-  B) UDID=B80EDB24-6280-4C52-A63F-E8AADD245017; SIM_NAME="Maze B" ;;
-  *) echo "usage: $(basename "$0") <A|B> ..." >&2; exit 64 ;;
-esac
-SLOT="$1"
-# ROOT = apps/mazeout. A caller in a subfolder of tools/ sets ROOT itself before sourcing this file.
+# The two simulators are this Mac's, from <repo>/machine.env (SIM_A_UDID / SIM_B_UDID; see machine.env.example).
+# ROOT = the app folder. A caller in a subfolder of tools/ sets ROOT itself before sourcing this file.
 if [ -z "$ROOT" ] || [ ! -f "$ROOT/tools/slot.sh" ]; then
   ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fi
+MACHINE_FROM="$ROOT" . "$ROOT/../../tools/machine.sh"
+case "$1" in
+  A) machine_require SIM_A_UDID; UDID="$SIM_A_UDID"; SIM_NAME="${SIM_A_NAME:-Game A}" ;;
+  B) machine_require SIM_B_UDID; UDID="$SIM_B_UDID"; SIM_NAME="${SIM_B_NAME:-Game B}" ;;
+  *) echo "usage: $(basename "$0") <A|B> ..." >&2; exit 64 ;;
+esac
+SLOT="$1"
 DD="$ROOT/build/dd-$SLOT"
 BUNDLE_ID=com.manycode.arrowout
 SCHEME=ArrowOut

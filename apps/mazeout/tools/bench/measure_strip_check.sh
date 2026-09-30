@@ -1,8 +1,9 @@
 #!/bin/sh
 # tools/bench/measure_strip_check.sh <Release .app> <Measure .app> [<Debug .app>] [--json OUT]
 # F3-A (SPEC.md ruling 52(a), 2026-09-29; triage A3-r2 + N-02). Proves on the BUILT binaries that:
-#  H. the measurement harness (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop) is in the
-#     Measure build (Release's settings + PC_MEASURE, project.yml) and NOT in the Release (store) build;
+#  H. the measurement harness (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop) and the debug
+#     harness (BoardLab, ShellLab, SoundBoard, SocialLab, AutoPlayer; docs/ROADMAP.md phase 0) are in the Measure build
+#     (Release's settings + PC_MEASURE, project.yml) and NOT in the Release (store) build;
 #  P. the WP0 placeholders (PlaceholderBoard / PlaceholderLevel / BootPlaceholderView / LoadingPlaceholderView and their
 #     boot-log / label / accessibility strings) are in neither Release nor Measure (Debug only).
 # Each marker is a type name (Swift metadata + the symbol table: `strings` sees it) or a literal > 15 UTF-8 bytes (shorter
@@ -26,7 +27,10 @@ import json, os, re, sys, time
 rel, mea, dbg, out = sys.argv[1], sys.argv[2], sys.argv[3] or None, sys.argv[4] or None
 HARNESS = ["GlitchRun", "FrameWatch", "DebugTabLoop",
            "watch on (every presented frame > 20 ms is logged)",        # FrameWatch.start's log line
-           "tabLoop: home is not up"]                                   # DebugTabLoop's error line
+           "tabLoop: home is not up",                                   # DebugTabLoop's error line
+           # the debug harness (labs + autoplayer, `#if DEBUG || PC_MEASURE`; tools/harness_gate.py checks the sources):
+           # classes, whose type descriptors carry their names
+           "BoardLabController", "SoundBoardModel", "SocScrollDriver", "HUDWriteMeter", "AutoPlayer"]
 PLACEHOLDER = ["PlaceholderBoard", "PlaceholderLevel", "BootPlaceholderView", "LoadingPlaceholderView",
                "BoardEntry.makeBoard: default (placeholder board)", "GameEntry.makeLevel: default (placeholder level)",
                "ShellEntry.makeRoot: default (WP0 boot placeholder)", ": GAME not installed", "loading.placeholder",

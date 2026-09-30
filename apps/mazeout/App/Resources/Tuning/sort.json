@@ -1,0 +1,140 @@
+{
+  "levels": {
+    "salt": 20260930,
+    "maxAttempts": 48,
+    "solverBudget": 20000,
+    "hardEvery": 10,
+    "superHardEvery": 25,
+    "curve": [
+      {
+        "from": 1,
+        "colors": 3,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 4,
+        "colors": 4,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 9,
+        "colors": 5,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 16,
+        "colors": 6,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 26,
+        "colors": 7,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 40,
+        "colors": 8,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 60,
+        "colors": 9,
+        "capacity": 4,
+        "empty": 2
+      },
+      {
+        "from": 85,
+        "colors": 10,
+        "capacity": 4,
+        "empty": 2
+      }
+    ]
+  },
+  "play": {
+    "hintBudget": 20000,
+    "maxExtraTubes": 2
+  },
+  "boosters": {
+    "undo": {
+      "startStock": 3,
+      "packCount": 3,
+      "price": 900,
+      "name": "Undo",
+      "description": "Take back your last move!"
+    },
+    "extraTube": {
+      "startStock": 3,
+      "packCount": 3,
+      "price": 900,
+      "name": "Extra Tube",
+      "description": "Add an empty tube to the board!"
+    }
+  },
+  "failChain": {
+    "stuck": [
+      {
+        "price": 900,
+        "grant": "none",
+        "action": "extraTube",
+        "amount": 1,
+        "warning": "none",
+        "onlyWithStreak": false
+      },
+      {
+        "price": 900,
+        "grant": "none",
+        "action": "extraTube",
+        "amount": 1,
+        "warning": "token",
+        "onlyWithStreak": true
+      },
+      {
+        "price": 900,
+        "grant": "none",
+        "action": "extraTube",
+        "amount": 1,
+        "warning": "life",
+        "onlyWithStreak": false
+      }
+    ]
+  },
+  "board": {
+    "insetTop": 190,
+    "insetBottom": 190,
+    "insetSide": 24,
+    "perRowMax": 6,
+    "tubeWidth": 54,
+    "tubeGapMin": 10,
+    "rowGap": 36,
+    "unitSize": 42,
+    "unitGap": 4,
+    "tubePadding": 6,
+    "tubeCorner": 20,
+    "tubeLineWidth": 3,
+    "unitCorner": 21,
+    "liftHeight": 26,
+    "hitSlop": 12,
+    "introSeconds": 0.45,
+    "introRise": 40,
+    "pourSeconds": 0.28,
+    "liftSeconds": 0.12,
+    "refuseSeconds": 0.24,
+    "refuseShake": 9,
+    "completeSeconds": 0.3,
+    "completeScale": 1.08,
+    "clearSeconds": 0.4,
+    "transitionSeconds": 0.5,
+    "tubeAddSeconds": 0.3,
+    "layoutSeconds": 0.25,
+    "unitEdgeWidth": 1.5,
+    "pourArc": 36,
+    "clearStagger": 0.05,
+    "refuseFlashSeconds": 0.3
+  }
+}

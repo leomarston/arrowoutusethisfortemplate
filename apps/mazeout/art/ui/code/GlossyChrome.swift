@@ -58,19 +58,19 @@ struct BlueSquareButton<Glyph: View>: View {
         let shape = Superellipse(n: 3.5)
         let face = Superellipse(n: 3.5)
         ZStack {
-            shape.fill(Color(hex: 0x212B2B, 0.8)).blur(radius: 0.93).offset(y: 1)
-            shape.fill(LinearGradient(stops: [.init(color: Color(hex: 0x00625D), location: 0), .init(color: Color(hex: 0x006864), location: 0.1),
-                                              .init(color: Color(hex: 0x006C68), location: 0.86), .init(color: Color(hex: 0x007B76), location: 0.9),
-                                              .init(color: Color(hex: 0x006864), location: 0.94), .init(color: Color(hex: 0x005F5B), location: 0.97),
-                                              .init(color: Color(hex: 0x005050), location: 1)], startPoint: .top, endPoint: .bottom))
-            shape.fill(LinearGradient(stops: [.init(color: Color(hex: 0x004148, 0.6), location: 0), .init(color: Color(hex: 0x004148, 0), location: 0.09),
-                                              .init(color: Color(hex: 0x004148, 0), location: 0.91), .init(color: Color(hex: 0x004148, 0.6), location: 1)],
+            shape.fill(Color(hex: Skin.artGlossyChromeBlueSquareButtonFill, 0.8)).blur(radius: 0.93).offset(y: 1)
+            shape.fill(LinearGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops0), location: 0), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops1), location: 0.1),
+                                              .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops2), location: 0.86), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops3), location: 0.9),
+                                              .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops4), location: 0.94), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops5), location: 0.97),
+                                              .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops6), location: 1)], startPoint: .top, endPoint: .bottom))
+            shape.fill(LinearGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops0V2, 0.6), location: 0), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops1V2, 0), location: 0.09),
+                                              .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops2V2, 0), location: 0.91), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops3V2, 0.6), location: 1)],
                                       startPoint: .leading, endPoint: .trailing))
             ZStack {
-                face.fill(LinearGradient(colors: [Color(hex: 0x00A293), Color(hex: 0x009C8F)], startPoint: .top, endPoint: .bottom))
-                face.stroke(LinearGradient(stops: [.init(color: Color(hex: 0x62CDBF), location: 0), .init(color: Color(hex: 0x50C3B5), location: 0.07),
-                                                   .init(color: Color(hex: 0x009E90), location: 0.14), .init(color: Color(hex: 0x00998C), location: 0.6),
-                                                   .init(color: Color(hex: 0x009C8F), location: 1)],
+                face.fill(LinearGradient(colors: [Color(hex: Skin.artGlossyChromeBlueSquareButtonColors0), Color(hex: Skin.artGlossyChromeBlueSquareButtonColors1)], startPoint: .top, endPoint: .bottom))
+                face.stroke(LinearGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops0V3), location: 0), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops1V3), location: 0.07),
+                                                   .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops2V3), location: 0.14), .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops3V3), location: 0.6),
+                                                   .init(color: Color(hex: Skin.artGlossyChromeBlueSquareButtonStops4V2), location: 1)],
                                            startPoint: .top, endPoint: .bottom), lineWidth: 2.33).blur(radius: 0.23).clipShape(face)
             }
             .frame(width: 32, height: 34).position(x: 20, y: 2 + 17)
@@ -88,10 +88,10 @@ struct PauseGlyph: View {
     }
     var bar: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 2.33, style: .continuous).fill(Color(hex: 0x003B3F))
+            RoundedRectangle(cornerRadius: 2.33, style: .continuous).fill(Color(hex: Skin.artGlossyChromePauseGlyphBarFill))
             ZStack(alignment: .bottom) {
-                Color(hex: 0xF3FDF9)
-                VStack(spacing: 0) { Color(hex: 0xB6D5CC).frame(height: 1.33); Color(hex: 0x81BBB0).frame(height: 1.0) }
+                Color(hex: Skin.artGlossyChromePauseGlyphBar)
+                VStack(spacing: 0) { Color(hex: Skin.artGlossyChromePauseGlyphBarV2).frame(height: 1.33); Color(hex: Skin.artGlossyChromePauseGlyphBarV3).frame(height: 1.0) }
             }
             .clipShape(RoundedRectangle(cornerRadius: 1.5, style: .continuous)).padding(1)
         }
@@ -105,24 +105,24 @@ struct HeartHUD: View {
     var body: some View {
         let s = GlossyHeartShape()
         ZStack {
-            s.fill(Color(hex: 0x1D3D40, 0.6)).blur(radius: 0.67).offset(y: 0.33)
-            s.fill(EllipticalGradient(stops: [.init(color: Color(hex: 0xFD6A48), location: 0), .init(color: Color(hex: 0xFB3E2C), location: 0.25),
-                                              .init(color: Color(hex: 0xF02416), location: 0.55), .init(color: Color(hex: 0xDC0C05), location: 0.8),
-                                              .init(color: Color(hex: 0xB80400), location: 1)],
+            s.fill(Color(hex: Skin.artGlossyChromeHeartHUDFill, 0.6)).blur(radius: 0.67).offset(y: 0.33)
+            s.fill(EllipticalGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops0), location: 0), .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops1), location: 0.25),
+                                              .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops2), location: 0.55), .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops3), location: 0.8),
+                                              .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops4), location: 1)],
                                       center: UnitPoint(x: 0.39, y: 0.37), startRadiusFraction: 0, endRadiusFraction: 0.62))
-            s.fill(LinearGradient(stops: [.init(color: Color(hex: 0x8A0006, 0.8), location: 0), .init(color: Color(hex: 0xA00003, 0), location: 0.14),
-                                          .init(color: Color(hex: 0xA00003, 0), location: 0.78), .init(color: Color(hex: 0x8A0006, 0.45), location: 1)],
+            s.fill(LinearGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops0V2, 0.8), location: 0), .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops1V2, 0), location: 0.14),
+                                          .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops2V2, 0), location: 0.78), .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops3V2, 0.45), location: 1)],
                                   startPoint: .top, endPoint: .bottom))
             ZStack {
-                Ellipse().fill(RadialGradient(stops: [.init(color: Color(hex: 0xFFB189, 0.95), location: 0), .init(color: Color(hex: 0xFD9160, 0.55), location: 0.45),
-                                                      .init(color: Color(hex: 0xFC6A48, 0), location: 1)], center: .center, startRadius: 0, endRadius: 3.33))
+                Ellipse().fill(RadialGradient(stops: [.init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops0V3, 0.95), location: 0), .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops1V3, 0.55), location: 0.45),
+                                                      .init(color: Color(hex: Skin.artGlossyChromeHeartHUDStops2V3, 0), location: 1)], center: .center, startRadius: 0, endRadius: 3.33))
                     .frame(width: 6.67, height: 4.67).rotationEffect(.degrees(-38)).blur(radius: 0.3).position(x: 9, y: 8.33)
                 Path { p in p.move(to: CGPoint(x: 21, y: 2.67)); p.addQuadCurve(to: CGPoint(x: 27.33, y: 8.67), control: CGPoint(x: 26.33, y: 3)) }
-                    .stroke(Color(hex: 0xFF9A7C, 0.7), style: StrokeStyle(lineWidth: 0.8, lineCap: .round)).blur(radius: 0.3)
-                s.stroke(Color(hex: 0x7A0610), lineWidth: 1.67).blur(radius: 0.23)
+                    .stroke(Color(hex: Skin.artGlossyChromeHeartHUDStroke, 0.7), style: StrokeStyle(lineWidth: 0.8, lineCap: .round)).blur(radius: 0.3)
+                s.stroke(Color(hex: Skin.artGlossyChromeHeartHUDStrokeV2), lineWidth: 1.67).blur(radius: 0.23)
             }
             .clipShape(s)
-            s.stroke(Color(hex: 0x6E0E16), lineWidth: 0.53)
+            s.stroke(Color(hex: Skin.artGlossyChromeHeartHUDStrokeV3), lineWidth: 0.53)
         }
         .frame(width: 29.33, height: 25.33)
         .offset(y: -0.33)
@@ -134,14 +134,14 @@ struct HeartHUD: View {
 
 struct PanelButtonStyleColors {
     var outline: UInt32, edgeDark: UInt32, rim: [(UInt32, Double)], face: [(UInt32, Double)], edge: UInt32, glare: UInt32
-    static let green = PanelButtonStyleColors(outline: 0x562500, edgeDark: 0x512400,
-                                              rim: [(0x884200, 0), (0xA04E08, 0.55), (0xB05A09, 0.84), (0xA04E08, 0.9), (0x7C3A00, 0.96), (0x672F00, 1)],
-                                              face: [(0xFFB32D, 0), (0xFFB32D, 0.07), (0xFDBF35, 0.1), (0xFFB736, 0.3), (0xFEA515, 0.65), (0xFA9609, 1)],
-                                              edge: 0xEDCF7A, glare: 0xFCE29D)
-    static let red = PanelButtonStyleColors(outline: 0x560A00, edgeDark: 0x560A00,
-                                            rim: [(0x9B140A, 0), (0xA91B10, 0.55), (0xB32114, 0.84), (0xA2170D, 0.9), (0x821007, 0.96), (0x660B02, 1)],
-                                            face: [(0xEE513C, 0), (0xEE513C, 0.07), (0xEE4833, 0.1), (0xEB402C, 0.3), (0xE13824, 0.65), (0xD43220, 1)],
-                                            edge: 0xEF7865, glare: 0xF5ACA0)
+    static let green = PanelButtonStyleColors(outline: Skin.artGlossyChromePanelButtonStyleColorsGreenOutline, edgeDark: Skin.artGlossyChromePanelButtonStyleColorsGreenEdgeDark,
+                                              rim: [(Skin.artGlossyChromePanelButtonStyleColorsGreenRim0, 0), (Skin.artGlossyChromePanelButtonStyleColorsGreenRim1, 0.55), (Skin.artGlossyChromePanelButtonStyleColorsGreenRim2, 0.84), (Skin.artGlossyChromePanelButtonStyleColorsGreenRim3, 0.9), (Skin.artGlossyChromePanelButtonStyleColorsGreenRim4, 0.96), (Skin.artGlossyChromePanelButtonStyleColorsGreenRim5, 1)],
+                                              face: [(Skin.artGlossyChromePanelButtonStyleColorsGreenFace0, 0), (Skin.artGlossyChromePanelButtonStyleColorsGreenFace1, 0.07), (Skin.artGlossyChromePanelButtonStyleColorsGreenFace2, 0.1), (Skin.artGlossyChromePanelButtonStyleColorsGreenFace3, 0.3), (Skin.artGlossyChromePanelButtonStyleColorsGreenFace4, 0.65), (Skin.artGlossyChromePanelButtonStyleColorsGreenFace5, 1)],
+                                              edge: Skin.artGlossyChromePanelButtonStyleColorsGreenEdge, glare: Skin.artGlossyChromePanelButtonStyleColorsGreenGlare)
+    static let red = PanelButtonStyleColors(outline: Skin.artGlossyChromePanelButtonStyleColorsRedOutline, edgeDark: Skin.artGlossyChromePanelButtonStyleColorsRedEdgeDark,
+                                            rim: [(Skin.artGlossyChromePanelButtonStyleColorsRedRim0, 0), (Skin.artGlossyChromePanelButtonStyleColorsRedRim1, 0.55), (Skin.artGlossyChromePanelButtonStyleColorsRedRim2, 0.84), (Skin.artGlossyChromePanelButtonStyleColorsRedRim3, 0.9), (Skin.artGlossyChromePanelButtonStyleColorsRedRim4, 0.96), (Skin.artGlossyChromePanelButtonStyleColorsRedRim5, 1)],
+                                            face: [(Skin.artGlossyChromePanelButtonStyleColorsRedFace0, 0), (Skin.artGlossyChromePanelButtonStyleColorsRedFace1, 0.07), (Skin.artGlossyChromePanelButtonStyleColorsRedFace2, 0.1), (Skin.artGlossyChromePanelButtonStyleColorsRedFace3, 0.3), (Skin.artGlossyChromePanelButtonStyleColorsRedFace4, 0.65), (Skin.artGlossyChromePanelButtonStyleColorsRedFace5, 1)],
+                                            edge: Skin.artGlossyChromePanelButtonStyleColorsRedEdge, glare: Skin.artGlossyChromePanelButtonStyleColorsRedGlare)
 }
 
 struct PanelButton: View {
@@ -180,8 +180,8 @@ struct PanelButton: View {
 struct OutlinedLabel: View {
     var text: String
     var size: CGFloat
-    var fill = Color(hex: 0xFFFAF0)
-    var outline = Color(hex: 0x924500)
+    var fill = Color(hex: Skin.artGlossyChromeOutlinedLabelFill)
+    var outline = Color(hex: Skin.artGlossyChromeOutlinedLabelOutline)
     var body: some View {
         let f = Font.custom("Arial Rounded MT Bold", size: size)
         ZStack {

@@ -30,17 +30,17 @@ struct OutOfTimePopup: View {
                 .placed(hearts ? t.frame("outOfLives.glow", CGRect(16, 218, 360, 360)) : t.frame("outOfTime.glow", CGRect(26, 214, 340, 340)))
                 .allowsHitTesting(false)
             TokenText(id: key + ".title", source: .copy(hearts ? "Out of Lives!" : "Out of Time!"),
-                      style: .s2(hearts ? 52.1 : 51.6, hearts ? -1.21 : -1.04, [0xFFFFFF, 0xFFFAFA, 0xF7E8DC], outline: 0x540900, 1.5,
-                                 drop: 5.2, dropColor: 0x5A1812),
-                      baseline: hearts ? 215.5 : 215.2, centreX: hearts ? 196.5 : 196.7, maxWidth: 345, rings: [(0xD34434, 5.8)],
+                      style: .s2(hearts ? 52.1 : 51.6, hearts ? -1.21 : -1.04, [Skin.popupsOutOfTimePopupOutOfTimePopupStyle0, Skin.popupsOutOfTimePopupOutOfTimePopupStyle1, Skin.popupsOutOfTimePopupOutOfTimePopupStyle2], outline: Skin.popupsOutOfTimePopupOutOfTimePopupOutline, 1.5,
+                                 drop: 5.2, dropColor: Skin.popupsOutOfTimePopupOutOfTimePopupDropColor),
+                      baseline: hearts ? 215.5 : 215.2, centreX: hearts ? 196.5 : 196.7, maxWidth: 345, rings: [(Skin.popupsOutOfTimePopupOutOfTimePopupRings0, 5.8)],
                       ringDY: 1.4, innerDY: 2.4)
             if hearts {
                 BigGlossyHeart(t: t).placed(t.frame("outOfLives.heart", CGRect(103.8, 320.6, 184.8, 155.1)))
             } else {
-                InkImage(art: .stopwatchBig, ink: t.frame("outOfTime.stopwatch", CGRect(91.7, 273.6, 208.2, 220.9)))
+                InkImage(art: .popupOutOfTimeStopwatch, ink: t.frame("outOfTime.stopwatch", CGRect(91.7, 273.6, 208.2, 220.9)))
             }
             TokenText(id: key + ".grant", source: .copy(hearts ? "+3 Lives" : "+30 sec"),
-                      style: .s2(hearts ? 60.4 : 61.0, hearts ? -1.1 : -0.75, [0xF9F1E6], outline: hearts ? 0x540900 : 0x006E6C,
+                      style: .s2(hearts ? 60.4 : 61.0, hearts ? -1.1 : -0.75, [Skin.popupsOutOfTimePopupOutOfTimePopupStyle0V2], outline: hearts ? Skin.popupsOutOfTimePopupOutOfTimePopupOutlineHearts : Skin.popupsOutOfTimePopupOutOfTimePopupOutlineNotHearts,
                                  2.1, drop: 2.62),
                       baseline: 554.7, centreX: hearts ? 196.5 : 197.5, maxWidth: 345)
             PriceButton(id: "popup.\(popupID).primary", label: hearts ? "Add Lives" : "Add Time",
@@ -51,10 +51,10 @@ struct OutOfTimePopup: View {
                                      : t.frame("outOfTime.addTime", CGRect(71.7, 627.5, 249.9, 104.1)),
                         n: t.superellipseN(key + ".button", hearts ? 4.8 : 5.1),
                         labelID: key + ".button.label",
-                        labelStyle: .s2(23.1, hearts ? 0.09 : 0.22, [0xFFFBF3, 0xFFF7E7, 0xFDF3DF], outline: 0x924500, 1.17, drop: 1.05),
+                        labelStyle: .s2(23.1, hearts ? 0.09 : 0.22, [Skin.popupsOutOfTimePopupOutOfTimePopupLabelStyle0, Skin.popupsOutOfTimePopupOutOfTimePopupLabelStyle1, Skin.popupsOutOfTimePopupOutOfTimePopupLabelStyle2], outline: Skin.popupsOutOfTimePopupOutOfTimePopupOutlineV2, 1.17, drop: 1.05),
                         labelAt: (156.0, hearts ? 684.6 : 684.3),
                         priceID: key + ".button.price",
-                        priceStyle: .s2(26.2, 0.52, [0xFFFBF3, 0xFFF7E6, 0xFDF3DF], outline: 0x924500, 1.62, drop: 0.86),
+                        priceStyle: .s2(26.2, 0.52, [Skin.popupsOutOfTimePopupOutOfTimePopupPriceStyle0, Skin.popupsOutOfTimePopupOutOfTimePopupPriceStyle1, Skin.popupsOutOfTimePopupOutOfTimePopupPriceStyle2], outline: Skin.popupsOutOfTimePopupOutOfTimePopupOutlineV2, 1.62, drop: 0.86),
                         priceAt: (267.6, 685.9),
                         coin: t.frame(key + ".button.coin", CGRect(216.2, 666.3, 25.8, 25.8)),
                         wellInset: OfferWell.tightInset) { buy() }
@@ -84,15 +84,15 @@ struct OfferGlow: View {
     let t: Tokens
     var body: some View {
         let stops: [Gradient.Stop] = hearts
-            ? [.init(color: t.color("outOfLives.glowCore", 0xF04830).opacity(0.95), location: 0),
-               .init(color: t.color("outOfLives.glowCore", 0xF04830).opacity(0.62), location: 0.28),
-               .init(color: t.color("outOfLives.glowMid", 0x761B0F).opacity(0.45), location: 0.46),
-               .init(color: Color(hex: 0x1D0B00, 0.25), location: 0.62),
+            ? [.init(color: t.color("outOfLives.glowCore", Skin.popupsOutOfTimePopupOutOfLivesGlowCore).opacity(0.95), location: 0),
+               .init(color: t.color("outOfLives.glowCore", Skin.popupsOutOfTimePopupOutOfLivesGlowCore).opacity(0.62), location: 0.28),
+               .init(color: t.color("outOfLives.glowMid", Skin.popupsOutOfTimePopupOutOfLivesGlowMid).opacity(0.45), location: 0.46),
+               .init(color: Color(hex: Skin.popupsOutOfTimePopupOfferGlow3, 0.25), location: 0.62),
                .init(color: .clear, location: 0.8)]
-            : [.init(color: t.color("outOfTime.glowCore", 0x00716E).opacity(0.75), location: 0),
-               .init(color: t.color("outOfTime.glowCore", 0x00716E).opacity(0.55), location: 0.3),
-               .init(color: t.color("outOfTime.glowMid", 0x0A4B4E).opacity(0.28), location: 0.5),
-               .init(color: Color(hex: 0x0A1E20, 0.12), location: 0.7),
+            : [.init(color: t.color("outOfTime.glowCore", Skin.popupsOutOfTimePopupOutOfTimeGlowCore).opacity(0.75), location: 0),
+               .init(color: t.color("outOfTime.glowCore", Skin.popupsOutOfTimePopupOutOfTimeGlowCore).opacity(0.55), location: 0.3),
+               .init(color: t.color("outOfTime.glowMid", Skin.popupsOutOfTimePopupOutOfTimeGlowMid).opacity(0.28), location: 0.5),
+               .init(color: Color(hex: Skin.popupsOutOfTimePopupOfferGlow3V2, 0.12), location: 0.7),
                .init(color: .clear, location: 0.95)]
         Rasterized("offerGlow|\(hearts)") { size in
             RadialGradient(stops: stops, center: .center, startRadius: 0, endRadius: min(size.width, size.height) / 2)
@@ -108,20 +108,20 @@ struct BigGlossyHeart: View {
         Rasterized("bigHeart2", overflow: 4) { size in
             let s = ClassicHeart()
             ZStack {
-                s.fill(Color(hex: 0x3A0205, 0.55)).offset(y: size.height * 0.012).blur(radius: 2)
-                s.fill(EllipticalGradient(stops: [.init(color: t.color("heartBig.hi", 0xFF7A66), location: 0),
-                                                  .init(color: t.color("heartBig.face", 0xF8392B), location: 0.28),
-                                                  .init(color: Color(hex: 0xEE2418), location: 0.55),
-                                                  .init(color: Color(hex: 0xD20F08), location: 0.8),
-                                                  .init(color: Color(hex: 0xA80400), location: 1)],
+                s.fill(Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartFill, 0.55)).offset(y: size.height * 0.012).blur(radius: 2)
+                s.fill(EllipticalGradient(stops: [.init(color: t.color("heartBig.hi", Skin.popupsOutOfTimePopupHeartBigHi), location: 0),
+                                                  .init(color: t.color("heartBig.face", Skin.popupsOutOfTimePopupHeartBigFace), location: 0.28),
+                                                  .init(color: Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStops2), location: 0.55),
+                                                  .init(color: Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStops3), location: 0.8),
+                                                  .init(color: Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStops4), location: 1)],
                                           center: UnitPoint(x: 0.4, y: 0.36), startRadiusFraction: 0, endRadiusFraction: 0.66))
-                s.fill(LinearGradient(stops: [.init(color: Color(hex: 0x8A0006, 0.0), location: 0.6),
-                                              .init(color: Color(hex: 0x8A0006, 0.45), location: 1)], startPoint: .top, endPoint: .bottom))
-                Ellipse().fill(RadialGradient(colors: [Color.white.opacity(0.75), Color(hex: 0xFFB8A8, 0.35), .clear], center: .center,
+                s.fill(LinearGradient(stops: [.init(color: Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStops0, 0.0), location: 0.6),
+                                              .init(color: Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStops1, 0.45), location: 1)], startPoint: .top, endPoint: .bottom))
+                Ellipse().fill(RadialGradient(colors: [Color.white.opacity(0.75), Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartColors1, 0.35), .clear], center: .center,
                                               startRadius: 0, endRadius: size.width * 0.13))
                     .frame(width: size.width * 0.26, height: size.height * 0.16).rotationEffect(.degrees(-35))
                     .position(x: size.width * 0.3, y: size.height * 0.24)
-                s.stroke(Color(hex: 0x6E0E16), lineWidth: 1.6)
+                s.stroke(Color(hex: Skin.popupsOutOfTimePopupBigGlossyHeartStroke), lineWidth: 1.6)
             }
             .frame(width: size.width, height: size.height)
         }

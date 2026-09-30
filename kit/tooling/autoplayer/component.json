@@ -1,0 +1,29 @@
+{
+ "id": "autoplayer",
+ "title": "AutoPlayer bot",
+ "category": "tooling",
+ "summary": "`-pc.autoplay 1`: a bot that plays through the game via the puzzle's bot, for soaks and captures.",
+ "description": "Debug / Measure only. Plays each stage through the module's bot, answers popups, loops the game (game.json `autoplay.*`).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Game/AutoPlayer.swift"
+ ],
+ "depends": [
+  "core",
+  "events-engine",
+  "game-loop",
+  "home",
+  "social-ui"
+ ],
+ "uses": {
+  "tuning": [
+   "game.json:autoplay",
+   "game.json:autoplay.homeDelay",
+   "game.json:autoplay.popupDelay",
+   "game.json:autoplay.unlockDelay"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 1 -pc.autoplay 1"
+ ]
+}

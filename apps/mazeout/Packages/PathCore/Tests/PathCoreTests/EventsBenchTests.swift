@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// B1 EVENTS-P — events.md §8.4 A9, re-stated for the v582 rules (build/p/PH0/balloon.md; SPEC.md ruling 42c). The §5 bench
 /// targets tuned the puffs/balloons model's GOALS; v582's rules are the original's (ruling 37b: rules 1:1, platforms 2 … 120

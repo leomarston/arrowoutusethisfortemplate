@@ -18,7 +18,7 @@ import sys
 PKG = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('--') else
                       os.path.join(os.path.dirname(__file__), '..', '..'))
 ONLY = [int(x) for x in sys.argv[sys.argv.index('--only') + 1].split(',')] if '--only' in sys.argv else None
-SRC = os.path.join(PKG, 'Sources', 'PathCore')
+SRC = os.path.join(PKG, 'Sources', 'ArrowEscape')
 SUITES = 'GeneratorTests|ValidatorTests|SolverTests|LevelLibraryTests|RulesTests|BotReplayTests'
 
 G, V, C, R = 'Content/Generator.swift', 'Content/Validator.swift', 'Content/ContentRules.swift', 'Rules/RayWalk.swift'

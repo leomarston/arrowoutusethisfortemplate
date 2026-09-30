@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// The phone bot's WINNING taps replayed under PathCore's rules (content recast 2026-09-25; C4b). The session-2 bot
 /// (research/bot/go2.py + corners.py) tapped only arrows it read as free and won L069 (three pipes under doors) and every

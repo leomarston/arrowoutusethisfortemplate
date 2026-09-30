@@ -14,7 +14,7 @@ struct DebugPlaceholder: View {
         GeometryReader { geo in
             let r = CGRect(origin: .zero, size: geo.size)
             ZStack {
-                Rectangle().fill(Color(hex: 0xB4A7C9, 0.55))
+                Rectangle().fill(Color(hex: Skin.componentsDebugPlaceholderDebugPlaceholderFill, 0.55))
                 Canvas { ctx, size in
                     var hatch = Path()
                     var x: CGFloat = -size.height

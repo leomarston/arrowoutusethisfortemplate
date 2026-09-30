@@ -35,7 +35,7 @@ FILES = [
     'design/social/tools/socialsim/shipped.py',
     'design/social/tools/socialsim/v2.py',
     # what ships, generated from the data (Tests/tools/soc_v2_tables.py, soc_ship_names.py)
-    'Packages/PathCore/Sources/PathCore/Social/SocialIntlTables.swift',
+    'Packages/PathCore/Sources/GameCore/Social/SocialIntlTables.swift',
     'App/Resources/Social/social_names.json',
     # the golden vectors the Swift world matches bit for bit (design/social/tools/v2/fixtures_v2.py)
     'Packages/PathCore/Tests/Fixtures/soc_v2_world.json',

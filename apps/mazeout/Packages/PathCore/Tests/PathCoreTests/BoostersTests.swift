@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
-@testable import PathCore
+@testable import GameCore
+@testable import ArrowEscape
 
 /// SPEC-architecture §4.17 "BoostersTests" (C3; §4.9, SPEC-gameplay §6): the two v552 boosters, 3 each at install, the
 /// hourglass freezes 10 s (+ the 1.6 s flight, K-3), the bulb hints one unit; stock is the player's (use / buy ×3 for 900);

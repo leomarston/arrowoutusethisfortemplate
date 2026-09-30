@@ -53,7 +53,7 @@ struct CoinFlySpec {
         if showLabel {
             // the small pile at the flight origin + the "+N" label, popping together (C1), fading at C5
             let pile = CALayer()
-            if let img = ArtStore.image(.coinPileSmall)?.cgImage { pile.contents = img }
+            if let img = ArtStore.image(.rewardCoinsSmall)?.cgImage { pile.contents = img }
             let pw = spec.pileWidth * s, ph = pw * 56 / 68
             pile.bounds = CGRect(x: 0, y: 0, width: pw, height: ph)
             pile.position = CGPoint(x: from.x, y: from.y + 4 * s)
@@ -68,7 +68,7 @@ struct CoinFlySpec {
                 out.append(popAndFade(l, spec: spec, t0: t0))
             }
         }
-        let coinImage = ArtStore.image(.iconCoin)?.cgImage
+        let coinImage = ArtStore.image(.currencyCoinIcon)?.cgImage
         for k in 0..<spec.count {
             let coin = CALayer()
             coin.contents = coinImage
@@ -126,7 +126,7 @@ struct CoinFlySpec {
 
     /// "+N" as a raster of GameText (white face, outline #6B3A1E 2 pt, a small drop), rendered once per text.
     static func labelImage(_ text: String, size: CGFloat) -> LabelImage? {
-        let st = GameTextStyle.s2(size, -0.8, [0xFFFFFF], outline: 0x6B3A1E, 2.0 * size / 36, drop: 1.6 * size / 36)
+        let st = GameTextStyle.s2(size, -0.8, [Skin.fxCoinFlyCoinFlyLabelImageSt0], outline: Skin.fxCoinFlyCoinFlyLabelImageStOutline, 2.0 * size / 36, drop: 1.6 * size / 36)
         let w = size * 0.62 * CGFloat(text.count) + 16, h = size * 1.35
         let scale = UIScreen.main.scale
         guard let img = RasterCache.image("payoutLabel|\(text)|\(size)", size: CGSize(width: w, height: h), scale: scale, content: {

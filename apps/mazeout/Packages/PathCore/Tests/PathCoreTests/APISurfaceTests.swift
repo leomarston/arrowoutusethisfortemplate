@@ -192,8 +192,12 @@ final class APISurfaceTests: XCTestCase {
         let _: WritableKeyPath<ContinueOffer, ContinueOffer.Grant> = \.grant
         let _: WritableKeyPath<ContinueOffer, ContinueOffer.Warning> = \.warning
         let _: WritableKeyPath<ContinueOffer, Bool> = \.isLast
-        XCTAssertEqual(ContinueOffer.Kind.allCases, [.outOfTime, .outOfHearts])
+        // template phase 2 (PUZZLE-MODULE.md §1): additive cases, the two original ones first and unchanged
+        XCTAssertEqual(ContinueOffer.Kind.allCases, [.outOfTime, .outOfHearts, .outOfMoves, .stuck])
+        XCTAssertEqual(ContinueOffer.Kind.allCases.map(\.rawValue), ["outOfTime", "outOfHearts", "outOfMoves", "stuck"])
+        XCTAssertEqual(ContinueOffer.Kind.allCases.map(\.lossReason), [.timeUp, .hearts, .outOfMoves, .stuck])
         let _: [ContinueOffer.Grant] = [.addTime(30), .refillHearts(3), .none]
+        let _: [ContinueOffer.Grant] = [.addMoves(5), .puzzleAction(id: "shuffle", amount: 1)]
         XCTAssertEqual(ContinueOffer.Warning.allCases, [.none, .streak, .token, .life])
 
         let win = WinResult(levels: [32], tag: .normal, timeLeft: 120, heartsLeft: 3, firstTry: true, reward: 20, bumps: 0)
@@ -206,13 +210,26 @@ final class APISurfaceTests: XCTestCase {
         let _: WritableKeyPath<WinResult, Bool> = \.firstTry
         let _: WritableKeyPath<WinResult, Int> = \.reward
         let _: WritableKeyPath<WinResult, Int> = \.bumps
+        // template phase 2, additive
+        let _: WritableKeyPath<WinResult, Int?> = \.stars
+        let _: WritableKeyPath<WinResult, [String: Double]> = \.stats
+        let _: ([Int], LevelTag, Int, Int, Bool, Int, Int, Int?, [String: Double]) -> WinResult =
+            WinResult.init(levels:tag:timeLeft:heartsLeft:firstTry:reward:bumps:stars:stats:)
+        XCTAssertNil(win.stars)
+        XCTAssertEqual(win.stats, [:])
+        let oldJSON = #"{"levels":[32],"tag":"normal","timeLeft":120,"heartsLeft":3,"firstTry":true,"reward":20,"bumps":0}"#
+        XCTAssertEqual(try? JSONDecoder().decode(WinResult.self, from: Data(oldJSON.utf8)), win, "results without the new keys decode")
+        let rated = WinResult(levels: [1], tag: .hard, timeLeft: 0, heartsLeft: 0, firstTry: false, reward: 60, bumps: 0, stars: 3,
+                              stats: ["movesLeft": 4])
+        XCTAssertEqual(try? JSONDecoder().decode(WinResult.self, from: JSONEncoder().encode(rated)), rated)
 
         let phases: [Phase] = [.intro(stage: 0), .ready(stage: 0), .playing(stage: 0), .stageClear(stage: 0),
                                .offer(offer), .won(win), .lost(.timeUp)]
         XCTAssertEqual(phases.count, 7)
         XCTAssertEqual(HoldReason.allCases, [.intro, .stageTransition, .tutorial, .unlockOverlay, .popup, .pause, .offer,
                                              .background, .winSequence])
-        XCTAssertEqual(LossReason.allCases, [.timeUp, .hearts, .quit, .killed])
+        // template phase 2: additive cases after the original four
+        XCTAssertEqual(LossReason.allCases, [.timeUp, .hearts, .quit, .killed, .outOfMoves, .stuck])
         XCTAssertEqual(TimeCause.allCases, [.continueOffer, .booster])
         let _: [TimerAlert] = [.threshold(10)]
 

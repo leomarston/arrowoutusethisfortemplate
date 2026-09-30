@@ -1,3 +1,6 @@
+// Debug harness: compiled into Debug and Measure only (`#if DEBUG || PC_MEASURE`), never into the Release (store) build.
+// tools/harness_gate.py (CI) fails when a harness type is used outside that gate.
+#if DEBUG || PC_MEASURE
 import SwiftUI
 import UIKit
 import PathCore
@@ -245,7 +248,7 @@ private struct SocScrollBench: View {
         let model = SocialModel.install(app)
         let host = model.listHost(kind)
         ZStack(alignment: .topLeading) {
-            Color(hex: 0x0A2176)
+            Color(hex: Skin.socialSocialLabSocScrollBench)
             SocListRepresentable(host: host, k: m.s).frame(width: m.size.width, height: m.size.height - 120).offset(y: 120)
             Text(verbatim: "SocialLab scroll \(kind.rawValue): \(SocLabState.shared.result)")
                 .font(.system(size: 12, weight: .bold, design: .monospaced)).foregroundStyle(.white).padding(.top, 64).padding(.leading, 12)
@@ -388,3 +391,4 @@ private struct SocScrollBench: View {
         try? await Task.sleep(nanoseconds: 300_000_000)
     }
 }
+#endif
