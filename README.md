@@ -257,6 +257,8 @@ apps/mazeout/tools/levels/content_tests.sh                    # the level bundle
 python3 apps/mazeout/tools/strings/build.py --check           # the string catalogue is up to date with the TSVs
 python3 apps/mazeout/tools/skin/build.py --check             # skin: generated files fresh, ui.json colour-free (docs/SKIN.md)
 python3 apps/mazeout/tools/skin/build.py --check-literals    # no colour literal in the UI code outside skin/colors.json
+python3 apps/mazeout/tools/skin/art.py --check               # art slots + scenes fresh; Swift names slots, never art files
+python3 apps/mazeout/tools/skin/variant.py --check           # the second (colour) skin builds and differs only in colours
 python3 apps/mazeout/tools/release/meta.py audit              # store texts, keywords, captions, IAP catalogue
 python3 apps/mazeout/tools/release/meta.py iap-check          # iap.json == rules.json:shop == ArrowOut.storekit
 sh apps/mazeout/tools/bench/release_gates.sh <Release .app> [<Debug .app>]   # the release-binary gates (brand, provenance, SDKs, token)
@@ -385,8 +387,8 @@ After renaming: `sh apps/<slug>/tools/gen.sh`, build, run the tests, and grep ag
 - The rules of play: the board code in `App/Board/` and `PathCore`'s Grid / Rules / Solver / Content, levels
   (`App/Resources/Levels/`, `design/levels.json`, `design/tools/gen_levels.py`'s parameters), tutorials.
 - The skin: UI colours (`skin/colors.json`: palette, code tokens, ui.json colours; `tools/skin/recolor.py` moves whole
-  families), fonts (`skin/fonts.json` + the files in `App/Resources/Fonts/`), non-copy names (`skin/names.json`), see
-  `docs/SKIN.md`.
+  families), fonts (`skin/fonts.json` + the files in `App/Resources/Fonts/`), non-copy names (`skin/names.json`), art by
+  slot (`skin/art.json`) and the home / Loading scenes (`skin/scenes.json`), see `docs/SKIN.md`.
 - All art (`art/out/`, `art/ui/out/`, the app icon), sounds and music (`App/Resources/Sounds/`, `Tuning/audio.json`).
 - Every text: `App/Resources/Strings/*.tsv`, store texts (`design/publish/store/`), captions, keywords, screenshots,
   the IAP catalogue and prices (`design/publish/iap.json`, `rules.json:shop`, the `.storekit` file).

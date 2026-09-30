@@ -116,7 +116,17 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         `SkinData.generated.swift` (`SkinFonts`, `SkinNames`) + the UIAppFonts lists in project.yml / Info.plist.
         Sounds were already data (`audio.json` cues/gain, files by SoundID); brand name stays game.yml's; copy names stay
         in strings.tsv (docs/SKIN.md §3). Left: `App/Board/DigitGlyphs.swift` spells "PCDisplay-Black" (another lane's folder)
-  - [ ] Art slots, scenes/logo data (docs/SKIN.md §4); a second skin
+  - [x] Art slots, scenes/logo data (docs/SKIN.md §4); a second skin (colours, §5). `skin/art.json`: 200 raster slots
+        (`home.backdrop`, `currency.coin.icon`, `avatar.<n>`, `event.<id>.*`, `logo.part.<id>`, `puzzle.<sprite>` …) -> the
+        manifest ids, 8 rig slots; `skin/scenes.json`: the home layer lists, rig part sets, the Loading scene.
+        `tools/skin/art.py` generates `UIArt` (a case per slot: asset/path/sizePt/group) + `ArtRig` and `SkinScenes`;
+        `--check` (CI) fails on an unmapped shipped file, a missing file, a string slot the skin lacks, a Swift string naming
+        an art file (allow-list: App/Board sprite ids, PuppetRig, the win-logo part ids). 419 call sites renamed to slots;
+        HomeView / LoadingScreen draw the scene lists. Fixed on the way: the race lanes' portraits pointed at 8 retired
+        files (`Art/char_avatar<Walkie…>@3x.png`, placeholder in Debug, nothing in Release) — now the `avatar.<n>` slots.
+        `skin/variants/cobalt` + `tools/skin/variant.py --check` (CI): the variant's generated files differ from the
+        reference's only in colour values. Swift not compiled in that session (CI); an art variant and a screenshot of a
+        variant on the Mac are still to do
 - [ ] **4. Config + generators** — `game.yml`, `tools/game.py new|generate|doctor`, every script/lane/gate per game
   - [x] `apps/mazeout/game.yml`: identity, puzzle module + its level checks, store, events (mirrored into social.json),
         social seeds, brand bans, feature flags; economy + IAP catalogue REFERENCED (rules.json / iap.json stay the source)
@@ -143,6 +153,19 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         ShopCatalog read `GameConfig`. doctor: file fresh + no such literal in App/ or Packages/*/Sources; the frozen
         Python reference is read-only-checked. Generate no longer edits hand-written Swift (only BrandTests' lists)
 - [ ] **5. Prove a second puzzle** — a module with a different input and fail rule, shipped to TestFlight with its own skin
+  - [x] SortPuzzle through the contract (awaiting CI): core target `Packages/PathCore/Sources/SortPuzzle` (GameCore only,
+        own product, not in the umbrella; core.sh import check): level model, seeded generator (solvable by construction),
+        bounded DFS solver, `SortPuzzleSession` (select-then-target, no timer/hearts, fail `stuck` → an extra-tube continue,
+        undo / extra-tube boosters, multi-stage), `SortPuzzleModule`, `SortBot`; Python reference `tools/sortpuzzle/ref.py`
+        + goldens (CI Linux `--check`); `SortPuzzleTests`; app half `App/Puzzles/SortPuzzle/` (plugin, UIKit/CA board from
+        sort.json + `puzzle.sortBoard.*` skin tokens, entry) compiled in, selected by `PC_PUZZLE_SORT`; `SortPuzzleAppTests`
+        (plugin + board headless; the unchanged GameController to the win panel; a stuck offer paid through the shell)
+  - [x] Contract v1.1 (PUZZLE-MODULE.md §8b): `MetaRules.FailStep.action` (additive; ArrowEscape unchanged), module
+        default fail chains, modules as separate products + compile-time selection, explicit board/untimed semantics
+  - [ ] Shell work before a sort game ships (PUZZLE-MODULE.md §6b): HUD honours `capabilities.hud` (no timer pill; a
+        progress widget), `stuck` popup texts (13 languages) + variants, `undo`/`extraTube` economy entries + buy-popup
+        texts + corner art, boot without the arrow engine/library, tutorials; then a game folder (`new --puzzle
+        sort-puzzle`), its skin, TestFlight
 - [ ] **6. Docs & prompts** — TEMPLATE.md, PUZZLE-MODULE.md, SKIN.md; the game manual split into "write a puzzle
       module" and "reskin & publish"
 
@@ -189,3 +212,19 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   brand-ban list the gates use (`brand_ban_forms` + lists derived from `brand_bans`; loc.py `BANNED_ALL` value-identical).
   doctor on apps/mazeout --quick: 0 FAIL; generate --check: 0 changes; 28 game.py tests green; CI Linux steps green
   locally. Swift (GameConfig + 5 call sites) not compiled in this session: CI's core + app jobs are the first build.
+- 2026-09-30: second puzzle module (phase 5): SortPuzzle (colour sorting: pick a tube then a target, no timer, fail =
+  stuck) written only against the contract; one additive contract change (v1.1: `FailStep.action`, a fail-chain step that
+  grants a module action) plus documented semantics (async board acks, untimed sessions, pick-state in the session). Its
+  app half is compiled into the app while ArrowEscape stays active (`PC_PUZZLE_SORT` switches). Linux: ref.py goldens
+  (40 levels + a 12-level stress set) self-checked and fresh, skin --check / --check-literals green, harness gate, doctor,
+  brand check, strings, meta audit green; `uiart_gen --check` was red from another lane's in-progress UIArt.swift edit.
+  Swift (SortPuzzle target, its tests, FailStep.action + ContractV11Tests, the app files and SortPuzzleAppTests) not
+  compiled in this session: CI's core + app jobs are the first build.
+- 2026-09-30: skin, third part (phase 3): art by slot (skin/art.json -> UIArt/ArtRig, 200 + 8 slots, the reference
+  mapping = the same 200 files and 8 rigs), scenes as data (skin/scenes.json -> SkinScenes: home back/front layer lists,
+  the main character's arm split, the Loading cast; HomeView / LoadingScreen draw the lists), win/boot logo timing stays
+  ui.json's (`win.*`, `frames.loading.logo`), its images are `logo.part.<id>` / `logo.main` slots; a second colour skin
+  (`skin/variants/cobalt`, recolor rules, not shipped) with `variant.py --check` proving a colour-only diff. Race-lane
+  portraits fixed (they named 8 retired files). Linux: art.py / variant.py / build.py checks + self-tests, uiart_gen --check,
+  every CI Linux step green locally. Swift (419 renamed call sites, HomeView scene loop, LoadingScreen, RaceBar, WinLogo
+  decode, SkinArtTests + test updates) not compiled in that session: CI's app job is the first build.

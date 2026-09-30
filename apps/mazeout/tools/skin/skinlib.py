@@ -33,8 +33,9 @@ PROJECT_YML = os.path.join(APP, "project.yml")
 INFO_PLIST = os.path.join(APP, "App", "Info.plist")
 
 # The sources whose colour literals are skin tokens. App/Board reads board.json (its own data), App/Game, App/Audio and the
-# PathCore package hold no UI colours; they are outside the skin scan on purpose.
-SCAN_DIRS = ["App/Shell", "App/FX"]
+# PathCore package hold no UI colours; they are outside the skin scan on purpose. App/Puzzles (template phase 5: the boards
+# of the modules after the reference one) draws only skin tokens.
+SCAN_DIRS = ["App/Shell", "App/FX", "App/Puzzles"]
 SCAN_FILES = ["art/ui/code/GlossyChrome.swift"]
 GENERATED_REL = os.path.relpath(GEN_SWIFT, APP)
 GENERATED_RELS = {GENERATED_REL, os.path.relpath(GEN_DATA_SWIFT, APP)}

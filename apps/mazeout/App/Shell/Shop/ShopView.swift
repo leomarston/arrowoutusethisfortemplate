@@ -91,9 +91,9 @@ struct ShopView: View {
         return ShopContent(layout: layout, prices: prices, buying: nil, lazy: false) { _ in }
     }
 
-    static let art: [UIArt] = [.bundleSpecial, .bundleBag, .bundleBarrel, .bundleChest, .bundleSafe, .bundleCart, .coinPackTiny,
-                               .coinPackSmall, .coinPackMedium, .coinPackBig, .coinPackSuper, .coinPackGiant, .shopSeal, .boosterHint,
-                               .boosterFreeze, .heartInfiniteSmall, .iconCoin, .sunburstRays]
+    static let art: [UIArt] = [.shopBundleSpecial, .shopBundleMini, .shopBundleEpic, .shopBundleElite, .shopBundleMega, .shopBundleLegendary, .shopCoins1,
+                               .shopCoins2, .shopCoins3, .shopCoins4, .shopCoins5, .shopCoins6, .shopSeal, .boosterHintIcon,
+                               .boosterFreezeIcon, .livesUnlimitedSmall, .currencyCoinIcon, .fxSunburst]
 
     private func prices(_ rules: EconomyRules) -> [String: String] {
         var out: [String: String] = [:]
@@ -516,7 +516,7 @@ private struct OfferCard: View {
         let name = GameTextStyle.s2(28.0, -0.25, [Skin.shopShopViewOfferCardName0], outline: Skin.shopShopViewOfferCardNameOutline, 1.9, drop: 1.4)
         ZStack(alignment: .topLeading) {
             OfferCardFrame()
-            ArtImage(art: .bundleSpecial).placed(r(16, 200, 176, 102))
+            ArtImage(art: .shopBundleSpecial).placed(r(16, 200, 176, 102))
             GameText(verbatim: ShopFormat.amount(product.grant.coins), style: amount).at(135.8 - o.x, amount.capCentre(baseline: 299.2) - o.y)
             ItemsTile(boosters: product.grant.boosters, gold: true).placed(r(196.2, 211.8, 105.8, 91.1))
             HeartTile(seconds: product.grant.unlimitedLives, gold: true).placed(r(307.9, 211.8, 59.4, 91.1))
@@ -704,11 +704,11 @@ private struct BundleCard: View {
     /// Art ruling 4 (art/REVIEW.md): Mini bag · Epic barrel · Elite chest · Mega safe · Legendary cart.
     static func art(_ id: String) -> UIArt {
         switch id {
-        case "bundle.mini": return .bundleBag
-        case "bundle.epic": return .bundleBarrel
-        case "bundle.elite": return .bundleChest
-        case "bundle.mega": return .bundleSafe
-        default: return .bundleCart
+        case "bundle.mini": return .shopBundleMini
+        case "bundle.epic": return .shopBundleEpic
+        case "bundle.elite": return .shopBundleElite
+        case "bundle.mega": return .shopBundleMega
+        default: return .shopBundleLegendary
         }
     }
 }
@@ -755,8 +755,8 @@ private struct ItemsTile: View {
                       : GameTextStyle.s2(18.5, 0.03, [Skin.shopShopViewItemsTile0, Skin.shopShopViewItemsTile1, Skin.shopShopViewItemsTile2], outline: Skin.shopShopViewItemsTileOutline, 1.59, drop: 0.97)
         ZStack(alignment: .topLeading) {
             ShopTileFace(gold: gold, radius: gold ? 12.8 : 11.2)
-            ArtImage(art: .boosterHint).placed(CGRect(18.0, 13.0, 34, 34))
-            ArtImage(art: .boosterFreeze).placed(CGRect(56.5, 13.0, 34, 34))
+            ArtImage(art: .boosterHintIcon).placed(CGRect(18.0, 13.0, 34, 34))
+            ArtImage(art: .boosterFreezeIcon).placed(CGRect(56.5, 13.0, 34, 34))
             GameText(verbatim: "x\(n)", style: st).at(53.2, st.capCentre(baseline: 83.0))
         }
         .frame(width: 105.8, height: 91.1, alignment: .topLeading)
@@ -771,7 +771,7 @@ private struct HeartTile: View {
                       : GameTextStyle.s2(18.5, 0.03, [Skin.shopShopViewHeartTile0, Skin.shopShopViewHeartTile1, Skin.shopShopViewHeartTile2], outline: Skin.shopShopViewHeartTileOutline, 1.59, drop: 0.97)
         ZStack(alignment: .topLeading) {
             ShopTileFace(gold: gold, radius: gold ? 12.8 : 11.2)
-            ArtImage(art: .heartInfiniteSmall).placed(CGRect(7.7, 9.0, 44, 40))
+            ArtImage(art: .livesUnlimitedSmall).placed(CGRect(7.7, 9.0, 44, 40))
             GameText(verbatim: ShopFormat.duration(seconds), style: st, maxWidth: 52).at(29.7, st.capCentre(baseline: 83.3))
         }
         .frame(width: 59.4, height: 91.1, alignment: .topLeading)
@@ -829,7 +829,7 @@ private struct CoinTile: View {
     let action: () -> Void
 
     var body: some View {
-        let arts: [UIArt] = [.coinPackTiny, .coinPackSmall, .coinPackMedium, .coinPackBig, .coinPackSuper, .coinPackGiant]
+        let arts: [UIArt] = [.shopCoins1, .shopCoins2, .shopCoins3, .shopCoins4, .shopCoins5, .shopCoins6]
         let amount = GameTextStyle.s2(27.6, -0.42, [Skin.shopShopViewCoinTileAmount0], outline: Skin.shopShopViewCoinTileAmountOutline, 2.4, drop: 1.2)
         ZStack(alignment: .topLeading) {
             CoinTileFace()
@@ -885,7 +885,7 @@ private struct ShopHeaderCoins: View {
         ZStack(alignment: .topLeading) {
             Rasterized("shopHeaderPill") { _ in TopPill(t: t, n: 5.3) }.placed(m.rect(CGRect(5.0, 57.7, 110.4, 38.0), .top))
             GameText(verbatim: "\(coins)", style: st, maxWidth: 62 * m.s).at(digits.x, st.capCentre(baseline: digits.y))
-            ArtImage(art: .iconCoin).placed(m.rect(CGRect(4.2, 57.3, 38.5, 38.5), .top))
+            ArtImage(art: .currencyCoinIcon).placed(m.rect(CGRect(4.2, 57.3, 38.5, 38.5), .top))
         }
         .accessibilityElement()
         .accessibilityIdentifier("shop.coins")

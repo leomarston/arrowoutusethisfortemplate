@@ -31,7 +31,7 @@ struct BoosterBuyPopup: View {
                 .frame(width: 261.6, height: 169.2)
                 .clipShape(RoundedRectangle(cornerRadius: 17.2))
                 .placed(CGRect(66.2, 249.3, 261.6, 169.2))
-            ArtImage(art: freeze ? .boosterFreeze : .boosterHint).placed(CGRect(142.0, 256.0, 110, 110))
+            ArtImage(art: freeze ? .boosterFreezeIcon : .boosterHintIcon).placed(CGRect(142.0, 256.0, 110, 110))
             // B3: one line (EN/TR, as before); a translation that would need < 0.70 on one line takes two balanced lines
             // (SPEC-ui's 2-line frame for this copy), 12.5 pt above and below the one-line baseline
             let desc = String(localized: freeze ? "Freeze the timer for 10 seconds!" : "Find an arrow that can move!")
@@ -59,7 +59,7 @@ struct BoosterBuyPopup: View {
                     }
                     .frame(width: 118, height: 60)
                     .position(x: 143.5 - face.minX, y: buy.capCentre(baseline: 505.7) - face.minY)
-                    ArtImage(art: .iconCoin).placed(CGRect(203.5 - face.minX, 472.0 - face.minY, 34, 34))
+                    ArtImage(art: .currencyCoinIcon).placed(CGRect(203.5 - face.minX, 472.0 - face.minY, 34, 34))
                     GameText(verbatim: "\(pack.price)", style: priceStyle).at(272.0 - face.minX, priceStyle.capCentre(baseline: 505.7) - face.minY)
                 }
                 .frame(width: face.width, height: face.height, alignment: .topLeading)

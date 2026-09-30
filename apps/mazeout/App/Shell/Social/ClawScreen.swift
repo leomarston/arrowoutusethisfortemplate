@@ -39,7 +39,7 @@ struct SocClawPage: View {
                 .frame(width: m.size.width, height: m.size.height - 433.7 * k, alignment: .topLeading)
                 .offset(y: 433.7 * k)
             ZStack(alignment: .topLeading) {
-                ArtImage(art: .treasureHeader, contentMode: .fill).placed(CGRect(0, 0, 393, 243.5)).clipped()
+                ArtImage(art: .eventClawChallengeHeader, contentMode: .fill).placed(CGRect(0, 0, 393, 243.5)).clipped()
                 LinearGradient(colors: [Color(hex: Skin.socialClawScreenSocClawPageColors0), Color(hex: Skin.socialClawScreenSocClawPageColors1)], startPoint: .top, endPoint: .bottom)
                     .placed(CGRect(0, 233.5, 393, 200.2))
                 SocRails(gold: true).placed(CGRect(0, 233.5, 393, 14))
@@ -172,7 +172,7 @@ private struct SocClawProgress: View {
             RoundedRectangle(cornerRadius: 8).fill(Color(hex: Skin.socialClawScreenSocClawProgressFillV2)).frame(width: 295, height: 29).offset(x: 26, y: 6.3)
             RoundedRectangle(cornerRadius: 6.8).fill(Color(hex: Skin.socialClawScreenSocClawProgressFillV3)).frame(width: max(0, 291 * f), height: 25).offset(x: 28, y: 8.3)
             GameText(verbatim: "\(points)/\(target)", style: st, maxWidth: 200).position(x: 173.5, y: 20.8)
-            ArtImage(art: .treasureToken).placed(CGRect(4.3, 3.4, 37.7, 35.4))
+            ArtImage(art: .eventClawChallengeToken).placed(CGRect(4.3, 3.4, 37.7, 35.4))
             if let reward { SocRewardIcon(grant: reward, small: true).placed(CGRect(303.5, -0.3, 40.4, 35.7)) }
         }
         .frame(width: 347, height: 41.7, alignment: .topLeading)
@@ -191,15 +191,15 @@ struct SocRewardIcon: View {
             let w = geo.size.width, h = geo.size.height
             ZStack {
                 if grant.unlimitedLives > 0 {
-                    ArtImage(art: small ? .heartInfiniteSmall : .heartInfinite).frame(width: w, height: h * 0.9)
+                    ArtImage(art: small ? .livesUnlimitedSmall : .livesUnlimited).frame(width: w, height: h * 0.9)
                     let st = GameTextStyle.s2(small ? 11 : 16, -0.3, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutline, small ? 1.0 : 1.4, drop: 0.5)
                     GameText(verbatim: SocGrantText.duration(grant.unlimitedLives), style: st, maxWidth: w * 0.8).offset(y: h * 0.28)
                 } else if grant.coins > 0 {
-                    ArtImage(art: .coinBowl).frame(width: w, height: h * 0.9)
+                    ArtImage(art: .rewardCoinBowl).frame(width: w, height: h * 0.9)
                     let st = GameTextStyle.s2(small ? 10.5 : 13.5, -0.2, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV2, small ? 1.0 : 1.3, drop: 0.5)
                     GameText(verbatim: "\(grant.coins)", style: st, maxWidth: w * 0.7).offset(y: h * 0.24)
                 } else if let b = grant.boosters.first(where: { $0.value > 0 }) {
-                    ArtImage(art: b.key == "freeze" ? .boosterFreeze : .boosterHint).frame(width: w * 0.8, height: h * 0.9)
+                    ArtImage(art: b.key == "freeze" ? .boosterFreezeIcon : .boosterHintIcon).frame(width: w * 0.8, height: h * 0.9)
                     let st = GameTextStyle.s2(small ? 11 : 15.2, 0, [Skin.socialClawScreenSocRewardIconSt0], outline: Skin.socialClawScreenSocRewardIconStOutlineV3, 1.2, drop: 0.5)
                     GameText(verbatim: "x\(b.value)", style: st).offset(x: w * 0.28, y: h * 0.3)
                 }
@@ -270,7 +270,7 @@ private struct SocClawRow: View {
         ZStack(alignment: .topLeading) {
             Color(hex: Skin.socialClawScreenSocClawRow).frame(width: card.minX - node.maxX + 4, height: 2).offset(x: node.maxX - 2, y: node.midY - 1)
             if state == .next {
-                ArtImage(art: .sunburstRays).frame(width: 90, height: 90).position(x: node.midX, y: node.midY).opacity(0.8)
+                ArtImage(art: .fxSunburst).frame(width: 90, height: 90).position(x: node.midX, y: node.midY).opacity(0.8)
             }
             ZStack {
                 Circle().fill(Color(hex: Skin.socialClawScreenSocClawRowFill))
@@ -285,12 +285,12 @@ private struct SocClawRow: View {
                 RoundedRectangle(cornerRadius: 20).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV2))
                 RoundedRectangle(cornerRadius: 18).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV3)).padding(1.2)
                 RoundedRectangle(cornerRadius: 16).fill(Color(hex: Skin.socialClawScreenSocClawRowFillV4)).padding(4)
-                ArtImage(art: .sunburstRays).frame(width: 177.8, height: 70.7).clipShape(RoundedRectangle(cornerRadius: 16)).offset(x: 4, y: 4)
+                ArtImage(art: .fxSunburst).frame(width: 177.8, height: 70.7).clipShape(RoundedRectangle(cornerRadius: 16)).offset(x: 4, y: 4)
                 if state == .done {
                     ArtImage(art: .iconCheck).frame(width: 53.7, height: 46.4).position(x: card.width / 2, y: card.height / 2)
                 } else {
                     SocRewardIcon(grant: grant).frame(width: 74, height: 60).position(x: card.width / 2, y: card.height / 2)
-                    ArtImage(art: .padlockGold).frame(width: 36.4, height: 44.7).position(x: card.width - 17, y: card.height - 12)
+                    ArtImage(art: .iconLock).frame(width: 36.4, height: 44.7).position(x: card.width - 17, y: card.height - 12)
                 }
             }
             .frame(width: card.width, height: card.height, alignment: .topLeading)
@@ -317,19 +317,19 @@ struct SocClawInfo: View {
             ZStack(alignment: .topLeading) {
                 Color.clear
                 SocPopIn(u: u, start: 0.18, duration: 0.10, overshoot: 1.10, at: CGPoint(x: 196.8, y: 82.9 - 13)) { SocInfoTitle(title: "Treasure Climb", baseline: 82.9) }
-                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 57.4 + 105.8 / 2, y: 138.8 + 105.4 / 2)) { ArtImage(art: .infoPathIcon).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
+                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 57.4 + 105.8 / 2, y: 138.8 + 105.4 / 2)) { ArtImage(art: .iconInfo).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 111.7, y: 270.5 - 6)) {
                     SocTwoLines(text: "Beat levels without losing!", centreX: 111.7, baselines: [270.5, 290.5], box: 110, greedy: true)
                 }
-                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 190 + 40 / 2, y: 240 + 43 / 2)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(234, 236, 40, 45)) }
+                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 190 + 40 / 2, y: 240 + 43 / 2)) { ArtImage(art: .iconPointer).placed(CGRect(234, 236, 40, 45)) }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 166.8 + 197.2 / 2, y: 338.6 + 62.4 / 2)) {
                     SocChevronChips(steps: [5, 10, 25], lit: 1).placed(CGRect(166.8, 338.6, 197.2, 62.4))
                 }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 262.7, y: 423.5 - 6)) {
                     SocTwoLines(text: "Increase your score multiplier!", centreX: 262.7, baselines: [423.5, 443.5], box: 170, greedy: true)
                 }
-                SocPopIn(u: u, start: 0.72, at: CGPoint(x: 190 + 40 / 2, y: 465 + 43 / 2)) { ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45)) }
-                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 89.7 + 75.4 / 2, y: 523.4 + 62 / 2)) { ArtImage(art: .coinPileSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
+                SocPopIn(u: u, start: 0.72, at: CGPoint(x: 190 + 40 / 2, y: 465 + 43 / 2)) { ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45)) }
+                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 89.7 + 75.4 / 2, y: 523.4 + 62 / 2)) { ArtImage(art: .rewardCoinsSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
                 if u >= 1.10 { SocTapTo(text: "Tap to Continue", baseline: 793.4).opacity(min(1, (u - 1.10) / 0.15)) }
             }
             .frame(width: 393, height: 852)

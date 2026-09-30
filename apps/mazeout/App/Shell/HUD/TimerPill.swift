@@ -46,7 +46,7 @@ struct HUDTimerPill: View, Equatable {
                     .scaleEffect(CGFloat(scale), anchor: .center)
                     .at(at.x, style.capCentre(baseline: at.y))
             }
-            InkImage(art: .iconStopwatch, ink: watch)
+            InkImage(art: .hudTimerIcon, ink: watch)
         }
     }
 }

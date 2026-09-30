@@ -290,7 +290,7 @@ import PathCore
     // MARK: V3-09 — decoded art released when nothing shows it
 
     func testArtStorePurgeByPathFreesThoseEntriesOnly() {
-        let a = UIArt.loadingBackdrop.path, b = UIArt.iconCoin.path
+        let a = UIArt.loadingBackdrop.path, b = UIArt.currencyCoinIcon.path
         XCTAssertNotNil(ArtStore.image(path: a))
         XCTAssertNotNil(ArtStore.image(path: a, maxPixel: 256))
         XCTAssertNotNil(ArtStore.image(path: b))
@@ -308,8 +308,8 @@ import PathCore
             let arts = EventArtPolicy.art(e)
             XCTAssertFalse(arts.isEmpty, "\(e)")
             XCTAssertTrue(Set(arts).isDisjoint(with: home), "\(e): never art home or the Shop tab draws")
-            XCTAssertFalse(arts.contains(.treasureToken), "the payout's token is home art")
-            XCTAssertFalse(arts.contains(.eventBadgeBalloon), "the home bar's badge stays")
+            XCTAssertFalse(arts.contains(.eventClawChallengeToken), "the payout's token is home art")
+            XCTAssertFalse(arts.contains(.eventBalloonRiseBadge), "the home bar's badge stays")
         }
         for sc in EventScreen.allCases { XCTAssertFalse(EventArtPolicy.art(sc).isEmpty, "\(sc)") }
     }
@@ -333,12 +333,12 @@ import PathCore
             }
         }
         let onlyUpAway = Set(EventArtPolicy.releasable(openable: [.balloonRise]))
-        for chest in [UIArt.stageChestGreen, .stageChestBlue, .stageChestPink] {
+        for chest in [UIArt.rewardChest1, .rewardChest2, .rewardChest3] {
             XCTAssertFalse(onlyUpAway.contains(chest), "Up & Away's page draws \(chest)")
             XCTAssertFalse(Set(EventArtPolicy.releasable(openable: [.skyJump])).contains(chest), "Cloud Hop's page draws \(chest)")
         }
-        XCTAssertTrue(onlyUpAway.contains(.rallyBackdrop), "Rocket Rally's own backdrop goes")
-        XCTAssertFalse(Set(EventArtPolicy.releasable(openable: [])).contains(.rallyRocketMine), "Profile draws the rally rocket")
+        XCTAssertTrue(onlyUpAway.contains(.eventRocketRaceBackdrop), "Rocket Rally's own backdrop goes")
+        XCTAssertFalse(Set(EventArtPolicy.releasable(openable: [])).contains(.eventRocketRaceRacerMine), "Profile draws the rally rocket")
     }
 
     /// FIX-2 A-R: every place in App/ that draws a managed event's art (a `.<id>` of UIArt, or Up & Away's `UpAwayArt.<name>`),
@@ -355,7 +355,9 @@ import PathCore
         let upAway: [String: String] = ["hero": UpAwayArt.hero, "towerTop": UpAwayArt.towerTop, "towerShaft": UpAwayArt.towerShaft,
                                         "towerFoot": UpAwayArt.towerFoot, "ledge": UpAwayArt.ledge, "badge": UpAwayArt.badge]
         let managedArt = Set(EventArtPolicy.managed.flatMap { EventArtPolicy.art($0) })
-        let byName = Dictionary(uniqueKeysWithValues: managedArt.map { ($0.rawValue, $0) })
+        // `.<case>` references by the Swift case name; Up & Away's constants hold the slot id (the raw value)
+        let byName = Dictionary(uniqueKeysWithValues: managedArt.map { (String(describing: $0), $0) })
+        let bySlot = Dictionary(uniqueKeysWithValues: managedArt.map { ($0.rawValue, $0) })
         let enumRef = try NSRegularExpression(pattern: #"\.([A-Za-z][A-Za-z0-9]*)\b"#)
         let upAwayRef = try NSRegularExpression(pattern: #"UpAwayArt\.([A-Za-z]+)\b"#)
         var sites = 0
@@ -372,7 +374,7 @@ import PathCore
                 if let a = byName[ns.substring(with: m.range(at: 1))] { found.insert(a) }
             }
             for m in upAwayRef.matches(in: code, range: NSRange(location: 0, length: ns.length)) {
-                if let id = upAway[ns.substring(with: m.range(at: 1))], let a = byName[id] { found.insert(a) }
+                if let id = upAway[ns.substring(with: m.range(at: 1))], let a = bySlot[id] { found.insert(a) }
             }
             for a in found {
                 sites += 1

@@ -527,11 +527,12 @@ import PathCore
     }
 
     func testUIArtIsGeneratedFromTheManifest() {
-        XCTAssertEqual(UIArt.iconCoin.path, "UI/iconCoin@3x.png")
+        // skin phase 3: the cases are SLOTS (skin/art.json); the reference skin maps them to the same files as before
+        XCTAssertEqual(UIArt.currencyCoinIcon.path, "UI/iconCoin@3x.png")
         // A4 ART-INTEG (R2 / R3, owner items 1 + 15): the same two facts on the D1 ids that replaced avatarParty / homeBackdrop
         // (their predecessors are NOT SHIPPED now, like avatarGreen before them)
-        XCTAssertEqual(UIArt.avatarConfetti.path, "Art/char_avatarConfetti@3x.png")   // a shipped 3d avatar
-        XCTAssertEqual(UIArt.homeWorkshop.sizePt, CGSize(width: 393, height: 852))
+        XCTAssertEqual(UIArt.avatar6.path, "Art/char_avatarConfetti@3x.png")   // a shipped 3d avatar
+        XCTAssertEqual(UIArt.homeBackdrop.sizePt, CGSize(width: 393, height: 852))
         XCTAssertGreaterThan(UIArt.allCases.count, 100)
         let missing = ArtStore.missing()
         print("[S1] UIArt: \(UIArt.allCases.count) ids, \(missing.count) not in the bundle yet (the art lanes' todo): "

@@ -29,7 +29,7 @@ struct SocStreakPage: View {
         ZStack(alignment: .topLeading) {
             Color(hex: Skin.socialStreakRaceViewsSocStreakPage).frame(width: m.size.width, height: m.size.height)
             ZStack(alignment: .topLeading) {
-                ArtImage(art: .streakHeader, contentMode: .fill).placed(CGRect(-18.2, 0, 429.4, 316.9)).clipped()
+                ArtImage(art: .eventStreakRaceHeader, contentMode: .fill).placed(CGRect(-18.2, 0, 429.4, 316.9)).clipped()
                 LinearGradient(colors: [Color(hex: Skin.socialStreakRaceViewsSocStreakPageColors0), Color(hex: Skin.socialStreakRaceViewsSocStreakPageColors1)], startPoint: .top, endPoint: .bottom)
                     .placed(CGRect(0, 313.6, 393, 172))
                 SocRails().placed(CGRect(0, 313.6, 393, 22))
@@ -109,13 +109,13 @@ struct SocStreakInfo: View {
                 Color.clear
                 SocPopIn(u: u, start: 0.18, duration: 0.10, overshoot: 1.10, at: CGPoint(x: 196.8, y: 83.3 - 13)) { SocInfoTitle(title: "Hot Streak", baseline: 83.3) }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 52.7 + 115.1 / 2, y: 133.1 + 115.4 / 2)) {
-                    ArtImage(art: .infoPathIcon).placed(CGRect(52.7, 133.1, 115.1, 115.4))
+                    ArtImage(art: .iconInfo).placed(CGRect(52.7, 133.1, 115.1, 115.4))
                 }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 111, y: 271.7 - 6)) {
                     SocTwoLines(text: "Beat levels without losing!", centreX: 111, baselines: [271.7, 291.4], box: 110, greedy: true)
                 }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 234 + 40 / 2, y: 218 + 43 / 2)) {
-                    ArtImage(art: .pointerArrowYellow).placed(CGRect(237, 232, 40, 45))
+                    ArtImage(art: .iconPointer).placed(CGRect(237, 232, 40, 45))
                 }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 165 + 207 / 2, y: 348 + 64 / 2)) {
                     SocMiniChips(steps: [5, 10, 25]).placed(CGRect(165, 345, 208, 70))
@@ -124,7 +124,7 @@ struct SocStreakInfo: View {
                     SocTwoLines(text: "Increase your score multiplier!", centreX: 270, baselines: [423.9, 443.5], box: 170, greedy: true)
                 }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 234 + 40 / 2, y: 512 + 43 / 2)) {
-                    ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(234, 512, 40, 45))
+                    ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(234, 512, 40, 45))
                 }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 17 + 180 / 2, y: 479.4 + 120 / 2)) { SocMiniRows().placed(CGRect(14, 482, 184, 132)) }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 112, y: 623.0 - 6)) {
@@ -323,8 +323,8 @@ struct SocHotLine: View {
 /// Three mini race rows (gold / silver / bronze) with a yellow up arrow at the left (the (i) overlay's "flags" item).
 private struct SocMiniRows: View {
     var body: some View {
-        let looks: [(UInt32, UInt32, Int, UIArt, Int)] = [(Skin.socialStreakRaceViewsSocMiniRowsLooks0, Skin.socialStreakRaceViewsSocMiniRowsLooks0V2, 16, .rankBadgeGold, 5), (Skin.socialStreakRaceViewsSocMiniRowsLooks1, Skin.socialStreakRaceViewsSocMiniRowsLooks1V2, 15, .rankBadgeSilver, 6),
-                                                         (Skin.socialStreakRaceViewsSocMiniRowsLooks2, Skin.socialStreakRaceViewsSocMiniRowsLooks2V2, 12, .rankBadgeBronze, 4)]
+        let looks: [(UInt32, UInt32, Int, UIArt, Int)] = [(Skin.socialStreakRaceViewsSocMiniRowsLooks0, Skin.socialStreakRaceViewsSocMiniRowsLooks0V2, 16, .rank1Badge, 5), (Skin.socialStreakRaceViewsSocMiniRowsLooks1, Skin.socialStreakRaceViewsSocMiniRowsLooks1V2, 15, .rank2Badge, 6),
+                                                         (Skin.socialStreakRaceViewsSocMiniRowsLooks2, Skin.socialStreakRaceViewsSocMiniRowsLooks2V2, 12, .rank3Badge, 4)]
         ZStack(alignment: .topLeading) {
             ForEach(0..<3, id: \.self) { i in
                 let (face, lip, score, badge, avatar) = looks[i]
@@ -338,13 +338,13 @@ private struct SocMiniRows: View {
                     .frame(width: 26, height: 26).offset(x: 6)
                     SocAvatar(index: avatar).frame(width: 32, height: 32).offset(x: 36)
                     RoundedRectangle(cornerRadius: 6).fill(Color(hex: lip)).frame(width: 36, height: 20).offset(x: 118)
-                    ArtImage(art: .scoreChip).frame(width: 22, height: 25).offset(x: 104)
+                    ArtImage(art: .socialScoreChip).frame(width: 22, height: 25).offset(x: 104)
                     GameText(verbatim: "\(score)", style: .s2(15, 0, [Skin.socialStreakRaceViewsSocMiniRowsStyle0], outline: Skin.socialStreakRaceViewsSocMiniRowsOutline, 1.2, drop: 0.5)).offset(x: 129)
                 }
                 .frame(width: 162, height: 36)
                 .offset(x: 20 + (i == 0 ? 0 : 6), y: CGFloat(i) * 43)
             }
-            ArtImage(art: .pointerArrowDown).rotationEffect(.degrees(180)).frame(width: 24, height: 33).offset(x: 3, y: 24)
+            ArtImage(art: .iconPointerDown).rotationEffect(.degrees(180)).frame(width: 24, height: 33).offset(x: 3, y: 24)
         }
         .frame(width: 184, height: 132, alignment: .topLeading)
     }
@@ -383,7 +383,7 @@ struct SocWarningCard: View {
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: Skin.socialStreakRaceViewsSocWarningCardFill)).offset(y: 1.5)
             RoundedRectangle(cornerRadius: 8.7).fill(Color(hex: Skin.socialStreakRaceViewsSocWarningCardFillV2))
-            ArtImage(art: .heartBroken).placed(CGRect(8, frame.height / 2 - 25, 54, 50))
+            ArtImage(art: .livesLost).placed(CGRect(8, frame.height / 2 - 25, 54, 50))
             SocTwoLines(text: text, centreX: (frame.width + 60) / 2, baselines: [frame.height / 2 - 3, frame.height / 2 + 16],
                         box: frame.width - 72, size: 16.4, faceHex: Skin.socialStreakRaceViewsSocWarningCardFaceHex, hotHex: Skin.socialStreakRaceViewsSocWarningCardHotHex, outline: nil, hot: "fail", greedy: true,
                         breakAt: 165)

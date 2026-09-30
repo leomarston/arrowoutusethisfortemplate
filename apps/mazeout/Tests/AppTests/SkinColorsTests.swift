@@ -136,7 +136,7 @@ final class SkinColorsTests: XCTestCase {
         XCTAssertEqual(AppModel.fontNames, [GameText.blackPostScript, GameText.italicPostScript])
         let names = try XCTUnwrap(JSONSerialization.jsonObject(with: Data(contentsOf: V1Repo.url("skin/names.json"))) as? [String: Any])
         XCTAssertEqual(SkinNames.podiumSampleNames, names["podiumSampleNames"] as? [String])
-        XCTAssertEqual(AvatarPortrait.files, names["avatarPortraits"] as? [String])
+        // (the avatar portraits are art slots now: SkinArtTests.testTheAvatarTableIsTheAvatarSlots)
     }
 
     /// The Mac-side twin of `build.py --check-literals` (line comments stripped, like the other source scans here): no
@@ -147,6 +147,7 @@ final class SkinColorsTests: XCTestCase {
         let allow = (allowObj["allow"] as? [[String: String]] ?? []).map { ($0["file"] ?? "", $0["literal"] ?? "") }
         let re = try NSRegularExpression(pattern: #"(?<![0-9A-Za-z_])0x[0-9A-Fa-f]{6}(?![0-9A-Fa-f_])"#)
         var files = V1Repo.files("App/Shell", extensions: ["swift"]) + V1Repo.files("App/FX", extensions: ["swift"])
+            + V1Repo.files("App/Puzzles", extensions: ["swift"])             // template phase 5: the modules' boards
         files.append(V1Repo.url("art/ui/code/GlossyChrome.swift"))
         var left: [String] = []
         for url in files where url.lastPathComponent != "SkinColors.generated.swift" {

@@ -6,11 +6,12 @@ import PathCore
 
 /// VERIFY V1 (SPEC-architecture §6.11 `UIArtBundleTests`, §12.2 V1: 0 missing art in the bundle; GP §14 / memory
 /// never-ship-stand-in-content). A missing raster would draw the hatched DebugPlaceholder in Debug and nothing in Release:
-///  - every `UIArt` case (tools/uiart_gen.py from art/MANIFEST.json) has its file and it decodes as a real image of a
-///    plausible @3x size;
+///  - every `UIArt` case (an art slot: tools/skin/art.py from skin/art.json + art/MANIFEST.json) has its file and it decodes
+///    as a real image of a plausible @3x size;
 ///  - every board sprite the engine asks for (BoardArt's warm-up list + every bundled level's tape and obstacle sprites, and
 ///    the validator's sprite ids) is in `UI/`;
-///  - the home puppets' rigs load and every layer PNG and full render they name exists;
+///  - every rig slot (`ArtRig`: the home puppets, the centrepiece, the event badges) loads and every layer PNG and full render
+///    it names exists;
 ///  - every "UI/…png" / "Art/…png" path spelled in App/**/*.swift exists in the bundle;
 ///  - `UI/` and `Art/` hold only PNG / JSON and no `_*` scratch file (tools/sync_art.sh rules).
 final class UIArtBundleTests: XCTestCase {
@@ -34,17 +35,23 @@ final class UIArtBundleTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(UIArt.allCases.count, 150, "the generated list is the shipped set")
     }
 
-    /// The UIArt ids the code actually draws (`.caseName` / `UIArt.caseName` / `"caseName"` in App/**/*.swift outside the
-    /// generated list): each has its file. (The strict test above also covers ids no screen uses.)
+    /// The UIArt slots the code actually draws (`.caseName` / `UIArt.caseName` / `"caseName"`, or a slot id string
+    /// `"a.b.c"`, in App/**/*.swift outside the generated list — the generated scenes included): each has its file. (The strict
+    /// test above also covers slots no screen uses.)
     func testEveryUIArtIdTheCodeUsesIsInTheBundle() throws {
-        let cases = Dictionary(uniqueKeysWithValues: UIArt.allCases.map { ($0.rawValue, $0) })
+        let cases = Dictionary(uniqueKeysWithValues: UIArt.allCases.map { (String(describing: $0), $0) })
+        let slots = Dictionary(uniqueKeysWithValues: UIArt.allCases.map { ($0.rawValue, $0) })
         let re = try NSRegularExpression(pattern: #"(?:\.|UIArt\.|")([a-z][A-Za-z0-9]+)\b"#)
+        let slotRe = try NSRegularExpression(pattern: #""([a-z][A-Za-z0-9]*(?:\.[A-Za-z0-9]+)+)""#)
         var used = Set<UIArt>()
         for f in V1Repo.files("App", extensions: ["swift"]) where f.lastPathComponent != "UIArt.swift" {
             let text = try String(contentsOf: f, encoding: .utf8)
             let ns = text as NSString
             for m in re.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
                 if let a = cases[ns.substring(with: m.range(at: 1))] { used.insert(a) }
+            }
+            for m in slotRe.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
+                if let a = slots[ns.substring(with: m.range(at: 1))] { used.insert(a) }
             }
         }
         XCTAssertGreaterThan(used.count, 60, "the scan finds the art the screens draw")
@@ -84,11 +91,19 @@ final class UIArtBundleTests: XCTestCase {
     }
 
     @MainActor func testHomePuppetRigsLoadWithEveryLayer() throws {
-        let home = try V1Repo.text("App/Shell/Home/HomeView.swift")
-        let re = try NSRegularExpression(pattern: #"rigName:\s*"([^"]+)""#)
-        let ns = home as NSString
-        let names = Set(re.matches(in: home, range: NSRange(location: 0, length: ns.length)).map { ns.substring(with: $0.range(at: 1)) })
-        XCTAssertGreaterThanOrEqual(names.count, 3, "the scientist and the two workers")
+        // skin phase 3: the rigs are slots (skin/art.json `rigs`), the home scene names them (skin/scenes.json -> SkinScenes)
+        let names = Set(ArtRig.allCases.map(\.folder))
+        XCTAssertEqual(names.count, ArtRig.allCases.count, "one folder per rig slot")
+        XCTAssertGreaterThanOrEqual(names.count, 8, "the main character, the two in front, the centrepiece and the four badges")
+        var sceneRigs = Set<String>()
+        for l in SkinScenes.homeBack + SkinScenes.homeFront {
+            switch l.kind {
+            case .rig(let r), .centrepiece(let r): sceneRigs.insert(r.folder)
+            case .art: break
+            }
+        }
+        XCTAssertGreaterThanOrEqual(sceneRigs.count, 4, "the home scene draws its characters and centrepiece as rigs")
+        XCTAssertTrue(sceneRigs.isSubset(of: names))
         for name in names.sorted() {
             let rig = try PuppetRig.load(name)
             XCTAssertFalse(rig.layers.isEmpty, name)
@@ -168,7 +183,7 @@ final class UIArtBundleTests: XCTestCase {
         return ["Art/\(rel)", "Art/\(stem).json"]
     }
 
-    /// What of the never-shipped set is in `files` (bundle-relative) or has a UIArt case in `cases`.
+    /// What of the never-shipped set is in `files` (bundle-relative) or fills a UIArt slot (`cases`: the slots' manifest ids).
     static func leaks(files: Set<String>, cases: Set<String>, never: [(id: String, file: String)]) -> [String] {
         var out: [String] = []
         for (id, file) in never {
@@ -200,7 +215,7 @@ final class UIArtBundleTests: XCTestCase {
                    "digBalloon", "digClawPair", "digRacers", "arrowGlossyRed", "arrowGlossyCyan", "appIcon"] {
             XCTAssertTrue(never.contains { $0.id == id }, "\(id) is retired / build-only")
         }
-        let files = artFiles, cases = Set(UIArt.allCases.map(\.rawValue))
+        let files = artFiles, cases = Set(UIArt.allCases.map(\.asset))
         XCTAssertGreaterThan(files.count, 200, "the scan sees the bundle's art")
         XCTAssertEqual(Self.leaks(files: files, cases: cases, never: never), [], "retired / provenance-only / build-only art in the app")
         // negative control: keeping ONE id (its case and its file, the A4 finding) is caught — and so is a build-only render

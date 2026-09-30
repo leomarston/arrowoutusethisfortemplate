@@ -55,11 +55,11 @@ import PathCore
     /// are decoded at launch, off the main thread, so the new week's bar never pays an image decode in the frame it appears
     /// (Up & Away's token only once R8's art exists; `ArtStore` is thread-safe and caches the decoded bitmap).
     static func preloadLadderArt() {
-        let arts: [UIArt] = [.treasureToken, .iconStopwatchSmall, .coinBowl, .heartInfiniteSmall, .boosterFreeze, .boosterHint, .iconCheck]
+        let arts: [UIArt] = [.eventClawChallengeToken, .hudTimerIconSmall, .rewardCoinBowl, .livesUnlimitedSmall, .boosterFreezeIcon, .boosterHintIcon, .iconCheck]
             + [UpAwayArt.badge].compactMap(UpAwayArt.art)
         // A4: the badges and the Up & Away token are rigs now (their idle loops): their layers are decoded here too, so a badge
         // that appears on an idle home (the weekly roll, a Finished hold opened) builds from cached bitmaps
-        let rigs = ["badge_upaway_rig"] + EventBadgeKind.allCases.map(\.rig)
+        let rigs = [ArtRig.eventBalloonRiseBadge.folder] + EventBadgeKind.allCases.map(\.rig)
         let layers = rigs.compactMap { PuppetCache.rig($0) }.flatMap { r in r.layers.map { r.path($0) } }
         DispatchQueue.global(qos: .utility).async {
             _ = ArtStore.preload(arts)

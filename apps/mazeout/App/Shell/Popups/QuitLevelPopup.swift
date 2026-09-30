@@ -26,7 +26,7 @@ struct QuitLevelPopup: View {
         ZStack(alignment: .topLeading) {
             BandPopupFrame(t: t).placed(band)
             // the raster carries padding: its visible heart fills the measured `quit.heart` box (122.8 × 97.4)
-            ArtImage(art: .heartBroken).placed(t.frame("quit.heartArt", CGRect(131.7, 354.0, 127.0, 104.8)))
+            ArtImage(art: .livesLost).placed(t.frame("quit.heartArt", CGRect(131.7, 354.0, 127.0, 104.8)))
             GameText("You will lose a life!", style: message, maxWidth: t.textMaxWidth("quit.message", 340))
                 .at(msgAt.x, message.capCentre(baseline: msgAt.baseline))
                 .accessibilityIdentifier("popup.quitLevel.message")

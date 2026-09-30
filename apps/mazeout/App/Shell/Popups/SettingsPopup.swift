@@ -48,7 +48,7 @@ struct SettingsPopup: View {
             ShellPageBackground(t: t).frame(width: m.size.width, height: m.size.height)
             // notifications
             BlueCard(radius: t.radius("settings.notifCard", 23.7) * m.s, t: t).placed(r("notifCard", CGRect(19.0, 134.1, 355.3, 95.7)))
-            OutlinedArt(art: .glyphBell, outline: Color(hex: Skin.popupsSettingsPopupSettingsPopupOutline)).placed(r("bell", CGRect(44.0, 164.5, 30.7, 38.4)).insetBy(dx: 1.3, dy: 1.3))
+            OutlinedArt(art: .iconBell, outline: Color(hex: Skin.popupsSettingsPopupSettingsPopupOutline)).placed(r("bell", CGRect(44.0, 164.5, 30.7, 38.4)).insetBy(dx: 1.3, dy: 1.3))
             notifWord.at(notifAt.x + notifWord.layout.advance / 2, lst.capCentre(baseline: notifAt.y))
             PopupToggle(id: "settings.toggle.notifications", isOn: s.notifications, t: t, well: .blue) {
                 SettingsPopup.toggleNotifications(app)
@@ -60,15 +60,15 @@ struct SettingsPopup: View {
                 GameText(pair.0, style: lst, maxWidth: CGFloat(f.double("text.settings.label.rowBox", 90)) * m.s)
                     .at(pair.1, lst.capCentre(baseline: rowBase))
             }
-            ShellSquareToggle(id: "settings.toggle.sound", glyph: .glyphSound, isOn: s.sound, t: t) {
+            ShellSquareToggle(id: "settings.toggle.sound", glyph: .iconSound, isOn: s.sound, t: t) {
                 ShellSettings.toggle(app, \.sound, name: "settings.toggle.sound")
             }
             .placed(r("sound", CGRect(58.0, 312.3, 66.1, 65.7)))
-            ShellSquareToggle(id: "settings.toggle.music", glyph: .glyphMusic, isOn: SettingsPopup.musicShown(app), t: t) {
+            ShellSquareToggle(id: "settings.toggle.music", glyph: .iconMusic, isOn: SettingsPopup.musicShown(app), t: t) {
                 SettingsPopup.tapMusic(app)
             }
             .placed(r("music", CGRect(162.1, 311.9, 65.7, 65.7)))
-            ShellSquareToggle(id: "settings.toggle.haptic", glyph: .glyphHaptic, isOn: s.haptic, t: t) {
+            ShellSquareToggle(id: "settings.toggle.haptic", glyph: .iconHaptic, isOn: s.haptic, t: t) {
                 ShellSettings.toggle(app, \.haptic, name: "settings.toggle.haptic")
             }
             .placed(r("haptic", CGRect(266.9, 311.6, 66.1, 65.7)))

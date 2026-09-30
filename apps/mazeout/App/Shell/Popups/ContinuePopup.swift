@@ -73,9 +73,9 @@ struct ContinuePopup: View {
             case .life:
                 TokenText(id: "continueLife.message.msg", source: .copy("You will lose a life!"), style: .s2(26.1, -1.59, [Skin.popupsContinuePopupContinuePopupBandLifeStyle0]),
                           baseline: 346.0, centreX: 196.2, maxWidth: 340)
-                InkImage(art: .heartBroken, ink: t.frame("continueLife.brokenHeart", CGRect(132.65, 359.25, 128.6, 101.8)))
+                InkImage(art: .livesLost, ink: t.frame("continueLife.brokenHeart", CGRect(132.65, 359.25, 128.6, 101.8)))
             case .token:
-                InkImage(art: .treasureToken, ink: t.frame("continueToken.token", CGRect(50.0, 322.0, 55.0, 53.0)))
+                InkImage(art: .eventClawChallengeToken, ink: t.frame("continueToken.token", CGRect(50.0, 322.0, 55.0, 53.0)))
                 TokenLine(multiplier: steps[step], t: t)
                 TokenText(id: "continueToken.texts.l2", source: .copy("and your streak!"), style: .s2(21.1, -0.34, [Skin.popupsContinuePopupContinuePopupBandTokenStyle0]),
                           baseline: 369.1, centreX: 222.5, maxWidth: 235)

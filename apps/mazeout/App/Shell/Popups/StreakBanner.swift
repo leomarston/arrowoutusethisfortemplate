@@ -202,9 +202,9 @@ struct StreakRaceLettering: View {
         let x0 = frame.width / 2 - total / 2
         let base = frame.height * 38 / 53.4
         ZStack(alignment: .topLeading) {
-            InkImage(art: .iconCheckeredFlag, ink: CGRect(0, 4 * k, 28 * k, 32 * k))
-            ArtImage(art: .iconCheckeredFlag).scaleEffect(x: -1, y: 1)
-                .placed(ArtInk.canvas(.iconCheckeredFlag, ink: CGRect(frame.width - 28 * k, 4 * k, 28 * k, 32 * k)))
+            InkImage(art: .iconFinishFlag, ink: CGRect(0, 4 * k, 28 * k, 32 * k))
+            ArtImage(art: .iconFinishFlag).scaleEffect(x: -1, y: 1)
+                .placed(ArtInk.canvas(.iconFinishFlag, ink: CGRect(frame.width - 28 * k, 4 * k, 28 * k, 32 * k)))
             GameText(verbatim: w1, style: st1, maxWidth: box1).at(x0 + a.advance / 2, st1.capCentre(baseline: base))
             GameText(verbatim: w2, style: st2, maxWidth: box2)
                 .at(x0 + a.advance + gap + b.advance / 2, st2.capCentre(baseline: base))
@@ -366,7 +366,7 @@ struct EventTimerChip: View {
             .frame(width: frame.width - 10 * k, height: frame.height).offset(x: 10 * k)
             GlyphRunText(text: text, style: style.sized(style.size * k), maxWidth: frame.width - 26 * k)
                 .at(frame.width / 2 + 9 * k, style.sized(style.size * k).capCentre(baseline: frame.height * 19.5 / 28))
-            InkImage(art: .iconStopwatchSmall, ink: CGRect(-3 * k, -0.5 * k, 26 * k, 28 * k))
+            InkImage(art: .hudTimerIconSmall, ink: CGRect(-3 * k, -0.5 * k, 26 * k, 28 * k))
         }
         .frame(width: frame.width, height: frame.height, alignment: .topLeading)
         .accessibilityElement(children: .ignore)

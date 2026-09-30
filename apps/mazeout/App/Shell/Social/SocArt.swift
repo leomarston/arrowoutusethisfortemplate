@@ -210,7 +210,7 @@ enum SocArt {
             }
             if r.isMe || c.kind == .streak { _ = pill(r.isMe ? .me : r.look, size: CGSize(width: 53.4, height: 33.4), scale: scale) }
         }
-        for a in [UIArt.rankBadgeGold, .rankBadgeSilver, .rankBadgeBronze, .coinBowl, .scoreChip] { _ = art(a) }
+        for a in [UIArt.rank1Badge, .rank2Badge, .rank3Badge, .rewardCoinBowl, .socialScoreChip] { _ = art(a) }
         _ = separator(width: 393, scale: scale)
     }
 

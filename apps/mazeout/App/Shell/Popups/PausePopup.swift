@@ -17,10 +17,10 @@ struct PausePopup: View {
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: t.superellipseN("pause.panel", 6.31), t: t).placed(panel)
             PopupCard(radius: t.radius("pause.card", 24.44), t: t).placed(t.frame("pause.card", CGRect(51.4, 299.6, 287.9, 165.8)))
-            SettingRow(icon: .glyphSound, label: "Sound", key: \.sound, id: "pause.toggle.sound",
+            SettingRow(icon: .iconSound, label: "Sound", key: \.sound, id: "pause.toggle.sound",
                        iconFrame: t.frame("pause.iconSound", CGRect(73.4, 331.6, 31.4, 28.7)),
                        toggle: t.frame("pause.toggleSound", CGRect(206.5, 328.6, 116.1, 37.4)), baseline: 354.3, isOn: s.sound)
-            SettingRow(icon: .glyphHaptic, label: "Haptic", key: \.haptic, id: "pause.toggle.haptic",
+            SettingRow(icon: .iconHaptic, label: "Haptic", key: \.haptic, id: "pause.toggle.haptic",
                        iconFrame: t.frame("pause.iconHaptic", CGRect(72.4, 403.3, 33, 31.7)),
                        toggle: t.frame("pause.toggleHaptic", CGRect(206.5, 401.7, 116.1, 37.4)), baseline: 427.6, isOn: s.haptic)
             PanelPairButton(id: "popup.pause.primary", title: "Resume", colors: .green, textID: "pause.resume",

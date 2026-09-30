@@ -169,13 +169,13 @@ struct ClawRewardIcon: View {                                  // B1: shared wit
                 ArtImage(art: .iconCheck).placed(box.insetBy(dx: 4, dy: 6))
             } else if let g = reward {
                 if g.coins > 0 {
-                    ArtImage(art: .coinBowl).placed(CGRect(x: box.minX - 4.5, y: box.minY - 1.5, width: 55, height: 43))
+                    ArtImage(art: .rewardCoinBowl).placed(CGRect(x: box.minX - 4.5, y: box.minY - 1.5, width: 55, height: 43))
                     amount(ShopFormat.amount(g.coins), outline: Skin.homeClawBarClawRewardIconOutline, x: box.midX, baseline: box.minY + 35.3, size: 12.2)
                 } else if g.unlimitedLives > 0 {
-                    ArtImage(art: .heartInfiniteSmall).placed(CGRect(x: box.minX - 1, y: box.minY - 0.5, width: 48, height: 44))
+                    ArtImage(art: .livesUnlimitedSmall).placed(CGRect(x: box.minX - 1, y: box.minY - 0.5, width: 48, height: 44))
                     amount(ShopFormat.duration(g.unlimitedLives), outline: Skin.homeClawBarClawRewardIconOutlineV2, x: box.midX + 1, baseline: box.minY + 37.8, size: 15.6)
                 } else if let (id, n) = g.boosters.first(where: { $0.value > 0 }) {
-                    ArtImage(art: id == "freeze" ? .boosterFreeze : .boosterHint)
+                    ArtImage(art: id == "freeze" ? .boosterFreezeIcon : .boosterHintIcon)
                         .placed(CGRect(x: box.midX - 16, y: box.minY + 1, width: 32, height: 36))
                     amount("x\(n)", outline: Skin.homeClawBarClawRewardIconOutlineV3, x: box.midX + 1, baseline: box.minY + 41, size: 13.5)
                 }
@@ -206,7 +206,7 @@ struct HexToken: View {
     @State private var flashOpacity = 0.0
     var body: some View {
         ZStack {
-            ArtImage(art: .treasureToken)
+            ArtImage(art: .eventClawChallengeToken)
             Circle().fill(Color.white).opacity(flashOpacity).padding(6).blendMode(.screen)
         }
         .onChange(of: flash) { _, _ in
@@ -437,7 +437,7 @@ struct CountdownChip: View {
                 }
             }
             .placed(CGRect(x: 17.4, y: 4.4, width: 61.1, height: 17.8))
-            ArtImage(art: .iconStopwatchSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
+            ArtImage(art: .hudTimerIconSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
             // B1b: "Finished" fitted inside the chip's face like v582's (≈ 47 pt wide on the 1178 px PH-0a shot)
             GlyphRunText(text: text, style: st, maxWidth: finished ? Self.finishedMaxWidth(t) : 54)
                 .at(48.3, st.capCentre(baseline: 18.5))

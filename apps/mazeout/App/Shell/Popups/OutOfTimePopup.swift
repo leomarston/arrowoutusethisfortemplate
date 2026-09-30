@@ -37,7 +37,7 @@ struct OutOfTimePopup: View {
             if hearts {
                 BigGlossyHeart(t: t).placed(t.frame("outOfLives.heart", CGRect(103.8, 320.6, 184.8, 155.1)))
             } else {
-                InkImage(art: .stopwatchBig, ink: t.frame("outOfTime.stopwatch", CGRect(91.7, 273.6, 208.2, 220.9)))
+                InkImage(art: .popupOutOfTimeStopwatch, ink: t.frame("outOfTime.stopwatch", CGRect(91.7, 273.6, 208.2, 220.9)))
             }
             TokenText(id: key + ".grant", source: .copy(hearts ? "+3 Lives" : "+30 sec"),
                       style: .s2(hearts ? 60.4 : 61.0, hearts ? -1.1 : -0.75, [Skin.popupsOutOfTimePopupOutOfTimePopupStyle0V2], outline: hearts ? Skin.popupsOutOfTimePopupOutOfTimePopupOutlineHearts : Skin.popupsOutOfTimePopupOutOfTimePopupOutlineNotHearts,

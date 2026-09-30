@@ -129,9 +129,9 @@ import PathCore
         XCTAssertEqual(again.state.social.displayName(installSeed: again.state.installSeed), "Hsheh")
         // A4 ART-INTEG (R2 CAST, requirement change owner item 1 / ruling 37b: new characters): slot 5 keeps its place in the
         // 9-slot order (the social engine indexes slots, not names) and now holds the D1 boss portrait — same exact equality
-        XCTAssertEqual(Avatars.art(5), .avatarBoss)
+        XCTAssertEqual(Avatars.art(5), .avatar5)
         XCTAssertEqual(Avatars.count, 9, "default + 8 portraits (CONSISTENCY V-24)")
-        XCTAssertEqual(Avatars.art(14), .avatarDefault, "out of range → the silhouette")
+        XCTAssertEqual(Avatars.art(14), .avatar0, "out of range → the silhouette")
     }
 
     // MARK: payout

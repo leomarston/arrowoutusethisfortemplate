@@ -157,9 +157,9 @@ enum EventBadgeKind: String, CaseIterable, Hashable {
     /// A4 (R3 HOME, art/lanes/home.handoff.json "badges"): the D1 badge's full render (the preload and the fallback)…
     var art: UIArt {
         switch self {
-        case .streakRace: return .badgeHotStreak
-        case .rocketRace: return .badgeRocketRally
-        case .skyJump: return .badgeCloudHop
+        case .streakRace: return .eventStreakRaceBadge
+        case .rocketRace: return .eventRocketRaceBadge
+        case .skyJump: return .eventSkyJumpBadge
         }
     }
 
@@ -167,9 +167,9 @@ enum EventBadgeKind: String, CaseIterable, Hashable {
     /// the pennants wave, the rocket lifts off in its exhaust, the drum hops; the phases stagger them).
     var rig: String {
         switch self {
-        case .streakRace: return "badge_hotstreak_rig"
-        case .rocketRace: return "badge_rocketrally_rig"
-        case .skyJump: return "badge_cloudhop_rig"
+        case .streakRace: return ArtRig.eventStreakRaceBadge.folder
+        case .rocketRace: return ArtRig.eventRocketRaceBadge.folder
+        case .skyJump: return ArtRig.eventSkyJumpBadge.folder
         }
     }
 }

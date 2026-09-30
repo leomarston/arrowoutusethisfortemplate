@@ -23,11 +23,22 @@ public struct MetaRules: Codable, Sendable, Equatable {
         /// Shown only while the streak multiplier is above x1 (VERIFIED research/fail.md §1: "B is skipped when the
         /// multiplier is already x1"); the session reads `LevelSession.streakActive`.
         public var onlyWithStreak: Bool
+        /// Contract v1.1 (PUZZLE-MODULE.md §8b), additive: a module's own rescue for this step ("extraTube", "undo",
+        /// "shuffle" …), handed to the session as `ContinueOffer.Grant.puzzleAction(id: action, amount: amount)`. nil (the
+        /// default; absent from JSON) = `grant` decides, exactly as before. `StepGrant` stays the three pinned cases.
+        public var action: String?
 
         public init(price: Int, grant: StepGrant, amount: Int, warning: ContinueOffer.Warning = .none,
                     onlyWithStreak: Bool = false) {
             self.price = price; self.grant = grant; self.amount = amount; self.warning = warning
             self.onlyWithStreak = onlyWithStreak
+        }
+
+        /// Contract v1.1: a step whose grant is a module's puzzle action.
+        public init(price: Int, grant: StepGrant, amount: Int, warning: ContinueOffer.Warning = .none,
+                    onlyWithStreak: Bool = false, action: String?) {
+            self.init(price: price, grant: grant, amount: amount, warning: warning, onlyWithStreak: onlyWithStreak)
+            self.action = action
         }
 
         public init(from decoder: Decoder) throws {
@@ -37,9 +48,11 @@ public struct MetaRules: Codable, Sendable, Equatable {
             amount = try c.v(.amount, 0)
             warning = try c.v(.warning, .none)
             onlyWithStreak = try c.v(.onlyWithStreak, false)
+            action = try c.decodeIfPresent(String.self, forKey: .action)
         }
 
         public var offerGrant: ContinueOffer.Grant {
+            if let action, !action.isEmpty { return .puzzleAction(id: action, amount: amount) }
             switch grant {
             case .addTime: return .addTime(amount)
             case .refillHearts: return .refillHearts(amount)

@@ -172,14 +172,14 @@ struct SocRunMemo: Sendable, Equatable {
 
     /// Every raster the social screens draw (UIArtBundleTests-style check in SocialScreensTests).
     nonisolated static let art: [UIArt] = [
-        .cupPodium, .rankBadgeGold, .rankBadgeSilver, .rankBadgeBronze, .coinBowl, .scoreChip, .streakHeader,
-        .rallyBackdrop, .rallyOfferScene, .rallyRocketMine, .rallyRocketOther, .rankWings1, .planetStage1, .planetStage2, .planetStage3,
-        .stageChestGreen, .stageChestBlue, .stageChestPink, .hopBackdrop, .hopIsland, .hopIslandFar, .hopIslandFar2,
-        .hopPad, .hopOfferScene, .treasureHeader, .infoPathIcon, .pointerArrowYellow, .pointerArrowDown, .heartBroken,
-        .sunburstRays, .padlockGold, .iconCheck, .treasureToken, .heartInfinite, .heartInfiniteSmall, .boosterFreeze, .boosterHint,
-        .coinPileSmall, .navCup, .iconStopwatchSmall, .iconCheckeredFlag,
+        .leaderboardPodium, .rank1Badge, .rank2Badge, .rank3Badge, .rewardCoinBowl, .socialScoreChip, .eventStreakRaceHeader,
+        .eventRocketRaceBackdrop, .eventRocketRaceOffer, .eventRocketRaceRacerMine, .eventRocketRaceRacerOther, .rank1Wings, .eventRocketRaceStage1, .eventRocketRaceStage2, .eventRocketRaceStage3,
+        .rewardChest1, .rewardChest2, .rewardChest3, .eventSkyJumpBackdrop, .eventSkyJumpPlatform, .eventSkyJumpPlatformFar, .eventSkyJumpPlatformFar2,
+        .eventSkyJumpPad, .eventSkyJumpOffer, .eventClawChallengeHeader, .iconInfo, .iconPointer, .iconPointerDown, .livesLost,
+        .fxSunburst, .iconLock, .iconCheck, .eventClawChallengeToken, .livesUnlimited, .livesUnlimitedSmall, .boosterFreezeIcon, .boosterHintIcon,
+        .rewardCoinsSmall, .navLeaderboardIcon, .hudTimerIconSmall, .iconFinishFlag,
     ] + Avatars.arts + UpAwayArt.ids.compactMap { UIArt(rawValue: $0) }      // B1: Up & Away's art once R8 ships it
-      + [.balloonCloudA, .balloonCloudB]                                      // A4: R8's optional clouds on the Up & Away page
+      + [.eventBalloonRiseCloudA, .eventBalloonRiseCloudB]                                      // A4: R8's optional clouds on the Up & Away page
 
     private func freezeHomeCountry() {
         guard let app else { return }

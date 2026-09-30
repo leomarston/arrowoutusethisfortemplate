@@ -42,8 +42,8 @@ struct ProfileView: View {
     /// Behind Loading: the page content once (its card / plate / pill images).
     static func prewarm() -> some View { ProfileContent() }
 
-    static let art: [UIArt] = Avatars.arts + [.iconPencil, .statFirstTryIcon, .statWeeklyWinsIcon, .scoreChip, .rallyRocketMine, .hopDrum,
-                                              .treasureToken]
+    static let art: [UIArt] = Avatars.arts + [.iconPencil, .profileStatFirstTry, .profileStatWeeklyWins, .socialScoreChip, .eventRocketRaceRacerMine, .eventSkyJumpIcon,
+                                              .eventClawChallengeToken]
 }
 
 /// The page's content on the 393-wide reference canvas (top-anchored as a block: `TopCanvas`).
@@ -113,17 +113,17 @@ struct ProfileStat {
     }
 
     static let all: [ProfileStat] = [
-        ProfileStat(label: "First Try Wins", icon: .statFirstTryIcon, iconFrame: CGRect(-26.0, -1.0, 57.4, 52.4),
+        ProfileStat(label: "First Try Wins", icon: .profileStatFirstTry, iconFrame: CGRect(-26.0, -1.0, 57.4, 52.4),
                     value: { $0.stats.firstTryWins }, id: "firstTry"),
-        ProfileStat(label: "Weekly Cup Wins", icon: .statWeeklyWinsIcon, iconFrame: CGRect(-22.1, -1.0, 48, 51),
+        ProfileStat(label: "Weekly Cup Wins", icon: .profileStatWeeklyWins, iconFrame: CGRect(-22.1, -1.0, 48, 51),
                     value: { max($0.stats.weeklyContestWins, $0.social.weeklyContestWins) }, id: "weekly"),
-        ProfileStat(label: "Hot Streak Wins", icon: .scoreChip, iconFrame: CGRect(-24.0, 2.0, 44, 48.4),
+        ProfileStat(label: "Hot Streak Wins", icon: .socialScoreChip, iconFrame: CGRect(-24.0, 2.0, 44, 48.4),
                     value: { $0.events.wins[EventID.streakRace.rawValue] ?? 0 }, id: "streak"),        // SPEC-ui §6 id profile.stat.streak
-        ProfileStat(label: "Rocket Rally Wins", icon: .rallyRocketMine, iconFrame: CGRect(-23.1, -8.5, 44.7, 64.4),
+        ProfileStat(label: "Rocket Rally Wins", icon: .eventRocketRaceRacerMine, iconFrame: CGRect(-23.1, -8.5, 44.7, 64.4),
                     value: { $0.events.wins[EventID.rocketRace.rawValue] ?? 0 }, id: "rocket"),        // SPEC-ui §6 id profile.stat.rocket
-        ProfileStat(label: "Cloud Hop Wins", icon: .hopDrum, iconFrame: CGRect(-27.3, -0.5, 58.7, 53.5),
+        ProfileStat(label: "Cloud Hop Wins", icon: .eventSkyJumpIcon, iconFrame: CGRect(-27.3, -0.5, 58.7, 53.5),
                     value: { $0.events.wins[EventID.skyJump.rawValue] ?? 0 }, id: "sky"),           // SPEC-ui §6 id profile.stat.sky
-        ProfileStat(label: "Treasure Climb Wins", icon: .treasureToken, iconFrame: CGRect(-26.6, -3.5, 51, 51),
+        ProfileStat(label: "Treasure Climb Wins", icon: .eventClawChallengeToken, iconFrame: CGRect(-26.6, -3.5, 51, 51),
                     value: { $0.events.wins[EventID.clawChallenge.rawValue] ?? 0 }, id: "claw"),
     ]
 }

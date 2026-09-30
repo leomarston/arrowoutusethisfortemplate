@@ -108,7 +108,7 @@ import PathCore
 
         // the flying hourglass
         let glass = CALayer()
-        if let img = ArtStore.image(.boosterFreeze)?.cgImage { glass.contents = img }
+        if let img = ArtStore.image(.boosterFreezeIcon)?.cgImage { glass.contents = img }
         let gs = CGSize(width: 106 * s, height: 106 * s)           // the 56 pt canvas whose ink is ≈ 90 × 100 at this size
         glass.bounds = CGRect(origin: .zero, size: gs)
         glass.opacity = 0

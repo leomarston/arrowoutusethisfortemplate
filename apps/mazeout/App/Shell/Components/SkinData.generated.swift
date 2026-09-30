@@ -17,6 +17,4 @@ enum SkinFonts {
 enum SkinNames {
     /// the Weekly Cup intro podium's three sample players, left to right
     static let podiumSampleNames: [String] = ["Max", "Neo", "James"]
-    /// portrait index 1…8 -> Art/char_avatar<Name>@3x.png (the race lanes' avatars)
-    static let avatarPortraits: [String] = ["Walkie", "CapGlasses", "Detective", "Burger", "Scientist", "Party", "BoxHead", "Notebook"]
 }

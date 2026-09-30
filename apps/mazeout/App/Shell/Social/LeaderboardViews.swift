@@ -147,7 +147,7 @@ struct SocWeeklyHeader: View {
                 SocInfoDisc()
             }
             .placed(CGRect(13.3 - 8, y(242.9) - 8, 24.4 + 16, 22.4 + 16))
-            ArtImage(art: .cupPodium).placed(CGRect(2, y(294), 389, 206))
+            ArtImage(art: .leaderboardPodium).placed(CGRect(2, y(294), 389, 206))
             if let s = snap {
                 ForEach(Array(s.podium.enumerated()), id: \.offset) { _, row in
                     SocPodiumSlot(row: row, prize: row.rank <= s.prizes.count ? s.prizes[row.rank - 1] : 0, y0: 190)
@@ -211,7 +211,7 @@ struct SocPodiumSlot: View {
             GameText(verbatim: "\(r)", style: digit).at(hex.x, digit.capCentre(baseline: y(hex.y) + 7.1))
             GameText(verbatim: row.player.name, style: nameStyle, maxWidth: 110).at(cx, nameStyle.capCentre(baseline: y(nameBase)))
             if prize > 0 {
-                ArtImage(art: .coinBowl).placed(CGRect(bowl.minX, y(bowl.minY), bowl.width, bowl.height))
+                ArtImage(art: .rewardCoinBowl).placed(CGRect(bowl.minX, y(bowl.minY), bowl.width, bowl.height))
                 GameText(verbatim: "\(prize)", style: amount, maxWidth: 50).at(bowl.midX, amount.capCentre(baseline: y(bowl.minY) + 45.5))
             }
             RoundedRectangle(cornerRadius: 7).fill(Color.black.opacity(0.28))

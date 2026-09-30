@@ -19,32 +19,32 @@ import PathCore
 enum ArtInk {
     /// Alpha bbox of the @3x file as fractions of its canvas (x0, y0, x1, y1), alpha > 24/255.
     static let boxes: [UIArt: (Double, Double, Double, Double)] = [
-        .heartHUD: (0.0108, 0.0123, 0.9892, 0.9877),
-        .heartHUDLost: (0.0215, 0.0000, 0.9785, 1.0000),
-        .heartHUDHalves: (0.0215, 0.0494, 1.0000, 0.9877),
-        .iconStopwatch: (0.0606, 0.0101, 0.9394, 1.0000),
-        .iconCoin: (0.0444, 0.0333, 0.9556, 0.9778),
-        .iconPlusGreen: (0.0500, 0.0333, 0.9500, 0.9667),
-        .boosterFreeze: (0.1786, 0.1429, 0.8214, 0.8631),
-        .boosterHint: (0.2321, 0.1012, 0.7679, 0.8988),
-        .stopwatchBig: (0.0415, 0.0133, 0.9526, 0.9881),
-        .heartBroken: (0.0146, 0.0480, 0.9854, 0.9520),
-        .coinStackReward: (0.0212, 0.1100, 0.9939, 0.8900),
+        .hudHeartFull: (0.0108, 0.0123, 0.9892, 0.9877),
+        .hudHeartLost: (0.0215, 0.0000, 0.9785, 1.0000),
+        .hudHeartHalves: (0.0215, 0.0494, 1.0000, 0.9877),
+        .hudTimerIcon: (0.0606, 0.0101, 0.9394, 1.0000),
+        .currencyCoinIcon: (0.0444, 0.0333, 0.9556, 0.9778),
+        .hudPlusBadge: (0.0500, 0.0333, 0.9500, 0.9667),
+        .boosterFreezeIcon: (0.1786, 0.1429, 0.8214, 0.8631),
+        .boosterHintIcon: (0.2321, 0.1012, 0.7679, 0.8988),
+        .popupOutOfTimeStopwatch: (0.0415, 0.0133, 0.9526, 0.9881),
+        .livesLost: (0.0146, 0.0480, 0.9854, 0.9520),
+        .rewardCoins: (0.0212, 0.1100, 0.9939, 0.8900),
         .tutorialHand: (0.0654, 0.0343, 0.9150, 0.9412),
-        .heartLives: (0.0000, 0.0208, 1.0000, 0.9479),
-        .treasureToken: (0.0500, 0.1083, 0.9500, 0.9250),       // A4: R8's D1 token (was iconHexArrow), measured by this table's rule
-        .iconCheckeredFlag: (0.0778, 0.0729, 0.9778, 1.0000),
-        .heartInfinite: (0.0725, 0.0913, 0.9239, 0.8889),
-        .coinPileSmall: (0.0245, 0.1607, 0.9755, 0.9405),
-        .sparkleTwinkle: (0.0833, 0.0833, 0.9167, 0.9167),
-        .unlockIconPipe: (0.0214, 0.0323, 0.9380, 0.9812),
-        .unlockIconLinked: (0.0583, 0.1394, 0.9417, 0.8818),
-        .unlockIconBox: (0.0354, 0.0448, 0.9646, 0.9851),
-        .unlockIconDoor: (0.0722, 0.0485, 0.9361, 0.9848),
-        .unlockIconElevator: (0.0083, 0.1424, 0.9917, 0.8727),
-        .iconStopwatchSmall: (0.0556, 0.0000, 0.9444, 1.0000),
-        .rankBadgeGold: (0.0278, 0.0370, 0.9722, 0.9630),
-        .logoArrowOut: (0.0283, 0.0071, 0.9771, 0.9845),
+        .livesHeart: (0.0000, 0.0208, 1.0000, 0.9479),
+        .eventClawChallengeToken: (0.0500, 0.1083, 0.9500, 0.9250),       // A4: R8's D1 token (was iconHexArrow), measured by this table's rule
+        .iconFinishFlag: (0.0778, 0.0729, 0.9778, 1.0000),
+        .livesUnlimited: (0.0725, 0.0913, 0.9239, 0.8889),
+        .rewardCoinsSmall: (0.0245, 0.1607, 0.9755, 0.9405),
+        .fxSparkle: (0.0833, 0.0833, 0.9167, 0.9167),
+        .unlockPipeIcon: (0.0214, 0.0323, 0.9380, 0.9812),
+        .unlockLinkedIcon: (0.0583, 0.1394, 0.9417, 0.8818),
+        .unlockBoxIcon: (0.0354, 0.0448, 0.9646, 0.9851),
+        .unlockDoorIcon: (0.0722, 0.0485, 0.9361, 0.9848),
+        .unlockElevatorIcon: (0.0083, 0.1424, 0.9917, 0.8727),
+        .hudTimerIconSmall: (0.0556, 0.0000, 0.9444, 1.0000),
+        .rank1Badge: (0.0278, 0.0370, 0.9722, 0.9630),
+        .logoMain: (0.0283, 0.0071, 0.9771, 0.9845),
     ]
 
     /// The canvas rect that puts `art`'s visible pixels onto `ink` (aspect kept: the visible box is fitted and centred).
@@ -340,8 +340,8 @@ struct OfferCoinGroup: View {
                 OfferPill(t: t).placed(pill)
                 GameText(verbatim: "\(coins)", style: digits, maxWidth: 58 * k)
                     .at(pill.minX + 38.4 * k, digits.capCentre(baseline: 25.0 * k))
-                InkImage(art: .iconCoin, ink: CGRect(-1.1 * k, -0.4 * k, 37.0 * k, 38.3 * k))
-                InkImage(art: .iconPlusGreen, ink: CGRect(21.9 * k, 18.7 * k, 22.3 * k, 23.1 * k))
+                InkImage(art: .currencyCoinIcon, ink: CGRect(-1.1 * k, -0.4 * k, 37.0 * k, 38.3 * k))
+                InkImage(art: .hudPlusBadge, ink: CGRect(21.9 * k, 18.7 * k, 22.3 * k, 23.1 * k))
             }
             .frame(width: frame.width, height: frame.height, alignment: .topLeading)
         }
@@ -481,7 +481,7 @@ struct PriceButton: View {
                     ChromeButtonFace(colors: .green, n: n)
                     GameText(label, style: ls, maxWidth: t.textMaxWidth(labelID, max(40, coin.minX - face.minX - 14)))
                         .at(lp.x - face.minX, ls.capCentre(baseline: lp.baseline) - face.minY)
-                    InkImage(art: .iconCoin, ink: coin.offsetBy(dx: -face.minX, dy: -face.minY))
+                    InkImage(art: .currencyCoinIcon, ink: coin.offsetBy(dx: -face.minX, dy: -face.minY))
                     GameText(verbatim: "\(price)", style: ps)
                         .at(pp.x - face.minX, ps.capCentre(baseline: pp.baseline) - face.minY)
                 }

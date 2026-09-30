@@ -273,7 +273,7 @@ struct PageTimerChip: View {
         return ZStack(alignment: .topLeading) {
             Rasterized("pageChip") { _ in RoundedRectangle(cornerRadius: 12).fill(Color(hex: Skin.pagesSocialShellsPageTimerChipChipFill)) }
                 .placed(CGRect(x: 12, y: 1.5, width: 74.7, height: 24))
-            ArtImage(art: .iconStopwatchSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
+            ArtImage(art: .hudTimerIconSmall).placed(CGRect(x: 0, y: 0, width: 24, height: 25.7))
             GlyphRunText(text: text, style: st, maxWidth: 56).at(52, st.capCentre(baseline: 19.0))
         }
         .frame(width: 86.7, height: 27, alignment: .topLeading)

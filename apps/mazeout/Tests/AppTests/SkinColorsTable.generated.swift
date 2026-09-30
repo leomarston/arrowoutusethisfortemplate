@@ -4,7 +4,7 @@
 
 enum SkinColorsTable {
     static func rgb() -> [String: UInt32] {
-        var d = [String: UInt32](minimumCapacity: 1657)
+        var d = [String: UInt32](minimumCapacity: 1674)
         d["art.glossyChrome.blueSquareButton.colors.0"] = Skin.artGlossyChromeBlueSquareButtonColors0
         d["art.glossyChrome.blueSquareButton.colors.1"] = Skin.artGlossyChromeBlueSquareButtonColors1
         d["art.glossyChrome.blueSquareButton.fill"] = Skin.artGlossyChromeBlueSquareButtonFill
@@ -1073,6 +1073,23 @@ enum SkinColorsTable {
         d["profile.profileView.statTile.label.outline"] = Skin.profileProfileViewStatTileLabelOutline
         d["profile.profileView.statTile.v.0"] = Skin.profileProfileViewStatTileV0
         d["profile.profileView.statTile.v.outline"] = Skin.profileProfileViewStatTileVOutline
+        d["puzzle.sortBoard.background"] = Skin.puzzleSortBoardBackground
+        d["puzzle.sortBoard.tube.complete"] = Skin.puzzleSortBoardTubeComplete
+        d["puzzle.sortBoard.tube.fill"] = Skin.puzzleSortBoardTubeFill
+        d["puzzle.sortBoard.tube.refused"] = Skin.puzzleSortBoardTubeRefused
+        d["puzzle.sortBoard.tube.selected"] = Skin.puzzleSortBoardTubeSelected
+        d["puzzle.sortBoard.tube.stroke"] = Skin.puzzleSortBoardTubeStroke
+        d["puzzle.sortBoard.unit.0"] = Skin.puzzleSortBoardUnit0
+        d["puzzle.sortBoard.unit.1"] = Skin.puzzleSortBoardUnit1
+        d["puzzle.sortBoard.unit.2"] = Skin.puzzleSortBoardUnit2
+        d["puzzle.sortBoard.unit.3"] = Skin.puzzleSortBoardUnit3
+        d["puzzle.sortBoard.unit.4"] = Skin.puzzleSortBoardUnit4
+        d["puzzle.sortBoard.unit.5"] = Skin.puzzleSortBoardUnit5
+        d["puzzle.sortBoard.unit.6"] = Skin.puzzleSortBoardUnit6
+        d["puzzle.sortBoard.unit.7"] = Skin.puzzleSortBoardUnit7
+        d["puzzle.sortBoard.unit.8"] = Skin.puzzleSortBoardUnit8
+        d["puzzle.sortBoard.unit.9"] = Skin.puzzleSortBoardUnit9
+        d["puzzle.sortBoard.unit.edge"] = Skin.puzzleSortBoardUnitEdge
         d["shell.loadingScreen.loading.base"] = Skin.shellLoadingScreenLoadingBase
         d["shell.loadingScreen.loading.label.fill.0"] = Skin.shellLoadingScreenLoadingLabelFill0
         d["shell.loadingScreen.loading.label.outline"] = Skin.shellLoadingScreenLoadingLabelOutline

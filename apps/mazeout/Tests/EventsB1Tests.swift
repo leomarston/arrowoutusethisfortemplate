@@ -42,8 +42,13 @@ final class EventsB1Tests: XCTestCase {
         XCTAssertFalse(EventRotationPolicy.gate(debug: true, ready: false))
         // A4 ART-INTEG: R8 delivered the page as pieces (the tall backdrop would decode to 53 MB; the pieces ≈ 21 MB), so the
         // gate's list is R8's delivered ids — same exact equality — and every one of them is now in the generated table
-        XCTAssertEqual(UpAwayArt.ids, ["eventBadgeBalloon", "balloonHero", "balloonTowerTop", "balloonTowerShaft",
-                                       "balloonTowerFoot", "balloonLedge"], "R8's delivered Up & Away pieces")
+        // (skin phase 3: the ids are the art SLOTS those pieces fill, skin/art.json; the files are still R8's)
+        XCTAssertEqual(UpAwayArt.ids, ["event.balloonRise.badge", "event.balloonRise.hero", "event.balloonRise.towerTop",
+                                       "event.balloonRise.towerShaft", "event.balloonRise.towerFoot", "event.balloonRise.ledge"],
+                       "R8's delivered Up & Away pieces, by slot")
+        XCTAssertEqual(UpAwayArt.ids.compactMap { UIArt(rawValue: $0)?.asset },
+                       ["eventBadgeBalloon", "balloonHero", "balloonTowerTop", "balloonTowerShaft", "balloonTowerFoot", "balloonLedge"],
+                       "the reference skin fills them with R8's files")
         XCTAssertTrue(UpAwayArt.ready, "every Up & Away id is a generated UIArt case: the Release gate is open")
         #if DEBUG
         XCTAssertTrue(economy([:]).events.rotation.unavailable.isEmpty, "a DEBUG build runs Up & Away with placeholders")

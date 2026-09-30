@@ -78,6 +78,9 @@ targets:
     dependencies:
       - package: PathCore
         product: PathCore
+      # Template phase 5: the second puzzle module (compiled in; active only under PC_PUZZLE_SORT, see ActivePuzzle)
+      - package: PathCore
+        product: SortPuzzle
       - package: RevenueCat
         product: RevenueCat
     # META: the base plist (SPEC-architecture §2.3) is written by xcodegen from these properties at every tools/gen.sh (it was a
@@ -128,7 +131,7 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources: [Tests]
-    dependencies: [{ target: ArrowOut }, { package: PathCore, product: PathCore }]
+    dependencies: [{ target: ArrowOut }, { package: PathCore, product: PathCore }, { package: PathCore, product: SortPuzzle }]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.manycode.arrowout.tests

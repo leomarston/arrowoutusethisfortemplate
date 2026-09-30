@@ -71,7 +71,7 @@ struct BalloonBar: View {
 /// A4 (R8 "upaway.badge"): the bar's token as its rig (body + balloon), the balloon bobbing ±1 pt on a 4 s sine (v582 PH-0b
 /// R7; ui.json puppet.badge_upaway_rig, render server). Without the rig: the flat file (or DEBUG's placeholder).
 private struct UpAwayToken: View {
-    static let rig = "badge_upaway_rig"
+    static let rig = ArtRig.eventBalloonRiseBadge.folder
     @Environment(AppModel.self) private var app
 
     var body: some View {

@@ -173,7 +173,7 @@ private struct RaceTile: View {
                 .scaleEffect(CGFloat(pop))
                 .at(tile.midX, prog.capCentre(baseline: tile.minY + (me ? 94.4 : 89.0)))
             if leader {
-                InkImage(art: .rankBadgeGold, ink: CGRect(tile.midX - 16, tile.minY - 19, 32, 32))
+                InkImage(art: .rank1Badge, ink: CGRect(tile.midX - 16, tile.minY - 19, 32, 32))
                 GameText(verbatim: "1", style: rank).at(tile.midX, rank.capCentre(baseline: tile.minY + 2.5))
             } else {
                 ZStack {
@@ -206,13 +206,11 @@ private struct TileFace: View {
     }
 }
 
-/// A player's portrait in the blue AvatarFrame ring (the player's own in green): index 0 = the default silhouette, 1…8 = the
-/// shipped portraits (SPEC-ui §2.14.2 index table: Walkie, CapGlasses, Detective, Burger, Scientist, Party, BoxHead, Notebook).
+/// A player's portrait in the blue AvatarFrame ring (the player's own in green): index 0 = the default silhouette (drawn), 1…8 =
+/// the skin's portraits (the `avatar.<n>` slots, `Avatars`: the same index table as Profile and the leaderboards).
 struct AvatarPortrait: View {
     let index: Int
     var me = false
-
-    static let files = SkinNames.avatarPortraits                           // skin/names.json
 
     var body: some View {
         GeometryReader { geo in
@@ -224,8 +222,8 @@ struct AvatarPortrait: View {
                                          startPoint: .top, endPoint: .bottom))
                     .padding(1)
                 Group {
-                    if index >= 1 && index <= Self.files.count {
-                        PathImage(path: "Art/char_avatar\(Self.files[index - 1])@3x.png", maxPixel: Int(w * 3))
+                    if index >= 1 && index < Avatars.count {
+                        PathImage(path: Avatars.art(index).path, maxPixel: Int(w * 3))
                     } else {
                         DefaultSilhouette()
                     }

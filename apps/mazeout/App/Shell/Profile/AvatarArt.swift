@@ -9,11 +9,11 @@ import PathCore
 // Profile, Edit Profile and (SOC2) the leaderboard rows / podium / race tiles.
 
 enum Avatars {
-    static let arts: [UIArt] = [.avatarDefault, .avatarMiner, .avatarMapper, .avatarSleuth, .avatarLunch, .avatarBoss,
-                                .avatarConfetti, .avatarSleepy, .avatarStrong]
+    static let arts: [UIArt] = [.avatar0, .avatar1, .avatar2, .avatar3, .avatar4, .avatar5,
+                                .avatar6, .avatar7, .avatar8]
     static var count: Int { arts.count }
     /// The portrait of an index (out of range → the default silhouette).
-    static func art(_ index: Int) -> UIArt { arts.indices.contains(index) ? arts[index] : .avatarDefault }
+    static func art(_ index: Int) -> UIArt { arts.indices.contains(index) ? arts[index] : .avatar0 }
 }
 
 struct AvatarFrameTile: View {

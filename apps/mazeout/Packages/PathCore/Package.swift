@@ -20,6 +20,9 @@ let package = Package(
         .library(name: "PathCore", targets: ["PathCore"]),
         .library(name: "GameCore", targets: ["GameCore"]),
         .library(name: "ArrowEscape", targets: ["ArrowEscape"]),
+        // Template phase 5: the second puzzle module (docs/architecture/PUZZLE-MODULE.md §6b). Its own product, NOT in the
+        // PathCore umbrella: the app links it next to PathCore and imports it only where its plugin lives.
+        .library(name: "SortPuzzle", targets: ["SortPuzzle"]),
         .executable(name: "pclevels", targets: ["pclevels"]),
     ],
     targets: [
@@ -30,12 +33,17 @@ let package = Package(
         .target(name: "ArrowEscape", dependencies: ["GameCore"], swiftSettings: research),
         // Umbrella: `@_exported import GameCore` + `@_exported import ArrowEscape` only.
         .target(name: "PathCore", dependencies: ["GameCore", "ArrowEscape"], swiftSettings: research),
+        // The colour-sorting puzzle: level model + seeded generator, solver, the session, the module. GameCore only
+        // (tools/core.sh checks its imports: Foundation + GameCore).
+        .target(name: "SortPuzzle", dependencies: ["GameCore"]),
         .executableTarget(name: "pclevels", dependencies: ["GameCore", "ArrowEscape"]),
         // No resources in the package: tests read fixtures from disk relative to #filePath (Tests/Fixtures, research
         // JSON, design/social/fixtures, tools/rng_ref.py outputs). SwiftPM resources would have to live in the target.
         // One test target over both modules (`@testable import GameCore` + `@testable import ArrowEscape`; the frozen API
         // pins import the umbrella without @testable).
         .testTarget(name: "PathCoreTests", dependencies: ["PathCore", "GameCore", "ArrowEscape"]),
+        // SortPuzzle's own tests (goldens from tools/sortpuzzle/ref.py in Tests/Fixtures, the bot through the contract).
+        .testTarget(name: "SortPuzzleTests", dependencies: ["SortPuzzle", "GameCore"]),
     ],
     swiftLanguageVersions: [.v5]
 )

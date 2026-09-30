@@ -70,7 +70,7 @@ import PathCore
             XCTAssertEqual(o.y + l.anchor.y * l.bounds.height, part.anchorPt.y, accuracy: 0.001, "\(l.id): its part's anchorPt y")
             // the bundle's file = the spec's pixels (the layer is sized from the spec, never from the image or UIArt.sizePt)
             for id in l.contents {
-                let img = try XCTUnwrap(ArtStore.image(try XCTUnwrap(UIArt(rawValue: id), id))?.cgImage, "\(id) decodes")
+                let img = try XCTUnwrap(ArtStore.image(try XCTUnwrap(LogoSpec.art(id), id))?.cgImage, "\(id) decodes")
                 let px = try XCTUnwrap(l.filePx, l.id)
                 XCTAssertEqual(CGSize(width: img.width, height: img.height), px, id)
             }

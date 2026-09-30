@@ -1,12 +1,12 @@
-# The puzzle-module contract (v1-candidate, implemented by Arrow Out; awaiting CI + review before v1 is frozen)
+# The puzzle-module contract (v1.1-candidate: implemented by Arrow Out and SortPuzzle; awaiting CI + review before freezing)
 
 **Goal:** the shell and the meta systems never learn how a puzzle works. A puzzle module provides its levels, its rules
 and its board view; everything around it (home, HUD, popups, fail/continue chain, win celebration, economy, boosters
 shop, events, the simulated leaderboards, store, tooling) is shared. **Genre-agnostic** by rule (docs/ROADMAP.md D1):
 nothing here may assume arrows, tiles, coins, swaps or any other mechanic.
 
-This file describes what is **built** (template phase 2). The earlier draft (v0) is in git history; the differences are
-listed in §8.
+This file describes what is **built**: template phase 2 (v1, the reference module) and phase 5 (v1.1, the second module,
+SortPuzzle, §6b). The earlier draft (v0) is in git history; the differences are listed in §8, the v1.1 changes in §8b.
 
 ## 1. What the shell really needs from a level (measured on Arrow Out)
 The meta systems consume very little. Economy, events, streaks, races and the social world read only *"a level was won or
@@ -26,7 +26,8 @@ original cases/fields are unchanged and first; APISurfaceTests pins both):
 
 Still arrow-shaped and therefore module-private: `SessionEvent`, `SessionAck`, `SessionSnapshot`, `LevelSession`, `RulesTuning`
 (ArrowEscape). `MetaRules.StepGrant` (the rules.json fail-chain grants) still has only `addTime` / `refillHearts` / `none`
-(pinned; a module with a move limit adds `addMoves` there when it ships).
+(pinned; a module with a move limit adds `addMoves` there when it ships). v1.1: a step's `action` grants a module's own
+rescue instead (`FailStep.action` → `.puzzleAction(id:amount:)`, §8b).
 
 ## 2. The module
 Split in two halves because the core packages must not depend on UIKit and `SessionPlan` still lives in ArrowEscape:
@@ -176,7 +177,9 @@ board animates what already happened); outputs in causal order; a `won`/`lost` i
   prices come from the config (rules.json economy). The shell runs `.freezeTimer` itself (the HUD freeze FX + the session's
   clock freeze through `useBooster`); every other kind (`addTime`, `addMoves`, `puzzleAction`) asks `canUseBooster`, takes
   the stock, then `useBooster`. A booster whose outputs carry `hintTargets` stays inert until one of them leaves play.
-- The fail chain comes from rules.json `failChain` per `ContinueOffer.Kind` raw value. The popups (Shell) choose texts by
+- The fail chain comes from rules.json `failChain` per `ContinueOffer.Kind` raw value (v1.1: a module may ship a default
+  chain for its own kinds, merged under rules.json — rules.json wins for a kind it lists — and a step may grant a module
+  action, `FailStep.action`, §8b). The popups (Shell) choose texts by
   kind; today only `outOfTime` / `outOfHearts` have texts — **a module that uses `outOfMoves` / `stuck` must first get their
   strings (13 languages) and the Shell popups' variants**; no new user-visible string was added in phase 2.
 - HUD widgets are declared (`capabilities.hud`); today's HUD shows timer + hearts (a module without hearts gets an empty
@@ -206,6 +209,48 @@ board animates what already happened); outputs in causal order; a `won`/`lost` i
   `cues.arrowTap` (the move cue; renaming it is an audio.json key change, phase 3), the `a<n>` prefix of the same-frame log
   line (bench.py parses it), and comments describing the reference game.
 
+
+## 6b. SortPuzzle: the second module (template phase 5)
+A colour-sorting puzzle built only against this contract, to find its gaps: tubes of coloured units, pick a source tube then
+a target; the source's top run pours onto an empty tube or onto its own colour, as many units as fit; won when every tube is
+empty or full of one colour. **No timer, no hearts:** the one fail is `stuck` (no legal pour left). Original design: the
+levels are generated from a seed, the colours are skin tokens, no art files.
+
+| Part | Where | What |
+|---|---|---|
+| Core (GameCore only) | `Packages/PathCore/Sources/SortPuzzle/` (own product, **not** in the PathCore umbrella) | `SortLevel` (Codable), `SortRules` (sort.json: curve, generator, play, the `stuck` chain), `SortMechanics` (pour rules, stuck = no legal pour), `SortSolver` (bounded iterative DFS over multisets of tubes), `SortGenerator` (seeded deal + solver check; last resort one empty tube per colour: always solvable), `SortPuzzleSession: PuzzleSession`, `SortPuzzleModule: PuzzleModule`, `SortBot` (plays any `PuzzleSession` through the contract only) |
+| Independent reference | `apps/mazeout/tools/sortpuzzle/ref.py` | the generator + solver in Python; `--write` makes `Tests/Fixtures/sortpuzzle_goldens.json` from the shipped sort.json (+ a "stress" set pinning the rejection and last-resort paths), `--check` in CI's Linux job |
+| Tests | `Packages/PathCore/Tests/SortPuzzleTests`, `Tests/SortPuzzleAppTests.swift` | goldens, solvability, the bot through the contract, stuck/continue/lost exactly once, boosters; app: plugin + real board headless, the unchanged GameController playing a sort level to the win panel and a stuck offer paid through the shell |
+| App half | `App/Puzzles/SortPuzzle/` (globbed by project.yml's `App` source; the app links the `SortPuzzle` product) | `SortPuzzlePlugin`, `SortPuzzleBoard` (UIKit + Core Animation, sizes/durations from sort.json `board.*`, colours from skin/colors.json `puzzle.sortBoard.*`), `SortPuzzleEntry` |
+| Data | `App/Resources/Tuning/sort.json` | levels (salt, curve, tags), play (hint budget, extra tubes), `failChain.stuck`, `board.*` |
+
+Mapping onto the contract:
+- **capabilities:** fail rules `[.custom("stuck")]`, inputs `[.select2, .drag]`, boosters `undo` (`.puzzleAction("undo")`) and
+  `extraTube` (`.puzzleAction("extraTube")`, `play.maxExtraTubes` per stage), HUD `[.progress]`, not zoomable, multi-stage.
+- **input:** the board sends `.select(tube)`; the session keeps the pick (`selected` / `deselected` events), the second pick
+  pours (`poured`, a move) or is refused (`refused`, a failed move: the tap haptic, the autoplayer's mistake). `.tap(t)` is
+  the same pick (LevelFlow's fallback when `performTap` returns false), `.drag(from:to:)` both picks.
+- **untimed:** an idle `LevelClock(limit: 0)`; `timerArmed(stage, seconds: 0)` at ready, `timerStarted(stage)` at the
+  stage's first real pick (tutorials' "first tap"); `tick` returns nothing. `hearts` is nil.
+- **progress:** `goalProgress([GoalState(id: "sorted", current: complete tubes, target: colours)])` at ready and on change.
+- **fail:** a pour that leaves no legal pour opens `offer(stuck)`; the default chain (sort.json) grants
+  `.puzzleAction(id: "extraTube", amount: 1)`; still stuck after a grant → the next step; declined → `lost(.stuck)`.
+- **win:** decided at the pour (`won` / `stageCleared`); the board acks `.boardCleared` once the pour has landed (W).
+- **hint():** the solver's plan from the current tubes (`play.hintBudget`), as the next pick: its source, then its target;
+  a different lifted tube → that tube (picking it again drops it). The plan is kept while the player follows it.
+
+What the second module found (the v1.1 changes are in §8b; these are **shell work before a sort game can ship**, not
+contract changes — the contract already carries the information):
+- HUD: `HUDView` always shows the timer pill (a frozen "0:00" for an untimed module) and has no view for `.progress` /
+  `goalProgress` (nor `.moves` / `.goals`). It must honour `capabilities.hud`.
+- Popups: a `stuck` offer gets the Out of Time! layout and texts (`OutOfTimePopup` / `ContinuePopup` pick "time" for every
+  kind but `outOfHearts`). `stuck` / `outOfMoves` need their strings (13 languages) and variants.
+- Boosters: `undo` / `extraTube` need rules.json economy entries (stock, price), BoosterBuyPopup texts and corner art
+  (`BoosterSpec.icon` slots).
+- The Play's frame-driven services (PerfMonitor, LatencyProbe) are fed by the arrow engine's display link only; AppModel
+  still builds the arrow engine and level library for every game. A non-arrow game's boot should not.
+- No tutorials / unlock cards for the module yet (content: strings + a tutorials file).
+
 ## 7. Checks the contract must pass before v1 is frozen
 1. ArrowEscape implements it with no behaviour change: core tests (incl. `PuzzleContractTests`: the wrapped session emits the
    same events in the same order as `LevelSession`), app unit tests (GameControllerTests / GameG2Tests drive the generic
@@ -216,7 +261,10 @@ board animates what already happened); outputs in causal order; a `won`/`lost` i
    "stuck" fail (sorting), a **swap + cascade** puzzle with a move limit and goals (match-3), a **no-fail progress** puzzle
    (colouring). Known gaps found while building: the HUD has no moves / goals widgets; `outOfMoves` / `stuck` popups have no
    texts; `MetaRules.StepGrant` has no `addMoves`; `SessionPlan` (and its `hearts: reset|carry`) still lives in ArrowEscape.
-3. A second real module ships through the whole pipeline (phase 5); its lessons produce contract v1.1.
+3. A second real module ships through the whole pipeline (phase 5); its lessons produce contract v1.1. **Status:**
+   SortPuzzle (§6b) is built through the contract with one additive contract change (§8b); it is compiled into the app and
+   tested (core + app unit tests, CI) while ArrowEscape stays active; the shell gaps listed in §6b stand between it and a
+   shipped game. The known gaps of item 2 that the sort module needed are resolved (`stuck` grants) or listed there.
 
 ## 8. Differences from the v0 draft
 - `PuzzleModule` is split: pure `PuzzleModule` (id, version, capabilities) in GameCore + the app's `PuzzlePlugin` /
@@ -229,3 +277,31 @@ board animates what already happened); outputs in causal order; a `won`/`lost` i
   session half is the board's, through `activeSession`).
 - `clock` is non-optional (an idle clock for untimed modules); `timerArmed` / `timerStarted` keep their `stage`.
 - `StageContext` carries the stage's `PuzzleStage` (with the module's level) instead of a module-typed context.
+
+## 8b. Contract v1.1 (template phase 5, from SortPuzzle; all additive, ArrowEscape's behaviour unchanged)
+`PuzzleContract.version` stays 1: it names the breaking version, and nothing here breaks a v1 module.
+1. **`MetaRules.FailStep.action: String?`** (+ `init(price:grant:amount:warning:onlyWithStreak:action:)`): a fail-chain step
+   may grant a module's own rescue. With an action, `offerGrant` is `.puzzleAction(id: action, amount: amount)` (the v1
+   `ContinueOffer.Grant` case); without one (every step of rules.json today) nothing changes: decoding, grants and encoding
+   (no `action` key) are as before. Why: `StepGrant` (addTime / refillHearts / none) is pinned by APISurfaceTests, and a
+   select-then-target puzzle's continue is "one more tube", not time or hearts. Tests: `ContractV11Tests`.
+2. **Module default chains:** a module may carry default `failChain` entries for the kinds only it uses (SortPuzzle:
+   `SortRules.failChain["stuck"]`, sort.json); `SortRules.meta(over:)` adds them to rules.json's `MetaRules` only for a kind
+   rules.json does not list. A game tunes them in its own data; rules.json wins.
+3. **Modules are packages, selected at compile time:** every module's app half is compiled in (`App/Puzzles/<Module>/`),
+   its core is its own package product (not re-exported by the PathCore umbrella, so its names never collide with the
+   reference module's); `ActivePuzzle.entry` is still the one line, now `#if PC_PUZZLE_SORT … #else ArrowEscapeEntry #endif`
+   so a build setting (SWIFT_ACTIVE_COMPILATION_CONDITIONS) picks the module without editing the file.
+4. **Semantics made explicit** (no code change; both modules follow them):
+   - a board acks `.introFinished`, `.boardCleared`, `.stageTransitionDone` **later than the call that caused them**, never
+     synchronously inside `playIntro` / `present` / `playStageTransition` (LevelFlow calls `playIntro` before
+     `session.start()`: a synchronous intro ack would reach a session that has not started);
+   - a board that is not the arrow engine drives the Play's master clock itself (`boardFrame` on every display-link frame
+     while it is on screen); SortPuzzleBoard keeps its own beat clock so tests can advance it headless;
+   - `performTap(on:)` returns false while input is closed; the caller then sends `.tap(target)` to the session, so every
+     module accepts `.tap` for its primary pick;
+   - an untimed module: an idle clock, `timerArmed(seconds: 0)` at ready, `timerStarted` at the stage's first real input
+     (tutorials' "first tap"), nothing from `tick`, `hearts` nil, `WinResult.timeLeft` / `heartsLeft` 0 and its own numbers
+     in `WinResult.stats`;
+   - select-then-target input: the pick is the session's state; `hint()` returns the next pick (so bots and debug jumps
+     that only tap `hint()` work unchanged).

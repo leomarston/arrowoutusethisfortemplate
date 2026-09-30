@@ -1173,6 +1173,25 @@ enum Skin {
     static let profileProfileViewStatTileV0: UInt32 = 0xFFFFFF  // profile.profileView.statTile.v.0 = neutral.100
     static let profileProfileViewStatTileVOutline: UInt32 = 0x02464D  // profile.profileView.statTile.v.outline = teal.27d
 
+    // MARK: puzzle.sortBoard (17)
+    static let puzzleSortBoardBackground: UInt32 = 0xFFFFFF  // puzzle.sortBoard.background = neutral.100
+    static let puzzleSortBoardTubeComplete: UInt32 = 0x65DD2B  // puzzle.sortBoard.tube.complete = green.79
+    static let puzzleSortBoardTubeFill: UInt32 = 0xEFF6F4  // puzzle.sortBoard.tube.fill = neutral.96b
+    static let puzzleSortBoardTubeRefused: UInt32 = 0xD30A20  // puzzle.sortBoard.tube.refused = red.44
+    static let puzzleSortBoardTubeSelected: UInt32 = 0x3C8A81  // puzzle.sortBoard.tube.selected = teal.53
+    static let puzzleSortBoardTubeStroke: UInt32 = 0x8FA39C  // puzzle.sortBoard.tube.stroke = neutral.65
+    static let puzzleSortBoardUnit0: UInt32 = 0xD30A20  // puzzle.sortBoard.unit.0 = red.44
+    static let puzzleSortBoardUnit1: UInt32 = 0xFFB422  // puzzle.sortBoard.unit.1 = yellow.78
+    static let puzzleSortBoardUnit2: UInt32 = 0x65DD2B  // puzzle.sortBoard.unit.2 = green.79
+    static let puzzleSortBoardUnit3: UInt32 = 0x1F77F3  // puzzle.sortBoard.unit.3 = blue.52
+    static let puzzleSortBoardUnit4: UInt32 = 0x8D5FFF  // puzzle.sortBoard.unit.4 = violet.53
+    static let puzzleSortBoardUnit5: UInt32 = 0xFF2FC6  // puzzle.sortBoard.unit.5 = magenta.59
+    static let puzzleSortBoardUnit6: UInt32 = 0x4DC4B3  // puzzle.sortBoard.unit.6 = teal.72d
+    static let puzzleSortBoardUnit7: UInt32 = 0xCA6906  // puzzle.sortBoard.unit.7 = orange.55
+    static let puzzleSortBoardUnit8: UInt32 = 0x6BD4F8  // puzzle.sortBoard.unit.8 = cyan.80
+    static let puzzleSortBoardUnit9: UInt32 = 0x0A2176  // puzzle.sortBoard.unit.9 = indigo.18
+    static let puzzleSortBoardUnitEdge: UInt32 = 0x6C7F79  // puzzle.sortBoard.unit.edge = neutral.52
+
     // MARK: shell.loadingScreen (3)
     static let shellLoadingScreenLoadingBase: UInt32 = 0xB7A587  // shell.loadingScreen.loading.base = yellow.69
     static let shellLoadingScreenLoadingLabelFill0: UInt32 = 0xFFFFFF  // shell.loadingScreen.loading.label.fill.0 = neutral.100

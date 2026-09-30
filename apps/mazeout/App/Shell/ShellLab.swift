@@ -110,9 +110,9 @@ struct ShellLab: View {
     @ViewBuilder private func componentsPage(_ t: Tokens) -> some View {
         ZStack(alignment: .topLeading) {
             BlueSquareButton { PauseGlyph() }.at(40, 40)
-            BlueSquareButton { ArtImage(art: .glyphGear).frame(width: 26, height: 26) }.at(95, 40)
+            BlueSquareButton { ArtImage(art: .iconSettings).frame(width: 26, height: 26) }.at(95, 40)
             HeartHUD().at(145, 40)
-            ArtImage(art: .heartLives).placed(CGRect(170, 22, 39, 33))
+            ArtImage(art: .livesHeart).placed(CGRect(170, 22, 39, 33))
             TopPill(t: t).placed(CGRect(220, 26, 76.7, 27.4))
             PopupCloseButton(id: "lab.close", t: t) {}.placed(CGRect(320, 17, 45.4, 45))
             PanelButton(colors: .green).at(80, 120)
@@ -129,8 +129,8 @@ struct ShellLab: View {
             PopupRibbon(t: t).placed(CGRect(190, 300, 190, 70))
             DifficultyTag(tag: .hard).placed(CGRect(20, 425, 120.1, 30))
             DifficultyTag(tag: .superHard).placed(CGRect(150, 425, 120.1, 30))
-            ShellSquareToggle(id: "lab.square.on", glyph: .glyphSound, isOn: true, t: t) {}.placed(CGRect(290, 410, 66.1, 65.7))
-            ShellSquareToggle(id: "lab.square.off", glyph: .glyphMusic, isOn: false, t: t) {}.placed(CGRect(290, 490, 66.1, 65.7))
+            ShellSquareToggle(id: "lab.square.on", glyph: .iconSound, isOn: true, t: t) {}.placed(CGRect(290, 410, 66.1, 65.7))
+            ShellSquareToggle(id: "lab.square.off", glyph: .iconMusic, isOn: false, t: t) {}.placed(CGRect(290, 490, 66.1, 65.7))
             PillLinkButton(id: "lab.pill", title: "Terms", style: t.text("settings.link", GameTextStyle(size: 22.3)), t: t) {}
                 .placed(CGRect(150, 480, 121.8, 49))
             BandPopupFrame(t: t).placed(CGRect(0, 545, 393, 280))

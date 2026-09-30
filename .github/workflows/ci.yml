@@ -43,6 +43,8 @@ jobs:
         run: python3 $APP_DIR/tools/levels/bundle_check.py --publish
       - name: Level validator (every authored level solvable, rules-clean)
         run: python3 $APP_DIR/design/tools/validate_levels.py
+      - name: SortPuzzle goldens == the Python reference (generator + solver; SortPuzzleTests pins the Swift to them)
+        run: python3 $APP_DIR/tools/sortpuzzle/ref.py --check
       - name: Generated art index is up to date
         run: python3 $APP_DIR/tools/uiart_gen.py --check
       - name: Skin (colours, ui.json colours, fonts, names; generated files fresh, no colour literal in the UI sources or ui.json, tool self-tests)
@@ -53,6 +55,16 @@ jobs:
           python3 $APP_DIR/tools/skin/build.py --check-literals
           python3 $APP_DIR/tools/skin/build.py --selftest
           python3 $APP_DIR/tools/skin/recolor.py --selftest
+      - name: Skin art slots + scenes (UIArt/ArtRig/SkinScenes fresh, every shipped file has a slot and exists, Swift names slots never files)
+        run: |
+          # --check: skin/art.json + skin/scenes.json valid; UIArt.swift, SkinScenes.generated.swift fresh; every UIArt(rawValue:)
+          # / UpAwayArt / ui.json win.logo slot exists; no App Swift string names an art file (tools/skin/art_allowlist.json)
+          python3 $APP_DIR/tools/skin/art.py --check
+          python3 $APP_DIR/tools/skin/art.py --selftest
+      - name: Second skin is data only (every skin/variants/<name> builds; its generated files differ from the active skin's only in colour values)
+        run: |
+          python3 $APP_DIR/tools/skin/variant.py --check
+          python3 $APP_DIR/tools/skin/variant.py --selftest
       - name: Game config doctor + game.py tests
         run: |
           pip install -q pyyaml

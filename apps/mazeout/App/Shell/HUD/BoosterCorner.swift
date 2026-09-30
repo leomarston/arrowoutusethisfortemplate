@@ -33,7 +33,7 @@ struct BoosterCornerView: View, Equatable {
                           left ? CGRect(25.7, 773.3, 34.4, 38.0) : CGRect(337.3, 773.0, 26.0, 39.0), .bottom, m)
         let badge = t.rect(left ? "booster.badgeLeft" : "booster.badgeRight",
                            left ? CGRect(53.0, 801.7, 24.7, 24.4) : CGRect(360.2, 801.7, 24.7, 24.4), .bottom, m)
-        let art: UIArt = slot.id == .freeze ? .boosterFreeze : .boosterHint
+        let art: UIArt = slot.id == .freeze ? .boosterFreezeIcon : .boosterHintIcon
         ZStack(alignment: .topLeading) {
             Rasterized("boosterTray|\(left)", overflow: 3) { _ in BoosterTray(left: left, t: t) }
                 .placed(tray)
@@ -66,7 +66,7 @@ struct BoosterCornerView: View, Equatable {
         case .active:
             EmptyView()
         case .empty, .locked:
-            ArtImage(art: .iconPlusGreen).placed(r.insetBy(dx: -1.5, dy: -1.5))
+            ArtImage(art: .hudPlusBadge).placed(r.insetBy(dx: -1.5, dy: -1.5))
         }
     }
 }

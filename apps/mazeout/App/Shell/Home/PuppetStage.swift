@@ -73,8 +73,8 @@ enum PuppetPart: Equatable {
         case .excluding(let s): return !s.contains(name)
         }
     }
-
-    static let scientistArms: Set<String> = ["armL", "armR", "armR_point"]
+    // The part sets themselves (the main character's arms, drawn in front of his station) are skin data: skin/scenes.json
+    // `rigParts`, generated into `SkinScenes` layers.
 }
 
 /// One character, framed at the rig's placement on the 393 x 852 scene canvas (put it inside `SceneLayer`).

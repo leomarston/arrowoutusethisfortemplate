@@ -2,14 +2,16 @@
 
 A game = the shared system + a puzzle module + a **skin** + a config (see `docs/ROADMAP.md`). The skin is everything a
 player sees that is specific to one game: colours, art, fonts, sounds and names. The goal is a complete reskin **without
-changing Swift**. Colours (the UI code's and ui.json's), fonts and the non-copy names work this way today; sounds and the
-brand name already were data elsewhere (section 3); art and scenes are listed at the end.
+changing Swift**. Colours (the UI code's and ui.json's), fonts, the non-copy names, the art (by slot) and the home / Loading
+scenes work this way today; sounds and the brand name already were data elsewhere (section 3); section 5 is the proof (a
+second colour skin CI builds) and section 6 what is still not skin data.
 
 Everything the skin generates is written by one command and checked by CI:
 ```sh
 cd apps/mazeout
-python3 tools/skin/build.py            # validate skin/*.json, rewrite every generated file
+python3 tools/skin/build.py            # validate skin/*.json, rewrite every generated file (colours, fonts, names, art, scenes)
 python3 tools/skin/build.py --check    # (CI, game.py doctor) stale output, a colour left in ui.json, a dangling reference
+python3 tools/skin/art.py --check      # (CI) the art/scene rules on the Swift sources too (section 4)
 ```
 
 ## 1. Colours
@@ -133,7 +135,7 @@ stay: they are neutral, not a design choice a skin changes, and SwiftUI/UIKit re
 ### Scope and limits
 
 - **Code-drawn colours only.** Raster art (`art/ui/out/*.png`, the UIArt catalogue, the 3-D renders) has its colours
-  baked in; recolouring the chrome does not recolour a PNG. Art is the next skin step (slots, below).
+  baked in; recolouring the chrome does not recolour a PNG. Art is reskinned by slot (section 4).
 - **Not in the scan:** `App/Board` (the puzzle's colours come from `Tuning/board.json`: the puzzle module owns them),
   `App/Game`, `App/Audio` and the core package (no UI colours).
 - **Verification:** `codemod.py --verify <git rev>` inlines every token back into the sources and compares them with that
@@ -171,17 +173,128 @@ in the puzzle module's folder, which another lane owns, and should read `GameTex
 | What | Where it comes from | Reskin by |
 |---|---|---|
 | **Brand / display name** | `game.yml identity.brand_name` -> `project.yml PC_BRAND_NAME` -> Info.plist -> `Brand.name` (the one source in code; copy interpolates it) | `tools/game.py generate` (docs/TEMPLATE.md); not duplicated in the skin |
-| **Names that are not copy** | `skin/names.json`: `podiumSampleNames` (the Weekly Cup intro podium's three sample players), `avatarPortraits` (portrait index 1…8 -> `Art/char_avatar<Name>@3x.png`) -> `SkinNames` | edit the JSON, run `build.py` |
+| **Names that are not copy** | `skin/names.json`: `podiumSampleNames` (the Weekly Cup intro podium's three sample players) -> `SkinNames` (the avatar portraits are art: the `avatar.<n>` slots, section 4) | edit the JSON, run `build.py` |
 | **Event, character, currency and item names; all copy** | translated copy: the English source text is the key (`"Treasure Climb"`, `"Coins"`, `"Hot Streak"` …) in `App/Resources/Strings/strings.tsv` (13 languages) | `tools/strings/build.py` (per-game strings, ROADMAP); never a literal in the skin, it must be translated |
 | **Sounds** | files `App/Resources/Sounds/<SoundID>.wav`; which moment plays which sound and at what gain is already data (`Tuning/audio.json` `cues`, `gain`; `AudioCues.swift` holds only the equal fallbacks) | replace the `.wav` files (same names) and edit `audio.json`; the set of sound ids is the closed `SoundID` enum in `App/Contracts` (adding a sound slot is a contract change) |
 
-## 4. What else belongs to a skin (next steps)
+## 4. Art, scenes and the logo
+
+### Art slots: `skin/art.json`
+
+Swift never names an art file. It names a **slot**: what the raster is for.
+```json
+{"slots": {"currency.coin.icon": "iconCoin",        // slot -> the art/MANIFEST.json id of the file that fills it
+           "home.backdrop": "homeWorkshop",
+           "avatar.3": "avatarSleuth",
+           "event.skyJump.badge": "badgeCloudHop", …},
+ "rigs":  {"home.character.main": "boss",           // puppet slot -> the manifest's rig entry (art/out/<folder>_rig)
+           "home.centrepiece": "homeSignpostLayers", …}}
+```
+`tools/skin/art.py` (run by `build.py`) resolves each slot through `art/MANIFEST.json` (file, size, group) and generates
+`App/Shell/Components/UIArt.swift`: `enum UIArt` has one case per slot, the id camel-cased (`currency.coin.icon` ->
+`UIArt.currencyCoinIcon`, raw value `"currency.coin.icon"`), with `asset` (the manifest id), `path` (the bundle file),
+`sizePt` and `group`; `enum ArtRig` has one case per rig slot with its `folder`. The code draws `ArtImage(art: .homeBackdrop)`,
+`ArtStore.image(.currencyCoinIcon)`, `PuppetCache.rig(ArtRig.homeCharacterMain.folder)`; the compiler checks every slot it
+names. The reference skin maps the 200 shipped rasters one to one (the same files the app drew before slots) and 8 rigs.
+
+**Slot names** are `<area>.<thing>[.<role>]`: `currency.*`, `hud.*`, `lives.*`, `booster.<booster id>.icon`, `icon.*`
+(settings glyphs, check, info, pointers), `reward.*` (coin piles, the three stage chests), `fx.*`, `tutorial.hand`,
+`unlock.<feature id>.icon`, `avatar.<0…8>` (the avatar index table: 0 = the default silhouette), `rank.<1-3>.badge`,
+`social.*`, `leaderboard.*`, `profile.stat.*`, `shop.bundle.<tier>` / `shop.coins.<1-6>`, `nav.<tab>.icon`,
+`home.backdrop|station|floor|stand|centrepiece`, `loading.backdrop`, `loading.cast.<n>`, `logo.main`,
+`event.<event id>.<thing>` (badge, header, backdrop, offer …), and two namespaces owned elsewhere: `logo.part.<id>` (the win
+logo's images, named by ui.json `win.logo`) and `puzzle.<sprite id>` (the puzzle module's board sprites; the module draws
+them by sprite id from its level data, the slots keep them in the shipped set).
+
+**Reskin the art:** render the new files into `art/ui/out/` or `art/out/` and register them in `art/MANIFEST.json`
+(`art/PIPELINE.md`), point the slots at them in `skin/art.json` (several slots may share one file), run
+`python3 tools/skin/build.py`. A NEW slot (a screen that needs a raster no slot names) is a code change: add it to
+art.json, then draw `UIArt.<name>`.
+
+`python3 tools/skin/art.py --check` (CI; `build.py --check` runs the JSON part) fails on:
+- a slot whose manifest id is unknown, retired or build-only, or whose file is missing from `art/ui/out` / `art/out`; a rig
+  slot without its `rig.json`;
+- a shipped raster or rig of the manifest that no slot maps (it would ship with no code able to draw it; retire it in the
+  manifest or `tools/art_build_only.txt` instead);
+- a slot the Swift code names as a STRING that the skin lacks: `UIArt(rawValue: "…")`, `enum UpAwayArt`'s constants, every
+  image id of ui.json `win.logo` (as `logo.part.<id>`);
+- a Swift source in `App/` or `art/ui/code/` whose string literal names an art file: a manifest file id, a rig folder,
+  `@3x`, `.png`, a `UI/…` / `Art/…` path. `tools/skin/art_allowlist.json` lists the three places that must, with the reason
+  (the puzzle module's sprite catalogue in `App/Board/`, the rig loader `PuppetRig.swift`, the logo spec's part names in
+  `WinLogoSequence.swift`); a stale entry fails too;
+- stale `UIArt.swift` / `SkinScenes.generated.swift`.
+`tools/uiart_gen.py --check` (the older CI step) checks the same `UIArt.swift`; its `--exclude-list` (what never ships,
+`tools/sync_art.sh`) is unchanged. On the Mac, `SkinArtTests` proves the compiled tables equal the JSON entry by entry and
+every rig slot loads; `UIArtBundleTests` that every slot's file is in the bundle and decodes.
+
+### Scenes: `skin/scenes.json`
+
+The home and Loading scenes are lists, back to front, on the 393 x 852 reference canvas:
+```json
+{"rigParts": {"home.character.main": {"arms": ["armL", "armR", "armR_point"]}},
+ "home": {"back":  [{"art": "home.backdrop", "fill": true, "at": [0, 0, 393, 852]},
+                    {"rig": "home.character.main", "excluding": "arms"},
+                    {"art": "home.station", "frame": "home.scene.console", "at": [109, 176, 191, 192]},
+                    {"rig": "home.character.main", "only": "arms"}, …,
+                    {"centrepiece": "home.centrepiece", "frame": "home.scene.arrowPile", "at": [101.5, 385.96, 190, 128]}],
+          "front": [{"rig": "home.character.left"}, {"rig": "home.character.right"}]},
+ "loading": {"backdrop": "loading.backdrop", "logo": "logo.main", "cast": [{"art": "loading.cast.1", "at": [-6, 434, 96, 76]}, …]}}
+```
+- `art`: a slot drawn aspect-fit at `frame` (a ui.json `frames` key, tunable with `-pc.tune` and without a build) whose
+  default is `at`; `fill: true` draws it aspect-fill over `at` (the full-bleed backdrop).
+- `rig`: a puppet at its rig.json placement; `only` / `excluding` name a `rigParts` set (a character split around another
+  layer: the main character's arms in front of his station).
+- `centrepiece`: the rig with the idle loop and the refill steps (ui.json `puppet.<folder>.refill`) at `frame`.
+- `home.back` is drawn behind the LEVEL plate and Play, `home.front` in front of them (behind the top bar).
+- `loading`: the full-bleed backdrop, the logo (placed at ui.json `frames.loading.logo`) and the cast (fixed rects; R4
+  LOADING's layout, which `Art/char_loading_layout.json` used to carry).
+
+`art.py` generates `SkinScenes` (`homeBack`, `homeFront`, `loadingBackdrop`, `loadingLogo`, `loadingCast`); `HomeView` and
+`LoadingScreen` draw the lists (no scene literal left in them). The **motion** was already data and stays where it is:
+ui.json `puppet.<rig folder>` (cycle, phase, keyframe tracks per layer; the centrepiece's `refill` steps and haptic ticks) and
+`home.pileRefill`. A rig's placement and layers are the rig's own `rig.json` (the art pipeline's export).
+
+### The logo
+
+- **Boot / Loading logo:** the `logo.main` slot at ui.json `frames.loading.logo` (the Loading scene above).
+- **Win logo:** every beat of the celebration is ui.json `win.*` (`panelAt`, `dimAt`, `confettiAt`, the rockets, bursts,
+  haptic beats `win.haptics`) and the logo itself is ui.json `win.logo` (parts, layers with their rects, anchors and
+  keyframe tracks, the containers and the arrow sign's swap; generated by the logo spec tools). Each image id there is drawn
+  from the slot `logo.part.<id>`; the one-piece fallback from `logo.main`. `WinLogoSequence.swift` keeps only equal
+  fallbacks for a missing ui.json block. A new game's logo: new part files + `logo.part.<id>` slots + its own `win.logo`
+  block. Limit: the part tree's ROLES are still Swift literals of this logo's part ids (`logoSignBlue` carries the letters,
+  `logoSignPurple` bends, `logoOut` + the four OUT! glyphs form the echo group, `LogoSpec.arrowOrder` / `outOrder`), so a
+  logo with another structure keeps those ids for its parts or needs a code change (section 6).
+
+## 5. A second skin: the data-only proof
+
+`skin/variants/<name>/colors.json` is an alternate palette made by `recolor.py`'s rules, stored as an OVERLAY on
+`skin/colors.json` (its whole palette + any own-literal token / ui values the rules move; the rules themselves are kept in
+the file). `skin/variants/cobalt/` moves the teal chrome to #3A6FE0 and the pink family to #7B3FE4 (481 of 1,063 palette
+colours). It is **not shipped**: nothing reads `skin/variants/` at build or run time.
+```sh
+python3 tools/skin/variant.py --check      # (CI) each variant: merges, validates (build.py's rules), generates the colour
+                                           # outputs with build.py's own generators, and fails unless they differ from the
+                                           # active skin's ONLY in colour values (same files, lines, names; > 0 colours)
+python3 tools/skin/variant.py --write NAME --map teal=#3A6FE0 --map pink=#7B3FE4   # make one
+python3 tools/skin/variant.py --refresh    # re-apply the stored rules to today's colors.json (after the skin grows)
+python3 tools/skin/variant.py --apply NAME # try it in the app: writes the merged palette over skin/colors.json
+                                           # (then build.py + build; `git checkout apps/<slug>/skin/colors.json` goes back)
+```
+Tokens the UI gains later follow a variant through their palette names; a palette entry newer than the variant keeps the
+reference colour until `--refresh` (reported). Since the Swift sources are identical for every skin and the generated
+Swift differs only in constant values, a variant compiles wherever the reference does. The Mac-side proof (the app built and
+screenshotted on a variant) is still to do.
+
+## 6. Not skin data yet
 
 | Part | Today | Target |
 |---|---|---|
-| **Art slots** | `UIArt` cases named after Arrow Out things (`treasureToken`, `rankBadgeGold` …), PNGs in `art/ui/out/`; `Brand.logoArtID` | art by **slot** (`logo.main`, `event.race.badge`, `home.character.boss`) in `skin/art/`; a missing slot fails `doctor` and the Release build |
-| **Scenes and logo** | home/loading scenes and the win-logo timing in code (`HomeScene`, `PuppetRig`, `WinLogoSequence`) | scene/logo descriptions as data in the skin |
+| **Screen layouts** | many frames and sizes of the shell's screens are Swift defaults of ui.json reads, some plain literals | ui.json keys (numbers, not Swift) |
 | **Per-game strings** | copy in `App/Resources/Strings/*.tsv` | `Games/<slug>/strings/` |
 | **Launch colours** | `App/GameApp.swift` boot diagnostics / Loading stand-in and the `LaunchBackground` asset colour are outside the skin scan | skin tokens |
+| **Art ink boxes** | `S2Chrome.swift` `ArtInk`: each HUD / popup raster's measured alpha bbox (fractions of its canvas) as Swift literals, keyed by slot; a new file in such a slot places its visible pixels by the OLD file's box | generated by art.py from the mapped files |
+| **Win logo structure** | the part tree's roles (which part carries the letters, which bends, the OUT! group and orders) are Swift literals of Arrow Out's part ids in `WinLogoSequence.swift` | a role map in `win.logo` / the skin |
 
-The proof of phase 3 is a second skin that builds and runs with zero Swift changes.
+The proof of phase 3 is a second skin that builds and runs with zero Swift changes: the colour half is proven by CI
+(section 5); an art variant (`skin/art.json` pointing at other files) needs those files rendered first.

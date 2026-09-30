@@ -53,7 +53,7 @@ struct CoinFlySpec {
         if showLabel {
             // the small pile at the flight origin + the "+N" label, popping together (C1), fading at C5
             let pile = CALayer()
-            if let img = ArtStore.image(.coinPileSmall)?.cgImage { pile.contents = img }
+            if let img = ArtStore.image(.rewardCoinsSmall)?.cgImage { pile.contents = img }
             let pw = spec.pileWidth * s, ph = pw * 56 / 68
             pile.bounds = CGRect(x: 0, y: 0, width: pw, height: ph)
             pile.position = CGPoint(x: from.x, y: from.y + 4 * s)
@@ -68,7 +68,7 @@ struct CoinFlySpec {
                 out.append(popAndFade(l, spec: spec, t0: t0))
             }
         }
-        let coinImage = ArtStore.image(.iconCoin)?.cgImage
+        let coinImage = ArtStore.image(.currencyCoinIcon)?.cgImage
         for k in 0..<spec.count {
             let coin = CALayer()
             coin.contents = coinImage

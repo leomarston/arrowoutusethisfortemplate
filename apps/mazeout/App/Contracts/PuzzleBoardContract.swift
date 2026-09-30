@@ -123,6 +123,12 @@ struct PuzzleBoardHost: UIViewRepresentable {
 
 /// THE ONE LINE A NEW GAME CHANGES: the active puzzle module's entry point (its app half lives next to its board; ArrowEscape's
 /// is App/Board/ArrowEscapePlugin.swift). Keep game.yml `puzzle.module` equal to the plugin's `id` (AppModel logs both).
+/// Template phase 5: every module's app half is compiled in (SortPuzzle: App/Puzzles/SortPuzzle/); the compilation condition
+/// `PC_PUZZLE_SORT` (SWIFT_ACTIVE_COMPILATION_CONDITIONS) selects SortPuzzle without editing this file.
 @MainActor enum ActivePuzzle {
+    #if PC_PUZZLE_SORT
+    static let entry: any PuzzleEntryPoint.Type = SortPuzzleEntry.self
+    #else
     static let entry: any PuzzleEntryPoint.Type = ArrowEscapeEntry.self
+    #endif
 }

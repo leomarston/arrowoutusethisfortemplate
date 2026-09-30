@@ -41,7 +41,7 @@ struct SocSkyOffer: View {
             Color.clear
             SocSkyPanel().placed(CGRect(10.3, 172.8, 372.6, 536.5))
             // the scene fills the field's width (the panel frame hides its sides; 330 x 190 at 344.6 / 330)
-            ArtImage(art: .hopOfferScene, contentMode: .fill).frame(width: 344.6, height: 199).clipped()
+            ArtImage(art: .eventSkyJumpOffer, contentMode: .fill).frame(width: 344.6, height: 199).clipped()
                 .placed(CGRect(24.3, 248, 344.6, 199))
             SocPrizeSignText(pool: pool, face: CGRect(85.1, 265.8, 104, 48))
             SocSkyLettering(frame: CGRect(66.7, 133.4, 266.9, 70.1))
@@ -120,7 +120,7 @@ struct SocSkyChip: View {
             ZStack(alignment: .topLeading) {
                 RoundedRectangle(cornerRadius: geo.size.height / 2).fill(Color(hex: Skin.socialSkyJumpViewsSocSkyChipChipFill))
                     .frame(width: geo.size.width - 10, height: geo.size.height).offset(x: 10)
-                ArtImage(art: .iconStopwatchSmall).frame(width: geo.size.height * 0.95, height: geo.size.height * 1.02).offset(x: -2, y: -1)
+                ArtImage(art: .hudTimerIconSmall).frame(width: geo.size.height * 0.95, height: geo.size.height * 1.02).offset(x: -2, y: -1)
                 GlyphRunText(text: Countdown.text(seconds), style: st, maxWidth: geo.size.width - 26)
                     .position(x: geo.size.width / 2 + 9, y: geo.size.height / 2)
             }
@@ -190,7 +190,7 @@ private struct SocSkyMatchingContent: View {
         ZStack(alignment: .topLeading) {
             Color.clear
             SocSkyLettering(frame: CGRect(63.4, 76.7, 270.2, 73.4))
-            ArtImage(art: .hopIsland).placed(CGRect(47, 138, 300, 295))
+            ArtImage(art: .eventSkyJumpPlatform).placed(CGRect(47, 138, 300, 295))
             // the island's live sign face (art/lanes/scene.md: 44..104 x 9..40 of the 260 x 256 frame) at 300 / 260
             SocPrizeSignText(pool: pool, face: CGRect(125.6, 174.7, 69, 35))
             SocFindingBubble(count: count).placed(CGRect(63.1, 470.7, 267.2, 96.4))
@@ -289,14 +289,14 @@ struct SocSkyTutorial: View {
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 122.8, y: 284.5 - 6)) {
                     SocTwoLines(text: "Start with 100 players!", centreX: 122.8, baselines: [284.5], box: 200, hot: "100 players")
                 }
-                SocPopIn(u: u, start: 0.50, at: CGPoint(x: 228 + 38 / 2, y: 200 + 41 / 2)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(236, 212, 42, 46)) }
-                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 269.6 + 96.1 / 2, y: 271.9 + 96.1 / 2)) { ArtImage(art: .infoPathIcon).placed(CGRect(269.6, 271.9, 96.1, 96.1)) }
+                SocPopIn(u: u, start: 0.50, at: CGPoint(x: 228 + 38 / 2, y: 200 + 41 / 2)) { ArtImage(art: .iconPointer).placed(CGRect(236, 212, 42, 46)) }
+                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 269.6 + 96.1 / 2, y: 271.9 + 96.1 / 2)) { ArtImage(art: .iconInfo).placed(CGRect(269.6, 271.9, 96.1, 96.1)) }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 315.5, y: 393.5 - 6)) {
                     SocTwoLines(text: "Beat \(goal) levels!", centreX: 315.5, baselines: [393.5], box: 115, size: 17.2, hot: "\(goal) levels!")
                 }
-                SocPopIn(u: u, start: 0.66, at: CGPoint(x: 220 + 38 / 2, y: 410 + 41 / 2)) { ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(222, 428, 42, 46)) }
+                SocPopIn(u: u, start: 0.66, at: CGPoint(x: 220 + 38 / 2, y: 410 + 41 / 2)) { ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(222, 428, 42, 46)) }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 47.7 + 154.1 / 2, y: 356 + 152 / 2)) {
-                    ArtImage(art: .hopIsland).placed(CGRect(47.7, 356, 154.1, 152))
+                    ArtImage(art: .eventSkyJumpPlatform).placed(CGRect(47.7, 356, 154.1, 152))
                     SocPrizeSignText(pool: pool, face: CGRect(88, 375, 35.6, 17.8))
                 }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 128, y: 526.5 - 6)) {
@@ -335,7 +335,7 @@ private struct SocStageTray: View {
             ForEach(0..<3, id: \.self) { i in
                 RoundedRectangle(cornerRadius: 12).fill(Color(hex: i == 0 ? Skin.socialSkyJumpViewsSocStageTrayFillI0 : Skin.socialSkyJumpViewsSocStageTrayFillNotI0))
                     .frame(width: 96, height: 50).offset(x: 6 + CGFloat(i) * 101.2, y: 5)
-                ArtImage(art: i == 0 ? .stageChestGreen : i == 1 ? .stageChestBlue : .stageChestPink)
+                ArtImage(art: i == 0 ? .rewardChest1 : i == 1 ? .rewardChest2 : .rewardChest3)
                     .frame(width: 52, height: 39).offset(x: 28 + CGFloat(i) * 101.2, y: 10)
             }
         }
@@ -367,19 +367,19 @@ struct SocSkyMap: View {
         let now = SocTime.now(app)
         let failed = snap.map { $0.result == "failed" || $0.result == "expired" } ?? false
         ZStack(alignment: .topLeading) {
-            ArtImage(art: .hopBackdrop, contentMode: .fill).frame(width: m.size.width, height: m.size.height).clipped()
+            ArtImage(art: .eventSkyJumpBackdrop, contentMode: .fill).frame(width: m.size.width, height: m.size.height).clipped()
             ReferenceCanvas {
                 TimelineView(.animation(minimumInterval: nil, paused: app.clock.gameTime() - hopStart > 0.8)) { ctx in
                     let u = app.clock.gameTime(ctx.date) - hopStart
                     ZStack(alignment: .topLeading) {
-                        ArtImage(art: .hopIslandFar).placed(CGRect(6, 222, 166, 158))
-                        ArtImage(art: .hopIslandFar2).placed(CGRect(213, 214, 144, 132))
+                        ArtImage(art: .eventSkyJumpPlatformFar).placed(CGRect(6, 222, 166, 158))
+                        ArtImage(art: .eventSkyJumpPlatformFar2).placed(CGRect(213, 214, 144, 132))
                         // the small stepping pads between the islands (VERIFIED 069 / 080; decoration, no numbers)
                         ForEach(0..<3, id: \.self) { i in
                             let c = [CGPoint(x: 182, y: 330), CGPoint(x: 236, y: 320), CGPoint(x: 287, y: 410)][i]
-                            ArtImage(art: .hopPad).frame(width: 44, height: 41).position(c)
+                            ArtImage(art: .eventSkyJumpPad).frame(width: 44, height: 41).position(c)
                         }
-                        ArtImage(art: .hopIsland).placed(CGRect(66, 306, 260, 256))
+                        ArtImage(art: .eventSkyJumpPlatform).placed(CGRect(66, 306, 260, 256))
                         SocPrizeSignText(pool: snap?.pool ?? 5000, face: CGRect(134, 338, 60, 30))
                         pads(snap, failed: failed)
                         players(snap, u: u)
@@ -445,7 +445,7 @@ struct SocSkyMap: View {
             let n = padNumber(i, w)
             if n <= w.goal - 1 || w.goal <= 4 {
                 ZStack(alignment: .topLeading) {
-                    ArtImage(art: .hopPad)
+                    ArtImage(art: .eventSkyJumpPad)
                         .opacity(failed && i == w.slot ? 0.6 : 1)
                     let st = GameTextStyle.s2(28.5 * k, 0, [Skin.socialSkyJumpViewsSocSkyMapPadsSt0], outline: Skin.socialSkyJumpViewsSocSkyMapPadsStOutline, 2.4 * k)
                     GameText(verbatim: "\(n)", style: st, maxWidth: 40 * k).at(56.5 * k, st.capCentre(baseline: 62.5 * k + st.size * 0.36))
@@ -658,14 +658,14 @@ private struct SocSkyWinContent: View {
             // before its beat an element is drawn at 0.1 % (invisible): its art and text are on screen from S, so no beat
             // pays a first draw (measured: the island's first draw was a 52 ms frame at its beat)
             ZStack(alignment: .topLeading) {
-                ArtImage(art: .hopIsland).placed(CGRect(75, 136, 243, 239))
+                ArtImage(art: .eventSkyJumpPlatform).placed(CGRect(75, 136, 243, 239))
                 SocPrizeSignText(pool: pool, face: CGRect(138.6, 165.9, 56, 28))
             }
             .scaleEffect(CGFloat(island ?? 0.001), anchor: UnitPoint(x: 196.5 / 393, y: 255.5 / 852))
             GameText("You win!", style: yw, maxWidth: 250).scaleEffect(CGFloat(youWin ?? 0.001)).at(197.8, yw.capCentre(baseline: 372))
             SkyStagePop(u: u, start: Self.bowlAt, at: CGPoint(x: 197, y: 435)) {
                 ZStack(alignment: .topLeading) {
-                    ArtImage(art: .coinBowl).placed(CGRect(139.1, 386.3, 115.8, 97.4))
+                    ArtImage(art: .rewardCoinBowl).placed(CGRect(139.1, 386.3, 115.8, 97.4))
                     SkyWinGlow(u: u - Self.glowAt).frame(width: 393, height: 852)
                     GameText(verbatim: "\(amount)", style: am, maxWidth: 90).at(196.8, am.capCentre(baseline: 473))
                         .accessibilityIdentifier("sky.win.amount")

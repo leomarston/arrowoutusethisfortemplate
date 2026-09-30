@@ -75,14 +75,14 @@ private struct LivesCardContent: View {
         let caption = GameTextStyle.s2(25.4, -0.7, [Skin.popupsNoLivesPopupLivesCardContentCaption0])
         let timer = GameTextStyle.s2(25.4, -0.73, [Skin.popupsNoLivesPopupLivesCardContentTimer0], outline: Skin.popupsNoLivesPopupLivesCardContentTimerOutline, 0.94, drop: 0.6)
         ZStack(alignment: .topLeading) {
-            ArtImage(art: .heartLivesBig).placed(CGRect(146.9, 250.5, 100, 90))
+            ArtImage(art: .livesHeartBig).placed(CGRect(146.9, 250.5, 100, 90))
             GameText(verbatim: "\(count)", style: countStyle).at(146.9 + 49.3, countStyle.capCentre(baseline: 311.0))
                 .accessibilityIdentifier("popup.noLives.count")
             GameText(verbatim: "+", style: countStyle.sized(46)).at(146.9 + 80.8, 250.5 + 76.0)
             // B3: fitted inside the 261.6 pt cream card (was 270: TR / SL ran edge to edge); EN fits at 1.0 either way
             GameText("Time to next life:", style: caption, maxWidth: 250).at(196.5, caption.capCentre(baseline: 369.0))
             TimerCapsule().placed(CGRect(138.1, 377.0, 120.1, 44.4))
-            ArtImage(art: .iconStopwatch).placed(CGRect(125.0, 382.2, 34, 34))
+            ArtImage(art: .hudTimerIcon).placed(CGRect(125.0, 382.2, 34, 34))
             GameText(verbatim: LivesText.clock(left), style: timer, maxWidth: 90).at(213.5, timer.capCentre(baseline: 410.9))
                 .accessibilityIdentifier("popup.noLives.timer")
         }

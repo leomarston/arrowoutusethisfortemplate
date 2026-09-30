@@ -101,7 +101,7 @@ enum SocRowBuilder {
 
     static func badge(_ kind: SocListKind, rank: Int) -> UIArt? {
         guard kind != .weekly else { return nil }          // the Weekly list starts at rank 4 (the podium holds 1-3)
-        switch rank { case 1: return .rankBadgeGold; case 2: return .rankBadgeSilver; case 3: return .rankBadgeBronze; default: return nil }
+        switch rank { case 1: return .rank1Badge; case 2: return .rank2Badge; case 3: return .rank3Badge; default: return nil }
     }
 
     static func row(_ kind: SocListKind, rank: Int, player: SimPlayer, value: Int, isMe: Bool, prize: Int = 0,

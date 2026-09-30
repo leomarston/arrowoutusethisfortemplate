@@ -327,14 +327,14 @@ extension EnvironmentValues {
     /// Every raster the event's own screens draw (its page, its offer, its stage chests).
     static func art(_ e: EventID) -> [UIArt] {
         switch e {
-        case .rocketRace: return [.rallyBackdrop, .rallyOfferScene, .rallyRocketMine, .rallyRocketOther, .planetStage1, .planetStage2,
-                                  .planetStage3, .stageChestGreen, .stageChestBlue, .stageChestPink, .rankWings1]
-        case .skyJump: return [.hopBackdrop, .hopIsland, .hopIslandFar, .hopIslandFar2, .hopPad, .hopOfferScene,
-                               .stageChestGreen, .stageChestBlue, .stageChestPink]
-        case .balloonRise: return [.balloonHero, .balloonTowerTop, .balloonTowerShaft, .balloonTowerFoot, .balloonLedge, .balloonCloudA,
-                                   .balloonCloudB, .stageChestPink, .stageChestBlue, .stageChestGreen]
-        case .clawChallenge: return [.treasureHeader]
-        case .streakRace: return [.streakHeader]
+        case .rocketRace: return [.eventRocketRaceBackdrop, .eventRocketRaceOffer, .eventRocketRaceRacerMine, .eventRocketRaceRacerOther, .eventRocketRaceStage1, .eventRocketRaceStage2,
+                                  .eventRocketRaceStage3, .rewardChest1, .rewardChest2, .rewardChest3, .rank1Wings]
+        case .skyJump: return [.eventSkyJumpBackdrop, .eventSkyJumpPlatform, .eventSkyJumpPlatformFar, .eventSkyJumpPlatformFar2, .eventSkyJumpPad, .eventSkyJumpOffer,
+                               .rewardChest1, .rewardChest2, .rewardChest3]
+        case .balloonRise: return [.eventBalloonRiseHero, .eventBalloonRiseTowerTop, .eventBalloonRiseTowerShaft, .eventBalloonRiseTowerFoot, .eventBalloonRiseLedge, .eventBalloonRiseCloudA,
+                                   .eventBalloonRiseCloudB, .rewardChest3, .rewardChest2, .rewardChest1]
+        case .clawChallenge: return [.eventClawChallengeHeader]
+        case .streakRace: return [.eventStreakRaceHeader]
         default: return []
         }
     }

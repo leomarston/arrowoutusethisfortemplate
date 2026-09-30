@@ -48,7 +48,7 @@ struct WinPanel: View {
             TokenText(id: "win.rewardsLabel.label", source: .copy("Rewards:"),
                       style: .s2(25.9, -1.52, [Skin.popupsWinPanelWinPanelStyle0V2], outline: tier.textOutline, 1.35, drop: 1.25),
                       baseline: 332.8, centreX: 199.5, maxWidth: 240)
-            InkImage(art: .coinStackReward, ink: t.frame("win.coinsInk", CGRect(136.4, 363.3, 132.6, 105.2)))
+            InkImage(art: .rewardCoins, ink: t.frame("win.coinsInk", CGRect(136.4, 363.3, 132.6, 105.2)))
             WinTwinkles(t: t)
             TokenText(id: "win.amountDigits.amt", source: .number("\(summary.reward)"),
                       style: .s2(56.5, -3.73, [Skin.popupsWinPanelWinPanelStyle0V2], outline: tier.textOutline, 2.6, drop: 1.8),
@@ -216,7 +216,7 @@ private struct WinTwinkles: View {
         let spots: [(CGFloat, CGFloat, CGFloat)] = [(147, 397, 16), (243, 386, 19), (281, 386, 21), (115, 448, 19)]
         ZStack(alignment: .topLeading) {
             ForEach(Array(spots.enumerated()), id: \.offset) { _, s in
-                ArtImage(art: .sparkleTwinkle).placed(CGRect(s.0 - s.2 / 2, s.1 - s.2 / 2, s.2, s.2))
+                ArtImage(art: .fxSparkle).placed(CGRect(s.0 - s.2 / 2, s.1 - s.2 / 2, s.2, s.2))
             }
         }
         .allowsHitTesting(false)

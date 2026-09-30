@@ -54,7 +54,7 @@ struct HomeNavBar: View {
                                                (4.0, Skin.homeNavBarHomeNavBarBarStops5), (6.0, Skin.homeNavBarHomeNavBarBarStops6), (30.3, Skin.homeNavBarHomeNavBarBarStops7), (53.3, Skin.homeNavBarHomeNavBarBarStops8), (81.1, Skin.homeNavBarHomeNavBarBarStops9)]
 
     @ViewBuilder private func tabButton(_ item: HomeTab, t: Tokens, selected: Bool, centreX: CGFloat) -> some View {
-        let art: UIArt = item == .shop ? .navCart : item == .home ? .navLodge : .navCup
+        let art: UIArt = item == .shop ? .navShopIcon : item == .home ? .navHomeIcon : .navLeaderboardIcon
         // FIX-V2 F-01: the frames are the ART boxes (the 3d renders carry 3-8 pt of transparent margin), placed at the art's
         // native aspect so the INK lands on the phone's measured ink boxes (026 / meta-012 / meta-013 / meta-018): unselected
         // shop 42.4 · 782.4 · 51.4 · 52.4, home 172.4 · 780.0 · 49.0 · 55.7, trophy 297.4 · 782.4 · 55.4 · 52.7 (ink bottoms

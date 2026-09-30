@@ -22,7 +22,7 @@ struct LevelFailedPopup: View {
         ZStack(alignment: .topLeading) {
             PopupPanelFrame(n: t.superellipseN("failed.panel", 6.04), t: t).placed(t.frame("failed.panel", CGRect(10.0, 198.2, 373.3, 464.4)))
             PopupCard(radius: t.radius("failed.card", 24.19), t: t).placed(t.frame("failed.card", CGRect(54.7, 280.9, 283.9, 210.2)))
-            InkImage(art: .heartBroken, ink: t.frame("failed.brokenHeart", CGRect(121.25, 302.45, 154.1, 122.0)))
+            InkImage(art: .livesLost, ink: t.frame("failed.brokenHeart", CGRect(121.25, 302.45, 154.1, 122.0)))
             TokenText(id: "failed.caption.caption", source: .copy("Level Failed!"), style: .s2(25.0, -0.71, [Skin.popupsLevelFailedPopupLevelFailedPopupStyle0]),
                       baseline: 463.3, centreX: 196.8, maxWidth: 260)
             WellFramedButton(id: "popup.levelFailed.primary", title: "Try Again", colors: .green, frame: face,

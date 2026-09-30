@@ -390,17 +390,17 @@ struct UnlockContent: Equatable {
         let ink: CGRect
         var digit: String?, size: CGFloat = 30, outline: UInt32 = Skin.popupsUnlockOverlayUnlockContentOfOutline, at = CGPoint.zero
         switch icon {
-        case .unlockIconPipe:
+        case .unlockPipeIcon:
             // the counter cap's centre in the canvas (art/ui/out/unlockIconPipe@3x.png), the phone's "3" (040)
             ink = CGRect(125.0, 353.0, 142.0, 117.0)       // the whole pipe incl. its gold mouths (040: x 125-267, y 353-470)
             digit = "3"; size = 26; outline = Skin.popupsUnlockOverlayUnlockContentOfOutlineUnlockIconPipe
             at = CGPoint(x: 0.437, y: 0.225)
-        case .unlockIconBox:
+        case .unlockBoxIcon:
             // the ring's centre (unlockIconBox@3x.png), the phone's "5" (134)
             ink = CGRect(136.5, 351.0, 121.5, 127.5)
             digit = "5"; size = 34; outline = Skin.popupsUnlockOverlayUnlockContentOfOutlineUnlockIconBox
             at = CGPoint(x: 0.475, y: 0.47)
-        case .unlockIconCorner:
+        case .unlockCornerIcon:
             ink = CGRect(146.55, 363.25, 100, 100)          // FIX-2 A (L02): the whole 100 pt canvas centred on 456's ink centre
         default:
             ink = CGRect(136.5, 355.0, 120.0, 110.0)
@@ -412,13 +412,13 @@ struct UnlockContent: Equatable {
 
     private static func defaultIcon(_ f: FeatureID) -> UIArt {
         switch f {
-        case .linked: return .unlockIconLinked
-        case .box: return .unlockIconBox
-        case .pipe: return .unlockIconPipe
-        case .elevator: return .unlockIconElevator
-        case .door: return .unlockIconDoor
-        case .curtain: return .unlockIconBox        // FIX-2 B (A4-r2): a curtain wears the BOX skin (ruling 11); unlockIconCurtain is retired
-        default: return .unlockIconLinked
+        case .linked: return .unlockLinkedIcon
+        case .box: return .unlockBoxIcon
+        case .pipe: return .unlockPipeIcon
+        case .elevator: return .unlockElevatorIcon
+        case .door: return .unlockDoorIcon
+        case .curtain: return .unlockBoxIcon        // FIX-2 B (A4-r2): a curtain wears the BOX skin (ruling 11); unlockIconCurtain is retired
+        default: return .unlockLinkedIcon
         }
     }
 }
@@ -445,7 +445,7 @@ private struct UnlockTwinkles: View {
                     let size = CGFloat(t.number("fx.unlockTwinkles.sizeMin", 12) + (t.number("fx.unlockTwinkles.sizeMax", 20) - t.number("fx.unlockTwinkles.sizeMin", 12)) * r.2)
                     let k = age / life
                     let s = k < 0.5 ? k / 0.5 : (1 - k) / 0.5
-                    ArtImage(art: .sparkleTwinkle)
+                    ArtImage(art: .fxSparkle)
                         .colorMultiply(r.2 < 0.5 ? Color(hex: Skin.popupsUnlockOverlayUnlockTwinklesColorMultiply) : .white)
                         .frame(width: size, height: size)
                         .scaleEffect(CGFloat(s))

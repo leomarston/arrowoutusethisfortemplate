@@ -65,8 +65,34 @@ in at ONE line, `ActivePuzzle.entry` (`App/Contracts/PuzzleBoardContract.swift`)
 app half `PuzzlePlugin` + `PuzzleBoard` (reference: `App/Board/ArrowEscapePlugin.swift` around the BoardEngine). `App/Game`
 is genre-agnostic and stays as it is; until phase 1's folder move, the reference puzzle's board lives in `App/Board`.
 
+**Worked example: SortPuzzle** (a second, unlike module: pick-then-target input, no timer, fail = "stuck";
+PUZZLE-MODULE.md §6b). Adding a module is these steps, in this order:
+1. **Core target** — `Packages/PathCore/Sources/<Module>/`, depending on `GameCore` only; add `.library(name: "<Module>")`,
+   `.target(name: "<Module>", dependencies: ["GameCore"])` and a `.testTarget` to `Package.swift` (not to the PathCore
+   umbrella), and the target to `tools/core.sh`'s import check (`Foundation|GameCore`). SortPuzzle: `SortLevel` +
+   `SortRules` (its data file), `SortMechanics` (rules), `SortSolver`, `SortGenerator` (seeded, solvable by construction),
+   `SortPuzzleSession: PuzzleSession`, `SortPuzzleModule: PuzzleModule` (id, capabilities, `stage`, `makeSession`,
+   `warmUpWin`), `SortBot` (plays through the contract only).
+2. **Determinism proof** — a Python reference of anything seeded (`apps/<slug>/tools/sortpuzzle/ref.py`) writes goldens into
+   `Packages/PathCore/Tests/Fixtures/`; the Swift tests compare against them, CI's Linux job runs `ref.py --check`.
+3. **Data** — the module's numbers in `App/Resources/Tuning/<module>.json` (SortPuzzle: `sort.json` — levels, play, its
+   `stuck` fail chain, `board.*` sizes and durations); its colours as skin tokens (`skin/colors.json`
+   `puzzle.<board>.*`, then `python3 apps/<slug>/tools/skin/build.py`; `App/Puzzles` is in the literal scan).
+4. **App half** — `App/Puzzles/<Module>/`: a `PuzzlePlugin` (stages, session factory, tutorials/unlocks, mistake targets,
+   warm-up), a `PuzzleBoard` (acks never synchronous; drives `boardFrame` from its own display link) and a
+   `PuzzleEntryPoint`. project.yml globs `App/`, so only the package product goes into the app and test targets'
+   `dependencies` (`{ package: PathCore, product: <Module> }`).
+5. **Select it** — `ActivePuzzle.entry` (one line; SortPuzzle: the `PC_PUZZLE_SORT` compilation condition), `game.yml`
+   `puzzle.module: sort-puzzle` + its `puzzle.checks` (e.g. `python3 tools/sortpuzzle/ref.py --check`).
+6. **Tests** — core: goldens, solvability, the bot through `PuzzleSession` only, fail/continue/win exactly once, boosters;
+   app: the plugin + real board headless, and the unchanged `GameController` playing a level to the win panel
+   (`Tests/SortPuzzleAppTests.swift` reuses GameControllerTests' fakes).
+7. **Before shipping it** — the shell gaps PUZZLE-MODULE.md §6b lists for the module's widgets and fail kind (HUD widgets,
+   popup texts in 13 languages, booster prices/texts/art) and its tutorials.
+
 ### 3. Reskin
-Colours: `docs/SKIN.md` (`skin/colors.json` -> `tools/skin/build.py`). Art: `art/PIPELINE.md` + `art/STYLE.md`; every slot
+Colours: `docs/SKIN.md` (`skin/colors.json` -> `tools/skin/build.py`). Which file fills which art slot, and the home /
+Loading scene composition: `skin/art.json`, `skin/scenes.json` (docs/SKIN.md §4). Art: `art/PIPELINE.md` + `art/STYLE.md`; every slot
 of `art/MANIFEST.json` whose status is `done`/`graded` must exist at its size (doctor checks it), plus the three app
 icon images in `App/Resources/Assets.xcassets/AppIcon.appiconset/`. Fonts in `App/Resources/Fonts` (+ `UIAppFonts` in
 `project.yml`), sounds in `App/Resources/Sounds`, event names in the strings. Copy the category's conventions, never an

@@ -136,7 +136,7 @@ private struct DriftingHero: UIViewRepresentable {
 
 /// The chest art of a platform (the phone's colour cycle red, blue, green, pink, teal on our three chest renders).
 enum BalloonChest {
-    static func art(_ i: Int) -> UIArt { [.stageChestPink, .stageChestBlue, .stageChestGreen, .stageChestPink, .stageChestBlue][i % 5] }
+    static func art(_ i: Int) -> UIArt { [.rewardChest3, .rewardChest2, .rewardChest1, .rewardChest3, .rewardChest2][i % 5] }
 }
 
 /// A requested art id: the file when it exists, else (DEBUG only) the hatched placeholder; Release draws nothing.
@@ -336,13 +336,13 @@ private struct BalloonTowerArt: View {
     static let tile: CGFloat = 340
     /// R8's suggested cloud spots (page pt; balloonCloudA 150 × 70, balloonCloudB 100 × 56), kept above the foot.
     static let clouds: [(UIArt, CGPoint, CGSize)] = [
-        (.balloonCloudA, CGPoint(x: 250, y: 520), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 290, y: 880), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 240, y: 1250), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 284, y: 1600), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 262, y: 1930), CGSize(width: 150, height: 70)),
-        (.balloonCloudB, CGPoint(x: 296, y: 2280), CGSize(width: 100, height: 56)),
-        (.balloonCloudA, CGPoint(x: 236, y: 2620), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 250, y: 520), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 290, y: 880), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 240, y: 1250), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 284, y: 1600), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 262, y: 1930), CGSize(width: 150, height: 70)),
+        (.eventBalloonRiseCloudB, CGPoint(x: 296, y: 2280), CGSize(width: 100, height: 56)),
+        (.eventBalloonRiseCloudA, CGPoint(x: 236, y: 2620), CGSize(width: 150, height: 70)),
     ]
 
     var body: some View {
@@ -567,11 +567,11 @@ struct SocBalloonInfo: View {
                 SocPopIn(u: u, start: 0.18, duration: 0.10, overshoot: 1.10, at: CGPoint(x: 196.8, y: 82.9 - 13)) {
                     SocInfoTitle(title: "Up & Away", baseline: 82.9)
                 }
-                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 110, y: 190)) { ArtImage(art: .infoPathIcon).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
+                SocPopIn(u: u, start: 0.35, at: CGPoint(x: 110, y: 190)) { ArtImage(art: .iconInfo).placed(CGRect(57.4, 138.8, 105.8, 105.4)) }
                 SocPopIn(u: u, start: 0.35, at: CGPoint(x: 111.7, y: 264)) {
                     SocTwoLines(text: "Beat levels in a row to rise higher!", centreX: 111.7, baselines: [270.5, 290.5], box: 170, greedy: true)
                 }
-                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 254, y: 258)) { ArtImage(art: .pointerArrowYellow).placed(CGRect(234, 236, 40, 45)) }
+                SocPopIn(u: u, start: 0.58, at: CGPoint(x: 254, y: 258)) { ArtImage(art: .iconPointer).placed(CGRect(234, 236, 40, 45)) }
                 SocPopIn(u: u, start: 0.58, at: CGPoint(x: 280, y: 350)) {
                     UpAwayArtImage(id: UpAwayArt.hero).placed(CGRect(236, 300, 90, 110))
                 }
@@ -579,9 +579,9 @@ struct SocBalloonInfo: View {
                     SocTwoLines(text: "Every stop has a reward!", centreX: 262.7, baselines: [438.5, 458.5], box: 170, greedy: true)
                 }
                 SocPopIn(u: u, start: 0.72, at: CGPoint(x: 254, y: 510)) {
-                    ArtImage(art: .pointerArrowYellow).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45))
+                    ArtImage(art: .iconPointer).scaleEffect(x: -1, y: 1).placed(CGRect(234, 488, 40, 45))
                 }
-                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 554)) { ArtImage(art: .coinPileSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
+                SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 554)) { ArtImage(art: .rewardCoinsSmall).placed(CGRect(89.7, 523.4, 75.4, 62)) }
                 SocPopIn(u: u, start: 0.88, at: CGPoint(x: 127, y: 608)) {
                     SocTwoLines(text: "Reach the top for the big prize!", centreX: 127, baselines: [608, 628], box: 200, hot: "big prize",
                                 greedy: true)

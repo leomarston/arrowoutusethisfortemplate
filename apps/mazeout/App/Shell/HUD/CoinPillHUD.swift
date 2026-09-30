@@ -23,7 +23,7 @@ struct HUDCoinGroup: View, Equatable {
                 .placed(pill)
             GameText(verbatim: "\(coins)", style: style, maxWidth: CGFloat(t.textMaxWidth("hud.coinPill.digits", 52) ?? 52) * m.s)
                 .at(at.x, style.capCentre(baseline: at.y))
-            InkImage(art: .iconCoin, ink: coin.insetBy(dx: -0.6, dy: -0.6))
+            InkImage(art: .currencyCoinIcon, ink: coin.insetBy(dx: -0.6, dy: -0.6))
         }
         .accessibilityElement(children: .ignore)
         .accessibilityIdentifier("hud.coins")

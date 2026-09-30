@@ -170,15 +170,15 @@ private struct ClaimRewardRow: View, Equatable {
         let dx = cx - 197
         switch item.kind {
         case .unlimited(let s):
-            InkImage(art: .heartInfinite, ink: t.frame("claim.heart", CGRect(159.8, 374.4, 74.1, 64.7)).offsetBy(dx: dx, dy: 0))
+            InkImage(art: .livesUnlimited, ink: t.frame("claim.heart", CGRect(159.8, 374.4, 74.1, 64.7)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claim.amount.amt", source: .number(ClaimItem.duration(s)),
                       style: .s2(27.6, -1.03, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewUnlimitedStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewUnlimitedOutline, 1.61, drop: 1.16), baseline: 459.7, centreX: 196.5 + dx)
         case .coins(let n):
-            InkImage(art: .coinPileSmall, ink: t.frame("claimCoins.coins", CGRect(158.5, 382.7, 76.7, 60.1)).offsetBy(dx: dx, dy: 0))
+            InkImage(art: .rewardCoinsSmall, ink: t.frame("claimCoins.coins", CGRect(158.5, 382.7, 76.7, 60.1)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claimCoins.amount.amt", source: .number("\(n)"),
                       style: .s2(27.2, -1.0, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewCoinsStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewCoinsOutline, 2.61, drop: 0.25), baseline: 460.4, centreX: 196.5 + dx)
         case .booster(let id, let n):
-            InkImage(art: id == BoosterID.freeze.rawValue ? .boosterFreeze : .boosterHint,
+            InkImage(art: id == BoosterID.freeze.rawValue ? .boosterFreezeIcon : .boosterHintIcon,
                      ink: t.frame("claimBulb.icon", CGRect(174.8, 377.0, 43.7, 63.4)).offsetBy(dx: dx, dy: 0))
             TokenText(id: "claimBulb.amount.x", source: .number("x\(n)"),
                       style: .s2(15.2, 0.3, [Skin.popupsClaimRewardPopupClaimRewardRowItemViewBoosterStyle0], outline: Skin.popupsClaimRewardPopupClaimRewardRowItemViewBoosterOutline, 1.3, drop: 0.6), baseline: 448.3, centreX: 195.3 + dx)
@@ -201,7 +201,7 @@ private struct ClaimSparkles: View {
                     let r = 36 + Double((i * 40503) % 30)
                     let k = age / life
                     let s = k < 0.4 ? k / 0.4 : (1 - k) / 0.6
-                    ArtImage(art: .sparkleTwinkle)
+                    ArtImage(art: .fxSparkle)
                         .colorMultiply(Color(hex: Skin.popupsClaimRewardPopupClaimSparklesColorMultiply))
                         .frame(width: 10, height: 10)
                         .scaleEffect(CGFloat(s))

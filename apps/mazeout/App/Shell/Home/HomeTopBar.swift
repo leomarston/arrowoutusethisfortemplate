@@ -33,8 +33,8 @@ struct HomeTopBarView: View {
                     PlainTopValue(text: "\(coins)", styleID: "home.coins", size: 18.8, tracking: 0, centre: CGPoint(x: 165.5, y: 76.5),
                                   maxWidth: 62, origin: groupOrigin(t))
                     // the rasters carry padding: draw them where their visible pixels land on the phone's (S1 measured 002)
-                    ArtImage(art: .iconCoin).placed(local(t.rect("home.coinIconArt", CGRect(93.45, 51.15, 38.5, 38.5), .top, m)))
-                    ArtImage(art: .iconPlusGreen).placed(local(t.rect("home.plusBadgeArt", CGRect(116.6, 71.1, 23.5, 23.5), .top, m)))
+                    ArtImage(art: .currencyCoinIcon).placed(local(t.rect("home.coinIconArt", CGRect(93.45, 51.15, 38.5, 38.5), .top, m)))
+                    ArtImage(art: .hudPlusBadge).placed(local(t.rect("home.plusBadgeArt", CGRect(116.6, 71.1, 23.5, 23.5), .top, m)))
                 }
                 .frame(width: coinGroup(t).width, height: coinGroup(t).height, alignment: .topLeading)
             }
@@ -49,7 +49,7 @@ struct HomeTopBarView: View {
                 .placed(t.rect("home.coinPill", CGRect(126.8, 55.7, 73.7, 32), .top, m))
             LivesGroup(t: t, onTap: onLives)
             GameButton(id: "home.settings", label: "Settings", action: onSettings) {
-                BlueSquareButton { ArtImage(art: .glyphGear).frame(width: 26, height: 26) }
+                BlueSquareButton { ArtImage(art: .iconSettings).frame(width: 26, height: 26) }
             }
             .placed(squareFrame(t.rect("home.gearButton", CGRect(334.3, 49, 40, 39.7), .top, m)))
             .anchor(.settings)
@@ -170,7 +170,7 @@ private struct LivesGroup: View {
                 } else {
                     content(s, box: box)
                 }
-                ArtImage(art: .heartLives)
+                ArtImage(art: .livesHeart)
                     .placed(t.rect("home.livesHeartArt", CGRect(210.5, 50.9, 42.3, 39.8), .top, m).offsetBy(dx: -box.minX, dy: -box.minY))
                 countText(s, box: box)
             }

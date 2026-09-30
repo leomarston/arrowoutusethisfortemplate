@@ -371,7 +371,7 @@ struct HomeReturnDimView: UIViewRepresentable {
         let end = t0 + tm.flyAt + shift + tm.flyDur
         // the token: pop, hold, fly (position along the quad curve, scale 1 → 0.65)
         let token = CALayer()
-        token.contents = ArtStore.image(.treasureToken)?.cgImage
+        token.contents = ArtStore.image(.eventClawChallengeToken)?.cgImage
         token.contentsGravity = .resizeAspect
         token.bounds = CGRect(x: 0, y: 0, width: size * 40 / 37.3, height: size * 40 / 37.3)
         token.position = centre
@@ -498,7 +498,7 @@ struct HomeReturnDimView: UIViewRepresentable {
         // the green flag "+m" at (133, 232) → the Streak badge (49, 231), apex 50 pt above (B2/B3)
         let from = m.point(CGPoint(x: 133, y: 232), .top), to = m.point(CGPoint(x: 49, y: 231), .top)
         let flag = CALayer()
-        flag.contents = ArtStore.image(.iconCheckeredFlag)?.cgImage
+        flag.contents = ArtStore.image(.iconFinishFlag)?.cgImage
         flag.contentsGravity = .resizeAspect
         flag.bounds = CGRect(x: 0, y: 0, width: 36 * m.s, height: 38 * m.s)
         flag.position = from
