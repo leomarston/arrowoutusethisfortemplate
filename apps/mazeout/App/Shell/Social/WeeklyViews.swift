@@ -185,9 +185,9 @@ private struct SocMiniPodium: View {
         let amt = GameTextStyle.s2(9.5, -0.2, [Skin.socialWeeklyViewsSocMiniPodiumAmt0], outline: Skin.socialWeeklyViewsSocMiniPodiumAmtOutline, 0.9, drop: 0.3)
         // VERIFIED meta-017: the portraits stand on the blocks, names / bowls on the fronts (frame 148.1 · 305 · 220.9 · 160)
         let slots: [(String, Int, Int, CGRect, CGFloat, Bool)] = [
-            ("Max", 1000, 2, CGRect(19, 20, 50, 50), 101, true),
-            ("Neo", 2000, 5, CGRect(87, 3, 48, 48), 87, false),
-            ("James", 500, 6, CGRect(159, 30, 48, 48), 105, false),
+            (SkinNames.podiumSampleNames[0], 1000, 2, CGRect(19, 20, 50, 50), 101, true),     // skin/names.json
+            (SkinNames.podiumSampleNames[1], 2000, 5, CGRect(87, 3, 48, 48), 87, false),
+            (SkinNames.podiumSampleNames[2], 500, 6, CGRect(159, 30, 48, 48), 105, false),
         ]
         ZStack(alignment: .topLeading) {
             ArtImage(art: .cupPodium).placed(CGRect(0, 160 - 206 * k, 389 * k, 206 * k))

@@ -834,7 +834,7 @@ def _content_checks(R, repo, gdir, cfg, S, quick):
     sk = gdir / "tools/skin/build.py"
     if sk.exists():
         ok, msg = run_cmd(gdir, ["tools/skin/build.py", "--check"])
-        R.add(PASS if ok else FAIL, S, "skin colours generated (skin/build.py --check, docs/SKIN.md)", msg)
+        R.add(PASS if ok else FAIL, S, "skin generated (colours, fonts, names: skin/build.py --check)", msg)
     sj = gdir / "tools/strings/sources.json"
     if sj.exists():
         d = json.loads(sj.read_text(encoding="utf-8"))
@@ -1070,7 +1070,7 @@ COPY_ALWAYS = [
     "Packages",                         # the pure-Swift core (GameCore + the puzzle module)
     "Tests", "UITests",                 # the regression suites (adapt the puzzle-specific ones)
     "tools",                            # build/run/test/gen, strings, release, capture, store, bench + gates, levels, skin
-    "skin",                             # the colour skin (skin/colors.json, docs/SKIN.md): recolour it, never start empty
+    "skin",                             # the skin (colors/fonts/names .json, docs/SKIN.md): reskin it, never start empty
     "art/PIPELINE.md", "art/STYLE.md", "art/ID-MAP.md",
     "art/MANIFEST.json",                # the art SLOT list: which graphics the game needs (the files are not copied)
     "art/tools", "art/pipeline",        # the art toolchain

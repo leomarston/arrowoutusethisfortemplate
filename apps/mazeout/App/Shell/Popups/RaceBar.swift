@@ -212,7 +212,7 @@ struct AvatarPortrait: View {
     let index: Int
     var me = false
 
-    static let files = ["Walkie", "CapGlasses", "Detective", "Burger", "Scientist", "Party", "BoxHead", "Notebook"]
+    static let files = SkinNames.avatarPortraits                           // skin/names.json
 
     var body: some View {
         GeometryReader { geo in

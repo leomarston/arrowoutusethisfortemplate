@@ -30,9 +30,11 @@ import UIKit
     func testExactlyTheTwoFontsShip() throws {
         let dir = try XCTUnwrap(Bundle.main.resourceURL).appendingPathComponent("Fonts")
         let ttf = try FileManager.default.contentsOfDirectory(atPath: dir.path).filter { $0.hasSuffix(".ttf") || $0.hasSuffix(".otf") }
-        XCTAssertEqual(Set(ttf), ["PCDisplay-Black.ttf", "PCDisplay-BlackItalic.ttf"])
+        // the skin's faces (skin/fonts.json -> SkinFonts; tools/skin/build.py writes the same list into UIAppFonts)
+        XCTAssertEqual(SkinFonts.files.count, 2, "one file per face role (black, blackItalic)")
+        XCTAssertEqual(Set(ttf), Set(SkinFonts.files))
         let listed = Bundle.main.object(forInfoDictionaryKey: "UIAppFonts") as? [String] ?? []
-        XCTAssertEqual(Set(listed), ["Fonts/PCDisplay-Black.ttf", "Fonts/PCDisplay-BlackItalic.ttf"])
+        XCTAssertEqual(Set(listed), Set(SkinFonts.files.map { "Fonts/" + $0 }))
         XCTAssertTrue(FileManager.default.fileExists(atPath: dir.appendingPathComponent("OFL.txt").path), "OFL.txt ships with the fonts")
     }
 }

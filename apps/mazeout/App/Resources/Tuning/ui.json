@@ -890,10 +890,10 @@
     "out": 0.27,
     "homeY": 390,
     "panelY": 110,
-    "plate": "#003135",
+    "plate": "@toast.plate",
     "plateAlpha": 0.92,
     "radius": 16,
-    "border": "#40BCAC",
+    "border": "@toast.border",
     "borderWidth": 1.5,
     "text": 18,
     "maxWidth": 330,
@@ -911,22 +911,22 @@
       "duration": 0.7,
       "size": 9,
       "colors": [
-        "#FFFFFF",
-        "#FFF6B0",
-        "#FFE14A"
+        "@fx.sparkles.colors.0",
+        "@fx.sparkles.colors.1",
+        "@fx.sparkles.colors.2"
       ]
     },
     "confetti": {
       "burst": 420,
       "rainPerS": 45,
       "colors": [
-        "#1F77F3",
-        "#EB4FB0",
-        "#6A11EF",
-        "#D30A20",
-        "#FFB807",
-        "#F8F2DA",
-        "#65DD2B"
+        "@fx.confetti.colors.0",
+        "@fx.confetti.colors.1",
+        "@fx.confetti.colors.2",
+        "@fx.confetti.colors.3",
+        "@fx.confetti.colors.4",
+        "@fx.confetti.colors.5",
+        "@fx.confetti.colors.6"
       ],
       "sizeMin": 5,
       "sizeMax": 11,
@@ -943,12 +943,12 @@
       "speedMax": 420,
       "life": 0.8,
       "colors": [
-        "#FFFFFF",
-        "#FFFFFF",
-        "#8D5FFF",
-        "#4079FF",
-        "#FF2FC6",
-        "#FFCE01"
+        "@fx.firework.colors.0",
+        "@fx.firework.colors.1",
+        "@fx.firework.colors.2",
+        "@fx.firework.colors.3",
+        "@fx.firework.colors.4",
+        "@fx.firework.colors.5"
       ]
     },
     "unlockTwinkles": {
@@ -2242,9 +2242,9 @@
         "size": 26.8,
         "tracking": -0.5,
         "fill": [
-          "#FFFFFF"
+          "@text.loading.label.fill.0"
         ],
-        "outline": "#7E2A1C",
+        "outline": "@text.loading.label.outline",
         "outlineWidth": 0.88,
         "drop": 0.39,
         "baseline": 792.7,
@@ -2256,7 +2256,7 @@
         "size": 18.8,
         "tracking": 0.0,
         "fill": [
-          "#00474D"
+          "@text.home.coins.fill.0"
         ],
         "baseline": 76.5,
         "centreX": 165.5
@@ -2265,7 +2265,7 @@
         "size": 19.1,
         "tracking": -0.75,
         "fill": [
-          "#00474D"
+          "@text.home.lives.fill.0"
         ],
         "baseline": 76.9,
         "centreX": 285.4
@@ -2274,7 +2274,7 @@
         "size": 18.9,
         "tracking": -0.35,
         "fill": [
-          "#00474D"
+          "@text.home.livesTimer.fill.0"
         ],
         "baseline": 77.1,
         "centreX": 285.1
@@ -2283,11 +2283,11 @@
         "size": 21.8,
         "tracking": 0.0,
         "fill": [
-          "#FFFFFF",
-          "#FFFFFF",
-          "#FFFFFF"
+          "@text.home.livesCount.fill.0",
+          "@text.home.livesCount.fill.1",
+          "@text.home.livesCount.fill.2"
         ],
-        "outline": "#870400",
+        "outline": "@text.home.livesCount.outline",
         "outlineWidth": 0.95,
         "drop": 1.04,
         "baseline": 77.0,
@@ -2297,9 +2297,9 @@
         "size": 14.1,
         "tracking": -1.5,
         "fill": [
-          "#FFFFFF"
+          "@text.home.levelCaption.fill.0"
         ],
-        "outline": "#00434A",
+        "outline": "@text.home.levelCaption.outline",
         "outlineWidth": 0.82,
         "drop": 0.76,
         "baseline": 531.8,
@@ -2309,9 +2309,9 @@
         "size": 30.6,
         "tracking": -1.5,
         "fill": [
-          "#FFFFFF"
+          "@text.home.levelNumber.fill.0"
         ],
-        "outline": "#924500",
+        "outline": "@text.home.levelNumber.outline",
         "outlineWidth": 2.14,
         "drop": 0.5,
         "baseline": 563.1,
@@ -2321,9 +2321,9 @@
         "size": 30.6,
         "tracking": -1.5,
         "fill": [
-          "#FFFFFF"
+          "@text.home.levelNumberHard.fill.0"
         ],
-        "outline": "#610B00",
+        "outline": "@text.home.levelNumberHard.outline",
         "outlineWidth": 2.14,
         "drop": 0.5,
         "baseline": 563.1,
@@ -2333,9 +2333,9 @@
         "size": 30.6,
         "tracking": -1.5,
         "fill": [
-          "#FFFFFF"
+          "@text.home.levelNumberSuperHard.fill.0"
         ],
-        "outline": "#5C0B32",
+        "outline": "@text.home.levelNumberSuperHard.outline",
         "outlineWidth": 2.14,
         "drop": 0.5,
         "baseline": 563.1,
@@ -2345,9 +2345,9 @@
         "size": 48.8,
         "tracking": -3.25,
         "fill": [
-          "#FFFBF2"
+          "@text.home.play.fill.0"
         ],
-        "outline": "#924500",
+        "outline": "@text.home.play.outline",
         "outlineWidth": 2.2,
         "drop": 2.2,
         "baseline": 686.3,
@@ -2357,11 +2357,11 @@
         "size": 48.8,
         "tracking": -3.25,
         "fill": [
-          "#FFFBF2",
-          "#FFFBF2",
-          "#FFFBF2"
+          "@text.home.playHard.fill.0",
+          "@text.home.playHard.fill.1",
+          "@text.home.playHard.fill.2"
         ],
-        "outline": "#610B00",
+        "outline": "@text.home.playHard.outline",
         "outlineWidth": 2.65,
         "drop": 1.73,
         "baseline": 686.3,
@@ -2371,11 +2371,11 @@
         "size": 48.8,
         "tracking": -3.25,
         "fill": [
-          "#FFFBF2",
-          "#FFFBF2",
-          "#FFFBF2"
+          "@text.home.playSuperHard.fill.0",
+          "@text.home.playSuperHard.fill.1",
+          "@text.home.playSuperHard.fill.2"
         ],
-        "outline": "#5C0B32",
+        "outline": "@text.home.playSuperHard.outline",
         "outlineWidth": 2.9,
         "drop": 1.48,
         "baseline": 686.3,
@@ -2385,11 +2385,11 @@
         "size": 17.0,
         "tracking": 0.2,
         "fill": [
-          "#FFFAEF",
-          "#FFFAEF",
-          "#FFFAEF"
+          "@text.home.hardRibbon.fill.0",
+          "@text.home.hardRibbon.fill.1",
+          "@text.home.hardRibbon.fill.2"
         ],
-        "outline": "#610B00",
+        "outline": "@text.home.hardRibbon.outline",
         "outlineWidth": 1.58,
         "drop": 0.35,
         "baseline": 639.5,
@@ -2399,11 +2399,11 @@
         "size": 15.8,
         "tracking": -0.43,
         "fill": [
-          "#FFFAEF",
-          "#FFFAEF",
-          "#FFFAEF"
+          "@text.home.superHardRibbon.fill.0",
+          "@text.home.superHardRibbon.fill.1",
+          "@text.home.superHardRibbon.fill.2"
         ],
-        "outline": "#5C0B32",
+        "outline": "@text.home.superHardRibbon.outline",
         "outlineWidth": 0.93,
         "drop": 0.88,
         "baseline": 639.4,
@@ -2413,9 +2413,9 @@
         "size": 15.1,
         "tracking": -0.25,
         "fill": [
-          "#FFFFFF"
+          "@text.home.navLabel.fill.0"
         ],
-        "outline": "#02464D",
+        "outline": "@text.home.navLabel.outline",
         "outlineWidth": 0.98,
         "drop": 0.58,
         "baseline": 832.7,
@@ -2425,9 +2425,9 @@
         "size": 15.2,
         "tracking": 0.0,
         "fill": [
-          "#FFFFFF"
+          "@text.home.navLabelShop.fill.0"
         ],
-        "outline": "#02464D",
+        "outline": "@text.home.navLabelShop.outline",
         "outlineWidth": 0.98,
         "drop": 0.58
       },
@@ -2435,9 +2435,9 @@
         "size": 15.4,
         "tracking": -0.13,
         "fill": [
-          "#FFFFFF"
+          "@text.home.navLabelLeaderboard.fill.0"
         ],
-        "outline": "#02464D",
+        "outline": "@text.home.navLabelLeaderboard.outline",
         "outlineWidth": 0.98,
         "drop": 0.58
       },
@@ -2446,9 +2446,9 @@
           "size": 21.2,
           "tracking": 0.6,
           "fill": [
-            "#FFFFFF"
+            "@text.home.clawBar.value.fill.0"
           ],
-          "outline": "#003034",
+          "outline": "@text.home.clawBar.value.outline",
           "outlineWidth": 1.0,
           "drop": 1.0,
           "baseline": 136.7,
@@ -2459,9 +2459,9 @@
         "mult": {
           "tracking": -0.2,
           "fill": [
-            "#FFFFFF"
+            "@text.home.clawMultBadge.mult.fill.0"
           ],
-          "outline": "#7D0C02",
+          "outline": "@text.home.clawMultBadge.mult.outline",
           "outlineWidth": 1.3,
           "drop": 0.8
         }
@@ -2471,9 +2471,9 @@
           "size": 15.8,
           "tracking": -0.3,
           "fill": [
-            "#FFFFFF"
+            "@text.home.clawTimerChip.timer.fill.0"
           ],
-          "outline": "#073A3E",
+          "outline": "@text.home.clawTimerChip.timer.outline",
           "outlineWidth": 1.0,
           "drop": 0.9
         }
@@ -2483,9 +2483,9 @@
           "size": 10.8,
           "tracking": -0.3,
           "fill": [
-            "#FFFFFF"
+            "@text.home.eventBadge.join.fill.0"
           ],
-          "outline": "#49142B",
+          "outline": "@text.home.eventBadge.join.outline",
           "outlineWidth": 0.9,
           "drop": 0.9
         },
@@ -2493,9 +2493,9 @@
           "size": 13.0,
           "tracking": -0.35,
           "fill": [
-            "#FFFFFF"
+            "@text.home.eventBadge.streakTimer.fill.0"
           ],
-          "outline": "#02464D",
+          "outline": "@text.home.eventBadge.streakTimer.outline",
           "outlineWidth": 1.0,
           "drop": 0.9
         },
@@ -2503,9 +2503,9 @@
           "size": 13.0,
           "tracking": -0.35,
           "fill": [
-            "#FFFFFF"
+            "@text.home.eventBadge.timer.fill.0"
           ],
-          "outline": "#49142B",
+          "outline": "@text.home.eventBadge.timer.outline",
           "outlineWidth": 1.0,
           "drop": 0.9
         }
@@ -2516,14 +2516,14 @@
         "size": 49.2,
         "tracking": -1.0,
         "fill": [
-          "#FFFFFF"
+          "@text.popup.title.fill.0"
         ],
-        "outline": "#6A3510",
+        "outline": "@text.popup.title.outline",
         "outlineWidth": 1.87,
         "drop": 3.15,
         "baseline": 247.5,
         "centreX": 197.0,
-        "band": "#F9D89C",
+        "band": "@text.popup.title.band",
         "bandDY": 1.5,
         "maxWidth": 228
       }
@@ -2533,7 +2533,7 @@
         "size": 25.5,
         "tracking": 0.0,
         "fill": [
-          "#5A2801"
+          "@text.pause.rowLabel.fill.0"
         ],
         "baseline": 354.3,
         "centreX": 153.0,
@@ -2543,11 +2543,11 @@
         "size": 21.0,
         "tracking": -0.75,
         "fill": [
-          "#FFFBF3",
-          "#FFF7E6",
-          "#FDF3DF"
+          "@text.pause.toggleOn.fill.0",
+          "@text.pause.toggleOn.fill.1",
+          "@text.pause.toggleOn.fill.2"
         ],
-        "outline": "#924500",
+        "outline": "@text.pause.toggleOn.outline",
         "outlineWidth": 1.0,
         "drop": 1.01,
         "baseline": 353.2,
@@ -2557,9 +2557,9 @@
         "size": 21.0,
         "tracking": -0.75,
         "fill": [
-          "#FEF6E2"
+          "@text.pause.toggleOff.fill.0"
         ],
-        "outline": "#00474D",
+        "outline": "@text.pause.toggleOff.outline",
         "outlineWidth": 1.0,
         "drop": 1.0,
         "baseline": 353.2,
@@ -2569,11 +2569,11 @@
         "size": 30.5,
         "tracking": -1.0,
         "fill": [
-          "#FFFBF3",
-          "#FFF8EA",
-          "#FDF4E0"
+          "@text.pause.resume.fill.0",
+          "@text.pause.resume.fill.1",
+          "@text.pause.resume.fill.2"
         ],
-        "outline": "#924500",
+        "outline": "@text.pause.resume.outline",
         "outlineWidth": 1.42,
         "drop": 1.06,
         "baseline": 539.5,
@@ -2584,11 +2584,11 @@
         "size": 30.5,
         "tracking": -0.5,
         "fill": [
-          "#FFFBF3",
-          "#FFF8E8",
-          "#FDF4DF"
+          "@text.pause.quit.fill.0",
+          "@text.pause.quit.fill.1",
+          "@text.pause.quit.fill.2"
         ],
-        "outline": "#610B00",
+        "outline": "@text.pause.quit.outline",
         "outlineWidth": 1.47,
         "drop": 1.4,
         "baseline": 540.8,
@@ -2601,11 +2601,11 @@
         "size": 43.2,
         "tracking": -0.5,
         "fill": [
-          "#FFFBF3",
-          "#FFF8E8",
-          "#FDF3DF"
+          "@text.quit.quit.fill.0",
+          "@text.quit.quit.fill.1",
+          "@text.quit.quit.fill.2"
         ],
-        "outline": "#610B00",
+        "outline": "@text.quit.quit.outline",
         "outlineWidth": 2.3,
         "drop": 2.25,
         "baseline": 553.7,
@@ -2616,7 +2616,7 @@
         "size": 25.4,
         "tracking": -1.3,
         "fill": [
-          "#5A2801"
+          "@text.quit.message.fill.0"
         ],
         "baseline": 344.0,
         "centreX": 196.2,
@@ -2632,9 +2632,9 @@
         "size": 22.3,
         "tracking": 0.0,
         "fill": [
-          "#FFFFFF"
+          "@text.settings.link.fill.0"
         ],
-        "outline": "#00474D",
+        "outline": "@text.settings.link.outline",
         "outlineWidth": 1.1,
         "drop": 1.2,
         "maxWidth": 97
@@ -2643,9 +2643,9 @@
         "size": 22.9,
         "tracking": 0.1,
         "fill": [
-          "#FFFFFF"
+          "@text.settings.label.fill.0"
         ],
-        "outline": "#00474D",
+        "outline": "@text.settings.label.outline",
         "outlineWidth": 1.15,
         "drop": 1.15,
         "notifLeft": 83.4,
@@ -2663,11 +2663,11 @@
         "size": 30.6,
         "tracking": -0.6,
         "fill": [
-          "#FFFBF3",
-          "#FFF8E8",
-          "#FDF4DF"
+          "@text.settings.support.fill.0",
+          "@text.settings.support.fill.1",
+          "@text.settings.support.fill.2"
         ],
-        "outline": "#924500",
+        "outline": "@text.settings.support.outline",
         "outlineWidth": 1.42,
         "drop": 1.2,
         "maxWidth": 150
@@ -2677,9 +2677,9 @@
       "size": 18,
       "tracking": 0,
       "fill": [
-        "#FFFFFF"
+        "@text.toast.fill.0"
       ],
-      "outline": "#00373B",
+      "outline": "@text.toast.outline",
       "outlineWidth": 1.0,
       "drop": 1.0,
       "maxWidth": 330,
@@ -2690,9 +2690,9 @@
         "size": 37.0,
         "tracking": -1.0,
         "fill": [
-          "#EBF6F2"
+          "@text.page.title.fill.0"
         ],
-        "outline": "#00373B",
+        "outline": "@text.page.title.outline",
         "outlineWidth": 1.0,
         "drop": 4.8,
         "maxWidth": 260,
@@ -2702,7 +2702,7 @@
       "body": {
         "size": 17.0,
         "heading": 21.0,
-        "colour": "#5A2801",
+        "colour": "@text.page.body.colour",
         "lineHeight": 1.3,
         "inset": 20
       }
@@ -2714,7 +2714,7 @@
           "size": 18.5,
           "tracking": 0.25,
           "fill": [
-            "#266D68"
+            "@text.hud.coinPill.digits.fill.0"
           ],
           "maxWidth": 52.0
         }
@@ -2724,11 +2724,11 @@
           "size": 23.3,
           "tracking": 0.25,
           "fill": [
-            "#F7F7F9",
-            "#EDEDF2",
-            "#E2E3EA"
+            "@text.hud.timerPill.timer.fill.0",
+            "@text.hud.timerPill.timer.fill.1",
+            "@text.hud.timerPill.timer.fill.2"
           ],
-          "outline": "#04292C",
+          "outline": "@text.hud.timerPill.timer.outline",
           "outlineWidth": 0.67,
           "drop": 1.13
         }
@@ -2738,11 +2738,11 @@
           "size": 17.9,
           "tracking": -0.5,
           "fill": [
-            "#FFF9EF",
-            "#FFF4E0",
-            "#FDEDCF"
+            "@text.hud.levelTab.label.fill.0",
+            "@text.hud.levelTab.label.fill.1",
+            "@text.hud.levelTab.label.fill.2"
           ],
-          "outline": "#00393D",
+          "outline": "@text.hud.levelTab.label.outline",
           "outlineWidth": 0.65,
           "drop": 0.73,
           "baseline": 70.7,
@@ -2755,11 +2755,11 @@
           "size": 17.9,
           "tracking": -0.5,
           "fill": [
-            "#FFF9EF",
-            "#FFF4E0",
-            "#FDEDCF"
+            "@text.hud.levelTabHard.label.fill.0",
+            "@text.hud.levelTabHard.label.fill.1",
+            "@text.hud.levelTabHard.label.fill.2"
           ],
-          "outline": "#560C00",
+          "outline": "@text.hud.levelTabHard.label.outline",
           "outlineWidth": 0.65,
           "drop": 0.73,
           "baseline": 70.7,
@@ -2772,11 +2772,11 @@
           "size": 17.9,
           "tracking": -0.5,
           "fill": [
-            "#FFF9EF",
-            "#FFF4E0",
-            "#FDEDCF"
+            "@text.hud.levelTabSuperHard.label.fill.0",
+            "@text.hud.levelTabSuperHard.label.fill.1",
+            "@text.hud.levelTabSuperHard.label.fill.2"
           ],
-          "outline": "#4F0F2B",
+          "outline": "@text.hud.levelTabSuperHard.label.outline",
           "outlineWidth": 0.65,
           "drop": 0.73,
           "baseline": 70.7,
@@ -2791,11 +2791,11 @@
           "size": 16.9,
           "tracking": 0.0,
           "fill": [
-            "#FFFBF3",
-            "#FFF6E6",
-            "#FEF2DC"
+            "@text.booster.badge.count.fill.0",
+            "@text.booster.badge.count.fill.1",
+            "@text.booster.badge.count.fill.2"
           ],
-          "outline": "#650D05",
+          "outline": "@text.booster.badge.count.outline",
           "outlineWidth": 0.71,
           "drop": 0.56
         }
@@ -2812,7 +2812,7 @@
           "size": 21.0,
           "tracking": -0.29,
           "fill": [
-            "#5A2801"
+            "@text.continueToken.texts.l1.fill.0"
           ],
           "centreX": 223.7,
           "maxWidth": 245
@@ -2821,7 +2821,7 @@
           "size": 21.1,
           "tracking": -0.34,
           "fill": [
-            "#5A2801"
+            "@text.continueToken.texts.l2.fill.0"
           ],
           "baseline": 369.1,
           "centreX": 222.5,
@@ -2833,9 +2833,9 @@
           "size": 22.3,
           "tracking": -1.67,
           "fill": [
-            "#FFFFFF"
+            "@text.continueToken.chips.x1.fill.0"
           ],
-          "outline": "#00383C",
+          "outline": "@text.continueToken.chips.x1.outline",
           "outlineWidth": 1.5,
           "drop": 0.74
         },
@@ -2843,9 +2843,9 @@
           "size": 22.6,
           "tracking": -0.08,
           "fill": [
-            "#FFFFFF"
+            "@text.continueToken.chips.x100.fill.0"
           ],
-          "outline": "#7D0C02",
+          "outline": "@text.continueToken.chips.x100.outline",
           "outlineWidth": 1.6,
           "drop": 0.71
         }
@@ -2857,7 +2857,7 @@
           "size": 26.1,
           "tracking": -1.59,
           "fill": [
-            "#5A2801"
+            "@text.continueLife.message.msg.fill.0"
           ],
           "baseline": 346.0,
           "centreX": 196.2,
@@ -2869,11 +2869,11 @@
           "size": 31.0,
           "tracking": 0.4,
           "fill": [
-            "#FFFBF1",
-            "#FFF7E5",
-            "#FDF3DF"
+            "@text.continueLife.playOn.label.fill.0",
+            "@text.continueLife.playOn.label.fill.1",
+            "@text.continueLife.playOn.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.continueLife.playOn.label.outline",
           "outlineWidth": 2.16,
           "drop": 0.73,
           "baseline": 550.3,
@@ -2883,11 +2883,11 @@
           "size": 31.6,
           "tracking": 0.71,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.continueLife.playOn.price.fill.0",
+            "@text.continueLife.playOn.price.fill.1",
+            "@text.continueLife.playOn.price.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.continueLife.playOn.price.outline",
           "outlineWidth": 2.07,
           "drop": 0.92,
           "baseline": 551.1,
@@ -2901,7 +2901,7 @@
           "size": 22.9,
           "tracking": -0.54,
           "fill": [
-            "#5A2801"
+            "@text.continueStreak.message.msg.fill.0"
           ],
           "baseline": 347.7,
           "centreX": 196.2,
@@ -2913,11 +2913,11 @@
           "size": 31.0,
           "tracking": 0.4,
           "fill": [
-            "#FFFBF1",
-            "#FFF7E5",
-            "#FDF3DF"
+            "@text.continueStreak.playOn.label.fill.0",
+            "@text.continueStreak.playOn.label.fill.1",
+            "@text.continueStreak.playOn.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.continueStreak.playOn.label.outline",
           "outlineWidth": 2.16,
           "drop": 0.73,
           "baseline": 550.3,
@@ -2927,11 +2927,11 @@
           "size": 31.6,
           "tracking": 0.71,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.continueStreak.playOn.price.fill.0",
+            "@text.continueStreak.playOn.price.fill.1",
+            "@text.continueStreak.playOn.price.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.continueStreak.playOn.price.outline",
           "outlineWidth": 2.07,
           "drop": 0.92,
           "baseline": 551.1,
@@ -2943,7 +2943,7 @@
           "size": 21.4,
           "tracking": 0.44,
           "fill": [
-            "#00474D"
+            "@text.continueStreak.coinGroup.digits.fill.0"
           ]
         }
       }
@@ -2954,11 +2954,11 @@
           "size": 37.7,
           "tracking": -1.94,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.failed.tryAgain.label.fill.0",
+            "@text.failed.tryAgain.label.fill.1",
+            "@text.failed.tryAgain.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.failed.tryAgain.label.outline",
           "outlineWidth": 1.6,
           "drop": 1.83,
           "baseline": 570.1,
@@ -2976,7 +2976,7 @@
           "size": 25.0,
           "tracking": -0.71,
           "fill": [
-            "#5A2801"
+            "@text.failed.caption.caption.fill.0"
           ],
           "baseline": 463.3,
           "centreX": 196.8,
@@ -2990,11 +2990,11 @@
           "size": 38.9,
           "tracking": 0.05,
           "fill": [
-            "#FFFBF3",
-            "#FFF8EA",
-            "#FDF4DF"
+            "@text.win.continue.label.fill.0",
+            "@text.win.continue.label.fill.1",
+            "@text.win.continue.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.win.continue.label.outline",
           "outlineWidth": 1.74,
           "drop": 1.8,
           "maxWidth": 176.0
@@ -3010,9 +3010,9 @@
           "size": 45.2,
           "tracking": -1.62,
           "fill": [
-            "#FFFAF0",
-            "#FFF5E1",
-            "#FDEDCF"
+            "@text.win.perfect.title.fill.0",
+            "@text.win.perfect.title.fill.1",
+            "@text.win.perfect.title.fill.2"
           ],
           "outlineWidth": 2.43,
           "drop": 4.21,
@@ -3026,7 +3026,7 @@
           "size": 25.9,
           "tracking": -1.52,
           "fill": [
-            "#FFFFFF"
+            "@text.win.rewardsLabel.label.fill.0"
           ],
           "outlineWidth": 1.35,
           "drop": 1.25,
@@ -3040,7 +3040,7 @@
           "size": 56.5,
           "tracking": -3.73,
           "fill": [
-            "#FFFFFF"
+            "@text.win.amountDigits.amt.fill.0"
           ],
           "outlineWidth": 2.6,
           "drop": 1.8,
@@ -3055,9 +3055,9 @@
           "size": 23.4,
           "tracking": -0.96,
           "fill": [
-            "#FFFFFF"
+            "@text.winHard.tagRibbon.tag.fill.0"
           ],
-          "outline": "#650D05",
+          "outline": "@text.winHard.tagRibbon.tag.outline",
           "outlineWidth": 1.56,
           "drop": 1.04,
           "baseline": 137.5
@@ -3070,9 +3070,9 @@
           "size": 23.2,
           "tracking": -0.65,
           "fill": [
-            "#FFFFFF"
+            "@text.winSuperHard.tagRibbon.tag.fill.0"
           ],
-          "outline": "#56092E",
+          "outline": "@text.winSuperHard.tagRibbon.tag.outline",
           "outlineWidth": 1.87,
           "drop": 0.71,
           "baseline": 138.7
@@ -3085,16 +3085,16 @@
           "size": 27.2,
           "tracking": -1.7,
           "fill": [
-            "#5A2801"
+            "@text.streakRace.chips.plain.fill.0"
           ]
         },
         "lit": {
           "size": 30.8,
           "tracking": -2.9,
           "fill": [
-            "#FFFAEF"
+            "@text.streakRace.chips.lit.fill.0"
           ],
-          "outline": "#703400",
+          "outline": "@text.streakRace.chips.lit.outline",
           "outlineWidth": 1.7,
           "drop": 1.6
         }
@@ -3103,11 +3103,11 @@
         "size": 41.0,
         "tracking": -2.6,
         "fill": [
-          "#FFF46A",
-          "#FFD21A",
-          "#F6A800"
+          "@text.streakRace.logoStreak.fill.0",
+          "@text.streakRace.logoStreak.fill.1",
+          "@text.streakRace.logoStreak.fill.2"
         ],
-        "outline": "#00434A",
+        "outline": "@text.streakRace.logoStreak.outline",
         "outlineWidth": 3.0,
         "drop": 2.8,
         "face": "blackItalic"
@@ -3116,11 +3116,11 @@
         "size": 41.0,
         "tracking": -2.6,
         "fill": [
-          "#FFFFFF",
-          "#F0F8F6",
-          "#D2E9E4"
+          "@text.streakRace.logoRace.fill.0",
+          "@text.streakRace.logoRace.fill.1",
+          "@text.streakRace.logoRace.fill.2"
         ],
-        "outline": "#00434A",
+        "outline": "@text.streakRace.logoRace.outline",
         "outlineWidth": 3.0,
         "drop": 2.8,
         "face": "blackItalic"
@@ -3130,7 +3130,7 @@
           "size": 15.0,
           "tracking": -0.6,
           "fill": [
-            "#5A2801"
+            "@text.streakRace.timerChip.timer.fill.0"
           ]
         }
       }
@@ -3141,9 +3141,9 @@
           "size": 17.8,
           "tracking": -0.31,
           "fill": [
-            "#FFFFFF"
+            "@text.raceBar.plate.t.fill.0"
           ],
-          "outline": "#7D0C02",
+          "outline": "@text.raceBar.plate.t.outline",
           "outlineWidth": 1.3,
           "drop": 1.0
         }
@@ -3153,9 +3153,9 @@
           "size": 16.8,
           "tracking": 0.0,
           "fill": [
-            "#FFFFFF"
+            "@text.raceBar.rankBubble.r.fill.0"
           ],
-          "outline": "#7D0C02",
+          "outline": "@text.raceBar.rankBubble.r.outline",
           "outlineWidth": 1.3,
           "drop": 0.87
         }
@@ -3167,7 +3167,7 @@
           "size": 22.3,
           "tracking": -0.66,
           "fill": [
-            "#002E32"
+            "@text.unlock.card.line1.fill.0"
           ],
           "maxWidth": 272.0,
           "baseline": 561.1
@@ -3181,32 +3181,32 @@
           "size": 54.4,
           "tracking": -3.65,
           "fill": [
-            "#FFFBF4",
-            "#FFF5E2",
-            "#FDF0D6"
+            "@text.unlock.title.title.fill.0",
+            "@text.unlock.title.title.fill.1",
+            "@text.unlock.title.title.fill.2"
           ],
-          "outline": "#003E44",
+          "outline": "@text.unlock.title.title.outline",
           "outlineWidth": 0.35,
           "drop": 1.3,
-          "dropColor": "#00635E",
+          "dropColor": "@text.unlock.title.title.dropColor",
           "baseline": 220.9,
           "centreX": 196.5,
           "maxWidth": 345.0,
           "rings": [
             [
-              "#00706C",
+              "@text.unlock.title.title.rings.0.0",
               3.6
             ],
             [
-              "#008881",
+              "@text.unlock.title.title.rings.1.0",
               3.3
             ],
             [
-              "#00A596",
+              "@text.unlock.title.title.rings.2.0",
               2.4
             ],
             [
-              "#005B59",
+              "@text.unlock.title.title.rings.3.0",
               2.0
             ]
           ]
@@ -3217,9 +3217,9 @@
           "size": 24.5,
           "tracking": 0.26,
           "fill": [
-            "#FFFFFF"
+            "@text.unlock.subtitle.sub.fill.0"
           ],
-          "outline": "#00373B",
+          "outline": "@text.unlock.subtitle.sub.outline",
           "outlineWidth": 1.67,
           "drop": 1.16,
           "baseline": 299.0,
@@ -3234,11 +3234,11 @@
           "size": 45.2,
           "tracking": -0.83,
           "fill": [
-            "#FFDC13",
-            "#FFC402",
-            "#FFB700"
+            "@text.claim.title.title.fill.0",
+            "@text.claim.title.title.fill.1",
+            "@text.claim.title.title.fill.2"
           ],
-          "outline": "#B24900",
+          "outline": "@text.claim.title.title.outline",
           "outlineWidth": 0.94,
           "drop": 1.81,
           "baseline": 187.4,
@@ -3251,9 +3251,9 @@
           "size": 31.5,
           "tracking": -0.48,
           "fill": [
-            "#FFFFFF"
+            "@text.claim.tap.tap.fill.0"
           ],
-          "outline": "#56092E",
+          "outline": "@text.claim.tap.tap.outline",
           "outlineWidth": 1.23,
           "drop": 1.17,
           "baseline": 701.9,
@@ -3266,9 +3266,9 @@
           "size": 27.6,
           "tracking": -1.03,
           "fill": [
-            "#FFFFFF"
+            "@text.claim.amount.amt.fill.0"
           ],
-          "outline": "#AE190B",
+          "outline": "@text.claim.amount.amt.outline",
           "outlineWidth": 1.61,
           "drop": 1.16,
           "baseline": 459.7
@@ -3281,9 +3281,9 @@
           "size": 27.2,
           "tracking": -1.0,
           "fill": [
-            "#FFFFFF"
+            "@text.claimCoins.amount.amt.fill.0"
           ],
-          "outline": "#002226",
+          "outline": "@text.claimCoins.amount.amt.outline",
           "outlineWidth": 2.61,
           "drop": 0.25,
           "baseline": 460.4
@@ -3296,9 +3296,9 @@
           "size": 15.2,
           "tracking": 0.3,
           "fill": [
-            "#FFFFFF"
+            "@text.claimBulb.amount.x.fill.0"
           ],
-          "outline": "#002226",
+          "outline": "@text.claimBulb.amount.x.outline",
           "outlineWidth": 1.3,
           "drop": 0.6,
           "baseline": 448.3
@@ -3310,7 +3310,7 @@
         "size": 40.0,
         "tracking": 0.0,
         "fill": [
-          "#072527"
+          "@text.tutorial.caption.fill.0"
         ],
         "maxWidth": 353.0
       }
@@ -3320,11 +3320,11 @@
         "size": 51.6,
         "tracking": -1.04,
         "fill": [
-          "#FFFFFF",
-          "#FFFAFA",
-          "#F7E8DC"
+          "@text.outOfTime.title.fill.0",
+          "@text.outOfTime.title.fill.1",
+          "@text.outOfTime.title.fill.2"
         ],
-        "outline": "#540900",
+        "outline": "@text.outOfTime.title.outline",
         "outlineWidth": 1.5,
         "drop": 5.2,
         "baseline": 215.2,
@@ -3332,11 +3332,11 @@
         "maxWidth": 345,
         "rings": [
           [
-            "#D34434",
+            "@text.outOfTime.title.rings.0.0",
             5.8
           ]
         ],
-        "dropColor": "#5A1812",
+        "dropColor": "@text.outOfTime.title.dropColor",
         "ringDY": 1.4,
         "innerDY": 2.4
       },
@@ -3344,9 +3344,9 @@
         "size": 61.0,
         "tracking": -0.75,
         "fill": [
-          "#F9F1E6"
+          "@text.outOfTime.grant.fill.0"
         ],
-        "outline": "#006E6C",
+        "outline": "@text.outOfTime.grant.outline",
         "outlineWidth": 2.1,
         "drop": 2.62,
         "baseline": 554.7,
@@ -3358,11 +3358,11 @@
           "size": 23.1,
           "tracking": 0.22,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E7",
-            "#FDF3DF"
+            "@text.outOfTime.button.label.fill.0",
+            "@text.outOfTime.button.label.fill.1",
+            "@text.outOfTime.button.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.outOfTime.button.label.outline",
           "outlineWidth": 1.17,
           "drop": 1.05,
           "baseline": 684.3,
@@ -3372,11 +3372,11 @@
           "size": 26.2,
           "tracking": 0.52,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.outOfTime.button.price.fill.0",
+            "@text.outOfTime.button.price.fill.1",
+            "@text.outOfTime.button.price.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.outOfTime.button.price.outline",
           "outlineWidth": 1.62,
           "drop": 0.86,
           "baseline": 685.9,
@@ -3388,7 +3388,7 @@
           "size": 21.4,
           "tracking": 0.44,
           "fill": [
-            "#00474D"
+            "@text.outOfTime.coinGroup.digits.fill.0"
           ]
         }
       }
@@ -3398,11 +3398,11 @@
         "size": 52.1,
         "tracking": -1.21,
         "fill": [
-          "#FFFFFF",
-          "#FFFAFA",
-          "#F7E8DC"
+          "@text.outOfLives.title.fill.0",
+          "@text.outOfLives.title.fill.1",
+          "@text.outOfLives.title.fill.2"
         ],
-        "outline": "#540900",
+        "outline": "@text.outOfLives.title.outline",
         "outlineWidth": 1.5,
         "drop": 5.2,
         "baseline": 215.5,
@@ -3410,11 +3410,11 @@
         "maxWidth": 345,
         "rings": [
           [
-            "#D34434",
+            "@text.outOfLives.title.rings.0.0",
             5.8
           ]
         ],
-        "dropColor": "#5A1812",
+        "dropColor": "@text.outOfLives.title.dropColor",
         "ringDY": 1.4,
         "innerDY": 2.4
       },
@@ -3422,9 +3422,9 @@
         "size": 60.4,
         "tracking": -1.1,
         "fill": [
-          "#F9F1E6"
+          "@text.outOfLives.grant.fill.0"
         ],
-        "outline": "#540900",
+        "outline": "@text.outOfLives.grant.outline",
         "outlineWidth": 2.1,
         "drop": 2.62,
         "baseline": 554.7,
@@ -3436,11 +3436,11 @@
           "size": 23.1,
           "tracking": 0.09,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E7",
-            "#FDF3DF"
+            "@text.outOfLives.button.label.fill.0",
+            "@text.outOfLives.button.label.fill.1",
+            "@text.outOfLives.button.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.outOfLives.button.label.outline",
           "outlineWidth": 1.17,
           "drop": 1.05,
           "baseline": 684.6,
@@ -3450,11 +3450,11 @@
           "size": 26.2,
           "tracking": 0.52,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.outOfLives.button.price.fill.0",
+            "@text.outOfLives.button.price.fill.1",
+            "@text.outOfLives.button.price.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.outOfLives.button.price.outline",
           "outlineWidth": 1.62,
           "drop": 0.86,
           "baseline": 685.9,
@@ -3466,7 +3466,7 @@
           "size": 21.4,
           "tracking": 0.44,
           "fill": [
-            "#00474D"
+            "@text.outOfLives.coinGroup.digits.fill.0"
           ]
         }
       }
@@ -3477,7 +3477,7 @@
           "size": 21.0,
           "tracking": 0.31,
           "fill": [
-            "#00474D"
+            "@text.moreLives.coinGroup.digits.fill.0"
           ]
         }
       },
@@ -3486,11 +3486,11 @@
           "size": 35.5,
           "tracking": -0.92,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E7",
-            "#FDF3DF"
+            "@text.moreLives.refill.label.fill.0",
+            "@text.moreLives.refill.label.fill.1",
+            "@text.moreLives.refill.label.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.moreLives.refill.label.outline",
           "outlineWidth": 1.52,
           "drop": 1.84,
           "baseline": 505.7,
@@ -3500,11 +3500,11 @@
           "size": 35.7,
           "tracking": 1.1,
           "fill": [
-            "#FFFBF3",
-            "#FFF7E6",
-            "#FDF3DF"
+            "@text.moreLives.refill.price.fill.0",
+            "@text.moreLives.refill.price.fill.1",
+            "@text.moreLives.refill.price.fill.2"
           ],
-          "outline": "#924500",
+          "outline": "@text.moreLives.refill.price.outline",
           "outlineWidth": 1.61,
           "drop": 1.8,
           "baseline": 505.7,
@@ -3518,7 +3518,7 @@
           "size": 21.0,
           "tracking": 0.31,
           "fill": [
-            "#00474D"
+            "@text.boosterBuy.coinGroup.digits.fill.0"
           ]
         }
       }
@@ -3526,262 +3526,262 @@
   },
   "colors": {
     "loading": {
-      "base": "#B7A587"
+      "base": "@colors.loading.base"
     },
     "home": {
-      "base": "#23565A",
-      "avatarFrame": "#06A697",
-      "avatarPlaceholder": "#8FA39C",
-      "avatarSilhouette": "#6B807A",
-      "topPill": "#E0F0EB",
-      "topPillEdge": "#8BC0BB",
-      "plateOutline": "#954709",
+      "base": "@colors.home.base",
+      "avatarFrame": "@colors.home.avatarFrame",
+      "avatarPlaceholder": "@colors.home.avatarPlaceholder",
+      "avatarSilhouette": "@colors.home.avatarSilhouette",
+      "topPill": "@colors.home.topPill",
+      "topPillEdge": "@colors.home.topPillEdge",
+      "plateOutline": "@colors.home.plateOutline",
       "plateFace": [
-        "#FFAA1C",
-        "#FC9D10",
-        "#E4830A",
-        "#A1500A"
+        "@colors.home.plateFace.0",
+        "@colors.home.plateFace.1",
+        "@colors.home.plateFace.2",
+        "@colors.home.plateFace.3"
       ],
-      "plateOutlineHard": "#660B02",
+      "plateOutlineHard": "@colors.home.plateOutlineHard",
       "plateFaceHard": [
-        "#DF3E2C",
-        "#C42C1D",
-        "#B92517",
-        "#660B02"
+        "@colors.home.plateFaceHard.0",
+        "@colors.home.plateFaceHard.1",
+        "@colors.home.plateFaceHard.2",
+        "@colors.home.plateFaceHard.3"
       ],
-      "plateOutlineSuperHard": "#4B1029",
+      "plateOutlineSuperHard": "@colors.home.plateOutlineSuperHard",
       "plateFaceSuperHard": [
-        "#AB1C69",
-        "#97165C",
-        "#901456",
-        "#4B1029"
+        "@colors.home.plateFaceSuperHard.0",
+        "@colors.home.plateFaceSuperHard.1",
+        "@colors.home.plateFaceSuperHard.2",
+        "@colors.home.plateFaceSuperHard.3"
       ],
       "playFrame": [
-        "#006963",
-        "#38B2A2",
-        "#38AD9D",
-        "#00857E"
+        "@colors.home.playFrame.0",
+        "@colors.home.playFrame.1",
+        "@colors.home.playFrame.2",
+        "@colors.home.playFrame.3"
       ],
-      "ribbonHard": "#C83927",
-      "ribbonHardOutline": "#610B00",
-      "ribbonSuperHard": "#AE1769",
-      "ribbonSuperHardOutline": "#5C0B32",
-      "plateHard": "#B92517",
-      "plateSuperHard": "#901456",
+      "ribbonHard": "@colors.home.ribbonHard",
+      "ribbonHardOutline": "@colors.home.ribbonHardOutline",
+      "ribbonSuperHard": "@colors.home.ribbonSuperHard",
+      "ribbonSuperHardOutline": "@colors.home.ribbonSuperHardOutline",
+      "plateHard": "@colors.home.plateHard",
+      "plateSuperHard": "@colors.home.plateSuperHard",
       "avatarRing": [
-        "#41B7A7",
-        "#38B2A2",
-        "#009C8F"
+        "@colors.home.avatarRing.0",
+        "@colors.home.avatarRing.1",
+        "@colors.home.avatarRing.2"
       ]
     },
     "nav": {
       "bar": [
         [
           0.0,
-          "#465D5A"
+          "@colors.nav.bar.0"
         ],
         [
           0.3,
-          "#005755"
+          "@colors.nav.bar.1"
         ],
         [
           2.0,
-          "#00706C"
+          "@colors.nav.bar.2"
         ],
         [
           3.4,
-          "#007570"
+          "@colors.nav.bar.3"
         ],
         [
           3.7,
-          "#3AAC9C"
+          "@colors.nav.bar.4"
         ],
         [
           4.0,
-          "#4EC4B3"
+          "@colors.nav.bar.5"
         ],
         [
           6.0,
-          "#1AAD9D"
+          "@colors.nav.bar.6"
         ],
         [
           30.3,
-          "#009087"
+          "@colors.nav.bar.7"
         ],
         [
           53.3,
-          "#00807A"
+          "@colors.nav.bar.8"
         ],
         [
           81.1,
-          "#006B67"
+          "@colors.nav.bar.9"
         ]
       ],
-      "tabEdge": "#00807B",
+      "tabEdge": "@colors.nav.tabEdge",
       "tabRim": [
-        "#BCE3D3",
-        "#4DC3B3",
-        "#47C0B0"
+        "@colors.nav.tabRim.0",
+        "@colors.nav.tabRim.1",
+        "@colors.nav.tabRim.2"
       ],
-      "tabGroove": "#00605B",
-      "tabLine": "#C3E6D8",
+      "tabGroove": "@colors.nav.tabGroove",
+      "tabLine": "@colors.nav.tabLine",
       "tabField": [
-        "#92DCC1",
-        "#7ED7BE",
-        "#65D1BC"
+        "@colors.nav.tabField.0",
+        "@colors.nav.tabField.1",
+        "@colors.nav.tabField.2"
       ]
     },
     "panel": {
-      "outline": "#004046",
+      "outline": "@colors.panel.outline",
       "bar": [
-        "#007C76",
-        "#007873"
+        "@colors.panel.bar.0",
+        "@colors.panel.bar.1"
       ],
       "bumper": [
-        "#56C9B8",
-        "#40BCAC",
-        "#28A494"
+        "@colors.panel.bumper.0",
+        "@colors.panel.bumper.1",
+        "@colors.panel.bumper.2"
       ],
-      "groove": "#003C41",
-      "grooveLight": "#00726F",
-      "field": "#00847E",
-      "fieldRim": "#009F91",
-      "rivet": "#51B2A4",
-      "rivetEdge": "#00706B"
+      "groove": "@colors.panel.groove",
+      "grooveLight": "@colors.panel.grooveLight",
+      "field": "@colors.panel.field",
+      "fieldRim": "@colors.panel.fieldRim",
+      "rivet": "@colors.panel.rivet",
+      "rivetEdge": "@colors.panel.rivetEdge"
     },
     "card": {
-      "outline": "#004147",
+      "outline": "@colors.card.outline",
       "bevel": [
-        "#A8743F",
-        "#CEA274",
-        "#DFBF99"
+        "@colors.card.bevel.0",
+        "@colors.card.bevel.1",
+        "@colors.card.bevel.2"
       ],
-      "line": "#F9F1E3",
-      "fill": "#F4E8D4"
+      "line": "@colors.card.line",
+      "fill": "@colors.card.fill"
     },
     "ribbon": {
-      "outlineTop": "#7E4E27",
-      "outlineBottom": "#4A2812",
-      "shade": "#9E5F24",
-      "highlight": "#FAD9A0",
+      "outlineTop": "@colors.ribbon.outlineTop",
+      "outlineBottom": "@colors.ribbon.outlineBottom",
+      "shade": "@colors.ribbon.shade",
+      "highlight": "@colors.ribbon.highlight",
       "face": [
-        "#F0B86A",
-        "#D9913E"
+        "@colors.ribbon.face.0",
+        "@colors.ribbon.face.1"
       ]
     },
     "close": {
-      "ring": "#007873",
-      "rim": "#87130B",
+      "ring": "@colors.close.ring",
+      "rim": "@colors.close.rim",
       "face": [
-        "#EF735F",
-        "#EE4A35",
-        "#CA3324"
+        "@colors.close.face.0",
+        "@colors.close.face.1",
+        "@colors.close.face.2"
       ],
-      "glyph": "#F9ECE2",
-      "glyphOutline": "#87130B"
+      "glyph": "@colors.close.glyph",
+      "glyphOutline": "@colors.close.glyphOutline"
     },
     "toggle": {
-      "well": "#EBE2D3",
-      "wellEdge": "#D4C2AA",
+      "well": "@colors.toggle.well",
+      "wellEdge": "@colors.toggle.wellEdge",
       "onTrack": [
-        "#F6CA4D",
-        "#FFB933",
-        "#F89409"
+        "@colors.toggle.onTrack.0",
+        "@colors.toggle.onTrack.1",
+        "@colors.toggle.onTrack.2"
       ],
-      "onEdge": "#A4520A",
-      "offTrack": "#00484E",
-      "offEdge": "#660B02",
+      "onEdge": "@colors.toggle.onEdge",
+      "offTrack": "@colors.toggle.offTrack",
+      "offEdge": "@colors.toggle.offEdge",
       "knob": [
-        "#47BEB0",
-        "#20AA9B",
-        "#008F84"
+        "@colors.toggle.knob.0",
+        "@colors.toggle.knob.1",
+        "@colors.toggle.knob.2"
       ],
-      "knobEdge": "#195F59",
-      "offKnob": "#14A899"
+      "knobEdge": "@colors.toggle.knobEdge",
+      "offKnob": "@colors.toggle.offKnob"
     },
     "button": {
       "blueFace": [
-        "#2AB2A4",
-        "#00968A",
-        "#00736E"
+        "@colors.button.blueFace.0",
+        "@colors.button.blueFace.1",
+        "@colors.button.blueFace.2"
       ],
-      "blueOutline": "#003F44"
+      "blueOutline": "@colors.button.blueOutline"
     },
-    "dim": "#000000",
+    "dim": "@colors.dim",
     "page": {
       "headerStops": [
         [
           0.0,
-          "#007874"
+          "@colors.page.headerStops.0"
         ],
         [
           0.556,
-          "#008A82"
+          "@colors.page.headerStops.1"
         ],
         [
           0.95,
-          "#00958B"
+          "@colors.page.headerStops.2"
         ]
       ],
-      "hiLine": "#00A192",
+      "hiLine": "@colors.page.hiLine",
       "lip": [
-        "#005856",
-        "#003A3F"
+        "@colors.page.lip.0",
+        "@colors.page.lip.1"
       ],
-      "shadow": "#002B2F",
-      "bgProfile": "#003B40",
+      "shadow": "@colors.page.shadow",
+      "bgProfile": "@colors.page.bgProfile",
       "bgNavy": [
-        "#003135",
-        "#002A2D"
+        "@colors.page.bgNavy.0",
+        "@colors.page.bgNavy.1"
       ],
-      "pattern": "#00282B"
+      "pattern": "@colors.page.pattern"
     },
     "settings": {
-      "cardOutline": "#032527",
-      "cardLine": "#005957",
+      "cardOutline": "@colors.settings.cardOutline",
+      "cardLine": "@colors.settings.cardLine",
       "cardTop": [
-        "#00A192",
-        "#008A82"
+        "@colors.settings.cardTop.0",
+        "@colors.settings.cardTop.1"
       ],
       "cardLow": [
-        "#00817B",
-        "#00867F"
+        "@colors.settings.cardLow.0",
+        "@colors.settings.cardLow.1"
       ],
-      "cardLip": "#061B1C",
-      "squareFace": "#FEA415",
-      "slash": "#EE4630",
-      "slashEdge": "#C32414",
-      "pill": "#00837C",
-      "pillLip": "#0E5956",
-      "pillWell": "#002C30"
+      "cardLip": "@colors.settings.cardLip",
+      "squareFace": "@colors.settings.squareFace",
+      "slash": "@colors.settings.slash",
+      "slashEdge": "@colors.settings.slashEdge",
+      "pill": "@colors.settings.pill",
+      "pillLip": "@colors.settings.pillLip",
+      "pillWell": "@colors.settings.pillWell"
     },
     "band": {
-      "outline": "#00464E",
-      "railLine": "#007371",
-      "railHi": "#00988E",
-      "bumper": "#40BCAC",
-      "bumperHi": "#5BCBBB",
+      "outline": "@colors.band.outline",
+      "railLine": "@colors.band.railLine",
+      "railHi": "@colors.band.railHi",
+      "bumper": "@colors.band.bumper",
+      "bumperHi": "@colors.band.bumperHi",
       "railMid": [
-        "#007470",
-        "#00867F"
+        "@colors.band.railMid.0",
+        "@colors.band.railMid.1"
       ],
       "lip": [
-        "#004046",
-        "#005E5B"
+        "@colors.band.lip.0",
+        "@colors.band.lip.1"
       ],
-      "field": "#00847E",
-      "line": "#005453",
-      "lineDark": "#002225",
+      "field": "@colors.band.field",
+      "line": "@colors.band.line",
+      "lineDark": "@colors.band.lineDark",
       "creamEdge": [
-        "#D7B187",
-        "#E0C09A"
+        "@colors.band.creamEdge.0",
+        "@colors.band.creamEdge.1"
       ],
-      "cream": "#F4E8D4",
+      "cream": "@colors.band.cream",
       "lowLip": [
-        "#00726F",
-        "#00434B"
+        "@colors.band.lowLip.0",
+        "@colors.band.lowLip.1"
       ],
-      "rivet": "#39A496",
+      "rivet": "@colors.band.rivet",
       "bumperLen": 64.0,
       "rivetX": [
         55.0,
@@ -3790,128 +3790,128 @@
     },
     "well": {
       "top": [
-        "#006963",
-        "#38B2A2"
+        "@colors.well.top.0",
+        "@colors.well.top.1"
       ],
       "bottom": [
-        "#38AD9D",
-        "#00857E"
+        "@colors.well.bottom.0",
+        "@colors.well.bottom.1"
       ],
-      "outline": "#552500"
+      "outline": "@colors.well.outline"
     },
     "hud": {
-      "panelShadow": "#7A8C88",
-      "panel": "#C0E0D8",
-      "coinPillEdge": "#67ADA5",
-      "coinPillTop": "#3C8A81",
-      "coinPill": "#C0E0D8",
-      "levelTabOutline": "#00393D",
-      "levelTabHardOutline": "#85120B",
-      "levelTabSuperHardOutline": "#5B0E32"
+      "panelShadow": "@colors.hud.panelShadow",
+      "panel": "@colors.hud.panel",
+      "coinPillEdge": "@colors.hud.coinPillEdge",
+      "coinPillTop": "@colors.hud.coinPillTop",
+      "coinPill": "@colors.hud.coinPill",
+      "levelTabOutline": "@colors.hud.levelTabOutline",
+      "levelTabHardOutline": "@colors.hud.levelTabHardOutline",
+      "levelTabSuperHardOutline": "@colors.hud.levelTabSuperHardOutline"
     },
     "booster": {
-      "trayShadow": "#7A8C88",
-      "trayOutline": "#499087",
-      "trayRim": "#76C7C3",
-      "wellEdge": "#D9ECE7",
-      "well": "#4A9A90",
-      "outline": "#542500",
+      "trayShadow": "@colors.booster.trayShadow",
+      "trayOutline": "@colors.booster.trayOutline",
+      "trayRim": "@colors.booster.trayRim",
+      "wellEdge": "@colors.booster.wellEdge",
+      "well": "@colors.booster.well",
+      "outline": "@colors.booster.outline",
       "rim": [
-        "#C9731C",
-        "#BA6719",
-        "#944A10"
+        "@colors.booster.rim.0",
+        "@colors.booster.rim.1",
+        "@colors.booster.rim.2"
       ],
-      "badgeOutline": "#750F07",
+      "badgeOutline": "@colors.booster.badgeOutline",
       "badge": [
-        "#EF7461",
-        "#ED5945",
-        "#CA3524"
+        "@colors.booster.badge.0",
+        "@colors.booster.badge.1",
+        "@colors.booster.badge.2"
       ]
     },
     "outOfLives": {
-      "glowCore": "#F04830",
-      "glowMid": "#761B0F"
+      "glowCore": "@colors.outOfLives.glowCore",
+      "glowMid": "@colors.outOfLives.glowMid"
     },
     "outOfTime": {
-      "glowCore": "#00716E",
-      "glowMid": "#0A4B4E"
+      "glowCore": "@colors.outOfTime.glowCore",
+      "glowMid": "@colors.outOfTime.glowMid"
     },
     "heartBig": {
-      "hi": "#FF7A66",
-      "face": "#F8392B"
+      "hi": "@colors.heartBig.hi",
+      "face": "@colors.heartBig.face"
     },
     "continueToken": {
-      "red": "#D12D1C",
-      "track": "#002B2E"
+      "red": "@colors.continueToken.red",
+      "track": "@colors.continueToken.track"
     },
     "streakRace": {
-      "divider": "#CEA981",
-      "track": "#F4E9D5",
-      "ringLine": "#D55A06",
-      "litLine": "#C75D00",
-      "litShade": "#884200",
-      "trackLine": "#00A294",
+      "divider": "@colors.streakRace.divider",
+      "track": "@colors.streakRace.track",
+      "ringLine": "@colors.streakRace.ringLine",
+      "litLine": "@colors.streakRace.litLine",
+      "litShade": "@colors.streakRace.litShade",
+      "trackLine": "@colors.streakRace.trackLine",
       "trackRim": [
-        "#006762",
-        "#004D50",
-        "#00464E",
-        "#00615C"
+        "@colors.streakRace.trackRim.0",
+        "@colors.streakRace.trackRim.1",
+        "@colors.streakRace.trackRim.2",
+        "@colors.streakRace.trackRim.3"
       ],
       "groove": [
-        "#002F33",
-        "#003C41",
-        "#004C50",
-        "#00615C"
+        "@colors.streakRace.groove.0",
+        "@colors.streakRace.groove.1",
+        "@colors.streakRace.groove.2",
+        "@colors.streakRace.groove.3"
       ]
     },
     "continueStreak": {
-      "trackRim": "#C2905D"
+      "trackRim": "@colors.continueStreak.trackRim"
     },
     "event": {
-      "timerChip": "#F5E8D4"
+      "timerChip": "@colors.event.timerChip"
     },
     "raceBar": {
-      "outline": "#00464E",
-      "rail": "#40BCAC",
+      "outline": "@colors.raceBar.outline",
+      "rail": "@colors.raceBar.rail",
       "field": [
-        "#007874",
-        "#007874",
-        "#006E6B"
+        "@colors.raceBar.field.0",
+        "@colors.raceBar.field.1",
+        "@colors.raceBar.field.2"
       ],
-      "chequer": "#203131"
+      "chequer": "@colors.raceBar.chequer"
     },
     "unlock": {
-      "cardBorder": "#007572",
-      "card": "#F4E8D4",
-      "caps": "#00736E"
+      "cardBorder": "@colors.unlock.cardBorder",
+      "card": "@colors.unlock.card",
+      "caps": "@colors.unlock.caps"
     },
     "offer": {
-      "pillLine": "#233B3D",
+      "pillLine": "@colors.offer.pillLine",
       "pillBase": [
-        "#62A9A0",
-        "#22746E"
+        "@colors.offer.pillBase.0",
+        "@colors.offer.pillBase.1"
       ],
-      "pillFace": "#E0F0EB"
+      "pillFace": "@colors.offer.pillFace"
     },
     "clawBar": {
-      "fill": "#F7CF68",
-      "fillEdge": "#AA5711",
-      "fillHi": "#FFDA8A",
-      "fillLow": "#FFBB3C",
-      "outline": "#0E4C4E",
-      "rimLow": "#008A81",
-      "rimMid": "#3AB2A2",
-      "rimTop": "#007772",
+      "fill": "@colors.clawBar.fill",
+      "fillEdge": "@colors.clawBar.fillEdge",
+      "fillHi": "@colors.clawBar.fillHi",
+      "fillLow": "@colors.clawBar.fillLow",
+      "outline": "@colors.clawBar.outline",
+      "rimLow": "@colors.clawBar.rimLow",
+      "rimMid": "@colors.clawBar.rimMid",
+      "rimTop": "@colors.clawBar.rimTop",
       "track": [
-        "#073A3E",
-        "#002C30"
+        "@colors.clawBar.track.0",
+        "@colors.clawBar.track.1"
       ]
     },
     "clawChip": {
-      "face": "#00A494"
+      "face": "@colors.clawChip.face"
     },
     "shop": {
-      "groundBottom": "#351B1F"
+      "groundBottom": "@colors.shop.groundBottom"
     }
   },
   "gradients": {
@@ -3919,201 +3919,201 @@
       "playButton": [
         [
           0.0,
-          "#98B5B4"
+          "@gradients.home.playButton.0"
         ],
         [
           0.059,
-          "#006963"
+          "@gradients.home.playButton.1"
         ],
         [
           0.111,
-          "#38B2A2"
+          "@gradients.home.playButton.2"
         ],
         [
           0.118,
-          "#552500"
+          "@gradients.home.playButton.3"
         ],
         [
           0.135,
-          "#FEA91D"
+          "@gradients.home.playButton.4"
         ],
         [
           0.173,
-          "#FFB42C"
+          "@gradients.home.playButton.5"
         ],
         [
           0.176,
-          "#EFD384"
+          "@gradients.home.playButton.6"
         ],
         [
           0.215,
-          "#FDBD34"
+          "@gradients.home.playButton.7"
         ],
         [
           0.837,
-          "#F59209"
+          "@gradients.home.playButton.8"
         ],
         [
           0.952,
-          "#2A332F"
+          "@gradients.home.playButton.9"
         ],
         [
           0.958,
-          "#38AD9D"
+          "@gradients.home.playButton.10"
         ],
         [
           1.0,
-          "#00857E"
+          "@gradients.home.playButton.11"
         ]
       ],
       "playButtonHard": [
         [
           0.0,
-          "#98B5B4"
+          "@gradients.home.playButtonHard.0"
         ],
         [
           0.042,
-          "#86A19E"
+          "@gradients.home.playButtonHard.1"
         ],
         [
           0.059,
-          "#006963"
+          "@gradients.home.playButtonHard.2"
         ],
         [
           0.114,
-          "#3BB0A0"
+          "@gradients.home.playButtonHard.3"
         ],
         [
           0.121,
-          "#2F1921"
+          "@gradients.home.playButtonHard.4"
         ],
         [
           0.128,
-          "#4F0C00"
+          "@gradients.home.playButtonHard.5"
         ],
         [
           0.145,
-          "#DF5946"
+          "@gradients.home.playButtonHard.6"
         ],
         [
           0.187,
-          "#EA7A6A"
+          "@gradients.home.playButtonHard.7"
         ],
         [
           0.844,
-          "#D13120"
+          "@gradients.home.playButtonHard.8"
         ],
         [
           0.955,
-          "#480C01"
+          "@gradients.home.playButtonHard.9"
         ],
         [
           0.958,
-          "#438A7D"
+          "@gradients.home.playButtonHard.10"
         ],
         [
           1.0,
-          "#00857E"
+          "@gradients.home.playButtonHard.11"
         ]
       ],
       "playButtonSuperHard": [
         [
           0.0,
-          "#98B5B4"
+          "@gradients.home.playButtonSuperHard.0"
         ],
         [
           0.042,
-          "#86A19E"
+          "@gradients.home.playButtonSuperHard.1"
         ],
         [
           0.055,
-          "#426762"
+          "@gradients.home.playButtonSuperHard.2"
         ],
         [
           0.059,
-          "#006963"
+          "@gradients.home.playButtonSuperHard.3"
         ],
         [
           0.114,
-          "#3BB0A0"
+          "@gradients.home.playButtonSuperHard.4"
         ],
         [
           0.121,
-          "#3F0F24"
+          "@gradients.home.playButtonSuperHard.5"
         ],
         [
           0.145,
-          "#DD4385"
+          "@gradients.home.playButtonSuperHard.6"
         ],
         [
           0.841,
-          "#A51165"
+          "@gradients.home.playButtonSuperHard.7"
         ],
         [
           0.952,
-          "#3F0D22"
+          "@gradients.home.playButtonSuperHard.8"
         ],
         [
           0.955,
-          "#043A3E"
+          "@gradients.home.playButtonSuperHard.9"
         ],
         [
           0.958,
-          "#3AA191"
+          "@gradients.home.playButtonSuperHard.10"
         ],
         [
           1.0,
-          "#00857E"
+          "@gradients.home.playButtonSuperHard.11"
         ]
       ],
       "levelPlate": [
         [
           0.0,
-          "#00645E"
+          "@gradients.home.levelPlate.0"
         ],
         [
           0.028,
-          "#334947"
+          "@gradients.home.levelPlate.1"
         ],
         [
           0.046,
-          "#954709"
+          "@gradients.home.levelPlate.2"
         ],
         [
           0.275,
-          "#FC9D10"
+          "@gradients.home.levelPlate.3"
         ],
         [
           0.826,
-          "#E4830A"
+          "@gradients.home.levelPlate.4"
         ],
         [
           0.881,
-          "#A1500A"
+          "@gradients.home.levelPlate.5"
         ],
         [
           0.89,
-          "#824200"
+          "@gradients.home.levelPlate.6"
         ],
         [
           0.899,
-          "#374D4A"
+          "@gradients.home.levelPlate.7"
         ],
         [
           0.927,
-          "#007772"
+          "@gradients.home.levelPlate.8"
         ],
         [
           0.954,
-          "#009A8D"
+          "@gradients.home.levelPlate.9"
         ],
         [
           0.972,
-          "#5EC6BC"
+          "@gradients.home.levelPlate.10"
         ],
         [
           1.0,
-          "#00A294"
+          "@gradients.home.levelPlate.11"
         ]
       ]
     },
@@ -4121,151 +4121,151 @@
       "ribbon": [
         [
           0.0,
-          "#1C1C1C"
+          "@gradients.pause.ribbon.0"
         ],
         [
           0.076,
-          "#120D09"
+          "@gradients.pause.ribbon.1"
         ],
         [
           0.083,
-          "#7E4E27"
+          "@gradients.pause.ribbon.2"
         ],
         [
           0.1,
-          "#945F2D"
+          "@gradients.pause.ribbon.3"
         ],
         [
           0.114,
-          "#F2CC8F"
+          "@gradients.pause.ribbon.4"
         ],
         [
           0.135,
-          "#FAD9A0"
+          "@gradients.pause.ribbon.5"
         ],
         [
           0.149,
-          "#F0B86A"
+          "@gradients.pause.ribbon.6"
         ],
         [
           0.875,
-          "#D9913E"
+          "@gradients.pause.ribbon.7"
         ],
         [
           0.886,
-          "#9E5F24"
+          "@gradients.pause.ribbon.8"
         ],
         [
           0.955,
-          "#4A2812"
+          "@gradients.pause.ribbon.9"
         ],
         [
           0.962,
-          "#1A3D40"
+          "@gradients.pause.ribbon.10"
         ],
         [
           1.0,
-          "#007D78"
+          "@gradients.pause.ribbon.11"
         ]
       ],
       "resume": [
         [
           0.0,
-          "#00847E"
+          "@gradients.pause.resume.0"
         ],
         [
           0.059,
-          "#00494F"
+          "@gradients.pause.resume.1"
         ],
         [
           0.067,
-          "#532500"
+          "@gradients.pause.resume.2"
         ],
         [
           0.089,
-          "#FFAD20"
+          "@gradients.pause.resume.3"
         ],
         [
           0.145,
-          "#FDB02C"
+          "@gradients.pause.resume.4"
         ],
         [
           0.152,
-          "#F1D587"
+          "@gradients.pause.resume.5"
         ],
         [
           0.208,
-          "#FFBA30"
+          "@gradients.pause.resume.6"
         ],
         [
           0.796,
-          "#E98B17"
+          "@gradients.pause.resume.7"
         ],
         [
           0.937,
-          "#532500"
+          "@gradients.pause.resume.8"
         ],
         [
           0.941,
-          "#0D454B"
+          "@gradients.pause.resume.9"
         ],
         [
           0.97,
-          "#00978C"
+          "@gradients.pause.resume.10"
         ],
         [
           1.0,
-          "#00847E"
+          "@gradients.pause.resume.11"
         ]
       ],
       "quit": [
         [
           0.0,
-          "#008D85"
+          "@gradients.pause.quit.0"
         ],
         [
           0.045,
-          "#004349"
+          "@gradients.pause.quit.1"
         ],
         [
           0.048,
-          "#430D07"
+          "@gradients.pause.quit.2"
         ],
         [
           0.059,
-          "#760E04"
+          "@gradients.pause.quit.3"
         ],
         [
           0.067,
-          "#DC5846"
+          "@gradients.pause.quit.4"
         ],
         [
           0.119,
-          "#ED5D49"
+          "@gradients.pause.quit.5"
         ],
         [
           0.123,
-          "#EE7766"
+          "@gradients.pause.quit.6"
         ],
         [
           0.833,
-          "#D23221"
+          "@gradients.pause.quit.7"
         ],
         [
           0.955,
-          "#4A0C00"
+          "@gradients.pause.quit.8"
         ],
         [
           0.963,
-          "#004D4F"
+          "@gradients.pause.quit.9"
         ],
         [
           0.989,
-          "#00998D"
+          "@gradients.pause.quit.10"
         ],
         [
           1.0,
-          "#008F86"
+          "@gradients.pause.quit.11"
         ]
       ]
     },
@@ -4273,209 +4273,209 @@
       "panelRimV": [
         [
           0.0,
-          "#68BCB6"
+          "@gradients.hud.panelRimV.0"
         ],
         [
           0.03,
-          "#9DD3CC"
+          "@gradients.hud.panelRimV.1"
         ],
         [
           0.5,
-          "#80CAC6"
+          "@gradients.hud.panelRimV.2"
         ],
         [
           0.9,
-          "#5CB4AC"
+          "@gradients.hud.panelRimV.3"
         ],
         [
           0.95,
-          "#408F86"
+          "@gradients.hud.panelRimV.4"
         ],
         [
           1.0,
-          "#398981"
+          "@gradients.hud.panelRimV.5"
         ]
       ],
       "panelBody": [
         [
           0.0,
-          "#EFF7F5"
+          "@gradients.hud.panelBody.0"
         ],
         [
           0.03,
-          "#E8F3F0"
+          "@gradients.hud.panelBody.1"
         ],
         [
           0.07,
-          "#C9E4DD"
+          "@gradients.hud.panelBody.2"
         ],
         [
           0.1,
-          "#C0E0D8"
+          "@gradients.hud.panelBody.3"
         ],
         [
           1.0,
-          "#C0E0D8"
+          "@gradients.hud.panelBody.4"
         ]
       ],
       "timerPillWell": [
         [
           0.0,
-          "#57ADA5"
+          "@gradients.hud.timerPillWell.0"
         ],
         [
           0.05,
-          "#48978D"
+          "@gradients.hud.timerPillWell.1"
         ],
         [
           0.2,
-          "#50A197"
+          "@gradients.hud.timerPillWell.2"
         ],
         [
           0.9,
-          "#50A197"
+          "@gradients.hud.timerPillWell.3"
         ],
         [
           0.95,
-          "#4A988E"
+          "@gradients.hud.timerPillWell.4"
         ],
         [
           0.965,
-          "#59A49B"
+          "@gradients.hud.timerPillWell.5"
         ],
         [
           0.985,
-          "#BADAD3"
+          "@gradients.hud.timerPillWell.6"
         ],
         [
           1.0,
-          "#DAECE7"
+          "@gradients.hud.timerPillWell.7"
         ]
       ],
       "levelTabFace": [
         [
           0,
-          "#00393D"
+          "@gradients.hud.levelTabFace.0"
         ],
         [
           0.03,
-          "#264F4D"
+          "@gradients.hud.levelTabFace.1"
         ],
         [
           0.059,
-          "#6EBFB0"
+          "@gradients.hud.levelTabFace.2"
         ],
         [
           0.074,
-          "#6CCCBD"
+          "@gradients.hud.levelTabFace.3"
         ],
         [
           0.088,
-          "#5EC8B9"
+          "@gradients.hud.levelTabFace.4"
         ],
         [
           0.118,
-          "#05A99A"
+          "@gradients.hud.levelTabFace.5"
         ],
         [
           0.132,
-          "#00A293"
+          "@gradients.hud.levelTabFace.6"
         ],
         [
           0.868,
-          "#009B8E"
+          "@gradients.hud.levelTabFace.7"
         ],
         [
           0.926,
-          "#006D6A"
+          "@gradients.hud.levelTabFace.8"
         ],
         [
           0.956,
-          "#006A67"
+          "@gradients.hud.levelTabFace.9"
         ],
         [
           0.971,
-          "#00484F"
+          "@gradients.hud.levelTabFace.10"
         ],
         [
           1.0,
-          "#004046"
+          "@gradients.hud.levelTabFace.11"
         ]
       ],
       "levelTabHardFace": [
         [
           0,
-          "#990101"
+          "@gradients.hud.levelTabHardFace.0"
         ],
         [
           0.06,
-          "#A82A1C"
+          "@gradients.hud.levelTabHardFace.1"
         ],
         [
           0.083,
-          "#E59B90"
+          "@gradients.hud.levelTabHardFace.2"
         ],
         [
           0.097,
-          "#EEA69B"
+          "@gradients.hud.levelTabHardFace.3"
         ],
         [
           0.153,
-          "#ED6653"
+          "@gradients.hud.levelTabHardFace.4"
         ],
         [
           0.847,
-          "#EE3E29"
+          "@gradients.hud.levelTabHardFace.5"
         ],
         [
           0.903,
-          "#960101"
+          "@gradients.hud.levelTabHardFace.6"
         ],
         [
           0.944,
-          "#730A00"
+          "@gradients.hud.levelTabHardFace.7"
         ],
         [
           1.0,
-          "#7D140D"
+          "@gradients.hud.levelTabHardFace.8"
         ]
       ],
       "levelTabSuperHardFace": [
         [
           0,
-          "#890F51"
+          "@gradients.hud.levelTabSuperHardFace.0"
         ],
         [
           0.06,
-          "#AC2A6B"
+          "@gradients.hud.levelTabSuperHardFace.1"
         ],
         [
           0.083,
-          "#F76D9F"
+          "@gradients.hud.levelTabSuperHardFace.2"
         ],
         [
           0.097,
-          "#FF77A8"
+          "@gradients.hud.levelTabSuperHardFace.3"
         ],
         [
           0.153,
-          "#E42180"
+          "@gradients.hud.levelTabSuperHardFace.4"
         ],
         [
           0.847,
-          "#B81B6E"
+          "@gradients.hud.levelTabSuperHardFace.5"
         ],
         [
           0.903,
-          "#771345"
+          "@gradients.hud.levelTabSuperHardFace.6"
         ],
         [
           0.944,
-          "#5B0E32"
+          "@gradients.hud.levelTabSuperHardFace.7"
         ],
         [
           1.0,
-          "#791347"
+          "@gradients.hud.levelTabSuperHardFace.8"
         ]
       ]
     },
@@ -4483,57 +4483,57 @@
       "trayFace": [
         [
           0.0,
-          "#AFD9D1"
+          "@gradients.booster.trayFace.0"
         ],
         [
           0.012,
-          "#EFF7F5"
+          "@gradients.booster.trayFace.1"
         ],
         [
           0.025,
-          "#D9EBE7"
+          "@gradients.booster.trayFace.2"
         ],
         [
           0.045,
-          "#C0E0D8"
+          "@gradients.booster.trayFace.3"
         ],
         [
           0.935,
-          "#C0E0D8"
+          "@gradients.booster.trayFace.4"
         ],
         [
           0.945,
-          "#63B9B3"
+          "@gradients.booster.trayFace.5"
         ],
         [
           0.97,
-          "#59AEA6"
+          "@gradients.booster.trayFace.6"
         ],
         [
           1.0,
-          "#398981"
+          "@gradients.booster.trayFace.7"
         ]
       ],
       "face": [
         [
           0.0,
-          "#FCBE39"
+          "@gradients.booster.face.0"
         ],
         [
           0.035,
-          "#EED389"
+          "@gradients.booster.face.1"
         ],
         [
           0.075,
-          "#FCBF39"
+          "@gradients.booster.face.2"
         ],
         [
           0.6,
-          "#FFAA1B"
+          "@gradients.booster.face.3"
         ],
         [
           1.0,
-          "#FB9A0E"
+          "@gradients.booster.face.4"
         ]
       ]
     },
@@ -4541,127 +4541,127 @@
       "ringFill": [
         [
           0.0,
-          "#F8D865"
+          "@gradients.streakRace.ringFill.0"
         ],
         [
           0.05,
-          "#FFDC25"
+          "@gradients.streakRace.ringFill.1"
         ],
         [
           0.1,
-          "#FFD600"
+          "@gradients.streakRace.ringFill.2"
         ],
         [
           0.5,
-          "#FFC500"
+          "@gradients.streakRace.ringFill.3"
         ],
         [
           0.86,
-          "#FFB400"
+          "@gradients.streakRace.ringFill.4"
         ],
         [
           0.9,
-          "#EE7D02"
+          "@gradients.streakRace.ringFill.5"
         ],
         [
           1.0,
-          "#CF5504"
+          "@gradients.streakRace.ringFill.6"
         ]
       ],
       "litFace": [
         [
           0.0,
-          "#FFBA30"
+          "@gradients.streakRace.litFace.0"
         ],
         [
           0.12,
-          "#FFDA82"
+          "@gradients.streakRace.litFace.1"
         ],
         [
           0.16,
-          "#FFE09D"
+          "@gradients.streakRace.litFace.2"
         ],
         [
           0.3,
-          "#FCD563"
+          "@gradients.streakRace.litFace.3"
         ],
         [
           0.5,
-          "#FFB42E"
+          "@gradients.streakRace.litFace.4"
         ],
         [
           0.6,
-          "#F89409"
+          "@gradients.streakRace.litFace.5"
         ],
         [
           0.85,
-          "#E18009"
+          "@gradients.streakRace.litFace.6"
         ],
         [
           1.0,
-          "#CF7109"
+          "@gradients.streakRace.litFace.7"
         ]
       ],
       "trackBevel": [
         [
           0.0,
-          "#CEA274"
+          "@gradients.streakRace.trackBevel.0"
         ],
         [
           0.5,
-          "#D7B288"
+          "@gradients.streakRace.trackBevel.1"
         ],
         [
           0.84,
-          "#E3C9A9"
+          "@gradients.streakRace.trackBevel.2"
         ],
         [
           0.93,
-          "#C19262"
+          "@gradients.streakRace.trackBevel.3"
         ],
         [
           1.0,
-          "#945C50"
+          "@gradients.streakRace.trackBevel.4"
         ]
       ],
       "rail": [
         [
           0.0,
-          "#00484E"
+          "@gradients.streakRace.rail.0"
         ],
         [
           0.12,
-          "#00827C"
+          "@gradients.streakRace.rail.1"
         ],
         [
           0.6,
-          "#00746F"
+          "@gradients.streakRace.rail.2"
         ],
         [
           1.0,
-          "#02665F"
+          "@gradients.streakRace.rail.3"
         ]
       ],
       "field": [
         [
           0.0,
-          "#00A394"
+          "@gradients.streakRace.field.0"
         ],
         [
           0.2,
-          "#009087"
+          "@gradients.streakRace.field.1"
         ],
         [
           0.51,
-          "#008680"
+          "@gradients.streakRace.field.2"
         ],
         [
           0.83,
-          "#007E79"
+          "@gradients.streakRace.field.3"
         ],
         [
           1.0,
-          "#007976"
+          "@gradients.streakRace.field.4"
         ]
       ]
     },
@@ -4669,23 +4669,23 @@
       "bumperV": [
         [
           0.0,
-          "#008882"
+          "@gradients.band.bumperV.0"
         ],
         [
           0.1,
-          "#95D7C5"
+          "@gradients.band.bumperV.1"
         ],
         [
           0.22,
-          "#40BCAC"
+          "@gradients.band.bumperV.2"
         ],
         [
           0.88,
-          "#40BCAC"
+          "@gradients.band.bumperV.3"
         ],
         [
           1.0,
-          "#53A493"
+          "@gradients.band.bumperV.4"
         ]
       ]
     }
@@ -6439,7 +6439,7 @@
     "iceDur": 0.25,
     "frostFrom": 1.6,
     "frostDur": 0.2,
-    "frostColor": "#6BD4F8",
+    "frostColor": "@freeze.frostColor",
     "frostDepthSidesPt": 30,
     "frostDepthTopBottomPt": 88,
     "tray": [

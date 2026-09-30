@@ -1,27 +1,41 @@
 #!/usr/bin/env python3
-"""tools/skin/build.py — skin/colors.json -> the Swift colour constants (docs/SKIN.md).
+"""tools/skin/build.py — the skin's data (skin/*.json) -> what the app compiles and loads (docs/SKIN.md).
 
-    python3 tools/skin/build.py                   # validate colors.json, write the generated Swift files
-    python3 tools/skin/build.py --check           # validate + fail (exit 1) if a generated file is stale
+    python3 tools/skin/build.py                   # validate the skin, write every generated file
+    python3 tools/skin/build.py --check           # validate + fail (exit 1) if a generated file is stale or ui.json holds a
+                                                  #   raw colour / a reference the skin lacks / the skin a ui colour no slot uses
+    python3 tools/skin/build.py --adopt-ui        # move raw "#RRGGBB" values written into Tuning/ui.json into the skin
+                                                  #   (colors.json `ui` + palette) and leave "@<ui id>" references in their place
     python3 tools/skin/build.py --check-literals  # fail on any colour literal in the UI sources that is not a token
                                                   #   (outside tools/skin/literal_allowlist.json), any Skin.<name> the JSON
                                                   #   lacks, any token no source uses, any stale allow-list entry
-    python3 tools/skin/build.py --selftest        # the lexer, naming, generation, colour maths and codemod on fixtures
+    python3 tools/skin/build.py --selftest        # the lexer, naming, generation, colour maths, ui.json slots, fonts/names
+                                                  #   and codemod on fixtures
 
-colors.json
+skin/colors.json
   {"palette": {"<family>.<L*>[b-z]": "#RRGGBB", …},     named base colours (one per distinct value)
-   "tokens":  {"<area>.<file>.<scope>.<role>": "<palette name>" | "#RRGGBB", …}}
+   "tokens":  {"<area>.<file>.<scope>.<role>": "<palette name>" | "#RRGGBB", …},    the colours the UI CODE draws
+   "ui":      {"<ui.json path>": "<palette name>" | "#RRGGBB[AA]", …}}              the colours Tuning/ui.json names
   A token id ending in ".hex" is a String token ("#RRGGBB", for the few call sites that take a hex string); every other
   token is a UInt32 0xRRGGBB. Token ids become Swift names by camel-casing the dotted parts (a.bC.d0 -> aBCD0).
+  ui.json holds no colour: each colour slot is the string "@<ui id>" (the id is the slot's own dotted path, a gradient stop
+  [position, colour] named by the stop: "gradients.popup.ribbon.2"). Tuning.load resolves them from ui-colors.json.
+skin/fonts.json   {"faces": {"black": {"postScript": "PCDisplay-Black", "file": "PCDisplay-Black.ttf"}, "blackItalic": …}}
+                  the text faces by GameTextStyle.Face role; the files live in App/Resources/Fonts
+skin/names.json   names the skin shows that are not translated copy (sample podium names, avatar portrait art names)
 
 Generated
   App/Shell/Components/SkinColors.generated.swift   `enum Skin { static let <name>: UInt32 = 0xRRGGBB … }` (no imports:
                                                     also compiled by art/ui/tools/swiftui_render.swift with GlossyChrome)
   Tests/AppTests/SkinColorsTable.generated.swift    token id -> constant table for SkinColorsTests (test target only)
+  App/Resources/Tuning/ui-colors.json               ui id -> "#RRGGBB": the table Tuning.load resolves ui.json's "@<ui id>"
+  App/Shell/Components/SkinData.generated.swift     `enum SkinFonts` (PostScript names, files) and `enum SkinNames`
+  project.yml + App/Info.plist UIAppFonts           the font files (only that list is rewritten)
 """
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import sys
@@ -86,8 +100,201 @@ def generate_test_table(doc):
     return "\n".join(out) + "\n"
 
 
-def targets(doc):
-    return [(S.GEN_SWIFT, generate(doc)), (S.GEN_TEST_SWIFT, generate_test_table(doc))]
+# ============================================================================================ ui.json colours
+
+def generate_ui_colors(doc):
+    """App/Resources/Tuning/ui-colors.json: {"colors": {ui id: "#RRGGBB[AA]"}}, GENERATED from skin/colors.json `ui` (+ the
+    palette): do not edit it. Tuning.load replaces every "@<id>" string of ui.json with colors[<id>]."""
+    table = S.ui_color_table(doc)
+    # no comment key: a shipped Tuning JSON carries none (TuningTests, release gate 7b); the header lives in build.py
+    out = ["{", '  "colors": {']
+    items = sorted(table.items())
+    out += [f"    {json.dumps(k)}: {json.dumps(v)}{',' if i < len(items) - 1 else ''}" for i, (k, v) in enumerate(items)]
+    out += ["  }", "}"]
+    return "\n".join(out) + "\n"
+
+
+def check_ui(doc, text):
+    """-> problems of Tuning/ui.json against the skin (empty = clean)."""
+    probs = []
+    try:
+        refs, raws = S.ui_slots(text)
+    except (ValueError, json.JSONDecodeError) as e:
+        return [f"ui.json does not parse: {e}"]
+    for s, _, path, v in raws:
+        probs.append(f"ui.json {'.'.join(map(str, path))} (char {s}): raw colour {v!r}; colours live in the skin "
+                     f"(run python3 tools/skin/build.py --adopt-ui)")
+    ui = doc.get("ui", {})
+    used = set()
+    for s, _, path, uid in refs:
+        used.add(uid)
+        if uid not in ui:
+            probs.append(f"ui.json {'.'.join(map(str, path))}: @{uid} is not in skin/colors.json `ui`")
+    for uid in sorted(set(ui) - used):
+        probs.append(f"skin/colors.json ui {uid} is referenced by no ui.json slot (remove it)")
+    return probs
+
+
+def adopt_ui(doc, text):
+    """Raw colours of ui.json -> skin ui entries (reusing the palette entry of an equal colour, else a new palette name)
+    and "@<ui id>" references in the text (formatting kept). -> (new text, [(ui id, value)])."""
+    import codemod as C
+    refs, raws = S.ui_slots(text)
+    if not raws:
+        return text, []
+    parsed = json.loads(text)
+    pal = doc["palette"]
+    ui = doc.setdefault("ui", {})
+    by_hex = {}
+    for k, v in sorted(pal.items()):
+        by_hex.setdefault(v, k)
+    edits, added = [], []
+    for s, e, path, v in raws:
+        m = S.UI_HEX_VALUE.match(v)
+        if not m:
+            raise SystemExit(f"ui.json {'.'.join(map(str, path))}: {v!r} mixes a colour with other text; split it into "
+                             "one colour per string first")
+        hx = S.norm_hex(m.group(1))
+        if m.group(2):
+            val = hx + m.group(2).upper()                       # an alpha colour keeps its own literal in the skin
+        else:
+            if hx not in by_hex:
+                name = C.next_palette_name(pal, hx)
+                pal[name] = hx
+                by_hex[hx] = name
+            val = by_hex[hx]
+        uid = S.ui_id(parsed, path)
+        ui[uid] = val
+        added.append((uid, val))
+        edits.append((s, e, json.dumps("@" + uid)))
+    for s, e, r in sorted(edits, reverse=True):
+        text = text[:s] + r + text[e:]
+    return text, added
+
+
+# ============================================================================================ fonts and names
+
+FACE_ROLES = ["black", "blackItalic"]        # GameTextStyle.Face: the roles the text code draws with (Swift names)
+PS_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9-]*$")
+FONT_FILE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*\.(ttf|otf)$")
+SWIFT_SAFE = re.compile(r'^[^"\\\n]+$')
+NAME_LISTS = {"podiumSampleNames": (3, SWIFT_SAFE, "the Weekly Cup intro podium's three sample players, left to right"),
+              "avatarPortraits": (8, re.compile(r"^[A-Za-z0-9]+$"),
+                                  "portrait index 1…8 -> Art/char_avatar<Name>@3x.png (the race lanes' avatars)")}
+
+
+def load_json(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def check_fonts(fonts, fonts_dir=None):
+    fonts_dir = S.FONTS_DIR if fonts_dir is None else fonts_dir
+    errs = []
+    faces = fonts.get("faces") if isinstance(fonts, dict) else None
+    if not isinstance(faces, dict):
+        return ["fonts.json needs a 'faces' object {role: {postScript, file}}"]
+    for r in FACE_ROLES:
+        if r not in faces:
+            errs.append(f"fonts.json: face {r!r} missing (the text code draws with roles {FACE_ROLES})")
+    for r, f in faces.items():
+        if r not in FACE_ROLES:
+            errs.append(f"fonts.json: unknown face role {r!r} (roles: {FACE_ROLES}; a new role needs a GameTextStyle.Face case)")
+            continue
+        if not isinstance(f, dict) or not PS_NAME.match(str(f.get("postScript", ""))):
+            errs.append(f"fonts.json {r}: 'postScript' must be the font's PostScript name (letters, digits, '-')")
+        if not isinstance(f, dict) or not FONT_FILE.match(str(f.get("file", ""))):
+            errs.append(f"fonts.json {r}: 'file' must be a .ttf/.otf file name in App/Resources/Fonts")
+        elif not os.path.exists(os.path.join(fonts_dir, f["file"])):
+            errs.append(f"fonts.json {r}: App/Resources/Fonts/{f['file']} does not exist")
+    if os.path.isdir(fonts_dir):
+        declared = {f.get("file") for f in faces.values() if isinstance(f, dict)}
+        extra = sorted(x for x in os.listdir(fonts_dir) if x.lower().endswith((".ttf", ".otf")) and x not in declared)
+        if extra:
+            errs.append(f"App/Resources/Fonts holds font files no face declares: {extra} (declare or delete them)")
+    return errs
+
+
+def check_names(names):
+    errs = []
+    if not isinstance(names, dict):
+        return ["names.json must be an object"]
+    for k, (count, rx, _) in NAME_LISTS.items():
+        v = names.get(k)
+        if not isinstance(v, list) or len(v) != count or not all(isinstance(x, str) and rx.match(x) for x in v):
+            errs.append(f"names.json {k}: expected {count} names matching {rx.pattern}")
+    return errs
+
+
+def font_files(fonts):
+    return [fonts["faces"][r]["file"] for r in FACE_ROLES]
+
+
+def swift_str(s):
+    return '"' + s + '"'
+
+
+def generate_data(fonts, names):
+    out = ["// GENERATED by tools/skin/build.py from skin/fonts.json and skin/names.json. Do not edit: edit the JSON",
+           "// (docs/SKIN.md), then run python3 tools/skin/build.py. No imports on purpose (plain constants).",
+           "// swiftlint:disable all", "",
+           "/// The text faces by `GameTextStyle.Face` role (skin/fonts.json): PostScript names, and the bundled files",
+           "/// (App/Resources/Fonts; Info.plist UIAppFonts lists them as \"Fonts/<file>\").",
+           "enum SkinFonts {"]
+    for r in FACE_ROLES:
+        f = fonts["faces"][r]
+        out.append(f"    static let {r} = {swift_str(f['postScript'])}  // Fonts/{f['file']}")
+    out.append("    /// Every face's PostScript name (the boot check and the font tests resolve each).")
+    out.append(f"    static let postScriptNames: [String] = [{', '.join(FACE_ROLES)}]")
+    out.append("    /// The font files of the faces, in role order.")
+    out.append(f"    static let files: [String] = [{', '.join(swift_str(x) for x in font_files(fonts))}]")
+    out.append("}")
+    out.append("")
+    out.append("/// Names the skin shows that are not translated copy (skin/names.json).")
+    out.append("enum SkinNames {")
+    for k, (_, _, doc) in NAME_LISTS.items():
+        out.append(f"    /// {doc}")
+        out.append(f"    static let {k}: [String] = [{', '.join(swift_str(x) for x in names[k])}]")
+    out.append("}")
+    return "\n".join(out) + "\n"
+
+
+UIAPPFONTS_YML = re.compile(r"(\n([ \t]*)UIAppFonts:[^\n]*\n)((?:\2[ \t]+- [^\n]*\n)+)")
+UIAPPFONTS_PLIST = re.compile(r"(<key>UIAppFonts</key>\s*<array>\n)((?:([ \t]*)<string>[^<]*</string>\n)+)")
+
+
+def with_font_list_yml(text, files):
+    m = UIAPPFONTS_YML.search(text)
+    if not m:
+        raise SystemExit("project.yml: no UIAppFonts list under info.properties")
+    first = m.group(3).splitlines()[0]
+    indent = first[:len(first) - len(first.lstrip())]
+    body = "".join(f"{indent}- Fonts/{f}\n" for f in files)
+    return text[:m.start(3)] + body + text[m.end(3):]
+
+
+def with_font_list_plist(text, files):
+    m = UIAPPFONTS_PLIST.search(text)
+    if not m:
+        raise SystemExit("App/Info.plist: no UIAppFonts array")
+    indent = m.group(3)
+    body = "".join(f"{indent}<string>Fonts/{f}</string>\n" for f in files)
+    return text[:m.start(2)] + body + text[m.end(2):]
+
+
+def read(path):
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+
+
+def targets(doc, fonts=None, names=None):
+    fonts = load_json(S.FONTS_JSON) if fonts is None else fonts
+    names = load_json(S.NAMES_JSON) if names is None else names
+    files = font_files(fonts)
+    return [(S.GEN_SWIFT, generate(doc)), (S.GEN_TEST_SWIFT, generate_test_table(doc)),
+            (S.UI_COLORS_GEN, generate_ui_colors(doc)), (S.GEN_DATA_SWIFT, generate_data(fonts, names)),
+            (S.PROJECT_YML, with_font_list_yml(read(S.PROJECT_YML), files)),
+            (S.INFO_PLIST, with_font_list_plist(read(S.INFO_PLIST), files))]
 
 
 def check_doc(doc):
@@ -182,6 +389,67 @@ def selftest():
     t = generate_test_table(tiny)
     ok('d["a.b.c"] = Skin.aBC' in t and 'd["a.b.d.hex"] = Skin.aBDHex' in t, "generate_test_table")
 
+    # ui.json: the string scanner finds every string value (not keys) with its path, in the real file too
+    uj = ('{"a": {"b": "#00a2ff", "k": 1}, "g": {"r": [[0, "#010203"], [0.5, "@g.r.1"]]}, "t": {"fill": ["#FFFFFF", '
+          '"x\\"#AABBCC"], "face": "blackItalic"}, "l": "#112233;#445566"}')
+    spans = S.json_string_values(uj)
+    ok([json.loads(uj[a:b]) for a, b, _ in spans] == ["#00a2ff", "#010203", "@g.r.1", "#FFFFFF", 'x"#AABBCC',
+                                                     "blackItalic", "#112233;#445566"], f"json_string_values {spans}")
+    if os.path.exists(S.UI_JSON):
+        real = open(S.UI_JSON, encoding="utf-8").read()
+        rdoc = json.loads(real)
+        ok(all(json.loads(real[a:b]) == S.json_get(rdoc, p) for a, b, p in S.json_string_values(real)),
+           "json_string_values on ui.json: every span is the value at its path")
+    refs, raws = S.ui_slots(uj)
+    ok([r[3] for r in refs] == ["g.r.1"] and len(raws) == 5, f"ui_slots {refs} {raws}")
+    pdoc = json.loads(uj)
+    ok(S.ui_id(pdoc, ("g", "r", 0, 1)) == "g.r.0" and S.ui_id(pdoc, ("t", "fill", 0)) == "t.fill.0"
+       and S.ui_id(pdoc, ("a", "b")) == "a.b", "ui_id: a gradient stop is named by the stop")
+    # adopt: plain colours become references (palette reused / added), the text keeps its formatting; a colour mixed with
+    # other text is refused
+    udoc = {"palette": {"blue.64": "#00A2FF"}, "tokens": {}, "ui": {"g.r.1": "blue.64"}}
+    clean = uj.replace(', "l": "#112233;#445566"', "").replace('"x\\"#AABBCC"', '"#AABBCC80"')
+    new_text, added = adopt_ui(udoc, clean)
+    ok(json.loads(new_text)["a"]["b"] == "@a.b" and udoc["ui"]["a.b"] == "blue.64", f"adopt reuses the palette: {udoc}")
+    ok(udoc["ui"]["t.fill.1"] == "#AABBCC80" and udoc["ui"]["g.r.0"] in udoc["palette"], f"adopt: alpha / new entry {udoc}")
+    ok(new_text.count('"@') == 5 and S.validate(udoc) == [] and check_ui(udoc, new_text) == [], "adopt -> clean")
+    want = S.resolve_ui_json(json.loads(clean.replace("#00a2ff", "#00A2FF")), udoc)
+    ok(S.resolve_ui_json(json.loads(new_text), udoc) == want,
+       "resolving the references gives the original (hex upper-cased)")
+    try:
+        adopt_ui({"palette": {}, "tokens": {}}, uj)
+        ok(False, "adopt refuses a colour inside a longer string")
+    except SystemExit:
+        pass
+    probs = check_ui({"palette": {}, "tokens": {}, "ui": {"g.r.1": "#000000", "gone": "#000000"}}, uj)
+    ok(sum("raw colour" in x for x in probs) == 5 and any("gone" in x for x in probs), f"check_ui finds: {probs}")
+    probs = check_ui({"palette": {}, "tokens": {}, "ui": {}}, '{"a": "@nope"}')
+    ok(any("@nope" in x for x in probs), f"check_ui: unknown reference {probs}")
+    g = generate_ui_colors(udoc)
+    ok(json.loads(g)["colors"]["a.b"] == "#00A2FF", "generate_ui_colors")
+
+    # fonts and names: validation, generation, the UIAppFonts lists
+    with tempfile.TemporaryDirectory() as d:
+        for f in ("A-Black.ttf", "A-Italic.otf"):
+            open(os.path.join(d, f), "w").close()
+        fonts = {"faces": {"black": {"postScript": "A-Black", "file": "A-Black.ttf"},
+                           "blackItalic": {"postScript": "A-Italic", "file": "A-Italic.otf"}}}
+        ok(check_fonts(fonts, d) == [], f"check_fonts: {check_fonts(fonts, d)}")
+        open(os.path.join(d, "Stray.ttf"), "w").close()
+        ok(any("Stray.ttf" in e for e in check_fonts(fonts, d)), "check_fonts: an undeclared font file")
+        ok(any("missing" in e for e in check_fonts({"faces": {"black": fonts["faces"]["black"]}}, d)), "check_fonts: role")
+    names = {"podiumSampleNames": ["A", "B", "C"], "avatarPortraits": list("abcdefgh")}
+    ok(check_names(names) == [] and check_names({"podiumSampleNames": ['A"'], "avatarPortraits": []}) != [], "check_names")
+    gd = generate_data(fonts, names)
+    ok('static let black = "A-Black"' in gd and 'static let files: [String] = ["A-Black.ttf", "A-Italic.otf"]' in gd
+       and 'static let podiumSampleNames: [String] = ["A", "B", "C"]' in gd, "generate_data")
+    yml = "info:\n  properties:\n    UIAppFonts:   # c\n      - Fonts/Old.ttf\n    Next: 1\n"
+    ok(with_font_list_yml(yml, ["A.ttf", "B.otf"]) ==
+       "info:\n  properties:\n    UIAppFonts:   # c\n      - Fonts/A.ttf\n      - Fonts/B.otf\n    Next: 1\n", "font list yml")
+    pl = "<key>UIAppFonts</key>\n\t<array>\n\t\t<string>Fonts/Old.ttf</string>\n\t</array>\n"
+    ok(with_font_list_plist(pl, ["A.ttf"]) == "<key>UIAppFonts</key>\n\t<array>\n\t\t<string>Fonts/A.ttf</string>\n\t</array>\n",
+       "font list plist")
+
     # codemod on a fixture: every literal replaced, values preserved, allow-list honoured, inline_back restores it
     fixture = ('import SwiftUI\nstruct PriceButton: View {\n    var outline: UInt32 = 0x0A0B0C\n'
                '    var body: some View {\n        let seed = UInt64(0xC0FFEE)\n'
@@ -232,24 +500,41 @@ def selftest():
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--adopt-ui", action="store_true")
     ap.add_argument("--check-literals", action="store_true")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
     if a.selftest:
         sys.exit(0 if selftest() else 1)
     doc = S.load_colors()
-    errs = check_doc(doc)
+    errs = ["colors.json: " + e for e in check_doc(doc)]
+    fonts, names = load_json(S.FONTS_JSON), load_json(S.NAMES_JSON)
+    errs += check_fonts(fonts)
+    errs += check_names(names)
     if errs:
-        print("\n".join("colors.json: " + e for e in errs))
+        print("\n".join(errs))
         sys.exit(1)
     if a.check_literals:
         probs = check_literals(doc)
         for p in probs:
             print(p)
         sys.exit(1 if probs else 0)
+    ui_text = read(S.UI_JSON)
+    if a.adopt_ui:
+        ui_text, added = adopt_ui(doc, ui_text)
+        errs = S.validate(doc)
+        if errs:
+            raise SystemExit("\n".join(errs))
+        if added:
+            S.save_colors(doc)
+            with open(S.UI_JSON, "w", encoding="utf-8") as f:
+                f.write(ui_text)
+        print(f"adopt-ui: {len(added)} ui.json colours moved into skin/colors.json `ui`"
+              + (f" ({len({v for _, v in added})} distinct values)" if added else ""))
+    ui_probs = check_ui(doc, ui_text)
     stale = []
-    for path, text in targets(doc):
-        cur = open(path, encoding="utf-8").read() if os.path.exists(path) else None
+    for path, text in targets(doc, fonts, names):
+        cur = read(path) if os.path.exists(path) else None
         if cur != text:
             stale.append(path)
             if not a.check:
@@ -257,14 +542,20 @@ def main():
                     f.write(text)
     n_rgb = sum(1 for t in doc["tokens"] if not S.is_string_token(t))
     summary = (f"{len(doc['palette'])} palette colours, {len(doc['tokens'])} tokens ({n_rgb} UInt32, "
-               f"{len(doc['tokens']) - n_rgb} String)")
+               f"{len(doc['tokens']) - n_rgb} String), {len(doc.get('ui', {}))} ui.json colours, "
+               f"{len(fonts['faces'])} font faces")
+    for p in ui_probs:
+        print(p)
     if a.check:
         if stale:
             print("stale (run python3 tools/skin/build.py): " + ", ".join(S.rel(p) for p in stale))
+        if stale or ui_probs:
             sys.exit(1)
-        print(f"skin colours up to date: {summary}")
+        print(f"skin up to date: {summary}")
     else:
         print(f"wrote {', '.join(S.rel(p) for p in stale) or 'nothing (up to date)'}: {summary}")
+        if ui_probs:
+            sys.exit(1)
 
 
 if __name__ == "__main__":

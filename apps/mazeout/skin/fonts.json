@@ -1,0 +1,7 @@
+{
+  "about": "Skin fonts: the text faces by role (GameTextStyle.Face: black = every label, blackItalic = event logos). postScript = the font's PostScript name, file = its file in App/Resources/Fonts. Edit, then python3 tools/skin/build.py (docs/SKIN.md).",
+  "faces": {
+    "black": { "postScript": "PCDisplay-Black", "file": "PCDisplay-Black.ttf" },
+    "blackItalic": { "postScript": "PCDisplay-BlackItalic", "file": "PCDisplay-BlackItalic.ttf" }
+  }
+}

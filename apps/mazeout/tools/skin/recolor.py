@@ -2,7 +2,7 @@
 """tools/skin/recolor.py — move whole colour families of the skin to new base colours (docs/SKIN.md).
 
     python3 tools/skin/recolor.py --map teal=#3A6FE0 --map pink=#8E44AD --preview /tmp/recolor.html --dry-run
-    python3 tools/skin/recolor.py --map teal=#3A6FE0 --ui-json          # rewrite skin/colors.json (+ Tuning/ui.json)
+    python3 tools/skin/recolor.py --map teal=#3A6FE0                    # rewrite skin/colors.json
     python3 tools/skin/recolor.py --config my_skin_recolor.json          # the same rules from a file
     python3 tools/skin/recolor.py --list-families                        # what each family holds today
     python3 tools/skin/recolor.py --selftest
@@ -25,8 +25,10 @@ How one colour moves (CIELAB LCh, the D1 reskin's approach: tools/palette_map.py
   then the chroma is reduced (L* and h kept) until the colour is inside sRGB.
 Palette NAMES stay (they name Arrow Out's family: "teal.42" after a blue recolour is the blue that replaced it).
 
---ui-json also rewrites the "#RRGGBB[AA]" values of App/Resources/Tuning/ui.json (runtime overrides of the ui.json-keyed
-Tokens defaults) with the same rules, matched by family / hue / exact value, keeping any alpha suffix and the formatting.
+What moves: the palette (so every token and every ui.json colour naming a palette entry follows), and the few token / ui
+values that are their own "#RRGGBB[AA]" literal (an equal palette colour's new value, else the first rule selecting it;
+an alpha suffix is kept). ui.json itself holds no colour (its slots are "@<ui id>" references into colors.json `ui`), so
+nothing else needs rewriting: run build.py and the app picks the new colours up.
 --preview FILE writes a self-contained HTML swatch sheet (before -> after per family, with usage counts).
 """
 from __future__ import annotations
@@ -134,32 +136,33 @@ def recolor_palette(doc, rules):
     return new, sorted(changes)
 
 
-UI_HEX = re.compile(r'"#([0-9A-Fa-f]{6})([0-9A-Fa-f]{2})?"')
-
-
-def recolor_ui_json(text, rules, palette_map):
-    """Rewrite ui.json's colour strings. A value equal to a recoloured palette colour takes that exact new colour (so the
-    Swift default and its ui.json override stay identical); other values go through the first rule selecting them."""
-    count = [0]
-
-    def sub(m):
-        hx = "#" + m.group(1).upper()
-        nh = palette_map.get(hx)
-        if nh is None:
-            for r in rules:
-                if r.selects(hx):
-                    nh = r.apply(hx)[0]
-                    break
-        if nh is None or nh == hx:
-            return m.group(0)
-        count[0] += 1
-        return f'"{nh}{m.group(2) or ""}"'
-    return UI_HEX.sub(sub, text), count[0]
+def recolor_literals(doc, rules, palette_map):
+    """Token and ui values written as their own "#RRGGBB[AA]" (not a palette name): a value equal to a recoloured palette
+    colour takes exactly that colour's new value; other values go through the first rule selecting them. Alpha kept.
+    -> [(section, id, old, new)] (the doc is changed in place)."""
+    changes = []
+    for sec in ("tokens", "ui"):
+        for k, v in sorted(doc.get(sec, {}).items()):
+            if not v.startswith("#"):
+                continue
+            hx, alpha = v[:7], v[7:]
+            nh = palette_map.get(hx)
+            if nh is None:
+                for r in rules:
+                    if r.selects(hx):
+                        nh = r.apply(hx)[0]
+                        break
+            if nh is None or nh == hx:
+                continue
+            doc[sec][k] = nh + alpha
+            changes.append((sec, k, v, nh + alpha))
+    return changes
 
 
 def usage(doc):
+    """palette name -> how many tokens and ui.json colours use it."""
     n = {}
-    for v in doc["tokens"].values():
+    for v in list(doc["tokens"].values()) + list(doc.get("ui", {}).values()):
         if not v.startswith("#"):
             n[v] = n.get(v, 0) + 1
     return n
@@ -256,10 +259,20 @@ def selftest():
     r2 = Rule("teal", "#3A6FE0", lightness="shift").bind(members)
     if r2.apply(r2.frm)[0] != "#3A6FE0":
         fails.append("shift: anchor does not land on TO")
-    # ui.json: exact palette values follow the palette; alpha suffix kept
-    txt, n = recolor_ui_json('{"a": "#00A293", "b": "#00a293cc", "c": "#FFFFFF"}', [r], {"#00A293": "#123456"})
-    if txt != '{"a": "#123456", "b": "#123456cc", "c": "#FFFFFF"}' or n != 2:
-        fails.append(f"ui.json rewrite: {txt}")
+    # ui colours: a palette name follows the palette; own literals follow an equal palette colour exactly (alpha kept),
+    # else the rule; untouched families stay
+    tiny = {"palette": {"teal.60": "#00A293", "neutral.100": "#FFFFFF"},
+            "tokens": {"a.b": "teal.60", "a.c": "#00A293"},
+            "ui": {"colors.x": "teal.60", "colors.y": "#00A293CC", "colors.z": "#FFFFFF", "colors.w": "#10B0A0"}}
+    rt = Rule("teal", "#3A6FE0")
+    new_pal, ch = recolor_palette(tiny, [rt])
+    pal_map = {old: nh for _, old, nh, _, _ in ch}
+    lit = recolor_literals(tiny, [rt], pal_map)
+    tiny["palette"] = new_pal
+    nt = new_pal["teal.60"]
+    if (S.resolve_ui(tiny, "colors.x") != nt or tiny["ui"]["colors.y"] != nt + "CC" or tiny["tokens"]["a.c"] != nt
+            or tiny["ui"]["colors.z"] != "#FFFFFF" or tiny["ui"]["colors.w"] == "#10B0A0" or len(lit) != 3):
+        fails.append(f"ui/literal recolour: {tiny} {lit}")
     # hue windows wrap
     if not Rule("hue:350-10", "#FF0000").selects("#FF0080") or Rule("hue:350-10", "#FF0000").selects("#00FF00"):
         fails.append("hue window wrap")
@@ -277,7 +290,6 @@ def main():
     ap.add_argument("--hue-spread", type=float, default=1.0)
     ap.add_argument("--colors", default=S.COLORS_JSON, help="the colors.json to read (default skin/colors.json)")
     ap.add_argument("--out", help="write here instead of --colors")
-    ap.add_argument("--ui-json", action="store_true", help="also recolour App/Resources/Tuning/ui.json")
     ap.add_argument("--preview", metavar="FILE.html")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--list-families", action="store_true")
@@ -303,11 +315,10 @@ def main():
         preview_html(doc, new_pal, changes, rules, a.preview)
         print(f"preview: {a.preview}")
     pal_map = {old: nh for _, old, nh, _, _ in changes}
-    ui_text = ui_n = None
-    if a.ui_json:
-        with open(S.UI_JSON, encoding="utf-8") as f:
-            ui_text, ui_n = recolor_ui_json(f.read(), rules, pal_map)
-        print(f"ui.json: {ui_n} colour values change")
+    lit = recolor_literals(doc, rules, pal_map)
+    moved_names = {c[0] for c in moved}
+    n_ui = sum(1 for v in doc.get("ui", {}).values() if v in moved_names)
+    print(f"ui.json colours following the palette: {n_ui}; own-literal token/ui values changing: {len(lit)}")
     if a.dry_run:
         print("dry run: nothing written")
         return
@@ -317,10 +328,6 @@ def main():
         raise SystemExit("\n".join(errs))
     S.save_colors(doc, a.out or a.colors)
     print(f"wrote {S.rel(a.out or a.colors)}")
-    if ui_text is not None:
-        with open(S.UI_JSON, "w", encoding="utf-8") as f:
-            f.write(ui_text)
-        print(f"wrote {S.rel(S.UI_JSON)}")
     print("next: python3 tools/skin/build.py, then build the app")
 
 

@@ -1,0 +1,5 @@
+{
+  "about": "Skin names that are not translated copy (copy, event and currency names live in App/Resources/Strings/strings.tsv; the brand name in game.yml identity.brand_name). Edit, then python3 tools/skin/build.py (docs/SKIN.md).",
+  "podiumSampleNames": ["Max", "Neo", "James"],
+  "avatarPortraits": ["Walkie", "CapGlasses", "Detective", "Burger", "Scientist", "Party", "BoxHead", "Notebook"]
+}

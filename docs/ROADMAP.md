@@ -78,11 +78,20 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   - [x] Colour tokens (code): every colour literal of App/Shell, App/FX and GlossyChrome (1,703 sites) is a `Skin.<token>`
         constant generated from `apps/mazeout/skin/colors.json` (996 palette colours, 1,664 tokens); `tools/skin/`
         build.py (--check, --check-literals, --selftest), codemod.py (--verify: values identical to the pre-codemod
-        sources), recolor.py (L*-preserving family recolour, --ui-json, --preview); `SkinColorsTests`; CI Linux job;
+        sources), recolor.py (L*-preserving family recolour, --preview); `SkinColorsTests`; CI Linux job;
         `docs/SKIN.md`. Pixel check on a device/simulator against the baseline: not done yet (the values are proven equal
         in source, not by screenshots)
-  - [ ] ui.json colour values into the skin (today `recolor.py --ui-json` moves them alongside)
-  - [ ] Art slots, scenes/logo data, fonts, sounds, names (docs/SKIN.md §2); a second skin
+  - [x] ui.json colours into the skin: the 657 colour slots of `Tuning/ui.json` are `"@<ui id>"` references to
+        `skin/colors.json` `ui` (palette names; 67 ui-only colours added to the palette, 1,063 now); build.py generates
+        `Tuning/ui-colors.json`, `Tuning.load` resolves the references at load (`TuningFile.resolvingReferences`);
+        `build.py --adopt-ui` moves a raw colour written into ui.json into the skin, `--check` fails on one; the family
+        recolour covers them through the palette (`--ui-json` retired). Verified on Linux: resolving the new ui.json gives
+        the old one value for value; the Swift side (`SkinColorsTests.testUIJSONColourReferencesResolveAtLoad`) is CI's
+  - [x] Fonts and names as skin data: `skin/fonts.json` (faces by GameTextStyle.Face role) and `skin/names.json` ->
+        `SkinData.generated.swift` (`SkinFonts`, `SkinNames`) + the UIAppFonts lists in project.yml / Info.plist.
+        Sounds were already data (`audio.json` cues/gain, files by SoundID); brand name stays game.yml's; copy names stay
+        in strings.tsv (docs/SKIN.md §3). Left: `App/Board/DigitGlyphs.swift` spells "PCDisplay-Black" (another lane's folder)
+  - [ ] Art slots, scenes/logo data (docs/SKIN.md §4); a second skin
 - [ ] **4. Config + generators** — `game.yml`, `tools/game.py new|generate|doctor`, every script/lane/gate per game
   - [x] `apps/mazeout/game.yml`: identity, puzzle module + its level checks, store, events (mirrored into social.json),
         social seeds, brand bans, feature flags; economy + IAP catalogue REFERENCED (rules.json / iap.json stay the source)
@@ -132,3 +141,8 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   `machine.env` in a cloud session). generate --check on apps/mazeout: 0 changes. `new testgame` on a scratch copy of
   the repo: doctor lists only store texts / rendered art / app icon (FAIL, TODO) + levels copy / strings SPEC sources
   (WARN). Verified on Linux only; the scaffold was not built with Xcode.
+- 2026-09-30: skin, second part (phase 3): ui.json's 657 colours -> skin/colors.json `ui` (ui.json keeps "@<ui id>"
+  references, resolved by Tuning.load from the generated Tuning/ui-colors.json); skin/fonts.json + skin/names.json ->
+  SkinData.generated.swift (+ UIAppFonts lists); build.py --check / --adopt-ui / selftest extended, recolor.py covers the
+  ui colours through the palette. Linux: resolved ui.json == the old file value for value, all Linux checks green. Swift
+  (Tuning.swift resolver, font/name call sites, new SkinColorsTests cases) not compiled in that session: CI to confirm.

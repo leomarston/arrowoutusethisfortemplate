@@ -45,8 +45,10 @@ jobs:
         run: python3 $APP_DIR/design/tools/validate_levels.py
       - name: Generated art index is up to date
         run: python3 $APP_DIR/tools/uiart_gen.py --check
-      - name: Skin colours (generated Swift fresh, no colour literal outside skin/colors.json, tool self-tests)
+      - name: Skin (colours, ui.json colours, fonts, names; generated files fresh, no colour literal in the UI sources or ui.json, tool self-tests)
         run: |
+          # --check: SkinColors/SkinData.generated.swift, Tuning/ui-colors.json and the UIAppFonts lists fresh; ui.json holds
+          # only "@<ui id>" colour references, each in skin/colors.json `ui`, and every ui entry is used
           python3 $APP_DIR/tools/skin/build.py --check
           python3 $APP_DIR/tools/skin/build.py --check-literals
           python3 $APP_DIR/tools/skin/build.py --selftest

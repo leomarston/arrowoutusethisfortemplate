@@ -7,6 +7,8 @@
   - family(hex)            the hue family a colour belongs to (palette names are "<family>.<L*>")
   - colors.json            load / validate / save (stable formatting), token id -> Swift constant name
   - literal scanning       every colour literal in the scanned Swift sources (the codemod's input, build.py --check-literals)
+  - ui.json                the string values of Tuning/ui.json with their JSON paths and text positions (colour slots are
+                           "@<ui id>" references to colors.json `ui`), the ui id of a slot, the resolved ui colour table
 """
 from __future__ import annotations
 
@@ -22,12 +24,20 @@ GEN_SWIFT = os.path.join(APP, "App", "Shell", "Components", "SkinColors.generate
 GEN_TEST_SWIFT = os.path.join(APP, "Tests", "AppTests", "SkinColorsTable.generated.swift")
 ALLOWLIST = os.path.join(HERE, "literal_allowlist.json")
 UI_JSON = os.path.join(APP, "App", "Resources", "Tuning", "ui.json")
+UI_COLORS_GEN = os.path.join(APP, "App", "Resources", "Tuning", "ui-colors.json")     # generated: ui id -> "#RRGGBB"
+FONTS_JSON = os.path.join(APP, "skin", "fonts.json")
+NAMES_JSON = os.path.join(APP, "skin", "names.json")
+GEN_DATA_SWIFT = os.path.join(APP, "App", "Shell", "Components", "SkinData.generated.swift")
+FONTS_DIR = os.path.join(APP, "App", "Resources", "Fonts")
+PROJECT_YML = os.path.join(APP, "project.yml")
+INFO_PLIST = os.path.join(APP, "App", "Info.plist")
 
 # The sources whose colour literals are skin tokens. App/Board reads board.json (its own data), App/Game, App/Audio and the
 # PathCore package hold no UI colours; they are outside the skin scan on purpose.
 SCAN_DIRS = ["App/Shell", "App/FX"]
 SCAN_FILES = ["art/ui/code/GlossyChrome.swift"]
 GENERATED_REL = os.path.relpath(GEN_SWIFT, APP)
+GENERATED_RELS = {GENERATED_REL, os.path.relpath(GEN_DATA_SWIFT, APP)}
 
 
 def rel(p):
@@ -40,7 +50,7 @@ def scanned_files():
         for dp, _, fs in os.walk(os.path.join(APP, d)):
             out += [os.path.join(dp, f) for f in fs if f.endswith(".swift")]
     out += [os.path.join(APP, f) for f in SCAN_FILES]
-    return sorted(p for p in out if rel(p) != GENERATED_REL)
+    return sorted(p for p in out if rel(p) not in GENERATED_RELS)
 
 
 # ============================================================================================ Swift lexer
@@ -330,11 +340,24 @@ def validate(doc):
         if s in names:
             errs.append(f"tokens {names[s]} and {t} give the same Swift name {s}")
         names[s] = t
+    ui = doc.get("ui", {})
+    if not isinstance(ui, dict):
+        return errs + ["colors.json 'ui' must be an object {ui id: palette name | '#RRGGBB'}"]
+    for u, v in ui.items():
+        if not UI_ID.match(u):
+            errs.append(f"ui id {u!r}: expected the dotted ui.json path (letters, digits, '_')")
+        if not isinstance(v, str):
+            errs.append(f"ui {u}: value must be a palette name or '#RRGGBB[AA]'")
+        elif v.startswith("#"):
+            if not (HEX6.match(v) or HEX8.match(v)):
+                errs.append(f"ui {u}: {v!r} is not '#RRGGBB' or '#RRGGBBAA' (upper case)")
+        elif v not in pal:
+            errs.append(f"ui {u}: unknown palette entry {v!r}")
     return errs
 
 
 def dump_colors(doc):
-    """Stable, diff-friendly JSON: palette sorted by family order then name, tokens sorted by id, one entry per line."""
+    """Stable, diff-friendly JSON: palette sorted by family order then name, tokens and ui sorted by id, one entry per line."""
     fam_rank = {f: i for i, f in enumerate(FAMILIES)}
     def pkey(kv):
         m = re.match(r"^([a-z]+)\.(\d+)([a-z]?)$", kv[0])
@@ -344,16 +367,17 @@ def dump_colors(doc):
     pal = sorted(doc["palette"].items(), key=pkey)
     toks = sorted(doc["tokens"].items())
     out = ["{"]
+    sections = [("palette", pal), ("tokens", toks)]
+    if "ui" in doc:
+        sections.append(("ui", sorted(doc["ui"].items())))
     for k in doc:
-        if k in ("palette", "tokens"):
+        if k in ("palette", "tokens", "ui"):
             continue
         out.append(f"  {json.dumps(k)}: {json.dumps(doc[k], ensure_ascii=False)},")
-    out.append('  "palette": {')
-    out += [f"    {json.dumps(k)}: {json.dumps(v)}{',' if i < len(pal) - 1 else ''}" for i, (k, v) in enumerate(pal)]
-    out.append("  },")
-    out.append('  "tokens": {')
-    out += [f"    {json.dumps(k)}: {json.dumps(v)}{',' if i < len(toks) - 1 else ''}" for i, (k, v) in enumerate(toks)]
-    out.append("  }")
+    for si, (name, items) in enumerate(sections):
+        out.append(f"  {json.dumps(name)}: {{")
+        out += [f"    {json.dumps(k)}: {json.dumps(v)}{',' if i < len(items) - 1 else ''}" for i, (k, v) in enumerate(items)]
+        out.append("  }," if si < len(sections) - 1 else "  }")
     out.append("}")
     return "\n".join(out) + "\n"
 
@@ -432,3 +456,135 @@ def uiart_names():
     if not os.path.exists(p):
         return set()
     return set(re.findall(r"\bcase\s+([a-z][A-Za-z0-9]*)\b", open(p, encoding="utf-8").read()))
+
+
+# ============================================================================================ ui.json colour slots
+
+UI_ID = re.compile(r"^[A-Za-z0-9_]+(\.[A-Za-z0-9_]+)*$")
+UI_REF = re.compile(r"^@([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)$")
+HEX8 = re.compile(r"^#[0-9A-F]{8}$")
+# a colour literal anywhere inside a ui.json string ("#RRGGBB" / "#RRGGBBAA", any case; also inside ';' lists)
+UI_RAW_HEX = re.compile(r"(?<![0-9A-Za-z_])#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?(?![0-9A-Za-z_])")
+UI_HEX_VALUE = re.compile(r"^#([0-9A-Fa-f]{6})([0-9A-Fa-f]{2})?$")
+
+
+def json_string_values(text):
+    """Every string VALUE of a JSON text (object keys excluded) -> [(start, end, path)], start/end spanning the quotes,
+    path a tuple of keys / list indexes. The text is only read, so a rewrite can keep its hand formatting."""
+    n = len(text)
+    out = []
+    num = re.compile(r"-?[0-9][0-9.eE+-]*|true|false|null")
+
+    def ws(i):
+        while i < n and text[i] in " \t\r\n":
+            i += 1
+        return i
+
+    def string_end(i):
+        j = i + 1
+        while text[j] != '"':
+            j += 2 if text[j] == "\\" else 1
+        return j + 1
+
+    def value(i, path):
+        i = ws(i)
+        c = text[i]
+        if c == "{":
+            i = ws(i + 1)
+            if text[i] == "}":
+                return i + 1
+            while True:
+                i = ws(i)
+                ke = string_end(i)
+                key = json.loads(text[i:ke])
+                i = ws(ke)
+                if text[i] != ":":
+                    raise ValueError(f"JSON: ':' expected at {i}")
+                i = ws(value(i + 1, path + (key,)))
+                if text[i] == ",":
+                    i += 1
+                    continue
+                if text[i] != "}":
+                    raise ValueError(f"JSON: '}}' expected at {i}")
+                return i + 1
+        if c == "[":
+            i = ws(i + 1)
+            if text[i] == "]":
+                return i + 1
+            k = 0
+            while True:
+                i = ws(value(i, path + (k,)))
+                k += 1
+                if text[i] == ",":
+                    i += 1
+                    continue
+                if text[i] != "]":
+                    raise ValueError(f"JSON: ']' expected at {i}")
+                return i + 1
+        if c == '"':
+            e = string_end(i)
+            out.append((i, e, path))
+            return e
+        m = num.match(text, i)
+        if not m:
+            raise ValueError(f"JSON: unexpected {c!r} at {i}")
+        return m.end()
+
+    value(0, ())
+    return out
+
+
+def json_get(doc, path):
+    for p in path:
+        doc = doc[p]
+    return doc
+
+
+def ui_id(doc, path):
+    """The ui id of the colour slot at `path` of ui.json: the dotted path; a gradient stop [position, colour] is named by
+    the stop (gradients.popup.ribbon.2), not by its colour's index inside the pair."""
+    parent = json_get(doc, path[:-1]) if path else None
+    if (isinstance(parent, list) and len(parent) == 2 and path[-1] == 1 and isinstance(parent[0], (int, float))
+            and not isinstance(parent[0], bool)):
+        path = path[:-1]
+    return ".".join(str(p) for p in path)
+
+
+def ui_slots(text):
+    """ui.json text -> (refs, raws): refs = [(start, end, path, ui id referenced)], raws = [(start, end, path, value)] for
+    every string holding a colour literal."""
+    doc = json.loads(text)
+    refs, raws = [], []
+    for s, e, path in json_string_values(text):
+        v = json_get(doc, path)
+        m = UI_REF.match(v)
+        if m:
+            refs.append((s, e, path, m.group(1)))
+        elif UI_RAW_HEX.search(v):
+            raws.append((s, e, path, v))
+    return refs, raws
+
+
+def resolve_ui(doc, uid):
+    v = doc["ui"][uid]
+    return v if v.startswith("#") else doc["palette"][v]
+
+
+def ui_color_table(doc):
+    """ui id -> "#RRGGBB[AA]" (what App/Resources/Tuning/ui-colors.json carries and Tuning.load resolves "@id" with)."""
+    return {u: resolve_ui(doc, u) for u in sorted(doc.get("ui", {}))}
+
+
+def resolve_ui_json(ui, doc=None):
+    """A parsed ui.json with every "@<ui id>" replaced by its colour (for Python tools that read ui.json colours)."""
+    table = ui_color_table(doc or load_colors())
+
+    def walk(n):
+        if isinstance(n, dict):
+            return {k: walk(v) for k, v in n.items()}
+        if isinstance(n, list):
+            return [walk(v) for v in n]
+        if isinstance(n, str) and n.startswith("@") and n[1:] in table:
+            return table[n[1:]]
+        return n
+    return walk(ui)

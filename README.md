@@ -250,7 +250,7 @@ apps/mazeout/tools/test.sh A -only-testing:ArrowOutTests      # unit tests only
 apps/mazeout/tools/core.sh                                    # PathCore on macOS (swift build + swift test), no simulator
 apps/mazeout/tools/levels/content_tests.sh                    # the level bundle, validator, 1000 endless levels
 python3 apps/mazeout/tools/strings/build.py --check           # the string catalogue is up to date with the TSVs
-python3 apps/mazeout/tools/skin/build.py --check             # skin colours: generated Swift up to date (docs/SKIN.md)
+python3 apps/mazeout/tools/skin/build.py --check             # skin: generated files fresh, ui.json colour-free (docs/SKIN.md)
 python3 apps/mazeout/tools/skin/build.py --check-literals    # no colour literal in the UI code outside skin/colors.json
 python3 apps/mazeout/tools/release/meta.py audit              # store texts, keywords, captions, IAP catalogue
 python3 apps/mazeout/tools/release/meta.py iap-check          # iap.json == rules.json:shop == ArrowOut.storekit
@@ -379,9 +379,10 @@ After renaming: `sh apps/<slug>/tools/gen.sh`, build, run the tests, and grep ag
 **Replace (specific to Arrow Out)**
 - The rules of play: the board code in `App/Board/` and `PathCore`'s Grid / Rules / Solver / Content, levels
   (`App/Resources/Levels/`, `design/levels.json`, `design/tools/gen_levels.py`'s parameters), tutorials.
-- The UI colours: `skin/colors.json` (palette + tokens; `tools/skin/recolor.py` moves whole families), see
+- The skin: UI colours (`skin/colors.json`: palette, code tokens, ui.json colours; `tools/skin/recolor.py` moves whole
+  families), fonts (`skin/fonts.json` + the files in `App/Resources/Fonts/`), non-copy names (`skin/names.json`), see
   `docs/SKIN.md`.
-- All art (`art/out/`, `art/ui/out/`, the app icon), fonts if the new original looks different, sounds and music.
+- All art (`art/out/`, `art/ui/out/`, the app icon), sounds and music (`App/Resources/Sounds/`, `Tuning/audio.json`).
 - Every text: `App/Resources/Strings/*.tsv`, store texts (`design/publish/store/`), captions, keywords, screenshots,
   the IAP catalogue and prices (`design/publish/iap.json`, `rules.json:shop`, the `.storekit` file).
 - `research/` (a new game gets new research), `PLAN.md`, `SPEC.md`, `design/SPEC-*.md` (start new ones; keep these as

@@ -25,7 +25,7 @@ struct SocStyle: Hashable, Sendable {
     /// Shrink floor (SPEC.md §5.14: 0.7); a name that still does not fit is cut with "…" (SPEC-ui role.rowName).
     var minScale: CGFloat = 0.7
 
-    var postScriptName: String { italic ? "PCDisplay-BlackItalic" : "PCDisplay-Black" }
+    var postScriptName: String { italic ? GameText.italicPostScript : GameText.blackPostScript }
 
     func scaled(_ k: CGFloat) -> SocStyle {
         var s = self
@@ -199,7 +199,7 @@ enum SocType {
 
     /// Cap height of the black face at `size` (for baseline placement of centred text).
     static func capHeight(_ size: CGFloat, italic: Bool = false) -> CGFloat {
-        CTFontGetCapHeight(font(italic ? "PCDisplay-BlackItalic" : "PCDisplay-Black", size))
+        CTFontGetCapHeight(font(italic ? GameText.italicPostScript : GameText.blackPostScript, size))
     }
 }
 

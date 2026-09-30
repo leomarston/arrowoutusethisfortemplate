@@ -88,6 +88,57 @@ final class SkinColorsTests: XCTestCase {
                        Color(hexString: resolve(doc, "components.toast.toastLayer.fill") ?? ""))
     }
 
+    /// ui.json names no colour: each colour slot is "@<ui id>", resolved by `Tuning.load` from Tuning/ui-colors.json
+    /// (tools/skin/build.py, from skin/colors.json `ui`). After the load no reference is left, a slot holds the skin's colour,
+    /// and a `-pc.tune` override may name a skin id too.
+    func testUIJSONColourReferencesResolveAtLoad() throws {
+        let data = try Data(contentsOf: V1Repo.url("skin/colors.json"))
+        let obj = try XCTUnwrap(JSONSerialization.jsonObject(with: data) as? [String: Any], "skin/colors.json is an object")
+        let palette = try XCTUnwrap(obj["palette"] as? [String: String], "palette")
+        let ui = try XCTUnwrap(obj["ui"] as? [String: String], "skin/colors.json ui: ui id -> palette name or #RRGGBB")
+        XCTAssertGreaterThan(ui.count, 100, "ui.json's colours are skin data")
+        func want(_ id: String) -> String? {
+            guard let v = ui[id] else { return nil }
+            return v.hasPrefix("#") ? v : palette[v]
+        }
+        let file = Tuning.load(bundle: .main).ui.file
+        var unresolved: [String] = []
+        func walk(_ node: Any, _ path: String) {
+            if let s = node as? String {
+                if s.hasPrefix("@") { unresolved.append("\(path) = \(s)") }
+            } else if let d = node as? [String: Any] {
+                for (k, v) in d { walk(v, path.isEmpty ? k : path + "." + k) }
+            } else if let a = node as? [Any] {
+                for (i, v) in a.enumerated() { walk(v, "\(path).\(i)") }
+            }
+        }
+        walk(file.json, "")
+        XCTAssertEqual(unresolved.sorted(), [], "ui.json references Tuning.load left unresolved (run tools/skin/build.py)")
+        for id in ["colors.panel.fieldRim", "toast.plate", "toast.border"] {
+            XCTAssertNotNil(want(id), "skin ui \(id)")
+            XCTAssertEqual(file.string(id, ""), want(id), "\(id): the loaded value is the skin's colour")
+        }
+        let tuned = Tuning.load(bundle: .main, tune: ["ui.toast.plate": "@toast.border"]).ui.file
+        XCTAssertEqual(tuned.string("toast.plate", ""), want("toast.border"), "a -pc.tune override naming a skin id")
+        // an id the table lacks stays as written (the typed read then uses its compiled default)
+        let raw = TuningFile(name: "ui", json: ["a": "@x", "b": ["@y", 1] as [Any]]).resolvingReferences(["x": "#010203"])
+        XCTAssertEqual(raw.string("a", ""), "#010203")
+        XCTAssertEqual((raw.value("b") as? [Any])?.first as? String, "@y")
+    }
+
+    /// The skin's fonts and names are what the code uses (skin/fonts.json, skin/names.json -> SkinData.generated.swift).
+    func testFontsAndNamesComeFromTheSkin() throws {
+        let fonts = try XCTUnwrap(JSONSerialization.jsonObject(with: Data(contentsOf: V1Repo.url("skin/fonts.json"))) as? [String: Any])
+        let faces = try XCTUnwrap(fonts["faces"] as? [String: [String: String]], "fonts.json faces")
+        XCTAssertEqual(GameText.blackPostScript, faces["black"]?["postScript"])
+        XCTAssertEqual(GameText.italicPostScript, faces["blackItalic"]?["postScript"])
+        XCTAssertEqual(SkinFonts.files, [faces["black"]?["file"] ?? "", faces["blackItalic"]?["file"] ?? ""])
+        XCTAssertEqual(AppModel.fontNames, [GameText.blackPostScript, GameText.italicPostScript])
+        let names = try XCTUnwrap(JSONSerialization.jsonObject(with: Data(contentsOf: V1Repo.url("skin/names.json"))) as? [String: Any])
+        XCTAssertEqual(SkinNames.podiumSampleNames, names["podiumSampleNames"] as? [String])
+        XCTAssertEqual(AvatarPortrait.files, names["avatarPortraits"] as? [String])
+    }
+
     /// The Mac-side twin of `build.py --check-literals` (line comments stripped, like the other source scans here): no
     /// 0xRRGGBB literal left in the skinned UI sources except the allow-list's non-colours.
     func testNoColourHexLiteralsLeftInTheUISources() throws {
