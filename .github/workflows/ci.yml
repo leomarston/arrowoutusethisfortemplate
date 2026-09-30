@@ -1,7 +1,9 @@
-# CI for the game template. Three jobs:
+# CI for the game template. Three jobs (+ a tiny `changes` job that decides whether the macOS jobs are needed):
 #   checks  (Linux)  the Python content/store checks that need no Apple toolchain
 #   core    (macOS)  the pure-Swift game core: swift build + swift test
 #   app     (macOS)  xcodegen -> Debug build -> app unit tests on an iOS simulator
+# macOS minutes cost 10x on a private repo: a push that changes ONLY docs (*.md, docs/**) or Python (*.py) skips core/app
+# (a tool whose output is Swift/JSON commits that output too, so the output file triggers them). Manual runs and PRs always run all.
 # The app folder is a matrix-free env var so a future Games/<slug> layout only changes APP_DIR.
 name: CI
 
@@ -19,6 +21,23 @@ env:
   APP_DIR: apps/mazeout
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      macos: ${{ steps.diff.outputs.macos }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - id: diff
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" != "push" ] || [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            echo "macos=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          FILES=$(git diff --name-only "$BEFORE" "$GITHUB_SHA")
+          echo "$FILES"
+          if echo "$FILES" | grep -qvE '(\.md$|^docs/|\.py$)'; then echo "macos=true"; else echo "macos=false"; fi >> "$GITHUB_OUTPUT"
   checks:
     name: Content & store checks (Linux)
     runs-on: ubuntu-latest
@@ -86,6 +105,8 @@ jobs:
           PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pyc" python3 -m compileall -q scripts tools $APP_DIR/tools $APP_DIR/design/tools
 
   core:
+    needs: changes
+    if: needs.changes.outputs.macos == 'true'
     name: Game core (swift test, macOS)
     runs-on: macos-26
     timeout-minutes: 45
@@ -105,6 +126,8 @@ jobs:
           grep -E "Executed [0-9]+ tests" "$RUNNER_TEMP/core.log" | tail -1
 
   app:
+    needs: changes
+    if: needs.changes.outputs.macos == 'true'
     name: App build + unit tests (iOS simulator)
     runs-on: macos-26
     timeout-minutes: 75
