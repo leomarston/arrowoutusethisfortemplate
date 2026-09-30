@@ -2,7 +2,7 @@ import Foundation
 
 // C3 (SPEC-architecture §4.8 "ShopCatalog"; SPEC-gameplay §9.4, §15 `rules.json:shop`). The v552 shop: 1 special offer,
 // 5 bundles, 6 coin packs (VERIFIED meta §3 + economy §4 TL prices; US $ from the V2 shop and the US store list). A
-// product id is `com.manycode.arrowout.` + the catalogue id; its Grant is coins + N of EACH booster + unlimited lives.
+// product id is the bundle id + "." + the catalogue id; its Grant is coins + N of EACH booster + unlimited lives.
 // The shell's StoreKit layer shows the price (StoreKit's displayPrice only; A1, release-plan §3.2); `Economy.applyPurchase`
 // grants each transaction once. `priceUSD` / `priceTRY` are REFERENCE data: the App Store's US base price (Apple derives every
 // other storefront's price from it) for the DEBUG FakeStore and the iap.json self-check — the app never shows them.
@@ -36,8 +36,9 @@ public struct ShopProduct: Codable, Sendable, Equatable, Identifiable {
 }
 
 public struct ShopCatalog: Codable, Sendable, Equatable {
-    /// The App Store product id prefix (bundle id `com.manycode.arrowout` + ".").
-    public var productPrefix: String = "com.manycode.arrowout."
+    /// The App Store product id prefix (the bundle id + "."): rules.json `shop.productPrefix`, else game.yml's via the
+    /// generated GameConfig.
+    public var productPrefix: String = GameConfig.productPrefix
     /// The Special Offer can be bought once per install, then its card disappears (DECISION SPEC-gameplay §9.4).
     public var specialOfferOnce: Bool = true
     public var products: [ShopProduct] = ShopCatalog.defaultProducts

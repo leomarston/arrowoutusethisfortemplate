@@ -43,9 +43,9 @@ extension EventRules {
         public var enabled = false
         /// Week 0 = Mon 2026-04-27 07:00:00 UTC = the event calendar's anchor (`Calendar.epoch`), pinned here on its own (it is
         /// not the social world's epoch, OD9: a slipped release never changes a week).
-        public var epoch: Int64 = 1_777_273_200
-        /// "ROTATION": a constant, never the install seed (one calendar for everyone, events.md §4.1.2).
-        public var seed = "0x524F544154494F4E"
+        public var epoch: Int64 = Int64(GameConfig.calendarEpoch)
+        /// game.yml social.rotation_seed: a constant, never the install seed (one calendar for everyone, events.md §4.1.2).
+        public var seed: String = GameConfig.rotationSeed
         public var always = ["streakRace", "weeklyContest"]
         public var ladder = ["clawChallenge", "balloonRise"]
         public var race = ["rocketRace", "skyJump"]
@@ -109,7 +109,7 @@ extension EventRules {
             let t = text.lowercased().hasPrefix("0x") ? String(text.dropFirst(2)) : text
             return t.isEmpty ? nil : UInt64(t, radix: 16)
         }
-        public var seedValue: UInt64 { Self.parseSeed(seed) ?? 0x524F_5441_5449_4F4E }
+        public var seedValue: UInt64 { Self.parseSeed(seed) ?? GameConfig.rotationSeedValue }
     }
 }
 

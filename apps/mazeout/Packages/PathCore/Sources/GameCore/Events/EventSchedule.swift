@@ -13,8 +13,8 @@ import Foundation
 public struct EventRules: Codable, Sendable, Equatable {
 
     public struct Calendar: Codable, Sendable, Equatable {
-        /// 2026-04-27 07:00:00 UTC (a Monday): the world epoch and the event-day anchor (SPEC-social §2.1, D2, D4).
-        public var epoch: Int64 = 1_777_273_200
+        /// The event-day anchor, a Monday 07:00 UTC (SPEC-social §2.1, D2, D4): game.yml social.calendar_epoch.
+        public var epoch: Int64 = Int64(GameConfig.calendarEpoch)
         public var day: Int64 = 86_400
         public var week: Int64 = 604_800
         public init() {}

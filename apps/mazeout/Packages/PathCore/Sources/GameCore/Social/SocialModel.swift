@@ -167,7 +167,7 @@ public struct SocialWorldModel: Sendable, Equatable {
     static let baseDay = 20_552             // a local day number that is a multiple of PATTERN (734 · 28)
     static let minutes = 1440.0
     static let localShare = 0.003           // the device-only LOCAL partition (home country not in the table)
-    public static let worldSeed: UInt64 = 0x4152_4F57_204F_5554    // "AROW OUT" — the one shared world
+    public static let worldSeed: UInt64 = GameConfig.worldSeed     // the one shared world (game.yml social.world_seed)
 
     /// Culture for a home country that is not in the table (default "en").
     public static let extraCulture: [String: String] = [
@@ -316,7 +316,7 @@ public struct SocialWorldModel: Sendable, Equatable {
         m.name = "shipped"
         m.countries = SocialIntlTables.countries
         m.nameStyle = .shipped
-        m.epoch = 1_788_764_400                          // Monday 2026-09-07 07:00 UTC = 19 weeks after SocialCalendar.epoch
+        m.epoch = GameConfig.worldEpoch                  // game.yml social.world_epoch: whole weeks after SocialCalendar.epoch
         m.intl = SocialIntl(
             buckets: SocialIntlTables.buckets.map(\.name), bucketOffsets: SocialIntlTables.buckets.map(\.offset),
             regions: SocialIntlTables.regions,

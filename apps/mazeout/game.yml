@@ -6,8 +6,9 @@
 #
 # What lives here and what does not (design decision, docs/TEMPLATE.md "Why game.yml references the tuning"):
 #   * IDENTITY, STORE, FEATURE FLAGS, EVENT SWITCHES, SOCIAL SEEDS and BRAND BANS: this file is the SOURCE. `generate`
-#     writes each value into the places that repeat it (project.yml, fastlane, tools, tuning keys, a few Swift constants)
-#     with targeted text replacement; `doctor` fails when any of them disagrees.
+#     writes each value into the places that repeat it (project.yml, fastlane, tools, gates, tuning keys) with targeted
+#     text replacement, and writes whole generated files (the core's Swift constants: Packages/PathCore/Sources/GameCore/
+#     Config/GameConfig.generated.swift); `doctor` fails when any of them disagrees or is stale.
 #   * ECONOMY TABLES and the IAP CATALOGUE are NOT duplicated: prices, grants, lives, boosters, fail chain, rewards and
 #     products stay in App/Resources/Tuning/rules.json and design/publish/iap.json, which the app / the store scripts read
 #     directly. This file points at them; `doctor` checks that they exist, carry the listed sections, and agree with each
@@ -83,23 +84,40 @@ events:                           # MIRRORED into App/Resources/Tuning/social.js
     ladder: [clawChallenge, balloonRise]     # alternate as the "ladder" slot
     race: [rocketRace, skyJump]              # alternate as the "race" slot
 
-social:                           # the offline "online-looking" world: deterministic from these + the clock (CLAUDE.md)
-  world_seed: "0x41524F57204F5554"    # SocialWorldModel.worldSeed (Swift constant until phase 1 moves it to config): every
-                                      #   simulated player, name and country. Changing it = a different world
-  world_epoch: 1788764400             # the shipped world's epoch (Mon 2026-09-07 07:00 UTC; SocialModel.swift `m.epoch`)
-  calendar_epoch: 1777273200          # the event calendar's epoch: SocialCalendar.epoch + social.json events.rotation.epoch
-  rotation_seed: "0x524F544154494F4E" # social.json events.rotation.seed ("ROTATION")
+social:                           # the offline "online-looking" world: deterministic from these + the clock (CLAUDE.md).
+                                  #   generate writes them into GameConfig.generated.swift (GameCore reads only that);
+                                  #   the frozen Python reference (design/social/tools/socialsim) must agree (doctor)
+  world_seed: "0x41524F57204F5554"    # GameConfig.worldSeed = SocialWorldModel.worldSeed: every simulated player, name
+                                      #   and country. Changing it = a different world (and new goldens)
+  world_epoch: 1788764400             # GameConfig.worldEpoch: the shipped world's epoch (Mon 2026-09-07 07:00 UTC)
+  calendar_epoch: 1777273200          # GameConfig.calendarEpoch = SocialCalendar.epoch + social.json events.rotation.epoch
+  rotation_seed: "0x524F544154494F4E" # GameConfig.rotationSeed + social.json events.rotation.seed ("ROTATION")
 
 brand_bans:                       # the ORIGINAL game's names (and its publisher): never in copy, bundle, binary or store
   # Written by generate into tools/strings/build.py BRANDS (+ our own brand_name/product), tools/bench/release_gates.sh
-  # gate 3 and Tests/AppTests/BrandTests.swift bannedExact. doctor also checks that tools/release/loc.py BANNED_ALL
-  # (store-text gate, hand-kept with many more words) catches every one.
+  # gate 3 and Tests/AppTests/BrandTests.swift bannedExact. (derived) the multi-word ones in any case, joined and spaced
+  # ("mazeout", "maze out", ...): BrandTests.bannedAnyCase + gate 3's data-file grep; the rest case-sensitive there.
   - Maze
   - MazeOut
   - Arrow Jam
   - Grand Games
   - grandgames
   - arrowjam
+
+brand_ban_forms:                  # the other shapes of the original's names each gate matches. generate writes every list;
+                                  #   doctor checks each still catches every brand_ban (a new original needs new ones)
+  store_patterns: ['maze', 'mazeout', 'grand\s*games', '\bgrand\b', '\bjam\b', 'arrow\s*jam', 'tap\s*away',
+                   # the title word in our 12 other languages: Apple combines name words ("Out" + maze = the other brand)
+                   'labyrinth', 'labyrinthe', 'laberint', 'labirint', 'labirent', 'labirynt', 'labyrint',
+                   '迷路', '迷宮', '迷宫', '미로']
+                                  # regexes, case-insensitive, every locale: tools/release/loc.py BANNED_BRAND (the
+                                  #   store-text gate; its category words, competitors and "online" claims stay there)
+  file_stems: [maze, grand, arrowjam]   # no shipped file NAME contains one, any case (release_gates.sh gate 3)
+  binary_words: [maze]            # never in the Release binary, not even a symbol, never excused by an SDK
+                                  #   (release_gates.sh gate 7c WORDS / NEVER_SDK); keep it to words no SDK spells
+  review_patterns: ['\bmaze\s*out', '\bmazeout', 'grand\s*games', 'arrow\s*jam', 'tap\s*away', 'tapaway', 'v552']
+                                  # tools/strings/l10n_review.py BRAND_RE (translation review; also the former name
+                                  #   and version tag)
 
 features:
   ad_attribution: false           # docs/ROADMAP.md D2: no ad/attribution SDK in the template (docs/recipes/ad-attribution.md

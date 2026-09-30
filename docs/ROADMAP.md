@@ -129,15 +129,19 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         id / brand sweep; mazeout `--check` = 0 changes; write mode tested on scratch copies and in unit tests
   - [x] `tools/game.py new <slug> --from mazeout …`: copy plan (docs/TEMPLATE.md), identity rename, game.yml, generate;
         doctor on the result = only the TODOs (store texts, rendered art, app icon; warns: levels copy, strings sources)
-  - [x] `tools/tests/test_game.py` (19 tests, `python3 -m unittest discover -s tools/tests`); `docs/TEMPLATE.md`; README §4
+  - [x] `tools/tests/test_game.py` (28 tests, `python3 -m unittest discover -s tools/tests`); `docs/TEMPLATE.md`; README §4
   - [x] Tools read identity from one place: `meta.py` brand checks use `loc.py BRAND`; strings `BRANDS` = game.yml bans
         + our names (now also blocks "Maze", "grandgames", "arrowjam" in copy, like gate 3 / BrandTests)
   - [ ] CI: run `python3 tools/game.py doctor --game $APP_DIR_SLUG --quick` + the game.py unit tests in the Linux job
   - [ ] `new` for a second game end-to-end on the Mac (gen/build/test of the scaffold) — needs a real second game (phase 5)
-  - [ ] Generate the remaining hand-kept lists (loc.py BANNED_ALL, gate 3 file-name/data greps, gate 7c WORDS,
-        BrandTests.bannedAnyCase, l10n_review BRAND_RE) once the gates read game.yml
-  - [ ] Move the Swift constants game.yml mirrors (world seed/epoch, calendar epoch, ShopCatalog prefix) into config
-        (phase 1 seams); then generate stops touching Swift
+  - [x] Generate the remaining hand-kept lists: `game.yml brand_ban_forms` (store_patterns -> loc.py `BANNED_BRAND`,
+        file_stems -> gate 3 file-name grep, binary_words -> gate 7c `WORDS`/`NEVER_SDK`, review_patterns -> l10n_review
+        `BRAND_RE`) + derived from `brand_bans` (`BrandTests.bannedAnyCase`, gate 3 data-file greps); doctor: fresh +
+        each list catches every ban. Still hand-kept: loc.py's category/competitor/"online" words, 7c provenance words
+  - [x] Swift constants game.yml mirrored -> `GameCore/Config/GameConfig.generated.swift` (world seed, world epoch,
+        calendar epoch, rotation seed, IAP prefix; values unchanged); SocialWorldModel / SocialCalendar / EventRules /
+        ShopCatalog read `GameConfig`. doctor: file fresh + no such literal in App/ or Packages/*/Sources; the frozen
+        Python reference is read-only-checked. Generate no longer edits hand-written Swift (only BrandTests' lists)
 - [ ] **5. Prove a second puzzle** — a module with a different input and fail rule, shipped to TestFlight with its own skin
 - [ ] **6. Docs & prompts** — TEMPLATE.md, PUZZLE-MODULE.md, SKIN.md; the game manual split into "write a puzzle
       module" and "reskin & publish"
@@ -180,3 +184,8 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   HUDSample, WarmBoards), 12 harness files + their call sites (7 files) gated `#if DEBUG || PC_MEASURE`; `tools/harness_gate.py`
   (Linux CI, selftest 13 planted failures) finds 29 problems on the old tree, 0 now. Written without a Swift toolchain:
   the Debug build is CI's; the Release/Measure compile is proven only by a Mac build (CI has no Release job).
+- 2026-09-30: config + generators, second part (phase 4): game.yml is the single source of the core's per-game constants
+  (`GameConfig.generated.swift`, written by `tools/game.py generate`; same literals as before, byte for byte) and of every
+  brand-ban list the gates use (`brand_ban_forms` + lists derived from `brand_bans`; loc.py `BANNED_ALL` value-identical).
+  doctor on apps/mazeout --quick: 0 FAIL; generate --check: 0 changes; 28 game.py tests green; CI Linux steps green
+  locally. Swift (GameConfig + 5 call sites) not compiled in this session: CI's core + app jobs are the first build.

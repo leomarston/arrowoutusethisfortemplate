@@ -5,12 +5,13 @@ import Foundation
 // (12 countdowns on the owner's phone all ended at 10:00 TRT = 07:00 UTC). The world epoch is the original's launch day.
 
 public enum SocialCalendar {
-    /// 2026-04-27 07:00:00 UTC (a Monday): the world epoch and the event-day anchor.
-    public static let epoch: Int = 1_777_273_200
+    /// The event-day anchor (a Monday 07:00 UTC; the reference game's is 2026-04-27): game.yml social.calendar_epoch, via
+    /// the generated GameConfig.
+    public static let epoch: Int = GameConfig.calendarEpoch
     public static let day: Int = 86_400
     public static let week: Int = 7 * 86_400
-    /// floor(2026-04-27T00:00Z / 86400).
-    public static let epochUTCDay: Int = 20_570
+    /// The UTC day number of the epoch (floor(epoch / 86400); the reference game's: 20_570 = 2026-04-27).
+    public static let epochUTCDay: Int = SocialHash.floorDiv(GameConfig.calendarEpoch, 86_400)
 
     /// Event day index (days start at 07:00 UTC).
     public static func eventDay(_ t: Int) -> Int { SocialHash.floorDiv(t - epoch, day) }

@@ -51,8 +51,9 @@ Right after `new`, doctor reports exactly these TODOs (tested in `tools/tests/te
 - `WARN levels are this game's own` - same puzzle: the levels are still the reference's copy (step 5)
 - `WARN strings coverage sources` - `tools/strings/sources.json` points at the reference's `design/SPEC-*.md`; write this
   game's spec sections or trim the file (then `tools/strings/coverage.py` and `selftest.py` pass again)
-- with another puzzle module: `FAIL levels` (no level bundle yet); with `--bans`: `FAIL store-text gate` until
-  `tools/release/loc.py BANNED_ALL` gets patterns for the new names (hand-kept list, see "Manual" below)
+- with another puzzle module: `FAIL levels` (no level bundle yet); with `--bans`: `FAIL store-text gate`, `FAIL gate 3
+  file names` and `FAIL l10n review` until `game.yml brand_ban_forms` gets patterns / stems for the new names (it keeps
+  the reference's; see "Ban lists" below), then `generate`
 - `WARN machine.env` on any machine without it (only the Mac needs it)
 
 ### 2. The puzzle module
@@ -93,19 +94,35 @@ referenced files exist, hold the listed sections, and agree with each other and 
 `privacy_url.txt`/`support_url.txt`; `tools/slot.sh`, `play-watch.sh`, `bench/bench.py`, `capture/capture.py`
 (bundle), `tools/release/meta.py` (IAP prefix), `tools/release/loc.py` (`BRAND`, `SEED`, `NAME_EN`, `PRIVACY`,
 `SUPPORT`, `COPYRIGHT`, `LOCALES`), `tools/strings/build.py` (`BRANDS` = bans + our names),
-`tools/bench/release_gates.sh` gate 3, `Tests/AppTests/BrandTests.swift` (`bannedExact`, the product-name assertion);
+`tools/bench/release_gates.sh` gate 3, `Tests/AppTests/BrandTests.swift` (`bannedExact`, the product-name assertion),
+the ban lists below;
 `.storekit` team, `iap.json` (`productPrefix`, `appName`, `locales`), `rules.json shop.productPrefix` (when present),
 `Tuning/game.json` (support e-mail, notifications, rating level), `Tuning/social.json` (unlocks, rotation, rotation
-seed/epoch), `art/MANIFEST.json` brand; the Swift constants `SocialWorldModel.worldSeed`, the shipped world epoch,
-`SocialCalendar.epoch`, `ShopCatalog.productPrefix` (until phase 1 moves them to config). A changed bundle id or brand
-name is also replaced everywhere else in code/config (the old value is read from `project.yml`).
+seed/epoch), `art/MANIFEST.json` brand. A changed bundle id or brand name is also replaced everywhere else in
+code/config (the old value is read from `project.yml`).
+
+**Generated whole files:** `Packages/PathCore/Sources/GameCore/Config/GameConfig.generated.swift` (`enum GameConfig`: world
+seed, world epoch, calendar epoch, rotation seed, IAP product prefix). The core reads these only from there
+(`SocialWorldModel.worldSeed`, `SocialWorldModel.shipped.epoch`, `SocialCalendar.epoch`, the `EventRules` calendar and
+rotation defaults, `ShopCatalog.productPrefix`), so its sources hold no game's value and the package still builds and
+tests on its own. doctor fails while the file is stale or missing, and when one of these values is spelled as a literal
+in `App/` or `Packages/*/Sources` outside it (tests may pin them). The social world's Python reference
+(`design/social/tools/socialsim`, frozen by `design/social/FROZEN`) and `design/publish/tools/rotation_ref.py` are only
+READ: a new seed or epoch means re-deriving that reference, its fixtures and the goldens, then re-freezing.
+
+**Ban lists** (`game.yml brand_ban_forms`; generate writes, doctor checks each still catches every `brand_bans` name):
+`store_patterns` -> `tools/release/loc.py BANNED_BRAND` (the store-text gate; `BANNED_ALL` = it + the category words,
+competitors and "online" claims, which stay in loc.py); `file_stems` -> `release_gates.sh` gate 3 file-name grep;
+`binary_words` -> gate 7c `WORDS` / `NEVER_SDK`; `review_patterns` -> `tools/strings/l10n_review.py BRAND_RE`. Derived
+from `brand_bans`: the multi-word names in any case, joined and spaced (`BrandTests.bannedAnyCase`, gate 3's data-file
+`grep -qi`), and the rest case-sensitive (gate 3's `grep -q`).
 
 **(new only) keys:** `id` (the folder) and `identity.product` (target, scheme, `.storekit` file, `import`) are structural;
 doctor checks them, generate never renames them. To change one later, run `new` again or rename by hand (README §4).
 
-**Manual (doctor tells you when they are missing a ban):** `tools/release/loc.py BANNED_ALL` (the store-text gate also
-holds competitors and "online" claims), `tools/bench/release_gates.sh` gate 3 file-name / data-file greps and gate 7c
-`WORDS`, `BrandTests.bannedAnyCase`, `tools/strings/l10n_review.py BRAND_RE`.
+**Still hand-kept:** the category words, competitors and "online" claims of `loc.py BANNED_ALL`; gate 7c's provenance
+words (`recorded`, `video`, `research/`, version tags); `BrandTests`' nickname check (`bannedAnyCase + ["maze"]`) and
+`Packages/PathCore/Tests/tools/soc_ship_names.py BRAND` (the shipped name bank's filter, frozen output).
 
 ### 5. Strings, levels, store texts
 - Strings: `App/Resources/Strings/strings.tsv` (+ `l10n/`) -> `python3 apps/<slug>/tools/strings/build.py` (doctor runs

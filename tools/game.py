@@ -8,13 +8,15 @@
                               [--privacy-url URL] [--bans "Word A,Word B"]
 
 doctor    checks that the game folder is consistent and complete: game.yml's schema; every identity value where it is
-          used today (project.yml, fastlane, tools, .storekit, iap.json, tuning, store metadata, a few Swift constants);
-          brand bans in every gate; the IAP triple (meta.py iap-check); the string catalogue; the level bundle (the
+          used today (project.yml, fastlane, tools, .storekit, iap.json, tuning, store metadata); the generated core
+          config (GameConfig.generated.swift) fresh and no game.yml value spelled in the Swift sources; the brand bans
+          and their other forms (brand_ban_forms) in every gate, each catching every ban; the IAP triple (meta.py iap-check); the string catalogue; the level bundle (the
           puzzle's own checks from game.yml); the store texts (meta.py audit); every shipped art file of art/MANIFEST.json
           at its size; machine.env; no identity of ANOTHER game under apps/. Prints PASS / WARN / FAIL per item.
           Exit 0 = no FAIL (WARN allowed unless --strict), 1 = at least one FAIL, 2 = game.yml unreadable.
 generate  writes game.yml's values into those places with targeted text replacement (a regex group or a JSON value span;
-          nothing else in the file moves). --check only lists what would change (exit 1 if anything would).
+          nothing else in the file moves), and writes the whole generated files (GEN_CORE_CONFIG). --check only lists
+          what would change (exit 1 if anything would).
 new       scaffolds apps/<slug> from an existing game: copies the generic parts (see COPY_* below and docs/TEMPLATE.md),
           renames the old identity (bundle id, product, apps/<old> paths), writes apps/<slug>/game.yml, runs generate,
           then lists what is left to make (art, levels, store texts: doctor's FAILs marked TODO).
@@ -93,6 +95,18 @@ RE_MODULE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
 RE_EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$")
 RE_URL = re.compile(r"^https://[^\s]+$")
 RE_HEX64 = re.compile(r"^0x[0-9A-Fa-f]{16}$")
+RE_STEM = re.compile(r"^[a-z0-9]+$")
+
+
+def _is_regex(x) -> bool:
+    """A ban pattern: compiles, and fits the generated r"..." literals (no double quote, no trailing backslash)."""
+    if not isinstance(x, str) or not x or '"' in x or x.endswith("\\") or "\n" in x:
+        return False
+    try:
+        re.compile(x)
+    except re.error:
+        return False
+    return True
 
 # key -> (type, check or None, meaning). Every key the tool reads; unknown keys are allowed (documentation, future keys).
 SCHEMA = {
@@ -131,6 +145,12 @@ SCHEMA = {
     "social.calendar_epoch": (int, lambda v: v > 0, "unix seconds"),
     "social.rotation_seed": (str, RE_HEX64.match, "0x + 16 hex digits"),
     "brand_bans": (list, lambda v: v and all(isinstance(x, str) and x.strip() for x in v), "non-empty word list"),
+    "brand_ban_forms.store_patterns": (list, lambda v: v and all(_is_regex(x) for x in v), "non-empty regex list"),
+    "brand_ban_forms.file_stems": (list, lambda v: v and all(isinstance(x, str) and RE_STEM.match(x) for x in v),
+                                   "non-empty list of lowercase stems [a-z0-9]"),
+    "brand_ban_forms.binary_words": (list, lambda v: v and all(isinstance(x, str) and RE_STEM.match(x) for x in v),
+                                     "non-empty list of lowercase words [a-z0-9]"),
+    "brand_ban_forms.review_patterns": (list, lambda v: v and all(_is_regex(x) for x in v), "non-empty regex list"),
     "features.ad_attribution": (bool, None, "bool"),
     "features.notifications": (bool, None, "bool"),
     "features.ipad": (bool, None, "bool"),
@@ -184,6 +204,36 @@ def brands_list(cfg):
         if w not in out:
             out.append(w)
     return out
+
+
+def ban_words(name: str) -> list[str]:
+    """A ban's words, lowercase: spaces and camel humps split ("MazeOut" -> maze, out; "Arrow Jam" -> arrow, jam)."""
+    out = []
+    for w in name.split():
+        out += re.findall(r"[A-Z]?[a-z0-9]+|[A-Z]+(?![a-z])", w) or [w]
+    return [x.lower() for x in out]
+
+
+def ban_phrases(cfg) -> list[str]:
+    """(derived) The multi-word bans matched in any case, joined and spaced ("mazeout", "maze out", ...):
+    BrandTests.bannedAnyCase and release_gates.sh gate 3's data-file grep -qi."""
+    out = []
+    for b in cfg["brand_bans"]:
+        ws = ban_words(b)
+        if len(ws) < 2:
+            continue
+        for f in ("".join(ws), " ".join(ws)):
+            if f not in out:
+                out.append(f)
+    return out
+
+
+def ban_exact_rest(cfg) -> list[str]:
+    """(derived) The bans no any-case phrase already catches ("Maze"): gate 3's case-SENSITIVE data-file grep (a
+    lowercase stem such as "maze" is a normal word in data; the capitalised title word is not)."""
+    ph = ban_phrases(cfg)
+    rest = [b for b in cfg["brand_bans"] if not any(p in b.lower() for p in ph)]
+    return rest or list(cfg["brand_bans"])
 
 
 def camel(name: str) -> str:
@@ -398,6 +448,22 @@ def _num_norm(s):
     return s.replace("_", "")
 
 
+def _alt_set(s):  # a grep alternation "a\\|b" compared as a set (order is not meaning)
+    return sorted(set(s.split("\\|")))
+
+
+def _py_raw_list_wrapped(v, width=120):  # [\n    r"a", r"b",\n    r"c",\n] (lines <= width)
+    lines, cur = [], "   "
+    for x in v:
+        item = f' r"{x}",'
+        if len(cur) + len(item) > width and cur.strip():
+            lines.append(cur)
+            cur = "   "
+        cur += item
+    lines.append(cur)
+    return "[\n" + "\n".join(lines) + "\n]"
+
+
 def anchors(cfg) -> list[Anchor]:
     """Every place a game.yml value is repeated today (README §4 rename checklist, rows 1-4, 10-12, 17-20)."""
     A = []
@@ -530,20 +596,128 @@ def anchors(cfg) -> list[Anchor]:
         Anchor("social", "social.json events.rotation.epoch", SJ, path=("events", "rotation", "epoch"),
                expect=lambda c: c["social"]["calendar_epoch"]),
     ]
-    # --- Swift constants (read where they are today; phase 1 moves them to config -> missing = WARN, not FAIL)
-    SW = "Packages/**/*.swift"
+    # --- the social world's Python reference (FROZEN files, design/social/FROZEN): read-only. The Swift goldens are its
+    #     outputs, so a new seed / epoch means re-deriving the reference and re-freezing (never written by generate).
+    RO = dict(write=False, missing="warn")
     A += [
-        Anchor("social", "Swift SocialWorldModel.worldSeed", SW, pattern=r"worldSeed: UInt64 = (0x[0-9A-Fa-f_]+)",
-               expect=lambda c: c["social"]["world_seed"], norm=_hex_norm, render=_hex_swift, missing="warn"),
-        Anchor("social", "Swift shipped world epoch", SW, pattern=r"\bm\.epoch = ([0-9_]+)",
-               expect=lambda c: c["social"]["world_epoch"], norm=_num_norm, render=_int_swift, missing="warn"),
-        Anchor("social", "Swift SocialCalendar.epoch", "Packages/**/SocialCalendar.swift",
-               pattern=r"static let epoch: Int = ([0-9_]+)", expect=lambda c: c["social"]["calendar_epoch"],
-               norm=_num_norm, render=_int_swift, missing="warn"),
-        Anchor("iap", "Swift ShopCatalog default productPrefix", SW, pattern=r'productPrefix: String = "([^"]+)"',
-               expect=iap_prefix, missing="skip"),
+        Anchor("social", "socialsim core.py EPOCH (frozen reference)", "design/social/tools/socialsim/core.py",
+               pattern=r"^EPOCH = ([0-9_]+)", expect=lambda c: c["social"]["calendar_epoch"], norm=_num_norm, **RO),
+        Anchor("social", "socialsim population.py WORLD_SEED (frozen reference)",
+               "design/social/tools/socialsim/population.py", pattern=r"^WORLD_SEED = (0x[0-9A-Fa-f_]+)",
+               expect=lambda c: c["social"]["world_seed"], norm=_hex_norm, **RO),
+        Anchor("social", "socialsim v2.py WORLD_EPOCH (frozen reference)", "design/social/tools/socialsim/v2.py",
+               pattern=r"^WORLD_EPOCH = ([0-9_]+)", expect=lambda c: c["social"]["world_epoch"], norm=_num_norm, **RO),
+        Anchor("social", "rotation_ref.py EPOCH (reference)", "design/publish/tools/rotation_ref.py",
+               pattern=r"^EPOCH = ([0-9_]+)", expect=lambda c: c["social"]["calendar_epoch"], norm=_num_norm, **RO),
+        Anchor("social", "rotation_ref.py seed (reference)", "design/publish/tools/rotation_ref.py",
+               pattern=r'^ +"seed": "(0x[0-9A-Fa-f]+)"', expect=lambda c: c["social"]["rotation_seed"], norm=_hex_norm, **RO),
+    ]
+    # --- the other forms of the bans the gates match (game.yml brand_ban_forms + derived phrase lists)
+    G3 = "tools/bench/release_gates.sh"
+    A += [
+        Anchor("brand", "loc.py BANNED_BRAND (store-text gate)", "tools/release/loc.py",
+               pattern=r'^BANNED_BRAND = (\[(?:[^\]"]|"[^"]*")*\])',
+               expect=lambda c: c["brand_ban_forms"]["store_patterns"], render=_py_raw_list_wrapped),
+        Anchor("brand", "release_gates.sh gate 3 file-name stems", G3, pattern=r'\| grep -i "([^"]+)" \| wc -l',
+               expect=lambda c: c["brand_ban_forms"]["file_stems"], render=lambda v: "\\|".join(v)),
+        Anchor("brand", "release_gates.sh gate 3 file-name message", G3, pattern=r'echo "  file names with ([^:"]+): \$names',
+               expect=lambda c: c["brand_ban_forms"]["file_stems"], render=lambda v: "/".join(v)),
+        Anchor("brand", "release_gates.sh gate 3 data files (any case)", G3,
+               pattern=r'if grep -qi "([^"]+)" "\$TMP/one\.txt"', expect=ban_phrases,
+               render=lambda v: "\\|".join(v), norm=_alt_set),
+        Anchor("brand", "release_gates.sh gate 3 data files (exact)", G3,
+               pattern=r'\|\| grep -q "([^"]+)" "\$TMP/one\.txt"; then', expect=ban_exact_rest,
+               render=lambda v: "\\|".join(v), norm=_alt_set),
+        Anchor("brand", "release_gates.sh gate 7c WORDS (binary words)", G3,
+               pattern=r"^WORDS = re\.compile\(rb'\(\?i\)(.+?)\|recorded\|",
+               expect=lambda c: c["brand_ban_forms"]["binary_words"], render=lambda v: "|".join(v)),
+        Anchor("brand", "release_gates.sh gate 7c NEVER_SDK (binary words)", G3,
+               pattern=r"^NEVER_SDK = re\.compile\(rb'\(\?i\)(.+?)\|research/",
+               expect=lambda c: c["brand_ban_forms"]["binary_words"], render=lambda v: "|".join(v)),
+        Anchor("brand", "BrandTests bannedAnyCase", "Tests/**/BrandTests.swift",
+               pattern=r"static let bannedAnyCase = (\[[^\]\n]*\])", expect=ban_phrases, render=_q, missing="warn"),
+        Anchor("brand", "l10n_review.py BRAND_RE", "tools/strings/l10n_review.py",
+               pattern=r'^BRAND_RE = re\.compile\(r"([^"]*)", re\.I\)',
+               expect=lambda c: c["brand_ban_forms"]["review_patterns"], render=lambda v: "|".join(v), missing="warn"),
     ]
     return A
+
+
+# ================================================================================================= generated files
+# Whole files generate writes from game.yml (no hand edits; doctor fails while one is stale). The per-game constants of
+# the genre-agnostic core live in ONE generated Swift file inside the core, so the core's own sources carry no game's
+# value and the package (and its frozen goldens) still builds and tests on its own, without the app.
+GEN_CORE_GLOB = "Packages/*/Sources/GameCore"
+GEN_CORE_CONFIG = "Config/GameConfig.generated.swift"
+
+
+def core_dir(gdir: Path):
+    hits = sorted(glob.glob(str(gdir / GEN_CORE_GLOB)))
+    return Path(hits[0]) if hits else None
+
+
+def _utc(v: int) -> str:
+    import datetime as _dt
+    d = _dt.datetime.fromtimestamp(v, _dt.timezone.utc)
+    return d.strftime("%Y-%m-%d %H:%M UTC, a %A")
+
+
+def render_core_config(cfg) -> str:
+    s = cfg["social"]
+    return f"""// GENERATED by tools/game.py generate from the game's game.yml. Do not edit: edit game.yml, then run
+// python3 tools/game.py generate --game <id> (doctor fails while this file is stale). No imports on purpose.
+// swiftlint:disable all
+
+/// The per-game constants of the genre-agnostic core (docs/TEMPLATE.md). The offline world is a pure function of these
+/// + the clock, identical on every device: a different seed or epoch is a different world for every player.
+public enum GameConfig {{
+    /// game.yml social.world_seed: every simulated player, name and country (SocialWorldModel.worldSeed).
+    public static let worldSeed: UInt64 = {_hex_swift(s["world_seed"])}
+    /// game.yml social.world_epoch ({_utc(s["world_epoch"])}): the shipped world's epoch (SocialWorldModel.shipped).
+    public static let worldEpoch: Int = {_int_swift(s["world_epoch"])}
+    /// game.yml social.calendar_epoch ({_utc(s["calendar_epoch"])}): the event calendar's anchor (SocialCalendar.epoch,
+    /// the EventRules calendar and rotation defaults; social.json events.rotation.epoch carries it too).
+    public static let calendarEpoch: Int = {_int_swift(s["calendar_epoch"])}
+    /// game.yml social.rotation_seed: the weekly event rotation's seed (EventRules.Rotation default; social.json wins).
+    public static let rotationSeed: String = "{s["rotation_seed"]}"
+    public static let rotationSeedValue: UInt64 = {_hex_swift(s["rotation_seed"])}
+    /// game.yml identity.bundle_id + ".": the App Store product id prefix (ShopCatalog default; rules.json shop wins).
+    public static let productPrefix: String = "{iap_prefix(cfg)}"
+}}
+"""
+
+
+def generated_files(gdir: Path, cfg) -> list[tuple[Path, str, str]]:
+    """-> [(path, wanted text, label)] of every whole file generate owns in this game folder."""
+    out = []
+    cd = core_dir(gdir)
+    if cd is not None:
+        out.append((cd / GEN_CORE_CONFIG, render_core_config(cfg),
+                    "GameConfig.generated.swift (world seed + epochs, rotation seed, IAP prefix)"))
+    return out
+
+
+def mirrored_literals(gdir: Path, cfg) -> list[tuple[str, str]]:
+    """game.yml values spelled as literals in the app / core SOURCES outside the generated file (tests may pin them):
+    -> [(file, value)]. They must come from GameConfig, or a new game would silently keep the reference's world."""
+    s = cfg["social"]
+    hexes = {_hex_norm(s["world_seed"]), _hex_norm(s["rotation_seed"])}
+    nums = {str(s["world_epoch"]), str(s["calendar_epoch"])}
+    prefix = f'"{iap_prefix(cfg)}"'
+    gen = {p for p, _, _ in generated_files(gdir, cfg)}
+    files = sorted(set(glob.glob(str(gdir / "Packages/*/Sources/**/*.swift"), recursive=True))
+                   | set(glob.glob(str(gdir / "App/**/*.swift"), recursive=True)))
+    hits = []
+    for f in map(Path, files):
+        if f in gen:
+            continue
+        t = read_text(f) or ""
+        rel = f.relative_to(gdir).as_posix()
+        found = [m for m in re.findall(r"0[xX][0-9A-Fa-f_]{16,}", t) if _hex_norm(m) in hexes]
+        found += [m for m in re.findall(r"(?<![0-9_])[0-9][0-9_]{8,}(?![0-9_])", t) if _num_norm(m) in nums]
+        found += [prefix] if prefix in t else []
+        hits += [(rel, v) for v in found]
+    return hits
 
 
 # ================================================================================================= files
@@ -808,20 +982,40 @@ def _extra_checks(R, repo, gdir, cfg, sec, title, quick):
             extra = sorted(set(json.loads(sj.read_text(encoding="utf-8")).get("unlocks", {})) - set(cfg["events"]["unlocks"]))
             R.add(FAIL if extra else PASS, title, "every social.json event is listed in game.yml",
                   f"only in social.json: {extra}" if extra else f"{len(cfg['events']['unlocks'])} events")
+    elif sec == "social":
+        gens = generated_files(gdir, cfg)
+        if not gens:
+            R.add(WARN, title, "generated core config", f"no {GEN_CORE_GLOB} folder: nothing to generate the constants into")
+        for p, want, label in gens:
+            have = read_text(p) if p.exists() else None
+            R.add(PASS if have == want else FAIL, title, label,
+                  p.relative_to(gdir).as_posix() if have == want else
+                  ("missing" if have is None else "stale") + ": run python3 tools/game.py generate --game " + cfg["id"])
+        lits = mirrored_literals(gdir, cfg)
+        R.add(FAIL if lits else PASS, title, "no game.yml value spelled in the Swift sources (only GameConfig)",
+              f"{len(lits)} literal(s), e.g. {lits[0][1]} in {lits[0][0]} (use GameConfig)" if lits
+              else "world seed / epochs, rotation seed, IAP prefix")
     elif sec == "brand":
         bans = cfg["brand_bans"]
+        forms = cfg["brand_ban_forms"]
         bp = gdir / "tools/strings/build.py"
         if bp.exists():
             brands = ast_constant(bp, "BRANDS") or ()
             miss = [w for w in bans + [cfg["identity"]["brand_name"]] if not any(b.lower() in w.lower() for b in brands)]
             R.add(FAIL if miss else PASS, title, "strings BRANDS catches every ban + our own name",
                   f"not caught: {miss}" if miss else "")
-        lp = gdir / "tools/release/loc.py"
-        if lp.exists():
-            pats = ast_constant(lp, "BANNED_ALL") or []
-            miss = [w for w in bans if not any(re.search(p, w, re.I) for p in pats)]
-            R.add(FAIL if miss else PASS, title, "store-text gate (loc.py BANNED_ALL) catches every ban",
-                  f"add a pattern for: {miss}" if miss else f"{len(pats)} patterns")
+        # every generated list must still catch the original's names (a new game's --bans, or a trimmed list)
+        pats = forms["store_patterns"]
+        miss = [w for w in bans if not any(re.search(p, w, re.I) for p in pats)]
+        R.add(FAIL if miss else PASS, title, "store-text gate (brand_ban_forms.store_patterns) catches every ban",
+              f"TODO: add a pattern for {miss} in game.yml, then generate" if miss else f"{len(pats)} patterns")
+        miss = [w for w in bans if not any(s in w.lower().replace(" ", "") for s in forms["file_stems"])]
+        R.add(FAIL if miss else PASS, title, "gate 3 file names (brand_ban_forms.file_stems) catch every ban",
+              f"TODO: add a stem for {miss} in game.yml, then generate" if miss else ", ".join(forms["file_stems"]))
+        rx = "|".join(forms["review_patterns"])
+        miss = [w for w in ban_phrases(cfg) if not re.search(rx, w, re.I)]
+        R.add(FAIL if miss else PASS, title, "l10n review (brand_ban_forms.review_patterns) catches every ban phrase",
+              f"TODO: add a pattern for {miss} in game.yml, then generate" if miss else "")
 
 
 def _content_checks(R, repo, gdir, cfg, S, quick):
@@ -1036,6 +1230,14 @@ def plan_generate(repo: Path, slug: str, cfg: dict | None = None) -> dict[Path, 
                 e[2].append(a.key)
             if "*" not in a.file:
                 break
+    # 3. whole generated files
+    for p, want, label in generated_files(gdir, cfg):
+        if p not in texts:
+            old = p.read_text(encoding="utf-8") if p.exists() else ""
+            texts[p] = [old, old, []]
+        if texts[p][1] != want:
+            texts[p][1] = want
+            texts[p][2].append(label)
     return {p: (o, n, notes) for p, (o, n, notes) in texts.items() if o != n}
 
 
@@ -1053,6 +1255,7 @@ def generate(repo: Path, slug: str, check: bool, out=sys.stdout) -> int:
                 if not line.startswith(("---", "+++", "@@")):
                     print("    " + line[:200], file=out)
         else:
+            p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(new, encoding="utf-8")
     print(f"generate: {len(plan)} file(s) {'differ (--check: nothing written)' if check else 'written'}", file=out)
     return 1 if check else 0
@@ -1222,6 +1425,7 @@ def new_game(repo: Path, slug: str, src: str, name: str, bundle: str, product=No
         raise ConfigError("the new game.yml is invalid: " + "; ".join(probs))
     # 4. write every repeated value
     for p, (_, new_text, _) in plan_generate(repo, slug, cfg).items():
+        p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(new_text, encoding="utf-8")
     print(f"new: apps/{slug} from apps/{src} ({'same' if same_puzzle else 'NEW'} puzzle module {puzzle})", file=out)
     print(f"  copied: {', '.join(copied)}", file=out)

@@ -135,6 +135,41 @@ class HelpersTest(unittest.TestCase):
             G.yml_set(t, "missing", "1")
 
 
+class BanFormsTest(unittest.TestCase):
+    """The derived ban lists reproduce the reference's hand-written ones exactly (BrandTests, release_gates.sh gate 3)."""
+
+    def test_words_split_spaces_and_camel_humps(self):
+        self.assertEqual(G.ban_words("MazeOut"), ["maze", "out"])
+        self.assertEqual(G.ban_words("Arrow Jam"), ["arrow", "jam"])
+        self.assertEqual(G.ban_words("grandgames"), ["grandgames"])
+        self.assertEqual(G.ban_words("ABC Games"), ["abc", "games"])
+
+    def test_reference_phrases_and_exact_rest(self):
+        c = ref_cfg()
+        self.assertEqual(G.ban_phrases(c), ["mazeout", "maze out", "arrowjam", "arrow jam", "grandgames", "grand games"])
+        self.assertEqual(G.ban_exact_rest(c), ["Maze"])
+        self.assertEqual(G.ban_exact_rest({"brand_bans": ["Sort Legend"]}), ["Sort Legend"])   # never empty
+
+    def test_alternation_compares_as_a_set(self):
+        self.assertEqual(G._alt_set("a\\|b"), G._alt_set("b\\|a"))
+        self.assertNotEqual(G._alt_set("a\\|b"), G._alt_set("a"))
+
+    def test_wrapped_raw_list_round_trips(self):
+        pats = [r"maze", r"grand\s*games", r"\bjam\b", "迷路"] * 9
+        text = G._py_raw_list_wrapped(pats)
+        self.assertTrue(all(len(line) <= 120 for line in text.splitlines()))
+        self.assertEqual(eval(text), pats)  # noqa: S307 - our own rendered literal
+
+    def test_bad_ban_forms_are_reported(self):
+        c = copy.deepcopy(ref_cfg())
+        c["brand_ban_forms"]["store_patterns"] = ["ok", "bad(", 'quo"te']
+        c["brand_ban_forms"]["binary_words"] = []
+        c["brand_ban_forms"]["file_stems"] = ["Upper"]
+        probs = " ".join(G.validate(c, REF))
+        for k in ("brand_ban_forms.store_patterns", "brand_ban_forms.binary_words", "brand_ban_forms.file_stems"):
+            self.assertIn(k, probs)
+
+
 def make_fixture_game(root: Path, slug="fx", bundle="com.acme.fx", product="Fx", brand="Fx Game"):
     """A minimal game folder: game.yml (the reference's values with a new identity) + a few files that repeat them."""
     c = copy.deepcopy(ref_cfg())
@@ -174,6 +209,31 @@ def make_fixture_game(root: Path, slug="fx", bundle="com.acme.fx", product="Fx",
         '{\n  "rating": { "afterLevel": 34 },\n  "notifications": {\n    "askOnFirstLaunch": true\n  },\n'
         '  "support": { "email": "anycodeapps@gmail.com" }\n}\n')
     return g, c
+
+
+GATES_SNIPPET = textwrap.dedent("""\
+    names=$(find "$REL" -mindepth 1 | sed "s|^$REL/||" | grep -i "maze\\|grand\\|arrowjam" | wc -l | tr -d ' ')
+    echo "  file names with maze/grand/arrowjam: $names (must be 0)"
+      if grep -qi "mazeout\\|maze out\\|arrow jam\\|arrowjam\\|grand games\\|grandgames" "$TMP/one.txt" || grep -q "Maze" "$TMP/one.txt"; then
+    WORDS = re.compile(rb'(?i)maze|recorded|video|research/|v552|v582|bot_time')
+    NEVER_SDK = re.compile(rb'(?i)maze|research/|v552|v582|bot_time')     # never excused
+    """)
+
+
+def add_core_and_gates(g: Path, c: dict):
+    """The fixture game + a GameCore folder (generate owns its GameConfig) + the ban lists' files, all fresh."""
+    (g / "Packages/Core/Sources/GameCore/Social").mkdir(parents=True)
+    (g / "Packages/Core/Sources/GameCore/Social/World.swift").write_text(
+        "enum World { static let seed = GameConfig.worldSeed }\n")
+    (g / "tools/release").mkdir(parents=True)
+    (g / "tools/strings").mkdir(parents=True)
+    (g / "tools/bench").mkdir(parents=True)
+    (g / "tools/release/loc.py").write_text("BANNED_BRAND = []\nBANNED_ALL = BANNED_BRAND + [r\"online\"]\n")
+    (g / "tools/strings/l10n_review.py").write_text('BRAND_RE = re.compile(r"x", re.I)\n')
+    (g / "tools/bench/release_gates.sh").write_text(GATES_SNIPPET)
+    for p, (_, new, _) in G.plan_generate(g.parents[1], c["id"], c).items():
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(new, encoding="utf-8")
 
 
 class GenerateTest(unittest.TestCase):
@@ -231,6 +291,95 @@ class GenerateTest(unittest.TestCase):
         self.assertTrue(any(lbl == "leftover bundle id of apps/gx" for lbl, _ in fails), fails)
         self.assertTrue(any("literals are this bundle" in lbl for lbl, _ in fails), fails)
 
+    def test_core_config_is_generated_and_checked_fresh(self):
+        add_core_and_gates(self.g, self.c)
+        gen = self.g / "Packages/Core/Sources/GameCore/Config/GameConfig.generated.swift"
+        text = gen.read_text()
+        for s in ("public static let worldSeed: UInt64 = 0x4152_4F57_204F_5554",
+                  "public static let worldEpoch: Int = 1_788_764_400",
+                  "public static let calendarEpoch: Int = 1_777_273_200",
+                  'public static let rotationSeed: String = "0x524F544154494F4E"',
+                  "public static let rotationSeedValue: UInt64 = 0x524F_5441_5449_4F4E",
+                  'public static let productPrefix: String = "com.acme.fx."'):
+            self.assertIn(s, text)
+        self.assertNotIn(self.c["identity"]["brand_name"], text)       # CI's brand check greps the core's sources
+        self.assertEqual(G.plan_generate(self.tmp, "fx"), {})
+        label = "GameConfig.generated.swift (world seed + epochs, rotation seed, IAP prefix)"
+
+        def status(lbl):
+            return [i[0] for i in G.doctor(self.tmp, "fx", quick=True).items if i[2] == lbl]
+        self.assertEqual(status(label), [G.PASS])
+        self.assertEqual(status("no game.yml value spelled in the Swift sources (only GameConfig)"), [G.PASS])
+        # a hand edit is stale; a new seed in game.yml is written by generate (and the old value is gone)
+        gen.write_text(text.replace("0x4152_4F57_204F_5554", "0x0000_0000_0000_0001"))
+        self.assertEqual(status(label), [G.FAIL])
+        c = copy.deepcopy(self.c)
+        c["social"]["world_seed"] = "0x00000000DEADBEEF"
+        self.write_cfg(c)
+        out = io.StringIO()
+        self.assertEqual(G.generate(self.tmp, "fx", check=False, out=out), 0)
+        self.assertIn("worldSeed: UInt64 = 0x0000_0000_DEAD_BEEF", gen.read_text())
+        self.assertEqual(status(label), [G.PASS])
+        # a missing file is written again
+        gen.unlink()
+        self.assertEqual(status(label), [G.FAIL])
+        self.assertEqual(G.generate(self.tmp, "fx", check=False, out=io.StringIO()), 0)
+        self.assertTrue(gen.exists())
+
+    def test_a_value_spelled_in_swift_fails(self):
+        add_core_and_gates(self.g, self.c)
+        core = self.g / "Packages/Core/Sources/GameCore"
+        (core / "Social/Old.swift").write_text("let s: UInt64 = 0x4152_4f57_204f_5554\nlet e = 1_777_273_200\n")
+        (self.g / "App/Support/Shop.swift").write_text('let p = "com.acme.fx."\nlet q = "com.acme.fx.save"\n')
+        hits = G.mirrored_literals(self.g, self.c)
+        self.assertEqual(sorted(hits), sorted([
+            ("Packages/Core/Sources/GameCore/Social/Old.swift", "0x4152_4f57_204f_5554"),
+            ("Packages/Core/Sources/GameCore/Social/Old.swift", "1_777_273_200"),
+            ("App/Support/Shop.swift", '"com.acme.fx."')]))
+        R = G.doctor(self.tmp, "fx", quick=True)
+        self.assertIn((G.FAIL, "no game.yml value spelled in the Swift sources (only GameConfig)"),
+                      [(i[0], i[2]) for i in R.items])
+
+    def test_ban_lists_are_generated_from_game_yml(self):
+        add_core_and_gates(self.g, self.c)
+        gates = (self.g / "tools/bench/release_gates.sh").read_text()
+        self.assertEqual(gates, GATES_SNIPPET, "the reference's lines are already what generate writes (data files: a set)")
+        loc = (self.g / "tools/release/loc.py").read_text()
+        self.assertIn('BANNED_BRAND = [\n    r"maze", r"mazeout", r"grand\\s*games",', loc)
+        self.assertIn('BRAND_RE = re.compile(r"\\bmaze\\s*out|\\bmazeout|grand\\s*games|arrow\\s*jam|tap\\s*away|tapaway|v552", re.I)',
+                      (self.g / "tools/strings/l10n_review.py").read_text())
+        # a new original: every list follows game.yml
+        c = copy.deepcopy(self.c)
+        c["brand_bans"] = ["Sort Legend", "sortlegend", "Tubes"]
+        c["brand_ban_forms"] = {"store_patterns": [r"sort\s*legend", r"tubes?"], "file_stems": ["sortlegend", "tube"],
+                                "binary_words": ["sortlegend"], "review_patterns": [r"sort\s*legend"]}
+        self.write_cfg(c)
+        self.assertEqual(G.generate(self.tmp, "fx", check=False, out=io.StringIO()), 0)
+        gates = (self.g / "tools/bench/release_gates.sh").read_text()
+        self.assertIn('grep -i "sortlegend\\|tube" | wc -l', gates)
+        self.assertIn('file names with sortlegend/tube: $names', gates)
+        self.assertIn('grep -qi "sortlegend\\|sort legend" "$TMP/one.txt" || grep -q "Tubes" "$TMP/one.txt"; then', gates)
+        self.assertIn("WORDS = re.compile(rb'(?i)sortlegend|recorded|video|", gates)
+        self.assertIn("NEVER_SDK = re.compile(rb'(?i)sortlegend|research/", gates)
+        loc = (self.g / "tools/release/loc.py").read_text()
+        self.assertIn('BANNED_BRAND = [\n    r"sort\\s*legend", r"tubes?",\n]\nBANNED_ALL = BANNED_BRAND + [r"online"]', loc)
+        self.assertIn('BRAND_RE = re.compile(r"sort\\s*legend", re.I)', (self.g / "tools/strings/l10n_review.py").read_text())
+        self.assertEqual(G.plan_generate(self.tmp, "fx"), {})
+        R = G.doctor(self.tmp, "fx", quick=True)
+        brand = {i[2]: i[0] for i in R.items if i[1] == "8. Brand bans"}
+        for lbl in ("store-text gate (brand_ban_forms.store_patterns) catches every ban",
+                    "gate 3 file names (brand_ban_forms.file_stems) catch every ban",
+                    "l10n review (brand_ban_forms.review_patterns) catches every ban phrase"):
+            self.assertEqual(brand[lbl], G.PASS, lbl)
+        # a list that misses a ban is a FAIL (the gate would let the name through)
+        c["brand_ban_forms"]["file_stems"] = ["sortlegend"]
+        c["brand_ban_forms"]["review_patterns"] = ["tubes"]
+        self.write_cfg(c)
+        R = G.doctor(self.tmp, "fx", quick=True)
+        fails = {i[2] for i in R.items if i[0] == G.FAIL}
+        self.assertIn("gate 3 file names (brand_ban_forms.file_stems) catch every ban", fails)
+        self.assertIn("l10n review (brand_ban_forms.review_patterns) catches every ban phrase", fails)
+
     def test_doctor_schema_failure_stops_early(self):
         c = copy.deepcopy(self.c)
         c["schema"] = 99
@@ -254,6 +403,19 @@ class ReferenceGameTest(unittest.TestCase):
         cfg = ref_cfg()
         bad = [(a.key, d) for a in G.anchors(cfg) for st, d in [a.check(gdir, cfg)] if st in (G.FAIL, G.WARN)]
         self.assertEqual(bad, [])
+
+    def test_core_config_keeps_the_shipped_values(self):
+        """The world is deterministic from these: the generated constants are the literals the core had before they
+        moved to game.yml, character for character (the frozen goldens depend on them)."""
+        gdir = G.game_dir(REPO, REF)
+        [(p, want, _)] = G.generated_files(gdir, ref_cfg())
+        self.assertEqual(p.relative_to(gdir).as_posix(), "Packages/PathCore/Sources/GameCore/Config/GameConfig.generated.swift")
+        self.assertEqual(p.read_text(encoding="utf-8"), want)
+        for s in ("worldSeed: UInt64 = 0x4152_4F57_204F_5554", "worldEpoch: Int = 1_788_764_400",
+                  "calendarEpoch: Int = 1_777_273_200", 'rotationSeed: String = "0x524F544154494F4E"',
+                  "rotationSeedValue: UInt64 = 0x524F_5441_5449_4F4E", 'productPrefix: String = "com.manycode.arrowout."'):
+            self.assertIn(s, want)
+        self.assertEqual(G.mirrored_literals(gdir, ref_cfg()), [])
 
 
 @unittest.skipUnless(os.environ.get("GAME_PY_SLOW", "1") == "1", "GAME_PY_SLOW=0")
@@ -309,10 +471,16 @@ class NewGameTest(unittest.TestCase):
                       (g / "tools/strings/build.py").read_text())
         R = G.doctor(self.tmp, "sorty", quick=True)
         fails = sorted(i[2] for i in R.items if i[0] == G.FAIL)
-        # the store-text gate (loc.py BANNED_ALL, hand-kept) must learn the new original's names: a real TODO
-        self.assertEqual(fails, ["app icon", "levels", "shipped art files",
-                                 "store texts", "store-text gate (loc.py BANNED_ALL) catches every ban"],
+        # the gates' other ban forms (game.yml brand_ban_forms, kept from the reference) must learn the new original's
+        # names: real TODOs (generate then writes them into loc.py, release_gates.sh and l10n_review.py)
+        self.assertEqual(fails, ["app icon", "gate 3 file names (brand_ban_forms.file_stems) catch every ban",
+                                 "l10n review (brand_ban_forms.review_patterns) catches every ban phrase", "levels",
+                                 "shipped art files", "store texts",
+                                 "store-text gate (brand_ban_forms.store_patterns) catches every ban"],
                          R.render("doctor"))
+        # the core's constants follow the new bundle id (generate wrote GameConfig)
+        gen = (g / "Packages/PathCore/Sources/GameCore/Config/GameConfig.generated.swift").read_text()
+        self.assertIn('productPrefix: String = "com.manycode.sorty."', gen)
 
     def test_new_refuses_bad_input(self):
         with self.assertRaises(G.ConfigError):
