@@ -291,14 +291,11 @@ struct InfoPage: View {
             if let email { list.append(Section(heading: nil, body: "Questions? Write to \(email)")) }
             return list
         case .privacy:
-            // META (OWNER 2026-09-29 19:33, the Meta SDK in 1.0): "no tracking" became false — ¶1 keeps only what stays true
-            // (no accounts, no ads shown), and two paragraphs say exactly what Meta receives and how to change it.
+            // A game that adds an attribution SDK must add paragraphs here saying what it sends (docs/recipes/ad-attribution.md).
             var list = [
                 Section(heading: nil, body: "\(name) has no accounts and shows no ads."),
                 Section(heading: nil, body: "Your progress, settings and profile name are stored only on this device."),
                 Section(heading: nil, body: "The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records."),
-                Section(heading: nil, body: "We advertise \(name) on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information."),
-                Section(heading: nil, body: "If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking."),
                 Section(heading: nil, body: "Notifications are scheduled on your device and can be turned off in Settings."),
             ]
             if let email {

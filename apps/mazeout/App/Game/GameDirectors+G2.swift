@@ -13,8 +13,7 @@ import PathCore
 
 extension GameDirectors {
     static func make(_ game: GameController) -> [any GameDirector] {
-        // META: MetaDirector last (it only reports the banked win to MetaAds)
-        [UnlockDirector(game), TutorialDirector(game), BoosterDirector(game), EventsDirector(game), FTUEDirector(game), MetaDirector(game)]
+        [UnlockDirector(game), TutorialDirector(game), BoosterDirector(game), EventsDirector(game), FTUEDirector(game)]
     }
 }
 
@@ -26,7 +25,6 @@ extension GameDirectors {
         FTUEDirector.firstLaunchWrites(app)
         HomeQueue.shared.start(app)
         EventsGlue.install(app)
-        MetaAds.shared.boot(app)                        // META: the mode; a live run starts the SDK a few frames later
         return Task { @MainActor in await NotificationPrompt.askIfNeeded(app) }
     }
 
@@ -46,7 +44,6 @@ extension GameDirectors {
         case .active:
             LocalNotifications.cancelAll(app)
             HomeQueue.shared.foreground()
-            MetaAds.shared.activate()                   // META: a Meta session (live mode only)
         default: break
         }
     }

@@ -49,20 +49,10 @@
 #     Planted control: a clang-built Mach-O carrying the words in a symbol, a literal and its debug map, plus an SDK object.
 #     On the V1-app device Release product (14:42, pre-FIX-3) 7c FAILS with exactly V1A-G8-1/3's tells: 'maze', 'recorded',
 #     'video' (+1 beyond RevenueCat.o's own), the two "recorded" log texts, 1,543 build-tree stabs as WATCH.
-#  8. ad frameworks (META, OWNER 2026-09-29 19:33: the Meta SDK in 1.0 for the owner's app-install ads; memory meta-ads-sdk):
-#     FacebookCore is ALLOWED as the owner-ordered Meta ATTRIBUTION SDK — exactly FBSDKCoreKit + FBSDKCoreKit_Basics + FBAEMKit
-#     embedded, each binary's LC_UUIDs = the pinned 18.1.1 artifact's; no ad-SERVING SDK anywhere (GoogleMobileAds, Audience
-#     Network, AppLovin, Unity Ads, ironSource, … and the unordered Login / Share / Gaming kits): not embedded, not loaded,
-#     no ad-serving Info.plist key or identifier string; the Meta Info.plist keys hold their ruled values; FacebookClientToken
-#     is 32 hex AND the factory .env's own (compared, never printed; an EMPTY token = OWNER ACTION / a verification build =
-#     FAIL); PrivacyInfo tracking true with exactly ep1.facebook.com. Planted control: a bundle with GoogleMobileAds, its plist
-#     key and a ca-app-pub string, a FacebookCore that is not the pinned build and an empty token must all be caught
-#     (tools/bench/meta_sdk_check.py gate8).
-#     META attribution in gates 2 / 2b / 7 / 7c: a hit inside a file PROVEN to be the pinned SDK's own (meta_sdk_check.py
-#     attrib: framework binaries by LC_UUID, their other files byte-identical to the artifact's, the SPM resource bundles'
-#     Info.plist platform names / byte-identical privacy manifests) is attributed, never a hit anywhere else; FB_ARTIFACTS /
-#     FB_CHECKOUT point at the pinned artifacts when the .app was not built under build/dd-*; FacebookCore's statically linked
-#     Swift overlay objects (FacebookCore.o / FacebookAEM.o / FacebookBasics.o) join 7c's THIRD_PARTY_OBJS default.
+#  8. SDKs (tools/bench/sdk_gate.py): only ALLOWED_FRAMEWORKS may be embedded (none in the template, docs/ROADMAP.md D2), never
+#     an ad-SERVING SDK; no tracking Info.plist keys and PrivacyInfo tracking false unless an allowed attribution SDK needs
+#     them; planted controls first. A game that adds an attribution SDK sets ALLOWED_FRAMEWORKS and also attributes that
+#     SDK's own strings in gates 2 / 2b / 7 / 7c (FB_JSON below; see docs/recipes/ad-attribution.md).
 set -u
 PC_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; export PC_ROOT          # 7b imports tools/strip_bundle_json.py
 REL="${1:?usage: release_gates.sh <Release .app> [Debug .app]}"
@@ -111,14 +101,11 @@ if grep -q "_TtC10RevenueCat" "$TMP/rel.txt"; then
 else
   RC_OBJ=""
 fi
-# META: the files of the bundle proven to be the pinned Facebook SDK's own (gates 2 / 2b / 7 attribute hits there only)
+# Files proven to be an allowed third-party SDK's own (gates 2 / 2b / 7 attribute hits there only): none in the template.
 FB_JSON="$TMP/fb.json"; export FB_JSON
-python3 "$PC_ROOT/tools/bench/meta_sdk_check.py" attrib "$REL" > "$FB_JSON" 2>/dev/null || echo '{"files": {}, "problems": ["meta_sdk_check.py attrib failed"]}' > "$FB_JSON"
-FB_FILES="$TMP/fb-files.txt"
-python3 -c 'import json,sys; [print(k) for k in json.load(open(sys.argv[1]))["files"]]' "$FB_JSON" > "$FB_FILES"
-echo "FacebookCore (META): $(wc -l < "$FB_FILES" | tr -d ' ') bundle file(s) proven the pinned SDK's own; $(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["problems"]))' "$FB_JSON") unproven (gate 8 fails on those)"
+echo '{"files": {}, "problems": []}' > "$FB_JSON"
+FB_FILES="$TMP/fb-files.txt"; : > "$FB_FILES"
 FB_OBJS=""
-for o in FacebookCore.o FacebookAEM.o FacebookBasics.o; do [ -f "$(dirname "$REL")/$o" ] && FB_OBJS="$FB_OBJS $(dirname "$REL")/$o"; done
 THIRD_PARTY_OBJS="${THIRD_PARTY_OBJS:-$RC_OBJ$FB_OBJS}"
 echo "Release app: $REL"
 echo "binary: $(stat -f '%z bytes, %Sm' "$BIN"); dylibs in the app: $(ls "$REL" | grep -c 'debug.dylib') debug dylib(s)"
@@ -467,9 +454,9 @@ print("  7c: %d unattributed hit(s) in the binary's strings -a / nm as built (mu
 sys.exit(0 if control and not fail and not sfail else 1)
 PY
 
-# 8 (META, see the header): FacebookCore allowed as the owner-ordered attribution SDK, no ad-serving SDK; planted control.
-echo "== 8. ad frameworks (FacebookCore = the owner-ordered Meta attribution SDK; no ad-SERVING SDK)"
-python3 "$PC_ROOT/tools/bench/meta_sdk_check.py" gate8 "$REL" || FAIL=1
+# 8 (see the header): allowed SDKs only, no ad-serving SDK, no unbacked tracking claim; planted controls.
+echo "== 8. SDKs (allowed: ${ALLOWED_FRAMEWORKS:-none}; never an ad-serving SDK)"
+python3 "$PC_ROOT/tools/bench/sdk_gate.py" "$REL" || FAIL=1
 
 echo "== RESULT: $([ $FAIL -eq 0 ] && echo PASS || echo FAIL)"
 exit $FAIL

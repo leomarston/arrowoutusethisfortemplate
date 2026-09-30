@@ -134,8 +134,6 @@ Questions? Write to %@	有疑问？请发邮件至%@
 %@ has no accounts and shows no ads.	%@没有账户，也不显示广告。	META
 Your progress, settings and profile name are stored only on this device.	你的进度、设置和个人资料名称仅保存在此设备上。	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	游戏可离线运行。购买由Apple处理。我们的购买服务RevenueCat会收到一个匿名ID和你的购买记录。	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	我们在Facebook和Instagram上为%@投放广告。为了衡量这些广告的效果，游戏会将应用事件（打开游戏、完成教程、通过的关卡、购买及其价格）连同一个随机ID和基本设备信息发送给Meta。	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	如果你在iOS询问时允许跟踪，Meta还会收到你设备的广告标识符，并可能将这些事件与你的Meta账户关联。你可以随时在iPhone的“设置”App中前往“隐私与安全性”>“跟踪”更改此选择。	META
 Notifications are scheduled on your device and can be turned off in Settings.	通知由你的设备本地定时发送，可在“设置”中关闭。	
 If you write to support, we use your message only to answer you.	如果你联系客服，我们只会用你的消息来回复你。	
 Contact: %@	联系方式：%@	

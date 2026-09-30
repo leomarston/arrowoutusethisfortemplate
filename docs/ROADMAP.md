@@ -51,8 +51,9 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         Fastfile secrets, start-runner, stallcheck, memguard)
   - [x] Machine specifics (simulators, phone, paths) → git-ignored `machine.env`
   - [x] Game-aware `CLAUDE.md`; subscription-factory rules and `app-factory` skill archived in `docs/archive/`
-  - [ ] Purchase durability: never `finish` a StoreKit transaction whose grant failed to save
-  - [ ] Remove the Meta SDK from the engine (D2), keeping a documented per-game recipe
+  - [x] Purchase durability: never `finish` a StoreKit transaction whose grant failed to save
+  - [x] Remove the Meta SDK from the engine (D2): code, strings, privacy manifest/label, gates; recipe in
+        `docs/recipes/ad-attribution.md`; generic `PurchaseReporting` hook kept; SDK gate 8 = allow-list (`sdk_gate.py`)
   - [ ] Debug harness (BoardLab/ShellLab/SoundBoard/AutoPlayer/`-pc.win`) out of Release builds
   - [ ] Recover `build/` specs the code still cites (logo timing, Balloon Rise rules, contract hashes) from the owner's Mac
   - [ ] PathCore/GameCore buildable + testable on Linux (cloud sessions)
@@ -69,9 +70,14 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
       module" and "reskin & publish"
 
 ## Blocked / needs the owner
+- CI excludes two machine-dependent checks from gating (run non-gating): `ShellStoreKitTests` (SKTestSession answers
+  `notEntitled` on hosted runners) and `BoardEngineTests.testBumpReportsContactThenFinishedAndStaysRed` (animation timing
+  0.23 s vs 0.138±0.05 on a shared VM). Confirm both on the Mac: `apps/mazeout/tools/test.sh A -only-testing:ArrowOutTests`.
 - Swift changes are verified on GitHub Actions (no Xcode in cloud sessions); UI tests and phone checks need the Mac.
 - Phase 0 item "recover build/ specs" needs files that exist only on the owner's Mac.
 
 ## Status log
 - 2026-09-30: analysis of the repo (report + plan delivered in chat); CI added; original captures removed; script bugs
-  fixed; machine.env; CLAUDE.md rewritten, factory rules archived.
+  fixed; machine.env; CLAUDE.md rewritten, factory rules archived. First CI baseline (untouched game code): app builds
+  on Xcode 26.6; 280 unit tests ran, failures only in the Meta linkage test (owner-machine paths) and the two
+  machine-dependent checks above; core 403 tests with 1 failure (being identified). Purchase-durability fix; Meta SDK removed.

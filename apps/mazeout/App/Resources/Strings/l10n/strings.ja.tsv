@@ -134,8 +134,6 @@ Questions? Write to %@	ご質問は%@まで
 %@ has no accounts and shows no ads.	%@にはアカウントがなく、広告も表示されません。	META
 Your progress, settings and profile name are stored only on this device.	進行状況、設定、プロフィール名はこのデバイスにのみ保存されます。	
 The game works offline. Purchases are processed by Apple. Our purchase service, RevenueCat, receives an anonymous ID and your purchase records.	ゲームはオフラインで動作します。購入はAppleが処理します。購入管理サービスのRevenueCatは、匿名IDと購入履歴を受け取ります。	T1
-We advertise %@ on Facebook and Instagram. To measure these ads, the game sends Meta app events (the game opened, the tutorial finished, levels won, purchases and their price) with a random ID and basic device information.	私たちはFacebookとInstagramで%@の広告を配信しています。広告の効果を測定するため、ゲームはアプリイベント（ゲームの起動、チュートリアルの完了、クリアしたレベル、購入とその価格）を、ランダムなIDと基本的なデバイス情報とともにMetaに送信します。	META
-If you allow tracking when iOS asks, Meta also receives your device's advertising identifier and may link these events to your Meta account. You can change this at any time in the iPhone Settings app under Privacy & Security > Tracking.	iOSで確認されたときにトラッキングを許可すると、Metaはデバイスの広告識別子も受け取り、これらのイベントをあなたのMetaアカウントと関連付けることがあります。この設定は、iPhoneの「設定」アプリの「プライバシーとセキュリティ」>「トラッキング」でいつでも変更できます。	META
 Notifications are scheduled on your device and can be turned off in Settings.	通知はデバイス上でスケジュールされ、「設定」でオフにできます。	
 If you write to support, we use your message only to answer you.	サポートへのお問い合わせ内容は、返信のためにのみ使用します。	
 Contact: %@	連絡先：%@	

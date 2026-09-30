@@ -16,12 +16,8 @@ packages:
   RevenueCat:
     url: https://github.com/RevenueCat/purchases-ios-spm
     exactVersion: 5.89.0
-  # META (OWNER 2026-09-29 19:33, "why not implement it now and submit it with version 1.0"; memory meta-ads-sdk): Meta install
-  # attribution for the owner's app-install ads. Only the FacebookCore product (FBSDKCoreKit + its Basics/AEM kits, dynamic
-  # xcframeworks); no Login / Share / Gaming kit, no ad-serving SDK (tools/bench/release_gates.sh gate 8). Pinned EXACTLY.
-  FacebookSDK:
-    url: https://github.com/facebook/facebook-ios-sdk
-    exactVersion: 18.1.1
+  # No ad or attribution SDK in the template (docs/ROADMAP.md D2): a game that wants one adds its package here itself
+  # (docs/recipes/ad-attribution.md). tools/bench/release_gates.sh gate 8 allows only the SDKs listed in it.
 # F3-A (SPEC.md ruling 52(a), 2026-09-29): three configurations. Release = the STORE build: the measurement harness
 # (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop) and the WP0 placeholders are compiled out.
 # Measure = Release's settings + the Swift condition PC_MEASURE (`#if DEBUG || PC_MEASURE`): the harness is compiled in,
@@ -83,8 +79,6 @@ targets:
         product: PathCore
       - package: RevenueCat
         product: RevenueCat
-      - package: FacebookSDK                     # META: FacebookCore only (see packages)
-        product: FacebookCore
     # META: the base plist (SPEC-architecture §2.3) is written by xcodegen from these properties at every tools/gen.sh (it was a
     # hand-written App/Info.plist with the same keys; array keys have no INFOPLIST_KEY_ form and are dropped silently without a
     # base plist: memory infoplist-array-keys-need-a-base-plist). Xcode merges the INFOPLIST_KEY_* settings below on top. Verify
@@ -104,42 +98,9 @@ targets:
         UILaunchScreen: { UIColorName: LaunchBackground }    # Loading's base colour; SwiftUI's Loading takes the first frame (§6.3)
         PCBrandName: "$(PC_BRAND_NAME)"                      # Brand.name reads it: the product name has ONE source
         LSApplicationCategoryType: public.app-category.puzzle-games   # FEEL F5: iOS applies Game Mode like the original's
-        # --- META (App/Support/MetaAds.swift). The App ID is public; the CLIENT TOKEN is NOT here and NOT a build setting: the
-        # 'Meta token -> built Info.plist' phase below writes it into the BUILT plist from the factory .env (META_CLIENT_TOKEN),
-        # and a Release / Measure build without it FAILS at its first phase (tools/meta_token.py). Never commit a value here.
-        FacebookAppID: "2657116281470019"
-        FacebookClientToken: ""
-        FacebookDisplayName: "$(PC_BRAND_NAME)"
-        FacebookAutoLogAppEventsEnabled: false               # RFIX 09-29 (orchestrator 23:49): the SDK's own StoreKit purchase
-                                                             # logging needs auto-log AND the dashboard's "Log in-app events
-                                                             # automatically", so with it off a purchase is logged once, by
-                                                             # MetaAds, whatever the dashboard says. Installs + sessions stay:
-                                                             # MetaAds calls activateApp on every activation (publishInstall and
-                                                             # the session events are not behind auto-log). A server-sent
-                                                             # auto_log_app_events_enabled would still override it: the store
-                                                             # lanes gate that with tools/meta_dashboard_check.py
-        FacebookAdvertiserIDCollectionEnabled: false         # no IDFA until ATT says .authorized (MetaAds raises it then)
-        SKAdNetworkItems:                                    # Meta's SKAdNetwork ids: an unlisted network is never credited
-          - SKAdNetworkIdentifier: v9wttpbfk9.skadnetwork
-          - SKAdNetworkIdentifier: n38lu8286q.skadnetwork
-        # English; the 13 languages ship in App/Resources/InfoPlist.xcstrings (tools/strings/build.py from
-        # App/Resources/Strings/infoplist.tsv, which must carry this exact English). Neutral: it describes, never urges.
-        NSUserTrackingUsageDescription: "Meta uses this to tell us which of our ads brought you to the game, so we can improve those ads. The game works the same either way."
-    preBuildScripts:
-      - name: Meta token gate (Release / Measure fail without META_CLIENT_TOKEN in the factory .env)
-        script: '/usr/bin/python3 "$SRCROOT/tools/meta_token.py" check'
-        basedOnDependencyAnalysis: false
     postCompileScripts:
       - name: Sync art (art/ui/out -> UI/, art/out -> Art/)
         script: '"$SRCROOT/tools/sync_art.sh"'
-        basedOnDependencyAnalysis: false
-    postBuildScripts:
-      # META: after ProcessInfoPlistFile (the input file orders it), before code signing. Writes FacebookClientToken into the
-      # BUILT Info.plist only; prints nothing about the value.
-      - name: Meta token -> built Info.plist
-        script: '/usr/bin/python3 "$SRCROOT/tools/meta_token.py" inject'
-        inputFiles:
-          - $(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)
         basedOnDependencyAnalysis: false
     settings:
       base:

@@ -12,9 +12,7 @@
 # the phone. Now PHONE_CONFIG wins; an inherited CONFIG=Release / Measure is still honoured (the documented
 # `CONFIG=Release build/owner-phone.sh` keeps working), but an inherited CONFIG=Debug is IGNORED (said out loud) — Debug only
 # by name: PHONE_CONFIG=Debug.
-# RFIX 2026-09-29 (VERIFY F1): the snapshot's tools/meta_token.py finds the FACTORY .env (PC_FACTORY_ENV below, and its own
-# walk-up to the folder holding .env + apps/), so a Release / Measure phone build carries the Meta client token; the token is
-# never copied into the snapshot. Only the three ASC key variables are read from the .env (it used to be sourced whole, which
+# The snapshot never copies the .env; PC_FACTORY_ENV points build-phase tools at the repo's own .env. Only the three ASC key variables are read from the .env (it used to be sourced whole, which
 # put every secret in it — the Meta token too — into xcodebuild's environment, where Xcode turns variables into build settings).
 set -e
 if [ -n "${PHONE_CONFIG:-}" ]; then
@@ -60,7 +58,6 @@ PY
 }
 ASC_KEY_PATH="$(envval ASC_KEY_PATH)"; ASC_KEY_ID="$(envval ASC_KEY_ID)"; ASC_ISSUER_ID="$(envval ASC_ISSUER_ID)"
 export PC_FACTORY_ENV="$PWD/.env"
-/usr/bin/python3 $T/tools/meta_token.py status || true      # present / absent / malformed, never the value
 KP="$ASC_KEY_PATH"; case "$KP" in /*) ;; *) KP="$PWD/$KP";; esac
 xcodebuild -project $T/ArrowOut.xcodeproj -scheme ArrowOut -configuration "$CONFIG" \
   -destination "id=$PHONE_UDID" -derivedDataPath $O/dd -jobs 4 -quiet \
