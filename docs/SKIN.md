@@ -4,9 +4,11 @@ A game = the shared system + a puzzle module + a **skin** + a config (see `docs/
 player sees that is specific to one game: colours, art, fonts, sounds and names. The goal is a complete reskin **without
 changing Swift**. Colours (the UI code's and ui.json's), fonts, the non-copy names, the art (by slot) and the home / Loading
 scenes work this way today; sounds and the brand name already were data elsewhere (section 3); section 5 is the proof (a
-second colour skin CI builds) and section 6 what is still not skin data.
+second colour skin that `variant.py --check` builds from data alone) and section 6 what is still not skin data.
 
-Everything the skin generates is written by one command and checked by CI:
+**The ordered how-to is `docs/guides/RESKIN.md`**; this file is the reference behind it (formats, tools, reasons).
+
+Everything the skin generates is written by one command and checked by CI's Linux job (and `tools/game.py doctor`):
 ```sh
 cd apps/mazeout
 python3 tools/skin/build.py            # validate skin/*.json, rewrite every generated file (colours, fonts, names, art, scenes)
@@ -27,7 +29,7 @@ python3 tools/skin/art.py --check      # (CI) the art/scene rules on the Swift s
 | `apps/mazeout/App/Resources/Tuning/ui-colors.json` | `{"colors": {ui id: "#RRGGBB"}}`: the `ui` section resolved, which `Tuning.load` reads | no, generated |
 | `apps/mazeout/App/Resources/Tuning/ui.json` | geometry, timings, text styles; its colour slots are `"@<ui id>"` references (see "ui.json" below) | numbers yes; colours in the skin |
 
-The UI code (`App/Shell`, `App/FX`, `art/ui/code/GlossyChrome.swift`) uses `Skin.<name>` wherever it used a colour
+The UI code (`App/Shell`, `App/FX`, `App/Puzzles`, `art/ui/code/GlossyChrome.swift`) uses `Skin.<name>` wherever it used a colour
 literal before, e.g. `Color(hex: Skin.popupsPopupChromeCardBevel0)`, `UIColor(rgb: Skin.fxConfettiConfettiSpecColors2)`,
 `t.color("card.fill", Skin.popupsSettingsPopupCardFill)`. Each call site converts the constant exactly as it converted
 the literal it replaced, so Arrow Out renders pixel for pixel as before (the codemod's `--verify` proved every value; see
@@ -36,7 +38,8 @@ run time.
 
 **Reading the names.** A token id is `<area>.<file>.<scope>.<role>[.<n>]`:
 - `area`: `components`, `home`, `hud`, `pages`, `popups`, `profile`, `shop`, `social`, `shell` (App/Shell/*.swift),
-  `fx`, `art` (GlossyChrome).
+  `fx`, `art` (GlossyChrome), and `puzzle` for a puzzle module's board in `App/Puzzles` (named by hand,
+  `puzzle.<board>.<role>`: SortPuzzle's 17 `puzzle.sortBoard.*`; the codemod would file such a literal under `art`).
 - `file`: the Swift file (`shopView` = ShopView.swift).
 - `scope`: the ui.json key when the colour is a Tokens default (`popup.ribbon.top`), else the type and member it sits in
   (`priceButton`, `winTier.frame`), a `case .hard` or a ternary branch (`me` / `notMe`, `hard` / `notHard`).
@@ -52,7 +55,7 @@ oranges/yellows: ink outlines, wood), `red`, `orange`, `yellow`, `lime`, `green`
 so after a recolour `teal.42` is "the colour that was Arrow Out's teal at L* 42".
 `python3 apps/mazeout/tools/skin/recolor.py --list-families` shows what each family holds today:
 Arrow Out has 1,063 palette colours (every distinct value the UI draws, exact: merging near-equal ones would change
-pixels) behind 1,664 tokens and 657 ui.json colours; teal (346 colours, the D1 chrome), pink (135, Super Hard / events),
+pixels) behind 1,681 tokens (1,664 for the shell + 17 for SortPuzzle's board) and 657 ui.json colours; teal (346 colours, the D1 chrome), pink (135, Super Hard / events),
 orange (110), yellow (102), neutral (87), red (87), maroon (81), brown (57), cream (40) and a few confetti/firework
 accents.
 
@@ -136,8 +139,9 @@ stay: they are neutral, not a design choice a skin changes, and SwiftUI/UIKit re
 
 - **Code-drawn colours only.** Raster art (`art/ui/out/*.png`, the UIArt catalogue, the 3-D renders) has its colours
   baked in; recolouring the chrome does not recolour a PNG. Art is reskinned by slot (section 4).
-- **Not in the scan:** `App/Board` (the puzzle's colours come from `Tuning/board.json`: the puzzle module owns them),
-  `App/Game`, `App/Audio` and the core package (no UI colours).
+- **Not in the scan:** `App/Board` (ArrowEscape's board: its colours come from `Tuning/board.json`, the module owns them),
+  `App/Game`, `App/Audio` and the core package (no UI colours). `App/Puzzles` (the newer modules' boards) IS scanned:
+  their colours are `puzzle.*` tokens.
 - **Verification:** `codemod.py --verify <git rev>` inlines every token back into the sources and compares them with that
   revision (0 of 61 files differed when the literals were replaced). `build.py --selftest` tests the lexer (comments,
   nested comments, interpolated/raw/multi-line strings), naming, generation, colour maths and a codemod round trip;
@@ -205,6 +209,15 @@ names. The reference skin maps the 200 shipped rasters one to one (the same file
 `event.<event id>.<thing>` (badge, header, backdrop, offer …), and two namespaces owned elsewhere: `logo.part.<id>` (the win
 logo's images, named by ui.json `win.logo`) and `puzzle.<sprite id>` (the puzzle module's board sprites; the module draws
 them by sprite id from its level data, the slots keep them in the shipped set).
+
+**Optional slots (template phase 5, docs/architecture/PUZZLE-MODULE.md §8c).** Three slot families are looked up by name at
+run time and may be absent from art.json; the shell then draws a clean data fallback, never a stand-in raster:
+`booster.<booster id>.icon` (a module booster's HUD corner and buy popup; the reference's `booster.freeze.icon` /
+`booster.hint.icon` are mapped, a `BoosterSpec.icon` names another slot; fallback: the booster's name on the green face),
+`hud.<widget>.icon` (a HUD counter's icon: `hud.moves.icon`, `hud.progress.icon`, `hud.goals.icon`, `hud.score.icon`;
+fallback: the pill centred in its slot) and `popup.<offer kind>.icon` (the prop of the generic offer popup:
+`popup.stuck.icon`, `popup.outOfMoves.icon`; fallback: the kind's body text). A skin fills one by adding the slot to
+art.json like any other; none of them is mapped in the reference skin today (no existing raster fits them).
 
 **Reskin the art:** render the new files into `art/ui/out/` or `art/out/` and register them in `art/MANIFEST.json`
 (`art/PIPELINE.md`), point the slots at them in `skin/art.json` (several slots may share one file), run
@@ -296,5 +309,7 @@ screenshotted on a variant) is still to do.
 | **Art ink boxes** | `S2Chrome.swift` `ArtInk`: each HUD / popup raster's measured alpha bbox (fractions of its canvas) as Swift literals, keyed by slot; a new file in such a slot places its visible pixels by the OLD file's box | generated by art.py from the mapped files |
 | **Win logo structure** | the part tree's roles (which part carries the letters, which bends, the OUT! group and orders) are Swift literals of Arrow Out's part ids in `WinLogoSequence.swift` | a role map in `win.logo` / the skin |
 
-The proof of phase 3 is a second skin that builds and runs with zero Swift changes: the colour half is proven by CI
-(section 5); an art variant (`skin/art.json` pointing at other files) needs those files rendered first.
+The proof of phase 3 is a second skin that builds and runs with zero Swift changes: the colour half is proven at the level
+of the generated sources by `variant.py --check` (section 5; green on Linux 2026-09-30; it is a CI Linux step, but CI has
+not run since the variant was added: docs/ROADMAP.md, Blocked). Still to do: the app built and screenshotted on a variant
+(Mac), and an art variant (`skin/art.json` pointing at other files), which needs those files rendered first.

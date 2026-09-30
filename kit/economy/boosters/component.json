@@ -1,0 +1,95 @@
+{
+ "id": "boosters",
+ "title": "Boosters",
+ "category": "economy",
+ "summary": "Booster table, the two HUD booster corners, the buy popup at 0 stock and the freeze effect.",
+ "description": "GameCore Boosters (what each does, start stock, price; rules.json `boosters`) and BoosterDirector (slots from the puzzle's BoosterSpecs; tap -> use, or BoosterBuyPopup at 0 stock). BoosterCorner draws the corner trays with count badges; HUDFreeze is the time-freeze booster's HUD effect (ui.json `freeze.*`).",
+ "status": "needs-work",
+ "gaps": [
+  "BoosterBuyPopup borrows SocTwoLines (StreakRaceViews.swift, streak-race), SunburstRays (NoLivesPopup.swift, lives) and CoinPillDisplay (home).",
+  "Booster ids are still the reference's (freeze, hint) in BoosterID; booster ids from config are open (docs/ROADMAP.md phase 1)."
+ ],
+ "files": [
+  "apps/mazeout/App/Game/BoosterDirector.swift",
+  "apps/mazeout/App/Shell/Popups/BoosterBuyPopup.swift",
+  "apps/mazeout/App/Shell/HUD/BoosterCorner.swift",
+  "apps/mazeout/App/Shell/HUD/HUDFreeze.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/BoostersTests.swift",
+  "apps/mazeout/UITests/BoosterTests.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Economy/Boosters.swift"
+ ],
+ "depends": [
+  "core",
+  "game-loop",
+  "home",
+  "lives",
+  "streak-race",
+  "ui-chrome"
+ ],
+ "wires": [
+  "shop"
+ ],
+ "uses": {
+  "art": [
+   "booster.freeze.icon",
+   "booster.hint.icon",
+   "currency.coin.icon",
+   "hud.plusBadge"
+  ],
+  "strings": [
+   "Buy",
+   "Find an arrow that can move!",
+   "Freeze the timer for 10 seconds!",
+   "Hint",
+   "Time Freeze"
+  ],
+  "tuning": [
+   "rules.json:boosters",
+   "ui.json:anchors.booster",
+   "ui.json:colors.booster",
+   "ui.json:frames.booster",
+   "ui.json:freeze",
+   "ui.json:freeze.endFade",
+   "ui.json:freeze.flyControl",
+   "ui.json:freeze.flyDur",
+   "ui.json:freeze.flyEndScale",
+   "ui.json:freeze.flyFrom",
+   "ui.json:freeze.frostColor",
+   "ui.json:freeze.frostDepthSidesPt",
+   "ui.json:freeze.frostDepthTopBottomPt",
+   "ui.json:freeze.frostDur",
+   "ui.json:freeze.frostFrom",
+   "ui.json:freeze.iceDur",
+   "ui.json:freeze.iceFrom",
+   "ui.json:freeze.riseDur",
+   "ui.json:freeze.riseFrom",
+   "ui.json:freeze.riseTo",
+   "ui.json:freeze.rockDeg",
+   "ui.json:freeze.spawn",
+   "ui.json:freeze.spawnDur",
+   "ui.json:freeze.target",
+   "ui.json:freeze.tray",
+   "ui.json:freeze.trayIn",
+   "ui.json:freeze.trayOut",
+   "ui.json:gradients.booster",
+   "ui.json:modules.booster",
+   "ui.json:shapes.booster",
+   "ui.json:text.booster",
+   "ui.json:text.boosterBuy"
+  ],
+  "skinTokens": [
+   "hud.boosterCorner",
+   "hud.hudFreeze",
+   "popups.boosterBuyPopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 32 -pc.boosters freeze=0,hint=0",
+  "-pc.go level -pc.popup boosterBuy:hint",
+  "-pc.go shelllab -pc.lab freeze"
+ ]
+}

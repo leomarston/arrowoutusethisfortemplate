@@ -51,8 +51,8 @@ struct HUDTimerPill: View, Equatable {
     }
 }
 
-/// The recessed timer well (grad.hud.timerPill, VERIFIED 003).
-private struct TimerWell: View {
+/// The recessed timer well (grad.hud.timerPill, VERIFIED 003). Also the well of the module counters (HUDCounter.swift).
+struct TimerWell: View {
     let radius: CGFloat
     let t: Tokens
 

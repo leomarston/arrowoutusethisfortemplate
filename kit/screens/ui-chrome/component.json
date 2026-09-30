@@ -1,0 +1,84 @@
+{
+ "id": "ui-chrome",
+ "title": "UI chrome kit",
+ "category": "screens",
+ "summary": "Shared drawn-in-code chrome: popup panels, ribbons, cards, toggles, page headers, band popups, glossy buttons.",
+ "description": "The building blocks every popup and page is drawn with, at the measured frames and from skin tokens: PopupPanelFrame, PopupRibbon/PopupTitle, PopupCard, PopupCloseButton, PopupToggle, ChromeButtonFace (PopupChrome.swift); ShellPageHeader, ShellPageBackground, BlueCard, FramedButton, ShellSquareToggle, PillLinkButton, BandPopupFrame (PageChrome.swift); ArtInk, TokenText, RingedText, TierSquareButton, OfferCoinGroup, PriceButton (S2Chrome.swift); and UI-ART's GlossyChrome recipes (art/ui/code).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Popups/PopupChrome.swift",
+  "apps/mazeout/App/Shell/Components/PageChrome.swift",
+  "apps/mazeout/App/Shell/HUD/S2Chrome.swift",
+  "apps/mazeout/art/ui/code/GlossyChrome.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "art": [
+   "booster.freeze.icon",
+   "booster.hint.icon",
+   "currency.coin.icon",
+   "event.clawChallenge.token",
+   "fx.sparkle",
+   "hud.heart.full",
+   "hud.heart.halves",
+   "hud.heart.lost",
+   "hud.plusBadge",
+   "hud.timer.icon",
+   "hud.timer.iconSmall",
+   "icon.finishFlag",
+   "lives.heart",
+   "lives.lost",
+   "lives.unlimited",
+   "logo.main",
+   "page.pattern",
+   "popup.outOfTime.stopwatch",
+   "rank.1.badge",
+   "reward.coins",
+   "reward.coinsSmall",
+   "tutorial.hand",
+   "unlock.box.icon",
+   "unlock.door.icon",
+   "unlock.elevator.icon",
+   "unlock.linked.icon",
+   "unlock.pipe.icon"
+  ],
+  "strings": [
+   "Close",
+   "OFF",
+   "ON",
+   "Shop"
+  ],
+  "tuning": [
+   "ui.json:anchors.settings",
+   "ui.json:colors.band",
+   "ui.json:colors.card",
+   "ui.json:colors.close",
+   "ui.json:colors.offer",
+   "ui.json:colors.page",
+   "ui.json:colors.panel",
+   "ui.json:colors.ribbon",
+   "ui.json:colors.settings",
+   "ui.json:colors.toggle",
+   "ui.json:colors.well",
+   "ui.json:frames.settings",
+   "ui.json:ribbon.baselineFromTop",
+   "ui.json:shapes.settings",
+   "ui.json:text.page",
+   "ui.json:text.pause",
+   "ui.json:text.popup",
+   "ui.json:toggle.flipAt",
+   "ui.json:toggle.slide"
+  ],
+  "skinTokens": [
+   "art.glossyChrome",
+   "components.pageChrome",
+   "hud.s2Chrome",
+   "popups.popupChrome"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab components"
+ ]
+}

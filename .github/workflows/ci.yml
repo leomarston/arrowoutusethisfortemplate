@@ -94,6 +94,11 @@ jobs:
         run: |
           python3 $APP_DIR/tools/harness_gate.py
           python3 $APP_DIR/tools/harness_gate.py --selftest
+      - name: Component kit (every Swift file owned by one component or core, references exist, deps acyclic, catalog fresh) + self-test
+        run: |
+          # kit/**/component.json: docs/guides/KIT.md. A new Swift file in a shared folder fails here until a component owns it.
+          python3 tools/kit.py check
+          python3 tools/kit.py check --selftest
       - name: Brand name spelled only in project.yml (fast twin of BrandTests.testTheNameHasOneSource)
         run: |
           BRAND=$(sed -n 's/^ *PC_BRAND_NAME: *"\([^"]*\)".*/\1/p' $APP_DIR/project.yml)

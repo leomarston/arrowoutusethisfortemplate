@@ -1,0 +1,38 @@
+{
+ "id": "store-service",
+ "title": "Store service (StoreKit 2 purchases)",
+ "category": "economy",
+ "summary": "The purchase engine: StoreKit 2 StoreService, the Debug FakeStore, the RevenueCat observer, the .storekit file.",
+ "description": "StoreService is the real store of every Release build (prices only from StoreKit's displayPrice; never finishes a transaction whose grant failed to save). FakeStore serves tests and captures; RevenueCatObserver only observes (no backend of ours); the product table is GameCore's ShopCatalog (core, rules.json `shop`); Attribution's PurchaseReporting is the hook for an optional per-game ad-attribution SDK (off).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Shop/StoreService.swift",
+  "apps/mazeout/App/Shell/Shop/FakeStore.swift",
+  "apps/mazeout/App/Shell/Shop/RevenueCatObserver.swift",
+  "apps/mazeout/App/Shell/Shop/StoreConfig.swift",
+  "apps/mazeout/App/Support/Attribution.swift",
+  "apps/mazeout/App/Resources/StoreKit/*.storekit",
+  "apps/mazeout/design/publish/iap.json"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/ShellStoreKitTests.swift",
+  "apps/mazeout/Tests/AppTests/StoreReleaseTests.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Economy/ShopCatalog.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "rules.json:shop"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shop -pc.fakeStore 1"
+ ],
+ "notes": [
+  "IAP catalogue == rules.json shop == .storekit: python3 apps/<slug>/tools/release/meta.py iap-check."
+ ]
+}

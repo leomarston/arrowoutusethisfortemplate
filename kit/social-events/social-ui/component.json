@@ -1,0 +1,112 @@
+{
+ "id": "social-ui",
+ "title": "Social list UI kit",
+ "category": "social-events",
+ "summary": "Off-main-thread social lists: shaped text, CA rows, the recycling list, event page chrome, the social model.",
+ "description": "SocialModel wraps the world + clock for the app (every query off the main thread); SocType shapes the row text with CoreText; SocRows / SocArt / SocList draw the 200-row lists as Core Animation layers; SocChrome holds the shared event chrome; SocialEntry / SocialPopups / SocialFlows plug the event screens and popups into the shell; SocScenario presets states for captures; SocialShells is the leaderboard / event page frame. SocialLab is the debug host.",
+ "status": "needs-work",
+ "gaps": [
+  "SocialShells / SocialModel name the home (HomeLive, HomeScene) and the profile (TopCanvas); SocialModel calls SocialFlows' hooks (events-engine, wired)."
+ ],
+ "files": [
+  "apps/mazeout/App/Shell/Social/SocialModel.swift",
+  "apps/mazeout/App/Shell/Social/SocType.swift",
+  "apps/mazeout/App/Shell/Social/SocRows.swift",
+  "apps/mazeout/App/Shell/Social/SocArt.swift",
+  "apps/mazeout/App/Shell/Social/SocList.swift",
+  "apps/mazeout/App/Shell/Social/SocChrome.swift",
+  "apps/mazeout/App/Shell/Social/SocScenario.swift",
+  "apps/mazeout/App/Shell/Social/SocialLab.swift",
+  "apps/mazeout/App/Shell/Pages/SocialShells.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/SocialScreensTests.swift",
+  "apps/mazeout/Tests/SocEndedRunTests.swift",
+  "apps/mazeout/UITests/SocialUITests.swift"
+ ],
+ "depends": [
+  "core",
+  "avatars",
+  "home",
+  "profile",
+  "ui-chrome"
+ ],
+ "wires": [
+  "events-engine"
+ ],
+ "uses": {
+  "art": [
+   "booster.freeze.icon",
+   "booster.hint.icon",
+   "event.balloonRise.cloudA",
+   "event.balloonRise.cloudB",
+   "event.clawChallenge.header",
+   "event.clawChallenge.token",
+   "event.rocketRace.backdrop",
+   "event.rocketRace.offer",
+   "event.rocketRace.racerMine",
+   "event.rocketRace.racerOther",
+   "event.rocketRace.stage1",
+   "event.rocketRace.stage2",
+   "event.rocketRace.stage3",
+   "event.skyJump.backdrop",
+   "event.skyJump.offer",
+   "event.skyJump.pad",
+   "event.skyJump.platform",
+   "event.skyJump.platformFar",
+   "event.skyJump.platformFar2",
+   "event.streakRace.header",
+   "fx.sunburst",
+   "hud.timer.iconSmall",
+   "icon.check",
+   "icon.finishFlag",
+   "icon.info",
+   "icon.lock",
+   "icon.pointer",
+   "icon.pointerDown",
+   "leaderboard.podium",
+   "lives.lost",
+   "lives.unlimited",
+   "lives.unlimitedSmall",
+   "nav.leaderboard.icon",
+   "rank.1.badge",
+   "rank.1.wings",
+   "rank.2.badge",
+   "rank.3.badge",
+   "reward.chest.1",
+   "reward.chest.2",
+   "reward.chest.3",
+   "reward.coinBowl",
+   "reward.coinsSmall",
+   "social.scoreChip"
+  ],
+  "strings": [
+   "Hot Streak",
+   "Info",
+   "Leaderboard",
+   "Level",
+   "ON",
+   "Reach level 50 to join the Weekly Cup!",
+   "Rocket Rally",
+   "Score",
+   "Turkey",
+   "Weekly",
+   "World"
+  ],
+  "tuning": [
+   "ui.json:lb.countryShort"
+  ],
+  "skinTokens": [
+   "pages.socialShells",
+   "social.socArt",
+   "social.socChrome",
+   "social.socialLab",
+   "social.socList",
+   "social.socRows"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go sociallab",
+  "-pc.go sociallab -pc.lab scroll:world"
+ ]
+}

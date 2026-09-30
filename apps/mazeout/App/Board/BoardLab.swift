@@ -19,8 +19,10 @@ struct BoardLab: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            BoardHost(board: app.board)
-                .ignoresSafeArea()
+            if let engine = app.board {
+                BoardHost(board: engine)
+                    .ignoresSafeArea()
+            }
             if let c = controller, !app.args.capture {
                 Text(verbatim: c.status)
                     .font(.system(size: 11, weight: .semibold, design: .monospaced))

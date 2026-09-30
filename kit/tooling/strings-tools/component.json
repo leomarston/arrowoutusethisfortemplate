@@ -1,0 +1,23 @@
+{
+ "id": "strings-tools",
+ "title": "Strings pipeline",
+ "category": "tooling",
+ "summary": "strings.tsv + 11 l10n tables -> Localizable.xcstrings, coverage (spec, data, code), self-tests, reviews.",
+ "description": "apps/<slug>/tools/strings: build.py (--check in CI), coverage.py, selftest.py, the l10n / tr reviews.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/tools/strings/**",
+  "apps/mazeout/App/Resources/Strings/**",
+  "apps/mazeout/App/Resources/Localizable.xcstrings"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/AppTests/L10nTests.swift",
+  "apps/mazeout/Tests/AppTests/StringsCoverageTests.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "launchArgs": [
+  "python3 apps/mazeout/tools/strings/build.py --check"
+ ]
+}

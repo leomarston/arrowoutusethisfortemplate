@@ -1,0 +1,61 @@
+{
+ "id": "sounds",
+ "title": "Sounds (audio engine)",
+ "category": "audio",
+ "summary": "The audio engine: one-shot SFX by SoundID, the cue map (moment -> sound) and gains as data, music player.",
+ "description": "AudioEngine (AVAudioEngine voices), SoundBank (the Sounds/<id>.wav files), AudioCues (Tuning/audio.json `cues` / `gain` into typed tables), MusicPlayer (music bus, off by default). Our sounds are synthesised by apps/mazeout/tools/audio (never recorded from another game). SoundBoard is the debug host.",
+ "status": "needs-work",
+ "gaps": [
+  "The cue key `cues.arrowTap` is the reference puzzle's name; a generic move cue is open (docs/ROADMAP.md)."
+ ],
+ "files": [
+  "apps/mazeout/App/Audio/AudioEngine.swift",
+  "apps/mazeout/App/Audio/SoundBank.swift",
+  "apps/mazeout/App/Audio/AudioCues.swift",
+  "apps/mazeout/App/Audio/MusicPlayer.swift",
+  "apps/mazeout/App/Resources/Sounds/*.wav",
+  "apps/mazeout/tools/audio/**"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/AudioEngineTests.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "sounds": [
+   "clawComplete",
+   "clawMerge",
+   "clawTick",
+   "clawToken",
+   "coinCollect",
+   "streakPop",
+   "tapTick",
+   "uiClick",
+   "unlockChime"
+  ],
+  "cues": [
+   "arrowTap",
+   "clawComplete",
+   "clawMerge",
+   "clawTick",
+   "clawToken",
+   "streakPop",
+   "uiButton"
+  ],
+  "strings": [
+   "Music"
+  ],
+  "tuning": [
+   "audio.json:cues",
+   "audio.json:engine",
+   "audio.json:engine.ioBuffer",
+   "audio.json:engine.voices",
+   "audio.json:gain",
+   "audio.json:music"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go soundboard"
+ ]
+}

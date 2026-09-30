@@ -1,0 +1,32 @@
+{
+ "id": "loading",
+ "title": "Loading screen",
+ "category": "screens",
+ "summary": "The boot cover: the skin's Loading scene (backdrop, logo, cast) and the animated 'Loading...' label.",
+ "description": "Shown from the first frame while AppModel.boot() and the warm-ups run; its layers are data (skin/scenes.json `loading` -> SkinScenes). Timings in ui.json `loading.*`, the cross-fades out in `transition.*`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/LoadingScreen.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "strings": [
+   "Loading"
+  ],
+  "tuning": [
+   "ui.json:anchors.loading",
+   "ui.json:colors.loading",
+   "ui.json:frames.loading",
+   "ui.json:loading",
+   "ui.json:text.loading"
+  ],
+  "skinTokens": [
+   "shell.loadingScreen"
+  ]
+ },
+ "launchArgs": [
+  "-pc.reset 1  (the Loading screen shows during boot)"
+ ]
+}

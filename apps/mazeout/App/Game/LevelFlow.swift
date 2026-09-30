@@ -93,7 +93,7 @@ import PathCore
         let level = stages[k]
         game.hudWriter.begin(label: label(for: level), tag: level.tag, seconds: level.timerSeconds ?? 0, hearts: session.hearts,
                              maxHearts: level.hearts ?? 0, coins: s.store.state.coins, boosters: boosterSlots(),
-                             intro: fromLoading ? .shown : .playing(start: game.cutAt))
+                             intro: fromLoading ? .shown : .playing(start: game.cutAt), widgets: game.capabilities.hud)
         game.fanOut(session.start(), origin: .start)
         s.levelStarted(plan.levels.last ?? level.level)
         let timerText: String = level.timerSeconds.map { "\($0) s" } ?? "none"
@@ -122,10 +122,7 @@ import PathCore
     /// badge).
     func boosterSlots() -> [BoosterSlotVM] {
         let b = services.store.state.boosters
-        return game.capabilities.boosters.map { spec in
-            let n = b[spec.id.rawValue] ?? 0
-            return BoosterSlotVM(id: spec.id, state: n > 0 ? .stock(n) : .empty)
-        }
+        return game.capabilities.boosters.map { spec in game.boosterSlot(spec, stock: b[spec.id.rawValue] ?? 0) }
     }
 
     // MARK: GameDirector

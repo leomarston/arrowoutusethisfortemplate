@@ -1,0 +1,64 @@
+{
+ "id": "hud",
+ "title": "Level HUD",
+ "category": "hud",
+ "summary": "The level HUD over the board: coin group, back, the level panel, pause, drop-in intro; reads only HUDModel.",
+ "description": "HUDView lays out the HUD from HUDModel (written only by the game loop's HUDWriter) and the puzzle's HUD widgets; HUDIntro is the drop-in motion as pure functions of time; HUDSample holds the fixed states the warm-up renders. The widgets (timer, hearts, coin pill, booster corners) are their own components. New files dropped in App/Shell/HUD/ are owned here unless another component names them.",
+ "status": "needs-work",
+ "gaps": [
+  "The counters other genres need (HUDCounter.swift: moves / progress / goals from PuzzleCapabilities.hud) are being added in phase 5 and are not yet proven on a device (docs/ROADMAP.md)."
+ ],
+ "files": [
+  "apps/mazeout/App/Shell/HUD/*.swift"
+ ],
+ "depends": [
+  "core",
+  "ui-chrome"
+ ],
+ "wires": [
+  "boosters",
+  "hud-coins",
+  "hud-timer",
+  "hud-hearts"
+ ],
+ "uses": {
+  "strings": [
+   "Back",
+   "Pause"
+  ],
+  "tuning": [
+   "ui.json:anchors.hud",
+   "ui.json:colors.hud",
+   "ui.json:frames.hud",
+   "ui.json:gradients.hud",
+   "ui.json:hud",
+   "ui.json:hud.addTimePop",
+   "ui.json:hud.counterBaseline",
+   "ui.json:hud.heartBreak",
+   "ui.json:hudIntro",
+   "ui.json:hudIntro.bigTimerAt",
+   "ui.json:hudIntro.bigTimerKf",
+   "ui.json:hudIntro.boosterBack",
+   "ui.json:hudIntro.boosterDelay",
+   "ui.json:hudIntro.boosterDur",
+   "ui.json:hudIntro.boosterPt",
+   "ui.json:hudIntro.dropBack",
+   "ui.json:hudIntro.dropDur",
+   "ui.json:hudIntro.dropPt",
+   "ui.json:hudIntro.heartKf",
+   "ui.json:hudIntro.heartsAt",
+   "ui.json:hudIntro.startAfterCut",
+   "ui.json:shapes.hud",
+   "ui.json:text.hud"
+  ],
+  "skinTokens": [
+   "hud.hudView",
+   "hud.timerPill"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab hud",
+  "-pc.go shelllab -pc.lab hud:hard",
+  "-pc.go shelllab -pc.lab hudIntro"
+ ]
+}

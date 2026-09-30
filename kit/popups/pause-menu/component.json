@@ -1,0 +1,41 @@
+{
+ "id": "pause-menu",
+ "title": "Pause menu",
+ "category": "popups",
+ "summary": "The in-level Pause popup: Sound and Haptic toggles, Resume, Quit, X.",
+ "description": "PausePopup answers .primary (Resume), .secondary (Quit: the game then asks Quit Level?) or .close. The toggles write PlayerState.settings through PlayerStore and apply at once to the audio bus and haptics. Also defines SettingRow and PanelPairButton (reused by other popups).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Popups/PausePopup.swift"
+ ],
+ "depends": [
+  "core",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "icon.haptic",
+   "icon.sound"
+  ],
+  "strings": [
+   "Haptic",
+   "Paused",
+   "Quit",
+   "Resume",
+   "Sound"
+  ],
+  "tuning": [
+   "ui.json:anchors.pause",
+   "ui.json:frames.pause",
+   "ui.json:gradients.pause",
+   "ui.json:shapes.pause",
+   "ui.json:text.pause"
+  ],
+  "skinTokens": [
+   "popups.pausePopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 5 -pc.popup pause"
+ ]
+}

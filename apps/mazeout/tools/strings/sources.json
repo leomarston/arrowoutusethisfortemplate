@@ -176,6 +176,13 @@
     "hud_label",
     "panel_label"
    ]
+  },
+  {
+   "path": "App/Resources/Tuning/sort.json",
+   "keys": [
+    "name",
+    "description"
+   ]
   }
  ],
  "callees": [

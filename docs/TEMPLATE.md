@@ -1,8 +1,24 @@
-# Make a new game from the template
+# Make a new game from the template (map)
 
 A game = **the system** (shared: home, HUD, popups, shop, lives, coins, boosters, events, the offline "online-looking"
 leaderboards, store tooling) + **a puzzle module** + **a skin** + **one config file** (`apps/<slug>/game.yml`).
-The reference game is `apps/mazeout` (*Arrow Out*); its `game.yml` is the documented example of every key.
+The reference game is `apps/mazeout` (*Arrow Out*, module `arrow-escape`); its `game.yml` is the documented example of every
+key. A second module, SortPuzzle (`sort-puzzle`), is compiled into the same app and selected at compile time.
+
+**Where to read what**
+
+| You want to | Read |
+|---|---|
+| make a game, start to App Store, in order (with what needs the owner's Mac, and the known gaps) | [`docs/guides/NEW-GAME.md`](guides/NEW-GAME.md) |
+| write a new puzzle module (worked example: SortPuzzle) | [`docs/guides/WRITE-A-PUZZLE.md`](guides/WRITE-A-PUZZLE.md) |
+| reskin: colours, fonts, names, art slots, scenes, sounds | [`docs/guides/RESKIN.md`](guides/RESKIN.md) |
+| the puzzle contract itself (types, rules, v1.1) | [`docs/architecture/PUZZLE-MODULE.md`](architecture/PUZZLE-MODULE.md) |
+| the skin's file formats and tools in depth | [`docs/SKIN.md`](SKIN.md) |
+| take one piece (pause menu, shop, leaderboard, sounds, an event ...) into a game or project: the component kit | [`docs/guides/KIT.md`](guides/KIT.md), `kit/catalog.html` |
+| the config tool and `game.yml` (this file, §1 and §4) | below |
+| build / run / test commands, the rename checklist, the store pipeline | `README.md` §3, §4, §6 |
+| research and clone an original game (the full autonomous run) | `GAMEPROMPT.md` / `GAMEPROMPTMAX.md` |
+| where the template work stands | `docs/ROADMAP.md` |
 
 One tool drives the config side, from the repo root (Python 3 + PyYAML: `pip3 install -r requirements.txt`):
 
@@ -11,9 +27,9 @@ One tool drives the config side, from the repo root (Python 3 + PyYAML: `pip3 in
 | `python3 tools/game.py new <slug> --from mazeout --name "Brand" --bundle com.manycode.<x>` | scaffolds `apps/<slug>`: copies the generic parts, renames the old identity, writes `game.yml`, runs `generate` |
 | `python3 tools/game.py generate --game <slug> --check` | lists what differs between `game.yml` and the files that repeat its values (exit 1 if anything) |
 | `python3 tools/game.py generate --game <slug>` | writes those values (targeted: one regex group or one JSON value per place; nothing else moves) |
-| `python3 tools/game.py doctor --game <slug> [--quick] [--strict]` | the checklist: PASS / WARN / FAIL per item; exit 0 only without FAIL (`--strict`: without WARN) |
+| `python3 tools/game.py doctor --game <slug> [--quick] [--strict]` | the checklist: PASS / WARN / FAIL per item; exit 0 only without FAIL (`--strict`: without WARN; `--quick` skips the puzzle's level checks and the store audit) |
 
-Tests of the tool: `python3 -m unittest discover -s tools/tests` (about 15 s).
+Tests of the tool: `python3 -m unittest discover -s tools/tests` (28 tests, about 15 s).
 
 ## The steps
 
@@ -45,7 +61,8 @@ puzzle module also the levels and level tools.
 such as `logoArrowOut` are skin slots and stay), `apps/<old-slug>` paths, the brand name, and the bundle's last segment
 (SKU, profile name, RevenueCat offering). Then `generate` writes the rest from `game.yml`.
 
-Right after `new`, doctor reports exactly these TODOs (tested in `tools/tests/test_game.py`):
+Right after `new`, doctor reports these TODOs (tested in `tools/tests/test_game.py`; the list was re-checked on scratch
+scaffolds, same puzzle and `--puzzle sort-puzzle --bans …`, on 2026-09-30; what fixes each: `docs/guides/NEW-GAME.md` §1):
 - `FAIL store texts` - `design/publish/store/<locale>.json` missing (step 5)
 - `FAIL shipped art files` + `FAIL app icon` - the skin is not rendered yet (step 3)
 - `WARN levels are this game's own` - same puzzle: the levels are still the reference's copy (step 5)
@@ -54,49 +71,27 @@ Right after `new`, doctor reports exactly these TODOs (tested in `tools/tests/te
 - with another puzzle module: `FAIL levels` (no level bundle yet); with `--bans`: `FAIL store-text gate`, `FAIL gate 3
   file names` and `FAIL l10n review` until `game.yml brand_ban_forms` gets patterns / stems for the new names (it keeps
   the reference's; see "Ban lists" below), then `generate`
+- `WARN rotation_ref.py EPOCH` / `seed (reference)` - `design/publish/tools/rotation_ref.py` (the frozen rotation reference) is
+  not copied; explain the WARN, or copy and re-derive it when the game changes the rotation seed / epoch (§4)
 - `WARN machine.env` on any machine without it (only the Mac needs it)
 
 ### 2. The puzzle module
-Same puzzle as the reference: nothing to do. A new puzzle: follow `docs/architecture/PUZZLE-MODULE.md` (the contract:
-levels, deterministic session, board, fail rules, boosters, HUD widgets, bot). Set `puzzle.module` in `game.yml` and list
-the module's own level checks under `puzzle.checks` (commands run from `apps/<slug>`; doctor runs them). The module plugs
-in at ONE line, `ActivePuzzle.entry` (`App/Contracts/PuzzleBoardContract.swift`): its core half implements GameCore's
-`PuzzleModule` / `PuzzleSession` (reference: `Packages/PathCore/Sources/ArrowEscape/Session/ArrowPuzzleSession.swift`), its
-app half `PuzzlePlugin` + `PuzzleBoard` (reference: `App/Board/ArrowEscapePlugin.swift` around the BoardEngine). `App/Game`
-is genre-agnostic and stays as it is; until phase 1's folder move, the reference puzzle's board lives in `App/Board`.
-
-**Worked example: SortPuzzle** (a second, unlike module: pick-then-target input, no timer, fail = "stuck";
-PUZZLE-MODULE.md §6b). Adding a module is these steps, in this order:
-1. **Core target** — `Packages/PathCore/Sources/<Module>/`, depending on `GameCore` only; add `.library(name: "<Module>")`,
-   `.target(name: "<Module>", dependencies: ["GameCore"])` and a `.testTarget` to `Package.swift` (not to the PathCore
-   umbrella), and the target to `tools/core.sh`'s import check (`Foundation|GameCore`). SortPuzzle: `SortLevel` +
-   `SortRules` (its data file), `SortMechanics` (rules), `SortSolver`, `SortGenerator` (seeded, solvable by construction),
-   `SortPuzzleSession: PuzzleSession`, `SortPuzzleModule: PuzzleModule` (id, capabilities, `stage`, `makeSession`,
-   `warmUpWin`), `SortBot` (plays through the contract only).
-2. **Determinism proof** — a Python reference of anything seeded (`apps/<slug>/tools/sortpuzzle/ref.py`) writes goldens into
-   `Packages/PathCore/Tests/Fixtures/`; the Swift tests compare against them, CI's Linux job runs `ref.py --check`.
-3. **Data** — the module's numbers in `App/Resources/Tuning/<module>.json` (SortPuzzle: `sort.json` — levels, play, its
-   `stuck` fail chain, `board.*` sizes and durations); its colours as skin tokens (`skin/colors.json`
-   `puzzle.<board>.*`, then `python3 apps/<slug>/tools/skin/build.py`; `App/Puzzles` is in the literal scan).
-4. **App half** — `App/Puzzles/<Module>/`: a `PuzzlePlugin` (stages, session factory, tutorials/unlocks, mistake targets,
-   warm-up), a `PuzzleBoard` (acks never synchronous; drives `boardFrame` from its own display link) and a
-   `PuzzleEntryPoint`. project.yml globs `App/`, so only the package product goes into the app and test targets'
-   `dependencies` (`{ package: PathCore, product: <Module> }`).
-5. **Select it** — `ActivePuzzle.entry` (one line; SortPuzzle: the `PC_PUZZLE_SORT` compilation condition), `game.yml`
-   `puzzle.module: sort-puzzle` + its `puzzle.checks` (e.g. `python3 tools/sortpuzzle/ref.py --check`).
-6. **Tests** — core: goldens, solvability, the bot through `PuzzleSession` only, fail/continue/win exactly once, boosters;
-   app: the plugin + real board headless, and the unchanged `GameController` playing a level to the win panel
-   (`Tests/SortPuzzleAppTests.swift` reuses GameControllerTests' fakes).
-7. **Before shipping it** — the shell gaps PUZZLE-MODULE.md §6b lists for the module's widgets and fail kind (HUD widgets,
-   popup texts in 13 languages, booster prices/texts/art) and its tutorials.
+Same puzzle as the reference: nothing to do. A new puzzle: **`docs/guides/WRITE-A-PUZZLE.md`** (core target, session, board,
+plugin, entry, tests, the Python reference and goldens, the `ActivePuzzle` switch), with SortPuzzle as the worked example;
+the contract is `docs/architecture/PUZZLE-MODULE.md`. In `game.yml`: `puzzle.module` (the module's id) and `puzzle.checks`
+(the module's own level checks, run from `apps/<slug>` by doctor; a `.py` path first, not `python3`, e.g.
+`tools/sortpuzzle/ref.py --check`). `new --puzzle <id>` records the module but does not switch the app to it: the
+`PC_PUZZLE_<X>` compilation condition is a hand edit of `project.yml` (WRITE-A-PUZZLE.md §7). `App/Game` is genre-agnostic
+and stays as it is; until phase 1's folder move, the reference puzzle's board lives in `App/Board`, a new module's in
+`App/Puzzles/<Module>/`.
 
 ### 3. Reskin
-Colours: `docs/SKIN.md` (`skin/colors.json` -> `tools/skin/build.py`). Which file fills which art slot, and the home /
-Loading scene composition: `skin/art.json`, `skin/scenes.json` (docs/SKIN.md §4). Art: `art/PIPELINE.md` + `art/STYLE.md`; every slot
-of `art/MANIFEST.json` whose status is `done`/`graded` must exist at its size (doctor checks it), plus the three app
-icon images in `App/Resources/Assets.xcassets/AppIcon.appiconset/`. Fonts in `App/Resources/Fonts` (+ `UIAppFonts` in
-`project.yml`), sounds in `App/Resources/Sounds`, event names in the strings. Copy the category's conventions, never an
-original's assets (CLAUDE.md).
+**`docs/guides/RESKIN.md`** (the ordered steps and what is still not data), `docs/SKIN.md` (formats and tools). In short:
+colours in `skin/colors.json` (`tools/skin/recolor.py`, `build.py`), fonts `skin/fonts.json`, non-copy names
+`skin/names.json`, art by SLOT in `skin/art.json` -> the ids of `art/MANIFEST.json` -> files; the home / Loading scenes
+`skin/scenes.json`; sounds `App/Resources/Sounds` + `Tuning/audio.json`; copy in the strings. doctor checks that every file
+the manifest ships exists at its size, plus the three app icon images in
+`App/Resources/Assets.xcassets/AppIcon.appiconset/`. Copy the category's conventions, never an original's assets (CLAUDE.md).
 
 ### 4. Configure (`apps/<slug>/game.yml`)
 Edit, then `python3 tools/game.py generate --game <slug>` and `doctor`:
@@ -150,31 +145,8 @@ doctor checks them, generate never renames them. To change one later, run `new` 
 words (`recorded`, `video`, `research/`, version tags); `BrandTests`' nickname check (`bannedAnyCase + ["maze"]`) and
 `Packages/PathCore/Tests/tools/soc_ship_names.py BRAND` (the shipped name bank's filter, frozen output).
 
-### 5. Strings, levels, store texts
-- Strings: `App/Resources/Strings/strings.tsv` (+ `l10n/`) -> `python3 apps/<slug>/tools/strings/build.py` (doctor runs
-  `--check`). Never spell the brand in copy: interpolate `Brand.name`.
-- Levels: the module's tools (reference: `design/tools/gen_levels.py`, `build_levels.py`, `apps/<slug>/tools/levels/`).
-- Store texts: `design/publish/store/<locale>.json` (name, subtitle, promotional text, description) for every
-  `store.locales`, `design/keywords.json`, `design/captions/`; then `python3 apps/<slug>/tools/release/meta.py audit` and
-  `meta.py write` (fills `fastlane/metadata/<locale>/`). Name rules: `docs/lessons/app-naming-keyword-first.md`.
-
-### 6. Doctor until green
-`python3 tools/game.py doctor --game <slug>` must end with `0 FAIL`; every remaining WARN must be explained
-(`machine.env` on a Linux/cloud session is expected). `--quick` skips the puzzle's level checks and the store audit while
-iterating.
-
-### 7. Build and test
-- **Cloud session (no Xcode):** push a `claude/**` branch and read GitHub Actions (`.github/workflows/ci.yml`; its
-  `APP_DIR` names the game folder).
-- **Mac:** `cp machine.env.example machine.env` (this Mac's simulators), then `sh apps/<slug>/tools/gen.sh`,
-  `apps/<slug>/tools/build.sh A`, `apps/<slug>/tools/run.sh A`, `apps/<slug>/tools/test.sh A`,
-  `apps/<slug>/tools/core.sh` (README §3). At most two builds at once (`docs/lessons/max-two-parallel-builds.md`).
-- Release binary gates: `sh apps/<slug>/tools/bench/release_gates.sh <Release .app>`.
-
-### 8. Screenshots
-`python3 apps/<slug>/tools/capture/capture.py --store …` (scripted captures from `tools/capture/manifest.json`), then
-`python3 apps/<slug>/tools/store/compose.py set --locale <loc> --raws <5 files>`. Look at every frame.
-
-### 9. Publish
-README §6, in order, every script with `--dry-run` first; check the matching group of `docs/lessons/README.md` before
-each store, signing or payment step. The privacy page (`store.privacy_url`) must be live before submitting.
+### 5-9. Strings, levels, store texts, doctor, build, screenshots, publish
+In order, with the commands and which steps need the owner's Mac: **`docs/guides/NEW-GAME.md`** §5-§12 (strings and
+tutorials, levels, store texts and `meta.py audit`, doctor until `0 FAIL`, CI / Mac build and tests, release gates,
+screenshots, then README §6 for the store). Before each store, signing or payment step read the matching group of
+`docs/lessons/README.md`.

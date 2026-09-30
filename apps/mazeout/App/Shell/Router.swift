@@ -553,7 +553,7 @@ extension ShellEntry {
         var waited = 0.0
         func tick() async { try? await Task.sleep(nanoseconds: 50_000_000); waited += 0.05 }
         if app.args.popup != nil { while app.popups.topID == nil && waited < 3 { await tick() } }
-        if router.screen.isLevel { while !app.board.isSettled && waited < 12 { await tick() } }
+        if router.screen.isLevel { while !(app.board?.isSettled ?? true) && waited < 12 { await tick() } }
         if app.args.freezeAt != nil { while app.clock.frozenAt == nil && waited < 15 { await tick() } }
         await FrameWaiter.frames(2)
         let name = router.screen.logName + (app.popups.topID.map { "+popup:\($0.rawValue)" } ?? "")

@@ -1,0 +1,37 @@
+{
+ "id": "quit-level",
+ "title": "Quit Level? popup",
+ "category": "popups",
+ "summary": "'Quit Level?' band popup: 'You will lose a life!', Quit, X.",
+ "description": "The band popup of the Continue? family asked by HUD back and by Pause -> Quit; Quit -> .lost(.quit).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Popups/QuitLevelPopup.swift"
+ ],
+ "depends": [
+  "core",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "lives.lost"
+  ],
+  "strings": [
+   "Quit",
+   "Quit Level?",
+   "You will lose a life!"
+  ],
+  "tuning": [
+   "ui.json:anchors.quit",
+   "ui.json:frames.quit",
+   "ui.json:shapes.quit",
+   "ui.json:text.quit"
+  ],
+  "skinTokens": [
+   "popups.quitLevelPopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 5 -pc.popup quitLevel"
+ ]
+}

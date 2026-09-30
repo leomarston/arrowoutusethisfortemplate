@@ -1,0 +1,18 @@
+{
+ "id": "game-config",
+ "title": "Game config (game.py)",
+ "category": "tooling",
+ "summary": "tools/game.py new / generate / doctor: one game.yml drives identity, store, flags, seeds and ban lists.",
+ "description": "The repo-level config tool (docs/TEMPLATE.md): scaffolds apps/<slug>, writes every repeated value, and checks the game.",
+ "status": "stable",
+ "files": [
+  "tools/game.py",
+  "tools/tests/*.py"
+ ],
+ "depends": [
+  "core"
+ ],
+ "launchArgs": [
+  "python3 tools/game.py doctor --game mazeout --quick"
+ ]
+}

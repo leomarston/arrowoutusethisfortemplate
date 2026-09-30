@@ -91,6 +91,10 @@ import PathCore
 
     func publishProbe() { (engine as? BoardEngine)?.publishProbe() }
 
+    /// The engine meters its own frames (its display link feeds PerfMonitor / LatencyProbe and logs hitches and tap
+    /// latency), exactly as before the contract: the Play adds no second meter.
+    var metersFrames: Bool { true }
+
     var diagnostics: BoardDiagnostics? {
         guard let e = engine as? BoardEngine else { return nil }
         return BoardDiagnostics(lastRippleAt: e.lastRippleAt, lastPresentMs: e.lastPresentMs, presentNotes: e.presentNotes,
@@ -258,7 +262,33 @@ import PathCore
                           tutorials: app.library?.tutorials ?? [], unlocks: app.library?.unlocks ?? [])
     }
 
+    /// The engine AppModel built at boot (`makeEngine`); a fresh one only if it is missing (never on the boot path).
     static func makeBoard(_ app: AppModel) -> any PuzzleBoard {
-        ArrowPuzzleBoard(engine: app.board, tuning: app.tuning.board)
+        ArrowPuzzleBoard(engine: app.board ?? BoardEntry.makeBoard(app.context), tuning: app.tuning.board)
     }
+
+    /// Template phase 5: the arrow content is built only while ArrowEscape is the active module. The level library (index +
+    /// small files; levels decode lazily) and C4's provider, with the same logs as AppModel wrote them before.
+    static func loadContent(bundle: Bundle) -> PuzzleBootContent {
+        var library: LevelLibrary?
+        if let folder = bundle.resourceURL?.appendingPathComponent("Levels") {
+            do {
+                let lib = try LevelLibrary.load(folder: folder)
+                for p in lib.problems { Log.error("levels", p) }
+                library = lib
+            } catch {
+                Log.error("levels", "\(error)")
+            }
+        }
+        let provider = library.map { LevelProvider(library: $0) }
+        provider?.onProduced = { r in
+            Log.mark("level", String(format: "generated L%d in %.1f ms (%@, seeds %d, validate %.1f ms)", r.level, r.totalMs,
+                                     r.route.rawValue, r.seedsTried, r.validateMs))
+        }
+        return PuzzleBootContent(library: library, provider: provider,
+                                 sessions: library?.sessions ?? AppModel.loadSessions(bundle: bundle))
+    }
+
+    /// The app-lifetime Core Animation engine (BOARD's `BoardEntry`), created at boot and never destroyed (§5.1).
+    static func makeEngine(_ ctx: AppContext) -> (any BoardControlling)? { BoardEntry.makeBoard(ctx) }
 }

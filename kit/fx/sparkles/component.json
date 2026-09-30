@@ -1,0 +1,25 @@
+{
+ "id": "sparkles",
+ "title": "Sparkles",
+ "category": "fx",
+ "summary": "A burst of four-point twinkle stars around a point (rewards, unlock icons, coin pill).",
+ "description": "FXEffect.sparkles(at:); count / radius / duration / size in ui.json `fx.sparkles`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/FX/Sparkles.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "ui.json:fx.sparkles"
+  ],
+  "skinTokens": [
+   "fx.sparkles"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab homeReturn"
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "id": "coin-fly",
+ "title": "Coin fly",
+ "category": "fx",
+ "summary": "The coin payout: '+N' label and coins flying into the coin pill, as Core Animation layers.",
+ "description": "FXEffect.coinFly(amount:coins:from:to:) on the FX host (timing = motion spec, look = UI spec).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/FX/CoinFly.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "art": [
+   "currency.coin.icon",
+   "reward.coinsSmall"
+  ],
+  "skinTokens": [
+   "fx.coinFly"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab homeReturn"
+ ]
+}

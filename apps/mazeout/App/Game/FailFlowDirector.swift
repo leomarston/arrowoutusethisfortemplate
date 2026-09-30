@@ -17,7 +17,8 @@ import PathCore
 // and its X leads to Level Failed (the bands themselves carry no balloon wording). A loss of 1 goes straight to Level Failed.
 // Template phase 2: genre-agnostic — driven by the `.meta(.offer / .lost)` events of any module; the first step's delay is
 // `fail.zeroHoldSeconds` for a clock that ran out (the pill shows 0:00) and `fail.heartsOutDelay` for every other kind; the
-// popup's texts follow `ContinueOffer.Kind` (S2's OutOfTimePopup / ContinuePopup: existing strings only).
+// popup's texts follow `ContinueOffer.Kind` (S2's OutOfTimePopup / ContinuePopup for time and hearts; template phase 5: the
+// generic OfferPopup for `stuck` / `outOfMoves`, its texts by kind and its grant line by the grant).
 
 @MainActor final class FailFlowDirector: GameDirector {
     unowned let game: GameController

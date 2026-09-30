@@ -1,0 +1,24 @@
+{
+ "id": "haptics",
+ "title": "Haptics",
+ "category": "audio",
+ "summary": "Haptic patterns as data (audio.json haptics + priority) with a one-per-frame arbiter.",
+ "description": "Haptics plays a Haptic case with the style / intensity of Tuning/audio.json `haptics.<case>`; the arbiter keeps one per frame.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Audio/Haptics.swift"
+ ],
+ "depends": [
+  "core",
+  "sounds"
+ ],
+ "uses": {
+  "tuning": [
+   "audio.json:hapticPriority",
+   "audio.json:haptics"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go soundboard -pc.hapticLog 1"
+ ]
+}

@@ -60,6 +60,22 @@
     "hintBudget": 20000,
     "maxExtraTubes": 2
   },
+  "boosters": {
+    "undo": {
+      "startStock": 3,
+      "packCount": 3,
+      "price": 900,
+      "name": "Undo",
+      "description": "Take back your last move!"
+    },
+    "extraTube": {
+      "startStock": 3,
+      "packCount": 3,
+      "price": 900,
+      "name": "Extra Tube",
+      "description": "Add an empty tube to the board!"
+    }
+  },
   "failChain": {
     "stuck": [
       {

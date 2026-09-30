@@ -272,3 +272,18 @@ Up & Away Best Streak	하늘 높이 최고 연승	B3 (B1 key): Profile stat tile
 %@ ends soon!	%@ 곧 종료돼요!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	닉네임은 2~16자여야 해요	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@에는 계정, 광고, 추적이 없습니다.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	더 이상 이동 불가!	TPL5 NEW
+Out of Moves!	이동 횟수 소진!	TPL5 NEW
+You are stuck! Keep going with a little help.	막혔어요! 약간의 도움으로 계속하세요.	TPL5 NEW
+Keep going with a few more moves!	몇 번 더 이동해서 계속하세요!	TPL5 NEW
+Add Moves	이동 추가	TPL5 NEW
++1 Move	이동 +1	TPL5 NEW
++%lld Moves	이동 +%lld	TPL5 NEW
++%lld sec	+%lld초	TPL5 NEW
++1 Tube	튜브 +1	TPL5 NEW
++%lld Tubes	튜브 +%lld	TPL5 NEW
+Undo	되돌리기	TPL5 NEW
+Extra Tube	추가 튜브	TPL5 NEW
+Take back your last move!	마지막 이동을 되돌려요!	TPL5 NEW
+Add an empty tube to the board!	빈 튜브를 추가해요!	TPL5 NEW

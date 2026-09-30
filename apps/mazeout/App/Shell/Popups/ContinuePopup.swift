@@ -50,6 +50,9 @@ struct ContinuePopup: View {
     var body: some View {
         let v = Self.variant(offer, app: app)
         switch v {
+        case .time where OfferPopup.handles(offer.kind) && Self.forced == nil:
+            // template phase 5: a kind without a measured popup (stuck, outOfMoves) keeps its own texts in the same layout
+            OfferPopup(offer: offer, pay: pay, answer: answer, popupID: "continue")
         case .time, .hearts:
             OutOfTimePopup(offer: ContinueOffer(kind: v == .hearts ? .outOfHearts : .outOfTime, step: offer.step, price: offer.price,
                                                 grant: offer.grant, warning: offer.warning, isLast: offer.isLast),

@@ -272,3 +272,18 @@ Up & Away Best Streak	Rumbo al cielo: mejor racha	B3 (B1 key): Profile stat tile
 %@ ends soon!	¡%@ termina pronto!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	El nombre debe tener entre 2 y 16 caracteres	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ no tiene cuentas, ni anuncios, ni rastreo.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	¡Sin salida!	TPL5 NEW
+Out of Moves!	¡Sin movimientos!	TPL5 NEW
+You are stuck! Keep going with a little help.	¡Estás atascado! Sigue con una pequeña ayuda.	TPL5 NEW
+Keep going with a few more moves!	¡Sigue con unos movimientos más!	TPL5 NEW
+Add Moves	Añadir	TPL5 NEW
++1 Move	+1 movimiento	TPL5 NEW
++%lld Moves	+%lld movimientos	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	+1 tubo	TPL5 NEW
++%lld Tubes	+%lld tubos	TPL5 NEW
+Undo	Deshacer	TPL5 NEW
+Extra Tube	Tubo extra	TPL5 NEW
+Take back your last move!	¡Deshaz tu último movimiento!	TPL5 NEW
+Add an empty tube to the board!	¡Añade un tubo vacío!	TPL5 NEW

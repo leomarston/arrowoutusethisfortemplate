@@ -34,12 +34,16 @@ public struct EconomyRules: Codable, Sendable, Equatable {
         /// Booster stock at install. VERIFIED badges "3" from L1-4 in both videos and the phone kickoff (SPEC-gameplay §6).
         public var startBoosters: [String: Int] = ["freeze": 3, "hint": 3]
         public var boosterPack = BoosterPack()
+        /// Template phase 5 (additive): a booster's OWN pack, by booster id (a puzzle module's boosters, added at boot from the
+        /// module's data for the ids rules.json does not list). Empty in rules.json: every booster uses `boosterPack`.
+        public var boosterPacks: [String: BoosterPack] = [:]
         public init() {}
         public init(from decoder: Decoder) throws {
             let c = try decoder.container(keyedBy: CodingKeys.self); let d = EconomySection()
             startCoins = try c.v(.startCoins, d.startCoins)
             startBoosters = try c.v(.startBoosters, d.startBoosters)
             boosterPack = try c.v(.boosterPack, d.boosterPack)
+            boosterPacks = try c.v(.boosterPacks, d.boosterPacks)
         }
     }
 
@@ -154,7 +158,7 @@ public struct EconomyRules: Codable, Sendable, Equatable {
     /// (`MetaRules.boosters` = rules.json `boosters`, read by the puzzle's `RulesTuning.boosters` too: the freeze seconds and
     /// hint units are C2's knobs; one source of truth).
     public func boosterRules(_ session: MetaRules.Boosters = MetaRules.default.boosters) -> [BoosterRule] {
-        let ids = Set(economy.startBoosters.keys).union(session.actions.keys).sorted()
+        let ids = Set(economy.startBoosters.keys).union(session.actions.keys).union(economy.boosterPacks.keys).sorted()
         return ids.map { id in
             let effect: BoosterEffect
             switch session.action(BoosterID(id)) {
@@ -162,10 +166,14 @@ public struct EconomyRules: Codable, Sendable, Equatable {
             case .hint: effect = .hint(units: session.hintUnits)
             case .none: effect = .custom(id)
             }
+            let pack = boosterPack(for: BoosterID(id))
             return BoosterRule(id: BoosterID(id), effect: effect, startStock: economy.startBoosters[id] ?? 0,
-                               price: economy.boosterPack.price, packCount: economy.boosterPack.count, unlockLevel: nil)
+                               price: pack.price, packCount: pack.count, unlockLevel: nil)
         }
     }
+
+    /// The pack a booster is sold in at 0 stock: its own (`economy.boosterPacks`, a module's booster), else the shared one.
+    public func boosterPack(for id: BoosterID) -> BoosterPack { economy.boosterPacks[id.rawValue] ?? economy.boosterPack }
 
     // MARK: loading
 
@@ -216,7 +224,7 @@ public struct EconomyRules: Codable, Sendable, Equatable {
             for (k, v) in o where !k.hasPrefix("_") {
                 guard let bv = b[k] else { out.append(path + k); continue }
                 // open maps keyed by data (booster ids) and lists: do not descend
-                if k == "startBoosters" || k == "ladder" || k == "products" { continue }
+                if k == "startBoosters" || k == "boosterPacks" || k == "ladder" || k == "products" { continue }
                 if let ov = v as? [String: Any], let bo = bv as? [String: Any] { walk(ov, bo, path + k + ".") }
             }
         }

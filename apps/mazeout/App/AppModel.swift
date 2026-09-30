@@ -38,7 +38,9 @@ import PathCore
     var latency: LatencyProbe { context.latency }
     var bundle: Bundle { context.bundle }
 
-    let board: any BoardControlling            // created at boot, never destroyed (§5.1)
+    /// The active module's app-lifetime engine (ArrowEscape: the Core Animation BoardEngine), created at boot, never destroyed
+    /// (§5.1); nil when the active module has none (template phase 5: `ActivePuzzle.entry.makeEngine`, only the active one).
+    let board: (any BoardControlling)?
     let audio: any AudioPlaying
     let haptics: any HapticPlaying
     let router: any Routing
@@ -52,9 +54,10 @@ import PathCore
     @ObservationIgnored let rules: RulesTuning
     /// C3's economy / lives / streak / Claw / shop / events table (rules.json C3 sections + social.json events).
     @ObservationIgnored let economy: EconomyRules
-    /// The bundled levels (lazy decode; nil when bundle/Levels is missing or unreadable — logged).
+    /// The bundled levels (lazy decode; nil when bundle/Levels is missing or unreadable — logged). Template phase 5: the
+    /// active module's content (`ActivePuzzle.entry.loadContent`): nil for a module without an arrow level library.
     @ObservationIgnored let library: LevelLibrary?
-    /// Authored levels, then the generated ones (C4, off the main thread, one level ahead).
+    /// Authored levels, then the generated ones (C4, off the main thread, one level ahead); the active module's, like `library`.
     @ObservationIgnored let provider: LevelProvider?
     /// The offline world (the events' RivalProvider, §4.10–§4.11), built off the main thread during Loading.
     @ObservationIgnored private(set) var socialWorld: SocialWorld?
@@ -102,6 +105,9 @@ import PathCore
         var (economy, econProblems) = EconomyRules.load(rules: tuning.rules.data, social: tuning.social.file.data,
                                                         overrides: tuning.rules.overrides)
         EventRotationPolicy.apply(&economy)
+        // template phase 5: the active module's own boosters (stock, packs) for the ids rules.json does not list (none for
+        // ArrowEscape: the table is unchanged)
+        economy.addModuleBoosters(ActivePuzzle.entry.moduleBoosters(bundle: bundle, tune: args.tune))
         for p in ruleProblems + econProblems { Log.error("tuning", p) }
         self.rules = rules
         self.economy = economy
@@ -115,32 +121,20 @@ import PathCore
         for n in notices { Log.mark("store", "launch reconcile: \(Self.describe(n))") }
         let t2 = ProcessInfo.processInfo.systemUptime
 
-        // 2. The level library (index + small files; levels decode lazily) and the provider.
-        var library: LevelLibrary?
-        if let folder = bundle.resourceURL?.appendingPathComponent("Levels") {
-            do {
-                let lib = try LevelLibrary.load(folder: folder)
-                for p in lib.problems { Log.error("levels", p) }
-                library = lib
-            } catch {
-                Log.error("levels", "\(error)")
-            }
-        }
+        // 2. The active module's content (ArrowEscape: the level library — index + small files, levels decode lazily — and
+        // the provider; template phase 5: only the active module's is loaded).
+        let content = ActivePuzzle.entry.loadContent(bundle: bundle)
+        let library = content.library
         self.library = library
-        let provider = library.map { LevelProvider(library: $0) }
-        provider?.onProduced = { r in
-            Log.mark("level", String(format: "generated L%d in %.1f ms (%@, seeds %d, validate %.1f ms)", r.level, r.totalMs,
-                                     r.route.rawValue, r.seedsTried, r.validateMs))
-        }
-        self.provider = provider
-        sessions = library?.sessions ?? Self.loadSessions(bundle: bundle)
+        self.provider = content.provider
+        sessions = content.sessions
         let t3 = ProcessInfo.processInfo.systemUptime
 
         context = AppContext(args: args, tuning: tuning, clock: clock, store: store, hud: HUDModel(),
                              anchors: AnchorRegistry(), perf: PerfMonitor(hitchMs: tuning.board.hitchMs),
                              latency: LatencyProbe(), bundle: bundle)
 
-        board = BoardEntry.makeBoard(context)
+        board = ActivePuzzle.entry.makeEngine(context)
         audio = AudioEntry.makeAudio(context)
         haptics = AudioEntry.makeHaptics(context)
         router = ShellEntry.makeRouter(context)
@@ -207,9 +201,11 @@ import PathCore
                 if let w = await social.value, self?.socialWorld == nil { self?.socialWorld = w }
             }
         }
-        let warm = Task { @MainActor [audio, board] in
+        // the active module's board warms up (ArrowEscape: ArrowPuzzleBoard.prepare = the engine's own warm-up, as before)
+        let warmBoard: any PuzzleBoard = puzzleBoard
+        let warm = Task { @MainActor [audio, warmBoard] in
             async let a: Void = audio.warmUp()
-            async let b: Void = board.prepare()
+            async let b: Void = warmBoard.prepare()
             _ = await (a, b)
         }
         // FIX-B (V1 ShellS2UITests:31, Loading up 29 s): a REAL race. The former withTaskGroup never capped: it awaits every
@@ -320,7 +316,7 @@ import PathCore
         let authored = levels.filter { !provider.isGenerated($0) }
         Task { @MainActor [weak self] in
             let specs = await Task.detached(priority: .utility) { authored.compactMap { library.authored($0) } }.value
-            self?.board.preload(specs)
+            self?.board?.preload(specs)
         }
     }
 
@@ -405,7 +401,8 @@ import PathCore
         }
     }
 
-    private static func loadSessions(bundle: Bundle) -> [SessionPlan] {
+    /// Levels/sessions.json's plans (a module without its own library: PuzzleEntryPoint's default content).
+    static func loadSessions(bundle: Bundle) -> [SessionPlan] {
         struct File: Decodable { let sessions: [SessionPlan] }
         guard let url = bundle.url(forResource: "sessions", withExtension: "json", subdirectory: "Levels") else { return [] }
         do { return try JSONDecoder().decode(File.self, from: Data(contentsOf: url)).sessions } catch {

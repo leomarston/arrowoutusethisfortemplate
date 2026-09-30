@@ -272,3 +272,18 @@ Up & Away Best Streak	Do oblakov: najlepšia séria	B3 (B1 key): Profile stat ti
 %@ ends soon!	%@ sa čoskoro skončí!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	Prezývka musí mať 2 až 16 znakov	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ nemá účty, reklamy ani sledovanie.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	Žiadny ťah!	TPL5 NEW
+Out of Moves!	Došli ťahy!	TPL5 NEW
+You are stuck! Keep going with a little help.	Zasekol si sa! Pokračuj s malou pomocou.	TPL5 NEW
+Keep going with a few more moves!	Pokračuj s niekoľkými ťahmi navyše!	TPL5 NEW
+Add Moves	Pridať ťahy	TPL5 NEW
++1 Move	Ťah +1	TPL5 NEW
++%lld Moves	Ťahy +%lld	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	Skúmavka +1	TPL5 NEW
++%lld Tubes	Skúmavky +%lld	TPL5 NEW
+Undo	Späť	TPL5 NEW
+Extra Tube	Extra skúmavka	TPL5 NEW
+Take back your last move!	Vráť svoj posledný ťah!	TPL5 NEW
+Add an empty tube to the board!	Pridaj prázdnu skúmavku!	TPL5 NEW

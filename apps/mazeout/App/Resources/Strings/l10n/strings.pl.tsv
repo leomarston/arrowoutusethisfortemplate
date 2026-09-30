@@ -272,3 +272,18 @@ Up & Away Best Streak	Hen w górę: najlepsza seria	B3 (B1 key): Profile stat ti
 %@ ends soon!	%@ wkrótce się kończy!	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	Pseudonim musi mieć 2–16 znaków	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ nie ma kont, reklam ani śledzenia.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	Brak ruchów!	TPL5 NEW
+Out of Moves!	Koniec ruchów!	TPL5 NEW
+You are stuck! Keep going with a little help.	Utknąłeś! Graj dalej z małą pomocą.	TPL5 NEW
+Keep going with a few more moves!	Graj dalej z kilkoma ruchami więcej!	TPL5 NEW
+Add Moves	Dodaj ruchy	TPL5 NEW
++1 Move	Ruch +1	TPL5 NEW
++%lld Moves	Ruchy +%lld	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	Probówka +1	TPL5 NEW
++%lld Tubes	Probówki +%lld	TPL5 NEW
+Undo	Cofnij	TPL5 NEW
+Extra Tube	Dodatkowa probówka	TPL5 NEW
+Take back your last move!	Cofnij swój ostatni ruch!	TPL5 NEW
+Add an empty tube to the board!	Dodaj pustą probówkę!	TPL5 NEW

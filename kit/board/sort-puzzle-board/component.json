@@ -1,0 +1,40 @@
+{
+ "id": "sort-puzzle-board",
+ "title": "SortPuzzle board",
+ "category": "board",
+ "summary": "The tubes board (UIKit + Core Animation, no art files) and the SortPuzzle plugin.",
+ "description": "SortPuzzleBoard draws tubes and units from skin tokens (`puzzle.sortBoard.*`) and sort.json `board.*`; SortPuzzlePlugin is the app half of the module, active when ActivePuzzle.entry names SortPuzzleEntry (the PC_PUZZLE_SORT compilation condition). New files in App/Puzzles/SortPuzzle are owned here.",
+ "status": "needs-work",
+ "gaps": [
+  "Names ArrowEscape's FeatureUnlock / SessionPlan and the arrow board's IntroStyle (the game-loop seam)."
+ ],
+ "files": [
+  "apps/mazeout/App/Puzzles/SortPuzzle/**"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/SortPuzzleAppTests.swift"
+ ],
+ "depends": [
+  "core",
+  "arrow-escape",
+  "arrow-escape-board",
+  "sort-puzzle"
+ ],
+ "uses": {
+  "strings": [
+   "+1 Tube"
+  ],
+  "tuning": [
+   "sort.json:board",
+   "sort.json:board.completeScale",
+   "sort.json:board.perRowMax",
+   "sort.json:play"
+  ],
+  "skinTokens": [
+   "puzzle.sortBoard"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 1   (in a PC_PUZZLE_SORT build)"
+ ]
+}

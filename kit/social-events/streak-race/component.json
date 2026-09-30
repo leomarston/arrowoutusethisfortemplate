@@ -1,0 +1,80 @@
+{
+ "id": "streak-race",
+ "title": "Streak Race",
+ "category": "social-events",
+ "summary": "The daily streak race: 50-row board, the strip under the win / fail panels, the streak chips.",
+ "description": "GameCore StreakRace (one race per event day) + StreakRaceViews (the event page and the auto-shown board popup) + StreakBanner (the strip under the win and fail panels, the chip row shared with Continue?).",
+ "status": "needs-work",
+ "gaps": [
+  "Shared event helpers live in other events' files: SocInfoTitle / SocTwoLines / SocWarningCard (StreakRaceViews.swift), SocInfoDisc / SocReadyWhen (LeaderboardViews.swift), SocGrantText / SocStageStrip (RocketRaceViews.swift), EventTimerChip (StreakBanner.swift); moving them into SocChrome.swift would let each event stand alone."
+ ],
+ "files": [
+  "apps/mazeout/App/Shell/Social/StreakRaceViews.swift",
+  "apps/mazeout/App/Shell/Popups/StreakBanner.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/StreakRace.swift"
+ ],
+ "depends": [
+  "core",
+  "events-engine",
+  "leaderboard",
+  "social-ui",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "event.streakRace.header",
+   "hud.timer.iconSmall",
+   "icon.finishFlag",
+   "icon.info",
+   "icon.pointer",
+   "icon.pointerDown",
+   "lives.lost",
+   "rank.1.badge",
+   "rank.2.badge",
+   "rank.3.badge",
+   "social.scoreChip"
+  ],
+  "strings": [
+   "Beat levels without fail to get more rewards!",
+   "Beat levels without losing!",
+   "Earn more flags than others!",
+   "fail",
+   "Hot Streak",
+   "If you fail a level the multiplier will reset!",
+   "Increase your score multiplier!",
+   "Info",
+   "Tap to Continue"
+  ],
+  "tuning": [
+   "rules.json:streak",
+   "rules.json:streak.steps",
+   "social.json:unlocks.streakRace",
+   "ui.json:colors.continueStreak",
+   "ui.json:colors.event",
+   "ui.json:colors.streakRace",
+   "ui.json:frames.streakRace",
+   "ui.json:gradients.band",
+   "ui.json:gradients.streakRace",
+   "ui.json:streakRace",
+   "ui.json:streakRace.bandTop",
+   "ui.json:streakRace.chipCentres",
+   "ui.json:text.streakRace",
+   "ui.json:win.chipAt",
+   "ui.json:win.chipDur",
+   "ui.json:win.panelAt",
+   "ui.json:win.ringAt",
+   "ui.json:win.stripAt",
+   "ui.json:win.stripDur"
+  ],
+  "skinTokens": [
+   "popups.streakBanner",
+   "social.streakRaceViews"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go event:streakRace -pc.socialScenario streakList",
+  "-pc.go home -pc.popup streakRace"
+ ]
+}

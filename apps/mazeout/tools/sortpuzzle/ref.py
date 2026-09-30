@@ -9,7 +9,7 @@
                                                #   tube dealt, colour counts = capacity
 
 The fixture (Packages/PathCore/Tests/Fixtures/sortpuzzle_goldens.json) holds the rules it was made from (sort.json without
-its board section) and, for levels 1…N, the level's tag, capacity and tubes (bottom → top), an FNV-1a 64 hash of its
+its board and boosters sections) and, for levels 1…N, the level's tag, capacity and tubes (bottom → top), an FNV-1a 64 hash of its
 canonical text and the length of the solver's first solution. SortPuzzleTests decodes the same rules with the Swift
 `SortRules`, generates the same levels and compares every field: the Swift side is never edited to match itself.
 If the generator or the solver changes, change BOTH, re-run --write and review the diff.
@@ -274,7 +274,8 @@ def canonical(lv):
 def load_rules():
     with open(SORT_JSON, encoding="utf-8") as f:
         doc = json.load(f)
-    return {k: v for k, v in doc.items() if k != "board"}
+    # `board` (the view's numbers) and `boosters` (the shell's economy and texts for the module's boosters) are not rules
+    return {k: v for k, v in doc.items() if k not in ("board", "boosters")}
 
 
 def stress_rules(rules):

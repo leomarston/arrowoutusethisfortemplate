@@ -17,11 +17,15 @@ import SortPuzzle
     private let level: @MainActor (Int) -> SortLevel?
     let tutorials: [TutorialStep] = []
     let unlocks: [FeatureUnlock] = []
+    /// `undo` / `extraTube` as the shell sells and words them (sort.json `boosters`; template phase 5).
+    let moduleBoosters: [ModuleBooster]
 
-    /// `level` = the level source (nil: the seeded generator over `rules`, the same board for every player).
-    init(rules: SortRules, meta: MetaRules, level: (@MainActor (Int) -> SortLevel?)? = nil) {
+    /// `level` = the level source (nil: the seeded generator over `rules`, the same board for every player); `boosters` = the
+    /// module's boosters from sort.json (`SortPuzzleEntry.moduleBoosters`).
+    init(rules: SortRules, meta: MetaRules, level: (@MainActor (Int) -> SortLevel?)? = nil, boosters: [ModuleBooster] = []) {
         self.rules = rules
         self.meta = meta
+        moduleBoosters = boosters
         if let level {
             self.level = level
         } else {
@@ -70,6 +74,15 @@ import SortPuzzle
         let meta = meta, rules = rules
         return { SortPuzzleModule.warmUpWin(meta: meta, rules: rules) }
     }
+
+    /// The continue popup's grant line for the module's own rescue (the `stuck` chain's extra tube; an undo grant).
+    func grantText(_ grant: ContinueOffer.Grant) -> LocalizedStringResource? {
+        guard case .puzzleAction(let id, let n) = grant else { return nil }
+        switch id {
+        case SortPuzzleModule.extraTubeAction: return n == 1 ? LocalizedStringResource("+1 Tube") : LocalizedStringResource("+\(n) Tubes")
+        default: return nil
+        }
+    }
 }
 
 /// `ActivePuzzle.entry` for SortPuzzle.
@@ -79,7 +92,14 @@ import SortPuzzle
 
     static func makePlugin(_ app: AppModel) -> any PuzzlePlugin {
         let file = TuningFile.load(tuningFile, bundle: app.bundle, tune: app.args.tune)
-        return SortPuzzlePlugin(rules: SortPuzzlePlugin.loadRules(file), meta: app.rules.meta)
+        return SortPuzzlePlugin(rules: SortPuzzlePlugin.loadRules(file), meta: app.rules.meta,
+                                boosters: moduleBoosters(bundle: app.bundle, tune: app.args.tune))
+    }
+
+    /// sort.json `boosters.<id>` (start stock, pack, the name and description keys) for the module's declared boosters.
+    static func moduleBoosters(bundle: Bundle, tune: [String: String]) -> [ModuleBooster] {
+        ModuleBooster.list(TuningFile.load(tuningFile, bundle: bundle, tune: tune),
+                           ids: SortPuzzleModule.capabilities.boosters.map(\.id))
     }
 
     static func makeBoard(_ app: AppModel) -> any PuzzleBoard {

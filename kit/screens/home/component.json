@@ -1,0 +1,102 @@
+{
+ "id": "home",
+ "title": "Home (main menu)",
+ "category": "screens",
+ "summary": "The main menu: scene, top bar (avatar, coins, lives, gear), level plate, Play button and the 3-tab nav bar.",
+ "description": "HomeView composes the home in SPEC-ui's z-order: the scene (backdrop + puppets, skin/scenes.json), the top bar (avatar -> Profile, coin pill -> Shop, lives pill, gear -> Settings), the LEVEL caption and plate, the Play button (normal / Hard / Super Hard looks) and the bottom nav (Shop / Home / Leaderboard tabs), and the home-return payout queue after a win (PayoutSequence: the ladder event's token, the streak step, coins flying into the pill; ui.json `homeReturn.*`). The event layer (badges, ladder bars), the Shop tab and the Leaderboard tab are other components wired in here. New files in App/Shell/Home are owned here unless another component names them.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Home/*.swift"
+ ],
+ "depends": [
+  "core",
+  "avatars",
+  "coin-fly",
+  "loading",
+  "puppets",
+  "sparkles",
+  "ui-chrome"
+ ],
+ "wires": [
+  "events-engine",
+  "shop",
+  "social-ui"
+ ],
+ "uses": {
+  "art": [
+   "currency.coin.icon",
+   "event.clawChallenge.token",
+   "home.backdrop",
+   "home.centrepiece",
+   "home.floor",
+   "home.stand",
+   "home.station",
+   "hud.plusBadge",
+   "icon.finishFlag",
+   "icon.settings",
+   "lives.heart",
+   "nav.home.icon",
+   "nav.leaderboard.icon",
+   "nav.shop.icon"
+  ],
+  "rigs": [
+   "home.centrepiece",
+   "home.character.left",
+   "home.character.main",
+   "home.character.right"
+  ],
+  "cues": [
+   "clawComplete",
+   "clawMerge",
+   "clawTick",
+   "clawToken",
+   "homePayout",
+   "streakPop"
+  ],
+  "strings": [
+   "%lld:%02lld",
+   "Coins",
+   "Finished",
+   "Full",
+   "Hard Level",
+   "Home",
+   "Leaderboard",
+   "LEVEL",
+   "Levels",
+   "Lives",
+   "Play",
+   "Profile",
+   "Settings",
+   "Shop",
+   "Super Hard"
+  ],
+  "tuning": [
+   "ui.json:anchors.home",
+   "ui.json:colors.home",
+   "ui.json:colors.nav",
+   "ui.json:frames.home",
+   "ui.json:gradients.home",
+   "ui.json:home",
+   "ui.json:homeReturn",
+   "ui.json:homeReturn.claw",
+   "ui.json:homeReturn.streak",
+   "ui.json:layout.playFaceSideInset",
+   "ui.json:shapes.home",
+   "ui.json:text.home"
+  ],
+  "skinTokens": [
+   "home.homeTopBar",
+   "home.homeView",
+   "home.levelPlate",
+   "home.navBar",
+   "home.payoutSequence",
+   "home.playButton"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go home",
+  "-pc.go home -pc.level 40",
+  "-pc.go shelllab -pc.lab tabTour",
+  "-pc.go shelllab -pc.lab homeReturn"
+ ]
+}

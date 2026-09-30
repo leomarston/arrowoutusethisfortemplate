@@ -1,0 +1,74 @@
+{
+ "id": "arrow-escape",
+ "title": "ArrowEscape puzzle (rules)",
+ "category": "puzzle",
+ "summary": "The reference puzzle: grid, level model and JSON, rules, solver, generator, validator, the session + module.",
+ "description": "Packages/PathCore/Sources/ArrowEscape (depends on GameCore only): arrows leave the board along their path; obstacles (tape, pipe, box, elevator, door, corner), the level session, the solver / hint, the seeded generator and validator, ArrowEscapeModule (the PuzzleModule), plus pclevels (the content CLI) and the authored levels.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/Packages/PathCore/Sources/ArrowEscape/**",
+  "apps/mazeout/Packages/PathCore/Sources/pclevels/*.swift",
+  "apps/mazeout/App/Resources/Levels/**",
+  "apps/mazeout/App/Resources/Tuning/board.json",
+  "apps/mazeout/tools/levels/**",
+  "apps/mazeout/design/tools/*.py",
+  "apps/mazeout/design/levels.json"
+ ],
+ "tests": [
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/BotReplayTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/ComboTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/CurvesTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/EndlessGateTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/FreezeLeadTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/GeneratorTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/GeometryTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/GoldenRoundsTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/GridTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/HeadlessTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/HintPolicyTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/KinematicsTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/LevelJSONTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/LevelLibraryTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/RulesTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/SessionTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/SolverTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/ValidatorTests.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/WP0SmokeTests.swift",
+  "apps/mazeout/Tests/AppTests/LevelsBundleTests.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "strings": [
+   "Arrows turn when they hit the CORNER!",
+   "Box!",
+   "Clear all arrows on the ELEVATOR to activate it!",
+   "Clear required amount of arrows to break the BOX!",
+   "Collect the KEY to open the DOOR!",
+   "Corner!",
+   "Door!",
+   "Elevator!",
+   "Level 1-4",
+   "Levels 1-4",
+   "LINKED ARROWS move together!",
+   "Linked Arrows!",
+   "Pass arrows through the PIPE to break it!",
+   "Pipe!",
+   "Super Hard",
+   "Tap to move!",
+   "Unlocked!"
+  ],
+  "tuning": [
+   "rules.json:box.countAt",
+   "rules.json:elevator.emptyCellsBlock",
+   "rules.json:hit.radiusPt",
+   "rules.json:pipe.countAt",
+   "rules.json:tape.blockedPolicy"
+  ]
+ },
+ "launchArgs": [
+  "python3 apps/mazeout/tools/levels/bundle_check.py --publish",
+  "python3 apps/mazeout/design/tools/validate_levels.py"
+ ]
+}

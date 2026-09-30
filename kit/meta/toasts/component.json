@@ -1,0 +1,36 @@
+{
+ "id": "toasts",
+ "title": "Toasts",
+ "category": "meta",
+ "summary": "One-at-a-time toast plate over everything (newest replaces), text from the strings table.",
+ "description": "ToastCenter.show(_:) - a plate with one or two lines of the toast text role; timings and look in ui.json `toast.*`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Components/Toast.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "ui.json:text.toast",
+   "ui.json:toast",
+   "ui.json:toast.border",
+   "ui.json:toast.borderWidth",
+   "ui.json:toast.homeY",
+   "ui.json:toast.maxWidth",
+   "ui.json:toast.padX",
+   "ui.json:toast.padY",
+   "ui.json:toast.panelY",
+   "ui.json:toast.plate",
+   "ui.json:toast.plateAlpha",
+   "ui.json:toast.radius"
+  ],
+  "skinTokens": [
+   "components.toast"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab components   (shows a toast)"
+ ]
+}

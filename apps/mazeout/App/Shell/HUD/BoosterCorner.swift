@@ -12,6 +12,9 @@ import PathCore
 // A booster does not start the timer. The tap goes to GAME (`HUDActions.booster`); the press is the shared GameButton
 // (scale 0.95 on touch-down, click + haptic on release). The file is named after the SPEC-architecture tree; the views are
 // `BoosterCornerView` (GlossyChrome reserves `BoosterButton` / `CountBadge`).
+// Template phase 5: any declared booster. Its icon is the art slot `BoosterSpec.icon` or `booster.<id>.icon` (the reference's
+// hourglass and bulb are exactly those slots); a module booster whose slot has no art in the skin shows its NAME on the green
+// face instead (the name's string key from the module's data; no stand-in art), and it is the corner's accessibility label.
 
 struct BoosterCornerView: View, Equatable {
     enum Side { case left, right }
@@ -33,16 +36,20 @@ struct BoosterCornerView: View, Equatable {
                           left ? CGRect(25.7, 773.3, 34.4, 38.0) : CGRect(337.3, 773.0, 26.0, 39.0), .bottom, m)
         let badge = t.rect(left ? "booster.badgeLeft" : "booster.badgeRight",
                            left ? CGRect(53.0, 801.7, 24.7, 24.4) : CGRect(360.2, 801.7, 24.7, 24.4), .bottom, m)
-        let art: UIArt = slot.id == .freeze ? .boosterFreezeIcon : .boosterHintIcon
+        let art = BoosterArt.icon(slot)
         ZStack(alignment: .topLeading) {
             Rasterized("boosterTray|\(left)", overflow: 3) { _ in BoosterTray(left: left, t: t) }
                 .placed(tray)
-            GameButton(id: "hud.booster.\(slot.id.rawValue)", label: slot.id == .freeze ? "Time Freeze" : "Hint",
+            GameButton(id: "hud.booster.\(slot.id.rawValue)", label: BoosterArt.label(slot),
                        value: slot.state.accessibilityValue, enabled: slot.state != .locked, action: { action(slot.id) }) {
                 ZStack(alignment: .topLeading) {
                     Rasterized("boosterWell", overflow: 3) { _ in BoosterWell(t: t) }
                         .frame(width: button.width, height: button.height)
-                    InkImage(art: art, ink: icon.offsetBy(dx: -button.minX, dy: -button.minY))
+                    if let art {
+                        InkImage(art: art, ink: icon.offsetBy(dx: -button.minX, dy: -button.minY))
+                    } else {
+                        nameFace(CGRect(x: 0, y: 0, width: button.width, height: button.height))
+                    }
                     badgeView(badge.offsetBy(dx: -button.minX, dy: -button.minY))
                 }
                 .frame(width: button.width, height: button.height, alignment: .topLeading)
@@ -50,6 +57,15 @@ struct BoosterCornerView: View, Equatable {
             .placed(button)
             .anchor(.booster(slot.id))
         }
+    }
+
+    /// No art for the booster's slot: its name on the green face (the badge count's text style, shrunk to the face).
+    private func nameFace(_ face: CGRect) -> some View {
+        let style = t.text("booster.badge.count", .s2(16.9, 0, [Skin.hudBoosterCornerBoosterBadgeCount0, Skin.hudBoosterCornerBoosterBadgeCount1, Skin.hudBoosterCornerBoosterBadgeCount2], outline: Skin.hudBoosterCornerBoosterBadgeCountOutline, 0.71, drop: 0.56))
+            .sized(CGFloat(t.number("modules.booster.labelSize", 15)) * m.s)
+        return GameText(BoosterArt.label(slot), style: style,
+                        maxWidth: face.width - CGFloat(t.number("modules.booster.labelInset", 8)) * m.s)
+            .at(face.midX, style.capCentre(baseline: face.midY + style.size * 0.36))
     }
 
     @ViewBuilder private func badgeView(_ r: CGRect) -> some View {
@@ -148,5 +164,21 @@ private struct RedBadge: View {
                                          center: UnitPoint(x: 0.45, y: 0.35), startRadius: 0, endRadius: 12))
                 .padding(1.2)
         }
+    }
+}
+
+/// Template phase 5: a booster's art slot and name, for any declared booster.
+enum BoosterArt {
+    /// `BoosterSpec.icon`, else `booster.<id>.icon`; nil when the skin maps no art to it (the reference's freeze / hint map
+    /// their hourglass and bulb).
+    static func icon(_ slot: BoosterSlotVM) -> UIArt? { icon(id: slot.id, slot: slot.icon) }
+
+    static func icon(id: BoosterID, slot: String?) -> UIArt? { UIArt(rawValue: slot ?? ("booster." + id.rawValue + ".icon")) }
+
+    /// The corner's label: the reference's "Time Freeze" / "Hint", a module booster's name (its string key), else its id.
+    static func label(_ slot: BoosterSlotVM) -> LocalizedStringResource {
+        if slot.id == .freeze { return "Time Freeze" }
+        if slot.id == .hint { return "Hint" }
+        return LocalizedStringResource(String.LocalizationValue(slot.nameKey ?? slot.id.rawValue))
     }
 }

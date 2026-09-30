@@ -1,0 +1,23 @@
+{
+ "id": "rating-prompt",
+ "title": "Rating prompt",
+ "category": "meta",
+ "summary": "Asks for an App Store rating once, on the home after a chosen level (game.json rating.afterLevel).",
+ "description": "RatingDirector: once per install (flags.ratingPromptShown saved first), AppStore.requestReview(in:).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Game/RatingDirector.swift"
+ ],
+ "depends": [
+  "core",
+  "notifications"
+ ],
+ "uses": {
+  "tuning": [
+   "game.json:rating"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go home -pc.level 35"
+ ]
+}

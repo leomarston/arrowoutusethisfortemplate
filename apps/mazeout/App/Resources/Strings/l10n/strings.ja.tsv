@@ -272,3 +272,18 @@ Up & Away Best Streak	ふわっと空へ 最高連勝	B3 (B1 key): Profile stat 
 %@ ends soon!	%@はまもなく終了！	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	名前は2～16文字にしてください	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@にはアカウント、広告、トラッキングはありません。	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	手詰まり！	TPL5 NEW
+Out of Moves!	手数切れ！	TPL5 NEW
+You are stuck! Keep going with a little help.	行き詰まり！少しの助けで続けよう。	TPL5 NEW
+Keep going with a few more moves!	あと少しの手数で続けよう！	TPL5 NEW
+Add Moves	手数追加	TPL5 NEW
++1 Move	+1手	TPL5 NEW
++%lld Moves	+%lld手	TPL5 NEW
++%lld sec	+%lld秒	TPL5 NEW
++1 Tube	チューブ+1	TPL5 NEW
++%lld Tubes	チューブ+%lld	TPL5 NEW
+Undo	元に戻す	TPL5 NEW
+Extra Tube	追加チューブ	TPL5 NEW
+Take back your last move!	最後の一手を取り消そう！	TPL5 NEW
+Add an empty tube to the board!	空のチューブを追加しよう！	TPL5 NEW

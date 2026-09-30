@@ -42,7 +42,9 @@ import PathCore
     static func containerValue(_ request: PopupRequest, app: AppModel) -> String {
         switch request {
         case .continueOffer(let offer, _): return ContinuePopup.variant(offer, app: app).rawValue
-        case .outOfTime(let offer, _): return offer.kind == .outOfHearts ? "hearts" : "time"
+        case .outOfTime(let offer, _):
+            // template phase 5: a kind without a measured popup (OfferPopup) reports its own name
+            return OfferPopup.handles(offer.kind) ? offer.kind.rawValue : (offer.kind == .outOfHearts ? "hearts" : "time")
         case .winPanel(let s): return s.tag.rawValue
         case .unlockOverlay(let f): return f.rawValue
         case .levelFailed(_, let reason): return reason.rawValue
@@ -72,7 +74,12 @@ import PathCore
 
     @ViewBuilder private static func panel(_ request: PopupRequest, answer: PopupAnswer) -> some View {
         switch request {
-        case .outOfTime(let offer, let pay): OutOfTimePopup(offer: offer, pay: pay, answer: answer)
+        case .outOfTime(let offer, let pay):
+            if OfferPopup.handles(offer.kind) {
+                OfferPopup(offer: offer, pay: pay, answer: answer)                 // template phase 5: stuck, outOfMoves
+            } else {
+                OutOfTimePopup(offer: offer, pay: pay, answer: answer)
+            }
         case .continueOffer(let offer, let pay): ContinuePopup(offer: offer, pay: pay, answer: answer)
         case .levelFailed(let levels, let reason): LevelFailedPopup(levels: levels, reason: reason, answer: answer)
         case .winPanel(let summary): WinPanel(summary: summary, answer: answer)

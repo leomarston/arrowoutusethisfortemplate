@@ -74,6 +74,14 @@ struct BoardDiagnostics {
     /// Publishes the UI-test probe now (`-pc.uitest` / `-pc.probeFile`), e.g. on a timer start/stop edge.
     func publishProbe()
     var diagnostics: BoardDiagnostics? { get }
+    /// Template phase 5 (additive, default false): the board feeds PerfMonitor / LatencyProbe itself (ArrowEscape's engine:
+    /// its display link, the hitch and tap-latency logs). Every other board is metered by the Play from the delegate's
+    /// `boardFrame` / `boardInput` (GameController's `BoardFrameMeter`).
+    var metersFrames: Bool { get }
+}
+
+extension PuzzleBoard {
+    var metersFrames: Bool { false }
 }
 
 /// Hosts the one app-lifetime board view edge to edge (BoardHostView adopts it and never re-creates it).
@@ -113,12 +121,91 @@ struct PuzzleBoardHost: UIViewRepresentable {
     func mistakeTargets(_ session: any PuzzleSession, board: any PuzzleBoard) -> [PuzzleTarget]
     /// A headless won session for the first-win warm-up, run off the main thread (FIX-2 A, V3-01).
     func warmUpWin() -> @Sendable () -> WinResult?
+    /// Template phase 5 (additive, default none): the module's boosters the shell has no built-in texts or economy for
+    /// (their buy popup, the HUD corner's label, their stock and pack; from the module's data file).
+    var moduleBoosters: [ModuleBooster] { get }
+    /// Template phase 5 (additive, default nil): the continue popup's grant line for a grant the shell cannot word itself
+    /// (a module action: "+1 Tube"); nil = the shell's generic line.
+    func grantText(_ grant: ContinueOffer.Grant) -> LocalizedStringResource?
 }
 
-/// How a module plugs into the app (the WP0 entry-point pattern).
+extension PuzzlePlugin {
+    var moduleBoosters: [ModuleBooster] { [] }
+    func grantText(_ grant: ContinueOffer.Grant) -> LocalizedStringResource? { nil }
+    /// The module booster `id` (nil = a booster the shell words itself, or none).
+    func moduleBooster(_ id: BoosterID) -> ModuleBooster? { moduleBoosters.first { $0.id == id } }
+}
+
+/// How a module plugs into the app (the WP0 entry-point pattern). Template phase 5: AppModel asks the ACTIVE module (and only
+/// it) for its boot content, its app-lifetime engine and its boosters' economy, so a game never builds another module's
+/// engine or level library.
 @MainActor protocol PuzzleEntryPoint {
     static func makePlugin(_ app: AppModel) -> any PuzzlePlugin
     static func makeBoard(_ app: AppModel) -> any PuzzleBoard
+    /// The module's content loaded at boot, before the services (default: no library, the bundle's Levels/sessions.json).
+    static func loadContent(bundle: Bundle) -> PuzzleBootContent
+    /// The module's app-lifetime engine behind its board, built where the services are (default: none).
+    static func makeEngine(_ ctx: AppContext) -> (any BoardControlling)?
+    /// The module's boosters from its data (default: none); AppModel and the shop's economy table add their stock and packs.
+    static func moduleBoosters(bundle: Bundle, tune: [String: String]) -> [ModuleBooster]
+}
+
+extension PuzzleEntryPoint {
+    static func loadContent(bundle: Bundle) -> PuzzleBootContent {
+        PuzzleBootContent(library: nil, provider: nil, sessions: AppModel.loadSessions(bundle: bundle))
+    }
+    static func makeEngine(_ ctx: AppContext) -> (any BoardControlling)? { nil }
+    static func moduleBoosters(bundle: Bundle, tune: [String: String]) -> [ModuleBooster] { [] }
+}
+
+/// What the active module loads at boot (ArrowEscape: its level library, the C4 provider and the session plans).
+struct PuzzleBootContent {
+    var library: LevelLibrary?
+    var provider: LevelProvider?
+    var sessions: [SessionPlan]
+}
+
+/// Template phase 5: a booster a module declares that the shell has no built-in texts or economy for (SortPuzzle's `undo`,
+/// `extraTube`). From the module's data file (`boosters.<id>`: startStock, packCount, price, name, description); `name` and
+/// `description` are string-catalogue keys (strings.tsv, 13 languages).
+struct ModuleBooster: Equatable, Sendable {
+    var id: BoosterID
+    var startStock: Int
+    var pack: EconomyRules.BoosterPack
+    var name: String
+    var description: String
+
+    var nameResource: LocalizedStringResource { LocalizedStringResource(String.LocalizationValue(name)) }
+    var descriptionResource: LocalizedStringResource { LocalizedStringResource(String.LocalizationValue(description)) }
+
+    /// The `boosters.<id>` entries of a module's data file for `ids` (capabilities order); an entry without a price, a pack
+    /// count or its texts is left out (logged: the booster then has no shop economy).
+    static func list(_ file: TuningFile, ids: [BoosterID]) -> [ModuleBooster] {
+        ids.compactMap { (id: BoosterID) -> ModuleBooster? in
+            let k = "boosters.\(id.rawValue)."
+            guard file.has("boosters.\(id.rawValue)") else { return nil }
+            guard file.has(k + "price"), file.has(k + "packCount"), let name = file.value(k + "name") as? String,
+                  let text = file.value(k + "description") as? String, !name.isEmpty, !text.isEmpty else {
+                Log.error("tuning", "\(file.name).json boosters.\(id.rawValue): price, packCount, name and description are required")
+                return nil
+            }
+            return ModuleBooster(id: id, startStock: max(0, file.int(k + "startStock", 0)),
+                                 pack: EconomyRules.BoosterPack(count: max(0, file.int(k + "packCount", 0)),
+                                                                price: max(0, file.int(k + "price", 0))),
+                                 name: name, description: text)
+        }
+    }
+}
+
+extension EconomyRules {
+    /// Adds a module's boosters to the table: their start stock and their own pack, only for ids the table does not list
+    /// (rules.json wins). Without module boosters (ArrowEscape) the table is untouched.
+    mutating func addModuleBoosters(_ list: [ModuleBooster]) {
+        for b in list where economy.startBoosters[b.id.rawValue] == nil && economy.boosterPacks[b.id.rawValue] == nil {
+            economy.startBoosters[b.id.rawValue] = b.startStock
+            economy.boosterPacks[b.id.rawValue] = b.pack
+        }
+    }
 }
 
 /// THE ONE LINE A NEW GAME CHANGES: the active puzzle module's entry point (its app half lives next to its board; ArrowEscape's

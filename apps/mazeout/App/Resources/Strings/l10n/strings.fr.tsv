@@ -272,3 +272,18 @@ Up & Away Best Streak	Envolée : meilleure série	B3 (B1 key): Profile stat til
 %@ ends soon!	%@ se termine bientôt !	B3 (B1 key): local notification (%@ = the ladder event's name); no layout
 Name must be 2-16 characters	Le pseudo doit faire 2 à 16 caractères	B3 NEW: the username toast when the typed name has Han / Hangul / kana (2 characters suffice); same wording as the 3-16 row
 #~	%@ has no accounts, no ads and no tracking.	%@ n'a ni compte, ni publicité, ni suivi.	SUPERSEDED: META 2026-09-29 (the Meta SDK in 1.0): replaced by '%@ has no accounts and shows no ads.' + two Meta paragraphs
+# Template phase 5 (2026-09-30) NEW keys: the generic offer popup (stuck / outOfMoves) and SortPuzzle's boosters; fit not measured yet (ctfit on the Mac)
+No Moves Left!	Aucun coup possible !	TPL5 NEW
+Out of Moves!	Plus de coups !	TPL5 NEW
+You are stuck! Keep going with a little help.	Tu es bloqué ! Continue avec un petit coup de pouce.	TPL5 NEW
+Keep going with a few more moves!	Continue avec quelques coups de plus !	TPL5 NEW
+Add Moves	Ajouter	TPL5 NEW
++1 Move	+1 coup	TPL5 NEW
++%lld Moves	+%lld coups	TPL5 NEW
++%lld sec	+%lld s	TPL5 NEW
++1 Tube	+1 tube	TPL5 NEW
++%lld Tubes	+%lld tubes	TPL5 NEW
+Undo	Annuler	TPL5 NEW
+Extra Tube	Tube bonus	TPL5 NEW
+Take back your last move!	Annule ton dernier coup !	TPL5 NEW
+Add an empty tube to the board!	Ajoute un tube vide !	TPL5 NEW

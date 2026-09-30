@@ -1,0 +1,26 @@
+{
+ "id": "fireworks",
+ "title": "Fireworks",
+ "category": "fx",
+ "summary": "Core Animation fireworks: rockets and bursts with precomputed keyframes.",
+ "description": "FXEffect.fireworks(in:) on the FX host; ui.json `fx.firework`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/FX/Fireworks.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "ui.json:fx.firework",
+   "ui.json:win.burstFlash"
+  ],
+  "skinTokens": [
+   "fx.fireworks"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab celebrate:hard"
+ ]
+}

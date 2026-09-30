@@ -216,10 +216,7 @@ import PathCore
 
     /// The module's corners from the stock (0 → the "+" badge).
     private func refreshSlots() {
-        let slots = game.capabilities.boosters.map { spec -> BoosterSlotVM in
-            let n = Economy.stock(store.state, spec.id)
-            return BoosterSlotVM(id: spec.id, state: n > 0 ? .stock(n) : .empty)
-        }
+        let slots = game.capabilities.boosters.map { spec in game.boosterSlot(spec, stock: Economy.stock(store.state, spec.id)) }
         game.hudWriter.setBoosters(slots)
     }
 

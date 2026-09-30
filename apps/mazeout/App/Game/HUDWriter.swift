@@ -13,6 +13,9 @@ import PathCore
 // Timer text "m:ss" with no leading zero on the minutes, the value `ceil(remaining)` (C2's `displayedSeconds`).
 // Template phase 2: reads only the generic `.meta` events and the session's generic state (clock, hearts); a module without a
 // hearts rule (`hearts` nil) shows no hearts.
+// Template phase 5: the HUD shows the module's declared widgets (`widgets`, written once at the cut, only when they differ from
+// the reference game's timer + hearts); the counters follow `movesChanged` / `goalProgress` on their event, except on a tap
+// frame (§8.2), where they wait for the next display-link tick like `.timerStarted`.
 
 @MainActor final class HUDWriter {
     let hud: HUDModel
@@ -28,6 +31,9 @@ import PathCore
     private var slots = 3
     /// A timer re-arm due at a game time (the stage transition's swap at W + gap, MA §3.7 row 3).
     private var rearm: (at: Double, seconds: Int)?
+    /// Counter values that arrived on a tap frame (written on the next tick, §8.2).
+    private var movesPending: Int?
+    private var goalsPending: [GoalState]?
 
     init(hud: HUDModel, publishHz: Double) {
         self.hud = hud
@@ -36,8 +42,13 @@ import PathCore
 
     /// The level screen's first state (the cut): label, tier, the stage's limit frozen, full hearts, coins, boosters, intro.
     func begin(label: LocalizedStringResource, tag: LevelTag, seconds: Int, hearts: Int?, maxHearts: Int, coins: Int,
-               boosters: [BoosterSlotVM], intro: HUDIntroPhase) {
+               boosters: [BoosterSlotVM], intro: HUDIntroPhase, widgets: [HUDWidget] = [.timer, .hearts]) {
         slots = hearts.map { max(maxHearts, $0, 1) } ?? 0
+        movesPending = nil
+        goalsPending = nil
+        if hud.widgets != widgets { write("widgets") { hud.widgets = widgets } }
+        if hud.movesLeft != nil { write("movesLeft") { hud.movesLeft = nil } }
+        if !hud.goals.isEmpty { write("goals") { hud.goals = [] } }
         write("levelLabel") { hud.levelLabel = label }
         write("tag") { hud.tag = tag }
         setTimer(seconds, force: true)
@@ -73,11 +84,14 @@ import PathCore
                 if let h = session.hearts { setHearts(h) }
             case .offer, .won, .lost, .stageCleared:
                 frozenPending = true
+            case .movesChanged(let left):
+                if onTapFrame { movesPending = left } else { setMoves(left) }
+            case .goalProgress(let goals):
+                if onTapFrame { goalsPending = goals } else { setGoals(goals) }
             default:
                 break
             }
         }
-        _ = onTapFrame
     }
 
     /// Every display-link frame: the timer's displayed second, the pending frozen flag, a due re-arm.
@@ -86,6 +100,9 @@ import PathCore
             rearm = nil
             setTimer(r.seconds, force: true)
         }
+        // event-driven counters held back from a tap frame (not throttled: at most one write per event)
+        if let m = movesPending { movesPending = nil; setMoves(m) }
+        if let g = goalsPending { goalsPending = nil; setGoals(g) }
         guard now - lastThrottled >= minInterval else { return }
         var wrote = false
         if rearm == nil {
@@ -116,6 +133,8 @@ import PathCore
     func end() {
         rearm = nil
         frozenPending = nil
+        movesPending = nil
+        goalsPending = nil
         if hud.isVisible { write("isVisible") { hud.isVisible = false } }
         write("introPhase") { hud.introPhase = .hidden }
     }
@@ -129,6 +148,15 @@ import PathCore
         let text = Self.text(s)
         if hud.timerText != text { write("timerText") { hud.timerText = text } }
         if hud.timerSeconds != s { write("timerSeconds") { hud.timerSeconds = s } }
+    }
+
+    private func setMoves(_ left: Int) {
+        let v = max(0, left)
+        if hud.movesLeft != v { write("movesLeft") { hud.movesLeft = v } }
+    }
+
+    private func setGoals(_ goals: [GoalState]) {
+        if hud.goals != goals { write("goals") { hud.goals = goals } }
     }
 
     private func setHearts(_ remaining: Int) {

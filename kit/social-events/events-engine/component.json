@@ -1,0 +1,105 @@
+{
+ "id": "events-engine",
+ "title": "Events engine and weekly rotation",
+ "category": "social-events",
+ "summary": "The events' state machines, schedule, finished states, the weekly rotation, the director, badges, announcements.",
+ "description": "GameCore Events (join / progress / claim state machines over PlayerState.events, the calendar on the world clock, the finished-event state, the featured-events rotation), the win-streak multiplier, the app's EventsDirector (hooks after win / loss, the home auto-sequence), EventRotationPolicy, the week-start announcements and the home event badges. The individual events are separate components.",
+ "status": "needs-work",
+ "gaps": [
+  "EventsDirector names the game loop (GameController / GameServices), the home (HomeView, PayoutSequence) and the tutorial; every event page / popup is wired through SocialEntry / SocialPopups / SocialFlows."
+ ],
+ "files": [
+  "apps/mazeout/App/Game/EventsDirector.swift",
+  "apps/mazeout/App/Shell/Social/EventAnnounce.swift",
+  "apps/mazeout/App/Shell/Home/EventBadges.swift",
+  "apps/mazeout/App/Shell/Social/SocialEntry.swift",
+  "apps/mazeout/App/Shell/Social/SocialPopups.swift",
+  "apps/mazeout/App/Shell/Social/SocialFlows.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/Events*.swift",
+  "apps/mazeout/Packages/PathCore/Tests/PathCoreTests/EventRotationTests.swift",
+  "apps/mazeout/Tests/EventsB1Tests.swift",
+  "apps/mazeout/UITests/EventsRotationUITests.swift"
+ ],
+ "related": [
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/Events.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventsState.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventSchedule.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventTypes.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventFinished.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/EventRotation.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Events/Streak.swift",
+  "apps/mazeout/Packages/PathCore/Sources/GameCore/Social/*.swift"
+ ],
+ "depends": [
+  "core",
+  "game-loop",
+  "home",
+  "puppets",
+  "social-ui",
+  "tutorial",
+  "ui-chrome"
+ ],
+ "wires": [
+  "streak-race",
+  "rocket-race",
+  "sky-jump",
+  "claw-challenge",
+  "balloon-rise",
+  "weekly-contest",
+  "leaderboard",
+  "rating-prompt"
+ ],
+ "uses": {
+  "art": [
+   "booster.freeze.icon",
+   "booster.hint.icon",
+   "event.balloonRise.badge",
+   "event.clawChallenge.token",
+   "event.rocketRace.badge",
+   "event.skyJump.badge",
+   "event.streakRace.badge",
+   "hud.timer.iconSmall",
+   "icon.check",
+   "lives.unlimitedSmall",
+   "reward.coinBowl"
+  ],
+  "rigs": [
+   "event.balloonRise.badge",
+   "event.rocketRace.badge",
+   "event.skyJump.badge",
+   "event.streakRace.badge"
+  ],
+  "strings": [
+   "Cloud Hop",
+   "Double Event Week!",
+   "Hot Streak",
+   "Join",
+   "Let's Go!",
+   "New Event!",
+   "Rocket Rally",
+   "This event has ended.",
+   "Treasure Climb",
+   "Up & Away",
+   "Weekly Cup"
+  ],
+  "tuning": [
+   "rules.json:streak",
+   "social.json:events",
+   "social.json:unlocks",
+   "ui.json:frames.home",
+   "ui.json:home.eventBadge",
+   "ui.json:home.eventColumnNoClawLift",
+   "ui.json:text.home"
+  ],
+  "skinTokens": [
+   "home.eventBadges",
+   "social.eventAnnounce"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go home -pc.socialScenario rotation",
+  "-pc.go sociallab -pc.lab weeks"
+ ]
+}

@@ -1577,6 +1577,30 @@
         82.1,
         28.4,
         24.4
+      ],
+      "slot1Pill": [
+        112.4,
+        81.7,
+        73.4,
+        26.4
+      ],
+      "slot1Icon": [
+        92.7,
+        77.7,
+        29.0,
+        33.0
+      ],
+      "slot2Pill": [
+        221.2,
+        81.7,
+        73.4,
+        26.4
+      ],
+      "slot2Icon": [
+        201.5,
+        77.7,
+        29.0,
+        33.0
       ]
     },
     "booster": {
@@ -2059,7 +2083,11 @@
       "stopwatch": "top",
       "heart1": "top",
       "heart2": "top",
-      "heart3": "top"
+      "heart3": "top",
+      "slot1Pill": "top",
+      "slot1Icon": "top",
+      "slot2Pill": "top",
+      "slot2Icon": "top"
     },
     "booster": {
       "trayLeft": "bottom",
@@ -6412,7 +6440,8 @@
       "fadeFrom": 0.3,
       "fadeTo": 0.4
     },
-    "heartInkScale": 1.07
+    "heartInkScale": 1.07,
+    "counterBaseline": 22.4
   },
   "freeze": {
     "spawn": [
@@ -6687,5 +6716,17 @@
     },
     "eventColumnNoClawLift": 73.4,
     "pileRefill": 1.2
+  },
+  "modules": {
+    "booster": {
+      "labelSize": 15,
+      "labelInset": 8,
+      "popupLabelSize": 26
+    },
+    "offer": {
+      "bodySize": 30,
+      "bodyMaxWidth": 330,
+      "bodyLineGap": 40
+    }
   }
 }

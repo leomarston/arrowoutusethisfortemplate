@@ -11,6 +11,9 @@ import PathCore
 // The intro (`introPhase == .playing(start: K)`) is a TimelineView on the MotionClock (slow motion and `-pc.freezeAt hudIntro@t`
 // act on it); at rest there is no timeline, so an idle HUD costs the main thread nothing. The row's parts are Equatable views:
 // a timer tick re-renders only the pill, a heart change only the hearts. No "Hard Level" tag inside the HUD (SPEC.md §5 item 10).
+// Template phase 5: the panel shows the widgets the active module declares (`HUDModel.widgets` = `capabilities.hud`): the timer
+// pill and the hearts only when declared (the reference game declares both: the HUD is unchanged), every other widget as a
+// counter in its data slot (HUDCounter.swift); the booster corners are the declared boosters in order (left, right).
 
 /// What the HUD's buttons do (GAME supplies them; the default does nothing).
 struct HUDActions {
@@ -91,11 +94,11 @@ private struct HUDLayers: View {
                 HUDTopRow(model: model, actions: actions, introT: introT, motion: motion)
             }
             .offset(y: CGFloat(drop) * m.s)
-            if let left = slots.first(where: { $0.id == .freeze }) ?? slots.first {
+            if let left = slots.first {                            // the module's boosters in declared (HUD) order
                 BoosterCornerView(slot: left, side: .left, t: t, m: m, action: actions.booster).equatable()
                     .offset(x: -CGFloat(slide) * m.s)
             }
-            if let right = slots.first(where: { $0.id == .hint }) ?? (slots.count > 1 ? slots[1] : nil) {
+            if let right = slots.count > 1 ? slots[1] : nil {
                 BoosterCornerView(slot: right, side: .right, t: t, m: m, action: actions.booster).equatable()
                     .offset(x: CGFloat(slide) * m.s)
             }
@@ -117,6 +120,7 @@ private struct HUDTopRow: View {
         let tag = model.tag
         let palette = TierPalette.of(tag)
         let timerScale: Double? = introT.map { motion.timerScale($0) } ?? 1
+        let widgets = model.widgets
         let _ = HUDRenderCounter.count()
         ZStack(alignment: .topLeading) {
             GameButton(id: "hud.back", label: "Back", action: actions.back) { TierSquareButton(palette: palette, glyph: .back) }
@@ -127,10 +131,17 @@ private struct HUDTopRow: View {
             HUDLevelTab(label: model.levelLabel.map { String(localized: $0) } ?? "", resource: model.levelLabel, tag: tag, t: t, m: m)
                 .equatable()
                 .anchor(.levelTab)
-            HUDTimerLeaf(model: model, scale: timerScale, t: t, m: m)             // FIX-2 A (V3-04): reads the time itself
-                .anchor(.timerPill)
-            HUDHeartsRow(hearts: model.hearts, introT: introT, motion: motion, t: t, m: m)
-                .anchor(.hearts)
+            if widgets.contains(.timer) {
+                HUDTimerLeaf(model: model, scale: timerScale, t: t, m: m)         // FIX-2 A (V3-04): reads the time itself
+                    .anchor(.timerPill)
+            }
+            if widgets.contains(.hearts) {
+                HUDHeartsRow(hearts: model.hearts, introT: introT, motion: motion, t: t, m: m)
+                    .anchor(.hearts)
+            }
+            ForEach(HUDCounter.placed(widgets)) { c in               // template phase 5: the module's counters
+                HUDCounterLeaf(model: model, widget: c.widget, slot: c.slot, scale: timerScale, t: t, m: m)
+            }
             GameButton(id: "hud.pause", label: "Pause", action: actions.pause) { TierSquareButton(palette: palette, glyph: .pause) }
                 .placed(square(t.rect("hud.pauseButton", CGRect(334.3, 68.1, 40.4, 40.0), .top, m)))
                 .anchor(.pause)

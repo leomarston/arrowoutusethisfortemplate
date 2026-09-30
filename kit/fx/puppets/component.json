@@ -1,0 +1,23 @@
+{
+ "id": "puppets",
+ "title": "Puppet rigs",
+ "category": "fx",
+ "summary": "Cut-out character puppets from rig.json: one CALayer per part, looping keyframe motion from ui.json.",
+ "description": "PuppetRig loads an art-pipeline rig (Art/<name>/rig.json: layers, pivots, groups); PuppetStage draws it as CALayers and loops the rig's motion (ui.json `puppet.<rig>`). Used by the home scene and the event badges; the rigs themselves are skin slots (skin/art.json `rigs`).",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/Shell/Home/PuppetRig.swift",
+  "apps/mazeout/App/Shell/Home/PuppetStage.swift"
+ ],
+ "depends": [
+  "core"
+ ],
+ "uses": {
+  "tuning": [
+   "ui.json:puppet"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab puppets"
+ ]
+}

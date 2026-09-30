@@ -21,6 +21,7 @@ Make this repo a template where a new game = **plug in a puzzle** + **reskin** +
 | D3 | Arrow Out stays in the repo as the reference game and regression fixture ("looks and behaves the same" + its tests) | owner, 2026-09-30 |
 | D4 | Layout: one repo, `Engine/` (shared) + `Puzzles/<module>` + `Games/<slug>` (config, skin, strings, levels, store) | proposed default; revisit if the owner prefers one repo per game |
 | D5 | Original games' captures, levels and assets are never committed; new games use their own/generated content | 2026-09-30 |
+| D6 | The component kit is a catalog layer (`kit/`, `tools/kit.py`): code stays where it is, components point at it | 2026-09-30 |
 
 ## Target shape
 ```
@@ -95,9 +96,9 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         the controller through ArrowPuzzleBoard's real translation (assertions unchanged)
   - [ ] CI green on the phase-2 change (written without a Swift toolchain), then UI tests + bench + captures on the Mac
         ("no behaviour change" proof), then the §7.2 paper designs (sorting, match-3, colouring) before freezing v1
-  - [ ] Gaps for other genres (found while building, not needed by Arrow Out): HUD moves/goals widgets, `outOfMoves`/`stuck`
-        popup texts (13 languages) and Shell variants, `MetaRules.StepGrant.addMoves`, `SessionPlan` into GameCore,
-        audio cue key `cues.arrowTap` → a generic move cue
+  - [ ] Gaps for other genres (found while building, not needed by Arrow Out): ~~HUD moves/goals widgets~~ (done, phase 5
+        shell gaps), ~~`outOfMoves`/`stuck` popup texts (13 languages) and Shell variants~~ (done: OfferPopup),
+        `MetaRules.StepGrant.addMoves`, `SessionPlan` into GameCore, audio cue key `cues.arrowTap` → a generic move cue
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,
       sounds, names; prove it with a second skin and zero Swift changes
   - [x] Colour tokens (code): every colour literal of App/Shell, App/FX and GlossyChrome (1,703 sites) is a `Skin.<token>`
@@ -162,12 +163,30 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         (plugin + board headless; the unchanged GameController to the win panel; a stuck offer paid through the shell)
   - [x] Contract v1.1 (PUZZLE-MODULE.md §8b): `MetaRules.FailStep.action` (additive; ArrowEscape unchanged), module
         default fail chains, modules as separate products + compile-time selection, explicit board/untimed semantics
-  - [ ] Shell work before a sort game ships (PUZZLE-MODULE.md §6b): HUD honours `capabilities.hud` (no timer pill; a
-        progress widget), `stuck` popup texts (13 languages) + variants, `undo`/`extraTube` economy entries + buy-popup
-        texts + corner art, boot without the arrow engine/library, tutorials; then a game folder (`new --puzzle
-        sort-puzzle`), its skin, TestFlight
+  - [x] Shell gaps closed (awaiting CI; PUZZLE-MODULE.md §8c): the HUD shows `capabilities.hud` (timer / hearts only when
+        declared; `moves` / `progress` / `goals` / `score` counters in ui.json slots, fed by `movesChanged` / `goalProgress`,
+        never on a tap frame); OfferPopup for `stuck` / `outOfMoves` (texts by kind, grant line by grant, `PuzzlePlugin.grantText`;
+        14 strings rows × 13 languages); module boosters (`undo` / `extraTube`: stock, packs, name/line keys in sort.json
+        `boosters`, GameCore `economy.boosterPacks`, corners from the declared list, optional art slots `booster.<id>.icon` /
+        `hud.<widget>.icon` / `popup.<kind>.icon` with a name / text fallback); AppModel builds only the active module's content
+        and engine (`PuzzleEntryPoint.loadContent` / `makeEngine`); boards without their own meter are metered from `boardFrame`
+        (`BoardFrameMeter`). Tests: `ModuleShellTests` (app), `ModuleBoosterPackTests` (core)
+  - [ ] Before a sort game ships: tutorials / unlock cards (content), the booster / offer art (owner: no fitting raster in
+        the skin today), the new strings' fit on the Mac (ctfit), then a game folder (`new --puzzle sort-puzzle`), its skin,
+        TestFlight
 - [ ] **6. Docs & prompts** — TEMPLATE.md, PUZZLE-MODULE.md, SKIN.md; the game manual split into "write a puzzle
       module" and "reskin & publish"
+  - [x] Component kit (owner, 2026-09-30: "a folder where users can take any asset, pause menu, menu, sounds,
+        leaderboard, store ..., without breaking the main part; an internal asset store"): `kit/` = 54 components
+        (`kit/<category>/<id>/component.json` + README; core in `kit/core`), generated `kit/CATALOG.md` + `kit/catalog.html`;
+        `tools/kit.py` list / search / show / deps / rdeps / export (folder or zip, + data subsets, MANIFEST, CHECKLIST,
+        never secrets) / add --game (dry run by default) / scan / catalog / check (+ `--selftest`, CI Linux job).
+        Code does not move (D6). Every Swift file under App, Packages/*/Sources, art/ui/code owned by exactly one
+        component or core. `docs/guides/KIT.md`
+  - [ ] Cut the couplings the kit found (each is a component `gap`): shared event helpers living in feature files
+        (StreakRaceViews, LeaderboardViews, RocketRaceViews, StreakBanner) -> SocChrome; Countdown out of ClawBar.swift
+        (then the claw bar leaves core); the fail flow's streak strip as a hook; ShopView/BoosterBuy borrowing other
+        popups' helpers; game loop / unlocks naming ArrowEscape's SessionPlan / FeatureUnlock and the arrow IntroStyle
 
 ## Blocked / needs the owner
 - CI excludes two machine-dependent checks from gating (run non-gating): `ShellStoreKitTests` (SKTestSession answers
@@ -233,3 +252,19 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   Run 16 (`d465610`) never started (see Blocked).
 - 2026-09-30: the Actions stop was the account's Actions budget ($0 + stop usage) after the included minutes ran out;
   the owner made the repository public (standard runners, macOS included, are free for public repos). CI resumed.
+- 2026-09-30: component kit (owner request): `kit/` (54 components, core + 11 categories), `tools/kit.py`, generated
+  catalog (MD + a self-contained HTML page), `docs/guides/KIT.md`, CI Linux step `kit.py check` + `--selftest` (24 cases:
+  planted failures caught, explicit-beats-glob ownership, secrets never exported, a folder + zip export). No Swift touched. Ownership: 283 Swift files, 0 unowned / double-owned; deps acyclic once registration
+  references are declared as `wires`. Exported pause-menu, leaderboard, shop to a scratch dir and read the result; `add
+  --apply` tested on a scratch copy of the repo (missing file copied, missing strings row appended once per table, a
+  non-round-tripping tuning file went to kit-pending.json). The kit's scanner is static (names, not a compiler): its
+  dependency view is as good as the top-level type names it reads.
+- 2026-09-30: phase 5 shell gaps (PUZZLE-MODULE.md §8c): HUD from `capabilities.hud` (HUDCounter), OfferPopup for `stuck` /
+  `outOfMoves` (+14 strings rows in 13 languages), module boosters from the module's data (sort.json `boosters`, GameCore
+  `EconomyRules.economy.boosterPacks`, empty in rules.json), active-module-only boot content / engine, a generic frame meter for
+  boards that do not meter themselves. ArrowEscape paths unchanged by construction (its widgets = the model default, no module
+  boosters, its board meters itself, the same boot steps and logs). Linux: every CI `checks` step green (strings --check +
+  coverage, meta audit / iap-check, skin / art / variant, doctor, game.py tests, harness gate, kit check, brand grep,
+  compileall, ref.py goldens). Swift (app + core + `ModuleShellTests` / `ModuleBoosterPackTests`) not compiled in this
+  session: CI's core + app jobs are the first build. Owner items: art for `booster.undo.icon` / `booster.extraTube.icon`
+  (and optionally `popup.stuck.icon`, `hud.progress.icon`): no existing raster fits, the name / text fallbacks ship meanwhile.

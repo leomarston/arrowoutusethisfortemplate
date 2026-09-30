@@ -1,0 +1,51 @@
+{
+ "id": "win-celebration",
+ "title": "Win celebration (logo sequence)",
+ "category": "fx",
+ "summary": "The Core Animation win celebration: logo letters, confetti, fireworks, tier looks, skippable.",
+ "description": "WinLogoSequence plays `.celebration(tag)` on the FX host: the logo parts (skin slots logo.part.*, ui.json `win.logo`) with letter beats, fireworks and confetti, pre-built behind Loading. Timings ui.json `win.*`.",
+ "status": "stable",
+ "files": [
+  "apps/mazeout/App/FX/WinLogoSequence.swift"
+ ],
+ "tests": [
+  "apps/mazeout/Tests/WinLogoTests.swift",
+  "apps/mazeout/Tests/WinLogoBeatsFixture.swift",
+  "apps/mazeout/UITests/WinLogoUITests.swift"
+ ],
+ "depends": [
+  "core",
+  "confetti",
+  "fireworks"
+ ],
+ "uses": {
+  "art": [
+   "logo.main"
+  ],
+  "cues": [
+   "celebrationSkip",
+   "uiButton"
+  ],
+  "tuning": [
+   "ui.json:win",
+   "ui.json:win.burstPerFrame",
+   "ui.json:win.bursts",
+   "ui.json:win.clearAt",
+   "ui.json:win.confettiAt",
+   "ui.json:win.dim",
+   "ui.json:win.dimAt",
+   "ui.json:win.dimDur",
+   "ui.json:win.haptics",
+   "ui.json:win.impactAt",
+   "ui.json:win.logo",
+   "ui.json:win.panelAt",
+   "ui.json:win.prebuildFrom",
+   "ui.json:win.rockets",
+   "ui.json:win.skipFrom"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go shelllab -pc.lab celebrate:normal",
+  "-pc.go shelllab -pc.lab celebrate:superHard"
+ ]
+}

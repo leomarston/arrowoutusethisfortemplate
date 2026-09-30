@@ -1,0 +1,100 @@
+{
+ "id": "fail-flow",
+ "title": "Fail flow (out of time, continue, level failed)",
+ "category": "popups",
+ "summary": "The fail chain: Out of Time! / Out of Lives! offer, Continue? variants, then Level Failed with Try Again.",
+ "description": "FailFlowDirector drives the chain from the session's .offer / .lost events (rules.json `failChain`, game.json `fail.*`): OutOfTimePopup (+30 sec for coins; Out of Lives! for hearts), ContinuePopup (streak / token / life / hearts-out variants, pays through the shop when short), LevelFailedPopup (Try Again). The streak strip under the panels is the streak-race component's.",
+ "status": "needs-work",
+ "gaps": [
+  "Continue? and Level Failed draw the Streak Race strip and chips (StreakBanner.swift), so the fail flow depends on streak-race and, through it, on the events engine.",
+  "The generic offer popup for other genres' fail kinds (OfferPopup.swift: out of moves, stuck; texts in 13 languages) exists; its text fit is still to be measured on the Mac."
+ ],
+ "files": [
+  "apps/mazeout/App/Game/FailFlowDirector.swift",
+  "apps/mazeout/App/Shell/Popups/OutOfTimePopup.swift",
+  "apps/mazeout/App/Shell/Popups/ContinuePopup.swift",
+  "apps/mazeout/App/Shell/Popups/LevelFailedPopup.swift",
+  "apps/mazeout/App/Shell/Popups/OfferPopup.swift"
+ ],
+ "tests": [
+  "apps/mazeout/UITests/FailFlowTests.swift"
+ ],
+ "depends": [
+  "core",
+  "boosters",
+  "game-loop",
+  "streak-race",
+  "ui-chrome"
+ ],
+ "uses": {
+  "art": [
+   "event.clawChallenge.token",
+   "lives.lost",
+   "popup.outOfTime.stopwatch"
+  ],
+  "strings": [
+   "+1 Move",
+   "+3 Lives",
+   "+30 sec",
+   "Add Lives",
+   "Add Moves",
+   "Add Time",
+   "and your streak!",
+   "Continue?",
+   "fail",
+   "Keep going with a few more moves!",
+   "Level Failed!",
+   "Levels",
+   "No Moves Left!",
+   "Out of Lives!",
+   "Out of Moves!",
+   "Out of Time!",
+   "Play On",
+   "Try Again",
+   "You are stuck! Keep going with a little help.",
+   "You will lose a life!",
+   "You will lose your streak!"
+  ],
+  "tuning": [
+   "game.json:fail",
+   "game.json:fail.heartsOutDelay",
+   "game.json:fail.zeroHoldSeconds",
+   "rules.json:failChain",
+   "social.json:unlocks.clawChallenge",
+   "ui.json:anchors.failed",
+   "ui.json:colors.continueToken",
+   "ui.json:colors.heartBig",
+   "ui.json:colors.outOfLives",
+   "ui.json:colors.outOfTime",
+   "ui.json:continueToken.chipBodies",
+   "ui.json:continueToken.chipCentres",
+   "ui.json:frames.continue",
+   "ui.json:frames.continueLife",
+   "ui.json:frames.continueStreak",
+   "ui.json:frames.continueToken",
+   "ui.json:frames.failed",
+   "ui.json:frames.outOfLives",
+   "ui.json:frames.outOfTime",
+   "ui.json:modules.offer",
+   "ui.json:shapes.continueStreak",
+   "ui.json:shapes.failed",
+   "ui.json:shapes.outOfTime",
+   "ui.json:text.continue",
+   "ui.json:text.continueLife",
+   "ui.json:text.continueStreak",
+   "ui.json:text.continueToken",
+   "ui.json:text.failed",
+   "ui.json:text.outOfTime"
+  ],
+  "skinTokens": [
+   "popups.continuePopup",
+   "popups.levelFailedPopup",
+   "popups.outOfTimePopup"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go level -pc.level 32 -pc.lose timeUp",
+  "-pc.go level -pc.popup continue:life",
+  "-pc.go level -pc.popup levelFailed"
+ ]
+}

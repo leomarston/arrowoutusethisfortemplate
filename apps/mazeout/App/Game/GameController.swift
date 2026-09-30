@@ -206,6 +206,9 @@ extension GameDirectorsEntryPoint {
 
     /// A test hook: every fan-out step as "<step>" (GameControllerTests; nil in the app).
     var trace: ((String) -> Void)?
+    /// Template phase 5: PerfMonitor / LatencyProbe fed from this Play's `boardFrame` / `boardInput` when the board does not
+    /// meter its own frames (nil for ArrowEscape's engine, which does: its numbers and logs are unchanged).
+    let frameMeter: BoardFrameMeter?
 
     init(_ launch: LevelLaunch, services: GameServices, directors: ((GameController) -> [any GameDirector])? = nil) {
         self.launch = launch
@@ -217,9 +220,13 @@ extension GameDirectorsEntryPoint {
         tapSound = cues.sound(for: .arrowTap)
         let a = services.args
         logTaps = a.bench || a.showsDebugHUD || a.raw["pc.logTaps"] != nil || a.raw["pc.sameFrame"] != nil
+        frameMeter = services.board.metersFrames ? nil
+            : BoardFrameMeter(perf: services.perf, latency: services.latency,
+                              logs: a.bench || a.showsDebugHUD || a.lab == "latency" || a.raw["pc.logTaps"] != nil)
         flow = LevelFlow(self)
         fail = FailFlowDirector(self)
         win = WinDirector(self)
+        if let meter = frameMeter { services.latency.onSample = { [weak meter] s in meter?.log(s) } }
     }
 
     convenience init(_ launch: LevelLaunch, app: AppModel) {
@@ -240,6 +247,12 @@ extension GameDirectorsEntryPoint {
         var d: [any GameDirector] = [flow!, fail!, win!]
         d += extra
         return d
+    }
+    /// A booster corner of the module's declared list (capabilities order) at `stock` (0 → the "+" badge): its art slot
+    /// (`BoosterSpec.icon`) and, for a module booster, its name key (the corner's label without art).
+    func boosterSlot(_ spec: BoosterSpec, stock n: Int) -> BoosterSlotVM {
+        BoosterSlotVM(id: spec.id, state: n > 0 ? .stock(n) : .empty, icon: spec.icon,
+                      nameKey: services.puzzle.moduleBooster(spec.id)?.name)
     }
     /// The level the logs name: the session's first level ("L1" for "Levels 1-4").
     var levelName: String { "L\(plan.levels.first ?? launch.levels.first ?? 0)" }
@@ -294,6 +307,7 @@ extension GameDirectorsEntryPoint {
         for w in frameWaits { w.1.resume(returning: false) }
         frameWaits = []
         removeObservers()
+        if frameMeter != nil { services.latency.onSample = nil }
         if services.app?.game === self { services.app?.game = nil }
     }
 
@@ -358,6 +372,10 @@ extension GameDirectorsEntryPoint {
     /// this same run-loop turn, before the board's Core Animation commit.
     func boardInput(_ input: PuzzleInput, touchTimestamp: TimeInterval) {
         guard let session, !isTornDown else { return }
+        if let meter = frameMeter {
+            meter.beginTap(touchTimestamp: touchTimestamp)
+            meter.tapLabel = (currentStage?.level ?? 0, input.target.map { String($0.raw) } ?? "-")
+        }
         let t0 = CACurrentMediaTime()
         let outputs = session.input(input, at: clock.gameTime())
         let tCore = CACurrentMediaTime()
@@ -434,6 +452,8 @@ extension GameDirectorsEntryPoint {
 
     func boardFrame(timestamp: CFTimeInterval, targetTimestamp: CFTimeInterval) {
         guard let session, !isTornDown else { return }
+        frameMeter?.frame(timestamp: timestamp, targetTimestamp: targetTimestamp,
+                          context: "\(services.puzzle.id) L\(currentStage?.level ?? 0) \(session.phase.logName)")
         let real = lastFrameTimestamp > 0 ? timestamp - lastFrameTimestamp : 0
         lastFrameTimestamp = timestamp
         if real > 0 { frameClock += clock.scaled(real) }
@@ -627,6 +647,8 @@ extension GameDirectorsEntryPoint {
         if let d = board.diagnostics {
             obj["hitches_load"] = d.hitchesLoad
             obj["hitches_play"] = d.hitchesPlay
+        } else if let m = frameMeter {
+            obj["hitches_play"] = m.hitches                                // the Play's meter (a board without its own)
         }
         if let r = result { obj["timeLeft"] = r.timeLeft; obj["heartsLeft"] = r.heartsLeft; obj["bumps"] = r.bumps }
         let name = "bench-L\(plan.levels.first ?? 0)-\(Int(Date().timeIntervalSince1970)).json"

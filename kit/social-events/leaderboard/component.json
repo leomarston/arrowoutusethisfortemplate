@@ -1,0 +1,39 @@
+{
+ "id": "leaderboard",
+ "title": "Leaderboards",
+ "category": "social-events",
+ "summary": "The Leaderboard tab: Weekly / World / Country boards with the pinned player row and jump pill.",
+ "description": "LeaderboardViews draws the tab bodies inside the page shell (header, tab strip, weekly countdown): the World and Country top lists and the player's weekly group, all from the offline social world.",
+ "status": "needs-work",
+ "gaps": [
+  "LeaderboardViews calls SocialFlows (events-engine), so taking the leaderboard takes the events engine and, through EventsDirector, the game loop. Its page frame (LeaderboardPageShell) is in social-ui."
+ ],
+ "files": [
+  "apps/mazeout/App/Shell/Social/LeaderboardViews.swift"
+ ],
+ "depends": [
+  "core",
+  "events-engine",
+  "social-ui"
+ ],
+ "uses": {
+  "art": [
+   "leaderboard.podium",
+   "reward.coinBowl"
+  ],
+  "strings": [
+   "Bottom",
+   "Info",
+   "Top",
+   "Weekly Cup"
+  ],
+  "skinTokens": [
+   "social.leaderboardViews"
+  ]
+ },
+ "launchArgs": [
+  "-pc.go leaderboard:world",
+  "-pc.go leaderboard:country -pc.socialCountry TR",
+  "-pc.go leaderboard:weekly -pc.socialScenario weeklyPodium"
+ ]
+}

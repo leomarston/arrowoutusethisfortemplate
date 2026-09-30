@@ -27,6 +27,8 @@ import PathCore
         var (r, problems) = EconomyRules.load(rules: tuning.rules.data, social: tuning.social.file.data,
                                               overrides: tuning.rules.overrides)
         EventRotationPolicy.apply(&r)                                   // B1: the same rotation table as AppModel.economy
+        // template phase 5: the active module's own boosters (their stock and packs), as AppModel.economy (none for ArrowEscape)
+        r.addModuleBoosters(ActivePuzzle.entry.moduleBoosters(bundle: .main, tune: LaunchArgs.current.tune))
         for p in problems { Log.error("shop", "economy table: \(p)") }
         cache[key] = r
         last = (quick, r)
