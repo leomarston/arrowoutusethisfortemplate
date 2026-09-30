@@ -103,7 +103,7 @@ import PathCore
         let v = value("com.manycode.arrowout.bundle.mini", "7001", "4.99", "USD")
         let tx = Tx(v.productID, v.transactionID, value: v, log: log)
         let g = await PurchasePipeline.complete(tx, apply: { _, _ in log.events.append("grant"); return self.grant() },
-                                                persist: { persisted += 1; log.events.append("persist") },
+                                                persist: { persisted += 1; log.events.append("persist"); return true },
                                                 record: RecordablePurchase(productID: v.productID, transactionID: v.transactionID, result: nil),
                                                 recorder: recorder, report: reporter)
         XCTAssertNotNil(g)

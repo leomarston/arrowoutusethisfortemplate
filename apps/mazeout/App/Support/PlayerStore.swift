@@ -30,6 +30,8 @@ import PathCore
     @ObservationIgnored private let disk: DiskBox
     /// Saves issued / written (tests, the boot log).
     @ObservationIgnored private(set) var savesIssued = 0
+    /// Whether the most recent write reached the disk. Touched only on `io`.
+    @ObservationIgnored private let lastWrite = WriteResult()
 
     var fileURL: URL { disk.store.url }
     var backupURL: URL { disk.store.backupURL }
@@ -94,8 +96,12 @@ import PathCore
         savesIssued += 1
         let snapshot = state
         let disk = self.disk
+        let lastWrite = self.lastWrite
         io.async {
-            do { try disk.store.save(snapshot) } catch { Log.error("store", "save failed: \(error)") }
+            do { try disk.store.save(snapshot); lastWrite.ok = true } catch {
+                lastWrite.ok = false
+                Log.error("store", "save failed: \(error)")
+            }
         }
     }
 
@@ -105,8 +111,11 @@ import PathCore
     /// A1 (additive, commented for GAME's review): waits WITHOUT blocking the main thread until every queued write has
     /// finished. The store pipeline finishes a StoreKit transaction only after its grant is on disk, so a kill can never
     /// leave a finished (never redelivered) transaction whose coins were still in memory.
-    func flushed() async {
-        await withCheckedContinuation { (c: CheckedContinuation<Void, Never>) in io.async { c.resume() } }
+    /// Returns whether the last queued write actually reached the disk (false: a write error, e.g. a full disk).
+    @discardableResult
+    func flushed() async -> Bool {
+        let lastWrite = self.lastWrite
+        return await withCheckedContinuation { (c: CheckedContinuation<Bool, Never>) in io.async { c.resume(returning: lastWrite.ok) } }
     }
 
     private func scheduleSave() {
@@ -187,4 +196,9 @@ import PathCore
 private final class DiskBox: @unchecked Sendable {
     let store: StateStore
     init(_ store: StateStore) { self.store = store }
+}
+
+/// The result of the latest save, read and written only on PlayerStore's serial `io` queue.
+private final class WriteResult: @unchecked Sendable {
+    var ok = true
 }

@@ -148,7 +148,7 @@ import PathCore
         // a verified purchase made in the app
         let tx = MockTx("com.manycode.arrowout.coins.1000", "t1", log: log)
         let g = await PurchasePipeline.complete(tx, apply: apply,
-                                                persist: { log.events.append("saved") },
+                                                persist: { log.events.append("saved"); return true },
                                                 record: RecordablePurchase(productID: tx.productID, transactionID: "t1", result: nil),
                                                 recorder: rec)
         XCTAssertEqual(g?.coins, 1000)
@@ -157,13 +157,13 @@ import PathCore
         XCTAssertEqual(log.events, ["grant t1", "saved", "record t1", "finish t1"], "grant → on disk → record → finish")
         // the same transaction delivered again (Transaction.updates / .unfinished): no grant, no second record, finished
         let again = MockTx("com.manycode.arrowout.coins.1000", "t1", log: log)
-        let g2 = await PurchasePipeline.complete(again, apply: apply, persist: { log.events.append("saved") })
+        let g2 = await PurchasePipeline.complete(again, apply: apply, persist: { log.events.append("saved"); return true })
         XCTAssertNil(g2, "a replay grants nothing")
         XCTAssertEqual(rec.recorded, ["t1"], "a redelivery is not recorded again")
         XCTAssertEqual(again.finished, 1)
         // an unverified transaction: finished, never granted or recorded
         let bad = MockTx("com.manycode.arrowout.coins.1000", "t2", verified: false, log: log)
-        let g3 = await PurchasePipeline.complete(bad, apply: apply, persist: { log.events.append("saved") },
+        let g3 = await PurchasePipeline.complete(bad, apply: apply, persist: { log.events.append("saved"); return true },
                                                  record: RecordablePurchase(productID: bad.productID, transactionID: "t2", result: nil),
                                                  recorder: rec)
         XCTAssertNil(g3)
@@ -235,5 +235,32 @@ import PathCore
         let c = DiskCheckTx(pid, dir)
         await PurchasePipeline.complete(c, apply: apply(p5), persist: { await p5.flushed() })
         XCTAssertEqual(c.coinsOnDiskAtFinish, coins0 + 3000, "finish saw the granted coins on disk")
+    }
+
+    // MARK: 5. a failed save never finishes a paid transaction
+
+    func testAFailedSaveLeavesThePurchaseUnfinished() async throws {
+        // the pipeline: the grant is applied (the player sees it), but without a durable save the transaction stays
+        // unfinished so StoreKit redelivers it at the next launch
+        let log = EventLog()
+        let tx = MockTx("com.manycode.arrowout.coins.1000", "fail-1", log: log)
+        let g = await PurchasePipeline.complete(tx, apply: { _, _ in .coins(1000) }, persist: { false })
+        XCTAssertEqual(g?.coins, 1000)
+        XCTAssertEqual(tx.finished, 0, "a grant that did not reach the disk must not be finished")
+
+        // PlayerStore reports the failed write: the save folder becomes read-only, the next save throws
+        let dir = tempDir("savefail")
+        defer {
+            try? FileManager.default.setAttributes([.posixPermissions: 0o755], ofItemAtPath: dir.path)
+            try? FileManager.default.removeItem(at: dir)
+        }
+        let store = PlayerStore(args: LaunchArgs(), now: Date(), directory: dir, debounce: 0.05)
+        store.saveNow()
+        let okBefore = await store.flushed()
+        XCTAssertTrue(okBefore, "a normal save reports success")
+        try FileManager.default.setAttributes([.posixPermissions: 0o500], ofItemAtPath: dir.path)
+        store.saveNow()
+        let okAfter = await store.flushed()
+        XCTAssertFalse(okAfter, "a write into a read-only folder reports failure")
     }
 }
