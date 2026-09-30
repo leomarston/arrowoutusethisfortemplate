@@ -86,7 +86,7 @@ import PathCore
         // V3-01: the level-clearing tap's FIRST run in a process paid Swift's one-time metadata instantiation in the session's
         // clear (a generic dictionary literal: 4 of the tap's 7 ms, build/p/FIX2/A/tp/v2-tp1) and in the bank
         // (`Economy.finishAttempt`). Once per process the module's headless session is cleared (`PuzzlePlugin.warmUpWin`:
-        // Arrow Out's 2-arrow board) and banked on a copy, off the main thread (nothing shown, nothing written).
+        // ArrowEscape's 2-arrow board) and banked on a copy, off the main thread (nothing shown, nothing written).
         if !Self.clearWarmed {
             Self.clearWarmed = true
             let economy = s.economy, now = s.clock.wallClock()

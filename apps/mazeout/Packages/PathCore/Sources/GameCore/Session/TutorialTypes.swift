@@ -20,7 +20,7 @@ public struct TutorialDismiss: RawRepresentable, Hashable, Codable, Sendable, Ex
     public let rawValue: String
     public init(rawValue: String) { self.rawValue = rawValue }
     public init(stringLiteral value: String) { rawValue = value }
-    /// The first accepted move on ANY target dismisses it (Arrow Out's "Tap to move!": no input restriction observable).
+    /// The first accepted move on ANY target dismisses it (ArrowEscape's "Tap to move!": no input restriction observable).
     public static let anyTap = TutorialDismiss(rawValue: "anyTap")
     /// Only a move on the hand's target (input restricted to it).
     public static let targetTap = TutorialDismiss(rawValue: "targetTap")

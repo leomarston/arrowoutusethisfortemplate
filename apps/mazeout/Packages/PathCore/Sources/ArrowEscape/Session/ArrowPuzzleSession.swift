@@ -1,7 +1,7 @@
 import Foundation
 import GameCore
 
-// Template phase 2 (docs/architecture/PUZZLE-MODULE.md §6): Arrow Out behind the generic puzzle contract. `LevelSession`
+// Template phase 2 (docs/architecture/PUZZLE-MODULE.md §6): ArrowEscape behind the generic puzzle contract. `LevelSession`
 // (and its frozen `SessionEvent` / `SessionAck`, pinned by APISurfaceTests and every core test) stays exactly as it is; this
 // file wraps it:
 //  - `SessionEvent` → `SessionOutput`, 1:1 and in order: the generic events become `.meta(MetaEvent)`, the arrow ones
@@ -104,7 +104,7 @@ public final class ArrowPuzzleSession: PuzzleSession {
     public func input(_ e: PuzzleInput, at gameTime: Double) -> [SessionOutput] {
         switch e {
         case .tap(let t): return SessionEvent.outputs(core.tap(t.map(ArrowID.init(target:)), at: gameTime))
-        case .drag, .swap, .select, .custom: return []                  // Arrow Out is tap-only
+        case .drag, .swap, .select, .custom: return []                  // ArrowEscape is tap-only
         }
     }
 
@@ -153,7 +153,7 @@ public final class ArrowPuzzleSession: PuzzleSession {
 
 // MARK: - the module
 
-/// Arrow Out's puzzle (the first module; `puzzle.module: arrow-escape` in game.yml).
+/// ArrowEscape's puzzle (the first module; `puzzle.module: arrow-escape` in game.yml).
 public enum ArrowEscapeModule: PuzzleModule {
     public static let id = "arrow-escape"
     public static let contractVersion = PuzzleContract.version

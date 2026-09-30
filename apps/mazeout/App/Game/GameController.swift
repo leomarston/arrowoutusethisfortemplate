@@ -397,7 +397,7 @@ extension GameDirectorsEntryPoint {
         case .contact:
             let outputs = session.ack(ack)
             if outputs.isEmpty {
-                // a contact that costs nothing and changes nothing (Arrow Out: a red arrow's re-bump): only its contact haptic
+                // a contact that costs nothing and changes nothing (ArrowEscape: a red arrow's re-bump): only its contact haptic
                 // (MA §12.1 bumpContact)
                 trace?("haptic.bumpContact")
                 haptics.play(.bumpContact)
@@ -516,7 +516,7 @@ extension GameDirectorsEntryPoint {
         flow.returnedFromBackground()
     }
 
-    // The probe's session half (§9.4) is the module board's (it reads `activeSession`): Arrow Out's is ArrowPuzzleBoard's.
+    // The probe's session half (§9.4) is the module board's (it reads `activeSession`): ArrowEscape's is ArrowPuzzleBoard's.
 
     // MARK: the same-frame proof (§8.2; logged under -pc.bench / -pc.hud debug / -pc.logTaps / -pc.sameFrame)
 

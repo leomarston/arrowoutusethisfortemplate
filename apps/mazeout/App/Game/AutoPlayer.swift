@@ -12,7 +12,7 @@ import PathCore
 //   [PC][autoplay] done: L<a>-L<b> won <w>/<n> bumps <b>
 // Test driver only: it never runs without the launch argument.
 // Template phase 2: genre-agnostic — it taps the session's `hint()` target through the board's real release handler
-// (`PuzzleBoard.performTap`), its mistakes are the module's `mistakeTargets` (Arrow Out: blocked arrows not red yet), and a
+// (`PuzzleBoard.performTap`), its mistakes are the module's `mistakeTargets` (ArrowEscape: blocked arrows not red yet), and a
 // "bump" in its log is a failed move.
 
 @MainActor final class AutoPlayer {
@@ -161,8 +161,8 @@ import PathCore
         }
     }
 
-    /// The next target: the session's hint (Arrow Out: the first arrow of the solver's order), or (with probability
-    /// `mistakes`) one of the module's mistake targets (Arrow Out: a blocked, not-yet-red arrow).
+    /// The next target: the session's hint (ArrowEscape: the first arrow of the solver's order), or (with probability
+    /// `mistakes`) one of the module's mistake targets (ArrowEscape: a blocked, not-yet-red arrow).
     private func pick(_ s: any PuzzleSession, game: GameController) -> PuzzleTarget? {
         if mistakes > 0, rng.unit() < mistakes {
             let blocked = game.services.puzzle.mistakeTargets(s, board: game.board)

@@ -33,7 +33,7 @@ import PathCore
 //     it is up (the popup host); after a purchase the badge shows the new stock and the player taps again (GP §6.4).
 // Log: `[PC][booster] <id> …` for every decision.
 // Template phase 2: genre-agnostic. The corners are the module's `BoosterSpec`s (capabilities order); `.freezeTimer` runs the
-// shell's freeze flow above (the session freezes its clock); every other effect (Arrow Out's bulb = `.puzzleAction("hint")`)
+// shell's freeze flow above (the session freezes its clock); every other effect (ArrowEscape's bulb = `.puzzleAction("hint")`)
 // asks the session first (`canUseBooster`: no stock is taken when it would do nothing), then `useBooster`. A booster whose
 // outputs carry hint targets stays inert until one of them leaves play (a puzzle event's `removedTargets`).
 
@@ -175,7 +175,7 @@ import PathCore
         inBackground = false
     }
 
-    /// A booster the session runs (Arrow Out's bulb: the rules' hint policy, SPEC.md ruling 31 — the board zooms to the unit,
+    /// A booster the session runs (ArrowEscape's bulb: the rules' hint policy, SPEC.md ruling 31 — the board zooms to the unit,
     /// blinks it green until it exits, then back to fit; no free unit (a door still opening) → nothing, no stock taken).
     private func useAction(_ id: BoosterID, _ session: any PuzzleSession) {
         if let h = hinted, !h.isEmpty {

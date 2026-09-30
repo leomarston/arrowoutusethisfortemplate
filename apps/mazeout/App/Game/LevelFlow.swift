@@ -118,7 +118,7 @@ import PathCore
         return "Level \(level.level)"
     }
 
-    /// The module's booster corners in its order (Arrow Out: freeze left, hint right) from the player's stock (0 → the "+"
+    /// The module's booster corners in its order (ArrowEscape: freeze left, hint right) from the player's stock (0 → the "+"
     /// badge).
     func boosterSlots() -> [BoosterSlotVM] {
         let b = services.store.state.boosters
@@ -261,7 +261,7 @@ import PathCore
                 while (s.hearts ?? 0) > 0, tries < 12, !game.isTornDown {
                     tries += 1
                     switch s.phase { case .ready, .playing: break; default: return }
-                    // the module's deliberate mistake (Arrow Out: a blocked arrow that is not red yet → a bump)
+                    // the module's deliberate mistake (ArrowEscape: a blocked arrow that is not red yet → a bump)
                     guard let a = services.puzzle.mistakeTargets(s, board: services.board).first else {
                         Log.error("game", "-pc.lose hearts: no mistake to make on L\(game.currentStage?.level ?? 0)")
                         return

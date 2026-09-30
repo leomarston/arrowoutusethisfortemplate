@@ -186,7 +186,7 @@ import PathCore
         Log.mark("tutorial", line)
     }
 
-    /// The fingertip on screen: the board converts the hand's target + offset (Arrow Out: `hand.at` in lattice coordinates
+    /// The fingertip on screen: the board converts the hand's target + offset (ArrowEscape: `hand.at` in lattice coordinates
     /// relative to the arrow's middle cell, scaled by the pitch).
     private func fingertip(_ script: TutorialStep) -> CGPoint? {
         guard let hand = script.hand else { return nil }

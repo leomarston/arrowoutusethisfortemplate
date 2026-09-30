@@ -121,7 +121,7 @@ struct PuzzleBoardHost: UIViewRepresentable {
     static func makeBoard(_ app: AppModel) -> any PuzzleBoard
 }
 
-/// THE ONE LINE A NEW GAME CHANGES: the active puzzle module's entry point (its app half lives next to its board; Arrow Out's
+/// THE ONE LINE A NEW GAME CHANGES: the active puzzle module's entry point (its app half lives next to its board; ArrowEscape's
 /// is App/Board/ArrowEscapePlugin.swift). Keep game.yml `puzzle.module` equal to the plugin's `id` (AppModel logs both).
 @MainActor enum ActivePuzzle {
     static let entry: any PuzzleEntryPoint.Type = ArrowEscapeEntry.self

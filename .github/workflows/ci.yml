@@ -58,6 +58,13 @@ jobs:
           pip install -q pyyaml
           python3 tools/game.py doctor --game mazeout --quick
           python3 -m unittest discover -s tools/tests
+      - name: Brand name spelled only in project.yml (fast twin of BrandTests.testTheNameHasOneSource)
+        run: |
+          BRAND=$(sed -n 's/^ *PC_BRAND_NAME: *"\([^"]*\)".*/\1/p' $APP_DIR/project.yml)
+          test -n "$BRAND"
+          if grep -rnF "$BRAND" $APP_DIR/App $APP_DIR/art/ui/code $APP_DIR/Packages/PathCore/Sources --include='*.swift'; then
+            echo "::error::\"$BRAND\" spelled outside project.yml (use Brand.name, or name the module in comments)"; exit 1
+          fi
       - name: Python syntax (all tools)
         run: |
           PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pyc" python3 -m compileall -q scripts tools $APP_DIR/tools $APP_DIR/design/tools

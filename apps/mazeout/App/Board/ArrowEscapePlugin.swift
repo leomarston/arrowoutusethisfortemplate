@@ -2,7 +2,7 @@ import UIKit
 import QuartzCore
 import PathCore
 
-// Template phase 2 (docs/architecture/PUZZLE-MODULE.md §6): Arrow Out's puzzle module, app half. Everything the Game layer
+// Template phase 2 (docs/architecture/PUZZLE-MODULE.md §6): ArrowEscape's puzzle module, app half. Everything the Game layer
 // used to know about arrows lives here now, next to the board:
 //  - `ArrowPuzzleBoard`: the app-lifetime BoardEngine (still `BoardControlling`, the board's own arrow-typed API that
 //    BoardLab and the board tests drive) behind the generic `PuzzleBoard`. It is the engine's `BoardDelegate` while a Play
@@ -199,7 +199,7 @@ import PathCore
     }
 }
 
-/// Arrow Out's module, app half.
+/// ArrowEscape's module, app half.
 @MainActor final class ArrowEscapePlugin: PuzzlePlugin {
     let rules: RulesTuning
     private let level: @MainActor (Int) -> LevelSpec?
@@ -251,7 +251,7 @@ import PathCore
     }
 }
 
-/// `ActivePuzzle.entry` for Arrow Out.
+/// `ActivePuzzle.entry` for ArrowEscape.
 @MainActor enum ArrowEscapeEntry: PuzzleEntryPoint {
     static func makePlugin(_ app: AppModel) -> any PuzzlePlugin {
         ArrowEscapePlugin(rules: app.rules, level: { [weak app] n in app?.level(n) },
