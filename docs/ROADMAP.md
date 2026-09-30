@@ -175,12 +175,6 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   0.23 s vs 0.138±0.05 on a shared VM). Confirm both on the Mac: `apps/mazeout/tools/test.sh A -only-testing:ArrowOutTests`.
 - Swift changes are verified on GitHub Actions (no Xcode in cloud sessions); UI tests and phone checks need the Mac.
 - Phase 0 item "recover build/ specs" needs files that exist only on the owner's Mac.
-- **GitHub Actions stopped starting jobs (2026-09-30 14:07 UTC, run 16 on `d465610`):** all three jobs, including the
-  Linux one, ended in ~3 s with no runner assigned and no log (the pattern of an exhausted Actions minutes / spending
-  limit; macOS minutes count 10x on a private repo, and ~16 runs with two macOS jobs ran that day). A re-run from the
-  cloud session is refused (403). Owner: check GitHub Settings -> Billing -> Actions usage/spending limit, then re-run
-  run 16. Until then `d465610` (SortPuzzle + art slots/scenes + cobalt skin) is verified on Linux only; its Swift has
-  never been compiled.
 
 ## Status log
 - 2026-09-30: analysis of the repo (report + plan delivered in chat); CI added; original captures removed; script bugs
@@ -237,3 +231,5 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
 - 2026-09-30: CI results: phase 2 contract green (run 13, after a brand-in-comment fix), debug-harness gating green incl.
   the new Release compile (run 14), phase 4 GameConfig green (run 15: core goldens unchanged, app Debug + Release).
   Run 16 (`d465610`) never started (see Blocked).
+- 2026-09-30: the Actions stop was the account's Actions budget ($0 + stop usage) after the included minutes ran out;
+  the owner made the repository public (standard runners, macOS included, are free for public repos). CI resumed.

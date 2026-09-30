@@ -2,7 +2,8 @@
 #   checks  (Linux)  the Python content/store checks that need no Apple toolchain
 #   core    (macOS)  the pure-Swift game core: swift build + swift test
 #   app     (macOS)  xcodegen -> Debug build -> app unit tests on an iOS simulator
-# macOS minutes cost 10x on a private repo: a push that changes ONLY docs (*.md, docs/**) or Python (*.py) skips core/app
+# The repository is public (runner minutes free); if it goes private again, macOS minutes cost 10x and the account's
+# Actions budget stops CI when the included minutes run out. Either way a push that changes ONLY docs (*.md, docs/**) or Python (*.py) skips core/app
 # (a tool whose output is Swift/JSON commits that output too, so the output file triggers them). Manual runs and PRs always run all.
 # The app folder is a matrix-free env var so a future Games/<slug> layout only changes APP_DIR.
 name: CI
