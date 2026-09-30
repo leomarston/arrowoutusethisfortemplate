@@ -84,4 +84,7 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
 - 2026-09-30: analysis of the repo (report + plan delivered in chat); CI added; original captures removed; script bugs
   fixed; machine.env; CLAUDE.md rewritten, factory rules archived. First CI baseline (untouched game code): app builds
   on Xcode 26.6; 280 unit tests ran, failures only in the Meta linkage test (owner-machine paths) and the two
-  machine-dependent checks above; core 403 tests with 1 failure (being identified). Purchase-durability fix; Meta SDK removed.
+  machine-dependent checks above; core 403 tests with 1 failure: SocialIntlTests read the OS's region list, which on
+  macOS 26.6 also holds groupings (003, 202, 419, EU, EZ, UN) -> the test now requires every COUNTRY to have a board
+  and every grouping to land on a real or local one. After the Meta removal + purchase fix: app build + gating unit
+  tests GREEN on CI (run 5).

@@ -384,8 +384,18 @@ final class SocialIntlTests: XCTestCase {
         // the build Mac's list the data was made from (design/social/data_v2/ios_regions.tsv) …
         let listed = try String(contentsOf: F.designDataV2.appendingPathComponent("ios_regions.tsv"), encoding: .utf8)
             .split(separator: "\n").filter { !$0.hasPrefix("#") && !$0.isEmpty }.map { String($0.split(separator: "\t")[0]) }
-        // … and THIS Foundation's (a newer SDK may add a region: it must resolve too)
-        let live = Locale.Region.isoRegions.map(\.identifier)
+        // … and THIS Foundation's COUNTRIES (a newer SDK may add a country: it must resolve too). macOS/iOS 26.6 also list
+        // groupings that are never a device's region setting (UN M49 areas "003" / "202" / "419", "EU", "EZ", "UN"): those
+        // are checked separately below — they must land on SOME board, not on their own.
+        func isGrouping(_ r: Locale.Region) -> Bool {
+            let id = r.identifier
+            return id.allSatisfy(\.isNumber) || ["EU", "EZ", "UN", "QO"].contains(id) || !r.subRegions.isEmpty
+        }
+        let live = Locale.Region.isoRegions.filter { !isGrouping($0) }.map(\.identifier)
+        for g in Locale.Region.isoRegions where isGrouping(g) {
+            let home = m.homeBoard(forRegion: g.identifier)
+            XCTAssertTrue(home.local || rowIsos.contains(home.iso), "grouping \(g.identifier) lands on a real or local board")
+        }
         XCTAssertGreaterThanOrEqual(listed.count, 280)
         var unresolved: [String] = []
         for code in Set(listed + live) {
