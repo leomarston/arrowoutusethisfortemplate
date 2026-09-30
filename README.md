@@ -31,11 +31,11 @@ things that could not be checked are listed in [What was not verified](#what-was
 - `tools/phonedriver/` — lets Claude drive the owner's USB iPhone (tap, swipe, screenshot, record) to study the original game.
 - `tools/gameprompt/` — the workflow templates and shell snippets that `GAMEPROMPT.md` refers to.
 - `GAMEPROMPT.md` and `GAMEPROMPTMAX.md` — the step-by-step manual for "make a 1:1 copy of game X" (see §5).
-- `docs/lessons/` — 116 notes of pitfalls already paid for (signing, App Store Connect, RevenueCat, Meta SDK,
+- `docs/lessons/` — 117 notes of pitfalls already paid for (signing, App Store Connect, RevenueCat, Meta SDK,
   localisation, screenshots, simulator and phone gotchas). Start at `docs/lessons/README.md`.
-- `CLAUDE.md`, `docs/DESIGN.md`, `docs/ASO.md`, `.claude/skills/app-factory/` — the factory's house rules and its skill
-  for subscription utility apps (mostly in Turkish). For a game job, `GAMEPROMPT.md`'s "PRECEDENCE" section says which of
-  them are suspended.
+- `CLAUDE.md` (the template's working rules) and `docs/ROADMAP.md` (the template plan, decisions and status). The
+  subscription-app factory's rules, its DESIGN/ASO notes and its `app-factory` skill are kept in `docs/archive/` and do
+  not apply to games.
 
 **Deliberately NOT in it**
 - **Secrets.** No `.env` (App Store Connect key id and issuer, RevenueCat secret key, Meta client token, Gemini key,
@@ -71,22 +71,26 @@ at the bottom) and `apps/mazeout/design/publish/release-plan.md`.
 README.md               this file
 GAMEPROMPT.md           the manual: build a 1:1 copy of a mobile puzzle game end to end (Workflow tool, "ultracode")
 GAMEPROMPTMAX.md        the same manual for /effort max, run with parallel background subagents instead of workflows
-CLAUDE.md               the factory's house rules (Turkish), copied unchanged
+CLAUDE.md               working rules for every Claude session here (read docs/ROADMAP.md next)
+machine.env.example     this Mac's simulator/phone ids + tool paths -> copy to machine.env (git-ignored)
 .env.example            every key the tools read, empty, with where to get it -> copy to .env
 .gitignore              secrets, build outputs, generated Xcode projects
 ideas.yaml              empty list on purpose (scripts/asc_submit.py opens it; see the comment inside)
 requirements.txt        Python packages for scripts/ (pip3 install -r requirements.txt)
+requirements-tools.txt  numpy/scipy/Pillow for the store-frame, audio, copygate, compare tools
+.github/workflows/ci.yml  CI: Linux content/store checks, core swift test, app build + unit tests (macOS)
 .claude/
   settings.example.json permission rules, incl. the two phone rules -> copy to .claude/settings.local.json and fix the paths
-  skills/app-factory/   the factory's phase-by-phase skill for subscription utility apps (not used for games)
 apps/
   mazeout/              Arrow Out, the whole game (below)
 docs/
-  DESIGN.md, ASO.md     the factory's design and App Store Optimisation rules
-  lessons/              116 pitfall notes + README.md (grouped index) + MEMORY.md (flat index)
+  ROADMAP.md            the template plan: phases, decisions, status log
+  archive/              the subscription-app factory's rules, DESIGN/ASO notes and app-factory skill (not for games)
+  lessons/              117 pitfall notes + README.md (grouped index) + MEMORY.md (flat index)
 scripts/                store, payment, signing and image tools; run them from the repo root (table below)
 tools/
   phonedriver/          phone (the CLI), start-runner, the XCUITest runner app (project.yml, Host/, UITests/), capture/
+  machine.sh, machine.py  load machine.env for the shell / Python tools
   gameprompt/           workflows/1-research.js … 4-build.js (Workflow tool templates), snippets/*.sh, rng_ref.py
 ```
 

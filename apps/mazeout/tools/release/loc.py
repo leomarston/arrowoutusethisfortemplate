@@ -58,7 +58,7 @@ BANNED_ALL = [
 ]
 # case-SENSITIVE (Spanish/Portuguese "todo" is a normal word)
 BANNED_CASE = [r"\bTODO\b", r"\bTBD\b", r"\bFIXME\b", r"XXX"]
-# "Free" is banned in the NAME only (docs/ASO.md); fine in descriptions ("free to play").
+# "Free" is banned in the NAME only (docs/archive/ASO-subscription-apps.md); fine in descriptions ("free to play").
 BANNED_NAME = [r"\bfree\b", r"kostenlos", r"gratuit", r"\bgratis\b", r"ücretsiz", r"無料", r"무료", r"免费",
                r"za\s+darmo", r"zadarmo", r"brezplač", r"!"]
 
