@@ -63,10 +63,6 @@ import PathCore
     @ObservationIgnored private(set) var autoplayer: AutoPlayer?
     /// The running Play (set by GameController.start, cleared at its teardown).
     @ObservationIgnored weak var game: GameController?
-    /// Template phase 2: the active puzzle module's app half and its board behind the generic contract
-    /// (App/Contracts/PuzzleBoardContract.swift; `ActivePuzzle.entry` picks the module). Set once at the end of `init`.
-    @ObservationIgnored private(set) var puzzle: (any PuzzlePlugin)!
-    @ObservationIgnored private(set) var puzzleBoard: (any PuzzleBoard)!
 
     private(set) var bootPhase: BootPhase = .booting
     /// PostScript name → registered (UIAppFonts), checked at boot.
@@ -166,11 +162,6 @@ import PathCore
             Self.makeWorld(seed: seed, config: config, folder: socialFolder, home: home, warm: true)
         }
         if args.autoplay { autoplayer = AutoPlayer(args: args, tuning: tuning) }
-        puzzle = ActivePuzzle.entry.makePlugin(self)
-        puzzleBoard = ActivePuzzle.entry.makeBoard(self)
-        Log.mark("boot", "puzzle module \(puzzle.id) (contract v\(PuzzleContract.version)): "
-                 + "boosters \(puzzle.capabilities.boosters.map(\.id.rawValue).joined(separator: ",")), "
-                 + "HUD \(puzzle.capabilities.hud.map(\.rawValue).joined(separator: ","))")
         rootView = ShellEntry.makeRoot(self)
     }
 
