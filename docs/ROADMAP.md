@@ -64,7 +64,7 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
 - [ ] **1. Restructure without behaviour change** — `Engine/`, `Puzzles/ArrowEscape/`, `Games/arrowout/`; split
       PathCore into GameCore + ArrowEscape; cut the seams (RulesTuning meta/arrow split, decode helper, streak steps,
       world seed, booster ids from config)
-- [ ] **2. Puzzle contract** — `PuzzleModule`, generic meta events, GameController/directors/HUD/fail flow generic,
+- [ ] **2. Puzzle contract** (draft for review: `docs/architecture/PUZZLE-MODULE.md`) — `PuzzleModule`, generic meta events, GameController/directors/HUD/fail flow generic,
       `PuzzleBoard` replaces the arrow-typed board contract, generic bot/probe, ArrowEscape implements it
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,
       sounds, names; prove it with a second skin and zero Swift changes
