@@ -46,6 +46,12 @@ import PathCore
     }
 
     private func wait(_ s: Double) { RunLoop.main.run(until: Date().addingTimeInterval(s)) }
+    /// Runs the main loop until `done` holds or `timeout` passes (a shared CI VM can run the display link late; the
+    /// assertions after it stay exactly the same, only the fixed wait becomes "until the beat arrived").
+    private func wait(until timeout: Double, _ done: () -> Bool) {
+        let end = Date().addingTimeInterval(timeout)
+        while !done() && Date() < end { RunLoop.main.run(until: Date().addingTimeInterval(0.05)) }
+    }
 
     func testCommandsBeforeTheFirstLayoutAreQueued() {
         let e = makeEngine()
@@ -113,7 +119,7 @@ import PathCore
             XCTAssertEqual(l.opacity, 1)
         }
         XCTAssertFalse(e.isSettled)
-        wait(1.2)
+        wait(until: 6) { beats.contains(.exitFinished(ArrowID(2))) && e.movers[ArrowID(2)] == nil }
         XCTAssertTrue(beats.contains(.exitLeftBoard(ArrowID(2))))
         XCTAssertTrue(beats.contains(.exitFinished(ArrowID(2))))
         XCTAssertNil(e.movers[ArrowID(2)])
