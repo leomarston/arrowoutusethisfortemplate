@@ -54,7 +54,11 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   - [x] Purchase durability: never `finish` a StoreKit transaction whose grant failed to save
   - [x] Remove the Meta SDK from the engine (D2): code, strings, privacy manifest/label, gates; recipe in
         `docs/recipes/ad-attribution.md`; generic `PurchaseReporting` hook kept; SDK gate 8 = allow-list (`sdk_gate.py`)
-  - [ ] Debug harness (BoardLab/ShellLab/SoundBoard/AutoPlayer/`-pc.win`) out of Release builds
+  - [ ] Debug harness (BoardLab/ShellLab/SoundBoard/SocialLab/AutoPlayer/`-pc.win`) out of Release builds — **moved to
+        phase 1**: shipping types live inside the lab files (`S3Hooks`/`S3Popups` in `ShellLab+Meta.swift`, `HUDLab.fill`
+        used by `S2Hooks`, `SocOpenBench` by `SocialModel`, `LabBoards.warmEffectsBoard` by `WarmUp`); split them out
+        while the files move, then gate the labs with `#if DEBUG || PC_MEASURE` (bench runs Measure; store captures use
+        no lab). Unreachable in Release today (launch arguments only).
   - [ ] Recover `build/` specs the code still cites (logo timing, Balloon Rise rules, contract hashes) from the owner's Mac
   - [ ] PathCore/GameCore buildable + testable on Linux (cloud sessions)
 - [ ] **1. Restructure without behaviour change** — `Engine/`, `Puzzles/ArrowEscape/`, `Games/arrowout/`; split
