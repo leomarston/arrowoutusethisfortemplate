@@ -84,6 +84,26 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   - [ ] ui.json colour values into the skin (today `recolor.py --ui-json` moves them alongside)
   - [ ] Art slots, scenes/logo data, fonts, sounds, names (docs/SKIN.md §2); a second skin
 - [ ] **4. Config + generators** — `game.yml`, `tools/game.py new|generate|doctor`, every script/lane/gate per game
+  - [x] `apps/mazeout/game.yml`: identity, puzzle module + its level checks, store, events (mirrored into social.json),
+        social seeds, brand bans, feature flags; economy + IAP catalogue REFERENCED (rules.json / iap.json stay the source)
+  - [x] `tools/game.py doctor --game <slug>`: schema; ~60 identity anchors (project.yml, fastlane, tools, .storekit,
+        iap.json, tuning, metadata URLs, Swift seeds); `com.<org>.*` literal sweep; ad attribution off; ban coverage in
+        BRANDS / gate 3 / BrandTests / loc.py; IAP triple (meta.py iap-check); strings --check; skin --check; the
+        puzzle's `checks`; store texts + meta.py audit; art MANIFEST files at size + app icon; machine.env (warn); no
+        identity of another game. apps/mazeout: 0 FAIL (WARN only machine.env on Linux)
+  - [x] `tools/game.py generate --game <slug> [--check]`: targeted writes (regex group / JSON value span) + old bundle
+        id / brand sweep; mazeout `--check` = 0 changes; write mode tested on scratch copies and in unit tests
+  - [x] `tools/game.py new <slug> --from mazeout …`: copy plan (docs/TEMPLATE.md), identity rename, game.yml, generate;
+        doctor on the result = only the TODOs (store texts, rendered art, app icon; warns: levels copy, strings sources)
+  - [x] `tools/tests/test_game.py` (19 tests, `python3 -m unittest discover -s tools/tests`); `docs/TEMPLATE.md`; README §4
+  - [x] Tools read identity from one place: `meta.py` brand checks use `loc.py BRAND`; strings `BRANDS` = game.yml bans
+        + our names (now also blocks "Maze", "grandgames", "arrowjam" in copy, like gate 3 / BrandTests)
+  - [ ] CI: run `python3 tools/game.py doctor --game $APP_DIR_SLUG --quick` + the game.py unit tests in the Linux job
+  - [ ] `new` for a second game end-to-end on the Mac (gen/build/test of the scaffold) — needs a real second game (phase 5)
+  - [ ] Generate the remaining hand-kept lists (loc.py BANNED_ALL, gate 3 file-name/data greps, gate 7c WORDS,
+        BrandTests.bannedAnyCase, l10n_review BRAND_RE) once the gates read game.yml
+  - [ ] Move the Swift constants game.yml mirrors (world seed/epoch, calendar epoch, ShopCatalog prefix) into config
+        (phase 1 seams); then generate stops touching Swift
 - [ ] **5. Prove a second puzzle** — a module with a different input and fail rule, shipped to TestFlight with its own skin
 - [ ] **6. Docs & prompts** — TEMPLATE.md, PUZZLE-MODULE.md, SKIN.md; the game manual split into "write a puzzle
       module" and "reskin & publish"
@@ -107,3 +127,8 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   `skin/colors.json`; `codemod.py --verify` shows 0 of 61 files differ from the literals they replaced; CI Linux job
   runs `tools/skin/build.py --check / --check-literals / --selftest` and `recolor.py --selftest`. App build + the new
   `SkinColorsTests` still to be confirmed on CI (no Swift toolchain in the session that wrote it).
+- 2026-09-30: config + generators (phase 4, first part): `apps/mazeout/game.yml`, `tools/game.py doctor|generate|new`,
+  `tools/tests/test_game.py` (19 tests green), `docs/TEMPLATE.md`. doctor on apps/mazeout: 0 FAIL, 1 WARN (no
+  `machine.env` in a cloud session). generate --check on apps/mazeout: 0 changes. `new testgame` on a scratch copy of
+  the repo: doctor lists only store texts / rendered art / app icon (FAIL, TODO) + levels copy / strings SPEC sources
+  (WARN). Verified on Linux only; the scaffold was not built with Xcode.

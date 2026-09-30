@@ -66,9 +66,10 @@ OUT = os.path.join(APP, "App", "Resources", "Localizable.xcstrings")
 L10N = os.path.join(APP, "App", "Resources", "Strings", "l10n")
 # B3: the languages of the l10n tables (EN + TR live in strings.tsv); the catalogue order is Xcode's (sorted keys).
 LANGS = ["de", "fr", "es", "it", "pt-BR", "ja", "ko", "zh-Hans", "pl", "sk", "sl"]
-# The working title (dev builds only, behind `Brand`), its code spelling, the original's former name and its publisher.
-# Matched case-insensitively as substrings of either column.
-BRANDS = ("Maze Out", "MazeOut", "Arrow Jam", "Grand Games", "Arrow Out", "ArrowOut")
+# The original's names (game.yml brand_bans, the same list as release_gates.sh gate 3 and BrandTests) + our own product
+# name and its code spelling (copy interpolates Brand.name). Matched case-insensitively as substrings of either column.
+# Written by `python3 tools/game.py generate --game <slug>` from apps/<slug>/game.yml; edit game.yml, not this line.
+BRANDS = ("Maze", "MazeOut", "Arrow Jam", "Grand Games", "grandgames", "arrowjam", "Arrow Out", "ArrowOut")
 # FIX-2 lane B (B1b-r3): identifier keys -> their English text (App/Resources/Strings/keys.tsv; header key<TAB>en<TAB>note).
 # A key that is not its English text: English says one word where other languages need two ('Finished' = a life arrived vs
 # 'event.finished' = the event is over). Code: String(localized: "<key>", defaultValue: "<en>").

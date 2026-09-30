@@ -312,7 +312,7 @@ Do the "OWNER PRE-FLIGHT" list at the top of `GAMEPROMPT.md` first (phone, Mac, 
   copying what you reuse (GAMEPROMPT §3.5 / §8.0). Once the new game ships, `apps/mazeout/` can be deleted from that repo.
 
 ### Step 4: the RENAME CHECKLIST
-`tools/game.py` covers rows 1-4, 10-12 and 17-20 (`new` renames, `generate` writes, `doctor` verifies); the rest stay manual.
+`tools/game.py` covers rows 1-4, 10-12 and 17-20 (`new` renames, `generate` writes, `doctor` verifies; row 19 only partly, see docs/TEMPLATE.md "Manual"); the rest stay manual.
 Counts are from a grep of the Arrow Out tree on 2026-09-30 (2,575 git files, about 220 MB), split into
 **code+config** (everything except Markdown notes, logs, `research/`, `art/review/`, `design/spike-*`,
 `design/publish/verify/`) and **all files**, plus the files of this repo outside `apps/mazeout`. The Markdown history

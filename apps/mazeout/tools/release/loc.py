@@ -25,7 +25,10 @@ KEYWORDS_LIMIT = 100
 IAP_NAME_LIMIT, IAP_DESC_LIMIT = 35, 55          # ASC Help (INFERRED until T5's first POST reads them back)
 REVIEW_NOTES_LIMIT = 4000
 
+# BRAND, SEED, NAME_EN, PRIVACY, SUPPORT, COPYRIGHT and LOCALES are written by `python3 tools/game.py generate` from
+# apps/<slug>/game.yml (identity.brand_name, store.*): edit game.yml, not these lines.
 SEED = "arrow out"                                 # first keyword in every locale; every name starts with it
+BRAND = "Arrow Out"                                # the product name every store name starts with
 NAME_EN = "Arrow Out: Arrow Escape Puzzle"         # ruling 38 (verbatim)
 
 PRIVACY = "https://leomarston.github.io/manycode-legal/privacy-arrow-out.html"  # RFIX 09-29: the Arrow Out page (Meta SDK), live since 23:24
