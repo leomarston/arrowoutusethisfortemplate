@@ -290,3 +290,6 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   meta, levels, sortpuzzle, uiart, skin / art / variant, doctor, game.py tests, harness gate, kit check + selftest, brand
   grep, compileall). Swift (package move, ~40 app files, 24 new registration files, ShellS3Tests' key-file list) not
   compiled in this session: CI's core + app jobs are the first build.
+- 2026-09-30: CI green on every job for the SortPuzzle + art/scenes work (run 19), the kit + shell gaps (run 20) and the
+  kit decoupling (run 21: core, app Debug + unit tests, Release). Guides written: docs/guides/NEW-GAME.md, RESKIN.md,
+  WRITE-A-PUZZLE.md, KIT.md. Not yet updated: GAMEPROMPT.md / GAMEPROMPTMAX.md (still the pre-template flow).
