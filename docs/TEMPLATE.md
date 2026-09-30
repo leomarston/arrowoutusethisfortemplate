@@ -58,9 +58,11 @@ Right after `new`, doctor reports exactly these TODOs (tested in `tools/tests/te
 ### 2. The puzzle module
 Same puzzle as the reference: nothing to do. A new puzzle: follow `docs/architecture/PUZZLE-MODULE.md` (the contract:
 levels, deterministic session, board, fail rules, boosters, HUD widgets, bot). Set `puzzle.module` in `game.yml` and list
-the module's own level checks under `puzzle.checks` (commands run from `apps/<slug>`; doctor runs them). Until phases
-1-2 of `docs/ROADMAP.md` land, the reference puzzle's code lives in `App/Board`, `App/Game` and the core package; a new
-module replaces those parts.
+the module's own level checks under `puzzle.checks` (commands run from `apps/<slug>`; doctor runs them). The module plugs
+in at ONE line, `ActivePuzzle.entry` (`App/Contracts/PuzzleBoardContract.swift`): its core half implements GameCore's
+`PuzzleModule` / `PuzzleSession` (reference: `Packages/PathCore/Sources/ArrowEscape/Session/ArrowPuzzleSession.swift`), its
+app half `PuzzlePlugin` + `PuzzleBoard` (reference: `App/Board/ArrowEscapePlugin.swift` around the BoardEngine). `App/Game`
+is genre-agnostic and stays as it is; until phase 1's folder move, the reference puzzle's board lives in `App/Board`.
 
 ### 3. Reskin
 Colours: `docs/SKIN.md` (`skin/colors.json` -> `tools/skin/build.py`). Art: `art/PIPELINE.md` + `art/STYLE.md`; every slot

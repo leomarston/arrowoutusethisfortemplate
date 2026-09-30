@@ -53,8 +53,9 @@ import PathCore
 
     private var services: GameServices { game.services }
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for out in outputs {
+            guard case .meta(let e) = out else { continue }
             if case .won = e {
                 // G1 banked the win in the same batch (WinDirector ran before this director): log its outcomes
                 let outcomes = game.win.outcomes
@@ -429,7 +430,7 @@ import PathCore
     }
 
     static func metrics(_ app: AppModel) -> ShellMetrics {
-        guard let w = BoardEngine.keyWindow() else { return ShellMetrics() }
+        guard let w = GameServices.keyWindow() else { return ShellMetrics() }
         return ShellMetrics(size: w.bounds.size, safeTop: w.safeAreaInsets.top, safeBottom: w.safeAreaInsets.bottom,
                             popupUpscale: app.tuning.ui.popupUpscale)
     }

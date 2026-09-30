@@ -16,7 +16,8 @@ import PathCore
 @MainActor final class UnlockDirector: GameDirector {
     unowned let game: GameController
     /// Where the rows come from (the bundle's Levels/unlocks.json through C1's LevelLibrary); tests inject theirs.
-    static var source: (GameController) -> [FeatureUnlock] = { $0.services.app?.library?.unlocks ?? [] }
+    /// Template phase 2: the active module's unlock cards (`PuzzlePlugin.unlocks`).
+    static var source: (GameController) -> [FeatureUnlock] = { $0.services.puzzle.unlocks }
     /// `-pc.go level` skips the overlay on the run's first Play only.
     private static var firstPlayOfRun = true
 

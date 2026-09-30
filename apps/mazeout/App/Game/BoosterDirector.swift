@@ -32,6 +32,10 @@ import PathCore
 //   stock 0 → S3's booster popup ("Time Freeze" / "Hint", "Buy x3 [coin] 900", C3 `Economy.buyBooster`); the timer holds while
 //     it is up (the popup host); after a purchase the badge shows the new stock and the player taps again (GP §6.4).
 // Log: `[PC][booster] <id> …` for every decision.
+// Template phase 2: genre-agnostic. The corners are the module's `BoosterSpec`s (capabilities order); `.freezeTimer` runs the
+// shell's freeze flow above (the session freezes its clock); every other effect (Arrow Out's bulb = `.puzzleAction("hint")`)
+// asks the session first (`canUseBooster`: no stock is taken when it would do nothing), then `useBooster`. A booster whose
+// outputs carry hint targets stays inert until one of them leaves play (a puzzle event's `removedTargets`).
 
 @MainActor final class BoosterDirector: GameDirector {
     unowned let game: GameController
@@ -46,8 +50,8 @@ import PathCore
     private var inBackground = false
     private var holdWatch: Task<Void, Never>?
     private var lifecycle: [NSObjectProtocol] = []
-    /// The hinted unit until it leaves (the bulb is inert meanwhile).
-    private(set) var hinted: [ArrowID]?
+    /// The hinted targets until one of them leaves (the hint booster is inert meanwhile).
+    private(set) var hinted: [PuzzleTarget]?
     private var buying = false
 
     init(_ game: GameController) { self.game = game }
@@ -62,28 +66,31 @@ import PathCore
         let live: Bool
         switch session.phase { case .ready, .playing: live = true; default: live = false }
         guard live, game.introDone, !game.paused, !services.popups.isPresenting, !game.synthetic, !buying else {
-            Log.mark("booster", "\(id.rawValue) ignored (phase \(session.snapshot().phase), intro \(game.introDone), "
+            Log.mark("booster", "\(id.rawValue) ignored (phase \(session.phase.logName), intro \(game.introDone), "
                      + "popup \(services.popups.isPresenting), paused \(game.paused))")
             return true
         }
-        switch services.rules.boosters.action(id) {
+        guard let spec = game.capabilities.booster(id) else {
+            Log.mark("booster", "\(id.rawValue): not one of the puzzle's boosters (no action)")
+            return true
+        }
+        switch spec.effect {
         case .freezeTimer: useFreeze(id, session)
-        case .hint: useHint(id, session)
-        case .none: Log.mark("booster", "\(id.rawValue): no action in rules.json boosters.actions")
+        case .addTime, .addMoves, .puzzleAction: useAction(id, session)
         }
         return true
     }
 
     private func stock(_ id: BoosterID) -> Int { Economy.stock(store.state, id) }
 
-    private func useFreeze(_ id: BoosterID, _ session: LevelSession) {
+    private func useFreeze(_ id: BoosterID, _ session: any PuzzleSession) {
         guard freeze == .idle else { Log.mark("booster", "\(id.rawValue) inert: its freeze is running"); return }
         guard stock(id) > 0 else { buy(id); return }
         guard store.mutateAndSave({ Economy.useBooster(&$0, id) }) else { buy(id); return }
         let before = session.clock.remaining
         // CORE-2 / ruling 30: the flight (lead) counts from B even before the first tap, the 10 s countdown from that tap
-        let events = session.useBooster(id, hintPolicy: services.rules.boosters.hintPolicy, freezeFlightFromUse: true)
-        game.fanOut(events, origin: .director)
+        let outputs = session.useBooster(id)
+        game.fanOut(outputs, origin: .director)
         services.haptics.play(.booster)
         refreshSlots()
         let started = session.clock.started
@@ -168,24 +175,29 @@ import PathCore
         inBackground = false
     }
 
-    private func useHint(_ id: BoosterID, _ session: LevelSession) {
-        if let h = hinted, !h.isEmpty { Log.mark("booster", "\(id.rawValue) inert: a\(h.map { "\($0.raw)" }.joined(separator: "+")) is still hinted"); return }
-        let policy = services.rules.boosters.hintPolicy                      // ruling 31: unblocksMost (rules.json)
-        guard let unit = session.hint(policy: policy), !unit.isEmpty else {
-            Log.mark("booster", "\(id.rawValue): no free unit right now (nothing happens, no stock taken)")
+    /// A booster the session runs (Arrow Out's bulb: the rules' hint policy, SPEC.md ruling 31 — the board zooms to the unit,
+    /// blinks it green until it exits, then back to fit; no free unit (a door still opening) → nothing, no stock taken).
+    private func useAction(_ id: BoosterID, _ session: any PuzzleSession) {
+        if let h = hinted, !h.isEmpty {
+            Log.mark("booster", "\(id.rawValue) inert: \(h.map(\.description).joined(separator: "+")) still hinted")
+            return
+        }
+        guard session.canUseBooster(id) else {
+            Log.mark("booster", "\(id.rawValue): nothing to do right now (nothing happens, no stock taken)")
             return
         }
         guard stock(id) > 0 else { buy(id); return }
         guard store.mutateAndSave({ Economy.useBooster(&$0, id) }) else { buy(id); return }
-        let events = session.useBooster(id, hintPolicy: policy, freezeFlightFromUse: true)
-        var shownUnit = unit
-        for case .hintShown(let ids) in events where !ids.isEmpty { shownUnit = ids }
-        hinted = shownUnit
-        game.fanOut(events, origin: .director)
+        let outputs = session.useBooster(id)
+        for case .puzzle(let p) in outputs {
+            if let targets = p.hintTargets, !targets.isEmpty { hinted = targets }
+        }
+        game.fanOut(outputs, origin: .director)
         services.haptics.play(.booster)
         refreshSlots()
-        Log.mark("booster", "\(id.rawValue) used: stock \(stock(id)), hinted a\(shownUnit.map { "\($0.raw)" }.joined(separator: "+")) "
-                 + "(\(policy.rawValue); zoom \(String(format: "%.2f", Double(game.board.zoomScale))) → max, the timer \(session.clock.started ? "keeps running" : "still frozen"))")
+        Log.mark("booster", "\(id.rawValue) used: stock \(stock(id))"
+                 + (hinted.map { ", hinted " + $0.map(\.description).joined(separator: "+") } ?? "")
+                 + " (the timer \(session.clock.started ? "keeps running" : "still frozen"))")
     }
 
     /// 0 stock: S3's booster popup (Buy x3 for 900; short of coins it opens the Shop over itself). The timer holds while it is up.
@@ -202,38 +214,39 @@ import PathCore
         }
     }
 
-    /// Both corners from the stock (0 → the "+" badge).
+    /// The module's corners from the stock (0 → the "+" badge).
     private func refreshSlots() {
-        let slots = ["freeze", "hint"].map { raw -> BoosterSlotVM in
-            let n = Economy.stock(store.state, BoosterID(raw))
-            return BoosterSlotVM(id: BoosterID(raw), state: n > 0 ? .stock(n) : .empty)
+        let slots = game.capabilities.boosters.map { spec -> BoosterSlotVM in
+            let n = Economy.stock(store.state, spec.id)
+            return BoosterSlotVM(id: spec.id, state: n > 0 ? .stock(n) : .empty)
         }
         game.hudWriter.setBoosters(slots)
     }
 
     // MARK: the session's side
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for e in events {
-            switch e {
-            case .timerStarted:
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for o in outputs {
+            switch o {
+            case .meta(.timerStarted(_)):
                 if freeze == .pendingFirstTap {
                     freeze = .running
                     firstTapAfterPreStartFreeze()
                 }
-            case .freezeEnded:
+            case .meta(.freezeEnded):
                 // the effect ends on its own clock at the same moment (B + 1.60 + 10: frost fade 0.30 s, tray up 0.15 s)
                 endFreeze("the session's freeze ended: the timer resumes", stopFX: false)
-            case .exited(let plan):
-                if let h = hinted, !Set(plan.unit).isDisjoint(with: h) {
-                    hinted = nil
-                    Log.mark("booster", "hint a\(plan.tapped.raw) exited: the bulb is usable again (the board returns to fit)")
-                }
-            case .stageCleared, .won, .lost:
+            case .meta(.stageCleared(_)), .meta(.won(_)), .meta(.lost(_)):
                 endFreeze("the stage ended", stopFX: true)
                 hinted = nil
-            case .stageAdvanced:
+            case .meta(.stageAdvanced(_)):
                 refreshSlots()
+            case .puzzle(let p):
+                let gone = p.removedTargets
+                if let h = hinted, !gone.isEmpty, !Set(gone).isDisjoint(with: h) {
+                    hinted = nil
+                    Log.mark("booster", "hinted \(gone.map(\.description).joined(separator: "+")) left: the hint booster is usable again")
+                }
             default:
                 break
             }

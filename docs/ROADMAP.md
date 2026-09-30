@@ -71,8 +71,29 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
         and lvtool are unchanged. Seams cut: `MetaRules` (failChain/rewards/boosters, same rules.json keys; RulesTuning
         keeps typealiases) read by `EconomyRules.boosterRules`; decode helper + dotted overrides in `TuningJSON`.
         Still open: streak steps, world seed, booster ids from config (not needed for the dependency direction).
-- [ ] **2. Puzzle contract** (draft for review: `docs/architecture/PUZZLE-MODULE.md`) — `PuzzleModule`, generic meta events, GameController/directors/HUD/fail flow generic,
+- [ ] **2. Puzzle contract** (`docs/architecture/PUZZLE-MODULE.md`, now v1-candidate = what is built) — `PuzzleModule`, generic meta events, GameController/directors/HUD/fail flow generic,
       `PuzzleBoard` replaces the arrow-typed board contract, generic bot/probe, ArrowEscape implements it
+  - [x] GameCore contract (`Session/PuzzleContract.swift`): `PuzzleTarget`, `PuzzleInput`, `PuzzleMove`, `PuzzleEvent` /
+        `PuzzleBeat` (opaque), `PuzzleAck`, `MetaEvent`, `SessionOutput` (`.meta` / `.puzzle(any PuzzleEvent)`),
+        `PuzzleCapabilities` (`FailRule`, `InputKind`, `BoosterSpec`/`BoosterKind`, `HUDWidget`), `PuzzleStage`,
+        `PuzzleSession`, `PuzzleModule`, `TutorialStep` (+ `TutorialTrigger`/`TutorialDismiss` moved to GameCore);
+        additive: `ContinueOffer.Kind` outOfMoves/stuck (+ `lossReason`), `Grant` addMoves/puzzleAction, `LossReason`
+        outOfMoves/stuck, `WinResult` stars/stats (old JSON decodes; APISurfaceTests: the two allCases lists extended, new
+        pins added); `PuzzleContractTests`
+  - [x] ArrowEscape adapter (`Session/ArrowPuzzleSession.swift`): `ArrowPuzzleSession` wraps `LevelSession` unchanged,
+        `SessionEvent` → `SessionOutput` 1:1 in order, `SessionAck: PuzzleBeat`, `ArrowEscapeModule` (capabilities
+        timer + hearts(3), tap, freeze/hint, HUD timer + hearts, zoomable, multi-stage)
+  - [x] App: `PuzzleBoard` / `PuzzleBoardDelegate` / `PuzzlePlugin` / `ActivePuzzle` (`App/Contracts/PuzzleBoardContract.swift`);
+        `ArrowPuzzleBoard` + `ArrowEscapePlugin` (`App/Board/ArrowEscapePlugin.swift`) around the unchanged BoardEngine;
+        GameController + LevelFlow, FailFlow, Win, Booster (slots from `BoosterSpec`s), HUDWriter, Tutorial, Unlock, Events
+        directors and the AutoPlayer consume `SessionOutput`/`MetaEvent` and the capabilities — no arrow type left in
+        `App/Game`; the module is registered in ONE place (`ActivePuzzle.entry`); GameControllerTests / GameG2Tests drive
+        the controller through ArrowPuzzleBoard's real translation (assertions unchanged)
+  - [ ] CI green on the phase-2 change (written without a Swift toolchain), then UI tests + bench + captures on the Mac
+        ("no behaviour change" proof), then the §7.2 paper designs (sorting, match-3, colouring) before freezing v1
+  - [ ] Gaps for other genres (found while building, not needed by Arrow Out): HUD moves/goals widgets, `outOfMoves`/`stuck`
+        popup texts (13 languages) and Shell variants, `MetaRules.StepGrant.addMoves`, `SessionPlan` into GameCore,
+        audio cue key `cues.arrowTap` → a generic move cue
 - [ ] **3. Skin system** — colour tokens (pixel-checked against the baseline), art slots, scene/logo data, fonts,
       sounds, names; prove it with a second skin and zero Swift changes
   - [x] Colour tokens (code): every colour literal of App/Shell, App/FX and GlossyChrome (1,703 sites) is a `Skin.<token>`
@@ -146,3 +167,8 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   SkinData.generated.swift (+ UIAppFonts lists); build.py --check / --adopt-ui / selftest extended, recolor.py covers the
   ui colours through the palette. Linux: resolved ui.json == the old file value for value, all Linux checks green. Swift
   (Tuning.swift resolver, font/name call sites, new SkinColorsTests cases) not compiled in that session: CI to confirm.
+- 2026-09-30: puzzle contract (phase 2, first part): GameCore `PuzzleContract.swift` (the generic contract), ArrowEscape
+  `ArrowPuzzleSession` + `ArrowEscapeModule`, app `PuzzleBoard`/`PuzzlePlugin`/`ActivePuzzle` + `ArrowPuzzleBoard`/
+  `ArrowEscapePlugin`; the Game layer (`App/Game/*`) is genre-agnostic (no arrow type). Additive changes to the frozen
+  session types (Kind/Grant/LossReason/WinResult). `docs/architecture/PUZZLE-MODULE.md` rewritten as v1-candidate.
+  Written in a cloud session without a Swift toolchain: nothing compiled yet — CI is the first build.

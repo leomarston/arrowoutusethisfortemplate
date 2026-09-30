@@ -248,7 +248,7 @@ public final class LevelSession {
             ev.append(.timeAdded(seconds: s, cause: .continueOffer))
         case .refillHearts(let n):
             hearts = max(0, hearts) + max(0, n)
-        case .none:
+        case .none, .addMoves, .puzzleAction:                  // template phase 2: other modules' grants (no arrow chain uses them)
             break
         }
         clock.release(.offer)

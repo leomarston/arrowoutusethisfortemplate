@@ -4,9 +4,9 @@ import QuartzCore
 import PathCore
 
 // GAME G1 (SPEC-architecture §8.1–§8.3, §8.5, §9.3–§9.4, §10; SPEC-motion-audio §3, §12; CONSISTENCY T-4, T-10, W-1, B-11).
-// One GameController per Play (a session of 1…n stages). It owns the C2 `LevelSession`, is the board's delegate, and fans
-// every event batch the session returns out in the FIXED order of §8.1, on the main thread, in the same run-loop turn:
-//   1 board.present(events)    layers + animations, one transaction (the board's own)
+// One GameController per Play (a session of 1…n stages). It owns the module's `PuzzleSession`, is the board's delegate, and fans
+// every output batch the session returns out in the FIXED order of §8.1, on the main thread, in the same run-loop turn:
+//   1 board.present(outputs)   layers + animations, one transaction (the board's own)
 //   2 haptics                  the §12.1 map (tap / heartLost / bumpContact; the one-per-frame arbiter is A2's)
 //   3 audio                    the cue map (in play only `cues.arrowTap`, unmapped by default: v552 is silent, MA3)
 //   4 hud                      HUDWriter (≤ 10 Hz; nothing on a tap frame: `.timerStarted` is written on the next tick)
@@ -18,6 +18,11 @@ import PathCore
 // presented frame (D8). The frame-exact beats (W: the clear wave + the celebration; the stage transition) are handled
 // synchronously in `boardBeat`; waits for later moments run on the board's display link (`wait(gameSeconds:)`), never
 // on timers.
+// Template phase 2 (docs/architecture/PUZZLE-MODULE.md): genre-agnostic. The Play holds the active module's
+// `PuzzleSession` and `PuzzleBoard` (services.puzzle / services.board); batches are `[SessionOutput]` — the shell acts on
+// `.meta(MetaEvent)` items and hands the whole batch to the board, whose module reads its own `.puzzle` items. Input arrives
+// hit-tested (`boardInput`), beats as `PuzzleAck`s (`boardAck`); a "move" (the tap haptic / sound) is any output whose
+// puzzle event reports `move`.
 
 /// A director's hooks into a Play (G1's LevelFlow / FailFlowDirector / WinDirector and G2's TutorialDirector,
 /// UnlockDirector, BoosterDirector, EventsDirector … through `GameDirectors.make`). Every hook has a no-op default.
@@ -25,9 +30,9 @@ import PathCore
     /// The session started and the board is loading (before the intro; the level screen is not visible yet).
     func levelStarted(_ game: GameController)
     /// Step 6 of every fanned-out batch.
-    func handle(_ events: [SessionEvent], game: GameController)
-    /// A board beat, after the controller acked it to the session.
-    func beat(_ beat: BoardBeat, game: GameController)
+    func handle(_ outputs: [SessionOutput], game: GameController)
+    /// A board ack, after the controller acked it to the session.
+    func ack(_ ack: PuzzleAck, game: GameController)
     /// A booster corner was tapped; true = handled (G2's BoosterDirector).
     func boosterTapped(_ id: BoosterID, game: GameController) -> Bool
     /// After the win panel's Continue / X, before the next screen (G2: the post-level queue).
@@ -40,8 +45,8 @@ import PathCore
 
 extension GameDirector {
     func levelStarted(_ game: GameController) {}
-    func handle(_ events: [SessionEvent], game: GameController) {}
-    func beat(_ beat: BoardBeat, game: GameController) {}
+    func handle(_ outputs: [SessionOutput], game: GameController) {}
+    func ack(_ ack: PuzzleAck, game: GameController) {}
     func boosterTapped(_ id: BoosterID, game: GameController) -> Bool { false }
     func afterWin(_ summary: WinSummary, game: GameController) async {}
     func afterLoss(_ reason: LossReason, game: GameController) async {}
@@ -64,12 +69,15 @@ extension GameDirectorsEntryPoint {
 @MainActor struct GameServices {
     var args: LaunchArgs
     var tuning: Tuning
-    var rules: RulesTuning
+    /// The meta rules (fail chain, rewards, boosters); the puzzle's own rules are its plugin's.
+    var rules: MetaRules
     var economy: EconomyRules
     var clock: MotionClock
     var store: PlayerStore
     var hud: HUDModel
-    var board: any BoardControlling
+    var board: any PuzzleBoard
+    /// The active puzzle module's app half (sessions, capabilities, tutorials, unlock cards).
+    var puzzle: any PuzzlePlugin
     var audio: any AudioPlaying
     var haptics: any HapticPlaying
     var popups: any PopupPresenting
@@ -77,8 +85,6 @@ extension GameDirectorsEntryPoint {
     var router: any Routing
     var latency: LatencyProbe
     var perf: PerfMonitor
-    /// Level n (authored or generated), nil = not available.
-    var level: @MainActor (Int) -> LevelSpec?
     /// The session plan of a launch (sessions.json).
     var plan: @MainActor (LevelLaunch) -> SessionPlan
     /// The events' opponents (the social world).
@@ -96,13 +102,12 @@ extension GameDirectorsEntryPoint {
     @MainActor static func of(_ app: AppModel) -> GameServices {
         let router = app.router
         return GameServices(
-            args: app.args, tuning: app.tuning, rules: app.rules, economy: app.economy, clock: app.clock, store: app.store,
-            hud: app.hud, board: app.board, audio: app.audio, haptics: app.haptics, popups: app.popups, fx: app.fx,
-            router: router, latency: app.latency, perf: app.perf,
-            level: { [weak app] n in app?.level(n) },
+            args: app.args, tuning: app.tuning, rules: app.rules.meta, economy: app.economy, clock: app.clock, store: app.store,
+            hud: app.hud, board: app.puzzleBoard, puzzle: app.puzzle, audio: app.audio, haptics: app.haptics, popups: app.popups,
+            fx: app.fx, router: router, latency: app.latency, perf: app.perf,
             plan: { [weak app] l in app?.sessionPlan(for: l) ?? SessionPlan(id: l.session, levels: l.levels) },
             rivals: { [weak app] in app?.rivals ?? SocialWorld(installSeed: 1, config: .default, names: NameBank()) },
-            screenSize: { BoardEngine.keyWindow()?.bounds.size ?? CGSize(width: 393, height: 852) },
+            screenSize: { GameServices.keyWindow()?.bounds.size ?? CGSize(width: 393, height: 852) },
             screenAfterWin: { [weak app] summary in
                 if let r = router as? Router { return r.screenAfterWin(summary) }
                 return GameServices.defaultAfterWin(summary, store: app?.store, app: app)
@@ -116,6 +121,12 @@ extension GameDirectorsEntryPoint {
                 app?.prefetchLevels(around: n)
             },
             app: app)
+    }
+
+    /// The app's key window (the screen the board lays out on).
+    static func keyWindow() -> UIWindow? {
+        let windows = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.flatMap(\.windows)
+        return windows.first(where: \.isKeyWindow) ?? windows.first
     }
 
     /// §6.2 without SHELL's Router: the FTUE chain's next level while home was never seen, else home.
@@ -136,16 +147,16 @@ extension GameDirectorsEntryPoint {
     }
 }
 
-@MainActor final class GameController: LevelHosting, BoardDelegate, BoardProbeSupplying {
+@MainActor final class GameController: LevelHosting, PuzzleBoardDelegate {
     /// Where a batch came from (the haptic of step 2 depends on it).
     enum Origin: Equatable { case start, tap, contact, beat, tick, director }
 
     let launch: LevelLaunch
     let services: GameServices
     let plan: SessionPlan
-    /// The session's boards (with the `-pc.timer` / `-pc.hearts` overrides applied).
-    private(set) var stages: [LevelSpec] = []
-    private(set) var session: LevelSession?
+    /// The session's stages as the module described them (its launch-argument overrides applied).
+    private(set) var stages: [PuzzleStage] = []
+    private(set) var session: (any PuzzleSession)?
     private(set) var setup: AttemptSetup?
     /// The "Tap to move!" layer's model (S2's TutorialLayer; G2's TutorialDirector drives it).
     let hint = TutorialHint()
@@ -217,7 +228,9 @@ extension GameDirectorsEntryPoint {
 
     // MARK: convenience accessors
 
-    var board: any BoardControlling { services.board }
+    var board: any PuzzleBoard { services.board }
+    /// The active module's fail rules, inputs, boosters, HUD widgets.
+    var capabilities: PuzzleCapabilities { services.puzzle.capabilities }
     var store: PlayerStore { services.store }
     var clock: MotionClock { services.clock }
     var args: LaunchArgs { services.args }
@@ -230,7 +243,11 @@ extension GameDirectorsEntryPoint {
     }
     /// The level the logs name: the session's first level ("L1" for "Levels 1-4").
     var levelName: String { "L\(plan.levels.first ?? launch.levels.first ?? 0)" }
-    var currentLevel: LevelSpec? { session.map { $0.level } }
+    /// The stage on the board now.
+    var currentStage: PuzzleStage? {
+        guard let s = session, stages.indices.contains(s.stage) else { return nil }
+        return stages[s.stage]
+    }
 
     // MARK: LevelHosting
 
@@ -266,7 +283,7 @@ extension GameDirectorsEntryPoint {
         for d in directors { d.teardown(self) }
         if board.delegate === self { board.delegate = nil }
         board.inputEnabled = false
-        board.allowedArrows = nil
+        board.allowedTargets = nil
         services.fx.stopAll()
         hint.clear()
         hudWriter.end()
@@ -280,7 +297,7 @@ extension GameDirectorsEntryPoint {
 
     // MARK: the session (LevelFlow builds it)
 
-    func install(session s: LevelSession, stages: [LevelSpec], setup: AttemptSetup) {
+    func install(session s: any PuzzleSession, stages: [PuzzleStage], setup: AttemptSetup) {
         session = s
         self.stages = stages
         self.setup = setup
@@ -291,28 +308,31 @@ extension GameDirectorsEntryPoint {
     // MARK: fan-out (§8.1)
 
     /// Forwards one batch to every presenter in the fixed order.
-    func fanOut(_ events: [SessionEvent], origin: Origin) {
-        guard !events.isEmpty, !isTornDown else { return }
+    func fanOut(_ outputs: [SessionOutput], origin: Origin) {
+        guard !outputs.isEmpty, !isTornDown else { return }
         trace?("board")
-        board.present(events)                                                  // 1
-        playHaptics(events, origin: origin)                                    // 2
-        playAudio(events, origin: origin)                                      // 3
+        board.present(outputs)                                                 // 1
+        playHaptics(outputs, origin: origin)                                   // 2
+        playAudio(outputs, origin: origin)                                     // 3
         trace?("hud")
-        if let s = session { hudWriter.apply(events, session: s, onTapFrame: origin == .tap) }   // 4
+        if let s = session { hudWriter.apply(outputs, session: s, onTapFrame: origin == .tap) }   // 4
         trace?("fx")                                                           // 5: nothing in play (celebration at W)
         trace?("directors")
-        for d in directors { d.handle(events, game: self) }                    // 6
+        for d in directors { d.handle(outputs, game: self) }                   // 6
     }
 
-    private func playHaptics(_ events: [SessionEvent], origin: Origin) {
+    /// A batch holds a resolved player move (an exit, a bump, a swap …): the tap haptic and the tap cue.
+    private static func hasMove(_ outputs: [SessionOutput]) -> Bool { outputs.contains { $0.move != nil } }
+
+    private func playHaptics(_ outputs: [SessionOutput], origin: Origin) {
         switch origin {
         case .tap:
-            if events.contains(where: { if case .exited = $0 { return true }; if case .bumped = $0 { return true }; return false }) {
+            if Self.hasMove(outputs) {
                 trace?("haptic.tap")
                 haptics.play(.tap)
             }
         case .contact:
-            let lost = events.contains { if case .heartLost = $0 { return true }; return false }
+            let lost = outputs.contains { if case .meta(.heartsChanged(left: _)) = $0 { return true }; return false }
             trace?(lost ? "haptic.heartLost" : "haptic.bumpContact")
             haptics.play(lost ? .heartLost : .bumpContact)
         default:
@@ -320,75 +340,74 @@ extension GameDirectorsEntryPoint {
         }
     }
 
-    private func playAudio(_ events: [SessionEvent], origin: Origin) {
+    private func playAudio(_ outputs: [SessionOutput], origin: Origin) {
         guard origin == .tap, let s = tapSound else { return }
-        if events.contains(where: { if case .exited = $0 { return true }; if case .bumped = $0 { return true }; return false }) {
+        if Self.hasMove(outputs) {
             trace?("audio.\(s.id.rawValue)")
             services.audio.play(s.id, gain: s.gain)
         }
     }
 
-    // MARK: BoardDelegate
+    // MARK: PuzzleBoardDelegate
 
-    func boardReleased(arrow: ArrowID?, contentPoint: CGPoint, touchTimestamp: TimeInterval) {
+    var activeSession: (any PuzzleSession)? { session }
+
+    /// The board's release handler, synchronously (§8.2): the session resolves the input and the board presents the result in
+    /// this same run-loop turn, before the board's Core Animation commit.
+    func boardInput(_ input: PuzzleInput, touchTimestamp: TimeInterval) {
         guard let session, !isTornDown else { return }
         let t0 = CACurrentMediaTime()
-        let events = session.tap(arrow, at: clock.gameTime())
+        let outputs = session.input(input, at: clock.gameTime())
         let tCore = CACurrentMediaTime()
-        let resolved = events.contains { if case .exited = $0 { return true }; if case .bumped = $0 { return true }; return false }
-        if !resolved {
-            fanOut(events, origin: .tap)
+        if !Self.hasMove(outputs) {
+            fanOut(outputs, origin: .tap)
             return
         }
         // 1–3 with timestamps (the same-frame proof). FEEL item 4: the board adds the release's ripple at the END of its
         // present, right after the movers, so ripple, mover, haptic and sound are issued back to back (the ripple used to go in
         // before the session and the mover build, 0.2–6 ms earlier)
         trace?("board")
-        board.present(events)
+        board.present(outputs)
         let t1 = CACurrentMediaTime()
-        playHaptics(events, origin: .tap)
+        playHaptics(outputs, origin: .tap)
         let t2 = CACurrentMediaTime()
-        playAudio(events, origin: .tap)
+        playAudio(outputs, origin: .tap)
         let t3 = CACurrentMediaTime()
         trace?("hud")
-        hudWriter.apply(events, session: session, onTapFrame: true)
+        hudWriter.apply(outputs, session: session, onTapFrame: true)
         trace?("fx")
         trace?("directors")
-        for d in directors { d.handle(events, game: self) }
+        for d in directors { d.handle(outputs, game: self) }
         if logTaps {
-            let engine = board as? BoardEngine
-            let ripple = engine.map { $0.lastRippleAt >= t0 ? $0.lastRippleAt : t0 } ?? t0
-            beginTapTiming(arrow: arrow, entry: t0, core: tCore, mover: t1, ripple: ripple, haptic: t2, sound: t3,
-                           touch: touchTimestamp, build: engine.map { ($0.lastPresentMs, $0.presentNotes.joined(separator: ",")) })
+            let diag = board.diagnostics
+            let ripple = diag.map { $0.lastRippleAt >= t0 ? $0.lastRippleAt : t0 } ?? t0
+            beginTapTiming(target: input.target, entry: t0, core: tCore, mover: t1, ripple: ripple, haptic: t2, sound: t3,
+                           touch: touchTimestamp, build: diag.map { ($0.lastPresentMs, $0.presentNotes.joined(separator: ",")) })
         }
-        services.app?.autoplayer?.noteTap(events)
+        services.app?.autoplayer?.noteTap(outputs)
     }
 
-    func boardBeat(_ beat: BoardBeat) {
+    func boardAck(_ ack: PuzzleAck) {
         guard let session, !isTornDown else { return }
-        switch beat {
+        switch ack {
         case .introFinished:
             introDone = true
-            fanOut(session.ack(.introFinished), origin: .beat)
+            fanOut(session.ack(ack), origin: .beat)
             updateInput()
-        case .bumpContact(let a):
-            let events = session.ack(.bumpContact(a))
-            if events.isEmpty {
-                // a red arrow's re-bump costs nothing and changes nothing: only its contact haptic (MA §12.1 bumpContact)
+        case .contact:
+            let outputs = session.ack(ack)
+            if outputs.isEmpty {
+                // a contact that costs nothing and changes nothing (Arrow Out: a red arrow's re-bump): only its contact haptic
+                // (MA §12.1 bumpContact)
                 trace?("haptic.bumpContact")
                 haptics.play(.bumpContact)
             } else {
-                fanOut(events, origin: .contact)
+                fanOut(outputs, origin: .contact)
             }
-        case .bumpFinished(let a):
-            fanOut(session.ack(.bumpFinished(a)), origin: .beat)
-        case .doorBurst(let d):
-            fanOut(session.ack(.doorBurst(d)), origin: .beat)
-            haptics.play(.burst)                                 // MA §12.1: the burst frame (B2's beat)
-        case .pipeBroken, .counterBroken:
-            haptics.play(.burst)
-        case .lastExitLeftBoard:
-            fanOut(session.ack(.lastExitLeftBoard), origin: .beat)
+        case .beat:
+            fanOut(session.ack(ack), origin: .beat)
+        case .boardCleared:
+            fanOut(session.ack(ack), origin: .beat)
             // W: every stage's clear (MA §12.1 `clear`), then the stage transition or the celebration on THIS frame
             haptics.play(.clear)
             switch session.phase {
@@ -397,12 +416,16 @@ extension GameDirectorsEntryPoint {
             default: break
             }
         case .stageTransitionDone:
-            fanOut(session.ack(.stageTransitionDone), origin: .beat)
+            fanOut(session.ack(ack), origin: .beat)
             updateInput()
-        case .exitLeftBoard, .exitFinished, .clearWaveFinished:
-            break
         }
-        for d in directors { d.beat(beat, game: self) }
+        for d in directors { d.ack(ack, game: self) }
+    }
+
+    /// A purely visual beat's haptic (a burst frame).
+    func boardFeedback(_ haptic: Haptic) {
+        guard session != nil, !isTornDown else { return }
+        haptics.play(haptic)
     }
 
     func boardFrame(timestamp: CFTimeInterval, targetTimestamp: CFTimeInterval) {
@@ -428,7 +451,7 @@ extension GameDirectorsEntryPoint {
         let running = session.clock.isRunning
         if running != clockWasRunning {
             clockWasRunning = running
-            if args.exposesProbe { (board as? BoardEngine)?.publishProbe() }
+            if args.exposesProbe { board.publishProbe() }
         }
         let now = clock.gameTime()
         hudWriter.tick(session: session, now: timestamp, gameTime: now)
@@ -493,49 +516,13 @@ extension GameDirectorsEntryPoint {
         flow.returnedFromBackground()
     }
 
-    // MARK: the probe's session half (§9.4)
-
-    func supplementProbe(_ p: inout BoardProbeData) {
-        guard let session else { return }
-        let snap = session.snapshot()
-        p.lvl = session.level.level
-        p.stage = snap.stage
-        p.stages = stages.count
-        p.phase = snap.phase
-        p.t = (snap.remaining * 1000).rounded() / 1000
-        p.timerStarted = snap.timerStarted
-        p.hearts = snap.hearts
-        p.combo = snap.combo
-        var unitOf: [Int: [Int]] = [:]
-        var free: Set<Int> = []
-        for u in snap.free {
-            let ids = u.map(\.raw)
-            for a in ids { unitOf[a] = ids; free.insert(a) }
-        }
-        let tapes = session.level.obstacles.filter { $0.kind == .tape }
-        for i in p.arrows.indices {
-            let id = p.arrows[i].id
-            p.arrows[i].free = free.contains(id)
-            if let u = unitOf[id] {
-                p.arrows[i].unit = u
-            } else if let t = tapes.first(where: { $0.arrows.contains(ArrowID(id)) }) {
-                p.arrows[i].unit = t.arrows.map(\.raw).filter { m in p.arrows.contains { $0.id == m } }
-            }
-        }
-        for (oid, n) in snap.counters {
-            if let i = p.obstacles.firstIndex(where: { $0.id == oid.raw }) {
-                if p.obstacles[i].n == nil { p.obstacles[i].n = n }
-            } else if let o = session.level.obstacle(oid) {
-                p.obstacles.append(BoardProbeData.Obstacle(id: oid.raw, k: o.kind.rawValue, n: n))
-            }
-        }
-    }
+    // The probe's session half (§9.4) is the module board's (it reads `activeSession`): Arrow Out's is ArrowPuzzleBoard's.
 
     // MARK: the same-frame proof (§8.2; logged under -pc.bench / -pc.hud debug / -pc.logTaps / -pc.sameFrame)
 
     struct TapTiming {
         var level: Int
-        var arrow: Int
+        var target: Int
         var touch: CFTimeInterval
         var entry: CFTimeInterval            // boardReleased entry (the board's hit test is done)
         var core: CFTimeInterval             // session.tap returned (C2: resolve + commit); board.present starts here
@@ -551,12 +538,12 @@ extension GameDirectorsEntryPoint {
         var hapticConfirmed = false
     }
 
-    private func beginTapTiming(arrow: ArrowID?, entry: CFTimeInterval, core: CFTimeInterval, mover: CFTimeInterval,
+    private func beginTapTiming(target: PuzzleTarget?, entry: CFTimeInterval, core: CFTimeInterval, mover: CFTimeInterval,
                                 ripple: CFTimeInterval, haptic: CFTimeInterval, sound: CFTimeInterval, touch: TimeInterval,
                                 build: (Double, String)?) {
         installObservers()
         let fired = (haptics as? Haptics)?.fired[.tap] ?? 0
-        tapProbe = TapTiming(level: session?.level.level ?? 0, arrow: arrow?.raw ?? -1, touch: touch, entry: entry,
+        tapProbe = TapTiming(level: currentStage?.level ?? 0, target: target?.raw ?? -1, touch: touch, entry: entry,
                              core: core, mover: mover, ripple: ripple, build: build.map { (ms: $0.0, notes: $0.1) }, haptic: haptic, sound: sound, firedCount: fired)
     }
 
@@ -606,7 +593,7 @@ extension GameDirectorsEntryPoint {
         let onTime = p.sound <= commit && (p.hapticFired ?? .infinity) <= commit
         let build = p.build.map { String(format: " · build %.3f ms [%@]", $0.ms, $0.notes) } ?? ""
         // G1's field order (build/g1/sameframe_stats.py parses it); FEEL adds `ripple` before `mover` and the build detail last
-        let line = "L\(p.level) a\(p.arrow) core \(ms(p.entry, p.core)) ripple \(ms(p.entry, p.ripple)) mover \(ms(p.entry, p.mover)) "
+        let line = "L\(p.level) a\(p.target) core \(ms(p.entry, p.core)) ripple \(ms(p.entry, p.ripple)) mover \(ms(p.entry, p.mover)) "
             + "haptic \(ms(p.entry, p.haptic)) "
             + "sound \(ms(p.entry, p.sound))\(tapSound == nil ? " (unmapped: silent)" : " (\(tapSound!.id.rawValue))") "
             + "hapticFired \(ms(p.entry, p.hapticFired))\(p.hapticConfirmed ? "" : " (not fired)") commit \(ms(p.entry, commit)) "
@@ -633,9 +620,9 @@ extension GameDirectorsEntryPoint {
             "commit_to_vsync_ms_p50": lat.percentile(0.5) { $0.commitToVsyncMs },
             "taps": tapTimings.count,
         ]
-        if let e = board as? BoardEngine {
-            obj["hitches_load"] = e.hitchesLoad
-            obj["hitches_play"] = e.hitchesPlay
+        if let d = board.diagnostics {
+            obj["hitches_load"] = d.hitchesLoad
+            obj["hitches_play"] = d.hitchesPlay
         }
         if let r = result { obj["timeLeft"] = r.timeLeft; obj["heartsLeft"] = r.heartsLeft; obj["bumps"] = r.bumps }
         let name = "bench-L\(plan.levels.first ?? 0)-\(Int(Date().timeIntervalSince1970)).json"
@@ -663,4 +650,19 @@ extension GameDirectorsEntryPoint {
 
 extension GameEntry {
     static func makeLevel(_ launch: LevelLaunch, app: AppModel) -> any LevelHosting { GameController(launch, app: app) }
+}
+
+extension Phase {
+    /// The phase's name in logs and the probe ("intro", "ready", "playing", "stageClear", "offer", "won", "lost").
+    var logName: String {
+        switch self {
+        case .intro: return "intro"
+        case .ready: return "ready"
+        case .playing: return "playing"
+        case .stageClear: return "stageClear"
+        case .offer: return "offer"
+        case .won: return "won"
+        case .lost: return "lost"
+        }
+    }
 }

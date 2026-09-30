@@ -3,7 +3,7 @@ import QuartzCore
 import PathCore
 
 // GAME G1 (SPEC-architecture §8.4 AutoPlayer, §9.1, §10.4 full-game soak). `-pc.autoplay 1`: a bot that plays through the
-// REAL app — the real board's release handler (hit test, ripple, the session, the movers: `BoardEngine.handleRelease` at the
+// REAL app — the real board's release handler (hit test, ripple, the session, the movers: the board engine's `handleRelease` at the
 // arrow's `tapPoint`), the real popups (answered through the popup host like a finger would), the real router (home's Play
 // action). Every `autoplayRate` s (game.json `autoplay.rate` 0.45, `-pc.autoplayRate`) it taps the first unit of
 // `session.hint()` (C2's solver order); with `-pc.autoplayMistakes p` it taps a blocked arrow instead with probability p
@@ -11,6 +11,9 @@ import PathCore
 // after the win that takes the player past `-pc.autoplayStop N`:
 //   [PC][autoplay] done: L<a>-L<b> won <w>/<n> bumps <b>
 // Test driver only: it never runs without the launch argument.
+// Template phase 2: genre-agnostic — it taps the session's `hint()` target through the board's real release handler
+// (`PuzzleBoard.performTap`), its mistakes are the module's `mistakeTargets` (Arrow Out: blocked arrows not red yet), and a
+// "bump" in its log is a failed move.
 
 @MainActor final class AutoPlayer {
     let rate: Double
@@ -76,8 +79,8 @@ import PathCore
         levelBumps = 0
     }
 
-    func noteTap(_ events: [SessionEvent]) {
-        for e in events { if case .bumped = e { bumps += 1; levelBumps += 1 } }
+    func noteTap(_ outputs: [SessionOutput]) {
+        for o in outputs { if let m = o.move, m.failed { bumps += 1; levelBumps += 1 } }
     }
 
     func noteWin(_ r: WinResult) {
@@ -125,10 +128,10 @@ import PathCore
             homeSince = nil
             guard let game = app.game, let s = game.session, !game.isTornDown else { return }
             if levelSince == nil { levelSince = now }
-            guard app.board.inputEnabled else { return }
+            guard game.board.inputEnabled else { return }
             switch s.phase { case .ready, .playing: break; default: return }
             guard now - lastTap >= rate else { return }
-            guard let a = pick(s, board: app.board) else { return }
+            guard let a = pick(s, game: game) else { return }
             lastTap = now
             taps += 1
             levelTaps += 1
@@ -158,16 +161,14 @@ import PathCore
         }
     }
 
-    /// The next arrow: the first unit of the solver's order, or (with probability `mistakes`) a blocked, not-yet-red arrow.
-    private func pick(_ s: LevelSession, board: any BoardControlling) -> ArrowID? {
+    /// The next target: the session's hint (Arrow Out: the first arrow of the solver's order), or (with probability
+    /// `mistakes`) one of the module's mistake targets (Arrow Out: a blocked, not-yet-red arrow).
+    private func pick(_ s: any PuzzleSession, game: GameController) -> PuzzleTarget? {
         if mistakes > 0, rng.unit() < mistakes {
-            let snap = s.snapshot()
-            let free = Set(snap.free.flatMap { $0 })
-            let red = Set(board.probe().arrows.filter(\.red).map { ArrowID($0.id) })
-            let blocked = snap.live.filter { !free.contains($0) && !red.contains($0) }
+            let blocked = game.services.puzzle.mistakeTargets(s, board: game.board)
             if !blocked.isEmpty { return blocked[rng.below(blocked.count)] }
         }
-        return s.hint()?.first
+        return s.hint()
     }
 
     /// What a player would press: Continue / Try Again / Claim / Resume; X on offers, unlock cards, quit confirmations.

@@ -31,8 +31,8 @@ import PathCore
 
     private var services: GameServices { game.services }
 
-    func handle(_ events: [SessionEvent], game: GameController) {
-        for case .won(let r) in events { won(r, synthetic: false) }
+    func handle(_ outputs: [SessionOutput], game: GameController) {
+        for case .meta(.won(let r)) in outputs { won(r, synthetic: false) }
     }
 
     func teardown(_ game: GameController) {
@@ -83,24 +83,16 @@ import PathCore
     func warmEventHooks() {
         let s = services
         let state = s.store.state
-        // V3-01: the level-clearing tap's FIRST run in a process paid Swift's one-time metadata instantiation in
-        // `LevelSession.cleared` (a generic dictionary literal: 4 of the tap's 7 ms, build/p/FIX2/A/tp/v2-tp1) and in the bank
-        // (`Economy.finishAttempt`). Once per process a headless 2-arrow session is cleared and banked on a copy, off the main
-        // thread (nothing shown, nothing written).
+        // V3-01: the level-clearing tap's FIRST run in a process paid Swift's one-time metadata instantiation in the session's
+        // clear (a generic dictionary literal: 4 of the tap's 7 ms, build/p/FIX2/A/tp/v2-tp1) and in the bank
+        // (`Economy.finishAttempt`). Once per process the module's headless session is cleared (`PuzzlePlugin.warmUpWin`:
+        // Arrow Out's 2-arrow board) and banked on a copy, off the main thread (nothing shown, nothing written).
         if !Self.clearWarmed {
             Self.clearWarmed = true
-            let rules = s.rules, economy = s.economy, now = s.clock.wallClock()
+            let economy = s.economy, now = s.clock.wallClock()
+            let headlessWin = s.puzzle.warmUpWin()
             Task.detached(priority: .utility) {
-                let a1 = ArrowSpec(id: ArrowID(1), cells: [Cell(0, 1), Cell(1, 1)], dir: .right)
-                let a2 = ArrowSpec(id: ArrowID(2), cells: [Cell(3, 2), Cell(3, 1)], dir: .up)
-                let level = LevelSpec(level: 9_990, source: .designed, cols: 4, rows: 4, timerSeconds: 180, hearts: 3, tag: .normal,
-                                      arrows: [a1, a2])
-                let session = LevelSession(plan: SessionPlan(id: "warm-clear", levels: [level.level]), stages: [level],
-                                           setup: AttemptSetup(levels: [level.level]), rules: rules)
-                _ = session.start()
-                _ = session.ack(.introFinished)
-                _ = session.tap(ArrowID(2), at: 0.1)
-                for case .won(let r) in session.tap(ArrowID(1), at: 0.2) {
+                if let r = headlessWin() {
                     var copy = state
                     _ = Economy.finishAttempt(&copy, outcome: .won(r), now: now, rules: economy)
                 }
@@ -187,7 +179,7 @@ import PathCore
         game.updateInput()
         let reward = game.plan.levels.count > 1 ? (game.plan.reward ?? services.rules.rewards.reward(for: tag))
             : services.rules.rewards.reward(for: tag)
-        let r = WinResult(levels: game.plan.levels, tag: tag, timeLeft: s.clock.displayedSeconds, heartsLeft: s.hearts,
+        let r = WinResult(levels: game.plan.levels, tag: tag, timeLeft: s.clock.displayedSeconds, heartsLeft: s.hearts ?? 0,
                           firstTry: setup.attemptIndex <= 1, reward: reward, bumps: 0)
         won(r, synthetic: true)
     }

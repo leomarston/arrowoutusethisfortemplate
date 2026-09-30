@@ -11,6 +11,8 @@ import PathCore
 //  - NOTHING on a tap frame (§8.2): the first tap's `.timerStarted` only flips `timerFrozen`, and that write waits for the
 //    next display-link tick, so the exit's first frame has no SwiftUI layout cost.
 // Timer text "m:ss" with no leading zero on the minutes, the value `ceil(remaining)` (C2's `displayedSeconds`).
+// Template phase 2: reads only the generic `.meta` events and the session's generic state (clock, hearts); a module without a
+// hearts rule (`hearts` nil) shows no hearts.
 
 @MainActor final class HUDWriter {
     let hud: HUDModel
@@ -33,15 +35,15 @@ import PathCore
     }
 
     /// The level screen's first state (the cut): label, tier, the stage's limit frozen, full hearts, coins, boosters, intro.
-    func begin(label: LocalizedStringResource, tag: LevelTag, seconds: Int, hearts: Int, maxHearts: Int, coins: Int,
+    func begin(label: LocalizedStringResource, tag: LevelTag, seconds: Int, hearts: Int?, maxHearts: Int, coins: Int,
                boosters: [BoosterSlotVM], intro: HUDIntroPhase) {
-        slots = max(maxHearts, hearts, 1)
+        slots = hearts.map { max(maxHearts, $0, 1) } ?? 0
         write("levelLabel") { hud.levelLabel = label }
         write("tag") { hud.tag = tag }
         setTimer(seconds, force: true)
         write("timerFrozen") { hud.timerFrozen = true }
         frozenPending = nil
-        setHearts(hearts)
+        if let hearts { setHearts(hearts) } else if !hud.hearts.isEmpty { write("hearts") { hud.hearts = [] } }
         write("coins") { hud.coins = coins }
         write("boosters") { hud.boosters = boosters }
         write("introPhase") { hud.introPhase = intro }
@@ -49,23 +51,26 @@ import PathCore
     }
 
     /// Step 4 of the fan-out.
-    func apply(_ events: [SessionEvent], session: LevelSession, onTapFrame: Bool) {
-        for e in events {
+    func apply(_ outputs: [SessionOutput], session: any PuzzleSession, onTapFrame: Bool) {
+        for o in outputs {
+            guard case .meta(let e) = o else { continue }
             switch e {
             case .timerStarted:
                 frozenPending = false                                 // next tick (§8.2)
             case .timerArmed(_, let seconds):
                 if rearm == nil { setTimer(seconds, force: true) }    // a stage transition re-arms at its swap instead
                 frozenPending = true
-            case .heartLost(let remaining):
+            case .heartsChanged(let remaining):
                 setHearts(remaining)                                  // the contact frame (MA §3.4.5)
             case .continued(let offer):
-                if case .refillHearts = offer.grant { setHearts(session.hearts) }
+                if case .refillHearts = offer.grant, let h = session.hearts { setHearts(h) }
                 frozenPending = !session.clock.isRunning
             case .timeAdded:
                 setTimer(session.clock.displayedSeconds, force: true)
-            case .stageLoaded(let stage, _, _):
-                if session.plan.hearts == .reset { setHearts(session.stages[stage].hearts) }
+            case .stageLoaded:
+                // a stage shows the session's hearts: a reset session's fresh count (sessions.json `hearts: reset`); in a
+                // carrying one the count already on the HUD (no write: `setHearts` writes only a change)
+                if let h = session.hearts { setHearts(h) }
             case .offer, .won, .lost, .stageCleared:
                 frozenPending = true
             default:
@@ -76,7 +81,7 @@ import PathCore
     }
 
     /// Every display-link frame: the timer's displayed second, the pending frozen flag, a due re-arm.
-    func tick(session: LevelSession, now: CFTimeInterval, gameTime: Double? = nil) {
+    func tick(session: any PuzzleSession, now: CFTimeInterval, gameTime: Double? = nil) {
         if let r = rearm, let g = gameTime, g >= r.at {
             rearm = nil
             setTimer(r.seconds, force: true)

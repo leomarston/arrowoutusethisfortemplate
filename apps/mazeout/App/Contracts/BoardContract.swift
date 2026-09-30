@@ -7,6 +7,8 @@ import PathCore
 // orchestrator (build/wp0/frozen-contracts.sha256). BOARD implements (BoardEngine); GAME drives it.
 // The engine QUEUES commands that arrive before its first layout and replays them after, and never awaits the layout of a
 // view that is not in a window (GP §13 boot hang). One engine for the whole app run: created at boot, never destroyed.
+// Template phase 2: this is the ARROW board's own API (BoardEngine, BoardLab, the board tests). The Game layer talks to the
+// generic `PuzzleBoard` (PuzzleBoardContract.swift); ArrowPuzzleBoard (App/Board/ArrowEscapePlugin.swift) adapts the engine.
 
 @MainActor protocol BoardControlling: AnyObject {
     var delegate: BoardDelegate? { get set }

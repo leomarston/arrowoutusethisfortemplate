@@ -8,6 +8,9 @@ import PathCore
 /// Proves: the §8.1 fan-out order (board → haptics → audio → HUD → FX → directors) for a tap, a contact and a win; nothing
 /// written to the HUD on a tap frame; the win banked (and saved) at the tap, before the celebration starts at W; the
 /// time-out and hearts-out chains through C3; holds keep the timer constant; the HUD's write rate.
+/// Template phase 2: the controller is genre-agnostic (a `PuzzleSession` + a `PuzzleBoard`); the fake board implements
+/// `PuzzleBoard`, the Play runs Arrow Out's module (`ArrowEscapePlugin`), and the tests drive it with the reference game's taps
+/// and beats through ArrowPuzzleBoard's real translation (the `GameController` helpers at the end of this file).
 @MainActor final class GameControllerTests: XCTestCase {
 
     // MARK: fakes
@@ -20,32 +23,25 @@ import PathCore
         func index(_ prefix: String) -> Int? { lines.firstIndex { $0.hasPrefix(prefix) } }
     }
 
-    @MainActor final class FakeBoard: BoardControlling {
-        weak var delegate: BoardDelegate?
+    @MainActor final class FakeBoard: PuzzleBoard {
+        weak var delegate: PuzzleBoardDelegate?
         let view = UIView()
         var inputEnabled = false
-        var allowedArrows: Set<ArrowID>?
-        var zoomScale: CGFloat { 1 }
-        var pitchOnScreen: CGFloat { 20 }
-        var isSettled: Bool { true }
+        var allowedTargets: Set<PuzzleTarget>?
         let log: Recorder
         init(_ log: Recorder) { self.log = log }
         func prepare() async {}
-        func preload(_ levels: [LevelSpec]) {}
-        func load(_ stage: StageSetup) { log.add("board.load L\(stage.level.level) stage \(stage.stage)") }
+        func load(_ stage: StageContext) { log.add("board.load L\(stage.info.level) stage \(stage.stage)") }
         func playIntro(_ style: IntroStyle) { log.add("board.intro \(style)") }
-        func present(_ events: [SessionEvent]) {
-            log.add("board.present " + events.map { GameControllerTests.name($0) }.joined(separator: ","))
+        func present(_ outputs: [SessionOutput]) {
+            log.add("board.present " + outputs.map { GameControllerTests.name($0) }.joined(separator: ","))
         }
-        func playStageTransition(to next: StageSetup) { log.add("board.stageTransition L\(next.level.level)") }
+        func playStageTransition(to next: StageContext) { log.add("board.stageTransition L\(next.info.level)") }
         func playClearWave() { log.add("board.clearWave") }
-        func clear() {}
-        func setHint(_ arrows: [ArrowID]) {}
-        func screenPoint(of arrow: ArrowID) -> CGPoint? { nil }
-        func tapPoint(of arrow: ArrowID) -> CGPoint? { nil }
-        func setFrozen(_ frozen: Bool) {}
-        func setTimeScale(_ k: Double) {}
-        func probe() -> BoardProbeData { BoardProbeData() }
+        func handPoint(for target: PuzzleTarget, at: [Double]?) -> CGPoint? { nil }
+        func performTap(on target: PuzzleTarget) -> Bool { false }
+        func publishProbe() {}
+        var diagnostics: BoardDiagnostics? { nil }
     }
 
     @MainActor final class FakeAudio: AudioPlaying {
@@ -134,25 +130,35 @@ import PathCore
     @MainActor final class RecordingDirector: GameDirector {
         let log: Recorder
         init(_ log: Recorder) { self.log = log }
-        func handle(_ events: [SessionEvent], game: GameController) { log.add("director " + events.map { GameControllerTests.name($0) }.joined(separator: ",")) }
+        func handle(_ outputs: [SessionOutput], game: GameController) { log.add("director " + outputs.map { GameControllerTests.name($0) }.joined(separator: ",")) }
     }
 
-    nonisolated static func name(_ e: SessionEvent) -> String {
-        switch e {
-        case .exited: return "exited"
-        case .bumped: return "bumped"
-        case .heartLost(let n): return "heartLost(\(n))"
-        case .arrowMarked: return "marked"
-        case .timerStarted: return "timerStarted"
-        case .timerArmed: return "timerArmed"
-        case .stageLoaded: return "stageLoaded"
-        case .won: return "won"
-        case .lost(let r): return "lost(\(r.rawValue))"
-        case .offer(let o): return "offer(\(o.kind.rawValue),\(o.step))"
-        case .continued: return "continued"
-        case .tapIgnored: return "ignored"
-        case .stageCleared: return "stageCleared"
-        default: return "other"
+    /// One output's name in the log. The names are the reference game's event names (the arrow events the board gets, the
+    /// meta events under their SessionEvent name: `heartsChanged(n)` is the `heartLost(remaining: n)` of the contact frame).
+    nonisolated static func name(_ out: SessionOutput) -> String {
+        switch out {
+        case .puzzle(let p):
+            guard let e = p as? SessionEvent else { return "other" }
+            switch e {
+            case .exited: return "exited"
+            case .bumped: return "bumped"
+            case .arrowMarked: return "marked"
+            case .tapIgnored: return "ignored"
+            default: return "other"
+            }
+        case .meta(let m):
+            switch m {
+            case .heartsChanged(let n): return "heartLost(\(n))"
+            case .timerStarted: return "timerStarted"
+            case .timerArmed: return "timerArmed"
+            case .stageLoaded: return "stageLoaded"
+            case .won: return "won"
+            case .lost(let r): return "lost(\(r.rawValue))"
+            case .offer(let o): return "offer(\(o.kind.rawValue),\(o.step))"
+            case .continued: return "continued"
+            case .stageCleared: return "stageCleared"
+            default: return "other"
+            }
         }
     }
 
@@ -192,10 +198,11 @@ import PathCore
         let byNumber = Dictionary(uniqueKeysWithValues: levels.map { ($0.level, $0) })
         let thePlan = plan ?? SessionPlan(id: "L\(levels[0].level)", levels: levels.map(\.level))
         let services = GameServices(
-            args: args, tuning: tuning, rules: rules, economy: economy, clock: MotionClock(args: args), store: store, hud: hud,
-            board: board, audio: FakeAudio(log), haptics: FakeHaptics(log), popups: popups, fx: FakeFX(log), router: router,
+            args: args, tuning: tuning, rules: rules.meta, economy: economy, clock: MotionClock(args: args), store: store, hud: hud,
+            board: board, puzzle: ArrowEscapePlugin(rules: rules, level: { byNumber[$0] }),
+            audio: FakeAudio(log), haptics: FakeHaptics(log), popups: popups, fx: FakeFX(log), router: router,
             latency: LatencyProbe(), perf: PerfMonitor(),
-            level: { byNumber[$0] }, plan: { _ in thePlan },
+            plan: { _ in thePlan },
             rivals: { SocialWorld(installSeed: 7, config: .default, names: NameBank()) },
             screenSize: { CGSize(width: 393, height: 852) },
             screenAfterWin: { .home(.afterWin($0), tab: .home) },
@@ -446,4 +453,19 @@ import PathCore
         XCTAssertLessThanOrEqual(Double(writes) / 60, 10, "\(writes) writes in 60 s")
         XCTAssertGreaterThanOrEqual(r.log.lines.filter { $0 == "hud.timerText" }.count, 59, "the timer text still ticks each second")
     }
+}
+
+// MARK: - the reference game's input on the generic controller
+
+extension GameController {
+    /// A released arrow (nil = an empty point), as ArrowPuzzleBoard forwards the engine's release to the Play.
+    func boardReleased(arrow: ArrowID?, contentPoint: CGPoint, touchTimestamp: TimeInterval) {
+        ArrowPuzzleBoard.forward(release: arrow, touchTimestamp: touchTimestamp, to: self)
+    }
+
+    /// An engine beat, as ArrowPuzzleBoard forwards it (acks + the burst haptic).
+    func boardBeat(_ beat: BoardBeat) { ArrowPuzzleBoard.forward(beat, to: self) }
+
+    /// Arrow Out's `LevelSession` behind the generic session (for arrow-specific assertions).
+    var levelSession: LevelSession? { (session as? ArrowPuzzleSession)?.core }
 }

@@ -9,29 +9,8 @@ import GameCore
 // tutorials.json: a bare array, or {"schema":1,"tutorials":[…]}. Unknown keys are ignored; required: id, level.
 // `trigger` and `dismiss` are open sets (content may add values the director learns later).
 
-public struct TutorialTrigger: RawRepresentable, Hashable, Codable, Sendable, ExpressibleByStringLiteral {
-    public let rawValue: String
-    public init(rawValue: String) { self.rawValue = rawValue }
-    public init(stringLiteral value: String) { rawValue = value }
-    /// The stage's board is built and the intro finished (the timer is still frozen).
-    public static let stageReady = TutorialTrigger(rawValue: "stageReady")
-    /// Right after the player's first tap of the stage.
-    public static let firstTap = TutorialTrigger(rawValue: "firstTap")
-    /// After the unlock overlay of the level is dismissed.
-    public static let afterUnlock = TutorialTrigger(rawValue: "afterUnlock")
-}
-
-public struct TutorialDismiss: RawRepresentable, Hashable, Codable, Sendable, ExpressibleByStringLiteral {
-    public let rawValue: String
-    public init(rawValue: String) { self.rawValue = rawValue }
-    public init(stringLiteral value: String) { rawValue = value }
-    /// The first tap on ANY arrow dismisses it ("Tap to move!", VERIFIED tutorials §3: no input restriction observable).
-    public static let anyTap = TutorialDismiss(rawValue: "anyTap")
-    /// Only a tap on the hand's arrow (input restricted to it).
-    public static let targetTap = TutorialDismiss(rawValue: "targetTap")
-    /// A tap anywhere on the screen.
-    public static let tapAnywhere = TutorialDismiss(rawValue: "tapAnywhere")
-}
+// `TutorialTrigger` / `TutorialDismiss` moved to GameCore (Session/TutorialTypes.swift, template phase 2): the generic
+// `TutorialStep` the shell plays uses them too.
 
 /// Where the tutorial hand points: an arrow, and optionally the fingertip in CELL coordinates of the level
 /// ([c, r] as fractions; [0, 0] = the centre of cell (0, 0)); nil = the middle of the arrow's path.
@@ -101,5 +80,15 @@ public struct TutorialScript: Codable, Sendable, Equatable {
         let w = try JSONDecoder().decode(Wrapped.self, from: data)
         if let s = w.schema, s > LevelJSON.bundleSchema { throw LevelJSONError.badValue("tutorials schema \(s) is newer than \(LevelJSON.bundleSchema)") }
         return w.tutorials
+    }
+}
+
+extension TutorialScript {
+    /// The generic step the shell's TutorialDirector plays (template phase 2): the hand's arrow and the allowed arrows become
+    /// `PuzzleTarget`s (`ArrowID.target`); the fingertip stays in the level's cell coordinates (the board converts it).
+    public var step: TutorialStep {
+        TutorialStep(id: id, level: level, stage: stage, trigger: trigger, caption: caption,
+                     hand: hand.map { TutorialStep.Hand(target: $0.arrow.target, at: $0.at) }, dismiss: dismiss,
+                     holdTimer: holdTimer, allowedTargets: allowedArrows.map { $0.map(\.target) })
     }
 }
