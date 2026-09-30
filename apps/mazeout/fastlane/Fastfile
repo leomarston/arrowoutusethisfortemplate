@@ -10,6 +10,18 @@ Dotenv.load(File.expand_path("../../../.env", __dir__))
 # this constant and never print it.
 META_ENV_TOKEN = ENV.delete("META_CLIENT_TOKEN").to_s.strip.freeze
 
+# gym runs xcodebuild with this process's environment, and Xcode exports every environment variable as a build setting
+# (into every script phase, and into a verbose log). The lanes still need some secrets themselves (the Apple web session
+# for create_app / upload_privacy, the ASC key for deliver), so they are hidden only while gym builds, then restored.
+BUILD_SECRET_KEYS = %w[RC_SECRET_KEY GEMINI_API_KEY FASTLANE_SESSION FASTLANE_PASSWORD
+                       ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_PATH REVIEW_PHONE REVIEW_EMAIL].freeze
+def without_build_secrets
+  saved = BUILD_SECRET_KEYS.to_h { |k| [k, ENV.delete(k)] }
+  yield
+ensure
+  saved.each { |k, v| ENV[k] = v unless v.nil? }
+end
+
 # Two "Apple Distribution: ..." identities can exist in the search list at once (a stale
 # cert plus the live one). Resolving by NAME then picks arbitrarily, and codesign fails with
 # errSecInternalComponent. Pin the exact certificate that keys/signing/dist.cer holds —
@@ -131,7 +143,7 @@ platform :ios do
     )
   end
 
-  desc "Archive + upload + metadata + screenshots + submit for review"
+  desc "Archive + upload + metadata + screenshots (does NOT submit: scripts/asc_submit.py does)"
   lane :release do
     meta_token_ready!
     unlock_signing_keychain
@@ -140,7 +152,7 @@ platform :ios do
     # Cihazsiz imzalama (scripts/signing_setup.py once calismis olmali):
     # arsiv imzasiz alinir, imza export'ta manual profille atilir. Cloud signing
     # (Admin key) ve kayitli cihaz gerektirmez.
-    gym(
+    without_build_secrets do gym(
       scheme: "ArrowOut",
       export_method: "app-store",
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
@@ -154,7 +166,7 @@ platform :ios do
       output_directory: "build",
       include_symbols: false,   # RFIX (ruling 55(b), VERIFY F4): a dSYM-less IPA; the archive keeps the dSYM locally
       clean: true
-    )
+    ) end
     meta_token_in_ipa!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     ipa_provenance_clean!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     # App Privacy (nutrition label): ilk submit icin zorunlu, yoksa ASC reddeder.
@@ -202,7 +214,7 @@ platform :ios do
     unlock_signing_keychain
     regenerate_project
     key = asc_key
-    gym(
+    without_build_secrets do gym(
       scheme: "ArrowOut",
       export_method: "app-store",
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO",
@@ -216,7 +228,7 @@ platform :ios do
       output_directory: "build",
       include_symbols: false,   # RFIX (ruling 55(b), VERIFY F4): a dSYM-less IPA; the archive keeps the dSYM locally
       clean: true
-    )
+    ) end
     meta_token_in_ipa!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     ipa_provenance_clean!(lane_context[SharedValues::IPA_OUTPUT_PATH])
     deliver(

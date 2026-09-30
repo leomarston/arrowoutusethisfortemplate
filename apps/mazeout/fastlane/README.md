@@ -29,7 +29,7 @@ App Store Connect'te app kaydını oluştur
 [bundle exec] fastlane ios release
 ```
 
-Archive + upload + metadata + screenshots + submit for review
+Archive + upload + metadata + screenshots (does NOT submit: scripts/asc_submit.py does)
 
 ### ios upload_privacy
 

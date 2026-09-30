@@ -2,7 +2,10 @@
 """Flag workflow agents that are unfinished (no StructuredOutput call yet) and whose transcript has been idle for N minutes.
 usage: stallcheck.py MINUTES wf_id [wf_id ...]   (pass only the workflows that are still running)"""
 import json, os, sys, time, glob
-BASE = '/Users/yago/.claude/projects/-Users-yago-Downloads-app-factory/67834757-7bc9-4e4f-a907-36f39cf8e3e8/subagents/workflows'
+# The session's workflow transcripts: $STALLCHECK_DIR if set, else the most recently written
+# ~/.claude/projects/*/*/subagents/workflows folder (the live session's), never a hard-coded session id.
+BASE = os.environ.get('STALLCHECK_DIR') or max(
+    glob.glob(os.path.expanduser('~/.claude/projects/*/*/subagents/workflows')) or [''], key=lambda p: os.path.getmtime(p) if p else 0)
 LIMIT = float(sys.argv[1]); now = time.time()
 for wid in sys.argv[2:]:
     newest = {}

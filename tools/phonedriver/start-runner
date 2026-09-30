@@ -3,12 +3,16 @@
 # Runs in the foreground until `phone stop`; start it in the background.
 cd "${0:A:h}" || exit 1
 REPO="${0:A:h:h:h}"
-set -a; source "$REPO/.env"; set +a
+# Loaded as shell variables, NOT exported: xcodebuild turns exported variables into build settings (and logs them).
+source "$REPO/.env"
 KP="$ASC_KEY_PATH"; [[ "$KP" = /* ]] || KP="$REPO/$ASC_KEY_PATH"   # xcodebuild wants an absolute key path
-DEST="id=${PHONE_UDID:-00008120-000964E426440032}"
+# The phone: PHONE_UDID from the environment or <repo>/machine.env (see machine.env.example).
+[ -n "$PHONE_UDID" ] || PHONE_UDID=$(sed -n 's/^PHONE_UDID=//p' "$REPO/machine.env" 2>/dev/null | tail -1)
+[ -n "$PHONE_UDID" ] || { echo "PHONE_UDID is not set: cp $REPO/machine.env.example $REPO/machine.env and fill it in" >&2; exit 78; }
+DEST="id=$PHONE_UDID"
 AUTH=(-allowProvisioningUpdates -allowProvisioningDeviceRegistration -authenticationKeyPath "$KP"
       -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID")
-[ -d PhoneDriver.xcodeproj ] || /Users/yago/.local/bin/xcodegen generate -q
+[ -d PhoneDriver.xcodeproj ] || "${XCODEGEN:-$(command -v xcodegen || echo "$HOME/.local/bin/xcodegen")}" generate -q
 if [ ! -d build/DD/Build/Products ]; then
   xcodebuild build-for-testing -project PhoneDriver.xcodeproj -scheme PhoneDriver -destination "$DEST" \
     -derivedDataPath build/DD "${AUTH[@]}" -quiet || exit 1

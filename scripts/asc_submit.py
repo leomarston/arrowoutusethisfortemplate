@@ -332,8 +332,8 @@ def main():
         print(f"[dry-run] newest VALID build: {newest_no}; attached now: "
               f"{(attached or {}).get('id', '-')}")
         ready, not_ready = iap_versions_to_submit(api, app_id) if pending0 else ([], [])
-        for _, pid, vid in ready:
-            print(f"[dry-run] + inAppPurchaseVersion {pid} ({vid[:8]})")
+        for _, pid, iap_vid in ready:     # not `vid`: that is the App Store version the usesIdfa probe below reads
+            print(f"[dry-run] + inAppPurchaseVersion {pid} ({iap_vid[:8]})")
         for pid, why in not_ready:
             print(f"[dry-run] !! {pid}: {why} (a real run re-polls ~3 min after the cancel, then exits)")
         if args.uses_idfa:
