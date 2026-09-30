@@ -27,9 +27,12 @@ extension SocialEntry {
         return AnyView(SocLeaderboardBody())
     }
 
+    #if DEBUG || PC_MEASURE
+    // SocialLab is Debug / Measure only; the Release build keeps SocialEntryPoint's default (no debug screen)
     static func makeDebugScreen(_ name: String, app: AppModel) -> AnyView? {
         guard name == LabID.sociallab.rawValue else { return nil }
         SocialModel.install(app)
         return AnyView(SocialLab())
     }
+    #endif
 }

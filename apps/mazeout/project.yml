@@ -19,7 +19,8 @@ packages:
   # No ad or attribution SDK in the template (docs/ROADMAP.md D2): a game that wants one adds its package here itself
   # (docs/recipes/ad-attribution.md). tools/bench/release_gates.sh gate 8 allows only the SDKs listed in it.
 # F3-A (SPEC.md ruling 52(a), 2026-09-29): three configurations. Release = the STORE build: the measurement harness
-# (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop) and the WP0 placeholders are compiled out.
+# (App/Shell/GlitchRun.swift, App/FX/FrameWatch.swift, Router's DebugTabLoop), the debug harness (the *Lab files,
+# SoundBoard, AutoPlayer, the -pc.win / -pc.lose jumps; tools/harness_gate.py) and the WP0 placeholders are compiled out.
 # Measure = Release's settings + the Swift condition PC_MEASURE (`#if DEBUG || PC_MEASURE`): the harness is compiled in,
 # nothing else differs (same -O / whole-module / exclusions), so its frame numbers are the store build's. Measure is for
 # measurement only (sim: `CONFIG=Measure tools/build.sh A`, tools/bench/bench.py's default; device: build/owner-phone.sh);

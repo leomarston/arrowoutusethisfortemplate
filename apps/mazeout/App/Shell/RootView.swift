@@ -466,7 +466,7 @@ extension EnvironmentValues {
     static func items(_ app: AppModel) -> [ShellPrewarmItem] {
         let host = PopupHost(ui: app.tuning.ui)
         var list: [ShellPrewarmItem] = []
-        list += S3Popups.prewarm(app)                                                // S3 hook (Popups/ShellLab+Meta.swift)
+        list += S3Popups.prewarm(app)                                                // S3 hook (Popups/S3Hooks.swift)
         list += SocialPopups.prewarm(app)                                            // SOC2 hook (Social/SocialPopups.swift)
         list += [
             ShellPrewarmItem("settings", ReferenceCanvas { SettingsPopup(answer: PopupAnswer(id: -2, host: host)) }),

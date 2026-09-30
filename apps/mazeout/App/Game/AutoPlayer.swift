@@ -1,3 +1,6 @@
+// Debug harness: compiled into Debug and Measure only (`#if DEBUG || PC_MEASURE`), never into the Release (store) build.
+// tools/harness_gate.py (CI) fails when a harness type is used outside that gate.
+#if DEBUG || PC_MEASURE
 import SwiftUI
 import QuartzCore
 import PathCore
@@ -181,3 +184,4 @@ import PathCore
         }
     }
 }
+#endif

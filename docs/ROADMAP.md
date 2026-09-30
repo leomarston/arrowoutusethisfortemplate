@@ -54,11 +54,15 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   - [x] Purchase durability: never `finish` a StoreKit transaction whose grant failed to save
   - [x] Remove the Meta SDK from the engine (D2): code, strings, privacy manifest/label, gates; recipe in
         `docs/recipes/ad-attribution.md`; generic `PurchaseReporting` hook kept; SDK gate 8 = allow-list (`sdk_gate.py`)
-  - [ ] Debug harness (BoardLab/ShellLab/SoundBoard/SocialLab/AutoPlayer/`-pc.win`) out of Release builds — **moved to
-        phase 1**: shipping types live inside the lab files (`S3Hooks`/`S3Popups` in `ShellLab+Meta.swift`, `HUDLab.fill`
-        used by `S2Hooks`, `SocOpenBench` by `SocialModel`, `LabBoards.warmEffectsBoard` by `WarmUp`); split them out
-        while the files move, then gate the labs with `#if DEBUG || PC_MEASURE` (bench runs Measure; store captures use
-        no lab). Unreachable in Release today (launch arguments only).
+  - [x] Debug harness (BoardLab/ShellLab/SoundBoard/SocialLab/AutoPlayer/`-pc.win`) out of Release builds: shipping types
+        moved out of the lab files (`ShellLab+Meta.swift` → `Popups/S3Hooks.swift`; `HUDLab.fill/text` → `HUD/HUDSample.swift`;
+        `LabBoards.warmEffectsBoard` → `Board/WarmBoard.swift` `WarmBoards.effectsBoard()`, the lab forwards), then the 12
+        harness files wrapped whole in `#if DEBUG || PC_MEASURE` (Measure = the bench's config keeps them; store captures
+        use none) and every call site gated (entry `makeDebugScreen`s fall back to the contract default, `AppModel.autoplayer`,
+        `SocOpenBench`, `-pc.win`/`-pc.lose` jumps); Release logs an error and ignores `-pc.go <lab>`, `-pc.autoplay`,
+        `-pc.win/lose`, `-pc.lab open`. `tools/harness_gate.py` (+ `--selftest`) in CI's Linux job; `measure_strip_check.sh`
+        gained lab markers. Awaiting: CI Debug build, and a Release/Measure build + `measure_strip_check.sh` on the Mac
+        (CI builds no Release).
   - [ ] Recover `build/` specs the code still cites (logo timing, Balloon Rise rules, contract hashes) from the owner's Mac
   - [ ] PathCore/GameCore buildable + testable on Linux (cloud sessions)
 - [ ] **1. Restructure without behaviour change** — `Engine/`, `Puzzles/ArrowEscape/`, `Games/arrowout/`; split
@@ -172,3 +176,7 @@ fonts, sounds, event names from the skin/strings. A missing slot fails `doctor` 
   `ArrowEscapePlugin`; the Game layer (`App/Game/*`) is genre-agnostic (no arrow type). Additive changes to the frozen
   session types (Kind/Grant/LossReason/WinResult). `docs/architecture/PUZZLE-MODULE.md` rewritten as v1-candidate.
   Written in a cloud session without a Swift toolchain: nothing compiled yet — CI is the first build.
+- 2026-09-30: debug harness out of Release (phase 0): 3 shipping types split out of lab files (S3Hooks/S3Popups,
+  HUDSample, WarmBoards), 12 harness files + their call sites (7 files) gated `#if DEBUG || PC_MEASURE`; `tools/harness_gate.py`
+  (Linux CI, selftest 13 planted failures) finds 29 problems on the old tree, 0 now. Written without a Swift toolchain:
+  the Debug build is CI's; the Release/Measure compile is proven only by a Mac build (CI has no Release job).

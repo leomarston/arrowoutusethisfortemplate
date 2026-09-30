@@ -150,12 +150,20 @@ import PathCore
     /// pauses that timeline at rest, while a `.shown` write would swap the HUD's view branch — a measured 37–40 ms hitch at
     /// K + 1.96 s on every level, build/g1.)
     func frame(gameTime: Double) {
+        #if DEBUG || PC_MEASURE
         if !debugJumpDone, game.introDone, let s = session, case .ready = s.phase, !services.popups.isPresenting {
             if services.args.win != nil || services.args.lose != nil {
                 debugJumpDone = true
                 runDebugJump()
             }
         }
+        #else
+        // the debug outcome jumps are Debug / Measure only: the store build plays the level (and says so once)
+        if !debugJumpDone, services.args.win != nil || services.args.lose != nil {
+            debugJumpDone = true
+            Log.error("game", "-pc.win / -pc.lose: no debug outcome jump in this build (Release); they run in Debug / Measure")
+        }
+        #endif
     }
 
     // MARK: stage transitions (§5.7, MA §3.7)
@@ -231,8 +239,9 @@ import PathCore
         pause()
     }
 
-    // MARK: debug outcome jumps (§9.1 `-pc.win`, `-pc.lose`)
+    // MARK: debug outcome jumps (§9.1 `-pc.win`, `-pc.lose`; Debug / Measure only)
 
+    #if DEBUG || PC_MEASURE
     private func runDebugJump() {
         guard let s = session else { return }
         if let tag = services.args.win {
@@ -274,6 +283,7 @@ import PathCore
             break
         }
     }
+    #endif
 
     /// A tap through the board's real release handler when it can (ripple, hit test), else straight to the session.
     func tap(_ target: PuzzleTarget) {

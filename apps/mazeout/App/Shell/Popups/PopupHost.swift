@@ -602,11 +602,11 @@ private struct KeyedEntrance: ViewModifier {
         case .settings: SettingsPopup(answer: answer)
         case .custom(let id, _):
             if let kind = InfoPage.Kind(popupID: id) { InfoPage(kind: kind, answer: answer) }
-            else if S3Popups.hasPanel(request) { S3Popups.make(request, answer: answer) }       // S3 hook (Popups/ShellLab+Meta.swift)
+            else if S3Popups.hasPanel(request) { S3Popups.make(request, answer: answer) }       // S3 hook (Popups/S3Hooks.swift)
             else if SocialPopups.hasPanel(request) { SocialPopups.make(request, answer: answer) }  // SOC2 hook (Social/SocialPopups.swift)
             else { PendingPopupPanel(id: request.id, answer: answer) }
         case .username, .editProfile, .noLives, .boosterBuy:
-            S3Popups.make(request, answer: answer)                                  // S3 hook (Popups/ShellLab+Meta.swift)
+            S3Popups.make(request, answer: answer)                                  // S3 hook (Popups/S3Hooks.swift)
         case .outOfTime, .continueOffer, .levelFailed, .winPanel, .unlockOverlay, .claimReward:
             S2Popups.make(request, answer: answer)                                  // S2 hook (HUD/S2Hooks.swift)
         default:

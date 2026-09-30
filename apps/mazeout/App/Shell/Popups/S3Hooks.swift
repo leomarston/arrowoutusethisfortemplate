@@ -2,8 +2,10 @@ import SwiftUI
 import PathCore
 
 // SHELL S3: where the S3 panels plug into S1's shell (one-line hooks in PopupHost.swift `PopupContent`, Router.swift
-// `DebugPopupLauncher`, RootView.swift `PopupPrewarm`, ShellLab.swift `ShellDebugScreens`, HomeView / HomeTopBar / RootView
-// for the home, Shop, Leaderboard shell and Profile). Nothing here changes a ◆ contract.
+// `DebugPopupLauncher`, RootView.swift `PopupPrewarm`, HomeView / HomeTopBar / RootView for the home, Shop, Leaderboard
+// shell and Profile). Nothing here changes a ◆ contract. Shipping code (the twin of HUD/S2Hooks.swift); it was
+// ShellLab+Meta.swift until the lab files became Debug / Measure only (docs/ROADMAP.md phase 0) — S3's lab pages are in
+// Home/ShellLab+Home.swift.
 //   S3Popups   the panels of username, editProfile, noLives, boosterBuy and the closable Shop page (`.custom("shop")`), and the
 //              `-pc.popup` debug launcher for them: `username`, `editProfile`, `noLives`, `boosterBuy:<freeze|hint>`,
 //              `shop[:bundles|coins]`

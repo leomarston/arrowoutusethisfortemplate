@@ -228,12 +228,17 @@ Run `gen.sh` again after adding, removing or renaming any file. Opening `apps/ma
 works once it is generated (the `ArrowOut` scheme runs Debug with the local StoreKit test store).
 
 **Configurations** (from `project.yml`):
-- **Debug** — everything, incl. the measurement harness (`App/Shell/GlitchRun.swift`, `App/FX/FrameWatch.swift`) and the
+- **Debug** — everything, incl. the measurement harness (`App/Shell/GlitchRun.swift`, `App/FX/FrameWatch.swift`), the
+  debug harness (BoardLab, ShellLab, SoundBoard, SocialLab, AutoPlayer, the `-pc.win` / `-pc.lose` jumps) and the
   BoardLab lab fixtures. Runs without any Meta token (Meta stays in a log-only mode).
-- **Release** — the store build: the measurement harness (`#if DEBUG || PC_MEASURE`), the development placeholders and
-  the lab fixtures (`lab_L*.json`) are left out.
-- **Measure** — Release's exact settings plus `PC_MEASURE`, which compiles the frame/glitch measurement harness back in.
+- **Release** — the store build: the measurement and debug harness (`#if DEBUG || PC_MEASURE`), the development
+  placeholders and the lab fixtures (`lab_L*.json`) are left out; a launch argument that asks for one (`-pc.go <lab>`,
+  `-pc.autoplay`, `-pc.win`, …) is ignored with an error in the log.
+- **Measure** — Release's exact settings plus `PC_MEASURE`, which compiles the measurement and debug harness back in.
   For performance numbers only (`CONFIG=Measure apps/mazeout/tools/build.sh A`); never uploaded.
+- CI builds Debug only, so `apps/mazeout/tools/harness_gate.py` (Linux CI) checks the sources instead: every lab file is
+  wrapped whole in `#if DEBUG || PC_MEASURE` and no shipping code names a harness type or gated member outside that gate;
+  `tools/bench/measure_strip_check.sh` proves it on built Release / Measure binaries (Mac).
 
 **The Meta client token (by design, a Release build FAILS without it).** The token is read only from `.env`
 (`META_CLIENT_TOKEN`). `tools/meta_token.py check` runs as the target's first build phase and stops a Release or Measure
@@ -368,7 +373,7 @@ After renaming: `sh apps/<slug>/tools/gen.sh`, build, run the tests, and grep ag
 - **Art pipeline:** `art/PIPELINE.md` + `art/pipeline/` (SDF -> mesh -> USDZ, offscreen renderer), `art/ui/tools/`
   (SVG -> exact-size PNG, comparison sheets, checker), `art/MANIFEST.json` as the single list of every graphic,
   `tools/copygate.py` (never too close to the original).
-- **Test harness:** unit + UI tests, `AutoPlayer`, BoardLab / ShellLab, `tools/{slot,gen,build,run,test,core}.sh`,
+- **Test harness:** unit + UI tests, `AutoPlayer`, BoardLab / ShellLab (Debug / Measure only), `tools/{slot,gen,build,run,test,core}.sh`,
   `tools/bench/` (performance, release gates), `tools/compare/` (side-by-side with the original), the overnight
   watchdogs.
 - **Release gates:** `tools/bench/release_gates.sh` (no debug placeholder, honest strings, no brand of the original, no

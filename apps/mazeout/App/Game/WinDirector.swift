@@ -72,7 +72,9 @@ import PathCore
                  + (outcomes.isEmpty ? "" : ", events " + outcomes.map(EventsDirector.describe).joined(separator: "; ")))
         // FIX-2 A (V3-02): the outcomes are described by EventsDirector's switch, not "\($0)": Swift's reflection-based
         // description cost the FIRST event-counted win of a process ~14 ms between `won` and `banked` (build/p/FIX2/A/perf/v8-ev3)
+        #if DEBUG || PC_MEASURE
         services.app?.autoplayer?.noteWin(r)
+        #endif
         game.writeBench(outcome: "won", result: r)
     }
 
@@ -170,8 +172,9 @@ import PathCore
         services.router.go(next)
     }
 
-    // MARK: -pc.win <tag>
+    // MARK: -pc.win <tag> (Debug / Measure only, like LevelFlow's jump that calls it)
 
+    #if DEBUG || PC_MEASURE
     /// A synthetic win for captures and flow tests: the session's current values, the given tier's reward.
     func startSynthetic(tag: LevelTag) {
         guard let s = game.session, let setup = game.setup else { return }
@@ -183,4 +186,5 @@ import PathCore
                           firstTry: setup.attemptIndex <= 1, reward: reward, bumps: 0)
         won(r, synthetic: true)
     }
+    #endif
 }

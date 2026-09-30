@@ -1,3 +1,6 @@
+// Debug harness: compiled into Debug and Measure only (`#if DEBUG || PC_MEASURE`), never into the Release (store) build.
+// tools/harness_gate.py (CI) fails when a harness type is used outside that gate.
+#if DEBUG || PC_MEASURE
 import SwiftUI
 import PathCore
 
@@ -51,7 +54,7 @@ private struct CelebrationLabPage: View {
         .accessibilityIdentifier("screen.shelllab")
         .task {
             S2Hooks.app = app
-            HUDLab.fill(app.hud, tag: tag, hearts: 3)
+            HUDSample.fill(app.hud, tag: tag, hearts: 3)
             if !LogoPartsWait.done { await LogoPartsWait.wait() }
             await S2LabReady.visible(app)
             try? await Task.sleep(nanoseconds: 600_000_000)
@@ -113,7 +116,7 @@ private struct UnlockLabPage: View {
         .accessibilityIdentifier("screen.shelllab")
         .task {
             S2Hooks.app = app
-            HUDLab.fill(app.hud, tag: .normal, hearts: 3)
+            HUDSample.fill(app.hud, tag: .normal, hearts: 3)
             app.hud.levelLabel = "Level 35"
             await S2LabReady.visible(app)
             Task { @MainActor in
@@ -173,7 +176,7 @@ private struct RaceLabPage: View {
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("screen.shelllab")
         .task {
-            HUDLab.fill(app.hud, tag: .normal, hearts: 3)
+            HUDSample.fill(app.hud, tag: .normal, hearts: 3)
             app.hud.levelLabel = "Level 55"
             await S2LabReady.visible(app)
             RocketRaceStripSource.provider = { _ in
@@ -211,7 +214,7 @@ private struct FreezeLabPage: View {
         .accessibilityIdentifier("screen.shelllab")
         .task {
             S2Hooks.app = app
-            HUDLab.fill(app.hud, tag: .normal, hearts: 3)
+            HUDSample.fill(app.hud, tag: .normal, hearts: 3)
             app.hud.levelLabel = "Level 62"
             await S2LabReady.visible(app)
             try? await Task.sleep(nanoseconds: 500_000_000)
@@ -227,3 +230,4 @@ private struct FreezeLabPage: View {
         }
     }
 }
+#endif

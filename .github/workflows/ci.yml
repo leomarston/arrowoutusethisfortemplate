@@ -58,6 +58,10 @@ jobs:
           pip install -q pyyaml
           python3 tools/game.py doctor --game mazeout --quick
           python3 -m unittest discover -s tools/tests
+      - name: Debug harness out of Release (labs / autoplayer gated `#if DEBUG || PC_MEASURE`, no use outside the gate; CI builds Debug only)
+        run: |
+          python3 $APP_DIR/tools/harness_gate.py
+          python3 $APP_DIR/tools/harness_gate.py --selftest
       - name: Brand name spelled only in project.yml (fast twin of BrandTests.testTheNameHasOneSource)
         run: |
           BRAND=$(sed -n 's/^ *PC_BRAND_NAME: *"\([^"]*\)".*/\1/p' $APP_DIR/project.yml)
@@ -131,6 +135,14 @@ jobs:
             test 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
             | grep -E "error:|Test Suite .*(passed|failed)|Executed|\*\* (TEST|BUILD)" || true
           grep -q "\*\* TEST SUCCEEDED \*\*" "$RUNNER_TEMP/xcodebuild.log"
+      - name: Release compiles (the store configuration; its `#else` paths of the debug-harness gates are only built here)
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          set -o pipefail
+          xcodebuild -project ArrowOut.xcodeproj -scheme ArrowOut -configuration Release \
+            -destination "id=$SIM_UDID" -derivedDataPath build/dd-rel CODE_SIGNING_ALLOWED=NO \
+            build 2>&1 | tee "$RUNNER_TEMP/release.log" | grep -E "error:|\*\* BUILD" || true
+          grep -q "\*\* BUILD SUCCEEDED \*\*" "$RUNNER_TEMP/release.log"
       - name: Machine-dependent tests (informational, never gating)
         if: always()
         continue-on-error: true

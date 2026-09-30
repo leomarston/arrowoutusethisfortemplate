@@ -211,7 +211,7 @@ import PathCore
     /// Three HUD models (normal / Hard / Super Hard; stock, empty and a lost heart) for the warm-up render.
     private static let prewarmHUDs: [HUDModel] = LevelTag.allCases.map { tag in
         let m = HUDModel()
-        HUDLab.fill(m, tag: tag, hearts: tag == .normal ? 3 : 2)
+        HUDSample.fill(m, tag: tag, hearts: tag == .normal ? 3 : 2)
         if tag == .superHard { m.boosters = [BoosterSlotVM(id: .freeze, state: .empty), BoosterSlotVM(id: .hint, state: .stock(12))] }
         return m
     }

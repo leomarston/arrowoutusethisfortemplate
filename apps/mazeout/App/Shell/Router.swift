@@ -484,7 +484,7 @@ extension ShellEntry {
                 Log.mark("popup", "\(id) → \(r)")
             default:
                 if await S2Popups.debugPresent(p, app: app) { return }                 // S2 hook (HUD/S2Hooks.swift)
-                if await S3Popups.debugPresent(p, app: app) { return }                 // S3 hook (Popups/ShellLab+Meta.swift)
+                if await S3Popups.debugPresent(p, app: app) { return }                 // S3 hook (Popups/S3Hooks.swift)
                 if await SocialPopups.debugPresent(p, app: app) { return }             // SOC2 hook (Social/SocialPopups.swift)
                 Log.error("popup", "-pc.popup \(p.id): no panel built yet (S1 builds pause, quitLevel, settings, page.*)")
             }

@@ -159,7 +159,13 @@ struct SocRunMemo: Sendable, Equatable {
             for _ in 0..<100 where app.socialWorld == nil { try? await Task.sleep(nanoseconds: 50_000_000) }
             SocialFlows.settleEndedWeeks(app)
             Log.mark("social", "SocialModel installed (country \(app.store.state.social.country ?? "-"), refresh \(m.config.refreshSeconds) s)")
-            if app.args.raw["pc.lab"] == "open" { SocOpenBench.run(app) }
+            #if DEBUG || PC_MEASURE
+            if app.args.raw["pc.lab"] == "open" { SocOpenBench.run(app) }        // SocialLab.swift (Debug / Measure only)
+            #else
+            if app.args.raw["pc.lab"] == "open" {
+                Log.error("social", "-pc.lab open: no open bench in this build (Release); labs run in Debug / Measure")
+            }
+            #endif
         }
         return m
     }

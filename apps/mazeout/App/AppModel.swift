@@ -59,8 +59,10 @@ import PathCore
     /// The offline world (the events' RivalProvider, §4.10–§4.11), built off the main thread during Loading.
     @ObservationIgnored private(set) var socialWorld: SocialWorld?
     @ObservationIgnored private var socialTask: Task<SocialWorld?, Never>?
-    /// `-pc.autoplay 1`: the bot that plays through the real UI (§8.4).
+    #if DEBUG || PC_MEASURE
+    /// `-pc.autoplay 1`: the bot that plays through the real UI (§8.4). Debug / Measure only (Game/AutoPlayer.swift).
     @ObservationIgnored private(set) var autoplayer: AutoPlayer?
+    #endif
     /// The running Play (set by GameController.start, cleared at its teardown).
     @ObservationIgnored weak var game: GameController?
     /// Template phase 2: the active puzzle module's app half and its board behind the generic contract
@@ -165,7 +167,11 @@ import PathCore
         socialTask = Task.detached(priority: .utility) { () -> SocialWorld? in
             Self.makeWorld(seed: seed, config: config, folder: socialFolder, home: home, warm: true)
         }
+        #if DEBUG || PC_MEASURE
         if args.autoplay { autoplayer = AutoPlayer(args: args, tuning: tuning) }
+        #else
+        if args.autoplay { Log.error("autoplay", "-pc.autoplay: no autoplayer in this build (Release); it runs in Debug / Measure") }
+        #endif
         puzzle = ActivePuzzle.entry.makePlugin(self)
         puzzleBoard = ActivePuzzle.entry.makeBoard(self)
         Log.mark("boot", "puzzle module \(puzzle.id) (contract v\(PuzzleContract.version)): "
@@ -239,7 +245,9 @@ import PathCore
         if let p = args.popup {
             Log.mark("boot", "-pc.popup \(p.id)\(p.variant.map { ":" + $0 } ?? ""): presented by SHELL's router (§9.1)")
         }
+        #if DEBUG || PC_MEASURE
         autoplayer?.start(self)
+        #endif
     }
 
     /// Where the app goes after Loading: `-pc.go`, else the FTUE rule (a fresh install goes straight into the first
@@ -252,7 +260,14 @@ import PathCore
         case .profile?: return .profile
         case .level?: return .level(levelLaunch(for: store.state.level))
         case .event(let e)?: return EventScreen(rawValue: e).map { .event($0) } ?? .home(.normal, tab: .home)
-        case .lab(let name)?: return LabID(rawValue: name).map { .lab($0) } ?? .home(.normal, tab: .home)
+        case .lab(let name)?:
+            #if DEBUG || PC_MEASURE
+            return LabID(rawValue: name).map { .lab($0) } ?? .home(.normal, tab: .home)
+            #else
+            // the labs are Debug / Measure only: the store build ignores `-pc.go <lab>` and starts as with no `-pc.go`
+            Log.error("boot", "-pc.go \(name): no debug screen in this build (Release); labs run in Debug / Measure")
+            return store.state.homeSeen ? .home(.normal, tab: .home) : .level(levelLaunch(for: store.state.level))
+            #endif
         case nil: return store.state.homeSeen ? .home(.normal, tab: .home) : .level(levelLaunch(for: store.state.level))
         }
     }

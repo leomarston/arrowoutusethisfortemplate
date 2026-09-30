@@ -260,7 +260,9 @@ extension GameDirectorsEntryPoint {
             return false
         }
         services.app?.game = self
+        #if DEBUG || PC_MEASURE
         services.app?.autoplayer?.noteStart(plan.levels)
+        #endif
         audioPlaysAtStart = (services.audio as? AudioEngine)?.status.plays
         extra = (extraFactory ?? { GameDirectors.make($0) })(self)
         for d in extra { d.levelStarted(self) }
@@ -384,7 +386,9 @@ extension GameDirectorsEntryPoint {
             beginTapTiming(target: input.target, entry: t0, core: tCore, mover: t1, ripple: ripple, haptic: t2, sound: t3,
                            touch: touchTimestamp, build: diag.map { ($0.lastPresentMs, $0.presentNotes.joined(separator: ",")) })
         }
+        #if DEBUG || PC_MEASURE
         services.app?.autoplayer?.noteTap(outputs)
+        #endif
     }
 
     func boardAck(_ ack: PuzzleAck) {
