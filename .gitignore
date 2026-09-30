@@ -19,3 +19,6 @@ logs/
 # Python / macOS noise
 __pycache__/
 .DS_Store
+
+# This Mac's simulators / phone / tool paths (see machine.env.example)
+machine.env

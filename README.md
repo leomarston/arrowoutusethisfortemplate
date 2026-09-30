@@ -179,7 +179,9 @@ fastlane/               Appfile, Deliverfile (Games / Puzzle / Casual), Fastfile
   (xcodegen 2.45.4; fastlane 2.240.1 is the version the Fastfile comments name). `apps/mazeout/tools/gen.sh` looks for
   xcodegen in `$XCODEGEN`, then `PATH`, then `~/.local/bin/xcodegen`.
 - **Python 3** (3.14 on the owner's Mac) and the script packages: `pip3 install -r requirements.txt`
-  (pyjwt, cryptography, certifi, requests, pyyaml, Pillow, arabic-reshaper, python-bidi).
+  (pyjwt, cryptography, certifi, requests, pyyaml, Pillow, arabic-reshaper, python-bidi), plus
+  `pip3 install -r requirements-tools.txt` (numpy, scipy, Pillow) for the store-frame composer, audio synthesis, copygate,
+  compare and level-render tools.
 - **Only for making new 3D / rendered art:** a separate virtual environment, which `apps/mazeout/art/PIPELINE.md` calls
   `PY=~/.venvs/mf3d/bin/python`, with numpy, scipy, scikit-image, trimesh, fast-simplification, usd-core and Pillow
   (`python3 -m venv ~/.venvs/mf3d && ~/.venvs/mf3d/bin/pip install numpy scipy scikit-image trimesh fast-simplification usd-core pillow`).
@@ -200,9 +202,10 @@ All tools find `.env` at the repo root: the Python scripts through their own par
 `.env` and `apps/`. So keep this layout: `<repo>/.env`, `<repo>/keys/`, `<repo>/apps/<slug>/`.
 
 ### The two simulators
-`apps/mazeout/tools/slot.sh` hard-codes two simulator slots, A ("Maze A") and B ("Maze B"), by UDID; build, run, test,
-bench and capture all go through it, so two agents never share a simulator. On a new Mac, create two and paste their UDIDs
-into `slot.sh` (and the same two UDIDs in `tools/bench/bench.py`, `tools/capture/capture.py`, `tools/cleaner.sh`):
+`apps/mazeout/tools/slot.sh` maps two simulator slots, A and B, to this Mac's simulators; build, run, test, bench and
+capture all go through it, so two agents never share a simulator. The UDIDs (and the research phone's ids) live in ONE
+git-ignored file, `machine.env` at the repo root (`cp machine.env.example machine.env`; an environment variable of the
+same name wins). On a new Mac, create two simulators and put their UDIDs in `machine.env`:
 ```
 xcrun simctl create "Game A" "iPhone 16" com.apple.CoreSimulator.SimRuntime.iOS-26-0
 xcrun simctl create "Game B" "iPhone 16" com.apple.CoreSimulator.SimRuntime.iOS-26-0
@@ -273,8 +276,9 @@ git clone <the new repository's URL> ~/Downloads/<new-game>
 cd ~/Downloads/<new-game>
 cp .env.example .env                                   # fill it (or copy the owner's existing .env)
 mkdir -p keys && cp <path>/AuthKey_<KEYID>.p8 keys/    # and keys/signing/ from the old checkout, if you have it
+cp machine.env.example machine.env                     # this Mac's simulator + phone ids (see §3)
 cp .claude/settings.example.json .claude/settings.local.json   # then replace /Users/yago/Downloads/app-factory with this folder
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt -r requirements-tools.txt
 ```
 
 ### Step 3: tell Claude
@@ -317,8 +321,8 @@ Counts are from a grep of the Arrow Out tree on 2026-09-30 (2,575 git files, abo
 | 12 | Support e-mail | `anycodeapps@gmail.com` | `App/Resources/Tuning/game.json` (`support.email`), `tools/strings/sources.json`, `Tests/AppTests/TuningTests.swift`, `UITests/MetaTests.swift` | 4 / 5 · 10 / 19 | 2 / 4 (lessons) | usually KEEP (factory rule `support-mail-button`) |
 | 13 | Review contact | the owner's Apple ID e-mail | `fastlane/metadata/review_information/email_address.txt` | 1 / 1 · 4 / 6 | 6 / 10 (lessons) | keep while it is the same account |
 | 14 | Absolute path | `/Users/yago/Downloads/app-factory` | in `apps/mazeout`: `tools/watchdog.sh` (2), `tools/cleaner.sh`, `tools/heartbeat.sh`, `tools/memguard.sh`, `design/publish/tools/ph0/*.py` (11), `design/publish/tools/social_intl/*.py` (8), `design/font-compare/tools/crop_refs.py`; the other ~130 hits are in `research/` (level data, research scripts, bot logs) and notes. Elsewhere: `GAMEPROMPT.md` (11), `GAMEPROMPTMAX.md` (11), `tools/gameprompt/` (5 workflows + `snippets/play-watch.sh`), `scripts/launchd/…routine.plist` (4), `.claude/settings.example.json` (3) | 24 / 25 · 117 / 156 | 10 / 40 | replace with the new checkout's path where a tool must run; also `/Users/yago/.local/bin/xcodegen` in `tools/phonedriver/start-runner` |
-| 15 | Simulator UDIDs | slot A "Maze A" `177520B6-4889-46C2-BDD9-155813D2B175`, slot B "Maze B" `B80EDB24-6280-4C52-A63F-E8AADD245017` | `tools/slot.sh`, `tools/bench/bench.py`, `tools/capture/capture.py`, `tools/cleaner.sh` (each 1 per UDID) | 4 / 4 each · 10 / 14 and 8 / 9 | 0 | create two new simulators (§3) and paste their UDIDs |
-| 16 | Phone ids | UDID `00008120-000964E426440032`, CoreDevice `878DB538-F187-596F-B24B-EAF8853617DE` (owner's iPhone 15) | defaults in `tools/phonedriver/start-runner` and `tools/phonedriver/phone`; `GAMEPROMPT(MAX).md` | 0 / 0 · 2 / 2 and 1 / 1 | 4 / 6 each | keep for the same phone; else set `PHONE_UDID` / `PHONE_DEVICE` |
+| 15 | Simulator UDIDs | slot A "Maze A" `177520B6-4889-46C2-BDD9-155813D2B175`, slot B "Maze B" `B80EDB24-6280-4C52-A63F-E8AADD245017` | `machine.env` (git-ignored; `machine.env.example` holds these values), read by `tools/machine.sh` / `tools/machine.py` | — | — | create two simulators (§3) and put their UDIDs in `machine.env` |
+| 16 | Phone ids | UDID `00008120-000964E426440032`, CoreDevice `878DB538-F187-596F-B24B-EAF8853617DE` (owner's iPhone 15) | `machine.env` (`PHONE_UDID`, `PHONE_DEVICE`); `GAMEPROMPT(MAX).md` text | — | — | set them in `machine.env` for your phone |
 | 17 | Apple Team ID | `GDU77F3MXL` | `project.yml` (`DEVELOPMENT_TEAM`), `ArrowOut.storekit`, `tools/phonedriver/project.yml` (2) | 2 / 2 · 4 / 5 | 9 / 10 | keep while it is the same developer account |
 | 18 | Provisioning profile name | `manycode arrowout appstore` | `fastlane/Fastfile` (2 lanes) | 1 / 2 · 2 / 3 | 0 | rename; `signing_setup.py` makes `manycode <slug> appstore` unless given `--profile-name` |
 | 19 | The ORIGINAL game's brand words | "Maze", "MazeOut", "Arrow Jam", "Grand Games", "grandgames", "arrowjam" | `Tests/AppTests/BrandTests.swift` (banned lists), `tools/bench/release_gates.sh` (gates 3 and 7c), `tools/strings/build.py` (`BRANDS`, which also lists our own "Arrow Out" / "ArrowOut": copy must say `Brand.name`, never the literal) | — | — | replace with the NEW original's names (these checks keep the copy legally clean) |

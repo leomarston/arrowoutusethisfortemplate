@@ -1,5 +1,5 @@
 #!/bin/sh
-# (Committed copy of build/owner-phone.sh, 2026-09-30, so it survives in git and the template repo; paths are absolute, run from anywhere.)
+# (Committed copy of build/owner-phone.sh, 2026-09-30; paths are derived from this file's location and <repo>/machine.env, run from anywhere.)
 # Owner's phone build: snapshot the tree (other owners are mid-edit), build for the iPhone 15, install fresh.
 # F3-A (SPEC.md ruling 52(a), 2026-09-29): the build is the MEASURE configuration by default = Release's settings (-O, whole
 # module, the same bundle) + the Swift condition PC_MEASURE, which compiles in the measurement harness the store build leaves
@@ -26,7 +26,8 @@ else
   CONFIG="${CONFIG:-Measure}"
 fi
 case "$CONFIG" in Measure|Release|Debug) ;; *) echo "owner-phone: PHONE_CONFIG must be Measure, Release or Debug (got $CONFIG)"; exit 2;; esac
-M=/Users/yago/Downloads/app-factory/apps/mazeout; O=$M/build/owner-phone; T=$O/tree
+M="$(cd "$(dirname "$0")/.." && pwd)"; O=$M/build/owner-phone; T=$O/tree
+MACHINE_FROM="$M" . "$M/../../tools/machine.sh"; machine_require PHONE_UDID
 mkdir -p $T/art/ui $T/Packages
 rsync -a --delete $M/App/ $T/App/
 cp $M/project.yml $T/
@@ -37,10 +38,10 @@ rsync -a --delete $M/art/ui/out/ $T/art/ui/out/
 rsync -a --delete $M/art/ui/code/ $T/art/ui/code/
 rsync -a --delete --exclude .build --exclude .swiftpm $M/Packages/PathCore/ $T/Packages/PathCore/
 for d in Tests UITests; do ln -sfn "$M/$d" "$T/$d"; done
-XG=$(command -v xcodegen || echo $HOME/.local/bin/xcodegen)
+XG="${XCODEGEN:-$(command -v xcodegen || echo $HOME/.local/bin/xcodegen)}"
 (cd $T && $XG generate --quiet --spec project.yml)
-echo "snapshot $(date '+%H:%M:%S') on $(git -C $M log -1 --format=%h build/mazeout)" > $O/snapshot.txt
-cd /Users/yago/Downloads/app-factory
+echo "snapshot $(date '+%H:%M:%S') on $(git -C $M log -1 --format=%h HEAD)" > $O/snapshot.txt
+cd "$REPO_ROOT"
 envval() { /usr/bin/python3 - "$1" <<'PY'
 import re, sys
 key = sys.argv[1]
@@ -62,7 +63,7 @@ export PC_FACTORY_ENV="$PWD/.env"
 /usr/bin/python3 $T/tools/meta_token.py status || true      # present / absent / malformed, never the value
 KP="$ASC_KEY_PATH"; case "$KP" in /*) ;; *) KP="$PWD/$KP";; esac
 xcodebuild -project $T/ArrowOut.xcodeproj -scheme ArrowOut -configuration "$CONFIG" \
-  -destination id=00008120-000964E426440032 -derivedDataPath $O/dd -jobs 4 -quiet \
+  -destination "id=$PHONE_UDID" -derivedDataPath $O/dd -jobs 4 -quiet \
   -allowProvisioningUpdates -allowProvisioningDeviceRegistration \
   -authenticationKeyPath "$KP" -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" build
 echo "BUILD_EXIT=$?"
